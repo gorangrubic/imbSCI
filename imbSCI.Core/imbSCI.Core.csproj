@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D02F731C-3A1C-4094-BA85-A8B563906E7E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>imbSCI.Core</RootNamespace>
+    <AssemblyName>imbSCI.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>1</WarningLevel>
+    <DocumentationFile>bin\Debug\imbSCI.Core.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="attributes\aceCriterieConfig.cs" />
+    <Compile Include="attributes\aceRangeConfig.cs" />
+    <Compile Include="attributes\aceReportingMacros.cs" />
+    <Compile Include="attributes\basicDisplayItem.cs" />
+    <Compile Include="attributes\ExpandableObjectAttribute.cs" />
+    <Compile Include="attributes\imbAttribute.cs" />
+    <Compile Include="attributes\imbAttributeCollection.cs" />
+    <Compile Include="attributes\imbAttributeName.cs" />
+    <Compile Include="attributes\imbAttributeProfileEngine.cs" />
+    <Compile Include="attributes\imbAttributeTools.cs" />
+    <Compile Include="attributes\imbAttributeToPropertyMap.cs" />
+    <Compile Include="attributes\imbHelpContent.cs" />
+    <Compile Include="collection\IOneOrMore.cs" />
+    <Compile Include="collection\oneOrMore.cs" />
+    <Compile Include="collection\PropertyCollectionDictionary.cs" />
+    <Compile Include="collection\PropertyCollectionExtended.cs" />
+    <Compile Include="collection\PropertyCollectionList.cs" />
+    <Compile Include="collection\PropertyEntry.cs" />
+    <Compile Include="collection\PropertyEntryColumn.cs" />
+    <Compile Include="collection\PropertyEntryDictionary.cs" />
+    <Compile Include="collection\PropertyEntryDictionaryFlags.cs" />
+    <Compile Include="collection\resourceDictionaryBase.cs" />
+    <Compile Include="data\PropertyExpression.cs" />
+    <Compile Include="data\PropertyExpressionStateEnum.cs" />
+    <Compile Include="data\PropertyExpressionTools.cs" />
+    <Compile Include="data\PropertyItem.cs" />
+    <Compile Include="data\settingsEntriesForObject.cs" />
+    <Compile Include="data\settingsMemberInfoEntry.cs" />
+    <Compile Include="data\settingsPropertyEntry.cs" />
+    <Compile Include="data\settingsPropertyEntryWithContext.cs" />
+    <Compile Include="enums\dataPointImportance.cs" />
+    <Compile Include="enums\existingDataMode.cs" />
+    <Compile Include="enums\imbTypeGroup.cs" />
+    <Compile Include="enums\operation.cs" />
+    <Compile Include="extensions\data\collectionExtensions.cs" />
+    <Compile Include="extensions\data\imbPropertyCollectionExtensions.cs" />
+    <Compile Include="extensions\data\imbStringCollectionExtensions.cs" />
+    <Compile Include="extensions\data\PropertyEntryColumnExtensions.cs" />
+    <Compile Include="extensions\enumworks\imbEnumExtendBase.cs" />
+    <Compile Include="extensions\enumworks\imbEnumForGenericCollections.cs" />
+    <Compile Include="extensions\enumworks\imbTypeEnumExtensions.cs" />
+    <Compile Include="extensions\enumworks\settingsEntriesInfoModelApi.cs" />
+    <Compile Include="extensions\text\imbStringExtensions.cs" />
+    <Compile Include="extensions\text\imbStringFormats.cs" />
+    <Compile Include="extensions\text\imbStringGenerators.cs" />
+    <Compile Include="extensions\text\imbStringIsTests.cs" />
+    <Compile Include="extensions\text\imbStringPathTools.cs" />
+    <Compile Include="extensions\text\imbStringSelect.cs" />
+    <Compile Include="extensions\text\imbStringSelectLists.cs" />
+    <Compile Include="extensions\text\imbStringWordWrap.cs" />
+    <Compile Include="extensions\text\toDosCharactersMode.cs" />
+    <Compile Include="extensions\typeworks\imbTypeExtensions.cs" />
+    <Compile Include="extensions\typeworks\imbTypeObjectOperations.cs" />
+    <Compile Include="extensions\typeworks\imbTypeQueryExtensions.cs" />
+    <Compile Include="extensions\typeworks\imbTypologyHelpers.cs" />
+    <Compile Include="extensions\typeworks\imbTypologyPropertyGetSet.cs" />
+    <Compile Include="interfaces\IAceLogable.cs" />
+    <Compile Include="interfaces\IAceMathMeasure.cs" />
+    <Compile Include="interfaces\IAceMathUnit.cs" />
+    <Compile Include="interfaces\IAceMathUnitDecadic.cs" />
+    <Compile Include="interfaces\IAceMathUnitTemporal.cs" />
+    <Compile Include="interfaces\IDisplayInfo.cs" />
+    <Compile Include="interfaces\IDisplayInfoComplete.cs" />
+    <Compile Include="interfaces\IDisplayInfoExtended.cs" />
+    <Compile Include="interfaces\ILogable.cs" />
+    <Compile Include="interfaces\IMeasure.cs" />
+    <Compile Include="interfaces\IMeasureBasic.cs" />
+    <Compile Include="interfaces\IObjectWithMetaModelNameAndGroup.cs" />
+    <Compile Include="interfaces\IRangeCriteria.cs" />
+    <Compile Include="interfaces\IRangeValue.cs" />
+    <Compile Include="interfaces\IValueComparable.cs" />
+    <Compile Include="interfaces\IValueWithFormat.cs" />
+    <Compile Include="interfaces\IValueWithImportanceInfo.cs" />
+    <Compile Include="interfaces\IValueWithRoleInfo.cs" />
+    <Compile Include="interfaces\IValueWithToString.cs" />
+    <Compile Include="interfaces\IValueWithUnitInfo.cs" />
+    <Compile Include="math\aggregation\dataPointAggregationAspect.cs" />
+    <Compile Include="math\aggregation\dataPointAggregationDefinition.cs" />
+    <Compile Include="math\aggregation\dataPointAggregationType.cs" />
+    <Compile Include="math\analysisExtensions.cs" />
+    <Compile Include="math\angle.cs" />
+    <Compile Include="math\counter.cs" />
+    <Compile Include="math\counterEvent.cs" />
+    <Compile Include="math\counterEventArgs.cs" />
+    <Compile Include="math\counterEventType.cs" />
+    <Compile Include="math\entropy.cs" />
+    <Compile Include="math\fraction.cs" />
+    <Compile Include="math\md5.cs" />
+    <Compile Include="math\measurement\generalContentMetrics.cs" />
+    <Compile Include="math\measurement\measureCalculationGroups.cs" />
+    <Compile Include="math\measurement\measureDisplayGroup.cs" />
+    <Compile Include="math\measurement\measureDisplayGroups.cs" />
+    <Compile Include="math\measurement\measureSetBase.cs" />
+    <Compile Include="math\measurement\measureSetExternal.cs" />
+    <Compile Include="math\measureSystem\bagOfWordMeasure.cs" />
+    <Compile Include="math\measureSystem\core\measure.cs" />
+    <Compile Include="math\measureSystem\core\measureBase.cs" />
+    <Compile Include="math\measureSystem\core\measureInfo.cs" />
+    <Compile Include="math\measureSystem\core\measureOperand.cs" />
+    <Compile Include="math\measureSystem\core\measureOperandList.cs" />
+    <Compile Include="math\measureSystem\core\measureSystemRoleEntry.cs" />
+    <Compile Include="math\measureSystem\core\measureSystemUnitEntry.cs" />
+    <Compile Include="math\measureSystem\core\measureSystemUnitRegistry.cs" />
+    <Compile Include="math\measureSystem\decadeSystemExtensions.cs" />
+    <Compile Include="math\measureSystem\enums\decadeLevel.cs" />
+    <Compile Include="math\measureSystem\enums\instanceMeasureValueEnum.cs" />
+    <Compile Include="math\measureSystem\enums\measureBooleanPreset.cs" />
+    <Compile Include="math\measureSystem\enums\measureBooleanRoles.cs" />
+    <Compile Include="math\measureSystem\enums\measureRoleEnum.cs" />
+    <Compile Include="math\measureSystem\enums\measureStringEnum.cs" />
+    <Compile Include="math\measureSystem\enums\measureStringRoleEnum.cs" />
+    <Compile Include="math\measureSystem\enums\measureSystemsEnum.cs" />
+    <Compile Include="math\measureSystem\enums\measureToStringContent.cs" />
+    <Compile Include="math\measureSystem\enums\measureUnitLevelChange.cs" />
+    <Compile Include="math\measureSystem\enums\measureUnitType.cs" />
+    <Compile Include="math\measureSystem\enums\ordinalMeasureRole.cs" />
+    <Compile Include="math\measureSystem\instanceMeasure.cs" />
+    <Compile Include="math\measureSystem\measureBoolean.cs" />
+    <Compile Include="math\measureSystem\measureDecimal.cs" />
+    <Compile Include="math\measureSystem\measureEnum.cs" />
+    <Compile Include="math\measureSystem\measureInteger.cs" />
+    <Compile Include="math\measureSystem\measureString.cs" />
+    <Compile Include="math\measureSystem\measureStringFlags.cs" />
+    <Compile Include="math\measureSystem\measureSystemManager.cs" />
+    <Compile Include="math\measureSystem\memory.cs" />
+    <Compile Include="math\measureSystem\numericCountMeasure.cs" />
+    <Compile Include="math\measureSystem\numericMeasure.cs" />
+    <Compile Include="math\measureSystem\percentMeasure.cs" />
+    <Compile Include="math\measureSystem\spatialMeasure.cs" />
+    <Compile Include="math\measureSystem\systems\enumMeasureRoleEnum.cs" />
+    <Compile Include="math\measureSystem\systems\enumMeasureSystem.cs" />
+    <Compile Include="math\measureSystem\systems\generalNumericMeasureSystem.cs" />
+    <Compile Include="math\measureSystem\systems\instanceMeasureSystem.cs" />
+    <Compile Include="math\measureSystem\systems\measureBooleanSystem.cs" />
+    <Compile Include="math\measureSystem\systems\measureDecadeSystem.cs" />
+    <Compile Include="math\measureSystem\systems\measureDecadeSystemRegistry.cs" />
+    <Compile Include="math\measureSystem\systems\measureStringSystem.cs" />
+    <Compile Include="math\measureSystem\systems\memoryMeasureSystem.cs" />
+    <Compile Include="math\measureSystem\systems\ordinalMeasureSystem.cs" />
+    <Compile Include="math\measureSystem\systems\proportionMeasureSystem.cs" />
+    <Compile Include="math\measureSystem\systems\spatialMeasureSystem.cs" />
+    <Compile Include="math\measureSystem\systems\temporalMeasureSystem.cs" />
+    <Compile Include="math\measureSystem\temporalMeasure.cs" />
+    <Compile Include="math\measureUnit\aceMathUnitBase.cs" />
+    <Compile Include="math\measureUnit\IAceMathUnitRatio.cs" />
+    <Compile Include="math\measureUnit\money.cs" />
+    <Compile Include="math\measureUnit\percent.cs" />
+    <Compile Include="math\measureUnit\proportion.cs" />
+    <Compile Include="math\range\imbNumberScale.cs" />
+    <Compile Include="math\range\numberRange.cs" />
+    <Compile Include="math\range\numberRangeModifyRule.cs" />
+    <Compile Include="math\range\rangeCriteria.cs" />
+    <Compile Include="math\range\rangeCriteriaEnum.cs" />
+    <Compile Include="math\range\rangeValueBase.cs" />
+    <Compile Include="math\range\rangeValueDecimal.cs" />
+    <Compile Include="math\range\rangeValueDouble.cs" />
+    <Compile Include="math\range\rangeValueEnum.cs" />
+    <Compile Include="math\range\rangeValueInt32.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\imbSCI.Data\imbSCI.Data.csproj">
+      <Project>{22b51684-1a11-4523-8c5c-fc6d76818bc4}</Project>
+      <Name>imbSCI.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="core\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

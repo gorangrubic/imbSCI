@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{22B51684-1A11-4523-8C5C-FC6D76818BC4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>imbSCI.Data</RootNamespace>
+    <AssemblyName>imbSCI.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>1</WarningLevel>
+    <DocumentationFile>bin\Debug\imbSCI.Data.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="collection\advanced\layerCollection.cs" />
+    <Compile Include="collection\advanced\layerStack.cs" />
+    <Compile Include="collection\math\aceInt2DStackedMatrix.cs" />
+    <Compile Include="collection\math\aceInt2DStackedMatrixConcurrent.cs" />
+    <Compile Include="collection\math\aceRelationMatrix.cs" />
+    <Compile Include="collection\math\aceRelationMatrixTriple.cs" />
+    <Compile Include="collection\math\aceRelationValue.cs" />
+    <Compile Include="collection\math\ConcurrentEnumerator.cs" />
+    <Compile Include="collection\math\ConcurrentList.cs" />
+    <Compile Include="collection\math\coordinateXY.cs" />
+    <Compile Include="collection\nested\aceConcurrentBag.cs" />
+    <Compile Include="collection\nested\aceConcurrentDictionary.cs" />
+    <Compile Include="collection\nested\aceDictionary2D.cs" />
+    <Compile Include="collection\nested\aceDictionarySet.cs" />
+    <Compile Include="collection\nested\aceEnumDictionary.cs" />
+    <Compile Include="collection\nested\aceEnumDictionarySet.cs" />
+    <Compile Include="collection\nested\aceEnumDictionarySet2D.cs" />
+    <Compile Include="collection\nested\aceEnumListSet.cs" />
+    <Compile Include="collection\nested\graph.cs" />
+    <Compile Include="collection\nested\graphDataPackage.cs" />
+    <Compile Include="collection\nested\graphNode.cs" />
+    <Compile Include="collection\nested\graphWrapNode.cs" />
+    <Compile Include="collection\special\enumCounter.cs" />
+    <Compile Include="data\byteFlag.cs" />
+    <Compile Include="data\changeBindableBase.cs" />
+    <Compile Include="data\dataBindableBase.cs" />
+    <Compile Include="data\package\dataItemContainer.cs" />
+    <Compile Include="data\package\dataPackage.cs" />
+    <Compile Include="data\package\dataPackageBase.cs" />
+    <Compile Include="data\package\dataPackageExtensions.cs" />
+    <Compile Include="data\package\IDataPackage.cs" />
+    <Compile Include="data\package\IDataPackageItem.cs" />
+    <Compile Include="data\package\instanceItemContainer.cs" />
+    <Compile Include="data\package\NamespaceDoc.cs" />
+    <Compile Include="data\text\consoleStyleMarkerEnum.cs" />
+    <Compile Include="data\text\regexMarker.cs" />
+    <Compile Include="data\text\regexMarkerCollection.cs" />
+    <Compile Include="data\text\regexMarkerForConsole.cs" />
+    <Compile Include="data\text\regexMarkerResult.cs" />
+    <Compile Include="data\text\regexMarkerResultCollection.cs" />
+    <Compile Include="data\text\regexTextTools.cs" />
+    <Compile Include="enums\fields\dataSource.cs" />
+    <Compile Include="enums\fields\templateFieldBasic.cs" />
+    <Compile Include="enums\fields\templateFieldCompanyProfile.cs" />
+    <Compile Include="enums\fields\templateFieldDataTable.cs" />
+    <Compile Include="enums\fields\templateFieldMetaBlock.cs" />
+    <Compile Include="enums\fields\templateFieldStyling.cs" />
+    <Compile Include="enums\fields\templateFieldSubcontent.cs" />
+    <Compile Include="enums\fields\templateFieldTheme.cs" />
+    <Compile Include="enums\fields\templateFieldWebPageReport.cs" />
+    <Compile Include="enums\printHorizontal.cs" />
+    <Compile Include="enums\printVertical.cs" />
+    <Compile Include="imbGraphExtensions.cs" />
+    <Compile Include="imbSciEnumExtensions.cs" />
+    <Compile Include="imbSciStringExtensions.cs" />
+    <Compile Include="interfaces\IObjectWithChildSelector.cs" />
+    <Compile Include="interfaces\IObjectWithDescription.cs" />
+    <Compile Include="interfaces\IObjectWithName.cs" />
+    <Compile Include="interfaces\IObjectWithNameAndDescription.cs" />
+    <Compile Include="interfaces\IObjectWithParent.cs" />
+    <Compile Include="interfaces\IObjectWithPath.cs" />
+    <Compile Include="interfaces\IObjectWithPathAndChildren.cs" />
+    <Compile Include="interfaces\IObjectWithPathAndChildSelector.cs" />
+    <Compile Include="interfaces\IObjectWithRoot.cs" />
+    <Compile Include="interfaces\IObjectWithTreeView.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

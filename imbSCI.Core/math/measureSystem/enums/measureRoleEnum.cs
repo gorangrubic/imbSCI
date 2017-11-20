@@ -1,0 +1,43 @@
+namespace imbSCI.Core.math.measureSystem.enums
+{
+    public enum measureRoleEnum
+    {
+        width,
+        distance,
+        height,
+        length,
+        diameter,
+        radius,
+        speed,
+        acceleration,
+        force,
+        weight,
+        surface,
+        volume,
+        thickness,
+        gap,
+        movement,
+        size,
+        floorSurface,
+        progress,
+        proportion,
+        ratio,
+        page,
+        date,
+        time,
+        datetime,
+        period,
+        duration,
+        available,
+        filesize,
+        items,
+        general,
+        taskCount,
+        sampleCount,
+        numeric,
+        count,
+        elementCount,
+        percent,
+    }
+
+}
