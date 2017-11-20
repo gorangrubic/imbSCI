@@ -5,7 +5,7 @@ Library supporting Science-related research and development in context of imbVel
 
 The solution contains the following projects:
 * imbSCI.Data
-> Core data-structures, graph-tree, expansions, interfaces, enumerations and data mining/analytics classes
+> Core data-structures, graph-tree,  extensions, interfaces, enumerations and data mining/analytics classes
 
 * imbSCI.Code
 > Set of code functionalities shared among all imbVeles libraries: advanced scientific member info annotation framework, reflection system for auto-report generation, math and measurement systems...
