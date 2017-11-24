@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>imbVeles48.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
@@ -259,6 +262,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="imbVeles48.ico" />
     <Content Include="resources\include\d3\d3.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -371,6 +375,9 @@
     <Content Include="resources\theme\veles_report\report_helpModule.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imbSCI.Reporting.licenseheader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
