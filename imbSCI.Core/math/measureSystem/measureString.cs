@@ -7,6 +7,7 @@
     using imbSCI.Core.interfaces;
     using imbSCI.Data.data;
     using imbSCI.Data.collection.math;
+    using imbSCI.Data.primitives;
 
     /// <summary>
     /// 

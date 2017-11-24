@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "imbSCI.Data", "imbSCI.Data\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "imbSCI.Reporting", "imbSCI.Reporting\imbSCI.Reporting.csproj", "{D50919E9-84F1-4DC8-A101-3C114389B067}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "imbSCI.TermFrequency", "imbSCI.TermFrequency\imbSCI.TermFrequency.csproj", "{CAEFDB0A-DE9E-4E20-AD0F-57FE09C50AF2}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "imbSCI.DataComplex", "imbSCI.DataComplex\imbSCI.DataComplex.csproj", "{84869E5F-CC21-425D-BEB6-5EF4D4773B15}"
 EndProject
 Global
@@ -31,10 +29,6 @@ Global
 		{D50919E9-84F1-4DC8-A101-3C114389B067}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D50919E9-84F1-4DC8-A101-3C114389B067}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D50919E9-84F1-4DC8-A101-3C114389B067}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CAEFDB0A-DE9E-4E20-AD0F-57FE09C50AF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CAEFDB0A-DE9E-4E20-AD0F-57FE09C50AF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CAEFDB0A-DE9E-4E20-AD0F-57FE09C50AF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CAEFDB0A-DE9E-4E20-AD0F-57FE09C50AF2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{84869E5F-CC21-425D-BEB6-5EF4D4773B15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{84869E5F-CC21-425D-BEB6-5EF4D4773B15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84869E5F-CC21-425D-BEB6-5EF4D4773B15}.Release|Any CPU.ActiveCfg = Release|Any CPU

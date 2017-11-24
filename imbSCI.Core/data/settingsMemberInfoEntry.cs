@@ -437,19 +437,61 @@ namespace imbSCI.Core.data
 
 
         }
+        /// <summary>
+        /// Help content for this member
+        /// </summary>
+        /// <value>
+        /// The content of the help.
+        /// </value>
         public imbHelpContent helpContent { get; set; } = new imbHelpContent();
 
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is primary key.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance is primary key; otherwise, <c>false</c>.
+        /// </value>
         public Boolean isPrimaryKey { get; set; } = false;
 
+        /// <summary>
+        /// Letter or code name for this member
+        /// </summary>
+        /// <value>
+        /// The letter.
+        /// </value>
         public String letter { get; set; } = "";
 
+        /// <summary>
+        /// Hexadecimal color code or name
+        /// </summary>
+        /// <value>
+        /// The color.
+        /// </value>
         public String color { get; set; } = "";
 
 
+        /// <summary>
+        /// Gets or sets a value indicating whether the range is defined.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [range defined]; otherwise, <c>false</c>.
+        /// </value>
         public Boolean range_defined { get; set; } = false;
 
+        /// <summary>
+        /// Gets or sets the range minimum.
+        /// </summary>
+        /// <value>
+        /// The range minimum.
+        /// </value>
         public Double range_min { get; set; } = 0;
 
+        /// <summary>
+        /// Gets or sets the range maximum.
+        /// </summary>
+        /// <value>
+        /// The range maximum.
+        /// </value>
         public Double range_max { get; set; } = 1;
 
         #region --- displayName ------- Naziv varijable za prikaz
@@ -636,7 +678,7 @@ namespace imbSCI.Core.data
             }
         }
 
-        public PropertyCollection exportPropertCollection( PropertyCollection extraData)
+        internal PropertyCollection exportPropertyCollection( PropertyCollection extraData)
         {
             if (extraData == null) extraData = new PropertyCollection();
 

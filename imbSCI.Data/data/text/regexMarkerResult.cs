@@ -2,12 +2,7 @@ namespace imbSCI.Data.data.text
 {
     using System;
     using System.Text.RegularExpressions;
-// using aceCommonTypes.core.exceptions;
-    //using aceCommonTypes.extensions;
-    //using aceCommonTypes.extensions.text;
-    //using aceCommonTypes.extensions.typeworks;
-    //using aceCommonTypes.primitives;
-    //using aceCommonTypes.zone;
+
 
 
     /// <summary>
@@ -22,6 +17,7 @@ namespace imbSCI.Data.data.text
         /// The match.
         /// </value>
         public Match match { get; set; }
+
         /// <summary>
         /// Marker (rule) that created this result
         /// </summary>

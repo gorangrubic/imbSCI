@@ -5,8 +5,12 @@ namespace imbSCI.Data.data
     using System.ComponentModel;
     using System.Linq;
 
+
+
+
+
     /// <summary>
-    /// 
+    /// Keeps record on properties whose values were changed since last call to <see cref="Accept"/> method
     /// </summary>
     /// <seealso cref="System.ComponentModel.INotifyPropertyChanged" />
     public class changeBindableBase : INotifyPropertyChanged
@@ -108,6 +112,9 @@ namespace imbSCI.Data.data
 
         }
 
+        /// <summary>
+        /// Occurs when a property value is changed
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
     }
 

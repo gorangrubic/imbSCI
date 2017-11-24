@@ -17,11 +17,11 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>.\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>1</WarningLevel>
-    <DocumentationFile>imbSCI.Reporting.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\imbSCI.Reporting.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,8 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Windows.Presentation" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,8 +46,331 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="charts\chartTools.cs" />
+    <Compile Include="charts\core\chartDataColumnEnum.cs" />
+    <Compile Include="charts\core\chartFeatures.cs" />
+    <Compile Include="charts\core\chartSizeEnum.cs" />
+    <Compile Include="charts\core\chartTypeEnum.cs" />
+    <Compile Include="delivery\reportOutputRepository.cs" />
+    <Compile Include="delivery\reportOutputUnit.cs" />
+    <Compile Include="enums\imbEnumConverterExtensions.cs" />
+    <Compile Include="enums\reportBaseExtensions.cs" />
+    <Compile Include="enums\reportOutputDomainEnum.cs" />
+    <Compile Include="enums\templateFieldContentStructure.cs" />
+    <Compile Include="enums\templateFieldNavigation.cs" />
+    <Compile Include="exceptions\aceReportException.cs" />
+    <Compile Include="exceptions\aceReportExceptionType.cs" />
+    <Compile Include="includes\reportIncludeFile.cs" />
+    <Compile Include="includes\reportIncludeFileCollection.cs" />
+    <Compile Include="interfaces\IMetaComposeAndConstruct.cs" />
+    <Compile Include="interfaces\IMetaHasHeader.cs" />
+    <Compile Include="interfaces\IObjectWithIDandName.cs" />
+    <Compile Include="interfaces\ITextAppendContentExtended.cs" />
+    <Compile Include="links\groups\reportInPackageGroup.cs" />
+    <Compile Include="links\groups\reportInPackageGroupCollection.cs" />
+    <Compile Include="links\presets\links_bootstrap.cs" />
+    <Compile Include="links\presets\links_charplibs.cs" />
+    <Compile Include="links\reportLink.cs" />
+    <Compile Include="links\reportLinkCollection.cs" />
+    <Compile Include="links\reportLinkCollectionSet.cs" />
+    <Compile Include="links\reportLinkRegistry.cs" />
+    <Compile Include="links\reportLinkState.cs" />
+    <Compile Include="links\reportLinkToolbar.cs" />
+    <Compile Include="links\reportRegistry\recordVsReportRegistryBase.cs" />
+    <Compile Include="links\reportRegistry\reportingRegistryQuery.cs" />
+    <Compile Include="links\reportRegistry\reportRegistryEnum.cs" />
+    <Compile Include="meta\basic\metaContentNoChildren.cs" />
+    <Compile Include="meta\blocks\blockPosition.cs" />
+    <Compile Include="meta\blocks\blockWidth.cs" />
+    <Compile Include="meta\blocks\IMetaBlock.cs" />
+    <Compile Include="meta\blocks\metaAttachmentBlock.cs" />
+    <Compile Include="meta\blocks\metaCodeBlock.cs" />
+    <Compile Include="meta\blocks\MetaContainerNestedBase.cs" />
+    <Compile Include="meta\blocks\metaDataTable.cs" />
+    <Compile Include="meta\blocks\metaDiagramBlock.cs" />
+    <Compile Include="meta\blocks\metaDocScriptBlock.cs" />
+    <Compile Include="meta\blocks\metaExternalBlock.cs" />
+    <Compile Include="meta\blocks\metaFileInfo.cs" />
+    <Compile Include="meta\blocks\metaFooter.cs" />
+    <Compile Include="meta\blocks\metaHeader.cs" />
+    <Compile Include="meta\blocks\metaKeywords.cs" />
+    <Compile Include="meta\blocks\metaLink.cs" />
+    <Compile Include="meta\blocks\metaLinkCollection.cs" />
+    <Compile Include="meta\blocks\metaListViewer.cs" />
+    <Compile Include="meta\blocks\metaMetaIncludeBlock.cs" />
+    <Compile Include="meta\blocks\metaNotation.cs" />
+    <Compile Include="meta\blocks\metaSimpleAppend.cs" />
+    <Compile Include="meta\blocks\metaSystemInfo.cs" />
+    <Compile Include="meta\blocks\metaVariablePairs.cs" />
+    <Compile Include="meta\collection\linksScripts.cs" />
+    <Compile Include="meta\collection\linksStylesheets.cs" />
+    <Compile Include="meta\collection\metaLinkCollectionType.cs" />
+    <Compile Include="meta\core\metaContentNestedBase.cs" />
+    <Compile Include="meta\data\dataProviderForStyler.cs" />
+    <Compile Include="meta\data\dataProviderTools.cs" />
+    <Compile Include="meta\delivery\deliveryInstance.cs" />
+    <Compile Include="meta\delivery\deliveryUnit.cs" />
+    <Compile Include="meta\delivery\deliveryUnitItem.cs" />
+    <Compile Include="meta\delivery\deliveryUnitItemByLevels.cs" />
+    <Compile Include="meta\delivery\deliveryUnitItemByLinkType.cs" />
+    <Compile Include="meta\delivery\deliveryUnitItemCollection.cs" />
+    <Compile Include="meta\delivery\deliveryUnitItemExecutionMoment.cs" />
+    <Compile Include="meta\delivery\deliveryUnitItemFlags.cs" />
+    <Compile Include="meta\delivery\deliveryUnitItemLocationBase.cs" />
+    <Compile Include="meta\delivery\deliveryUnitItemType.cs" />
+    <Compile Include="meta\delivery\deliveryUnitRenderCollection.cs" />
+    <Compile Include="meta\delivery\IDeliveryComposer.cs" />
+    <Compile Include="meta\delivery\IDeliveryExecutionContext.cs" />
+    <Compile Include="meta\delivery\IDeliveryUnitItem.cs" />
+    <Compile Include="meta\delivery\items\deliveryUnitDirectoryConstructor.cs" />
+    <Compile Include="meta\delivery\items\deliveryUnitItemContentTemplated.cs" />
+    <Compile Include="meta\delivery\items\deliveryUnitItemFileOutput.cs" />
+    <Compile Include="meta\delivery\items\deliveryUnitItemLogOutput.cs" />
+    <Compile Include="meta\delivery\items\deliveryUnitItemPaletteCSS.cs" />
+    <Compile Include="meta\delivery\items\deliveryUnitItemSimpleRenderOutput.cs" />
+    <Compile Include="meta\delivery\items\deliveryUnitItemSupportFile.cs" />
+    <Compile Include="meta\delivery\items\IDeliverySupportFile.cs" />
+    <Compile Include="meta\delivery\items\IDeliveryUnitItemFromFileSource.cs" />
+    <Compile Include="meta\delivery\items\IDeliveryUnitItemOutputRender.cs" />
+    <Compile Include="meta\delivery\items\IDeliveryUnitItemWithTemplate.cs" />
+    <Compile Include="meta\delivery\items\IDocumentBuilder.cs" />
+    <Compile Include="meta\delivery\metaContentCriteriaTrigger.cs" />
+    <Compile Include="meta\delivery\metaContentCriteriaTriggerCollection.cs" />
+    <Compile Include="meta\delivery\metaContentTriggerOperator.cs" />
+    <Compile Include="meta\delivery\services\templateBlocksForHtml.cs" />
+    <Compile Include="meta\delivery\templateFieldDeliveryUnit.cs" />
+    <Compile Include="meta\delivery\units\deliveryUnitBootmarkReport.cs" />
+    <Compile Include="meta\delivery\units\deliveryUnitBuilder.cs" />
+    <Compile Include="meta\delivery\units\deliveryUnitCompactReport.cs" />
+    <Compile Include="meta\delivery\units\deliveryUnitMainReport.cs" />
+    <Compile Include="meta\delivery\units\jsPluginEnum.cs" />
+    <Compile Include="meta\documentSet\IDocumentForRecord.cs" />
+    <Compile Include="meta\documentSet\IDocumentRootSetForRecords.cs" />
+    <Compile Include="meta\documentSet\metaDocumentRootSet.cs" />
+    <Compile Include="meta\documentSet\metaDocumentSet.cs" />
+    <Compile Include="meta\documentSet\setPresetDatabaseDump.cs" />
+    <Compile Include="meta\documentSet\setPresetPaletteView.cs" />
+    <Compile Include="meta\documentSet\setPresetResearchReport.cs" />
+    <Compile Include="meta\document\documentDatabaseReport.cs" />
+    <Compile Include="meta\document\documentPaletteView.cs" />
+    <Compile Include="meta\document\metaDocument.cs" />
+    <Compile Include="meta\domain\metaDataTableCollection.cs" />
+    <Compile Include="meta\domain\metaReference.cs" />
+    <Compile Include="meta\IImetaCollection.cs" />
+    <Compile Include="meta\ImetaCollection.cs" />
+    <Compile Include="meta\metaCollection.cs" />
+    <Compile Include="meta\metaTools.cs" />
+    <Compile Include="meta\NamespaceDoc.cs" />
+    <Compile Include="meta\package\supportPackage.cs" />
+    <Compile Include="meta\package\supportPackageStrapdown.cs" />
+    <Compile Include="meta\page\IMetaPage.cs" />
+    <Compile Include="meta\page\IMetaServicePage.cs" />
+    <Compile Include="meta\page\metaCustomizedExternalContentPage.cs" />
+    <Compile Include="meta\page\metaCustomizedIndexPage.cs" />
+    <Compile Include="meta\page\metaCustomizedIntroPage.cs" />
+    <Compile Include="meta\page\metaCustomizedPage.cs" />
+    <Compile Include="meta\page\metaCustomizedSimplePage.cs" />
+    <Compile Include="meta\page\metaDataTablePage.cs" />
+    <Compile Include="meta\page\metaLogBuilderOutputPage.cs" />
+    <Compile Include="meta\page\metaPage.cs" />
+    <Compile Include="meta\page\metaPageCommonBlockFlags.cs" />
+    <Compile Include="meta\page\metaPalettePage.cs" />
+    <Compile Include="meta\page\metaServicePage.cs" />
+    <Compile Include="meta\page\metaServicePagePosition.cs" />
+    <Compile Include="meta\page\serviceDocScriptLog.cs" />
+    <Compile Include="meta\page\serviceDocumentFolderReadmePage.cs" />
+    <Compile Include="meta\presets\links\footnote.cs" />
+    <Compile Include="meta\presets\links\footnoteCollection.cs" />
+    <Compile Include="meta\presets\links\INavigation.cs" />
+    <Compile Include="meta\presets\links\linksAttachments.cs" />
+    <Compile Include="meta\presets\links\linksDevReference.cs" />
+    <Compile Include="meta\presets\links\linksDevReferenceDomain.cs" />
+    <Compile Include="meta\presets\links\linksIndexNavigation.cs" />
+    <Compile Include="meta\presets\links\linksNavigation.cs" />
+    <Compile Include="meta\presets\links\linksSciReference.cs" />
+    <Compile Include="meta\presets\links\linksSciReferenceDomain.cs" />
+    <Compile Include="meta\presets\pages\pagePresetCustomContent.cs" />
+    <Compile Include="meta\presets\servicepages\pagePresetDataTableReportOverview.cs" />
+    <Compile Include="meta\presets\servicepages\pagePresetGeneralReadme.cs" />
+    <Compile Include="meta\presets\servicepages\pagePresetTableReport.cs" />
+    <Compile Include="meta\presets\servicepages\pagePresetTestItemIndex.cs" />
+    <Compile Include="meta\presets\servicepages\pagePresetTestItemReadme.cs" />
+    <Compile Include="meta\presets\servicepages\pagePresetTestItemSubitemsReadme.cs" />
+    <Compile Include="meta\presets\servicepages\pagePresetTestReadme.cs" />
+    <Compile Include="meta\presets\servicepages\pagePresetTestSubItemIndex.cs" />
+    <Compile Include="meta\render\composerOutput.cs" />
+    <Compile Include="meta\render\composerPostTask.cs" />
+    <Compile Include="meta\render\metaStyleComposer.cs" />
+    <Compile Include="meta\render\renderCSS.cs" />
+    <Compile Include="meta\render\renderFlowDocument.cs" />
+    <Compile Include="meta\render\renderHTML.cs" />
+    <Compile Include="meta\render\renderMarkdown.cs" />
+    <Compile Include="meta\render\renderTableDocument.cs" />
+    <Compile Include="meta\render\renderText.cs" />
+    <Compile Include="links\enums\metaPageLinkRole.cs" />
+    <Compile Include="meta\theme\metaDocumentIncludeEnum.cs" />
+    <Compile Include="meta\theme\metaDocumentTheme.cs" />
+    <Compile Include="meta\theme\metaDocumentThemeCollection.cs" />
+    <Compile Include="meta\theme\metaDocumentThemeManager.cs" />
+    <Compile Include="meta\theme\metaDocumentThemeOptions.cs" />
+    <Compile Include="meta\theme\metaThemeJSPluginEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="resources\reportingCoreManager.cs" />
+    <Compile Include="resources\reportResourceFolders.cs" />
+    <Compile Include="script\docScript.cs" />
+    <Compile Include="script\docScriptAppendExtensions.cs" />
+    <Compile Include="script\docScriptArguments.cs" />
+    <Compile Include="script\docScriptCompiled.cs" />
+    <Compile Include="script\docScriptExecution.cs" />
+    <Compile Include="script\docScriptExecutionBase.cs" />
+    <Compile Include="script\docScriptFlags.cs" />
+    <Compile Include="script\docScriptInstruction.cs" />
+    <Compile Include="script\docScriptInstructionCompiled.cs" />
+    <Compile Include="script\docScriptInstructionTextFormatEnum.cs" />
+    <Compile Include="script\docScriptStandalone.cs" />
+    <Compile Include="script\docScriptStandaloneContextWrapper.cs" />
+    <Compile Include="script\exeAppenders\exeAppendBase.cs" />
+    <Compile Include="script\exeAppenders\exeAppendContentExtensions.cs" />
+    <Compile Include="script\exeAppenders\exeAppendTemplateBundleItem.cs" />
+    <Compile Include="script\exeAppenders\exeAppendTemplatedBundle.cs" />
+    <Compile Include="script\exeAppenders\exeAppendTemplateOptions.cs" />
+    <Compile Include="script\exeAppenders\IExeAppend.cs" />
+    <Compile Include="script\IDocScriptExecutionContext.cs" />
+    <Compile Include="script\macroOptions.cs" />
+    <Compile Include="script\styleShotTargetEnum.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="meta\presets\demo\" />
+    <Folder Include="meta\presets\sets\" />
+    <Folder Include="meta\style\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\imbSCI.Core\imbSCI.Core.csproj">
+      <Project>{d02f731c-3a1c-4094-ba85-a8b563906e7e}</Project>
+      <Name>imbSCI.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\imbSCI.DataComplex\imbSCI.DataComplex.csproj">
+      <Project>{84869e5f-cc21-425d-beb6-5ef4d4773b15}</Project>
+      <Name>imbSCI.DataComplex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\imbSCI.Data\imbSCI.Data.csproj">
+      <Project>{22B51684-1A11-4523-8C5C-FC6D76818BC4}</Project>
+      <Name>imbSCI.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resources\include\d3\d3.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\include\jquery\jquery.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\include\strapdown\strapdown-topbar.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\include\strapdown\strapdown.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\include\strapdown\strapdown.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\compact\footer.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\compact\index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\standard\standard.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\standard\standard.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\standard\standard.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\standard\standard.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\standard\standard_color.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\standard\standard_xml.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\velestrap\ASCIIMathTeXImg.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\velestrap\bootmark.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\velestrap\bootmark.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\velestrap\bootstrap.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\velestrap\bootstrap.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\velestrap\c3.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\velestrap\c3.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\velestrap\d3.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\velestrap\d3.v3.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\velestrap\index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\velestrap\jquery-3.2.0.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\velestrap\katex-latex.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\velestrap\katex.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\velestrap\katex.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\velestrap\mermaid.forest.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\velestrap\mermaid.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\velestrap\mermaidAPI.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\velestrap\showdown-prettify.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\velestrap\showdown.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\theme\veles_report\mermeid_example.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resources\theme\veles_report\footer.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resources\theme\veles_report\index.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resources\theme\veles_report\report_helpModule.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

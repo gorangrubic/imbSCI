@@ -3,24 +3,25 @@
     using System.ComponentModel;
 
     /// <summary>
-    /// 
+    /// Base class for objects implementing the <see cref="INotifyPropertyChanged"/> interface, thus making class ready for DataBinding
     /// </summary>
     /// <seealso cref="System.ComponentModel.INotifyPropertyChanged" />
-    public class dataBindableBase : INotifyPropertyChanged
+    public abstract class dataBindableBase : INotifyPropertyChanged
     {
-        
+
+
         /// <summary>
-        /// Kreira event koji obaveštava da je promenjen neki parametar
+        /// Called when a property is changed.
         /// </summary>
-        /// <remarks>
-        /// Neće biti kreiran event ako nije spremna aplikacija: imbSettingsManager.current.isReady
-        /// </remarks>
-        /// <param name="name"></param>
+        /// <param name="name">The name.</param>
         public void OnPropertyChanged(string name)
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
+            if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
 
+        /// <summary>
+        /// Occurs when a property value changes.
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
     }
 }

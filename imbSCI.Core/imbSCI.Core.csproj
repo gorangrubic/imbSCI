@@ -32,9 +32,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>..\..\imbACE\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL">
+      <HintPath>..\..\imbACE\packages\AForge.Imaging.2.2.5\lib\AForge.Imaging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AForge.Math, Version=2.2.5.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9, processorArchitecture=MSIL">
+      <HintPath>..\..\imbACE\packages\AForge.Math.2.2.5\lib\AForge.Math.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetZip, Version=1.10.1.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\..\imbACE\packages\DotNetZip.1.10.1\lib\net20\DotNetZip.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,6 +59,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="attributes\aceCriterieConfig.cs" />
@@ -56,16 +74,27 @@
     <Compile Include="attributes\imbAttributeTools.cs" />
     <Compile Include="attributes\imbAttributeToPropertyMap.cs" />
     <Compile Include="attributes\imbHelpContent.cs" />
+    <Compile Include="collection\checkLists\checkList.cs" />
+    <Compile Include="collection\checkLists\checkListItemValue.cs" />
+    <Compile Include="collection\checkLists\checkListLogic.cs" />
+    <Compile Include="collection\checkLists\imbCheckedObject.cs" />
+    <Compile Include="collection\checkLists\imbCheckedObjects.cs" />
+    <Compile Include="collection\checkLists\instanceCheckList.cs" />
+    <Compile Include="collection\checkLists\NamespaceDoc.cs" />
     <Compile Include="collection\IOneOrMore.cs" />
     <Compile Include="collection\oneOrMore.cs" />
+    <Compile Include="collection\PropertyCollectionCategoryList.cs" />
     <Compile Include="collection\PropertyCollectionDictionary.cs" />
     <Compile Include="collection\PropertyCollectionExtended.cs" />
+    <Compile Include="collection\PropertyCollectionExtendedList.cs" />
+    <Compile Include="collection\PropertyCollectionHistoryRecord.cs" />
     <Compile Include="collection\PropertyCollectionList.cs" />
     <Compile Include="collection\PropertyEntry.cs" />
     <Compile Include="collection\PropertyEntryColumn.cs" />
     <Compile Include="collection\PropertyEntryDictionary.cs" />
     <Compile Include="collection\PropertyEntryDictionaryFlags.cs" />
     <Compile Include="collection\resourceDictionaryBase.cs" />
+    <Compile Include="data\aceAuthorNotation.cs" />
     <Compile Include="data\PropertyExpression.cs" />
     <Compile Include="data\PropertyExpressionStateEnum.cs" />
     <Compile Include="data\PropertyExpressionTools.cs" />
@@ -74,6 +103,7 @@
     <Compile Include="data\settingsMemberInfoEntry.cs" />
     <Compile Include="data\settingsPropertyEntry.cs" />
     <Compile Include="data\settingsPropertyEntryWithContext.cs" />
+    <Compile Include="enums\cursorVariatorHeadFootFlags.cs" />
     <Compile Include="enums\dataPointImportance.cs" />
     <Compile Include="enums\existingDataMode.cs" />
     <Compile Include="enums\imbTypeGroup.cs" />
@@ -86,6 +116,17 @@
     <Compile Include="extensions\enumworks\imbEnumForGenericCollections.cs" />
     <Compile Include="extensions\enumworks\imbTypeEnumExtensions.cs" />
     <Compile Include="extensions\enumworks\settingsEntriesInfoModelApi.cs" />
+    <Compile Include="extensions\io\fileCheckType.cs" />
+    <Compile Include="extensions\io\fileOpsBase.cs" />
+    <Compile Include="extensions\io\filePathOperations.cs" />
+    <Compile Include="extensions\io\filesAndDirectoryOperations.cs" />
+    <Compile Include="extensions\io\openBase.cs" />
+    <Compile Include="extensions\io\saveBase.cs" />
+    <Compile Include="extensions\math\imbValueChangers.cs" />
+    <Compile Include="extensions\table\dataColumnRenderingSetup.cs" />
+    <Compile Include="extensions\table\DataRowForStats.cs" />
+    <Compile Include="extensions\table\dataTableRenderingSetup.cs" />
+    <Compile Include="extensions\table\dataTableTools.cs" />
     <Compile Include="extensions\text\imbStringExtensions.cs" />
     <Compile Include="extensions\text\imbStringFormats.cs" />
     <Compile Include="extensions\text\imbStringGenerators.cs" />
@@ -94,12 +135,48 @@
     <Compile Include="extensions\text\imbStringSelect.cs" />
     <Compile Include="extensions\text\imbStringSelectLists.cs" />
     <Compile Include="extensions\text\imbStringWordWrap.cs" />
+    <Compile Include="extensions\text\imbTextFormatTools.cs" />
     <Compile Include="extensions\text\toDosCharactersMode.cs" />
     <Compile Include="extensions\typeworks\imbTypeExtensions.cs" />
     <Compile Include="extensions\typeworks\imbTypeObjectOperations.cs" />
     <Compile Include="extensions\typeworks\imbTypeQueryExtensions.cs" />
     <Compile Include="extensions\typeworks\imbTypologyHelpers.cs" />
     <Compile Include="extensions\typeworks\imbTypologyPropertyGetSet.cs" />
+    <Compile Include="files\fileDataStructure\fileDataAttribute.cs" />
+    <Compile Include="files\fileDataStructure\fileDataBaseAttribute.cs" />
+    <Compile Include="files\fileDataStructure\fileDataDescriptorBase.cs" />
+    <Compile Include="files\fileDataStructure\fileDataFilenameMode.cs" />
+    <Compile Include="files\fileDataStructure\fileDataHandlingMode.cs" />
+    <Compile Include="files\fileDataStructure\fileDataPropertyDescriptor.cs" />
+    <Compile Include="files\fileDataStructure\fileDataPropertyMode.cs" />
+    <Compile Include="files\fileDataStructure\fileDataPropertyOptions.cs" />
+    <Compile Include="files\fileDataStructure\fileDataStructure.cs" />
+    <Compile Include="files\fileDataStructure\fileDataStructureDescriptor.cs" />
+    <Compile Include="files\fileDataStructure\fileDataStructureExtensions.cs" />
+    <Compile Include="files\fileDataStructure\fileStructureAttribute.cs" />
+    <Compile Include="files\fileDataStructure\fileStructureMode.cs" />
+    <Compile Include="files\fileDataStructure\IFileDataStructure.cs" />
+    <Compile Include="files\filepath.cs" />
+    <Compile Include="files\filepathflags.cs" />
+    <Compile Include="files\folders\aceFolderType.cs" />
+    <Compile Include="files\folders\aceGeneralAppFolders.cs" />
+    <Compile Include="files\folders\folderNode.cs" />
+    <Compile Include="files\folders\folderStructure.cs" />
+    <Compile Include="files\folders\IFolderNode.cs" />
+    <Compile Include="files\objectSerialization.cs" />
+    <Compile Include="files\search\fileTextInMemoryBlocks.cs" />
+    <Compile Include="files\search\fileTextInMemoryBlockUnit.cs" />
+    <Compile Include="files\search\fileTextLineCollection.cs" />
+    <Compile Include="files\search\fileTextOperater.cs" />
+    <Compile Include="files\search\fileTextOperaterMulti.cs" />
+    <Compile Include="files\search\fileTextOperaterWorker.cs" />
+    <Compile Include="files\search\fileTextOperationCoordinate.cs" />
+    <Compile Include="files\search\fileTextSearchMultiSourceSet.cs" />
+    <Compile Include="files\search\fileTextSearchResult.cs" />
+    <Compile Include="files\search\fileTextSearchResultSet.cs" />
+    <Compile Include="files\search\fileTextSplitResultSet.cs" />
+    <Compile Include="files\search\lineEvaluator.cs" />
+    <Compile Include="files\unit\fileunit.cs" />
     <Compile Include="interfaces\IAceLogable.cs" />
     <Compile Include="interfaces\IAceMathMeasure.cs" />
     <Compile Include="interfaces\IAceMathUnit.cs" />
@@ -111,6 +188,8 @@
     <Compile Include="interfaces\ILogable.cs" />
     <Compile Include="interfaces\IMeasure.cs" />
     <Compile Include="interfaces\IMeasureBasic.cs" />
+    <Compile Include="interfaces\IMetaContentNested.cs" />
+    <Compile Include="interfaces\IMetaLevelElement.cs" />
     <Compile Include="interfaces\IObjectWithMetaModelNameAndGroup.cs" />
     <Compile Include="interfaces\IRangeCriteria.cs" />
     <Compile Include="interfaces\IRangeValue.cs" />
@@ -203,6 +282,173 @@
     <Compile Include="math\range\rangeValueEnum.cs" />
     <Compile Include="math\range\rangeValueInt32.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reporting\appendBreakFlag.cs" />
+    <Compile Include="reporting\colors\aceBaseColorSetEnum.cs" />
+    <Compile Include="reporting\colors\aceColorConverts.cs" />
+    <Compile Include="reporting\colors\aceColorEntry.cs" />
+    <Compile Include="reporting\colors\aceColorLibrary.cs" />
+    <Compile Include="reporting\colors\aceColorPalette.cs" />
+    <Compile Include="reporting\colors\aceColorPaletteForTypes.cs" />
+    <Compile Include="reporting\colors\aceColorPaletteManager.cs" />
+    <Compile Include="reporting\colors\aceColorTools.cs" />
+    <Compile Include="reporting\colors\acePaletteProvider.cs" />
+    <Compile Include="reporting\colors\acePaletteProviderState.cs" />
+    <Compile Include="reporting\colors\acePaletteRole.cs" />
+    <Compile Include="reporting\colors\acePaletteShot.cs" />
+    <Compile Include="reporting\colors\acePaletteShotPart.cs" />
+    <Compile Include="reporting\colors\acePaletteShotResEnum.cs" />
+    <Compile Include="reporting\colors\acePaletteShotSetCollection.cs" />
+    <Compile Include="reporting\colors\acePaletteVariationRole.cs" />
+    <Compile Include="reporting\extensions\imbStringTemplateExtensions.cs" />
+    <Compile Include="reporting\format\elementLevelFormPreset.cs" />
+    <Compile Include="reporting\format\IPageFormatSettings.cs" />
+    <Compile Include="reporting\format\pageFormat.cs" />
+    <Compile Include="reporting\format\reportAPI.cs" />
+    <Compile Include="reporting\format\reportElementFormSet.cs" />
+    <Compile Include="reporting\format\reportOutputForm.cs" />
+    <Compile Include="reporting\format\reportOutputFormat.cs" />
+    <Compile Include="reporting\format\reportOutputFormatName.cs" />
+    <Compile Include="reporting\format\reportOutputSupport.cs" />
+    <Compile Include="reporting\geometrics\fourSideSetting.cs" />
+    <Compile Include="reporting\geometrics\imbMathExtensions.cs" />
+    <Compile Include="reporting\globalMeasureUnitDictionary.cs" />
+    <Compile Include="reporting\htmlDefinitions.cs" />
+    <Compile Include="reporting\IAppendDataFields.cs" />
+    <Compile Include="reporting\IAppendDataFieldsExtended.cs" />
+    <Compile Include="reporting\IConsoleControl.cs" />
+    <Compile Include="reporting\ILogBuilder.cs" />
+    <Compile Include="reporting\imbReportingBindable.cs" />
+    <Compile Include="reporting\includes\enums\strapdown_themes.cs" />
+    <Compile Include="reporting\ITabLevelControler.cs" />
+    <Compile Include="reporting\lowLevelApi\imbStringCSSExtensions.cs" />
+    <Compile Include="reporting\lowLevelApi\imbStringHTMLExtensions.cs" />
+    <Compile Include="reporting\lowLevelApi\imbStringMarkdownExtensions.cs" />
+    <Compile Include="reporting\lowLevelApi\imbStringPlainTextExtensions.cs" />
+    <Compile Include="reporting\lowLevelApi\imbStringTextExtensions.cs" />
+    <Compile Include="reporting\lowLevelApi\StringUtils.cs" />
+    <Compile Include="reporting\render\builderSelector.cs" />
+    <Compile Include="reporting\render\builders\builderForHtml.cs" />
+    <Compile Include="reporting\render\builders\builderForMarkdown.cs" />
+    <Compile Include="reporting\render\builders\builderForStyle.cs" />
+    <Compile Include="reporting\render\builders\builderForText.cs" />
+    <Compile Include="reporting\render\builders\IConverterRender.cs" />
+    <Compile Include="reporting\render\builders\logContentExceptionsFlags.cs" />
+    <Compile Include="reporting\render\config\builderSettings.cs" />
+    <Compile Include="reporting\render\config\dataValueFormatDictionary.cs" />
+    <Compile Include="reporting\render\config\dataValueFormatInfo.cs" />
+    <Compile Include="reporting\render\contentControl\stringBuilderControler.cs" />
+    <Compile Include="reporting\render\converters\bootstrap_color.cs" />
+    <Compile Include="reporting\render\converters\bootstrap_component.cs" />
+    <Compile Include="reporting\render\converters\bootstrap_containers.cs" />
+    <Compile Include="reporting\render\converters\bootstrap_size.cs" />
+    <Compile Include="reporting\render\converters\bootstrap_style.cs" />
+    <Compile Include="reporting\render\converters\converterBase.cs" />
+    <Compile Include="reporting\render\converters\converterEnumBase.cs" />
+    <Compile Include="reporting\render\converters\converterForBootstrap3.cs" />
+    <Compile Include="reporting\render\core\imbDocumentBuilderBase.cs" />
+    <Compile Include="reporting\render\core\imbStringBuilderBase.cs" />
+    <Compile Include="reporting\render\core\IStringBuilderLengths.cs" />
+    <Compile Include="reporting\render\core\tagBlock.cs" />
+    <Compile Include="reporting\render\core\tagBlockTitleCounter.cs" />
+    <Compile Include="reporting\render\core\tagStack.cs" />
+    <Compile Include="reporting\render\IDocumentRender.cs" />
+    <Compile Include="reporting\render\IRender.cs" />
+    <Compile Include="reporting\render\IRenderExecutionContext.cs" />
+    <Compile Include="reporting\render\IStyleRender.cs" />
+    <Compile Include="reporting\render\ITextAppendContent.cs" />
+    <Compile Include="reporting\render\ITextRender.cs" />
+    <Compile Include="reporting\render\NamespaceDoc.cs" />
+    <Compile Include="reporting\render\stylers\IStylers.cs" />
+    <Compile Include="reporting\render\stylers\styleStyleBordersPreset.cs" />
+    <Compile Include="reporting\reportOutputFormatTags.cs" />
+    <Compile Include="reporting\reportOutputFormatTools.cs" />
+    <Compile Include="reporting\reportOutputQuickTools.cs" />
+    <Compile Include="reporting\reportTagExtensions.cs" />
+    <Compile Include="reporting\settingsEntriesTools.cs" />
+    <Compile Include="reporting\style\areaStyleInstruction.cs" />
+    <Compile Include="reporting\style\areaStyleInstructionStack.cs" />
+    <Compile Include="reporting\style\core\styleFourSide.cs" />
+    <Compile Include="reporting\style\core\styleFourSideParameter.cs" />
+    <Compile Include="reporting\style\core\stylePage.cs" />
+    <Compile Include="reporting\style\core\styleSide.cs" />
+    <Compile Include="reporting\style\core\styleSize.cs" />
+    <Compile Include="reporting\style\core\styleTextFont.cs" />
+    <Compile Include="reporting\style\core\styleTextSizeSet.cs" />
+    <Compile Include="reporting\style\core\styleTheme.cs" />
+    <Compile Include="reporting\style\enums\aceFont.cs" />
+    <Compile Include="reporting\style\enums\appendRole.cs" />
+    <Compile Include="reporting\style\enums\HtmlTextWriterStyle.cs" />
+    <Compile Include="reporting\style\enums\HtmlTextWriterTag.cs" />
+    <Compile Include="reporting\style\enums\metaModelTargetEnum.cs" />
+    <Compile Include="reporting\style\enums\styleApplicationFlag.cs" />
+    <Compile Include="reporting\style\enums\styleBordersPreset.cs" />
+    <Compile Include="reporting\style\enums\styleBorderType.cs" />
+    <Compile Include="reporting\style\enums\styleSideDirection.cs" />
+    <Compile Include="reporting\style\enums\styleTextModificationEnum.cs" />
+    <Compile Include="reporting\style\enums\styleTextRotationEnum.cs" />
+    <Compile Include="reporting\style\enums\styleTextSizeEnum.cs" />
+    <Compile Include="reporting\style\enums\styleTextTypeEnum.cs" />
+    <Compile Include="reporting\style\setups\setupForBlockBase.cs" />
+    <Compile Include="reporting\style\setups\setupForDataTable.cs" />
+    <Compile Include="reporting\style\setups\templateFieldStyle.cs" />
+    <Compile Include="reporting\style\shot\IStyleInstruction.cs" />
+    <Compile Include="reporting\style\shot\styleBorderCollection.cs" />
+    <Compile Include="reporting\style\shot\styleBorderProvider.cs" />
+    <Compile Include="reporting\style\shot\styleContainerShot.cs" />
+    <Compile Include="reporting\style\shot\styleContainerShotCollection.cs" />
+    <Compile Include="reporting\style\shot\styleContainerShotProvider.cs" />
+    <Compile Include="reporting\style\shot\styleTextShot.cs" />
+    <Compile Include="reporting\style\shot\styleTextShotCollection.cs" />
+    <Compile Include="reporting\style\shot\styleTextShotProvider.cs" />
+    <Compile Include="reporting\style\styleAutoShotSet.cs" />
+    <Compile Include="reporting\style\stylePresets.cs" />
+    <Compile Include="reporting\style\stylerForRange.cs" />
+    <Compile Include="reporting\style\stylerForRangePresetEnum.cs" />
+    <Compile Include="reporting\style\styleShotSet.cs" />
+    <Compile Include="reporting\style\table\tableRangeStyle.cs" />
+    <Compile Include="reporting\template\IApplyToContent.cs" />
+    <Compile Include="reporting\template\IObjectWithIDandName.cs" />
+    <Compile Include="reporting\template\reportTemplatePlaceholder.cs" />
+    <Compile Include="reporting\template\reportTemplatePlaceholderCollection.cs" />
+    <Compile Include="reporting\template\stringTemplate.cs" />
+    <Compile Include="reporting\template\stringTemplateBase.cs" />
+    <Compile Include="reporting\template\stringTemplateConverterCollection.cs" />
+    <Compile Include="reporting\template\stringTemplateDeclaration.cs" />
+    <Compile Include="reporting\template\stringTemplateExtensions.cs" />
+    <Compile Include="reporting\template\stringTemplatePlaceholder.cs" />
+    <Compile Include="reporting\template\stringTemplatePlaceholderCollection.cs" />
+    <Compile Include="reporting\template\stringTemplateTools.cs" />
+    <Compile Include="reporting\zone\cursor.cs" />
+    <Compile Include="reporting\zone\cursorDimConversions.cs" />
+    <Compile Include="reporting\zone\cursorSubzoneFrame.cs" />
+    <Compile Include="reporting\zone\cursorVariator.cs" />
+    <Compile Include="reporting\zone\cursorVariatorState.cs" />
+    <Compile Include="reporting\zone\cursorZone.cs" />
+    <Compile Include="reporting\zone\cursorZoneBuilder.cs" />
+    <Compile Include="reporting\zone\cursorZoneCollection.cs" />
+    <Compile Include="reporting\zone\cursorZoneExecutionSettings.cs" />
+    <Compile Include="reporting\zone\cursorZoneExtensions.cs" />
+    <Compile Include="reporting\zone\cursorZoneLayoutPreset.cs" />
+    <Compile Include="reporting\zone\cursorZoneRole.cs" />
+    <Compile Include="reporting\zone\cursorZoneSpatialPreset.cs" />
+    <Compile Include="reporting\zone\cursorZoneSpatialSettings.cs" />
+    <Compile Include="reporting\zone\ISupportsBasicCursor.cs" />
+    <Compile Include="reporting\zone\pencilType.cs" />
+    <Compile Include="reporting\zone\selectRange.cs" />
+    <Compile Include="reporting\zone\selectRangeArea.cs" />
+    <Compile Include="reporting\zone\selectRangeAreaDictionary.cs" />
+    <Compile Include="reporting\zone\selectRangeAreaNamed.cs" />
+    <Compile Include="reporting\zone\selectZone.cs" />
+    <Compile Include="reporting\zone\selectZoneOption.cs" />
+    <Compile Include="reporting\zone\textCursorMode.cs" />
+    <Compile Include="reporting\zone\textCursorZone.cs" />
+    <Compile Include="reporting\zone\textCursorZoneCorner.cs" />
+    <Compile Include="reporting\zone\textCursorZoneHorizontal.cs" />
+    <Compile Include="reporting\zone\textCursorZoneVertical.cs" />
+    <Compile Include="reporting\zone\textFormatSetupBase.cs" />
+    <Compile Include="reporting\zone\textFormatSetupSize.cs" />
+    <Compile Include="reporting\zone\textFormatSubStyles.cs" />
+    <Compile Include="reporting\zone\textSectionLineStyleName.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\imbSCI.Data\imbSCI.Data.csproj">
@@ -211,7 +457,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="core\" />
+    <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

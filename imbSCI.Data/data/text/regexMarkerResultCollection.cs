@@ -6,7 +6,7 @@ namespace imbSCI.Data.data.text
     using imbSCI.Data.collection.nested;
 
     /// <summary>
-    /// Single dimension marker map
+    /// Single dimension marked map - the results created with <see cref="regexMarkerCollection{T}"/>
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class regexMarkerResultCollection<T> 

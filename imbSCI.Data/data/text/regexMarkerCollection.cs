@@ -7,17 +7,25 @@ namespace imbSCI.Data.data.text
     using System.Text.RegularExpressions;
 
     /// <summary>
-    /// Collection of Regex run markers
+    /// Collection of Regex markers
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <seealso cref="System.Collections.Generic.Dictionary{T, aceCommonTypes.data.text.regexMarker{T}}" />
     public class regexMarkerCollection<T> : Dictionary<T, regexMarker<T>>
     {
-        public Regex scrambleCut = new Regex("(#+)");
 
-        public String replaceGenerator(Match m)
+        public const String REPLACEMENT_PATTERN = "#";
+
+        public Regex scrambleCut = new Regex("(" + REPLACEMENT_PATTERN + "+)");
+
+        /// <summary>
+        /// Generates the replacement string for the specified Regex Match
+        /// </summary>
+        /// <param name="m">The m.</param>
+        /// <returns></returns>
+        public String replacementGenerator(Match m)
         {
-            String output = "#";
+            String output = REPLACEMENT_PATTERN;
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < m.Length; i++)
             {
@@ -30,6 +38,10 @@ namespace imbSCI.Data.data.text
         }
 
 
+        /// <summary>
+        /// Adds new marker rule
+        /// </summary>
+        /// <param name="item">The item.</param>
         public void Add(regexMarker<T> item)
         {
             if (item == null) return;
@@ -42,17 +54,17 @@ namespace imbSCI.Data.data.text
             Add(item.marker, item);
         }
 
+        /// <summary>
+        /// The default marker to be applied to the unmatched parts of the text
+        /// </summary>
         public T defaultMarker = default(T);
 
-        public Regex splitter { get; set; }
-        public String splitterExpression { get; set; } = "";
-
-
+  
         /// <summary>
-        /// Processes the specified text input into regexMarkerREsultCollection
+        /// Processes the specified text input into <see cref="regexMarkerResultCollection{T}"/>
         /// </summary>
-        /// <param name="input">The input.</param>
-        /// <returns></returns>
+        /// <param name="input">The input text to be parsed</param>
+        /// <returns>Collection with matched results</returns>
         public regexMarkerResultCollection<T> process(String input)
         {
             regexMarkerResultCollection<T> output = new regexMarkerResultCollection<T>();
@@ -68,7 +80,7 @@ namespace imbSCI.Data.data.text
                         regexMarkerResult res = new regexMarkerResult(m, reg.marker);
                         output.AddResult(res);
                     }
-                    scrambled = reg.test.Replace(scrambled, replaceGenerator);
+                    scrambled = reg.test.Replace(scrambled, replacementGenerator);
                 }
             }
 

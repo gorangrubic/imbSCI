@@ -53,49 +53,49 @@ namespace imbSCI.Core.extensions.text
             return output;
         }
 
-        /// <summary>
-        /// Splits the string or if no needle found in the string it returs <c>target</c> string
-        /// </summary>
-        /// <param name="target">The target.</param>
-        /// <param name="needle">The needle.</param>
-        /// <param name="targetDefault">If the target is null or empty it will use this value</param>
-        /// <returns>
-        /// List with one (if no <c>needle</c> found, original string) or two strings (if <c>needle</c> found, left and right substrings
-        /// </returns>
-        public static List<string> SplitSmart(this String target, String needle, String targetDefault="", Boolean trimResults=false, Boolean removeEmptyResults=true)
-        {
-            List<String> output = new List<string>();
+        ///// <summary>
+        ///// Splits the string or if no needle found in the string it returs <c>target</c> string
+        ///// </summary>
+        ///// <param name="target">The target.</param>
+        ///// <param name="needle">The needle.</param>
+        ///// <param name="targetDefault">If the target is null or empty it will use this value</param>
+        ///// <returns>
+        ///// List with one (if no <c>needle</c> found, original string) or two strings (if <c>needle</c> found, left and right substrings
+        ///// </returns>
+        //public static List<string> SplitSmart(this String target, String needle, String targetDefault="", Boolean trimResults=false, Boolean removeEmptyResults=true)
+        //{
+        //    List<String> output = new List<string>();
 
-            if (target.isNullOrEmpty()) target = targetDefault;
+        //    if (target.isNullOrEmpty()) target = targetDefault;
 
-            Int32 pos = target.IndexOf(needle);
+        //    Int32 pos = target.IndexOf(needle);
 
-            if (pos < 0)
-            {
-                output.Add(target);
-            }
-            else
-            {
-                output.AddRange(target.Split(needle.ToCharArray(), StringSplitOptions.RemoveEmptyEntries));
-            }
+        //    if (pos < 0)
+        //    {
+        //        output.Add(target);
+        //    }
+        //    else
+        //    {
+        //        output.AddRange(target.Split(needle.ToCharArray(), StringSplitOptions.RemoveEmptyEntries));
+        //    }
 
            
             
-                List<String> realOutput = new List<string>();
-            foreach (string st in output)
-            {
-                String stt = st;
-                if (trimResults) stt = stt.Trim();
-                if (!removeEmptyResults || !stt.isNullOrEmptyString())
-                {
-                    realOutput.Add(stt);
-                }
-            }
-            return realOutput;
+        //        List<String> realOutput = new List<string>();
+        //    foreach (string st in output)
+        //    {
+        //        String stt = st;
+        //        if (trimResults) stt = stt.Trim();
+        //        if (!removeEmptyResults || !stt.isNullOrEmptyString())
+        //        {
+        //            realOutput.Add(stt);
+        //        }
+        //    }
+        //    return realOutput;
             
 
-            //return output;
-        }
+        //    //return output;
+        //}
 
 
         /// <summary>
@@ -211,16 +211,16 @@ namespace imbSCI.Core.extensions.text
         //    return output + (stringTemplateTools.PLACEHOLDER_Start+input.ToString()+stringTemplateTools.PLACEHOLDER_End);
         //}
 
-        /// <summary>
-        /// Places in quote \"
-        /// </summary>
-        /// <param name="output"></param>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        public static string q(this String output, String input)
-        {
-            return output.a("\""+input.ToString() + "\"");
-        }
+        ///// <summary>
+        ///// Places in quote \"
+        ///// </summary>
+        ///// <param name="output"></param>
+        ///// <param name="input"></param>
+        ///// <returns></returns>
+        //public static string q(this String output, String input)
+        //{
+        //    return output.a("\""+input.ToString() + "\"");
+        //}
 
 
 

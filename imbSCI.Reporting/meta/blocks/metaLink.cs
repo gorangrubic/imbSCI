@@ -1,0 +1,208 @@
+namespace imbSCI.Reporting.meta.blocks
+{
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Linq;
+    using imbSCI.Core;
+    using imbSCI.Core.attributes;
+    using imbSCI.Core.collection;
+    using imbSCI.Core.data;
+    using imbSCI.Core.enums;
+    using imbSCI.Core.extensions.data;
+    using imbSCI.Core.extensions.io;
+    using imbSCI.Core.extensions.text;
+    using imbSCI.Core.extensions.typeworks;
+    using imbSCI.Core.interfaces;
+    using imbSCI.Core.reporting;
+    using imbSCI.Core.reporting.render;
+    using imbSCI.Data;
+    using imbSCI.Data.data;
+    using imbSCI.Data.enums;
+    using imbSCI.Data.interfaces;
+    using imbSCI.Reporting.delivery;
+    using imbSCI.Reporting.interfaces;
+    using imbSCI.Reporting.resources;
+    using imbSCI.Reporting.script;
+    using imbSCI.Data.enums.appends;
+
+    /// <summary>
+    /// Meta representation of link
+    /// </summary>
+    /// docBlocks_elementary
+    public class metaLink : MetaContainerNestedBase, IMetaContentNested
+    {
+
+        public override void construct(object[] resources)
+        {
+           // colors = imbSCI.Cores.colors.acePaletteRole.colorA;
+            width = blockWidth.full;
+
+        }
+
+        public override docScript compose(docScript script)
+        {
+            if (script == null) script = new docScript(name);
+            //script.x_scopeIn(this);
+
+//            script.add(appendType.s_palette).arg(colors);
+
+            script.c_link(name, url, title, description, type);
+
+       //     script.add(appendType.c_section, docScriptArguments.dsa_name, docScriptArguments.dsa_content, docScriptArguments.dsa_description, docScriptArguments.dsa_class_attribute, docScriptArguments.dsa_id_attribute).set(name, content, description, "header", "#" + name);
+
+  //          script.add(appendType.s_palette).arg(acePaletteRole.colorDefault);
+
+            //script.x_scopeOut(this);
+            return script;
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string description { get; set; } = "";
+
+
+        #region -----------  tool  -------  [Associated tool to open with]
+        private externalTool _tool = externalTool.autodetect; // = new externalTool();
+                                    /// <summary>
+                                    /// Associated tool to open with
+                                    /// </summary>
+        // [XmlIgnore]
+        [Category("metaLink")]
+        [DisplayName("tool")]
+        [Description("Associated tool to open with")]
+        public externalTool tool
+        {
+            get
+            {
+                return _tool;
+            }
+            set
+            {
+                // Boolean chg = (_tool != value);
+                _tool = value;
+                OnPropertyChanged("tool");
+                // if (chg) {}
+            }
+        }
+        #endregion
+
+
+        #region --- display ------- Display option 
+        private displayOption _display = displayOption.primary;
+        /// <summary>
+        /// Display option
+        /// </summary>
+        public displayOption display
+        {
+            get
+            {
+                return _display;
+            }
+            set
+            {
+                _display = value;
+                OnPropertyChanged("display");
+            }
+        }
+        #endregion
+
+
+
+        #region -----------  url  -------  [Url to open]
+        private string _url = ""; // = new String();
+        /// <summary>
+        /// Url to open - may be null if link is not external
+        /// </summary>
+        // [XmlIgnore]
+        [Category("metaLink")]
+        [DisplayName("url")]
+        [Description("Url to open")]
+        public string url
+        {
+            get
+            {
+                return _url;
+            }
+            set
+            {
+                // Boolean chg = (_url != value);
+                _url = value;
+                OnPropertyChanged("url");
+                // if (chg) {}
+            }
+        }
+
+        #endregion
+
+        #region -----------  title  -------  [prefered display title]
+        private string _title = ""; // = new String();
+                                    /// <summary>
+                                    /// prefered display title
+                                    /// </summary>
+        // [XmlIgnore]
+        [Category("MetaContentNestedWithNameBase")]
+        [DisplayName("title")]
+        [Description("prefered display title")]
+        public string title
+        {
+            get
+            {
+                return _title;
+            }
+            set
+            {
+                // Boolean chg = (_title != value);
+                _title = value;
+                OnPropertyChanged("title");
+                // if (chg) {}
+            }
+        }
+        #endregion
+
+
+        #region --- target ------- Link target 
+        private IMetaContentNested _target;
+        /// <summary>
+        /// Target on what this link points - may be null if link is not internal
+        /// </summary>
+        public IMetaContentNested target
+        {
+            get
+            {
+                return _target;
+            }
+            set
+            {
+                _target = value;
+                OnPropertyChanged("target");
+            }
+        }
+        #endregion
+
+
+
+       
+        private appendLinkType _type = appendLinkType.link;
+        /// <summary>
+        /// Link type
+        /// </summary>
+        public appendLinkType type
+        {
+            get
+            {
+                return _type;
+            }
+            set
+            {
+                _type = value;
+                OnPropertyChanged("type");
+            }
+        }
+
+       
+
+    }
+}

@@ -1,5 +1,6 @@
 namespace imbSCI.Data.data.package
 {
+    using imbSCI.Data.collection.graph;
     using imbSCI.Data.collection.nested;
 
     /// <summary>

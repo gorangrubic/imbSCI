@@ -425,77 +425,7 @@
             return output;
         }
 
-        /// <summary>
-        /// VRaca zajednicki deo korena
-        /// </summary>
-        /// <param name="xPathA"></param>
-        /// <param name="xPathB"></param>
-        /// \ingroup_disabled ace_ext_xpath_highlight
-        /// <returns></returns>
-        public static String getCommonRoot(this String xPathA, String xPathB, Boolean includeAbsolute = false)
-        {
-            String output = "";
-            if (String.IsNullOrEmpty(xPathB)) return "";
-            if (String.IsNullOrEmpty(xPathB)) return "";
 
-            if (includeAbsolute) output = "/";
-            String[] tmpA = xPathA.Split("/".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-            String[] tmpB = xPathB.Split("/".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-
-            Int32 a = tmpA.Length;
-            if (a > tmpB.Length)
-            {
-                a = tmpB.Length;
-            }
-
-            Int32 i = 0;
-
-            for (i = 0; i < a; i++)
-            {
-                output += tmpA[i] + "/";
-            }
-
-            return output.TrimEnd("/".ToCharArray());
-        }
-
-        /// <summary>
-        /// Removes common root from <c>xPathA</c> and returns result
-        /// </summary>
-        /// <param name="xPathA">The x path a.</param>
-        /// <param name="xPathB">The x path b.</param>
-        /// <param name="includeAbsolute">if set to <c>true</c> [include absolute].</param>
-        /// <returns></returns>
-        /// \ingroup_disabled ace_ext_xpath_highlight
-        public static String removeCommonRoot(this String xPathA, String xPathB, Boolean includeAbsolute = false)
-        {
-            String output = "";
-            //if (includeAbsolute) output = "/";
-
-            String root = getCommonRoot(xPathA, xPathB, includeAbsolute);
-
-            if (!String.IsNullOrEmpty(root))
-            {
-                xPathA = xPathA.TrimStart("/".ToCharArray());
-                root = root.TrimStart("/".ToCharArray());
-
-                if (xPathA.StartsWith(root))
-                {
-                    output += xPathA.Replace(root, "");
-                }
-                else
-                {
-                    output += xPathA;
-                }
-            }
-            else
-            {
-                output = xPathA;
-            }
-
-            if (includeAbsolute) output = "/" + output;
-
-            return output;
-        }
 
         /// <summary>
         /// Regex select groupPath : (\w+)[\\\s]*
@@ -576,7 +506,5 @@
         //    }
         //    return output;
         //}
-
-
     }
 }

@@ -1,0 +1,164 @@
+﻿namespace imbSCI.Reporting.meta.delivery.services
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Linq;
+    using imbSCI.Reporting.meta.delivery.items;
+    using imbSCI.Core;
+    using imbSCI.Core.attributes;
+    using imbSCI.Core.collection;
+    using imbSCI.Core.data;
+    using imbSCI.Core.enums;
+    using imbSCI.Core.extensions.data;
+    using imbSCI.Core.extensions.io;
+    using imbSCI.Core.extensions.text;
+    using imbSCI.Core.extensions.typeworks;
+    using imbSCI.Core.interfaces;
+    using imbSCI.Core.reporting;
+    using imbSCI.Core.reporting.render;
+    using imbSCI.Data;
+    using imbSCI.Data.data;
+    using imbSCI.Data.enums;
+    using imbSCI.Data.interfaces;
+    using imbSCI.Reporting.delivery;
+    using imbSCI.Reporting.interfaces;
+    using imbSCI.Reporting.resources;
+    using imbSCI.Reporting.script;
+    using imbSCI.Core.reporting.render.builders;
+    using imbSCI.Reporting.links;
+    using imbSCI.Reporting.enums;
+    using imbSCI.Data.enums.fields;
+    using imbSCI.Data.enums.appends;
+    using imbSCI.Core.reporting.format;
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public class templateBlocksForHtml
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="templateBlocksForHtml"/> class.
+        /// </summary>
+        public templateBlocksForHtml()
+        {
+            outputRender = new builderForMarkdown();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ITextRender outputRender { get; set; }
+
+
+        public PropertyCollection BuildDynamicNavigationTemplates(deliveryInstance context, PropertyCollection data = null)
+        {
+            if (data == null) data = new PropertyCollection();
+
+            string reldir = context.directoryScope.FullName.removeStartsWith(context.directoryRoot.FullName);
+            string selPath = reldir; // context.scope.path;
+
+            IMetaContentNested mc = context.scope as IMetaContentNested;
+            if (mc != null)
+            {
+                selPath = mc.path;
+            }
+
+            reportLinkCollection directory = context.linkRegistry.getLinkOneCollection(selPath, data.getProperString(templateFieldBasic.path_folder,  templateFieldBasic.document_path, templateFieldBasic.documentset_path));
+
+            string str_localdirectory = "";
+
+            if (directory != null)
+            {
+                str_localdirectory = directory.makeHtmlInsert();
+            }
+            data.add(reportOutputDomainEnum.localdirectory, str_localdirectory);
+
+           
+            return data;
+        }
+
+
+        public PropertyCollection BuildNavigationTemplates(deliveryInstance context, PropertyCollection data = null)
+        {
+            if (data == null) data = new PropertyCollection();
+            reportLinkCollection logs = context.linkRegistry[reportOutputDomainEnum.logs.ToString()];
+            if (logs.Any())
+            {
+                string str_logs = data.getProperString("", reportOutputDomainEnum.logs);
+
+                if (imbSciStringExtensions.isNullOrEmpty(str_logs))
+                {
+
+                    str_logs = logs.makeHtmlInsert();
+                    data.add(reportOutputDomainEnum.logs, str_logs);
+                }
+            }
+            return data;
+        }
+
+        /// <summary>
+        /// Builds the include template.
+        /// </summary>
+        /// <param name="unit">The unit.</param>
+        /// <param name="data">The data.</param>
+        /// <returns></returns>
+        public PropertyCollection BuildIncludeTemplate(deliveryInstance context, PropertyCollection data = null)
+        {
+            if (data == null) data = new PropertyCollection();
+
+
+
+            var includeItems = context.unit.includeItems;
+
+            string includePath = "".t(templateFieldBasic.root_relpath);
+
+            //outputRender.SubcontentStart(templateFieldSubcontent.head_includes, false);
+
+            //String relJump = context.directoryScope.getRelativePathToParent(context.directoryRoot);
+
+            outputRender.Clear();
+
+            string url = "";
+
+            foreach (IDeliverySupportFile inc in includeItems[appendLinkType.styleLink])
+            {
+                url = inc.getRelativeUrl(null, includePath);
+
+                outputRender.AppendLink(url, inc.name, "", appendLinkType.styleLink);
+            }
+
+
+            foreach (IDeliverySupportFile inc in includeItems[appendLinkType.scriptLink])
+            {
+                url = inc.getRelativeUrl(null, includePath);
+
+                outputRender.AppendLink(url, inc.name, "", appendLinkType.scriptLink);
+            }
+
+            data[templateFieldSubcontent.head_includes] = outputRender.ContentToString(true,reportOutputFormatName.textFile);
+
+
+
+
+            outputRender.Clear();
+            
+            foreach (IDeliverySupportFile inc in includeItems[appendLinkType.scriptPostLink])
+            {
+                url = inc.getRelativeUrl(null, includePath);
+
+                outputRender.AppendLink(url, inc.name, "", appendLinkType.scriptLink);
+            }
+
+            data[templateFieldSubcontent.bottom_includes] = outputRender.ContentToString(true,reportOutputFormatName.textFile);
+
+
+
+            data = BuildNavigationTemplates(context, data);
+
+            return data;
+        }
+
+
+    }
+}

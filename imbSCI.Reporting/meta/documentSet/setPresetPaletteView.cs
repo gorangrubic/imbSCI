@@ -1,0 +1,82 @@
+namespace imbSCI.Reporting.meta.documentSet
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using imbSCI.Reporting.interfaces;
+    using imbSCI.Reporting.meta.document;
+    using imbSCI.Reporting.meta.page;
+    using imbSCI.Core;
+    using imbSCI.Core.attributes;
+    using imbSCI.Core.collection;
+    using imbSCI.Core.data;
+    using imbSCI.Core.enums;
+    using imbSCI.Core.extensions.data;
+    using imbSCI.Core.extensions.io;
+    using imbSCI.Core.extensions.text;
+    using imbSCI.Core.extensions.typeworks;
+    using imbSCI.Core.interfaces;
+    using imbSCI.Core.reporting;
+    using imbSCI.Core.reporting.render;
+    using imbSCI.Data;
+    using imbSCI.Data.data;
+    using imbSCI.Data.enums;
+    using imbSCI.Data.interfaces;
+    using imbSCI.Reporting.delivery;
+    using imbSCI.Reporting.interfaces;
+    using imbSCI.Reporting.resources;
+    using imbSCI.Reporting.script;
+
+    public class setPresetPaletteView : metaDocumentSet, IMetaComposeAndConstruct
+    {
+        public override metaPage indexPage
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public setPresetPaletteView()
+        {
+            name = "paletteView";
+            documentSetTitle = "Palette viewer";
+        }
+
+        public override void construct(object[] resources) //compose(IMetaComposer composer, metaDocumentTheme theme, PropertyCollection data, params object[] resources)
+        {
+
+            List<string> baseColors = resources.getAllOfType<string>();
+
+            documentPaletteView dpv = new documentPaletteView();
+            documents.Add(dpv, this);
+
+            //baseColors.Add();
+
+            baseConstruct(resources);
+
+        }
+
+
+        public override docScript compose(docScript script)
+        {
+            if (script == null) script = new docScript(name);
+
+            script.x_scopeIn(this);
+
+
+            documents.Sort();
+
+            foreach (metaDocument pg in documents)
+            {
+                pg.compose(script);
+            }
+
+            script.x_scopeOut(this);
+
+            return script;
+        }
+
+    }
+
+}

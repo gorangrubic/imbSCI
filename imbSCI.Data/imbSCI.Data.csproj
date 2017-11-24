@@ -16,7 +16,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -42,8 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="collection\advanced\layerCollection.cs" />
-    <Compile Include="collection\advanced\layerStack.cs" />
+    <Compile Include="collection\aceCollection.cs" />
+    <Compile Include="collection\aceCollectionLimitSafe.cs" />
+    <Compile Include="collection\aceDictionaryCollection.cs" />
+    <Compile Include="collection\IAceCollection.cs" />
+    <Compile Include="collection\IAceDictionaryCollection.cs" />
+    <Compile Include="collection\special\circularSelector.cs" />
+    <Compile Include="collection\special\colorWhellForContent.cs" />
+    <Compile Include="collection\layers\layerCollection.cs" />
+    <Compile Include="collection\layers\layerStack.cs" />
     <Compile Include="collection\math\aceInt2DStackedMatrix.cs" />
     <Compile Include="collection\math\aceInt2DStackedMatrixConcurrent.cs" />
     <Compile Include="collection\math\aceRelationMatrix.cs" />
@@ -51,7 +58,44 @@
     <Compile Include="collection\math\aceRelationValue.cs" />
     <Compile Include="collection\math\ConcurrentEnumerator.cs" />
     <Compile Include="collection\math\ConcurrentList.cs" />
-    <Compile Include="collection\math\coordinateXY.cs" />
+    <Compile Include="data\imbBindable.cs" />
+    <Compile Include="data\maps\datamap\crossSectionType.cs" />
+    <Compile Include="data\maps\datamap\IMapShema.cs" />
+    <Compile Include="data\maps\datamap\IMapShemaBasic.cs" />
+    <Compile Include="data\maps\datamap\IValuePairs.cs" />
+    <Compile Include="data\maps\datamap\IValuePairsExtension.cs" />
+    <Compile Include="data\maps\datamap\propertyMapItem.cs" />
+    <Compile Include="data\maps\datamap\propertyValuePairs.cs" />
+    <Compile Include="data\maps\datamap\propertyValuePairsBase.cs" />
+    <Compile Include="data\maps\datamap\propertyValuePairsOrigin.cs" />
+    <Compile Include="data\maps\datamap\ValuePairsScore.cs" />
+    <Compile Include="data\maps\mapping\IImbMapItem.cs" />
+    <Compile Include="data\maps\mapping\propertyMap.cs" />
+    <Compile Include="data\maps\mapping\propertyMapEntry.cs" />
+    <Compile Include="data\maps\mapping\propertyMapNameSource.cs" />
+    <Compile Include="data\maps\mapping\propertyMappingTools.cs" />
+    <Compile Include="data\ObjectPathChangeMonitor.cs" />
+    <Compile Include="data\ObjectPathParentAndRootMonitor.cs" />
+    <Compile Include="data\ObjectScopeChangeReport.cs" />
+    <Compile Include="data\text\NamespaceDoc.cs" />
+    <Compile Include="enums\cursorVariatorOddEvenFlags.cs" />
+    <Compile Include="enums\directoryOperation.cs" />
+    <Compile Include="enums\displayOption.cs" />
+    <Compile Include="enums\externalTool.cs" />
+    <Compile Include="enums\getWritableFileMode.cs" />
+    <Compile Include="enums\logOutputSpecial.cs" />
+    <Compile Include="enums\onErrorPolicy.cs" />
+    <Compile Include="enums\urlSegment.cs" />
+    <Compile Include="enums\urlShema.cs" />
+    <Compile Include="interfaces\IAutosaveEnabled.cs" />
+    <Compile Include="interfaces\IDataRowSetter.cs" />
+    <Compile Include="interfaces\IDataTableBuilder.cs" />
+    <Compile Include="interfaces\IDataTableBuilderCollection.cs" />
+    <Compile Include="interfaces\IGetCodeName.cs" />
+    <Compile Include="interfaces\IHasDescribeMethod.cs" />
+    <Compile Include="interfaces\IPerformanceTake.cs" />
+    <Compile Include="interfaces\IPerformanceTaker.cs" />
+    <Compile Include="primitives\coordinateXY.cs" />
     <Compile Include="collection\nested\aceConcurrentBag.cs" />
     <Compile Include="collection\nested\aceConcurrentDictionary.cs" />
     <Compile Include="collection\nested\aceDictionary2D.cs" />
@@ -60,10 +104,10 @@
     <Compile Include="collection\nested\aceEnumDictionarySet.cs" />
     <Compile Include="collection\nested\aceEnumDictionarySet2D.cs" />
     <Compile Include="collection\nested\aceEnumListSet.cs" />
-    <Compile Include="collection\nested\graph.cs" />
-    <Compile Include="collection\nested\graphDataPackage.cs" />
-    <Compile Include="collection\nested\graphNode.cs" />
-    <Compile Include="collection\nested\graphWrapNode.cs" />
+    <Compile Include="collection\graph\graph.cs" />
+    <Compile Include="collection\graph\graphDataPackage.cs" />
+    <Compile Include="collection\graph\graphNode.cs" />
+    <Compile Include="collection\graph\graphWrapNode.cs" />
     <Compile Include="collection\special\enumCounter.cs" />
     <Compile Include="data\byteFlag.cs" />
     <Compile Include="data\changeBindableBase.cs" />
@@ -76,13 +120,21 @@
     <Compile Include="data\package\IDataPackageItem.cs" />
     <Compile Include="data\package\instanceItemContainer.cs" />
     <Compile Include="data\package\NamespaceDoc.cs" />
-    <Compile Include="data\text\consoleStyleMarkerEnum.cs" />
+    <Compile Include="enums\consoleStyleMarkerEnum.cs" />
     <Compile Include="data\text\regexMarker.cs" />
     <Compile Include="data\text\regexMarkerCollection.cs" />
     <Compile Include="data\text\regexMarkerForConsole.cs" />
     <Compile Include="data\text\regexMarkerResult.cs" />
     <Compile Include="data\text\regexMarkerResultCollection.cs" />
-    <Compile Include="data\text\regexTextTools.cs" />
+    <Compile Include="enums\appends\appendLinkType.cs" />
+    <Compile Include="enums\appends\appendOpenTag.cs" />
+    <Compile Include="enums\appends\appendRelativeLinkType.cs" />
+    <Compile Include="enums\appends\appendTableBorderFlags.cs" />
+    <Compile Include="enums\appends\appendTableColumnOptionFlags.cs" />
+    <Compile Include="enums\appends\appendTableFlag.cs" />
+    <Compile Include="enums\appends\appendTableOptionFlags.cs" />
+    <Compile Include="enums\appends\appendType.cs" />
+    <Compile Include="enums\appends\appendTypeKind.cs" />
     <Compile Include="enums\fields\dataSource.cs" />
     <Compile Include="enums\fields\templateFieldBasic.cs" />
     <Compile Include="enums\fields\templateFieldCompanyProfile.cs" />
@@ -94,19 +146,40 @@
     <Compile Include="enums\fields\templateFieldWebPageReport.cs" />
     <Compile Include="enums\printHorizontal.cs" />
     <Compile Include="enums\printVertical.cs" />
+    <Compile Include="enums\reportElementLevel.cs" />
+    <Compile Include="enums\reporting\dataTableExportEnum.cs" />
+    <Compile Include="enums\reporting\exportFormats.cs" />
+    <Compile Include="enums\reporting\exportResolution.cs" />
+    <Compile Include="enums\reporting\htmlClassForReport.cs" />
+    <Compile Include="enums\reporting\htmlIdForReport.cs" />
+    <Compile Include="enums\reporting\htmlTagName.cs" />
+    <Compile Include="enums\reporting\reportIncludeFileType.cs" />
+    <Compile Include="enums\reporting\reportOutputRoles.cs" />
+    <Compile Include="enums\reporting\styleToStringFormat.cs" />
+    <Compile Include="enums\reporting\templateFieldStyleInserts.cs" />
+    <Compile Include="enums\reporting\textSymbols.cs" />
+    <Compile Include="enums\tableReporting\dataTableDeliveryEnum.cs" />
+    <Compile Include="enums\tableReporting\dataTableSummaryRowEnum.cs" />
+    <Compile Include="enums\tableReporting\dataTreeDeliveryEnum.cs" />
+    <Compile Include="extensions\data\imbPathExtensions.cs" />
     <Compile Include="imbGraphExtensions.cs" />
     <Compile Include="imbSciEnumExtensions.cs" />
     <Compile Include="imbSciStringExtensions.cs" />
     <Compile Include="interfaces\IObjectWithChildSelector.cs" />
     <Compile Include="interfaces\IObjectWithDescription.cs" />
+    <Compile Include="interfaces\IObjectWithID.cs" />
     <Compile Include="interfaces\IObjectWithName.cs" />
     <Compile Include="interfaces\IObjectWithNameAndDescription.cs" />
     <Compile Include="interfaces\IObjectWithParent.cs" />
     <Compile Include="interfaces\IObjectWithPath.cs" />
     <Compile Include="interfaces\IObjectWithPathAndChildren.cs" />
     <Compile Include="interfaces\IObjectWithPathAndChildSelector.cs" />
+    <Compile Include="interfaces\IObjectWithReportLevel.cs" />
     <Compile Include="interfaces\IObjectWithRoot.cs" />
     <Compile Include="interfaces\IObjectWithTreeView.cs" />
+    <Compile Include="interfaces\IObjectWithUID.cs" />
+    <Compile Include="collection\nested\imbCollectionNestedEnum.cs" />
+    <Compile Include="collection\nested\imbCollectionNestedEnumToString.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
