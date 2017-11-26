@@ -130,15 +130,22 @@
     <Compile Include="extensions\table\DataRowForStats.cs" />
     <Compile Include="extensions\table\dataTableRenderingSetup.cs" />
     <Compile Include="extensions\table\dataTableTools.cs" />
+    <Compile Include="extensions\text\imbRegex.cs" />
+    <Compile Include="extensions\text\imbRegexQuery.cs" />
+    <Compile Include="extensions\text\imbStringCommonTools.cs" />
     <Compile Include="extensions\text\imbStringExtensions.cs" />
     <Compile Include="extensions\text\imbStringFormats.cs" />
     <Compile Include="extensions\text\imbStringGenerators.cs" />
     <Compile Include="extensions\text\imbStringIsTests.cs" />
+    <Compile Include="extensions\text\imbStringOperations.cs" />
     <Compile Include="extensions\text\imbStringPathTools.cs" />
     <Compile Include="extensions\text\imbStringSelect.cs" />
     <Compile Include="extensions\text\imbStringSelectLists.cs" />
     <Compile Include="extensions\text\imbStringWordWrap.cs" />
     <Compile Include="extensions\text\imbTextFormatTools.cs" />
+    <Compile Include="extensions\text\stringMatchPolicy.cs" />
+    <Compile Include="extensions\text\stringOperation.cs" />
+    <Compile Include="extensions\text\stringPresetList.cs" />
     <Compile Include="extensions\text\toDosCharactersMode.cs" />
     <Compile Include="extensions\typeworks\imbTypeExtensions.cs" />
     <Compile Include="extensions\typeworks\imbTypeObjectOperations.cs" />
@@ -284,6 +291,13 @@
     <Compile Include="math\range\rangeValueDouble.cs" />
     <Compile Include="math\range\rangeValueEnum.cs" />
     <Compile Include="math\range\rangeValueInt32.cs" />
+    <Compile Include="process\calculate.cs" />
+    <Compile Include="process\dataLogic.cs" />
+    <Compile Include="process\imbDataConvertTools.cs" />
+    <Compile Include="process\imbDataExecutor.cs" />
+    <Compile Include="process\imbDataExecutorEngine.cs" />
+    <Compile Include="process\imbLogicComparator.cs" />
+    <Compile Include="process\resourceScope.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="reporting\appendBreakFlag.cs" />
     <Compile Include="reporting\colors\aceBaseColorSetEnum.cs" />
@@ -460,11 +474,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="extensions\text\stringToolsCheatSheet.cd" />
     <None Include="imbSCI.Core.licenseheader" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="imbVeles48.ico" />
+    <Content Include="imbSCI.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

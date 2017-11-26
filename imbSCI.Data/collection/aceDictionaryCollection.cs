@@ -32,7 +32,7 @@ namespace imbSCI.Data.collection
     using System;
     using System.Collections.Generic;
 
-    public abstract class aceDictionaryCollection<T> : aceCollection<T>, IAceDictionaryCollection, IDictionary<string, T>
+    public  class aceDictionaryCollection<T> : aceCollection<T>, IAceDictionaryCollection, IDictionary<string, T>
     {
 
         protected Dictionary<string, T> dictionary = new Dictionary<string, T>();

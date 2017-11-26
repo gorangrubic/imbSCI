@@ -58,8 +58,7 @@ namespace imbSCI.Core.extensions.text
 
             return String.IsNullOrEmpty(self.Query)
               ? new Dictionary<string, string>()
-              : self.Query.Substring(1).Split('&').ToDictionary(
-                  p => p.Split('=')[0],
+              : Enumerable.ToDictionary<string, string, string>(self.Query.Substring(1).Split('&'), p => p.Split('=')[0],
                   p => p.Split('=')[1]
               );
         }

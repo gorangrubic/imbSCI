@@ -221,9 +221,7 @@
     <Compile Include="trends\measureTrendTaker_2.cs" />
     <Compile Include="trends\measureTrendTools.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="checkLists\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\imbSCI.Core\imbSCI.Core.csproj">
       <Project>{D02F731C-3A1C-4094-BA85-A8B563906E7E}</Project>
@@ -242,11 +240,5 @@
     <Content Include="imbVeles48.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\..\imbACE\packages\Accord.3.8.0\build\Accord.targets" Condition="Exists('..\..\imbACE\packages\Accord.3.8.0\build\Accord.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\..\imbACE\packages\Accord.3.8.0\build\Accord.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\imbACE\packages\Accord.3.8.0\build\Accord.targets'))" />
-  </Target>
+
 </Project>

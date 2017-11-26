@@ -468,10 +468,10 @@ namespace imbSCI.Core.extensions.text
 
 
         /// <summary>
-        /// Za enum sa imenom none vraca prazan string
+        /// String, comma separated, representation of flags in the <paramref name="en"/> Enum (<see cref="FlagsAttribute"/>).
         /// </summary>
-        /// <param name="en"></param>
-        /// <returns></returns>
+        /// <param name="en">Flags to render</param>
+        /// <returns>Comma separater representation of all flags in the <paramref name="en"/></returns>
         public static String ToStringEnumSmart(this Enum en)
         {
             String output = "";

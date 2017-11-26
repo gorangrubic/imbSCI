@@ -33,17 +33,6 @@ namespace imbSCI.Data.extensions.data
     using System.Collections.Generic;
     using System.Linq;
     using imbSCI.Data.enums;
-    using imbSCI.Data.enums;
-    using imbSCI.Data.enums;
-    using imbSCI.Data.enums;
-    using imbSCI.Data.enums;
-    using imbSCI.Data.enums;
-    using imbSCI.Data.enums;
-    using imbSCI.Data.enums;
-    using imbSCI.Data.enums;
-    using imbSCI.Data.enums;
-    using imbSCI.Data.enums;
-    using imbSCI.Data.enums;
     using imbSCI.Data.interfaces;
     //using imbSCI.Reporting.reporting.format;
 
