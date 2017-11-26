@@ -40,10 +40,12 @@
     <Compile Include="Properties\VersionInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="imbSCI.DataComplex.licenseheader" />
+    <None Include="imbSCI.NuGet.licenseheader" />
     <None Include="NuGetPack.config" />
     <None Include="packages.config" />
-    <None Include="internalPackages.config" />
+    <None Include="internalPackages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="NuGetPack.Readme.txt" />
   </ItemGroup>
   <ItemGroup>

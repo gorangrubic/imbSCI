@@ -20,7 +20,7 @@ extensions: .cs .cpp .h
 // </copyright>
 // <summary>
 // Project: %Project%
-// Author: Goran Grubić
+// Author: Goran Grubic
 // ------------------------------------------------------------------------------------------------------------------
 // Project web site: http://blog.veles.rs
 // GitHub: http://github.com/gorangrubic
@@ -44,7 +44,7 @@ extensions:  .xml .config .xsd
 <!--
  GNU GENERAL PUBLIC LICENSE V3.0
  Copyright (C) %CurrentYear% imbVeles - http://blog.veles.rs/
- Goran Grubić - Email: hardy@veles.rs - http://orcid.org/0000-0003-2673-9471
+ Goran Grubic - Email: hardy@veles.rs - http://orcid.org/0000-0003-2673-9471
  http://github.com/gorangrubic - http://www.mendeley.com/profiles/goran-grubi2/
  Everyone is permitted to copy and distribute verbatim copies
  of this license document, but changing it is not allowed.
