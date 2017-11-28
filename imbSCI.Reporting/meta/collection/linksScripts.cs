@@ -18,7 +18,7 @@
 // </copyright>
 // <summary>
 // Project: imbSCI.Reporting
-// Author: Goran Grubi?
+// Author: Goran Grubic
 // ------------------------------------------------------------------------------------------------------------------
 // Project web site: http://blog.veles.rs
 // GitHub: http://github.com/gorangrubic
@@ -27,7 +27,6 @@
 // Email: hardy@veles.rs
 // </summary>
 // ------------------------------------------------------------------------------------------------------------------
-
 namespace imbSCI.Reporting.meta.collection
 {
     using System;

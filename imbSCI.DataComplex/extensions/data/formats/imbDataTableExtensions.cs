@@ -27,9 +27,6 @@
 // Email: hardy@veles.rs
 // </summary>
 // ------------------------------------------------------------------------------------------------------------------
-
-
-
 namespace imbSCI.DataComplex.extensions.data.formats
 {
     using System;

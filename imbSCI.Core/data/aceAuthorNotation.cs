@@ -18,7 +18,7 @@
 // </copyright>
 // <summary>
 // Project: imbSCI.Core
-// Author: Goran Grubić
+// Author: Goran Grubic
 // ------------------------------------------------------------------------------------------------------------------
 // Project web site: http://blog.veles.rs
 // GitHub: http://github.com/gorangrubic
@@ -121,7 +121,7 @@ namespace imbSCI.Core.data
         /// <value>
         /// The licence.
         /// </value>
-        public String licence { get; set; } = "GNU General Public License v3.0";
+        public String license { get; set; } = "GNU General Public License v3.0";
 
         private String _copyright = "All Rights reserved © 2013-2017.";
         /// <summary>

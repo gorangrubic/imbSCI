@@ -18,7 +18,7 @@
 // </copyright>
 // <summary>
 // Project: imbSCI.Data
-// Author: Goran Grubić
+// Author: Goran Grubic
 // ------------------------------------------------------------------------------------------------------------------
 // Project web site: http://blog.veles.rs
 // GitHub: http://github.com/gorangrubic
@@ -27,7 +27,6 @@
 // Email: hardy@veles.rs
 // </summary>
 // ------------------------------------------------------------------------------------------------------------------
-
 
 // using aceCommonTypes.extensions.io;
 // using aceCommonTypes.extensions.text;

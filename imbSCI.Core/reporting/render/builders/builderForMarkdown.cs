@@ -18,7 +18,7 @@
 // </copyright>
 // <summary>
 // Project: imbSCI.Core
-// Author: Goran Grubi?
+// Author: Goran Grubic
 // ------------------------------------------------------------------------------------------------------------------
 // Project web site: http://blog.veles.rs
 // GitHub: http://github.com/gorangrubic
@@ -604,7 +604,7 @@ namespace imbSCI.Core.reporting.render.builders
 
         public void AppendLine()
         {
-            throw new NotImplementedException();
+            base.AppendLine();
         }
     }
 

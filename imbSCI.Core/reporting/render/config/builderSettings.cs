@@ -18,7 +18,7 @@
 // </copyright>
 // <summary>
 // Project: imbSCI.Core
-// Author: Goran Grubić
+// Author: Goran Grubic
 // ------------------------------------------------------------------------------------------------------------------
 // Project web site: http://blog.veles.rs
 // GitHub: http://github.com/gorangrubic
