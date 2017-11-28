@@ -60,7 +60,6 @@ namespace imbSCI.Reporting.script
     using imbSCI.Core.reporting.render.builders;
     using imbSCI.Reporting.meta.page;
     using imbSCI.Data.enums.appends;
-    using aceCommonTypes.extensions.enumworks;
     using imbSCI.Core.reporting.zone;
     using imbSCI.Reporting.exceptions;
     using imbSCI.Reporting.meta.data;

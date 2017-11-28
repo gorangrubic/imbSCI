@@ -59,8 +59,8 @@ namespace imbSCI.Reporting.meta.delivery
     using imbSCI.Reporting.resources;
     using imbSCI.Reporting.script;
     using imbSCI.Reporting.exceptions;
-    using aceCommonTypes.extensions.enumworks;
     using imbSCI.Data.enums.appends;
+    using imbSCI.Reporting.enums;
 
     /// <summary>
     /// Managed report generation and deliveryInstance

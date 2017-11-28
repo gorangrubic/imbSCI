@@ -19,11 +19,12 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\LocalNuGet\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>2</WarningLevel>
-    <DocumentationFile>bin\Debug\imbSCI.NuGet.xml</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -46,7 +47,6 @@
     <None Include="internalPackages.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="NuGetPack.Readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="imbVeles48.ico" />

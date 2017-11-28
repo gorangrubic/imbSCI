@@ -3,6 +3,10 @@ imbVeles foundation libraries for Scientific development
 
 Library supporting Science-related research and development in context of imbVeles Framework and SM-WBI.
 
+Documentation: http://blog.veles.rs
+
+---
+
 The solution contains the following projects:
 * imbSCI.Data
 > Core data-structures, graph-tree,  extensions, interfaces, enumerations and data mining/analytics classes

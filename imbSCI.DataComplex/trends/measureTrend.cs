@@ -53,6 +53,12 @@ namespace imbSCI.DataComplex.trends
     {
 
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="measureTrend"/> class.
+        /// </summary>
+        /// <param name="samples">The samples.</param>
+        /// <param name="__trendTaker">The trend taker.</param>
+        /// <param name="__timePeriod">The time period.</param>
         public measureTrend(IEnumerable<double> samples, measureTrendTaker __trendTaker, TimeSpan __timePeriod)
         {
 
@@ -63,6 +69,16 @@ namespace imbSCI.DataComplex.trends
         }
 
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="measureTrend"/> class.
+        /// </summary>
+        /// <param name="samples">The samples.</param>
+        /// <param name="__name">The name.</param>
+        /// <param name="__unit">The unit.</param>
+        /// <param name="__macroSampleSize">Size of the macro sample.</param>
+        /// <param name="__zeroMargin">The zero margin.</param>
+        /// <param name="__microSampleSize">Size of the micro sample.</param>
+        /// <param name="__spearSampleSize">Size of the spear sample.</param>
         public measureTrend(IEnumerable<double> samples, string __name, string __unit, int __macroSampleSize, double __zeroMargin, int __microSampleSize=-1, int __spearSampleSize=-1)
         {
             trendTaker = new measureTrendTaker(__name, __unit, __macroSampleSize, __microSampleSize, __spearSampleSize, __zeroMargin);
@@ -70,8 +86,20 @@ namespace imbSCI.DataComplex.trends
         }
 
 
+        /// <summary>
+        /// Gets or sets the sampled period.
+        /// </summary>
+        /// <value>
+        /// The sampled period.
+        /// </value>
         public double sampledPeriod { get; set; } = 0;
 
+        /// <summary>
+        /// Gets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
         public string name
         {
             get
@@ -96,10 +124,26 @@ namespace imbSCI.DataComplex.trends
             }
         }
 
+        /// <summary>
+        /// Gets or sets the size of the sample.
+        /// </summary>
+        /// <value>
+        /// The size of the sample.
+        /// </value>
         public int sampleSize { get; set; } = 0;
 
+        /// <summary>
+        /// Gets or sets the s period.
+        /// </summary>
+        /// <value>
+        /// The s period.
+        /// </value>
         public double sPeriod { get; set; }
 
+        /// <summary>
+        /// Deploys the sample.
+        /// </summary>
+        /// <param name="samples">The samples.</param>
         protected void deploySample(IEnumerable<double> samples)
         {
             SampleState = trendTaker.GetSampleState(samples.Count());
@@ -222,6 +266,12 @@ namespace imbSCI.DataComplex.trends
 
         }
 
+        /// <summary>
+        /// Gets or sets the trend taker.
+        /// </summary>
+        /// <value>
+        /// The trend taker.
+        /// </value>
         protected measureTrendTaker trendTaker { get; set; }
 
 

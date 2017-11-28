@@ -88,6 +88,7 @@
     <Compile Include="enums\getWritableFileMode.cs" />
     <Compile Include="enums\logOutputSpecial.cs" />
     <Compile Include="enums\onErrorPolicy.cs" />
+    <Compile Include="enums\typedParamDeclarationType.cs" />
     <Compile Include="enums\urlSegment.cs" />
     <Compile Include="enums\urlShema.cs" />
     <Compile Include="interfaces\IAutosaveEnabled.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="interfaces\IDataTableBuilder.cs" />
     <Compile Include="interfaces\IDataTableBuilderCollection.cs" />
     <Compile Include="interfaces\IGetCodeName.cs" />
+    <Compile Include="interfaces\IGetToSetFromString.cs" />
     <Compile Include="interfaces\IHasDescribeMethod.cs" />
     <Compile Include="interfaces\IPerformanceTake.cs" />
     <Compile Include="interfaces\IPerformanceTaker.cs" />
@@ -191,6 +193,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="imbSCI.Data.licenseheader" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="data\params\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -59,9 +59,9 @@ namespace imbSCI.Reporting.meta.delivery
     using imbSCI.Reporting.script;
     using imbSCI.Data.enums.fields;
     using imbSCI.Core.reporting.format;
-    using aceCommonTypes.extensions.enumworks;
     using imbSCI.Core.reporting.extensions;
     using imbSCI.Core.files;
+    using imbSCI.Reporting.enums;
 
     /// <summary>
     /// One element of <see cref="deliveryUnit"/>

@@ -57,7 +57,6 @@ namespace imbSCI.Reporting.meta.delivery.items
     using imbSCI.Data.enums.fields;
     using imbSCI.Reporting.enums;
     using imbSCI.Core.reporting.extensions;
-    using aceCommonTypes.extensions.enumworks;
 
     /// <summary>
     /// Delivers content from file to specified outputpath. Applies context.data to template fields

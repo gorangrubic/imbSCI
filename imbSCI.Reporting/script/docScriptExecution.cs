@@ -64,7 +64,6 @@ namespace imbSCI.Reporting.script
     using imbSCI.Core.reporting.zone;
     using imbSCI.Core.reporting.colors;
     using imbSCI.Data.enums.fields;
-    using aceCommonTypes.extensions.enumworks;
     using imbSCI.Core.files;
     using imbSCI.Core.reporting.geometrics;
     using System.Drawing;

@@ -65,6 +65,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="reporting\aceLogToConsoleControl.cs" />
     <Compile Include="attributes\aceCriterieConfig.cs" />
     <Compile Include="attributes\aceRangeConfig.cs" />
     <Compile Include="attributes\aceReportingMacros.cs" />
@@ -98,6 +99,13 @@
     <Compile Include="collection\PropertyEntryDictionaryFlags.cs" />
     <Compile Include="collection\resourceDictionaryBase.cs" />
     <Compile Include="data\aceAuthorNotation.cs" />
+    <Compile Include="interfaces\IAceLogToConsoleControl.cs" />
+    <Compile Include="screenOutputControl.cs" />
+    <Compile Include="syntax\param\typedParam.cs" />
+    <Compile Include="syntax\param\typedParamCollection.cs" />
+    <Compile Include="syntax\param\typedParamInfo.cs" />
+    <Compile Include="syntax\param\typedParamInfoCollection.cs" />
+    <Compile Include="syntax\param\typedParamInfoExtensions.cs" />
     <Compile Include="data\PropertyExpression.cs" />
     <Compile Include="data\PropertyExpressionStateEnum.cs" />
     <Compile Include="data\PropertyExpressionTools.cs" />
@@ -173,6 +181,14 @@
     <Compile Include="files\folders\folderNode.cs" />
     <Compile Include="files\folders\folderStructure.cs" />
     <Compile Include="files\folders\IFolderNode.cs" />
+    <Compile Include="files\job\aceFileJobBase.cs" />
+    <Compile Include="files\backup\backupPolicy.cs" />
+    <Compile Include="files\backup\backupTool.cs" />
+    <Compile Include="files\job\aceFileToolBase.cs" />
+    <Compile Include="files\job\aceProjectToolBase.cs" />
+    <Compile Include="files\job\IAceComponent.cs" />
+    <Compile Include="files\job\IAceFileJobBase.cs" />
+    <Compile Include="files\job\IAceProjectBase.cs" />
     <Compile Include="files\objectSerialization.cs" />
     <Compile Include="files\search\fileTextInMemoryBlocks.cs" />
     <Compile Include="files\search\fileTextInMemoryBlockUnit.cs" />
@@ -466,6 +482,84 @@
     <Compile Include="reporting\zone\textFormatSetupSize.cs" />
     <Compile Include="reporting\zone\textFormatSubStyles.cs" />
     <Compile Include="reporting\zone\textSectionLineStyleName.cs" />
+    <Compile Include="syntax\codeSyntax\ISyntaxDeclarationElement.cs" />
+    <Compile Include="syntax\codeSyntax\syntaxBlockDeclaration.cs" />
+    <Compile Include="syntax\codeSyntax\syntaxBlockDeclarationCollection.cs" />
+    <Compile Include="syntax\codeSyntax\syntaxBlockLineDeclaration.cs" />
+    <Compile Include="syntax\codeSyntax\syntaxBlockLineDeclarationCollection.cs" />
+    <Compile Include="syntax\codeSyntax\syntaxBlockLineType.cs" />
+    <Compile Include="syntax\codeSyntax\syntaxBlockRenderMode.cs" />
+    <Compile Include="syntax\codeSyntax\syntaxBlockRole.cs" />
+    <Compile Include="syntax\codeSyntax\syntaxDeclaration.cs" />
+    <Compile Include="syntax\codeSyntax\syntaxDeclarationElementCollection.cs" />
+    <Compile Include="syntax\codeSyntax\syntaxDeclarationItemBase.cs" />
+    <Compile Include="syntax\codeSyntax\syntaxDeclarationStructureType.cs" />
+    <Compile Include="syntax\codeSyntax\syntaxHeaderDeclaration.cs" />
+    <Compile Include="syntax\codeSyntax\syntaxLineClassDeclaration.cs" />
+    <Compile Include="syntax\codeSyntax\syntaxLineClassDeclarationCollection.cs" />
+    <Compile Include="syntax\codeSyntax\syntaxRenderStructure.cs" />
+    <Compile Include="syntax\codeSyntax\syntaxRenderUnit.cs" />
+    <Compile Include="syntax\codeSyntax\syntaxTokenDeclaration.cs" />
+    <Compile Include="syntax\codeSyntax\syntaxTokenDeclarationCollection.cs" />
+    <Compile Include="syntax\codeSyntax\syntaxTokenType.cs" />
+    <Compile Include="syntax\codeSyntax\syntaxTypeName.cs" />
+    <Compile Include="syntax\codeSyntax\syntaxTypeNameCollection.cs" />
+    <Compile Include="syntax\code\code.cs" />
+    <Compile Include="syntax\code\codeBlock.cs" />
+    <Compile Include="syntax\code\codeBlockCollection.cs" />
+    <Compile Include="syntax\code\codeBuilder.cs" />
+    <Compile Include="syntax\code\codeBuilderTools.cs" />
+    <Compile Include="syntax\code\codeElementBase.cs" />
+    <Compile Include="syntax\code\codeElementCollection.cs" />
+    <Compile Include="syntax\code\codeLine.cs" />
+    <Compile Include="syntax\code\codeLineExtensions.cs" />
+    <Compile Include="syntax\code\codeLineToken.cs" />
+    <Compile Include="syntax\code\codeLineTokenCollection.cs" />
+    <Compile Include="syntax\code\codeLineTokenType.cs" />
+    <Compile Include="syntax\code\codeSourceElement.cs" />
+    <Compile Include="syntax\code\codeSourceElementCollection.cs" />
+    <Compile Include="syntax\code\codeSourceElementType.cs" />
+    <Compile Include="syntax\code\ICodeElement.cs" />
+    <Compile Include="syntax\data\commonNCDataSetBase.cs" />
+    <Compile Include="syntax\data\core\configEntries.cs" />
+    <Compile Include="syntax\data\core\configEntry.cs" />
+    <Compile Include="syntax\data\core\configEntryFlag.cs" />
+    <Compile Include="syntax\data\core\inlineParams.cs" />
+    <Compile Include="syntax\data\core\inlineParamType.cs" />
+    <Compile Include="syntax\data\core\line.cs" />
+    <Compile Include="syntax\data\core\paramNestedPairs.cs" />
+    <Compile Include="syntax\data\core\paramPair.cs" />
+    <Compile Include="syntax\data\core\paramPairs.cs" />
+    <Compile Include="syntax\data\files\base\fileDataSetBase.cs" />
+    <Compile Include="syntax\data\files\base\IAceDataFile.cs" />
+    <Compile Include="syntax\data\files\base\textDataSetBase.cs" />
+    <Compile Include="syntax\data\files\fileTargetList.cs" />
+    <Compile Include="syntax\data\files\fileTargetListSettings.cs" />
+    <Compile Include="syntax\data\files\fileTargetListTask.cs" />
+    <Compile Include="syntax\data\files\fileTargetSampleMode.cs" />
+    <Compile Include="syntax\data\files\standardParamDataSet.cs" />
+    <Compile Include="syntax\data\files\textDataSetWithComments.cs" />
+    <Compile Include="syntax\data\nestedParamDataSet.cs" />
+    <Compile Include="syntax\nc\line\ncLine.cs" />
+    <Compile Include="syntax\nc\line\ncLineCollection.cs" />
+    <Compile Include="syntax\nc\line\ncLineCommandPredefined.cs" />
+    <Compile Include="syntax\nc\line\ncLineCriteria.cs" />
+    <Compile Include="syntax\nc\line\ncLineExtensions.cs" />
+    <Compile Include="syntax\nc\line\ncLineFlag.cs" />
+    <Compile Include="syntax\nc\line\ncLineRelativeCriteria.cs" />
+    <Compile Include="syntax\nc\line\ncLineRelativeCriteriaCollection.cs" />
+    <Compile Include="syntax\nc\line\ncLineRelativeCriteriaType.cs" />
+    <Compile Include="syntax\nc\line\ncLineSelectedCollection.cs" />
+    <Compile Include="syntax\nc\line\ncLineSelector.cs" />
+    <Compile Include="syntax\nc\ncFile.cs" />
+    <Compile Include="syntax\nc\ncFileJob.cs" />
+    <Compile Include="syntax\nc\ncFileTool.cs" />
+    <Compile Include="syntax\nc\param\ncParamModify.cs" />
+    <Compile Include="syntax\nc\param\ncParamModifyCollection.cs" />
+    <Compile Include="syntax\nc\platform\ncPlatform.cs" />
+    <Compile Include="syntax\param\ncParam.cs" />
+    <Compile Include="syntax\param\ncParamValueType.cs" />
+    <Compile Include="syntax\param\paramValueModificationType.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\imbSCI.Data\imbSCI.Data.csproj">
@@ -483,6 +577,10 @@
     <Content Include="imbSCI.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="syntax\nc\syntaxes\" />
+    <Folder Include="syntax\params\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

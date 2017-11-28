@@ -60,7 +60,7 @@ namespace imbSCI.Reporting.meta.delivery
     using imbSCI.Reporting.resources;
     using imbSCI.Reporting.script;
     using imbSCI.Core.reporting.extensions;
-    using aceCommonTypes.extensions.enumworks;
+    using imbSCI.Reporting.enums;
 
     /// <summary>
     /// 

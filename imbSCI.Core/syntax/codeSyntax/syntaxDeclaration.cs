@@ -1,0 +1,364 @@
+﻿namespace imbSCI.Core.syntax.codeSyntax
+{
+    using imbSCI.Core.reporting.template;
+    using System;
+    using System.ComponentModel;
+    using System.Text;
+    using System.Xml.Serialization;
+
+    /// <summary>
+    /// Deserijalizovan opis sintakse: header, templates, 
+    /// </summary>
+    /// <remarks>
+    /// Tokom primene softvera (production) koristi se samo za čitanje već definisanih deklaracija.
+    /// Tokom razvoja softvera (development) koristi se za in-code pravljenje prototipova
+    /// </remarks>
+    [XmlInclude(typeof(Encoding))]
+    public class syntaxDeclaration : syntaxDeclarationItemBase, ISyntaxDeclarationElement
+    {
+
+        public syntaxDeclaration()
+        {
+
+        }
+
+        #region --- header ------- syntax meta data header 
+        private syntaxHeaderDeclaration _header = new syntaxHeaderDeclaration();
+        /// <summary>
+        /// syntax meta data header
+        /// </summary>
+        public syntaxHeaderDeclaration header
+        {
+            get
+            {
+                return _header;
+            }
+            set
+            {
+                _header = value;
+                OnPropertyChanged("header");
+            }
+        }
+        #endregion
+
+
+
+        #region --- types ------- List of special types 
+        private syntaxTypeNameCollection _types = new syntaxTypeNameCollection();
+        /// <summary>
+        /// List of special types
+        /// </summary>
+        public syntaxTypeNameCollection types
+        {
+            get
+            {
+                return _types;
+            }
+            set
+            {
+                _types = value;
+                OnPropertyChanged("types");
+            }
+        }
+        #endregion
+
+
+        #region --- structure ------- rendering structure 
+        private syntaxRenderStructure _structure = new syntaxRenderStructure();
+        /// <summary>
+        /// rendering structure
+        /// </summary>
+        public syntaxRenderStructure structure
+        {
+            get
+            {
+                return _structure;
+            }
+            set
+            {
+                _structure = value;
+                OnPropertyChanged("structure");
+            }
+        }
+        #endregion
+
+
+
+        //#region --- regexBlocks ------- Regex used to select block name and content 
+        //private String _regexBlocks = "";
+        ///// <summary>
+        ///// Regex used to select block name and content
+        ///// </summary>
+        //public String regexBlocks
+        //{
+        //    get
+        //    {
+        //        return _regexBlocks;
+        //    }
+        //    set
+        //    {
+        //        _regexBlocks = value;
+        //        OnPropertyChanged("regexBlocks");
+        //    }
+        //}
+        //#endregion
+
+        //private Regex __regexBlocks;
+
+        //public Regex getBlockRegex()
+        //{
+        //    if (__regexBlocks == null) {
+        //        __regexBlocks = new Regex(regexBlocks);
+        //    }
+        //    return __regexBlocks;
+        //}
+
+
+        //#region --- regexProperty ------- Regex used to select property name and value 
+        //private String _regexProperty = "";
+        ///// <summary>
+        ///// Regex used to select property name and value
+        ///// </summary>
+        //public String regexProperty
+        //{
+        //    get
+        //    {
+        //        return _regexProperty;
+        //    }
+        //    set
+        //    {
+        //        _regexProperty = value;
+        //        OnPropertyChanged("regexProperty");
+        //    }
+        //}
+        //#endregion
+
+
+        //#region --- regexLine ------- Regex used to select line content: name and properties 
+        //private String _regexLine = "";
+        ///// <summary>
+        ///// Regex used to select line content: name and properties
+        ///// </summary>
+        //public String regexLine
+        //{
+        //    get
+        //    {
+        //        return _regexLine;
+        //    }
+        //    set
+        //    {
+        //        _regexLine = value;
+        //        OnPropertyChanged("regexLine");
+        //    }
+        //}
+        //#endregion
+
+
+        //#region --- regexComment ------- Regex used to test and extract comment line 
+        //private String _regexComment = "";
+        ///// <summary>
+        ///// Regex used to test and extract comment line
+        ///// </summary>
+        //public String regexComment
+        //{
+        //    get
+        //    {
+        //        return _regexComment;
+        //    }
+        //    set
+        //    {
+        //        _regexComment = value;
+        //        OnPropertyChanged("regexComment");
+        //    }
+        //}
+        //#endregion
+
+
+
+
+        #region ----------- Boolean [ doSkipUndeclaredBlocks ] -------  [if TRUE: during source code processing it will ignore undeclared blocks]
+        private Boolean _doSkipUndeclaredBlocks = true;
+        /// <summary>
+        /// if TRUE: during source code processing it will ignore undeclared blocks
+        /// </summary>
+        [Category("Switches")]
+        [DisplayName("doSkipUndeclaredBlocks")]
+        [Description("if TRUE: during source code processing it will ignore undeclared blocks")]
+        public Boolean doSkipUndeclaredBlocks
+        {
+            get { return _doSkipUndeclaredBlocks; }
+            set { _doSkipUndeclaredBlocks = value; OnPropertyChanged("doSkipUndeclaredBlocks"); }
+        }
+        #endregion
+
+
+        #region ----------- Boolean [ doSkipUndeclaredLines ] -------  [if TRUE: it will ignore undeclared property lines / instructions]
+        private Boolean _doSkipUndeclaredLines = true;
+        /// <summary>
+        /// if TRUE: it will ignore undeclared property lines / instructions
+        /// </summary>
+        [Category("Switches")]
+        [DisplayName("doSkipUndeclaredLines")]
+        [Description("if TRUE: it will ignore undeclared property lines / instructions")]
+        public Boolean doSkipUndeclaredLines
+        {
+            get { return _doSkipUndeclaredLines; }
+            set { _doSkipUndeclaredLines = value; OnPropertyChanged("doSkipUndeclaredLines"); }
+        }
+        #endregion
+
+
+
+
+
+        #region --- fileTemplate ------- struktura kompletnog fajla 
+        private stringTemplateDeclaration _fileTemplate = new stringTemplateDeclaration();
+        /// <summary>
+        /// struktura kompletnog fajla
+        /// </summary>
+        public stringTemplateDeclaration fileTemplate
+        {
+            get
+            {
+                return _fileTemplate;
+            }
+            set
+            {
+                _fileTemplate = value;
+                OnPropertyChanged("fileTemplate");
+            }
+        }
+        #endregion
+
+
+        #region --- blockTemplate ------- struktura jednog bloka 
+        private stringTemplateDeclaration _blockTemplate = new stringTemplateDeclaration();
+        /// <summary>
+        /// struktura jednog bloka
+        /// </summary>
+        public stringTemplateDeclaration blockTemplate
+        {
+            get
+            {
+                return _blockTemplate;
+            }
+            set
+            {
+                _blockTemplate = value;
+                OnPropertyChanged("blockTemplate");
+            }
+        }
+        #endregion
+
+
+
+        #region --- lineDefaultTemplate ------- podrazumevan template za liniju 
+        private stringTemplateDeclaration _lineDefaultTemplate = new stringTemplateDeclaration();
+        /// <summary>
+        /// podrazumevan template za liniju
+        /// </summary>
+        public stringTemplateDeclaration lineDefaultTemplate
+        {
+            get
+            {
+                return _lineDefaultTemplate;
+            }
+            set
+            {
+                _lineDefaultTemplate = value;
+                OnPropertyChanged("lineDefaultTemplate");
+            }
+        }
+        #endregion
+
+
+
+        #region --- commentDefaultTemplate ------- podrazumevan template za komentar 
+        private stringTemplateDeclaration _commentDefaultTemplate = new stringTemplateDeclaration();
+        /// <summary>
+        /// podrazumevan template za komentar
+        /// </summary>
+        public stringTemplateDeclaration commentDefaultTemplate
+        {
+            get
+            {
+                return _commentDefaultTemplate;
+            }
+            set
+            {
+                _commentDefaultTemplate = value;
+                OnPropertyChanged("commentDefaultTemplate");
+            }
+        }
+        #endregion
+
+
+
+
+
+        #region --- blocks ------- syntax blocks declarations 
+        private syntaxBlockDeclarationCollection _blocks = new syntaxBlockDeclarationCollection();
+        /// <summary>
+        /// syntax blocks declarations
+        /// </summary>
+        public syntaxBlockDeclarationCollection blocks
+        {
+            get
+            {
+                return _blocks;
+            }
+            set
+            {
+                _blocks = value;
+                OnPropertyChanged("blocks");
+            }
+        }
+        #endregion
+
+
+
+        #region --- blockClass ------- class for block selection 
+        private syntaxLineClassDeclaration _blockClass;
+        /// <summary>
+        /// class for block selection
+        /// </summary>
+        public syntaxLineClassDeclaration blockClass
+        {
+            get
+            {
+                return _blockClass;
+            }
+            set
+            {
+                _blockClass = value;
+                OnPropertyChanged("blockClass");
+            }
+        }
+        #endregion
+
+
+        #region --- lineClasses ------- Line classes declaration 
+        private syntaxLineClassDeclarationCollection _lineClasses = new syntaxLineClassDeclarationCollection();
+        /// <summary>
+        /// Line classes declaration
+        /// </summary>
+        public syntaxLineClassDeclarationCollection lineClasses
+        {
+            get
+            {
+                return _lineClasses;
+            }
+            set
+            {
+                _lineClasses = value;
+                OnPropertyChanged("lineClasses");
+            }
+        }
+        #endregion
+
+
+       
+
+    }
+
+}

@@ -94,7 +94,7 @@ namespace imbSCI.Core.data
 
 
 
-        private String _software = "imbVeles - semanticTerminal Experiment tool";
+        private String _software = "imbVeles - application";
         /// <summary>
         /// 
         /// </summary>
@@ -115,6 +115,13 @@ namespace imbSCI.Core.data
             set { _author = value; }
         }
 
+        /// <summary>
+        /// License information
+        /// </summary>
+        /// <value>
+        /// The licence.
+        /// </value>
+        public String licence { get; set; } = "GNU General Public License v3.0";
 
         private String _copyright = "All Rights reserved © 2013-2017.";
         /// <summary>
@@ -138,7 +145,7 @@ namespace imbSCI.Core.data
         }
 
 
-        private String _organization = "KOPLAS PRO ltd Serbia | Faculty of Organizational Sciences, Belgrade University, Serbia";
+        private String _organization = "imbVeles";
         /// <summary>
         /// 
         /// </summary>

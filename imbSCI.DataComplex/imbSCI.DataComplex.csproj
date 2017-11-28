@@ -220,6 +220,7 @@
     <Compile Include="trends\measureTrendTaker.cs" />
     <Compile Include="trends\measureTrendTaker_2.cs" />
     <Compile Include="trends\measureTrendTools.cs" />
+    <Compile Include="trends\NamespaceDoc.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

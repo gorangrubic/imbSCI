@@ -73,7 +73,6 @@ namespace imbSCI.Reporting.meta
     using imbSCI.Core.reporting.extensions;
     using imbSCI.Core.extensions.table;
     using imbSCI.Data.extensions.data;
-    using aceCommonTypes.extensions.enumworks;
     using imbSCI.Data.enums.fields;
     using imbSCI.Reporting.enums;
     using imbSCI.Reporting.links.groups;

@@ -27,15 +27,14 @@
 // Email: hardy@veles.rs
 // </summary>
 // ------------------------------------------------------------------------------------------------------------------
-namespace aceCommonTypes.extensions.enumworks
+namespace imbSCI.Reporting.enums
 {
+    using System;
     using imbSCI.Core.reporting.colors;
     using imbSCI.Core.reporting.format;
     using imbSCI.Core.reporting.style.enums;
     using imbSCI.Data.enums;
     using imbSCI.Data.enums.appends;
-    using System;
-
 
     /// <summary>
     /// Extensions to convert different enum types from one to another, including string

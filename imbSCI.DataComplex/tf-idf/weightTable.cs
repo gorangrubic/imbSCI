@@ -57,7 +57,7 @@ namespace imbSCI.DataComplex
     using imbSCI.Data.enums.fields;
 
     /// <summary>
-    /// Universal weight table
+    /// Universal weight table (SVM / TF-IDF model)
     /// </summary>
     /// <seealso cref="imbSCI.Data.data.changeBindableBase" />
     /// <seealso cref="IWeightTable" />

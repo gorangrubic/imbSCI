@@ -44,10 +44,13 @@ namespace imbSCI.DataComplex.trends
     using imbSCI.Data.data;
     using imbSCI.Data.interfaces;
 
+    /// <summary>
+    /// Extensions for <see cref="measureTrend"/>s
+    /// </summary>
     public static class measureTrendTools
     {
         /// <summary>
-        /// 
+        ///  Finds total timespan by summing all inter-sample periods
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="sampleset"></param>
@@ -73,6 +76,15 @@ namespace imbSCI.DataComplex.trends
         }
 
 
+        /// <summary>
+        /// Gets the trend from set of objects
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sampleset">Set of objects to take measure from</param>
+        /// <param name="selector">Expresion that takes the property value from an object in the <c>sampleset</c></param>
+        /// <param name="trendTaker">The trend taker definition</param>
+        /// <param name="span">The time span to recalculate mean values for.</param>
+        /// <returns></returns>
         public static measureTrend GetTrend<T>(this IEnumerable<T> sampleset, Func<T, double> selector, measureTrendTaker trendTaker, TimeSpan span)
         {
             int sC = sampleset.Count();
@@ -89,6 +101,11 @@ namespace imbSCI.DataComplex.trends
         }
 
 
+        /// <summary>
+        /// Gets the trend interpretation as single line string
+        /// </summary>
+        /// <param name="trend">The trend.</param>
+        /// <returns></returns>
         public static string GetTrendInline(this measureTrend trend)
         {
             string form = "{0} {1,10}:[_{2,15}_ {3,-14}] ({4,11}) _{5,8}_ ";
@@ -118,6 +135,11 @@ namespace imbSCI.DataComplex.trends
 
         }
 
+        /// <summary>
+        /// Gets the trend direction symbolic interpretation
+        /// </summary>
+        /// <param name="direction">The direction.</param>
+        /// <returns></returns>
         public static string GetTrendDirectionSymbols(this measureTrendDirection direction)
         {
             // ▲▼▴▾○◦●■□

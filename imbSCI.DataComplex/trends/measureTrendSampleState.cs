@@ -44,23 +44,32 @@ namespace imbSCI.DataComplex.trends
     using imbSCI.Data.data;
     using imbSCI.Data.interfaces;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [Flags]
     public enum measureTrendSampleState
     {
-        none=0,
         /// <summary>
-        /// The no enough: nema minimuma semplova
+        /// Unknown state of the sampling
+        /// </summary>
+        none = 0,
+        /// <summary>
+        /// Not enough: still waits for enough samples to calculate (<see cref="microMean"/>) mean for micro period
         /// </summary>
         noEnough=1,
         /// <summary>
-        /// The micro mean: dovoljno semplova za mikro mean
+        /// The micro mean: still waits for enough samples to calculate (<see cref="macroMean"/> mean for macro period
         /// </summary>
         microMean=2,
         /// <summary>
-        /// The macro mean: dovoljno semplova za full trending
+        /// The macro mean: has enough samples to calculate both means
         /// </summary>
         macroMean=4,
 
+        /// <summary>
+        /// The spear indicator (smaller period then micro) is ready
+        /// </summary>
         spearMean = 8,
     }
 }

@@ -44,31 +44,80 @@ namespace imbSCI.DataComplex.trends
     using imbSCI.Data.data;
     using imbSCI.Data.interfaces;
 
+    /// <summary>
+    /// Semantic note on current trend of the measure
+    /// </summary>
     [Flags]
     public enum measureTrendDirection
     {
-        none=0,
+        /// <summary>
+        /// Not defined - unknown, disabled or still waiting to accumulate enough sample takes
+        /// </summary>
+        none = 0,
+        /// <summary>
+        /// Has enough sample takes to calculate average/mean
+        /// </summary>
         ready = 1,
-        macroUp =2,
-        microUp=4,
-        macroDown=8,
-        microDown=16,
+        /// <summary>
+        /// The macro up: macro period shows positive change
+        /// </summary>
+        macroUp = 2,
+        /// <summary>
+        /// The micro up: micro period shows positive change
+        /// </summary>
+        microUp = 4,
+        /// <summary>
+        /// The macro down: macro period shows negative change (
+        /// </summary>
+        macroDown = 8,
+        /// <summary>
+        /// The micro down: micro period shows negative change
+        /// </summary>
+        microDown = 16,
+        /// <summary>
+        /// The macro stable: macro period stays within trend margin
+        /// </summary>
         macroStable = 32,
+        /// <summary>
+        /// The micro stable: micro period stays within trend margin
+        /// </summary>
         microStable = 64,
 
+        /// <summary>
+        /// The double stable very stable
+        /// </summary>
         doubleStable = macroStable | microStable,
 
         /// <summary>
-        /// The double up: Macro and Micro Trends are positive
+        /// The stable: very stable - alias to <see cref="doubleStable"/>
+        /// </summary>
+        stable = macroStable | microStable,
+
+        /// <summary>
+        /// The double up: Macro and Micro Trends are positive - stable increase
         /// </summary>
         doubleUp = macroUp | microUp,
+        /// <summary>
+        /// Up: started with incline recently
+        /// </summary>
         up = macroStable | microUp,
-        upDown=macroUp | microDown,
+        /// <summary>
+        /// Up down: sudden surge of the value
+        /// </summary>
+        upDown = macroUp | microDown,
+        /// <summary>
+        /// Down: started with decline in value
+        /// </summary>
         down = macroStable | microDown,
-
+        /// <summary>
+        /// The double down: stable decrease of the value
+        /// </summary>
         doubleDown = macroDown | microDown,
+        /// <summary>
+        /// Down up: sudden surge, after local minimum
+        /// </summary>
         downUp = macroDown | microUp,
-        stable = macroStable | microStable,
+       
         
     }
 }

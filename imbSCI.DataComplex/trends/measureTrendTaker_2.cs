@@ -46,7 +46,7 @@ namespace imbSCI.DataComplex.trends
 
     public class measureTrendTaker<T> : measureTrendTaker where T : class, IPerformanceTake, new()
     {
-        internal Func<T, double> selector { get; set; }
+        public Func<T, double> selector { get; set; }
 
         public measureTrendTaker(Func<T, double> __selector, string __name, string __unit, int __macroSampleSize, int __microSampleSize = -1, int __spearSampleSize = -1, double __zeroMargin = -1):base(__name, __unit, __macroSampleSize, __microSampleSize, __spearSampleSize, __zeroMargin)
         {

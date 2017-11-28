@@ -165,8 +165,8 @@ namespace imbSCI.Core.reporting.render.core
         {
             if (VAR_AllowInstanceToOutputToConsole)
             {
-                throw new NotImplementedException(""); // TODO: replace console control with platform
-              //  aceLog.consoleControl.writeToConsole(content, this, breakLine, writeToConsoleAltColor);
+                screenOutputControl.logToConsoleControl.writeToConsole(content, this, breakLine, writeToConsoleAltColor);
+                
             }
         }
 
