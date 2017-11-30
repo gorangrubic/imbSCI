@@ -48,6 +48,10 @@
     <Compile Include="collection\aceCollection.cs" />
     <Compile Include="collection\aceCollectionLimitSafe.cs" />
     <Compile Include="collection\aceDictionaryCollection.cs" />
+    <Compile Include="collection\graph\graphOperationFlag.cs" />
+    <Compile Include="collection\graph\graphTools.cs" />
+    <Compile Include="collection\graph\IGraphNode.cs" />
+    <Compile Include="collection\graph\NamespaceDoc.cs" />
     <Compile Include="collection\IAceCollection.cs" />
     <Compile Include="collection\IAceDictionaryCollection.cs" />
     <Compile Include="collection\special\circularSelector.cs" />
@@ -194,8 +198,6 @@
   <ItemGroup>
     <None Include="imbSCI.Data.licenseheader" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="data\params\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -40,11 +40,19 @@ namespace imbSCI.Core.data
     public static class PropertyExpressionTools
     {
 
+        public const String EXPRESSION_PATH_DELIMITER = ".";
+
+        /// <summary>
+        /// Resolves the specified expresion <c>path</c>, having <c>host</c> as starting node
+        /// </summary>
+        /// <param name="host">The host object - the starting point for expression path interpretation</param>
+        /// <param name="path">The path.</param>
+        /// <returns></returns>
         public static PropertyExpression GetExpressionResolved(this Object host, String path)
         {
             PropertyExpression output = null;
 
-            List<String> pathPart = imbSciStringExtensions.SplitSmart(path, ".");
+            List<String> pathPart = imbSciStringExtensions.SplitSmart(path, EXPRESSION_PATH_DELIMITER);
             String root = "";
             if (pathPart.Any())
             {
@@ -83,7 +91,7 @@ namespace imbSCI.Core.data
                 Int32 i = pathPart.IndexOf(currentPart);
                 for (int j = i; j < pathPart.Count; j++)
                 {
-                    unp = imbSciStringExtensions.add(unp, pathPart[j], ".");
+                    unp = imbSciStringExtensions.add(unp, pathPart[j], EXPRESSION_PATH_DELIMITER);
                 }
                 output.undesolvedPart = unp;
             }

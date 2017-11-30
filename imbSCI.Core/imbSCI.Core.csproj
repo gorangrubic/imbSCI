@@ -579,8 +579,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="collection\tree\" />
     <Folder Include="syntax\nc\syntaxes\" />
-    <Folder Include="syntax\params\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

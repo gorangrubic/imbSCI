@@ -1,5 +1,5 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="graph.cs" company="imbVeles" >
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="imbTreeQueryFlag.cs" company="imbVeles" >
 //
 // Copyright (C) 2017 imbVeles
 //
@@ -17,7 +17,7 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/. 
 // </copyright>
 // <summary>
-// Project: imbSCI.Data
+// Project: imbSCI.DataComplex
 // Author: Goran Grubic
 // ------------------------------------------------------------------------------------------------------------------
 // Project web site: http://blog.veles.rs
@@ -27,27 +27,49 @@
 // Email: hardy@veles.rs
 // </summary>
 // ------------------------------------------------------------------------------------------------------------------
-using imbSCI.Data.interfaces;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Xml.Serialization;
+using imbSCI.Data;
+using imbSCI.Data.collection.nested;
+using imbSCI.Data.data;
+using imbSCI.Data.enums.reporting;
 
-
-namespace imbSCI.Data.collection.graph
+namespace imbSCI.DataComplex.tree
 {
-    using System.Runtime.CompilerServices;
+    using System;
+
+    #region imbVeles using
+
+    #endregion
 
     /// <summary>
-    /// Universal wrapped-graph-tree structure - the class of the root element in a graph-tree structure
+    /// Flagovi - imbTreeQueryFlag
     /// </summary>
-    /// <typeparam name="TItem">The type of the item.</typeparam>
-    /// <seealso cref="graphWrapgraphWrapNode{TItem}" />
-    public class graph<TItem> : graphWrapNode<TItem> where TItem : IObjectWithName
+    [Flags]
+    public enum imbTreeQueryFlag
     {
-        public graph(TItem __item) : base(__item, null)
-        {
-        }
+        none=0,
 
-        
+        /// <summary>
+        /// vraca listu svih nodova
+        /// </summary>
+        collectAll=1,
+
+        /// <summary>
+        /// Vraca listu svih leafova
+        /// </summary>
+        collectAllLeafs=2,
+
+        /// <summary>
+        /// vraca sve grane
+        /// </summary>
+        collectAllBranches=4,
+
+        /// <summary>
+        /// vraca sve koji su odrdjenog node tipa
+        /// </summary>
+        collectAllOfNodeType=8,
     }
-
-
-    
 }

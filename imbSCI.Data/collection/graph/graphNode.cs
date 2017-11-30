@@ -52,8 +52,31 @@ namespace imbSCI.Data.collection.graph
     /// <seealso cref="aceCommonTypes.interfaces.IObjectWithName" />
     /// <seealso cref="aceCommonTypes.interfaces.IObjectWithPathAndChildren" />
     /// <seealso cref="aceCommonTypes.interfaces.IObjectWithTreeView" />
-    public class graphNode:IEnumerable, IEnumerable<graphNode>, IObjectWithParent, IObjectWithPath, IObjectWithName, IObjectWithPathAndChildren, IObjectWithTreeView
+    public class graphNode: IEnumerable<graphNode>, IGraphNode
     {
+
+
+        public IGraphNode this[String key]
+        {
+            get
+            {
+
+                return children[key] as IGraphNode;
+            }
+            set
+            {
+                if (children.ContainsKey(key))
+                {
+                    children[key] = value as graphNode;
+                }
+                else
+                {
+                    Add(value);
+                }
+            }
+        }
+    
+
         /// <summary>
         /// Gets the depth level, where 1 is the root
         /// </summary>
@@ -142,6 +165,63 @@ namespace imbSCI.Data.collection.graph
         public IEnumerator<IObjectWithPathAndChildren> GetEnumerator()
         {
             return children.Values.GetEnumerator();
+        }
+
+        /// <summary>
+        /// Removes child matching the specified key, on no match returns <c>false</c>
+        /// </summary>
+        /// <param name="key">The key to match children against</param>
+        /// <returns>
+        /// True if a child removed, false if no child matched by the key
+        /// </returns>
+        public bool RemoveByKey(string key)
+        {
+            if (children.ContainsKey(key))
+            {
+                children[key].parent = null;
+                children.Remove(key);
+                return true;
+            } else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Removes all children with matching <see cref="graphNode.name" />
+        /// </summary>
+        /// <param name="keys">The keys to match children with</param>
+        /// <returns>
+        /// Number of child nodes matched and removed
+        /// </returns>
+        public int Remove(IEnumerable<string> keys)
+        {
+            Int32 c = 0;
+            foreach (String k in keys)
+            {
+                if (RemoveByKey(k)) c++;
+            }
+            return c;
+        }
+
+        /// <summary>
+        /// Adds the specified <c>newChild</c>, if its name is not already occupied
+        /// </summary>
+        /// <param name="newChild">The new child.</param>
+        /// <returns></returns>
+        public bool Add(IGraphNode newChild)
+        {
+            if (children.ContainsKey(newChild.name))
+            {
+                return false;
+            } else
+            {
+                graphNode gn = newChild as graphNode;
+                gn.parent = this;
+                children.Add(gn.name, gn);
+                return true;
+            }
+
         }
 
         /// <summary>

@@ -27,7 +27,6 @@
 // Email: hardy@veles.rs
 // </summary>
 // ------------------------------------------------------------------------------------------------------------------
-
 using imbSCI.Core;
 using imbSCI.Core.attributes;
 using imbSCI.Core.enums;

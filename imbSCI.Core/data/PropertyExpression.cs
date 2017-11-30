@@ -38,9 +38,15 @@ namespace imbSCI.Core.data
 
     public class PropertyExpression:graphNode
     {
-        public const String PATH_SPLITER = ".";
+        public const String PATH_SPLITER = PropertyExpressionTools.EXPRESSION_PATH_DELIMITER;
 
         private String _unresolvedPart = "";
+        /// <summary>
+        /// Part of the expression path that left unresolved
+        /// </summary>
+        /// <value>
+        /// The undesolved part.
+        /// </value>
         public String undesolvedPart
         {
             get
@@ -67,6 +73,12 @@ namespace imbSCI.Core.data
             }
         }
 
+        /// <summary>
+        /// Parent expression node
+        /// </summary>
+        /// <value>
+        /// The parent expression.
+        /// </value>
         public PropertyExpression parentExpression
         {
             get
@@ -77,6 +89,12 @@ namespace imbSCI.Core.data
 
 
         private PropertyExpressionStateEnum _state = PropertyExpressionStateEnum.none;
+        /// <summary>
+        /// State of this expression node, indicating if it was solved or not
+        /// </summary>
+        /// <value>
+        /// The state.
+        /// </value>
         public PropertyExpressionStateEnum state
         {
             get
@@ -98,7 +116,7 @@ namespace imbSCI.Core.data
         }
 
         private Type _hostType ;
-        /// <summary> </summary>
+        /// <summary>Type of the host instance at this expression node</summary>
         public Type hostType
         {
             get
@@ -114,7 +132,7 @@ namespace imbSCI.Core.data
 
 
         private Object _host ;
-        /// <summary> </summary>
+        /// <summary>Host instance at this expression node </summary>
         public Object host
         {
             get
@@ -130,7 +148,7 @@ namespace imbSCI.Core.data
 
 
         private PropertyInfo _property ;
-        /// <summary> </summary>
+        /// <summary>Property information about this expression node</summary>
         public PropertyInfo property
         {
             get
@@ -169,6 +187,10 @@ namespace imbSCI.Core.data
             }
         }
 
+        /// <summary>
+        /// Gets the value at this expression node
+        /// </summary>
+        /// <returns></returns>
         public Object getValue()
         {
             if (host == null) return null;
@@ -178,6 +200,10 @@ namespace imbSCI.Core.data
            return property.GetValue(host, null);
         }
 
+        /// <summary>
+        /// Sets the value at this expression node
+        /// </summary>
+        /// <param name="val">The value.</param>
         public void setValue(Object val)
         {
             if (host == null) return;

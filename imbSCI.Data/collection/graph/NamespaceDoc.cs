@@ -1,5 +1,5 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="graph.cs" company="imbVeles" >
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="NamespaceDoc.cs" company="imbVeles" >
 //
 // Copyright (C) 2017 imbVeles
 //
@@ -27,27 +27,27 @@
 // Email: hardy@veles.rs
 // </summary>
 // ------------------------------------------------------------------------------------------------------------------
-using imbSCI.Data.interfaces;
-
-
+using System;
+using System.Linq;
+using System.Collections.Generic;
 namespace imbSCI.Data.collection.graph
 {
+using imbSCI.Data.interfaces;
     using System.Runtime.CompilerServices;
 
-    /// <summary>
-    /// Universal wrapped-graph-tree structure - the class of the root element in a graph-tree structure
-    /// </summary>
-    /// <typeparam name="TItem">The type of the item.</typeparam>
-    /// <seealso cref="graphWrapgraphWrapNode{TItem}" />
-    public class graph<TItem> : graphWrapNode<TItem> where TItem : IObjectWithName
-    {
-        public graph(TItem __item) : base(__item, null)
-        {
-        }
 
-        
+    /// <summary>
+    /// <para>Directed tree-graph data-structures<para>
+    /// </summary>
+    /// <remarks>
+    /// <para>Universal graph-tree data-structures (single-parent), simple <see cref="graphNode"/> and custom type wrapper <see cref="graphWrapNode{TItem}"/><para>
+    /// </remarks>
+    /// <seealso cref="extensions.data.imbPathExtensions" />
+    /// <seealso cref="imbGraphExtensions" />
+    [CompilerGenerated]
+    //[xmlFilter(targetOp.group, "Directed tree-graph data-structures", "Universal graph-tree data-structures (single-parent)")]
+    internal class NamespaceDoc
+    {
     }
 
-
-    
 }

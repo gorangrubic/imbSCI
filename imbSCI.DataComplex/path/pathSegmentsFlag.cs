@@ -1,5 +1,5 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="graph.cs" company="imbVeles" >
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="pathSegmentsFlag.cs" company="imbVeles" >
 //
 // Copyright (C) 2017 imbVeles
 //
@@ -17,7 +17,7 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/. 
 // </copyright>
 // <summary>
-// Project: imbSCI.Data
+// Project: imbSCI.DataComplex
 // Author: Goran Grubic
 // ------------------------------------------------------------------------------------------------------------------
 // Project web site: http://blog.veles.rs
@@ -27,27 +27,30 @@
 // Email: hardy@veles.rs
 // </summary>
 // ------------------------------------------------------------------------------------------------------------------
-using imbSCI.Data.interfaces;
-
-
-namespace imbSCI.Data.collection.graph
+namespace imbSCI.DataComplex.path
 {
-    using System.Runtime.CompilerServices;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Linq;
+    using System.Xml.Serialization;
+    using imbSCI.Data;
+    using imbSCI.Data.data;
+    using imbSCI.Data.enums.reporting;
+
+    #region imbVeles using
+
+    #endregion
 
     /// <summary>
-    /// Universal wrapped-graph-tree structure - the class of the root element in a graph-tree structure
+    /// Flagovi - pathSegmentsFlag
     /// </summary>
-    /// <typeparam name="TItem">The type of the item.</typeparam>
-    /// <seealso cref="graphWrapgraphWrapNode{TItem}" />
-    public class graph<TItem> : graphWrapNode<TItem> where TItem : IObjectWithName
+    public enum pathSegmentsFlag
     {
-        public graph(TItem __item) : base(__item, null)
-        {
-        }
+        none,
 
-        
+        /// <summary>
+        /// Path elementi kao sto su indekseri nece raditi>
+        /// </summary>
+        disableCollectionIndexers,
     }
-
-
-    
 }

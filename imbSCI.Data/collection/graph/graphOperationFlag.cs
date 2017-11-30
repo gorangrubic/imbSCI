@@ -1,5 +1,5 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="graph.cs" company="imbVeles" >
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="graphOperationFlag.cs" company="imbVeles" >
 //
 // Copyright (C) 2017 imbVeles
 //
@@ -27,27 +27,31 @@
 // Email: hardy@veles.rs
 // </summary>
 // ------------------------------------------------------------------------------------------------------------------
-using imbSCI.Data.interfaces;
-
-
+using System;
+using System.Linq;
+using System.Collections.Generic;
 namespace imbSCI.Data.collection.graph
 {
+using imbSCI.Data.interfaces;
     using System.Runtime.CompilerServices;
 
-    /// <summary>
-    /// Universal wrapped-graph-tree structure - the class of the root element in a graph-tree structure
-    /// </summary>
-    /// <typeparam name="TItem">The type of the item.</typeparam>
-    /// <seealso cref="graphWrapgraphWrapNode{TItem}" />
-    public class graph<TItem> : graphWrapNode<TItem> where TItem : IObjectWithName
-    {
-        public graph(TItem __item) : base(__item, null)
-        {
-        }
 
-        
+    /// <summary>
+    /// Options for graph operations
+    /// </summary>
+    [Flags]
+    public enum graphOperationFlag
+    {
+        none=0,
+        /// <summary>
+        /// The merge on same name: when retreating or otherwise changing parent of the <see cref="graphNode"/>, it will merge it's own children with new parent's children
+        /// </summary>
+        mergeOnSameName = 1,
+
+        /// <summary>
+        /// The overwrite on same name: when changing parent of the <see cref="graphNode"/>, it will replace any existing node with the same name
+        /// </summary>
+        overwriteOnSameName = 2,
     }
 
-
-    
 }

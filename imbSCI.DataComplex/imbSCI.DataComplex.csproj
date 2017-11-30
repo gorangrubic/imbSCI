@@ -150,6 +150,21 @@
     <Compile Include="linknode\linknodeBuilder.cs" />
     <Compile Include="linknode\linknodeElement.cs" />
     <Compile Include="linknode\linknodeTools.cs" />
+    <Compile Include="path\dynamicSubMenuType.cs" />
+    <Compile Include="path\pathElementFormat.cs" />
+    <Compile Include="path\pathElementFormatCollection.cs" />
+    <Compile Include="path\pathFilterInstructions.cs" />
+    <Compile Include="path\pathResolveFlag.cs" />
+    <Compile Include="path\pathResolverResult.cs" />
+    <Compile Include="path\pathResolverResultType.cs" />
+    <Compile Include="path\pathSegment.cs" />
+    <Compile Include="path\pathSegments.cs" />
+    <Compile Include="path\pathSegmentsFlag.cs" />
+    <Compile Include="path\resourcePathGenerator.cs" />
+    <Compile Include="path\resourcePathResolver.cs" />
+    <Compile Include="path\resourcePathSegmentResolver.cs" />
+    <Compile Include="path\resourceRelationTypes.cs" />
+    <Compile Include="path\specialSubMenuType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="special\autoTranslationMethod.cs" />
     <Compile Include="special\bagOfWords.cs" />
@@ -214,6 +229,19 @@
     <Compile Include="tf-idf\weightTableSetOperations.cs" />
     <Compile Include="tf-idf\weightTableTermCompiled.cs" />
     <Compile Include="tf-idf\weightTableTermInSetCounter.cs" />
+    <Compile Include="tree\imbTree.cs" />
+    <Compile Include="tree\imbTreeBuildingFlag.cs" />
+    <Compile Include="tree\imbTreeNode.cs" />
+    <Compile Include="tree\imbTreeNodeBlock.cs" />
+    <Compile Include="tree\imbTreeNodeBlockCollection.cs" />
+    <Compile Include="tree\imbTreeNodeBranch.cs" />
+    <Compile Include="tree\imbTreeNodeCollection.cs" />
+    <Compile Include="tree\imbTreeNodeLeaf.cs" />
+    <Compile Include="tree\imbTreeNodeType.cs" />
+    <Compile Include="tree\imbTreeQuery.cs" />
+    <Compile Include="tree\imbTreeQueryFlag.cs" />
+    <Compile Include="tree\imbTreeResolver.cs" />
+    <Compile Include="tree\imbTreeResolverResult.cs" />
     <Compile Include="trends\measureTrend.cs" />
     <Compile Include="trends\measureTrendDirection.cs" />
     <Compile Include="trends\measureTrendSampleState.cs" />
@@ -235,9 +263,13 @@
   <ItemGroup>
     <None Include="imbSCI.DataComplex.licenseheader" />
     <None Include="packages.config" />
+    <None Include="tree\imbTreeElements.dgml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="imbVeles48.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="tree\tree\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

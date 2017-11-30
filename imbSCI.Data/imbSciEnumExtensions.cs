@@ -39,6 +39,42 @@ namespace imbSCI.Data
 
     public static class imbSciEnumExtensions
     {
+
+        public static Boolean ContainsOnly(this IList flags, params Object[] tests)
+        {
+
+            foreach (Object f in flags)
+            {
+                if (!tests.Contains(f)) return false;
+            }
+            return true;
+        }
+
+
+        public static Boolean ContainsAll(this IList flags, params Object[] tests)
+        {
+
+            foreach (Object f in tests)
+            {
+                if (!flags.Contains(f)) return false;
+            }
+            return true;
+        }
+
+
+
+        public static Boolean ContainsOneOrMore(this IList flags, params Object[] tests)
+        {
+
+            foreach (Object f in flags)
+            {
+                if (tests.Contains(f)) return true;
+            }
+            return false;
+        }
+
+
+
         /// <summary>
         /// Gets the enum values list from the same enum flags property
         /// </summary>

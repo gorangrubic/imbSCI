@@ -51,10 +51,14 @@ namespace imbSCI.DataComplex.diagram.builders
     using imbSCI.DataComplex.diagram.core;
     using imbSCI.DataComplex.diagram.enums;
 
+    /// <summary>
+    /// Builds diagram using Type reflection
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public abstract class diagramBuilderForType<T> where T:new()
     {
         /// <summary>
-        /// 
+        /// Limit of depth allowed
         /// </summary>
         public int childDepthLimit { get; set; } = 5;
 
