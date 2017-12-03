@@ -324,8 +324,10 @@ namespace imbSCI.Core.extensions.data
         /// </summary>
         /// <param name="dictionary">The dictionary.</param>
         /// <param name="proposal">The proposal.</param>
+        /// <param name="lastIteration">The last iteration.</param>
         /// <param name="iterationLimit">The iteration limit - when to give up</param>
         /// <returns></returns>
+        /// <exception cref="System.ArgumentOutOfRangeException">iterationLimit - Failed to make name from proposal [" + proposal + "] after [" + c.ToString() + "] iterations!</exception>
         /// <exception cref="Exception">Failed to make name from proposal [" + proposal + "] after [" + c.ToString() + "] iterations!</exception>
         public static string makeUniqueDictionaryName(this IDictionary dictionary, String proposal, ref Int32 lastIteration, Int32 iterationLimit=10)
         {
@@ -346,6 +348,13 @@ namespace imbSCI.Core.extensions.data
         }
 
 
+        /// <summary>
+        /// Converts an IList to List
+        /// </summary>
+        /// <typeparam name="TSource">The type of the source.</typeparam>
+        /// <typeparam name="TTarget">The type of the target.</typeparam>
+        /// <param name="source">The source.</param>
+        /// <returns></returns>
         public static List<TTarget> ConvertIList<TSource, TTarget>(this IList<TSource> source) where TSource:TTarget
         {
             List<TTarget> output = new List<TTarget>();
@@ -353,88 +362,7 @@ namespace imbSCI.Core.extensions.data
             return output;
         }
 
-        /// <summary>
-        /// Logical sum of criterias. All must be true to pass.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="list">The list.</param>
-        /// <param name="criteria">The criteria.</param>
-        /// <returns>
-        ///   <c>true</c> if [contains] [the specified criteria]; otherwise, <c>false</c>.
-        /// </returns>
-        public static Boolean Contains<T>(this IList<T> list, params T[] criteria)
-        {
-            foreach (T t in criteria)
-            {
-                if (!list.Contains(t))
-                {
-                    return false;
-                }
-            }
-            return true;
-
-        }
-
-
-        public static Boolean ContainsAny(this IList target, IEnumerable needles)
-        {
-
-            foreach (Object needle in needles)
-            {
-                if (target.Contains(needle))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-
-        public static Boolean ContainsAny(this IList target, IEnumerable needles, out Object match)
-        {
-
-            foreach (Object needle in needles)
-            {
-                
-                if (target.Contains(needle))
-                {
-                    match = needle;
-                    return true;
-                }
-            }
-            match = null;
-            return false;
-        }
-
-        public static Boolean ContainsAll(this IList target, params Object[] needles)
-        {
-            Boolean output = true;
-            foreach (Object needle in needles)
-            {
-                
-                if (!target.Contains(needle))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-
-        public static Boolean ContainsAll(this IList target, IEnumerable needles)
-        {
-            Boolean output = true;
-            foreach (Object needle in needles)
-            {
-                
-                
-                if (!target.Contains(needle))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
+       
 
 
         public static int CompareKeyValuePairs<T>(KeyValuePair<T, Int32> a, KeyValuePair<T, Int32> b)

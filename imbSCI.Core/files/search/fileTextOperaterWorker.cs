@@ -46,10 +46,21 @@ using imbSCI.Data.data;
 using imbSCI.Data.enums;
 using imbSCI.Data.interfaces;
 using System.Text.RegularExpressions;
+using System.Runtime.CompilerServices;
 
 namespace imbSCI.Core.files.search
 {
-    public class fileTextOperaterWorker
+
+
+
+
+
+
+
+    /// <summary>
+    /// Helper class used for parallelization
+    /// </summary>
+    internal class fileTextOperaterWorker
     {
         private Regex rgex = null;
         private String needle = "";
@@ -58,7 +69,13 @@ namespace imbSCI.Core.files.search
         //private Int32 limitResult = -1;
         //public Int32 ln = 0;
 
-        public fileTextOperaterWorker(IEnumerable<String> __needles, Boolean useRegex = false, RegexOptions regexOptions = RegexOptions.None)
+        /// <summary>
+        /// Instance constructor, when used for multiple needle search
+        /// </summary>
+        /// <param name="__needles">The needles.</param>
+        /// <param name="useRegex">if set to <c>true</c> [use regex].</param>
+        /// <param name="regexOptions">The regex options.</param>
+        internal fileTextOperaterWorker(IEnumerable<String> __needles, Boolean useRegex = false, RegexOptions regexOptions = RegexOptions.None)
         {
             needles.AddRange(__needles);
 
@@ -83,9 +100,15 @@ namespace imbSCI.Core.files.search
             {
                 return (rgex != null) || (rgexes.Any());
             }
-        } 
+        }
 
-        public fileTextOperaterWorker(String __needle, Boolean useRegex = false, RegexOptions regexOptions = RegexOptions.None)
+        /// <summary>
+        /// Instance constructor, when used for single needle search
+        /// </summary>
+        /// <param name="__needle">The needle.</param>
+        /// <param name="useRegex">if set to <c>true</c> [use regex].</param>
+        /// <param name="regexOptions">The regex options.</param>
+        internal fileTextOperaterWorker(String __needle, Boolean useRegex = false, RegexOptions regexOptions = RegexOptions.None)
         {
             needle = __needle;
             if (useRegex) {
@@ -96,7 +119,7 @@ namespace imbSCI.Core.files.search
             }
         }
 
-        public Boolean evaluate(String line, out String match)
+        internal Boolean evaluate(String line, out String match)
         {
             if (needles.Any())
             {
@@ -143,21 +166,7 @@ namespace imbSCI.Core.files.search
            
         }
 
-        //Regex rgex = null;
-        //    
-
-        //    using (var st = File.OpenText(file.FullName))
-        //    {
-        //        Int32 ln = 0;
-        //        while (!st.EndOfStream)
-        //        {
-        //            String line = st.ReadLine();
-
-        //            
-        //        }
-        //        st.Close();
-        //        st.Dispose();
-        //    }
+       
 
     }
 

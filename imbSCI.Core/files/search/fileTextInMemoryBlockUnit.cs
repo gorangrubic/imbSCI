@@ -49,12 +49,16 @@ using imbSCI.Data.interfaces;
 namespace imbSCI.Core.files.search
 {
 
+    /// <summary>
+    /// Internal use. Collection of content lines, separated into blocks.
+    /// </summary>
+    /// <seealso cref="System.Collections.Generic.List{System.String}" />
     public class fileTextInMemoryBlockUnit:List<String>
     {
 
         private Int32 _lineStart;
         /// <summary>
-        /// 
+        /// Index of the line (in original content) when this block starts
         /// </summary>
         public Int32 lineStart
         {
@@ -62,6 +66,10 @@ namespace imbSCI.Core.files.search
             set { _lineStart = value; }
         }
 
+        /// <summary>
+        /// Initializes empty block unit, that starts at <c>__ln</c>
+        /// </summary>
+        /// <param name="__ln">The ln.</param>
         public fileTextInMemoryBlockUnit(Int32 __ln)
         {
             lineStart = __ln;

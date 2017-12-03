@@ -1,0 +1,3205 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>imbACE.Services</name>
+    </assembly>
+    <members>
+        <member name="M:imbACE.Services.aceCommonExtensions.getRandomString(System.Int32)">
+            <summary>
+            Generise random string zadate duzine
+            </summary>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="T:imbACE.Services.aceCommons">
+            <summary>
+            Funkcije koje omogucavaju rad aplikacija zasnovanih na ace platformi
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.aceCommons.commandLineOpsMenu">
+            <summary>
+            static and autoinitiated object
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.aceCommons.platform">
+            <summary>
+            glavni terminal za logovanje itd
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.aceCommons.terminal">
+            <summary>
+            glavni terminal za logovanje itd
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.aceCommons.log(System.String)">
+            <summary>
+            Updates log output with new line
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="P:imbACE.Services.aceCommons.crashReportPath">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:imbACE.Services.aceCommons.unhandledExceptionCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.aceCommons.reportUnhandledException(System.Exception,imbSCI.Core.interfaces.IAceLogable)">
+            <summary>
+            Reports exception that none catched
+            </summary>
+            <param name="e"></param>
+            <param name="client"></param>
+        </member>
+        <member name="T:imbACE.Services.application.aceApplicationBase">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:imbACE.Core.application.IAceApplicationBase" />
+        </member>
+        <member name="M:imbACE.Services.application.aceApplicationBase.doQuit">
+            <summary>
+            Exits the application
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.application.aceApplicationBase.StartApplication(System.String[])">
+            <summary>
+            Starts the application, keeping thread in the loop. Once it returns <c>false</c>, it means user chosen to quit the application
+            </summary>
+            <param name="arguments">The command line arguments.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.application.aceApplicationBase.doApplicationLoop">
+            <summary>
+            Application loop
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:imbACE.Services.application.aceApplicationBase.doKeepRunning">
+            <summary>
+            If true it will keep running
+            </summary>
+            <value>
+              <c>true</c> if [do keep running]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:imbACE.Services.application.aceApplicationBase.log(System.String)">
+            <summary>
+            Logs the specified message: if logger set with logger, if not directly to console
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:imbACE.Services.application.aceApplicationBase.StartUp">
+            <summary>
+            Called on the application start up, once settings are loaded and everything is ready to run
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.application.aceApplicationBase.startUpProcess(System.String[],imbSCI.Core.reporting.ILogBuilder)">
+            <summary>
+            Boot process, before the <see cref="M:imbACE.Services.application.aceApplicationBase.StartUp"/> method is called
+            </summary>
+            <param name="args">The arguments.</param>
+            <param name="_logger">The logger.</param>
+        </member>
+        <member name="M:imbACE.Services.application.aceApplicationBase.deploySettings">
+            <summary>
+            Deploys or redeploys the settings - forcing all parts of the system to update their state according to the settings
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.application.aceApplicationBase.CurrentDomain_ProcessExit(System.Object,System.EventArgs)">
+            <summary>
+            Handles the ProcessExit event of the CurrentDomain control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:imbACE.Services.application.aceApplicationBase.ReactTo_UnhandledException(System.Object,System.UnhandledExceptionEventArgs)">
+            <summary>
+            Handles the UnhandledException event of the ReactTo control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.UnhandledExceptionEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="P:imbACE.Services.application.aceApplicationBase.state">
+            <summary>
+            State of the application
+            </summary>
+            <value>
+            The state.
+            </value>
+        </member>
+        <member name="M:imbACE.Services.application.aceApplicationBase.setAboutInformation">
+            <summary>
+            Sets the author information.
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.application.aceApplicationBase.appAboutInfo">
+            <summary>
+            Information about the application. Used in User Interface and to sign all reports, readme files and exported documents
+            </summary>
+            <value>
+            The author.
+            </value>
+        </member>
+        <member name="P:imbACE.Services.application.aceApplicationBase.logger">
+            <summary>
+            Main log-output for the application
+            </summary>
+            <value>
+            The logger.
+            </value>
+        </member>
+        <member name="P:imbACE.Services.application.aceApplicationBase.description">
+            <summary>
+            Short description of the application
+            </summary>
+            <value>
+            The description.
+            </value>
+        </member>
+        <member name="P:imbACE.Services.application.aceApplicationBase.folder">
+            <summary>
+            Main application folder, where the executable is started
+            </summary>
+            <value>
+            The folder.
+            </value>
+        </member>
+        <member name="P:imbACE.Services.application.aceApplicationBase.folder_plugins">
+            <summary>
+            Folder with plugins
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.application.aceApplicationBase.folder_reports">
+            <summary>
+            Folder with plugins
+            </summary>
+            <value>
+            The folder reports.
+            </value>
+        </member>
+        <member name="P:imbACE.Services.application.aceApplicationBase.folder_resources">
+            <summary>
+            Folder with report themes and other resources
+            </summary>
+            <value>
+            The folder resources.
+            </value>
+        </member>
+        <member name="P:imbACE.Services.application.aceApplicationBase.folder_config">
+            <summary>
+            Folder with configuration files
+            </summary>
+            <value>
+            The folder configuration.
+            </value>
+        </member>
+        <member name="P:imbACE.Services.application.aceApplicationBase.folder_cache">
+            <summary>
+            Folder used by the chache system
+            </summary>
+            <value>
+            The folder cache.
+            </value>
+        </member>
+        <member name="P:imbACE.Services.application.aceApplicationBase.folder_projects">
+            <summary>
+            Folder with saved application projects.
+            </summary>
+            <value>
+            The folder projects.
+            </value>
+        </member>
+        <member name="P:imbACE.Services.application.aceApplicationBase.folder_logs">
+            <summary>
+            Folder with log files and diagnostics
+            </summary>
+            <value>
+            The folder logs.
+            </value>
+        </member>
+        <member name="P:imbACE.Services.application.aceApplicationBase.ataman">
+            <summary>
+            Ataman - watching logs and other folders for oversize
+            </summary>
+            <value>
+            The ataman.
+            </value>
+        </member>
+        <member name="P:imbACE.Services.application.aceApplicationBase.plugins">
+            <summary>
+            Plugins from <see cref="P:imbACE.Services.application.aceApplicationBase.folder_plugins"/> folder
+            </summary>
+            <value>
+            The plugins.
+            </value>
+        </member>
+        <member name="P:imbACE.Services.application.aceApplicationBase.settings">
+            <summary>
+            Base application settings
+            </summary>
+            <value>
+            The settings.
+            </value>
+        </member>
+        <member name="P:imbACE.Services.application.aceApplicationBase.logContent">
+            <summary>
+            Content of the logger
+            </summary>
+            <value>
+            The content of the log.
+            </value>
+        </member>
+        <member name="E:imbACE.Services.application.aceApplicationBase.onEventApplicationLoaded">
+            <summary>Event handler for <see cref="F:imbACE.Core.events.aceEventType.Loaded"/>" at <see cref="F:imbACE.Core.events.aceEventOrigin.Application"/>, to hook reaction method on to. </summary>;
+        </member>
+        <member name="M:imbACE.Services.application.aceApplicationBase.callEventApplicationLoaded(imbACE.Core.events.aceEventGeneralArgs)">
+            <summary> The event Loaded at Application caster, with optional pre-created arguments. </summary>
+            <param name="e">Optional, prefabricated arguments - to provide specific information to particular cause of the event.</param>
+            <remarks>
+              <para>Invokes <see cref="E:imbACE.Services.application.aceApplicationBase.onEventApplicationLoaded"/>, with <see cref="F:imbACE.Core.events.aceEventType.Loaded"/> and <see cref="F:imbACE.Core.events.aceEventOrigin.Application"/></para>
+            </remarks>
+        </member>
+        <member name="E:imbACE.Services.application.aceApplicationBase.onEventApplicationReady">
+            <summary>Event handler for <see cref="F:imbACE.Core.events.aceEventType.Ready"/>" at <see cref="F:imbACE.Core.events.aceEventOrigin.Application"/>, to hook reaction method on to. </summary>;
+        </member>
+        <member name="M:imbACE.Services.application.aceApplicationBase.callEventApplicationReady(imbACE.Core.events.aceEventGeneralArgs)">
+            <summary> The event Ready at Application caster, with optional pre-created arguments. </summary>
+            <param name="e">Optional, prefabricated arguments - to provide specific information to particular cause of the event.</param>
+            <remarks>
+              <para>Invokes <see cref="E:imbACE.Services.application.aceApplicationBase.onEventApplicationReady"/>, with <see cref="F:imbACE.Core.events.aceEventType.Ready"/> and <see cref="F:imbACE.Core.events.aceEventOrigin.Application"/></para>
+            </remarks>
+        </member>
+        <member name="E:imbACE.Services.application.aceApplicationBase.onEventApplicationClosing">
+            <summary>Event handler for <see cref="F:imbACE.Core.events.aceEventType.Closing"/>" at <see cref="F:imbACE.Core.events.aceEventOrigin.Application"/>, to hook reaction method on to. </summary>;
+        </member>
+        <member name="M:imbACE.Services.application.aceApplicationBase.callEventApplicationClosing(imbACE.Core.events.aceEventGeneralArgs)">
+            <summary> The event Closing at Application caster, with optional pre-created arguments. </summary>
+            <param name="e">Optional, prefabricated arguments - to provide specific information to particular cause of the event.</param>
+            <remarks>
+              <para>Invokes <see cref="E:imbACE.Services.application.aceApplicationBase.onEventApplicationClosing"/>, with <see cref="F:imbACE.Core.events.aceEventType.Closing"/> and <see cref="F:imbACE.Core.events.aceEventOrigin.Application"/></para>
+            </remarks>
+        </member>
+        <member name="P:imbACE.Services.application.aceConsoleApplication`1.mainConsole">
+            <summary>
+            Main command console of the application
+            </summary>
+            <value>
+            The main console.
+            </value>
+        </member>
+        <member name="M:imbACE.Services.application.aceConsoleApplication`1.doQuit">
+            <summary>
+            Exits the application
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.application.aceTerminalApplication">
+            <summary>
+            Text User Interface application base class
+            </summary>
+            <remarks>
+            <para>To change currently displayed screen, just set desired screen to the <see cref="P:imbACE.Services.application.aceTerminalApplication.current"/> property.</para>
+            <para>Go back mechanism is already implemented, however if you want to trigger previous screen back call <see cref="M:imbACE.Services.application.aceTerminalApplication.goBack"/> method, do not replace <see cref="P:imbACE.Services.application.aceTerminalApplication.current"/> on your own as it will lead to screen loop.</para>
+            </remarks>
+            <seealso cref="T:imbACE.Services.application.aceTerminalApplicationBase" />
+            <seealso cref="T:imbACE.Services.terminal.core.IRenderReadExecute" />
+        </member>
+        <member name="M:imbACE.Services.application.aceTerminalApplication.initCommonLayout">
+            <summary>
+            Method called by each screen, on its opening
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.application.aceTerminalApplication.goToMainPage">
+            <summary>
+            Goes to main page.
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.application.aceTerminalApplication.goToWelcomePage">
+            <summary>
+            Goes to welcome page.
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.application.aceTerminalApplication.goBack">
+            <summary>
+            Goes back for one screen-step. If there are any screen in the <see cref="P:imbACE.Services.application.aceTerminalApplication.screenHistoryStack"/>
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.application.aceTerminalApplication.doQuit">
+            <summary>
+            Exits the application
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.application.aceTerminalApplication.onScreenOpened(imbACE.Services.terminal.core.IAceTerminalScreen)">
+            <summary>
+            Called as reaction to a screen opening, you may just leave this as an empty method if nothing application-specific should be done
+            </summary>
+            <param name="openedScreen">Reference to the screen that was just opened</param>
+        </member>
+        <member name="M:imbACE.Services.application.aceTerminalApplication.onScreenClosed(imbACE.Services.terminal.core.IAceTerminalScreen)">
+            <summary>
+            Called as reaction to a screen closed, you may just leave this as an empty method if nothing application-specific should be done
+            </summary>
+            <param name="closedScreen">Reference to the screen that was just closed</param>
+        </member>
+        <member name="P:imbACE.Services.application.aceTerminalApplication.screenHistoryStack">
+            <summary>
+            Record on screen changes, excluding the ones caused by <see cref="M:imbACE.Services.application.aceTerminalApplication.goBack"/> method call
+            </summary>
+            <value>
+            The screen history stack.
+            </value>
+        </member>
+        <member name="P:imbACE.Services.application.aceTerminalApplication.current">
+            <summary>
+            The current screen, implements <see cref="P:imbACE.Services.application.aceTerminalApplication.screenHistoryStack"/> management and calls <see cref="M:imbACE.Services.application.aceTerminalApplication.onScreenClosed(imbACE.Services.terminal.core.IAceTerminalScreen)"/> and <see cref="M:imbACE.Services.application.aceTerminalApplication.onScreenOpened(imbACE.Services.terminal.core.IAceTerminalScreen)"/> methods
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.application.aceTerminalApplication.isGoBackEnabled">
+            <summary>
+            If <c>true</c>, currently it is enabled to perform <see cref="M:imbACE.Services.application.aceTerminalApplication.goBack"/> 
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.application.aceTerminalApplication.doApplicationLoop">
+            <summary>
+            Interface refresh loop
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:imbACE.Services.application.aceTerminalApplication.platform">
+            <summary>
+            Reference to the currently active output platform
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.application.aceTerminalApplication.StartUp">
+            <summary>
+            Called on the application start up, once settings are loaded and everything is ready to run
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.application.aceTerminalApplication.render(imbACE.Services.platform.interfaces.IPlatform,System.Boolean)">
+            <summary>
+            #1 Renders the content
+            </summary>
+            <param name="platform">The platform on which the rendering should be performed</param>
+            <param name="doClearScreen">if set to <c>true</c> it will clear screen.</param>
+        </member>
+        <member name="M:imbACE.Services.application.aceTerminalApplication.read(imbACE.Services.textBlocks.input.inputResultCollection)">
+            <summary>
+            #2 Reads the input
+            </summary>
+            <param name="__results">todo: describe __results parameter on read</param>
+        </member>
+        <member name="M:imbACE.Services.application.aceTerminalApplication.execute(imbACE.Services.textBlocks.input.inputResultCollection)">
+            <summary>
+            #3 Forwards the input result to the <see cref="P:imbACE.Services.application.aceTerminalApplication.current"/> screen
+            </summary>
+            <param name="__inputs">todo: describe __inputs parameter on execute</param>
+        </member>
+        <member name="T:imbACE.Services.application.aceTerminalApplicationBase">
+            <summary>
+            Aplikacija/GUI preko terminala
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.application.aceTerminalApplicationBase.doUpdateInterface">
+            <summary>
+            Azurira dinamicke komponente interfejsa
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.application.aceTerminalApplicationBase.headerLineLeftContent">
+            <summary>
+            Sadrzaj koji treba da se prikaze u levom cosku
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.application.aceTerminalApplicationBase.headerLineRightContent">
+            <summary>
+            Sadrzaj koji treba da se prikaze u desnom cosku
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.application.aceTerminalApplicationBase.statusLineLeftContent">
+            <summary>
+            Sadrzaj statusne linije - levo
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.application.aceTerminalApplicationBase.statusLineRightContent">
+            <summary>
+            Sadrzaj statusne linije desno
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.application.aceTerminalApplicationBase.footerLineRightContent">
+            <summary>
+            Bindable property
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.application.aceTerminalApplicationBase.footerLineLeftContent">
+            <summary>
+            Bindable property
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.application.aceTerminalApplicationBase.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="T:imbACE.Services.platform.consolePlatform">
+            <summary>
+            Platforma za konzolnu aplikaciju
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.platform.consolePlatform.zone">
+            <summary>
+            referenca prema trenutnoj zoni delovanja
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.platform.consolePlatform.deploySize">
+            <summary>
+            Primenjuje default podesavanja
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.platform.consolePlatform.setWindowSize(imbSCI.Core.reporting.zone.cursorZoneSpatialPreset,System.Boolean)">
+            <summary>
+            Sets the size of the window.
+            </summary>
+            <param name="preset">The preset.</param>
+            <param name="doAutoDeploySize">if set to <c>true</c> [do automatic deploy size].</param>
+        </member>
+        <member name="M:imbACE.Services.platform.consolePlatform.setWindowSize(imbACE.Core.enums.platform.windowSize,System.Boolean)">
+            <summary>
+            Sets the size of the window.
+            </summary>
+            <param name="size">The size.</param>
+            <param name="doAutoDeploySize">if set to <c>true</c> [do automatic deploy size].</param>
+        </member>
+        <member name="M:imbACE.Services.platform.consolePlatform.render(System.String,System.Int32,System.Int32)">
+            <summary>
+            Prikazuje prosledjeni sadrzaj na datim koordinatama
+            </summary>
+            <param name="content">Jednolinijski sadrzaj</param>
+            <param name="x">X koordinata, ako je izostavljena onda je 0</param>
+            <param name="y">Ako ostane -1 onda pise u trenutnom redu</param>
+        </member>
+        <member name="M:imbACE.Services.platform.consolePlatform.render(System.Collections.Generic.IEnumerable{System.String},System.Int32,System.Int32)">
+            <summary>
+            Renders the specified content.
+            </summary>
+            <param name="content">The content.</param>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+        </member>
+        <member name="M:imbACE.Services.platform.consolePlatform.clear">
+            <summary>
+            Brise ceo do sadasnji izlaz
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.platform.consolePlatform.beep(System.Int32,System.Int32)">
+            <summary>
+            Beeps using <see cref="!:terminal.aceTerminalInput.doBeepViaConsole(int, int)"/> since it is OS safe
+            </summary>
+            <param name="frequency">u hz</param>
+            <param name="duration">u mili sekundama</param>
+        </member>
+        <member name="M:imbACE.Services.platform.consolePlatform.title(System.String)">
+            <summary>
+            Postavlja naslov
+            </summary>
+            <param name="title">Naslov koji treba da se ispise</param>
+        </member>
+        <member name="M:imbACE.Services.platform.consolePlatform.setColors(imbACE.Core.enums.platform.platformColorName,imbACE.Core.enums.platform.platformColorName,System.Boolean)">
+            <summary>
+            Postavlja boje za dalji izlaz
+            </summary>
+            <param name="foreColor">Prednja boja. Ako je .none onda resetuje boje</param>
+            <param name="backColor">Boja pozadine</param>
+            <param name="doInvert"> </param>
+        </member>
+        <member name="M:imbACE.Services.platform.consolePlatform.read(imbACE.Services.platform.input.textInputResult,imbACE.Core.enums.platform.inputReadMode,imbSCI.Core.reporting.zone.selectZone,System.Object)">
+            <summary>
+            Citanje pomocu zone objekta
+            </summary>
+            <param name="mode">Vrsta citanja</param>
+            <param name="zone">Zona</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.platform.consolePlatform.getWindowSize">
+            <summary>
+            Vraca dimenzije trenutnog prozora
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.platform.consolePlatform.moveCursor(System.Int32,System.Int32)">
+            <summary>
+            Pomera kursor na zadatu koordinatu
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:imbACE.Services.platform.consolePlatformExtensions.ClearZoneAndSet(imbSCI.Core.reporting.zone.cursorZone)">
+            <summary>
+            Clears the zone and sets cursor at innerHeight position -- and returns cursor position before the call
+            </summary>
+            <param name="zone">The zone.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.platform.consolePlatformExtensions.cursorToZone(imbSCI.Core.reporting.zone.selectZone)">
+            <summary>
+            Postavlja kursor unutar zone, vraca TRUE ako je morao da intervenise
+            </summary>
+            <param name="zone"></param>
+            <returns></returns>
+        </member>
+        <member name="F:imbACE.Services.platform.consolePlatformExtensions.readLineValidationMode.ordinalNumber">
+            <summary>
+            Bilo koja celobrojna vrednost
+            </summary>
+        </member>
+        <member name="F:imbACE.Services.platform.consolePlatformExtensions.readLineValidationMode.decimalNumber">
+            <summary>
+            Bilo koja decimalna vrednost
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.platform.consolePlatformExtensions.ReadLine(System.Object,imbSCI.Core.reporting.zone.selectZone,System.Type)">
+            <summary>
+            Cita liniju u skladu sa dodeljenom zonom delovanja
+            </summary>
+            <param name="val">Vrednost koja se edituje</param>
+            <param name="zone">Zona editovanja</param>
+            <param name="valType">Tip vrednosti</param>
+            <returns>Nova vrednost ako ENTER ili stara vrednost ako ESC</returns>
+        </member>
+        <member name="T:imbACE.Services.platform.core.platformBase">
+            <summary>
+            Osnovna klasa koja definise UI platformu
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.platform.core.platformBase.render(System.String,System.Int32,System.Int32)">
+            <summary>
+            Prikazuje prosledjeni sadrzaj na datim koordinatama
+            </summary>
+            <param name="content">Jednolinijski sadrzaj</param>
+            <param name="x">X koordinata, ako je izostavljena onda je 0</param>
+            <param name="y">Ako ostane -1 onda pise u trenutnom redu</param>
+        </member>
+        <member name="M:imbACE.Services.platform.core.platformBase.clear">
+            <summary>
+            Brise ceo do sadasnji izlaz
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.platform.core.platformBase.beep(imbACE.Core.sound.beep.beepRoleType)">
+            <summary>
+            Pusta zvuk
+            </summary>
+            <param name="bRoleType"></param>
+        </member>
+        <member name="M:imbACE.Services.platform.core.platformBase.beep(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="frequency">u hz</param>
+            <param name="duration">u mili sekundama</param>
+        </member>
+        <member name="M:imbACE.Services.platform.core.platformBase.title(System.String)">
+            <summary>
+            Postavlja naslov
+            </summary>
+            <param name="title">Naslov koji treba da se ispise</param>
+        </member>
+        <member name="M:imbACE.Services.platform.core.platformBase.read(imbACE.Services.platform.input.textInputResult,imbACE.Core.enums.platform.inputReadMode,imbSCI.Core.reporting.zone.selectZone,System.Object)">
+            <summary>
+            Cita odredjenu zonu
+            </summary>
+            <param name="mode">Vrste citanja</param>
+            <param name="x">-1 koristi trenutni</param>
+            <param name="y">-1 koristi trenutni</param>
+            <param name="w">vise od 0 znaci citanje 1D ili 2D</param>
+            <param name="h">vise od 0 znaci citanje 2D bloka</param>
+            <returns>Popunjen input result</returns>
+        </member>
+        <member name="M:imbACE.Services.platform.core.platformBase.getWindowSize">
+            <summary>
+            Vraca dimenzije trenutnog prozora
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.platform.core.platformBase.moveCursor(System.Int32,System.Int32)">
+            <summary>
+            Pomera kursor na zadatu koordinatu
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="T:imbACE.Services.platform.crossPlatform">
+            <summary>
+            Universal layer for OS sensitive/specific operations
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.platform.input.textInputBase">
+            <summary>
+            Osnova za sve klase koje mogu da citaju rezultat
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.platform.input.textInputBase.init">
+            <summary>
+            Vrsi resetovanje/pripremu inputa za novo koriscenje, obrisace currentOutput
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.platform.input.textInputBase.currentOutput">
+            <summary>
+            Trenutni rezultat
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.platform.input.textInputBase.doShowTitle">
+            <summary>
+            Da li prikazuje naslov inputa
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.platform.input.textInputBase.doShowRemarks">
+            <summary>
+            Da li da prikazuje komentar - trenutna vrednost / selektovana opcija
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.platform.input.textInputBase.doShowValueRemarks">
+            <summary>
+            Da li prikazuje komentar na trenutnu vrednost / selektovanu opcijua
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.platform.input.textInputBase.doShowInstructions">
+            <summary>
+            Da li da prikazuje instrukcije> npr. izaberi opciju strelicama, potvrdi enter
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.platform.input.textInputBase.read(imbACE.Services.textBlocks.input.inputResultCollection)">
+            <summary>
+            #2 Očitava ulaz
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.platform.input.textInputBase.read(imbACE.Services.platform.interfaces.IPlatform,imbACE.Services.platform.input.textInputResult)">
+            <summary>
+            iscitava jednu iteraciju 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:imbACE.Services.platform.input.textInputBase.exitPolicy">
+            <summary>
+            nacin zatvaranja inputa
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.platform.input.textInputBase.applyReading(imbACE.Services.platform.interfaces.IPlatform,imbACE.Services.platform.input.textInputResult)">
+            <summary>
+            Primena procitanog unosa
+            </summary>
+            <param name="platform"></param>
+            <param name="__currentOutput"></param>
+            <returns></returns>
+        </member>
+        <member name="T:imbACE.Services.platform.input.textInputResult">
+            <summary>
+            Klasa koja sadr�i odgovor na text input
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.platform.input.textInputResult.meta">
+            <summary>
+            Kolekcija razlicitih meta objekata
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.platform.input.textInputResult.consoleKey">
+            <summary>
+            referenca prema konzolnom tasteru koji je pritisnut
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.platform.input.textInputResult.result">
+            <summary>
+            Primarni rezultat inputa
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.platform.input.textInputResult.section">
+            <summary>
+            section koji je inicirao ovo citanje
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.platform.input.textInputResult.doKeepReading">
+            <summary>
+            da li da nastavlja sa citanjem [true] ili je zavrsio [false]
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.platform.interfaces.IPlatform.deploySize">
+            <summary>
+            Primenjuje default podesavanja
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.platform.interfaces.IPlatformBase.render(System.String,System.Int32,System.Int32)">
+            <summary>
+            Prikazuje prosledjeni sadrzaj na datim koordinatama
+            </summary>
+            <param name="content">Jednolinijski sadrzaj</param>
+            <param name="x">X koordinata, ako je izostavljena onda je 0</param>
+            <param name="y">Ako ostane -1 onda pise u trenutnom redu</param>
+        </member>
+        <member name="M:imbACE.Services.platform.interfaces.IPlatformBase.setWindowSize(imbACE.Core.enums.platform.windowSize,System.Boolean)">
+            <summary>
+            Sets the size of the window.
+            </summary>
+            <param name="size">The size.</param>
+            <param name="doAutoDeploySize">if set to <c>true</c> [do automatic deploy size].</param>
+        </member>
+        <member name="M:imbACE.Services.platform.interfaces.IPlatformBase.setWindowSize(imbSCI.Core.reporting.zone.cursorZoneSpatialPreset,System.Boolean)">
+            <summary>
+            Sets the size of the window.
+            </summary>
+            <param name="preset">The preset.</param>
+            <param name="doAutoDeploySize">if set to <c>true</c> [do automatic deploy size].</param>
+        </member>
+        <member name="M:imbACE.Services.platform.interfaces.IPlatformBase.clear">
+            <summary>
+            Brise ceo do sadasnji izlaz
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.platform.interfaces.IPlatformBase.beep(imbACE.Core.sound.beep.beepRoleType)">
+            <summary>
+            Pusta zvuk
+            </summary>
+            <param name="bRoleType"></param>
+        </member>
+        <member name="M:imbACE.Services.platform.interfaces.IPlatformBase.title(System.String)">
+            <summary>
+            Postavlja naslov
+            </summary>
+            <param name="title">Naslov koji treba da se ispise</param>
+        </member>
+        <member name="M:imbACE.Services.platform.interfaces.IPlatformBase.setColors(imbACE.Core.enums.platform.platformColorName,imbACE.Core.enums.platform.platformColorName,System.Boolean)">
+            <summary>
+            Postavlja boje za dalji izlaz
+            </summary>
+            <param name="foreColor">Prednja boja. Ako je .none onda resetuje boje</param>
+            <param name="backColor">Boja pozadine</param>
+            <param name="doInvert"> </param>
+        </member>
+        <member name="M:imbACE.Services.platform.interfaces.IPlatformBase.read(imbACE.Services.platform.input.textInputResult,imbACE.Core.enums.platform.inputReadMode,imbSCI.Core.reporting.zone.selectZone,System.Object)">
+             <summary>
+             Cita odredjenu zonu
+             </summary>
+             <param name="mode">Vrste citanja</param>
+             <param name="x">-1 koristi trenutni</param>
+             <param name="y">-1 koristi trenutni</param>
+             <param name="w">vise od 0 znaci citanje 1D ili 2D</param>
+             <param name="h">vise od 0 znaci citanje 2D bloka</param>
+             <returns>Popunjen input result</returns>
+            textInputResult read(textInputResult currentOutput, inputReadMode mode, Int32 x=-1, Int32 y=-1, Int32 w = 0, Int32 h = 0);
+            <summary>
+            Citanje pomocu zone objekta
+            </summary>
+            <param name="mode">Vrsta citanja</param>
+            <param name="zone">Zona</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.platform.interfaces.IPlatformBase.getWindowSize">
+            <summary>
+            Vraca dimenzije trenutnog prozora
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.platform.interfaces.IPlatformBase.moveCursor(System.Int32,System.Int32)">
+            <summary>
+            Pomera kursor na zadatu koordinatu
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="T:imbACE.Services.platform.windows.displayManager">
+            <summary>
+            Upravlja podešavanjima prikaza -- pozicioniranjem ekrana, koristi WinApi
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.process.freeRunnerModule">
+            <summary>
+            ContextualModule [freeRunnerModule] - 
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:imbACE.Services.process.freeRunnerModule.callProcessFeedback(System.String,imbACE.Core.core.logType)">
+            <summary>
+            Event invoker za ProcessFeedback
+            </summary>
+            <remarks>
+            Aktivira se kada dodje do bilo koje promene u statusu procesa - tj kada dodje ErrorOutput ili StandardOutput
+            Ovaj method pozvati kada treba da se pokrene izvrsavanje dogadjaja
+            </remarks>
+            <example>
+            Primer poziva ka izvrsenju eventa - bez argumenata
+            <code>
+            freeRunnerModule.callProcessFeedback();
+            </code>
+            </example>
+            <example>
+            Primer poziva ka izvrsenju eventa - sa argumentom
+            <code>
+            freeRunnerModule.callProcessFeedback(this, null);
+            </code>
+            </example>
+            <param name="sender">Objekat koji je pozvao izvrsavanje</param>
+            <param name="e">Argumenti dogadjaja</param>
+        </member>
+        <member name="E:imbACE.Services.process.freeRunnerModule.onProcessFeedback">
+            <summary>
+            Event handler za ProcessFeedback
+            </summary>
+            <remarks>
+            Aktivira se kada dodje do bilo koje promene u statusu procesa - tj kada dodje ErrorOutput ili StandardOutput
+            Na ovaj property vezati sve dogadjaje koji treba da se izvrse
+            </remarks>
+            <example>
+            Primer vezivanja hendlera:
+            <code>
+            freeRunnerModule.onProcessFeedback += new RoutedEventHandler(nazivMetoda);
+            </code>
+            </example>
+        </member>
+        <member name="T:imbACE.Services.process.freeRunnerModule.freeRunnerOperation">
+            <summary>
+            ENUM za sve dostupne operacije
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.process.freeRunnerModule.freeRunnerOperationExecute(imbACE.Services.process.freeRunnerModule.freeRunnerOperation,imbACE.Services.process.freeRunnerModule,System.Collections.ObjectModel.ObservableCollection{imbACE.Services.process.freeRunnerModule},System.Object)">
+            <summary>
+            Izvrsava operaciju nad ITEM-om
+            </summary>
+            <param name="toExecute">Operacija koja treba da se izvrsi</param>
+            <param name="__item">Objekat koji je prosledjen prilikom poziva: moze biti editor ili objekat - ali treba da bude trenutno selektovani objekat</param>
+            <param name="__collection">Kolekcija ciji je item clan</param>
+            <param name="parentObject">Parent objekat u odnosu na selektovan item</param>
+        </member>
+        <member name="M:imbACE.Services.process.freeRunnerModule.freeRunnerOperationExecute(imbACE.Services.process.freeRunnerModule.freeRunnerOperation)">
+            <summary>
+            Izvrsava operaciju za ovu instancu
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.process.freeRunnerModule.useCustomWorkdirectory">
+            <summary>
+            Da li koristi custom work directory
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.process.freeRunnerModule.usePathFolderForHomeDirectory">
+            <summary>
+            Da li da koristi path folder za radni direktorijum?
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.process.freeRunnerModule.hasProcess">
+            <summary>
+            Proverava da li ima aktivan process
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.process.freeRunnerModule.homeDirectory">
+            <summary>
+            Path for home directory
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.process.freeRunnerModule.activeProcess">
+            <summary>
+            Aktivni proces
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.process.freeRunnerModule.lastResponse">
+            <summary>
+            Poslednji odgovor usled izvrsavanja
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.process.freeRunnerModule.toolToRun">
+            <summary>
+            Kojim alatom da poziva izvrsenje
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.process.freeRunnerModule.useSchellExecute">
+            <summary>
+            Da li da prosledi schell execute
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.process.freeRunnerModule.arguments">
+            <summary>
+            Arguments to pass
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.process.freeRunnerModule.path">
+            <summary>
+            Path to run
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.process.freeRunnerModule.autoKillExistingProcess">
+            <summary>
+            Da li automatski ukida prethodni process
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.process.freeRunnerModule.StandardMode">
+            <summary>
+            Nacin na koji upravlja standard outputom
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.process.freeRunnerModule.ErrorMode">
+            <summary>
+            Nacin na koji upravlja error outputom
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.process.freeRunnerModule.creationTime">
+            <summary>
+            Vreme kada je instanciran ovaj modul - treba zbog pracenja procesa
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.process.freeRunnerModule.showOnlyNewProcesses">
+            <summary>
+            Proces monitoring pokazuje samo nove procese
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.process.freeRunnerModule.processes">
+            <summary>
+            Lista svih procesa koje vidi
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.process.freeRunnerModule.selectedProcess">
+            <summary>
+            Process koji je selektovan u datagridu
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.process.freeRunnerModule.processNameFilter">
+            <summary>
+            Filter za pretragu procesa
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.process.freeRunnerModule.doProcessScan">
+            <summary>
+            Da li sprovodi skeniranje procesa
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.process.freeRunnerModule.doShowProcessWithSameName">
+            <summary>
+            Da li da prikazuje procese sa istim imenom - iako su kreirani ranije
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.process.run">
+            <summary>
+            Klasa za pokretanje eksternih aplikacija
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.process.run.getOutputExtensionFor(imbSCI.Data.enums.externalTool)">
+            <summary>
+            Vraca preporucenu ekstenziju za file koji se otvara alatom
+            </summary>
+            <param name="tool"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.process.run.startApplication(System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            Pokrece fajl/aplikaciju
+            </summary>
+            <param name="_path"></param>
+            <param name="_lineArguments"></param>
+        </member>
+        <member name="M:imbACE.Services.process.run.openWithApplication(imbSCI.Data.enums.externalTool,System.String,System.String)">
+            <summary>
+            Snima prosledjen sadrzaj i otvara ga u odabranoj aplikaciji
+            </summary>
+            <param name="whatApplication">Koja aplikacija</param>
+            <param name="content">String sadrzaj koji treba da otvori</param>
+            <param name="contentName">Filename ili cela putanja</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.process.run.startApplication(imbSCI.Data.enums.externalTool,System.String)">
+            <summary>
+            Pokrece eksterni alat i u njemu otvara prosledjenu putanju
+            </summary>
+            <param name="filePathOrUrl"></param>
+            <param name="whatApplication"></param>
+        </member>
+        <member name="T:imbACE.Services.terminal.aceTerminal">
+            <summary>
+            Log output and Console application textual UI
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.terminal.aceTerminal.platform">
+            <summary>
+            referenca prema platformi
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.terminal.aceTerminal.logSetup(System.Boolean,System.Boolean,System.String)">
+            <summary>
+            Osnovna podesavanja 
+            </summary>
+            <param name="_toConsole"></param>
+            <param name="_autosave"></param>
+            <param name="__filename"></param>
+        </member>
+        <member name="P:imbACE.Services.terminal.aceTerminal.path_logoutput">
+            <summary>
+            putanja prema izlazu log-a. Ukoliko nije definisano automatski postavlja vrednost
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.terminal.aceTerminal.doAutoSaveLog">
+            <summary>
+            da li da automatski snima log
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.terminal.aceTerminal.doToConsole">
+            <summary>
+            Da li sve da salje na konzolu --- ne vazi ako je postavljen onNewLog event 
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.terminal.aceTerminal.log(System.String)">
+            <summary>
+            Belezi log liniju
+            </summary>
+            <param name="_message"></param>
+        </member>
+        <member name="P:imbACE.Services.terminal.aceTerminal.logContent">
+            <summary>
+            Sadrzaj log ova
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.terminal.aceTerminalEvent">
+            <summary>
+            Delegat eventa 
+            </summary>
+            <param name="sender">Objekat koji je izazvao dogadjaj</param>
+            <param name="args">Objekat sa argumentima</param>
+        </member>
+        <member name="T:imbACE.Services.terminal.aceTerminalEventArgs">
+            <summary>
+            Objekat koji opisuje dogadjaj koji se desio objektu: aceTerminal
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.terminal.aceTerminalEventArgs.message">
+            <summary>
+            poruka koja je logovana
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.terminal.aceTerminalEventType">
+            <summary>
+            Tip dogadjaja - za objekat: aceTerminal
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.terminal.aceTerminalInput">
+            <summary>
+            Klasa za prikupljanje ulaza preko terminala (command line aplikacija)
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.terminal.aceTerminalInput.editCollection(imbACE.Services.terminal.aceTerminal,System.Collections.IList,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            VRaca True ako treba ponovo da se prikaze 
+            </summary>
+            <param name="console"></param>
+            <param name="collection"></param>
+            <param name="collectionName"></param>
+            <param name="itemNameProperty"></param>
+            <param name="addItem"></param>
+            <param name="deleteItem"></param>
+            <param name="editItem"></param>
+            <param name="editCollectionSettings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.terminal.aceTerminalInput.editSettings(System.Object,System.String,System.String,imbSCI.Core.reporting.ILogBuilder)">
+            <summary>
+            Podesava vrednosti celog objekta - bez nasledjenih
+            </summary>
+            <param name="settings">The settings.</param>
+            <param name="instanceName">Name of the instance.</param>
+            <param name="parentName">Name of the parent.</param>
+            <param name="loger">The loger.</param>
+        </member>
+        <member name="M:imbACE.Services.terminal.aceTerminalInput.askForEnum``1(System.String,``0,imbSCI.Core.reporting.ILogBuilder)">
+            <summary>
+            Asks for enum.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="question">The question.</param>
+            <param name="defans">The defans.</param>
+            <param name="loger">The loger.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.terminal.aceTerminalInput.askForOption(System.String,System.Object,imbSCI.Core.reporting.ILogBuilder)">
+            <summary>
+            Asks for option.
+            </summary>
+            <param name="question">The question.</param>
+            <param name="defans">The defans.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.terminal.aceTerminalInput.askForString(System.String,System.String,imbSCI.Core.reporting.ILogBuilder)">
+            <summary>
+            Asks for string.
+            </summary>
+            <param name="question">The question.</param>
+            <param name="defans">The defans.</param>
+            <param name="loger">The loger.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.terminal.aceTerminalInput.askYesNo(System.String,System.Boolean,imbSCI.Core.reporting.ILogBuilder)">
+            <summary>
+            Postavlja Y/N pitanje korisniku. Ako pritisne neorgovarajuc taster - postavice pitanje ponovo
+            </summary>
+            <param name="question">The question.</param>
+            <param name="defans">if set to <c>true</c> [defans].</param>
+            <returns>TRUE on yes</returns>
+        </member>
+        <member name="M:imbACE.Services.terminal.aceTerminalInput.doBeepViaConsole(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Does the beep via <see cref="M:System.Console.Beep(System.Int32,System.Int32)"/> returns true if OS supported it, <c>false</c> if the OS has no beep support (i.e. WinXP and Vista 64bit)
+            </summary>
+            <param name="hz">The hz.</param>
+            <param name="ms">The ms.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.terminal.aceTerminalInput.askPressAnyKeyInTime(System.String,System.Boolean,System.Int32,System.Boolean,System.Int32)">
+            <summary>
+            Asks user to confirm action by pressing any button except Escape.
+            </summary>
+            <param name="question">The question/message to show</param>
+            <param name="defAns">Boolean result for user inaction, it will return opposite value if something was pressed.</param>
+            <param name="timeout">In seconds, time given for reaction.</param>
+            <param name="doBeep">if set to <c>true</c> it will beep in last 3 seconds.</param>
+            <param name="doBeepInLast">if <c>doBeep</c> is true then it will beep in last specified seconds</param>
+            <returns>
+            Returns <c>defAns</c> if no action by user, returns !<c>defAns</c> in other case
+            </returns>
+        </member>
+        <member name="M:imbACE.Services.terminal.aceTerminalInput.askAnyKeyInTime(System.String,System.ConsoleKey,System.Int32,System.Boolean,System.Int32)">
+            <summary>
+            User is prompted to press a key in defined time gap. On timeout, default option is selected
+            </summary>
+            <param name="question">The question.</param>
+            <param name="defAns">The definition ans.</param>
+            <param name="timeout">The timeout.</param>
+            <param name="doBeep">if set to <c>true</c> [do beep].</param>
+            <param name="doBeepInLast">The do beep in last.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbACE.Services.terminal.aceTerminalMenu.metaInt">
+            <summary>
+            Meta broj
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.terminal.core.aceTerminalScreenBase">
+            <summary>
+            Osnova mehanizma za renderovanje konzolarnog ekrana
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.terminal.core.aceTerminalScreenBase.title">
+            <summary>
+            Screen title
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.terminal.core.aceTerminalScreenBase.layout">
+            <summary>
+            Screen layout
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.terminal.core.aceTerminalScreenBase.init(imbACE.Services.platform.interfaces.IPlatform)">
+            <summary>
+            #0 Called when the screen is constructed
+            </summary>
+            <param name="platform"> </param>
+        </member>
+        <member name="M:imbACE.Services.terminal.core.aceTerminalScreenBase.refresh">
+            <summary>
+            Refresh call for dynamic part of content or applicative logic
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.terminal.core.aceTerminalScreenBase.read(imbACE.Services.textBlocks.input.inputResultCollection)">
+            <summary>
+            Reads the user input
+            </summary>
+            <param name="__results">The results.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.terminal.core.aceTerminalScreenBase.execute(imbACE.Services.textBlocks.input.inputResultCollection)">
+            <summary>
+            Executes the screen-specific logic
+            </summary>
+            <param name="__inputs">The inputs.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.terminal.core.aceTerminalScreenBase.render(imbACE.Services.platform.interfaces.IPlatform,System.Boolean)">
+            <summary>
+            #1 Renders the content
+            </summary>
+            <param name="platform">The platform on which the rendering should be performed</param>
+            <param name="doClearScreen">if set to <c>true</c> it will clear screen.</param>
+        </member>
+        <member name="T:imbACE.Services.terminal.core.aceTerminalScreenBase`1">
+            <summary>
+            Base class for an Terminal Application screen
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:imbACE.Services.terminal.core.aceTerminalScreenBase`1.render(imbACE.Services.platform.interfaces.IPlatform,System.Boolean)">
+            <summary>
+            #2 Očitava ulaz -- reseno na nivou aceTErminalScreenBase
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.terminal.core.IAceTerminalScreen">
+            <summary>
+            Opsti interfejs prema terminalnom ekranu
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.terminal.core.IAceTerminalScreen.title">
+            <summary>
+            Screen title
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.terminal.core.IAceTerminalScreen.layout">
+            <summary>
+            Screen layout
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.terminal.core.IAceTerminalScreen.layoutFooterMessage">
+            <summary>
+            porukaZaFooter
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.terminal.core.IAceTerminalScreen.layoutTitleMessage">
+            <summary>
+            Message content for layout title
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.terminal.core.IAceTerminalScreen.layoutStatusMessage">
+            <summary>
+            Message for status line
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.terminal.core.IAceTerminalScreen.refresh">
+            <summary>
+            Refresh call for dynamic part of content or applicative logic
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.terminal.core.IAceTerminalScreen.read(imbACE.Services.textBlocks.input.inputResultCollection)">
+            <summary>
+            Reads the user input
+            </summary>
+            <param name="__results">The results.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.terminal.core.IAceTerminalScreen.execute(imbACE.Services.textBlocks.input.inputResultCollection)">
+            <summary>
+            Executes the screen-specific logic
+            </summary>
+            <param name="__inputs">The inputs.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.terminal.core.IAceTerminalScreen.render(imbACE.Services.platform.interfaces.IPlatform,System.Boolean)">
+            <summary>
+            #1 Renders the content
+            </summary>
+            <param name="platform">The platform on which the rendering should be performed</param>
+            <param name="doClearScreen">if set to <c>true</c> it will clear screen.</param>
+        </member>
+        <member name="M:imbACE.Services.terminal.core.IExecute.execute(imbACE.Services.textBlocks.input.inputResultCollection)">
+            <summary>
+            #3 Vrsi rad nakon sto je obradjen ulaz
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.terminal.core.IInit.init(imbACE.Services.platform.interfaces.IPlatform)">
+            <summary>
+            #0 Izvrsava se prvi put - kada se instancira. Customized sekvenca inicijalizacije
+            </summary>
+            <param name="platform"> </param>
+        </member>
+        <member name="M:imbACE.Services.terminal.core.IRead.read(imbACE.Services.textBlocks.input.inputResultCollection)">
+            <summary>
+            #2 Očitava ulaz
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.terminal.core.IRender.render(imbACE.Services.platform.interfaces.IPlatform,System.Boolean)">
+            <summary>
+            #1 Generise sadrzaj
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.terminal.dialogs.core.dialogFormatSettings.horizontalAligment">
+            <summary>
+            horizontalnoPozicioniranje
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.terminal.dialogs.core.dialogFormatSettings.verticalAlligment">
+            <summary>
+            vertikalnoPozicioniranje
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.terminal.dialogs.core.dialogFormatSettings.style">
+            <summary>
+            stil dijaloga
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.terminal.dialogs.core.dialogFormatSettings.size">
+            <summary>
+            velicina dijaloga
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.terminal.dialogs.core.dialogScreenBase">
+            <summary>
+            Polazna klasa za dve dijaloge
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.terminal.dialogs.core.dialogScreenBase.open(imbACE.Services.platform.interfaces.IPlatform,imbACE.Services.terminal.dialogs.core.dialogFormatSettings)">
+            <summary>
+            Otvara dijalog i ceka dok se uspesno ne zatvori
+            </summary>
+            <param name="platform"></param>
+            <param name="horizontal"></param>
+            <param name="vertical"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.terminal.dialogs.core.dialogScreenBase.openSequence(imbACE.Services.platform.interfaces.IPlatform,imbACE.Services.terminal.dialogs.core.dialogFormatSettings)">
+            <summary>
+            Open sequenca koja se izvrsava unutar open poziva
+            </summary>
+            <param name="platform"></param>
+            <param name="format"> </param>
+        </member>
+        <member name="M:imbACE.Services.terminal.dialogs.core.dialogScreenBase.refresh">
+            <summary>
+            Obnavlja dinamicki deo sadrzaja - nije predvidjen za direktno pozivanje
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.terminal.dialogs.core.dialogScreenBase.read(imbACE.Services.textBlocks.input.inputResultCollection)">
+            <summary>
+            #2 Očitava ulaz -- reseno na nivou aceTErminalScreenBase
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.terminal.dialogs.core.dialogScreenBase.execute(imbACE.Services.textBlocks.input.inputResultCollection)">
+            <summary>
+            #3 Vrsi rad nakon sto je obradjen ulaz
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.terminal.dialogs.dialogEditProperties">
+            <summary>
+            Dijalog kojim se edituju propertiji 
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.terminal.dialogs.dialogEditProperties.open(imbACE.Services.platform.interfaces.IPlatform,System.Object,System.String,System.String)">
+            <summary>
+            Otvara privremenu instancu dijaloga i sinhrono ceka rezultat
+            </summary>
+            <param name="platform">Platforma na kojoj se prikazuje dijalog</param>
+            <param name="targetObject">Objekat koi se edituje</param>
+            <param name="spec">Property za koji se edituje ovaj objekat</param>
+            <param name="hostTitle">Naslov host->property objekta</param>
+            <returns>Kolekcija rezultata</returns>
+        </member>
+        <member name="M:imbACE.Services.terminal.dialogs.dialogEditProperties.#ctor(imbACE.Services.platform.interfaces.IPlatform,System.Object,System.String,System.String)">
+            <summary>
+            Dijalog kojim se edituju propertiji nekog objekta. Podrzava paginaciju
+            </summary>
+            <param name="platform">Platforma na kojoj se prikazuje dijalog</param>
+            <param name="targetObject">Objekat koi se edituje</param>
+        </member>
+        <member name="M:imbACE.Services.terminal.dialogs.dialogMessageBoxWithOptions`1.#ctor(imbACE.Services.platform.interfaces.IPlatform,System.String,System.String,System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Dijalog kojim se edituju propertiji nekog objekta. Podrzava paginaciju
+            </summary>
+            <param name="platform">Platforma na kojoj se prikazuje dijalog</param>
+            <param name="targetObject">Objekat koi se edituje</param>
+        </member>
+        <member name="T:imbACE.Services.terminal.dialogs.dialogPageViewerWithMenu`1">
+            <summary>
+            Dijalog kojim se edituju propertiji 
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.terminal.dialogs.dialogPageViewerWithMenu`1.#ctor(imbACE.Services.platform.interfaces.IPlatform,System.Collections.Generic.IEnumerable{System.String},System.String,System.String,`0[])">
+            <summary>
+            Dijalog kojim se edituju propertiji nekog objekta. Podrzava paginaciju
+            </summary>
+            <param name="platform">Platforma na kojoj se prikazuje dijalog</param>
+            <param name="targetObject">Objekat koi se edituje</param>
+        </member>
+        <member name="T:imbACE.Services.terminal.dialogs.dialogSelectFile">
+            <summary>
+            Dialog for file selection
+            </summary>
+            <seealso cref="T:imbACE.Services.terminal.dialogs.core.dialogScreenBase" />
+        </member>
+        <member name="F:imbACE.Services.terminal.dialogs.dialogSize.messageBox">
+            <summary>
+            Minimalni box za poruku
+            </summary>
+        </member>
+        <member name="F:imbACE.Services.terminal.dialogs.dialogSize.mediumBox">
+            <summary>
+            prikazuje se preko veceg dela ekrana
+            </summary>
+        </member>
+        <member name="F:imbACE.Services.terminal.dialogs.dialogSize.fullScreenBox">
+            <summary>
+            Prikazuje se preko celog ekrana
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.terminal.dialogs.dialogUniversalTool">
+            <summary>
+            Dialog imbTUI
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.terminal.dialogs.dialogUniversalTool.openPageViewer``1(imbACE.Services.platform.interfaces.IPlatform,System.Collections.Generic.IEnumerable{System.String},System.String,System.String,``0[])">
+            <summary>
+            Otvara privremenu instancu dijaloga i sinhrono ceka rezultat
+            </summary>
+            <param name="platform">Platforma na kojoj se prikazuje dijalog</param>
+            <param name="targetObject">Objekat koi se edituje</param>
+            <param name="spec">Property za koji se edituje ovaj objekat</param>
+            <param name="hostTitle">Naslov host->property objekta</param>
+            <returns>Kolekcija rezultata</returns>
+        </member>
+        <member name="M:imbACE.Services.terminal.dialogs.dialogUniversalTool.openMessageBox``1(imbACE.Services.platform.interfaces.IPlatform,System.String,System.String,``0[])">
+            <summary>
+            Otvara privremenu instancu dijaloga i sinhrono ceka rezultat
+            </summary>
+            <param name="platform">Platforma na kojoj se prikazuje dijalog</param>
+            <param name="targetObject">Objekat koi se edituje</param>
+            <param name="spec">Property za koji se edituje ovaj objekat</param>
+            <param name="hostTitle">Naslov host->property objekta</param>
+            <param name="title">todo: describe title parameter on openMessageBox</param>
+            <param name="description">todo: describe description parameter on openMessageBox</param>
+            <returns>Kolekcija rezultata</returns>
+        </member>
+        <member name="P:imbACE.Services.terminal.screen.aceTerminalMenuScreenBase`1.menu">
+            <summary>
+            Data structure describing the menu
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.terminal.screen.aceTerminalMenuScreenBase`1.menuSection">
+            <summary>
+            Section displaying the menu 
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.terminal.screen.aceTerminalMenuScreenBase`1.#ctor(`0,System.String)">
+            <summary>
+            Screen with menu
+            </summary>
+            <param name="terminalApplication"></param>
+            <param name="__title"></param>
+        </member>
+        <member name="P:imbACE.Services.terminal.screen.aceTerminalSettingsScreenBase`1.settingsEntries">
+            <summary>
+            Bindable property
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.terminal.smartScreen.aceTerminalWelcomeScreen`1">
+            <summary>
+            Preset class with Welcome Screen
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:imbACE.Services.terminal.smartScreen.aceTerminalWelcomeScreen`1.message">
+            <summary>
+            sadrzaj poruke koja se prikazuje
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.terminal.smartScreen.aceTerminalWelcomeScreen`1.messageTitle">
+            <summary>
+            Bindable property
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.terminal.smartScreen.aceTerminalWelcomeScreen`1.messageSection">
+            <summary>
+            section sa porukom
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.terminal.smartScreen.aceTerminalWelcomeScreen`1.init(imbACE.Services.platform.interfaces.IPlatform)">
+            <summary>
+            #0 Called when the screen is constructed
+            </summary>
+            <param name="platform"></param>
+        </member>
+        <member name="M:imbACE.Services.terminal.smartScreen.aceTerminalWelcomeScreen`1.refresh">
+            <summary>
+            Refresh call for dynamic part of content or applicative logic
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.terminal.smartScreen.aceTerminalWelcomeScreen`1.execute(imbACE.Services.textBlocks.input.inputResultCollection)">
+            <summary>
+            #3 Vrsi rad nakon sto je obradjen ulaz
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.terminal.smartScreen.smartScreenFileSelector`1.filePathSection">
+            <summary>
+            sekcija kojom se bira file path
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.terminal.smartScreen.smartScreenFileSelector`1.init(imbACE.Services.platform.interfaces.IPlatform)">
+            <summary>
+            #0 Izvrsava se prvi put - kada se instancira. Customized sekvenca inicijalizacije
+            </summary>
+            <param name="platform"> </param>
+        </member>
+        <member name="M:imbACE.Services.terminal.smartScreen.smartScreenFileSelector`1.refresh">
+            <summary>
+            Obnavlja dinamicki deo sadrzaja
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.terminal.smartScreen.smartScreenFileSelector`1.read(imbACE.Services.textBlocks.input.inputResultCollection)">
+            <summary>
+            #2 Očitava ulaz -- reseno na nivou aceTErminalScreenBase
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.terminal.smartScreen.smartScreenFileSelector`1.execute(imbACE.Services.textBlocks.input.inputResultCollection)">
+            <summary>
+            #3 Vrsi rad nakon sto je obradjen ulaz
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.terminal.smartScreen.smartScreenPropertyEditor`1.commands">
+            <summary>
+            osnovni menu
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.terminal.smartScreen.smartScreenPropertyEditor`1.menuSection">
+            <summary>
+            sekcija kojom prikazuje menu
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.terminal.smartScreen.smartScreenPropertyEditor`1.messageSection">
+            <summary>
+            section sa porukom
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.terminal.smartScreen.smartScreenPropertyEditor`1.init(imbACE.Services.platform.interfaces.IPlatform)">
+            <summary>
+            #0 Izvrsava se prvi put - kada se instancira. Customized sekvenca inicijalizacije
+            </summary>
+            <param name="platform"> </param>
+        </member>
+        <member name="M:imbACE.Services.terminal.smartScreen.smartScreenPropertyEditor`1.execute(imbACE.Services.textBlocks.input.inputResultCollection)">
+            <summary>
+            #3 Vrsi rad nakon sto je obradjen ulaz
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.terminal.smartScreen.smartScreenPropertyEditor`1.read(imbACE.Services.textBlocks.input.inputResultCollection)">
+            <summary>
+            #2 Očitava ulaz
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.terminal.smartScreen.smartScreenPropertyEditor`1.refresh">
+            <summary>
+            Obnavlja dinamicki deo sadrzaja
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.console.aceAdvancedConsole`2">
+            <summary>
+            Advanced command console environment with its workspace and other stuff
+            </summary>
+            <seealso cref="T:imbACE.Services.console.aceCommandConsole" />
+        </member>
+        <member name="M:imbACE.Services.console.aceAdvancedConsole`2.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbACE.Services.console.aceAdvancedConsole`2"/> class.
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.console.aceAdvancedConsole`2.onStartUp">
+            <summary>
+            Get's executed on console startup
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.console.aceAdvancedConsole`2.log(System.String,System.Boolean)">
+            <summary>
+            Logs the specified message, using the other color if required
+            </summary>
+            <param name="message">The message.</param>
+            <param name="otherColor">if set to <c>true</c> [other color].</param>
+        </member>
+        <member name="P:imbACE.Services.console.aceAdvancedConsole`2.isReady">
+            <summary>
+            Gets a value indicating whether this instance is ready.
+            </summary>
+            <value>
+              <c>true</c> if this instance is ready; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:imbACE.Services.console.aceAdvancedConsole`2.state">
+            <summary>
+            Bindable property
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.console.aceAdvancedConsole`2.stateInfo">
+            <summary>
+            Bindable property
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.console.aceAdvancedConsole`2.SelectedObject">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.console.aceAdvancedConsole`2.linePrefix">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.console.aceAdvancedConsoleStateBase">
+            <summary>
+            Console state - keeps settings of the console 
+            </summary>
+            <seealso cref="T:imbACE.Core.core.aceSettingsStandaloneBase" />
+        </member>
+        <member name="P:imbACE.Services.console.aceAdvancedConsoleStateBase.scopePath">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.console.aceAdvancedConsoleStateBase.loadedContentFilepath">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.console.aceAdvancedConsoleStateBase.loadedContent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.console.aceAdvancedConsoleStateBase.settings_filepath">
+            <summary>
+            Path of the settings
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.console.aceAdvancedConsoleStateBase.projects_path">
+            <summary>
+            Path where the projects are
+            </summary>
+            <value>
+            The projects path.
+            </value>
+        </member>
+        <member name="P:imbACE.Services.console.aceAdvancedConsoleStateBase.currentProjectName">
+            <summary>
+            name of the current console project
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.console.aceAdvancedConsoleStateBase.doWorkdInDebugMode">
+            <summary>
+            If true the console will produce all kinds of log outputs, data and serialized objects
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.console.aceAdvancedConsoleStateBase.doRunScriptOnStartup">
+            <summary>
+            The filename (inside the script folder) of script file to run upon start of the console
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.console.aceAdvancedConsoleWorkspace">
+            <summary>
+            Workspace helper object for aceAdvanced console
+            </summary>
+            <seealso cref="T:imbACE.Core.core.aceBindable" />
+        </member>
+        <member name="P:imbACE.Services.console.aceAdvancedConsoleWorkspace.console">
+            <summary> </summary>
+        </member>
+        <member name="M:imbACE.Services.console.aceAdvancedConsoleWorkspace.#ctor(imbACE.Services.console.IAceAdvancedConsole)">
+            <summary>
+            It will run <see cref="M:imbACE.Services.console.aceAdvancedConsoleWorkspace.deployWorkspace(System.Boolean)"/> after setting <see cref="P:imbACE.Services.console.aceAdvancedConsoleWorkspace.console"/> reference
+            </summary>
+            <param name="__console">The console.</param>
+        </member>
+        <member name="P:imbACE.Services.console.aceAdvancedConsoleWorkspace.projectRootPath">
+            <summary>
+            Path to project's root folder - without \\ trail
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.console.aceAdvancedConsoleWorkspace.setAdditionalWorkspaceFolders">
+            <summary>
+            Gets called during workspace construction, the method should initiate any additional subdirectories that console's project uses
+            </summary>
+            <remarks>
+            <example>
+            Place inside initiation of additional directories, required for your console's project class (inheriting: <see cref="T:imbACE.Services.console.aceAdvancedConsoleStateBase"/>)
+            <code>
+            <![CDATA[
+            folderName = folder.Add(nameof(folderName), "Caption", "Description");
+            ]]>
+            </code>
+            </example>
+            </remarks>
+        </member>
+        <member name="M:imbACE.Services.console.aceAdvancedConsoleWorkspace.getNewProjectName(System.String)">
+            <summary>
+            Gets the new name of the project.
+            </summary>
+            <param name="proposal">The proposal.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.console.aceAdvancedConsoleWorkspace.getFilename(imbSCI.Data.interfaces.IObjectWithName,System.String)">
+            <summary>
+            Gets the filename.
+            </summary>
+            <param name="instance">The instance.</param>
+            <param name="sufix">The sufix.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.console.aceAdvancedConsoleWorkspace.getFilename(System.String,System.String)">
+            <summary>
+            Gets the filename.
+            </summary>
+            <param name="instance">The instance.</param>
+            <param name="sufix">The sufix.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.console.aceAdvancedConsoleWorkspace.saveMeta(imbSCI.Data.interfaces.IObjectWithName)">
+            <summary>
+            Saves the meta.
+            </summary>
+            <param name="instance">The instance.</param>
+        </member>
+        <member name="M:imbACE.Services.console.aceAdvancedConsoleWorkspace.saveData(System.Data.DataTable,imbSCI.Data.enums.reporting.dataTableExportEnum)">
+            <summary>
+            Saves the data.
+            </summary>
+            <param name="instance">The instance.</param>
+            <param name="descriptiveCopy">The descriptive copy.</param>
+        </member>
+        <member name="M:imbACE.Services.console.aceAdvancedConsoleWorkspace.loadData(System.String)">
+            <summary>
+            Loads the data.
+            </summary>
+            <param name="tableName">Name of the table.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.console.aceAdvancedConsoleWorkspace.loadMeta(System.String,System.Type)">
+            <summary>
+            Loads the meta.
+            </summary>
+            <param name="instanceName">Name of the instance.</param>
+            <param name="type">The type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.console.aceAdvancedConsoleWorkspace.getNewOutput(System.String,System.String)">
+            <summary>
+            Gets the new output.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="extension">The extension.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.console.aceAdvancedConsoleWorkspace.saveOutput(imbSCI.Core.files.unit.fileunit)">
+            <summary>
+            Saves the output.
+            </summary>
+            <param name="file">The file.</param>
+        </member>
+        <member name="P:imbACE.Services.console.aceAdvancedConsoleWorkspace.loadedInputs">
+            <summary> </summary>
+        </member>
+        <member name="M:imbACE.Services.console.aceAdvancedConsoleWorkspace.saveScript(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Saves the script under specified filename (without extension, it will put the proper one automatically)
+            </summary>
+            <param name="scriptname">The scriptname.</param>
+            <param name="content">The content.</param>
+        </member>
+        <member name="M:imbACE.Services.console.aceAdvancedConsoleWorkspace.getScriptFileInfo(System.String,System.Boolean)">
+            <summary>
+            Gets the script file information.
+            </summary>
+            <param name="scriptname">The scriptname.</param>
+            <param name="autocreate">if set to <c>true</c> [autocreate].</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.console.aceAdvancedConsoleWorkspace.deployWorkspace(System.Boolean)">
+            <summary>
+            If override, call .base(false) at the end of your code. To add new folders better idea is to override <see cref="M:imbACE.Services.console.aceAdvancedConsoleWorkspace.setAdditionalWorkspaceFolders"/>
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.console.aceAdvancedConsoleWorkspace.folder">
+            <summary> </summary>
+        </member>
+        <member name="T:imbACE.Services.console.aceCommandActiveInput">
+            <summary>
+            ---- this is abanded idea
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.console.aceCommandConsole">
+            <summary>
+            Basic command console environment
+            </summary>
+            <seealso cref="T:imbACE.Core.operations.aceOperationSetExecutorBase" />
+        </member>
+        <member name="P:imbACE.Services.console.aceCommandConsole.doAskForExitConfigmation">
+            <summary>
+            Should user be prompted on <see cref="M:imbACE.Services.console.aceCommandConsole.aceOperation_consoleExit"/> to confirm?
+            </summary>
+            <value>
+              <c>true</c> if [do ask for exit configmation]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:imbACE.Services.console.aceCommandConsole.helpHeader">
+            <summary> Additional points for console help header text. <see cref="P:imbACE.Services.console.aceCommandConsole.helpContent"/></summary>
+        </member>
+        <member name="P:imbACE.Services.console.aceCommandConsole.helpContent">
+            <summary>
+            Help text short header, used when console api is rendered or shown
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.console.aceCommandConsole.consoleTitle">
+            <summary> Console title </summary>
+        </member>
+        <member name="P:imbACE.Services.console.aceCommandConsole.consoleHelp">
+            <summary> Short help message about this console </summary>
+        </member>
+        <member name="P:imbACE.Services.console.aceCommandConsole.application">
+            <summary>
+            Reference to <see cref="!:aceApplicationBase"/>
+            </summary>
+            <value>
+            The application.
+            </value>
+        </member>
+        <member name="P:imbACE.Services.console.aceCommandConsole.platform">
+            <summary> Reference to the application's platform to display/use the console outputs </summary>
+        </member>
+        <member name="P:imbACE.Services.console.aceCommandConsole.output">
+            <summary>
+            The primary console output. By default pointed to the <see cref="P:imbACE.Services.console.aceCommandConsole.platform"/> via <see cref="P:imbACE.Core.core.aceLog.consoleControl"/>
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.console.aceCommandConsole.response">
+            <summary>
+            Secondary output of the console. By default it is pointed to the <see cref="P:imbACE.Services.console.aceCommandConsole.platform"/> output, but it can be directed to a file or other outputs.
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.console.aceCommandConsole.commands">
+            <summary>
+            Commands of the console
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.console.aceCommandConsole.commandSetTree">
+            <summary>
+            command tree, used for help generation
+            </summary>
+            <value>
+            The command set tree.
+            </value>
+        </member>
+        <member name="P:imbACE.Services.console.aceCommandConsole.scriptRunning">
+            <summary> Reference to the console script that is running or was running last time</summary>
+        </member>
+        <member name="M:imbACE.Services.console.aceCommandConsole.executeScript(imbACE.Core.operations.IAceConsoleScript,System.Int32)">
+            <summary>
+            Executes the command console script. <see cref="T:imbACE.Services.console.aceConsoleScript"/>
+            </summary>
+            <param name="script">The console script to execute</param>
+            <param name="delay">The delay between two instructions in the script, in miliseconds</param>
+        </member>
+        <member name="P:imbACE.Services.console.aceCommandConsole.consoleIsRunning">
+            <summary> It is <c>true</c> if console is turned on, waiting for an input or performing already given command(s) </summary>
+        </member>
+        <member name="M:imbACE.Services.console.aceCommandConsole.cls">
+            <summary>
+            Clear Screen 
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.console.aceCommandConsole.onStartUp">
+            <summary>
+            Will be executed upon start-up of the console. 
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.console.aceCommandConsole.executeCommand(System.String)">
+            <summary>
+            Executes the command.
+            </summary>
+            <param name="input">The input.</param>
+        </member>
+        <member name="P:imbACE.Services.console.aceCommandConsole.linePrefix">
+            <summary>
+            Prefix to show in the command line
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.console.aceCommandConsole.lastInput">
+            <summary>
+            Last input from the command line
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.console.aceCommandConsole.start(imbACE.Core.application.IAceApplicationBase)">
+            <summary>
+            Starts the console
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.console.aceCommandEntry.operation">
+            <summary> </summary>
+        </member>
+        <member name="P:imbACE.Services.console.aceCommandEntry.console">
+            <summary> </summary>
+        </member>
+        <member name="M:imbACE.Services.console.aceCommandEntry.GetScriptLine(imbACE.Core.commands.commandLineFormat)">
+            <summary>
+            Returns the string form of the command with current parameters
+            </summary>
+            <param name="format">The format.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.console.aceCommandEntry.invoke">
+            <summary>
+            Invokes the command
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:imbACE.Services.console.aceConsoleScript">
+            <summary>
+            Sequence of commands to be executed by <see cref="T:imbACE.Services.console.aceCommandConsole"/>
+            </summary>
+            <seealso cref="T:imbSCI.Core.files.unit.fileunit" />
+            <seealso cref="!:System.Collections.Generic.IEnumerable&lt;System.String&gt;" />
+        </member>
+        <member name="P:imbACE.Services.console.aceConsoleScript.isReady">
+            <summary> True if the script is ready for execution </summary>
+        </member>
+        <member name="P:imbACE.Services.console.aceConsoleScript.parent">
+            <summary> </summary>
+        </member>
+        <member name="M:imbACE.Services.console.aceConsoleScript.AbortExecution">
+            <summary>
+            Calls the script execution abort. It can't abort already called command but will abort on the next.
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.console.aceConsoleScript.GetScriptInForm(imbACE.Core.operations.IAceCommandConsole,imbACE.Core.commands.commandLineFormat,System.String)">
+            <summary>
+            Gets the script in another <see cref="T:imbACE.Core.commands.commandLineFormat"/>
+            </summary>
+            <param name="console">The console.</param>
+            <param name="format">The format.</param>
+            <param name="newPath">The new path.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbACE.Services.console.aceConsoleScript.executionStart">
+            <summary> </summary>
+        </member>
+        <member name="P:imbACE.Services.console.aceConsoleScript.executionFinish">
+            <summary> </summary>
+        </member>
+        <member name="M:imbACE.Services.console.aceConsoleScript.#ctor(System.String,System.Boolean)">
+            <summary>
+            New script 
+            </summary>
+            <param name="__path">The path.</param>
+            <param name="doPreload"></param>
+        </member>
+        <member name="M:imbACE.Services.console.aceConsoleScript.DeployTemplate(System.String[],System.String)">
+            <summary>
+            Creates another instance of script, using this as template
+            </summary>
+            <param name="pars">The pars.</param>
+        </member>
+        <member name="T:imbACE.Services.console.IAceAdvancedConsole">
+            <summary>
+            Second tier interface to imbACE Command Console stack
+            </summary>
+            <seealso cref="T:imbACE.Core.operations.IAceCommandConsole" />
+        </member>
+        <member name="M:imbACE.Services.console.IAceAdvancedConsole.log(System.String,System.Boolean)">
+            <summary>
+            Logs the specified message, using the other color if required
+            </summary>
+            <param name="message">The message.</param>
+            <param name="otherColor">if set to <c>true</c> [other color].</param>
+        </member>
+        <member name="P:imbACE.Services.console.IAceAdvancedConsole.isReady">
+            <summary>
+            Gets a value indicating whether this instance is ready.
+            </summary>
+            <value>
+              <c>true</c> if this instance is ready; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:imbACE.Services.console.IAceAdvancedConsole.consoleTitle">
+            <summary> </summary>
+        </member>
+        <member name="P:imbACE.Services.console.IAceAdvancedConsole.consoleHelp">
+            <summary> </summary>
+        </member>
+        <member name="P:imbACE.Services.console.IAceAdvancedConsole.platform">
+            <summary> </summary>
+        </member>
+        <member name="P:imbACE.Services.console.IAceAdvancedConsole.output">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.console.IAceAdvancedConsole.response">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.console.IAceAdvancedConsole.helpHeader">
+            <summary> </summary>
+        </member>
+        <member name="P:imbACE.Services.console.IAceAdvancedConsole.helpContent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.console.IAceAdvancedConsole.consoleIsRunning">
+            <summary> </summary>
+        </member>
+        <member name="M:imbACE.Services.console.IAceAdvancedConsole.executeScript(imbACE.Core.operations.IAceConsoleScript,System.Int32)">
+            <summary>
+            Executes the script.
+            </summary>
+            <param name="script">The script.</param>
+            <param name="delay">The delay.</param>
+        </member>
+        <member name="M:imbACE.Services.console.IAceAdvancedConsole.cls">
+            <summary>
+            Clear Screen 
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.console.IAceAdvancedConsole.start(imbACE.Core.application.IAceApplicationBase)">
+            <summary>
+            Starts the console
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:imbACE.Services.console.IAceAdvancedConsole.OnPropertyChanged(System.String)" -->
+        <member name="T:imbACE.Services.consolePlugins.aceConsolePluginBase">
+            <summary>
+            Console plugin -- use it as public property of a <see cref="T:imbACE.Services.console.aceCommandConsole"/> class to enable command execution. 
+            </summary>
+            <remarks>
+            Methods from a plugin should be called with proper command prefix pointing to property (of <see cref="T:imbACE.Services.consolePlugins.aceConsolePluginBase"/> type) name. 
+            Like: <c>printPlugin.print</c> where <c>printPlugin</c> is property within a aceCommandConsole object and <c>print</c> is method of the plugin.
+            </remarks>
+            <seealso cref="T:imbACE.Core.operations.aceOperationSetExecutorBase" />
+            <seealso cref="T:imbACE.Core.operations.IAceOperationSetExecutor" />
+        </member>
+        <member name="M:imbACE.Services.consolePlugins.aceConsolePluginBase.#ctor(imbACE.Core.operations.IAceOperationSetExecutor,System.String,System.String)">
+            <summary>
+            Nested use
+            </summary>
+            <param name="__parent">The parent.</param>
+            <param name="__name">The name.</param>
+        </member>
+        <member name="T:imbACE.Services.consolePlugins.aceConsolePluginForFiles">
+            <summary>
+            Base class for ACE Console plugin (<see cref="T:imbACE.Services.consolePlugins.aceConsolePluginBase"/>) for files operation
+            </summary>
+            <seealso cref="T:imbACE.Services.consolePlugins.aceConsolePluginBase" />
+        </member>
+        <member name="P:imbACE.Services.consolePlugins.aceConsolePluginForFiles.folder">
+            <summary>
+            Currently selected folder
+            </summary>
+            <value>
+            The folder.
+            </value>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.aceTextContentBlockExtensions.trimToWidth(System.String,System.Int32,imbSCI.Data.enums.printHorizontal)">
+            <summary>
+            Osigurava trimovanje tacno na zadatu duzinu
+            </summary>
+            <param name="__textToInsert">Tekst koji treba da se trimuje</param>
+            <param name="widthLimit"></param>
+            <param name="horizontal"></param>
+            <returns></returns>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.proto.textContentBasicBlock.ZLayerOrder">
+            <summary>
+            Z redosled sloja u kome se nalazi ovaj blok - 0 se prvo renderuje, 100 poslednji
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.proto.textContentBasicBlock.doInverseColors">
+            <summary>
+            da li da invertuje boje
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.proto.textContentBasicBlock.blending">
+            <summary>
+            vrsta blendovanja
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.proto.textContentBasicBlock.foreColor">
+            <summary>
+            boja slova
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.proto.textContentBasicBlock.backColor">
+            <summary>
+            pozadinska boja
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.proto.textContentBasicBlock.writeInlineText(System.String,System.String,imbSCI.Data.enums.printHorizontal,System.Int32)">
+            <summary>
+            Renderuje preko __content sadrzaja __textToInsert u skladu sa formatiranjem i printHorizontal podesavanjem. 
+            </summary>
+            <param name="__content">Postojeci sadrzaj</param>
+            <param name="__textToInsert">Sadrzaj koji treba da se insertuje</param>
+            <param name="horizontal">TextAligment - mesto gde treba sadrzaj da se insertuje</param>
+            <param name="__widthLimit">Ogranicenje duzine sadrzaja za ubacivanje. Ukoliko ostane -1 onda je limit innerWidth</param>
+            <returns>Azurirani sadrzaj</returns>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.proto.textContentBasicBlock.writeInlineBackground(System.String,System.String,System.String)">
+            <summary>
+            Renderuje jednu liniju pozadine - preko prosledjenog sadrzaja
+            </summary>
+            <param name="__content"></param>
+            <param name="marginDeco"></param>
+            <param name="backgroundDeco"></param>
+            <returns></returns>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.proto.textContentBasicBlock.contentLine">
+            <summary>
+            Sadrzaj za jednolinijski blok ili linija na koju trenutno pokazuje kursor
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.proto.textContentWithBackground.backgroundDecoration">
+            <summary>
+            uzorak stringa koji se koristi za pozadinsku dekoraciju
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.proto.textContentWithBackground.marginDecoration">
+            <summary>
+            dekoracijaMargine
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.textContentLines.maxWidth">
+            <summary>
+            maksimalna sirina
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.textContentLines.emptyLine">
+            <summary>
+            dimenzija linije
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textContentLines.insert(System.String,System.Int32,System.Int32)">
+            <summary>
+            Glavni metod za ubacivanje sadrzaja - vraca linije koje je napravio wordwrapom
+            </summary>
+            <param name="content"></param>
+            <param name="innerWidth"></param>
+            <param name="toInnerLine"></param>
+            <returns></returns>
+        </member>
+        <member name="T:imbACE.Services.textBlocks.core.textCursor">
+            <summary>
+            Kursor 
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.textCursor.currentZone">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.textCursor.valueReadZone">
+            <summary>
+            snimljena pozicija na ekranu odakle treba kasnije da se iscitava unos sa tastature
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textCursor.autoValueReadZone">
+            <summary>
+            Automatski pravi value read zonu na mestu gde je stao kursor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textCursor.getSelectZone(System.Int32,System.Int32,imbSCI.Core.reporting.zone.selectZoneOption[])">
+            <summary>
+            Pravi selectZone na osnovu sadrzaja trenutne linije. Trazi [ i ] kao granicnike zone. Ako ih ima vise, upotrebice prvi par. 
+            </summary>
+            <remarks>
+            Ako u trenutnoj liniji:
+            - ima vise [ ] parova: upotrebice prvi 
+            - je sve prazno ili popunjeno razmacima: upotrebice celu liniju kao zonu
+            - ako je od x-a do desnog inner x-a prazno
+            </remarks>
+            <returns>selectZone objekat koji treba upotrebiti kao inputReadZone ili za nesto drugo</returns>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textCursor.switchToZone(imbSCI.Core.reporting.zone.textCursorZone,imbSCI.Core.reporting.zone.textCursorZoneCorner)">
+            <summary>
+            Prebacuje kursor u datu zonu
+            </summary>
+            <param name="__zone"></param>
+            <param name="__corner"></param>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textCursor.switchToMainZone">
+            <summary>
+            Vraca kursor na njegovu glavnu zonu 
+            </summary>
+        </member>
+        <member name="F:imbACE.Services.textBlocks.core.textCursor.mainZone">
+            <summary>
+            zona koja je "home" za ovaj kursor - odnosno, zona za koju je ovaj kursor primarno namenjen i u koju se vraca nakon privremenih premestanja u druge zone metodom switchToZone()
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textCursor.placeChild(imbACE.Services.textBlocks.interfaces.ISupportsTextCursor)">
+            <summary>
+            Postavlja child objekat na poziciju kursora
+            </summary>
+            <param name="child"></param>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textCursor.selectZone">
+            <summary>
+            Vraca dimenzije trenutne zone
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textCursor.selectToCorner(imbSCI.Core.reporting.zone.textCursorZoneCorner)">
+            <summary>
+            Vraca rastojanje izmedju trenutne pozicije kursora i datog kraja/coska
+            </summary>
+            <param name="__corner"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textCursor.moveToCorner(imbSCI.Core.reporting.zone.textCursorZoneCorner)">
+            <summary>
+            Pomera kursor u dati ugao
+            </summary>
+            <param name="__corner"></param>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textCursor.checkPositions">
+            <summary>
+            proverava poziciju i primenjuje ogranicenje
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textCursor.moveLineTo(System.Int32)">
+            <summary>
+            Pomera kursor na lokalnu liniju
+            </summary>
+            <param name="zoneLineNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textCursor.enter">
+            <summary>
+            Prelazi u sledeci red i vraca se na X=0
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.textCursor.x">
+            <summary>
+            X pozicija kursora
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.textCursor.y">
+            <summary>
+            pozicija po liniji
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.textBlocks.core.textLineContentBase">
+            <summary>
+            Osnova za line i section blokove sadrzaja
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.textLineContentBase.layoutFooterMessage">
+            <summary>
+            porukaZaFooter
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.textLineContentBase.layoutTitleMessage">
+            <summary>
+            poruka za naslov prozora
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.textLineContentBase.layoutStatusMessage">
+            <summary>
+            Poruka za statusni header
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.textLineContentBase.styles">
+            <summary>
+            stilovi
+            </summary>
+        </member>
+        <member name="F:imbACE.Services.textBlocks.core.textLineContentBase.top_attachment">
+            <summary>
+            Sekcija koja je pridodata sa gornje strane
+            </summary>
+        </member>
+        <member name="F:imbACE.Services.textBlocks.core.textLineContentBase.bottom_attachment">
+            <summary>
+            Sekcija koja je pridodata sa donje strane
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textLineContentBase.getAttachment(System.Boolean)">
+            <summary>
+            Vraca section koji je "nakacen" na ovaj. Nakachen section se automatski RRE obradjuje pri pozivanju ovog sectiona
+            </summary>
+            <param name="isBottomAttachment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textLineContentBase.setAttachment(imbACE.Services.textBlocks.interfaces.ITextLayoutContentProvider,System.Boolean)">
+            <summary>
+            Kaci prosledjeni section na ovaj - zajedno ce biti renderovani
+            </summary>
+            <param name="__sectionToAttach">Sekcija koja se kaci na ovu</param>
+            <param name="isBottomAttachment">Ako je TRUE onda ga dodaje sa donje strane</param>
+            <returns>Vraca sekciju koja je bila ranije attachovana, ako je NULL onda je prvi put da se nesto attachuje</returns>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.textLineContentBase.contentLines">
+            <summary>
+            sadrzaj sekcije
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.textLineContentBase.cursor">
+            <summary>
+            zaduzen kursor
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textLineContentBase.setupFieldFormat(System.String,System.Int32,System.Int32)">
+            <summary>
+            Podesava formatiranje polja
+            </summary>
+            <param name="defaultFormat">Format koji se primenjuje u svaki insert</param>
+            <param name="__rightField">Desna kolona</param>
+            <param name="__leftField">Leva kolona</param>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textLineContentBase.select(imbACE.Services.textBlocks.core.textCursor,System.Int32,System.Boolean)">
+            <summary>
+            Od trenutne pozicije kursora vraca substring date duzine. Ako je length = -1 onda do desnog kraja dozvoljene zone. 
+            </summary>
+            <param name="length"></param>
+            <param name="copyCompleteLine">Da li da iskopira celu liniju</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textLineContentBase.write(imbACE.Services.textBlocks.core.textCursor,System.String,System.Int32,System.Boolean)">
+            <summary>
+            upisuje prosledjen unos, primenjuje limit ako je dat - ako nije> limit je u skladu za zonom
+            </summary>
+            <param name="input"></param>
+            <param name="limit"></param>
+            <param name="writeCompleteLine"></param>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.textLineContentBase.leftFieldWidth">
+            <summary>
+            sirina levog polja
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.textLineContentBase.rightFieldWidth">
+            <summary>
+            sirina desnog polja
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.textLineContentBase.fieldFormats">
+            <summary>
+            format koji primenjuje pri insertovanju polja
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textLineContentBase.insertField(System.String,System.String,imbSCI.Data.enums.printHorizontal,System.String,System.String)">
+            <summary>
+            Ubacuje jedno polje u trenutnu liniju
+            </summary>
+            <param name="__content"></param>
+            <param name="input"></param>
+            <param name="field"></param>
+            <param name="__fieldFormat"></param>
+            <param name="__background"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textLineContentBase.resetContent">
+            <summary>
+            Brise sav zadrzaj i renderuje pozadinu
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textPageManager`1.selectPrev">
+            <summary>
+            Pomera seleektovan item na prethodno mesto
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textPageManager`1.selectNext">
+            <summary>
+            Pomera selektovan item za sledece mesto
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textPageManager`1.getPageElements(System.Collections.Generic.IList{`0})">
+            <summary>
+            Vraca elemente koji su trenutno na stranici
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.textPageManager`1.currentPage">
+            <summary>
+            trenutni broj stranice
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.textPageManager`1.totalPages">
+            <summary>
+            koliko ukupno ima strana
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.textSectionBase.contentLine">
+            <summary>
+            Sadrzaj za jednolinijski blok ili linija na koju trenutno pokazuje kursor
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textSectionBase.resetContent">
+            <summary>
+            Brise sav zadrzaj i renderuje pozadinu
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textSectionBase.writeOrInsertLine(System.String,System.Int32,System.Boolean,System.Int32,System.Boolean)">
+            <summary>
+            Osnovni metod koji se stalno koristi za ispisivanje
+            </summary>
+            <param name="content"></param>
+            <param name="toInnerLine"></param>
+            <param name="doMoveToNextLine"></param>
+            <param name="limitLineCount"></param>
+            <param name="inserNewLine"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textSectionBase.writeBackground(imbACE.Services.textBlocks.core.textContentLines,System.Boolean)">
+            <summary>
+            Renderuje pozadinu 
+            </summary>
+            <param name="__content"></param>
+            <param name="marginDeco"></param>
+            <param name="backgroundDeco"></param>
+            <returns></returns>
+        </member>
+        <member name="T:imbACE.Services.textBlocks.core.textSectionLineStyle">
+            <summary>
+            Stil za liniju teksta unutar sectiona
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.textSectionLineStyle.foreColor">
+            <summary>
+            boja slova
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.textSectionLineStyle.backColor">
+            <summary>
+            pozadinska boja
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.core.textSectionLineStyle.deploy(imbACE.Services.textBlocks.interfaces.IAcceptsTextSectionStyle)">
+            <summary>
+            Primenjuje stil na prosledjen objekat
+            </summary>
+            <param name="target"></param>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.textSectionLineStyle.fieldFormats">
+            <summary>
+            formati za polja
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.textSectionLineStyle.backgroundDeco">
+            <summary>
+            dekoracija za pozadinu
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.textSectionLineStyle.marginDecoration">
+            <summary>
+            dekoracija prostora koji odvaja margina
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.core.textSectionLineStyle.doInverseColors">
+            <summary>
+            Da li konzola treba da invertuje boje kada prikazuje ovu liniju
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.textBlocks.core.textSectionLineStyles">
+            <summary>
+            Kolekcija stilova -- automatski generise standardne stilove 
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.depracated._textBlock.padding">
+            <summary>
+            Bindable property
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.depracated._textBlock.width">
+            <summary>
+            sirina viewporta u kolonama
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.depracated._textBlock.height">
+            <summary>
+            visina viewporta u redovima
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.depracated._textBlock.maxWidth">
+            <summary>
+            Ukupna maksimalna sirina 
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.depracated._textBlock.addContent(System.String,imbACE.Services.textBlocks.depracated.addContentMode)">
+            <summary>
+            Dodaje sadrzaj
+            </summary>
+            <param name="content"></param>
+            <param name="mode"></param>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.depracated._textBlock.doWrapLines">
+            <summary>
+            Da li lomi linije ukoliko su duze od sirine
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.depracated._textContent.margin">
+            <summary>
+            Bindable property
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.depracated._textViewport.mode">
+            <summary>
+            Mod
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.depracated._textViewport.getView">
+            <summary>
+            Vraca prikaz sadrzaja
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.depracated._textViewport.y">
+            <summary>
+            vertikalna pozicija viewporta
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.depracated._textViewport.x">
+            <summary>
+            horizontalna pozicija viewporta
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.depracated._textViewport.doEnableScroll">
+            <summary>
+            da li moze scroll
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.depracated._textViewport.xScroll">
+            <summary>
+            horizontalna scroll pozicija
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.depracated._textViewport.yScroll">
+            <summary>
+            vertikalna scroll pozicija
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.depracated._textViewport.showVerticalScroll">
+            <summary>
+            Da li da prikazuje vertikalni skrol
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.depracated._textViewport.showHorizontalScroll">
+            <summary>
+            da li da pokazuje horizontalni skrol
+            </summary>
+        </member>
+        <member name="F:imbACE.Services.textBlocks.enums.layerBlending.background">
+            <summary>
+            Kopira ceo sadrzaj, po punoj dimenziji sekcije
+            </summary>
+        </member>
+        <member name="F:imbACE.Services.textBlocks.enums.layerBlending.semitransparent">
+            <summary>
+            Kopira od innerBoxedTopPossition do innerBoxedBottomPosition
+            </summary>
+        </member>
+        <member name="F:imbACE.Services.textBlocks.enums.layerBlending.transparent">
+            <summary>
+            Kopira samo innerBoxed sadrzaj
+            </summary>
+        </member>
+        <member name="F:imbACE.Services.textBlocks.enums.layerBlending.hidden">
+            <summary>
+            Ne renderuje
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.input.IInputSection.currentOutput">
+            <summary>
+            Trenutni rezultat
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.input.IInputSection.doShowTitle">
+            <summary>
+            Da li prikazuje naslov inputa
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.input.IInputSection.doShowRemarks">
+            <summary>
+            Da li da prikazuje komentar - trenutna vrednost / selektovana opcija
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.input.IInputSection.doShowValueRemarks">
+            <summary>
+            Da li prikazuje komentar na trenutnu vrednost / selektovanu opcijua
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.input.IInputSection.doShowInstructions">
+            <summary>
+            Da li da prikazuje instrukcije> npr. izaberi opciju strelicama, potvrdi enter
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.input.IInputSection.exitPolicy">
+            <summary>
+            nacin zatvaranja inputa
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.input.inputResultCollection.resultInFocus">
+            <summary>
+            rezultat koji je trenutno fokusiran
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.input.inputResultCollection.doMenuItems">
+            <summary>
+            If menu is created by executor methods it will trigger selected method />.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.input.inputResultCollection.platform">
+            <summary>
+            referenca prema platformi
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.input.inputResultCollection.doIfKey(System.Object)">
+            <summary>
+            Vraca TRUE ako je pronasao rezultat koji je povezan sa KeyValue, rezultat je posotavljen u fokus
+            </summary>
+            <param name="keyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.input.inputResultCollection.doIfMenuItems(System.Collections.Generic.IEnumerable{imbACE.Core.commands.menu.core.aceMenuItem})">
+            <summary>
+            Vraca TRUE ako je pronadjen rezultat sa ovim menuitemom, rezultat se postavlja u fokus
+            </summary>
+            <param name="__criteriaItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.input.inputResultCollection.doIfMenuItem(imbACE.Core.commands.menu.core.aceMenuItem)">
+            <summary>
+            Vraca TRUE ako je pronadjen rezultat sa ovim menuitemom, rezultat se postavlja u fokus
+            </summary>
+            <param name="__criteriaItem"></param>
+            <returns></returns>
+        </member>
+        <member name="F:imbACE.Services.textBlocks.input.textInputExitPolicy.onAnyKey">
+            <summary>
+            Izlazi iz petlje odmah po prijemu prvog tastera
+            </summary>
+        </member>
+        <member name="F:imbACE.Services.textBlocks.input.textInputExitPolicy.onValidKey">
+            <summary>
+            Izlazi iz petlje ako je odabran odgovarajuc taster
+            </summary>
+        </member>
+        <member name="F:imbACE.Services.textBlocks.input.textInputExitPolicy.onValidValueOrKey">
+            <summary>
+            Izlazi iz petlje ako je odabran odgovarajuc taster ili ako je unesena prihvatljiva vrednost
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.textBlocks.input.textInputMenuBase">
+            <summary>
+            Klasa koja daje osnovu za sve menu-like input sistem
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.input.textInputMenuBase.pageManager">
+            <summary>
+            upravlja 
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.input.textInputMenuBase.formatKeyBox">
+            <summary>
+            formatiranje key boxa
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.input.textInputMenuBase.renderItem(imbACE.Core.commands.menu.core.aceMenuItem,imbACE.Core.commands.menu.render.menuRenderFlag,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Generise izlaz za prosledjen item - ovu funkciju treba da koriste ostale funkcije viseg nivoa
+            </summary>
+            <param name="item"></param>
+            <param name="itemRendering"></param>
+            <param name="isDisabled"></param>
+            <param name="isSelected"></param>
+            <param name="isDefault"></param>
+            <returns></returns>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.input.textInputMenuBase.menu">
+            <summary>
+            referenca prema meniju
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.input.textInputMenuBase.renderView">
+            <summary>
+            Bindable property
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.input.textInputMenuBase.adjustSize">
+            <summary>
+            Modifikuje pre svega visinu sekcije u skladu sa podesavanjima - poziva se pre rendera
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.input.textInputMenuBase.flags">
+            <summary>
+            menuRenderingFlags
+            </summary>
+        </member>
+        <member name="F:imbACE.Services.textBlocks.input.textInputMenuRenderView.listKeyItem">
+            <summary>
+            Lista mogucih opcija sa prikazom trenutne vrednosti na dnu u posebnom redu
+            </summary>
+        </member>
+        <member name="F:imbACE.Services.textBlocks.input.textInputMenuRenderView.listItemSelectable">
+            <summary>
+            List mogucih opcija sa selekt prefixom
+            </summary>
+        </member>
+        <member name="F:imbACE.Services.textBlocks.input.textInputMenuRenderView.inlineItemsHidden">
+            <summary>
+            strelicama se menja selektovan item - nema spiska svih itema
+            </summary>
+        </member>
+        <member name="F:imbACE.Services.textBlocks.input.textInputMenuRenderView.inlineKeyListGroup">
+            <summary>
+            iteme pakuje u liniju i radi line wrap
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.interfaces.IAcceptsTextSectionStyle.leftFieldWidth">
+            <summary>
+            sirina levog polja
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.interfaces.IAcceptsTextSectionStyle.rightFieldWidth">
+            <summary>
+            sirina desnog polja
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.interfaces.IAcceptsTextSectionStyle.backgroundDecoration">
+            <summary>
+            uzorak stringa koji se koristi za pozadinsku dekoraciju
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.interfaces.IAcceptsTextSectionStyle.marginDecoration">
+            <summary>
+            dekoracijaMargine
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.interfaces.IAcceptsTextSectionStyle.doInverseColors">
+            <summary>
+            koji pod stil se primenjuje
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:imbACE.Services.textBlocks.interfaces.IHasTextSectionMethods.writeField(System.String,imbSCI.Data.enums.printHorizontal,System.Int32,System.String,System.String)" -->
+        <member name="M:imbACE.Services.textBlocks.interfaces.IHasTextSectionMethods.writeLine(System.String,System.Int32,System.Boolean,System.Int32)">
+            <summary>
+            Upisuje liniju ili linije (automatski wrappuje)
+            </summary>
+            <param name="content"></param>
+            <param name="toInnerLine"></param>
+            <param name="doMoveToNextLine">Da li nakon ispisivanja pomera kursor na sledeci red</param>
+            <param name="limitLineCount">Koliko linija najvise moze da ubaci na osnovu datog contenta</param>
+            <returns>Koliko je linija ispisao nakon obrade content parametra</returns>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.interfaces.IHasTextSectionMethods.insertLine(System.String,System.Int32,System.Boolean,System.Int32)">
+            <summary>
+            Ubacuje liniju ili linije 
+            </summary>
+            <param name="content"></param>
+            <param name="toInnerLine"></param>
+            <param name="doMoveToNextLine"></param>
+            <param name="limitLineCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.interfaces.IHasTextSectionMethods.insertSplitLine(System.String,System.String,System.Int32)">
+            <summary>
+            Ubacuje spliter liniju i pomera kursor na sledeci red
+            </summary>
+            <param name="__backgroundDeco"></param>
+            <param name="__marginDeco"></param>
+            <param name="toInnerLine"></param>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.interfaces.IHasTextSectionMethods.setupFieldFormat(System.String,System.Int32,System.Int32)">
+            <summary>
+            Podesava formatiranje polja
+            </summary>
+            <param name="defaultFormat">Format koji se primenjuje u svaki insert</param>
+            <param name="__rightField">Desna kolona</param>
+            <param name="__leftField">Leva kolona</param>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.interfaces.ISupportsCursorWriteAndSelect.select(imbACE.Services.textBlocks.core.textCursor,System.Int32,System.Boolean)">
+            <summary>
+            Od trenutne pozicije kursora vraca substring date duzine. Ako je length = -1 onda do desnog kraja dozvoljene zone. 
+            </summary>
+            <param name="length"></param>
+            <param name="copyCompleteLine">Da li da iskopira celu liniju</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.interfaces.ISupportsCursorWriteAndSelect.write(imbACE.Services.textBlocks.core.textCursor,System.String,System.Int32,System.Boolean)">
+            <summary>
+            upisuje prosledjen unos, primenjuje limit ako je dat - ako nije> limit je u skladu za zonom
+            </summary>
+            <param name="input"></param>
+            <param name="limit"></param>
+            <param name="writeCompleteLine"></param>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.interfaces.ISupportsTextCursor.leftFieldWidth">
+            <summary>
+            sirina levog polja
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.interfaces.ISupportsTextCursor.rightFieldWidth">
+            <summary>
+            sirina desnog polja
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.interfaces.ITextContentBasic.ZLayerOrder">
+            <summary>
+            Z redosled sloja u kome se nalazi ovaj blok - 0 se prvo renderuje, 100 poslednji
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.interfaces.ITextContentBasic.blending">
+            <summary>
+            vrsta blendovanja
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.interfaces.ITextContentBasic.foreColor">
+            <summary>
+            boja slova
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.interfaces.ITextContentBasic.backColor">
+            <summary>
+            pozadinska boja
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.interfaces.ITextContentBasic.doInverseColors">
+            <summary>
+            da li da invertuje boje
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.interfaces.ITextLayoutContentProvider.ZLayerOrder">
+            <summary>
+            Z redosled sloja u kome se nalazi ovaj blok - 0 se prvo renderuje, 100 poslednji
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.interfaces.ITextLayoutContentProvider.blending">
+            <summary>
+            vrsta blendovanja
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.interfaces.ITextLayoutContentProvider.resetContent">
+            <summary>
+            Brise sav zadrzaj i renderuje pozadinu
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.interfaces.ITextLayoutContentProvider.width">
+            <summary>
+            maksimalna spoljna sirina formata (innerWidth+padding+margin = Windows.width) 
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.interfaces.ITextLayoutContentProvider.height">
+            <summary>
+            maksimalna spoljna visina formata (innerHeight+padding+margin=Windows.Height)
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.interfaces.ITextLayoutContentProvider.getAttachment(System.Boolean)">
+            <summary>
+            Vraca section koji je "nakacen" na ovaj. Nakachen section se automatski RRE obradjuje pri pozivanju ovog sectiona
+            </summary>
+            <param name="isBottomAttachment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.interfaces.ITextLayoutContentProvider.setAttachment(imbACE.Services.textBlocks.interfaces.ITextLayoutContentProvider,System.Boolean)">
+            <summary>
+            Kaci prosledjeni section na ovaj - zajedno ce biti renderovani
+            </summary>
+            <param name="__sectionToAttach">Sekcija koja se kaci na ovu</param>
+            <param name="isBottomAttachment">Ako je TRUE onda ga dodaje sa donje strane</param>
+            <returns>Vraca sekciju koja je bila ranije attachovana, ako je NULL onda je prvi put da se nesto attachuje</returns>
+        </member>
+        <member name="T:imbACE.Services.textBlocks.ItextLayout">
+            <summary>
+            Text Layout - Composite content layer that accepts content from multiple layers. It has coordinate area (H/W, padding and margin), Footer message, Title message and Status message
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.ItextLayout.layoutFooterMessage">
+            <summary>
+            porukaZaFooter
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.ItextLayout.layoutTitleMessage">
+            <summary>
+            poruka za naslov prozora
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.ItextLayout.layoutStatusMessage">
+            <summary>
+            Poruka za statusni header
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.textBlocks.smart.fileSystemList">
+            <summary>
+            lista sistemskih elemenata
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.smart.fileSystemList.pattern">
+            <summary>
+            pattern za pretragu
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.smart.fileSystemList.rootDirectory">
+            <summary>
+            direktorijum o dakle ide dalje
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.smart.smartCollectionEditor.applyReading(imbACE.Services.platform.interfaces.IPlatform,imbACE.Services.platform.input.textInputResult)">
+            <summary>
+            Primena procitanog unosa
+            </summary>
+            <param name="platform"></param>
+            <param name="__currentOutput"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.smart.smartCollectionEditor.read(imbACE.Services.textBlocks.input.inputResultCollection)">
+            <summary>
+            #2 Očitava ulaz
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.textBlocks.smart.smartFilePathSelector">
+            <summary>
+            Smart section
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.smart.smartFilePathSelector.files">
+            <summary>
+            objekat za pronalazenje fajlova
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.smart.smartFilePathSelector.path">
+            <summary>
+            selected path
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.smart.smartFilePathSelector.filename">
+            <summary>
+            Fajl koji treba da icita
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.smart.smartFilePathSelector.extension">
+            <summary>
+            ekstenzija koju treba da selektuje
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.smart.smartFilePathSelector.selectMode">
+            <summary>
+            Bindable property
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.smart.smartFilePathSelector.doAllowFileOps">
+            <summary>
+            da li dozvoljava operacije nad fajlovima
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.smart.smartFilePathSelector.refresh">
+            <summary>
+            Izvrsava se svaki put kad treba azurirati strukturu sadrzaja prema DataModel izvoru
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.smart.smartFilePathSelector.resetContent">
+            <summary>
+            Izvrsava se neposredno pre renderinga
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.smart.smartFilePathSelector.applyReading(imbACE.Services.platform.interfaces.IPlatform,imbACE.Services.platform.input.textInputResult)">
+            <summary>
+            Primena procitanog unosa
+            </summary>
+            <param name="platform"></param>
+            <param name="__currentOutput"></param>
+            <returns></returns>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.smart.smartInfoLineSection.data">
+            <summary>
+            Bindable property
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.smart.smartMenuPropertyEditor.editorTarget">
+            <summary>
+            cilj editora
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.smart.smartMenuPropertyEditor.settingSpecs">
+            <summary>
+            specifikacija settingsa koje treba da prikaze
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.smart.smartMenuPropertyEditor.applyReading(imbACE.Services.platform.interfaces.IPlatform,imbACE.Services.platform.input.textInputResult)">
+            <summary>
+            Primena procitanog unosa
+            </summary>
+            <param name="platform"></param>
+            <param name="__currentOutput"></param>
+            <returns></returns>
+        </member>
+        <member name="T:imbACE.Services.textBlocks.smart.smartMenuSection">
+            <summary>
+            Osnovni menu
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.smart.smartMenuSection.applyReading(imbACE.Services.platform.interfaces.IPlatform,imbACE.Services.platform.input.textInputResult)">
+            <summary>
+            primenjuje rezultat iscitavanja jedne iteracije
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.smart.smartMenuSection.resetContent">
+            <summary>
+            generise sadrzaj
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.textBlocks.smart.smartMessageSection">
+            <summary>
+            Prikazuje poruku sa naslovom
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.smart.smartMessageSection.doInsertSplitLineAtEnd">
+            <summary>
+            da li da ubacuje split line na kraju
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.textBlocks.smart.smartPageViewer">
+            <summary>
+            Smart section
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.smart.smartPageViewer.pageManager">
+            <summary>
+            menadzer_stranica
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.smart.smartPageViewer.content">
+            <summary>
+            linije sadrzaja
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.smart.smartPageViewer.refresh">
+            <summary>
+            Izvrsava se svaki put kad treba azurirati strukturu sadrzaja prema DataModel izvoru
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.smart.smartPageViewer.resetContent">
+            <summary>
+            Izvrsava se neposredno pre renderinga
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.smart.smartPageViewer.applyReading(imbACE.Services.platform.interfaces.IPlatform,imbACE.Services.platform.input.textInputResult)">
+            <summary>
+            Primena procitanog unosa
+            </summary>
+            <param name="platform"></param>
+            <param name="__currentOutput"></param>
+            <returns></returns>
+        </member>
+        <member name="T:imbACE.Services.textBlocks.textLayout">
+            <summary>
+            Text Layout - Composite content layer that accepts content from multiple layers. It has coordinate area (H/W, padding and margin), Footer message, Title message and Status message
+            </summary>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.textLayout.layers">
+            <summary>
+            Collection of layers/sections
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.textLayout.render">
+            <summary>
+            Renderuje lejere u sopstveni sadrzaj
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.textLayout.render(imbACE.Services.textBlocks.interfaces.ITextLayoutContentProvider,imbACE.Services.textBlocks.interfaces.IHasCursor)">
+            <summary>
+            Pakuje sadržaj po lejerima u IHasCursor target objekat koristeći njegov kursor
+            </summary>
+            <param name="target">Objekat čijim kursorom pakuje sadržaj</param>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.textLayout.render(imbACE.Services.textBlocks.interfaces.ITextLayoutContentProvider,imbACE.Services.platform.interfaces.IPlatform)">
+            <summary>
+            #1 Generise sadrzaj
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.textLayout.render(imbACE.Services.platform.interfaces.IPlatform,System.Boolean)">
+            <summary>
+            #1 Generise sadrzaj
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.textLayout.addLayer(imbACE.Services.textBlocks.interfaces.ITextLayoutContentProvider,imbACE.Services.textBlocks.enums.layerBlending,System.Int32)">
+            <summary>
+            Dodaje novi layer u layout. Ako je __target objekat vec zakacen za neki layer odustaje i vraca FALSE
+            </summary>
+            <param name="__target">Objekat koji pruza sadrzaj</param>
+            <param name="__blending">Nacin kopiranja sadrzaja</param>
+            <param name="onTop">Ako je TRUE layer ce biti na vrhu (poslednji se renderuje), ako je FALSE layer ce biti prvi na dnu (prvi se renderuje)</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.textLayout.init(imbACE.Services.platform.interfaces.IPlatform)">
+            <summary>
+            #0 Izvrsava se prvi put - kada se instancira. Customized sekvenca inicijalizacije
+            </summary>
+            <param name="platform"> </param>
+        </member>
+        <member name="T:imbACE.Services.textBlocks.textLineContent">
+            <summary>
+            Klasa za templejtiranje jedne linije --- nije predvidjeno za nasledjivanje
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.textLineContent.#ctor(System.String,System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Deklarisanje linijskog templejta 
+            </summary>
+            <param name="__bgDecoration"></param>
+            <param name="__width"></param>
+            <param name="__leftRightMargin"></param>
+            <param name="__leftRightPadding"></param>
+        </member>
+        <member name="P:imbACE.Services.textBlocks.textLineContent.contentLine">
+            <summary>
+            Sadrzaj za jednolinijski blok ili linija na koju trenutno pokazuje kursor
+            </summary>
+        </member>
+        <member name="T:imbACE.Services.textBlocks.textSection">
+            <summary>
+            Potpuno aktivno formatiran blok sadrzaja
+            </summary>
+            <remarks>
+            Koristiti ovu klasu za generisanje sadrzaja
+            </remarks>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.textSection.writeFields(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            Upisuje u trenunu liniju podatke iz polja
+            </summary>
+            <param name="leftContent"></param>
+            <param name="toInnerLine"></param>
+            <param name="midContent"></param>
+            <param name="rightContent"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:imbACE.Services.textBlocks.textSection.writeField(System.String,imbSCI.Data.enums.printHorizontal,System.Int32,System.String,System.String)" -->
+        <member name="M:imbACE.Services.textBlocks.textSection.writeLine(System.String,System.Int32,System.Boolean,System.Int32)">
+            <summary>
+            Upisuje liniju ili linije (automatski wrappuje)
+            </summary>
+            <param name="content"></param>
+            <param name="toInnerLine"></param>
+            <param name="doMoveToNextLine">Da li nakon ispisivanja pomera kursor na sledeci red</param>
+            <param name="limitLineCount">Koliko linija najvise moze da ubaci na osnovu datog contenta</param>
+            <returns>Koliko je linija ispisao nakon obrade content parametra</returns>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.textSection.insertLine(System.String,System.Int32,System.Boolean,System.Int32)">
+            <summary>
+            Ubacuje liniju ili linije 
+            </summary>
+            <param name="content"></param>
+            <param name="toInnerLine"></param>
+            <param name="doMoveToNextLine"></param>
+            <param name="limitLineCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.textSection.insertSplitLine(System.String,System.String,System.Int32)">
+            <summary>
+            Ubacuje spliter liniju i pomera kursor na sledeci red
+            </summary>
+            <param name="__backgroundDeco"></param>
+            <param name="__marginDeco"></param>
+            <param name="toInnerLine"></param>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.textSection.cutSectionAtCursor">
+            <summary>
+            skracuje section na mestu kursora
+            </summary>
+        </member>
+        <member name="M:imbACE.Services.textBlocks.textSection.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Instancira sekciju i renderuje background u skladu sa podesavanjima
+            </summary>
+            <param name="__height"></param>
+            <param name="__width"></param>
+            <param name="__leftRightMargin"></param>
+            <param name="__leftRightPadding"></param>
+        </member>
+    </members>
+</doc>

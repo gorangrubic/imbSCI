@@ -59,6 +59,10 @@ namespace imbSCI.Core
                 }
                 return _logControl;
             }
+            set
+            {
+                _logControl = value;
+            }
         }
     }
 }

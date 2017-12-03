@@ -48,5 +48,10 @@ using imbSCI.Data.interfaces;
 
 namespace imbSCI.Core.files.search
 {
+    /// <summary>
+    /// External delegate used for custom text line evaluation, used to split file content into named groups. 
+    /// </summary>
+    /// <param name="lineInput">Input line sent for classification</param>
+    /// <returns>Name of the group to classify the input line into. Returns "none" if the line should be excluded.</returns>
     public delegate String lineEvaluator(String lineInput);
 }

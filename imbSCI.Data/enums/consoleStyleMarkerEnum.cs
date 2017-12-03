@@ -38,6 +38,7 @@ namespace imbSCI.Data.enums
         highlight,
         darker,
         bolder,
+        doubleBolder,
     }
 
 }

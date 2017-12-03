@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>imbACE.ApplicationDemo</name>
+    </assembly>
+    <members>
+        <member name="T:imbACE.ApplicationDemo.consoleApp.CommandConsoleDemo">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:imbACE.Services.console.aceAdvancedConsole&lt;imbACE.ApplicationDemo.consoleApp.CommandConsoleDemoState, imbACE.ApplicationDemo.consoleApp.CommandConsoleDemoWorkspace&gt;" />
+        </member>
+        <member name="P:imbACE.ApplicationDemo.consoleApp.CommandConsoleDemo.workspace">
+            <summary>
+            Gets the workspace.
+            </summary>
+            <value>
+            The workspace.
+            </value>
+        </member>
+        <member name="M:imbACE.ApplicationDemo.consoleApp.CommandConsoleDemo.onStartUp">
+            <summary>
+            Customized code to be executed once the console is started
+            </summary>
+        </member>
+        <member name="T:imbACE.ApplicationDemo.consoleApp.CommandConsoleDemoState">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:imbACE.Services.console.aceAdvancedConsoleStateBase" />
+        </member>
+        <member name="T:imbACE.ApplicationDemo.consoleApp.CommandConsoleDemoWorkspace">
+            <summary>
+            Workspave for the console
+            </summary>
+            <seealso cref="T:imbACE.Services.console.aceAdvancedConsoleWorkspace" />
+        </member>
+        <member name="M:imbACE.ApplicationDemo.consoleApp.CommandConsoleDemoWorkspace.#ctor(imbACE.ApplicationDemo.consoleApp.CommandConsoleDemo)">
+            <summary>
+            Initializes the workspace for the console specified
+            </summary>
+            <param name="console">The console using this workspace</param>
+        </member>
+        <member name="M:imbACE.ApplicationDemo.consoleApp.CommandConsoleDemoWorkspace.setAdditionalWorkspaceFolders">
+            <summary>
+            Gets called during workspace construction, the method should initiate any additional subdirectories that console's project uses
+            </summary>
+            <remarks>
+            <example>
+            Place inside initiation of additional directories, required for your console's project class (inheriting: <see cref="T:imbACE.Services.console.aceAdvancedConsoleStateBase" />)
+            <code><![CDATA[
+            folderName = folder.Add(nameof(folderName), "Caption", "Description");
+            ]]></code></example>
+            </remarks>
+        </member>
+    </members>
+</doc>

@@ -35,6 +35,7 @@ using imbSCI.Data;
 using imbSCI.Data.collection.nested;
 using imbSCI.Data.data;
 using imbSCI.Data.enums.reporting;
+using imbSCI.Core.extensions.data;
 
 namespace imbSCI.DataComplex.tree
 {

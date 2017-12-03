@@ -65,6 +65,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="config\imbSCICoreConfig.cs" />
+    <Compile Include="extensions\data\containsQueries.cs" />
+    <Compile Include="files\search\NamespaceDoc.cs" />
+    <Compile Include="imbSCICoreManager.cs" />
     <Compile Include="reporting\aceLogToConsoleControl.cs" />
     <Compile Include="attributes\aceCriterieConfig.cs" />
     <Compile Include="attributes\aceRangeConfig.cs" />

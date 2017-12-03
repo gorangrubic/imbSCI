@@ -50,9 +50,17 @@ namespace imbSCI.Core.files.search
 {
     using System.Collections;
 
+    /// <summary>
+    /// Collection of <see cref="fileTextOperater"/> instances, used when multiple files should be searched
+    /// </summary>
+    /// <seealso cref="System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String, imbSCI.Core.files.search.fileTextOperater}}" />
     public class fileTextOperaterMulti:IEnumerable<KeyValuePair<String, fileTextOperater>>
     {
 
+        /// <summary>
+        /// Populates it self with <see cref="fileTextOperater"/>s for each file path specified in the <c>filepaths</c> argument
+        /// </summary>
+        /// <param name="filepaths">The filepaths.</param>
         public fileTextOperaterMulti(IEnumerable<String> filepaths)
         {
             foreach (String filepath in filepaths)

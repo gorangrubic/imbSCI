@@ -1,0 +1,43 @@
+﻿<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>SCI Settngs property</Title>
+      <Shortcut>_imbSCI_DoBool</Shortcut>
+      <Description>Boolean property for doing something</Description>
+      <Author>imbVeles</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>type</ID>
+          <ToolTip>Property type</ToolTip>
+          <Default>Boolean</Default>
+        </Literal>
+        <Literal>
+          <ID>property</ID>
+          <ToolTip>Property name</ToolTip>
+          <Default>doSomething</Default>
+        </Literal>
+        <Literal>
+          <ID>categoryGroup</ID>
+          <ToolTip>Category of configuration</ToolTip>
+          <Default>Switch</Default>
+        </Literal>
+        <Literal>
+          <ID>description</ID>
+          <ToolTip>de</ToolTip>
+          <Default>If true it will do something</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+/// &lt;summary&gt; $description$ &lt;/summary&gt;
+[Category("$categoryGroup$")][DisplayName("$property$")][Description("$description$")]
+public $type$ $property$ {get; set;} = true;
+	
+	$end$</Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

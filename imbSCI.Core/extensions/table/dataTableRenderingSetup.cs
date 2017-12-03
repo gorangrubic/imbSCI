@@ -463,7 +463,7 @@ namespace imbSCI.Core.extensions.table
             settingsEntriesForObject sEO = new settingsEntriesForObject(data_value, false, false);
             foreach (var spe in sEO.spes.Values)
             {
-                if (collectionExtensions.Contains(propertyTypes, spe.type))
+                if (containsQueries.Contains(propertyTypes, spe.type))
                 {
                     if (spe.value != null)
                     {

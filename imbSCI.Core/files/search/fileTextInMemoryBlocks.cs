@@ -51,15 +51,16 @@ namespace imbSCI.Core.files.search
     using System.Collections;
     using System.IO;
 
+    /// <summary>
+    /// Internally used collection of text blocks <see cref="fileTextInMemoryBlockUnit"/>. 
+    /// </summary>
+    /// <seealso cref="System.Collections.Generic.IEnumerable{imbSCI.Core.files.search.fileTextInMemoryBlockUnit}" />
     public class fileTextInMemoryBlocks:IEnumerable<fileTextInMemoryBlockUnit>
     {
-
-
-       
-
+        
         private Int32 _blockSize;
         /// <summary>
-        /// 
+        /// Number of lines per one block
         /// </summary>
         public Int32 blockSize
         {
@@ -78,10 +79,10 @@ namespace imbSCI.Core.files.search
         }
 
         /// <summary>
-        /// Loads the file.
+        /// Loads the file from <c>filepath</c> and splits it into <see cref="fileTextInMemoryBlockUnit"/>s
         /// </summary>
-        /// <param name="filepath">The filepath.</param>
-        /// <param name="blockSize">Size of the block.</param>
+        /// <param name="filepath">The filepath to load</param>
+        /// <param name="__blockSize">Size of the block, if -1 it will use standard block size as defined by: <see cref="fileOpsBase.standardBlockSize"/>.</param>
         public void loadFile(String filepath, Int32 __blockSize=-1)
         {
             Int32 bl = 0;
@@ -108,6 +109,11 @@ namespace imbSCI.Core.files.search
             }
         }
 
+        /// <summary>
+        /// Saves the content grom the blocks into file, on the specified file path.
+        /// </summary>
+        /// <param name="filepath">The filepath.</param>
+        /// <param name="filterEmptyLines">if set to <c>true</c> it will exclude empty lines</param>
         public void saveFile(String filepath, Boolean filterEmptyLines=true)
         {
 
@@ -120,6 +126,12 @@ namespace imbSCI.Core.files.search
                         if (!str.isNullOrEmpty())
                         {
                             st.WriteLine(str);
+                        } else
+                        {
+                            if (!filterEmptyLines)
+                            {
+                                st.WriteLine(str);
+                            }
                         }
                     }
                 }
@@ -128,6 +140,14 @@ namespace imbSCI.Core.files.search
         }
 
 
+        /// <summary>
+        /// Provides direct access to the line at <c>ln</c>. Line number is indexed to the content as a whole.
+        /// </summary>
+        /// <value>
+        /// The <see cref="String"/>.
+        /// </value>
+        /// <param name="ln">The ln.</param>
+        /// <returns></returns>
         public String this[Int32 ln]
         {
             get

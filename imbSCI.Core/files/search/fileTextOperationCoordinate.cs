@@ -49,6 +49,9 @@ using imbSCI.Data.interfaces;
 namespace imbSCI.Core.files.search
 {
 
+    /// <summary>
+    /// Text coordinate axis
+    /// </summary>
     public enum fileTextOperationCoordinate
     {
         byLineNumber,

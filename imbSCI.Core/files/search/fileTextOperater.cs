@@ -58,63 +58,34 @@ namespace imbSCI.Core.files.search
     public class fileTextOperater
     {
 
-        private String _filePath ="";
-        /// <summary> </summary>
-        public String filePath
-        {
-            get
-            {
-                return _filePath;
-            }
-            protected set
-            {
-                _filePath = value;
-                
-            }
-        }
+        /// <summary>Path of the source file</summary>
+        public String filePath { get; protected set; } ="";
 
 
-        private FileInfo _file;
-        /// <summary> </summary>
-        public FileInfo file
-        {
-            get
-            {
-                return _file;
-            }
-            protected set
-            {
-                _file = value;
-                //OnPropertyChanged("file");
-            }
-        }
+        /// <summary>Reference to the source file info</summary>
+        public FileInfo file { get; protected set; }
 
 
 
 
-        private fileTextInMemoryBlocks _memMap;
+        /// <summary>
+        /// Content block units - used for parallel execution
+        /// </summary>
+        protected fileTextInMemoryBlocks memMap { get; set; }
+
+
+
         /// <summary>
         /// 
         /// </summary>
-        public fileTextInMemoryBlocks memMap
-        {
-            get { return _memMap; }
-            set { _memMap = value; }
-        }
+        protected Boolean useMemMap { get; set; }
 
 
-
-        private Boolean _useMemMap;
         /// <summary>
-        /// 
+        /// Loads content from the file. Optionally uses parallel execution optimization, if <c>__useMemMap</c> is true
         /// </summary>
-        public Boolean useMemMap
-        {
-            get { return _useMemMap; }
-            set { _useMemMap = value; }
-        }
-
-
+        /// <param name="__filePath">The path of the source content</param>
+        /// <param name="__useMemMap">if True Enables optimization for parallel execution</param>
         public fileTextOperater(String __filePath, Boolean __useMemMap=true)
         {
             filePath = __filePath;
@@ -135,15 +106,10 @@ namespace imbSCI.Core.files.search
         }
 
 
-        private Int32 _estLinesInFile;
         /// <summary>
-        /// 
+        /// Estimeted number of lines in the file
         /// </summary>
-        public Int32 estLinesInFile
-        {
-            get { return _estLinesInFile; }
-            set { _estLinesInFile = value; }
-        }
+        protected Int32 estLinesInFile { get; set; }
 
 
         /// <summary>
@@ -216,6 +182,10 @@ namespace imbSCI.Core.files.search
             }
         }
 
+        /// <summary>
+        /// Takes all lines of the source file 
+        /// </summary>
+        /// <returns></returns>
         public fileTextLineCollection TakeAll()
         {
             return Take(-1, null, null);
@@ -447,6 +417,15 @@ namespace imbSCI.Core.files.search
         }
 
 
+        /// <summary>
+        /// Searches the specified cached lines.
+        /// </summary>
+        /// <param name="cachedLines">The cached lines.</param>
+        /// <param name="__needle">The needle.</param>
+        /// <param name="useRegex">if set to <c>true</c> [use regex].</param>
+        /// <param name="limitResult">The limit result.</param>
+        /// <param name="regexOptions">The regex options.</param>
+        /// <returns></returns>
         public fileTextSearchResult Search(fileTextLineCollection cachedLines, String __needle, Boolean useRegex = false, Int32 limitResult = -1, RegexOptions regexOptions = RegexOptions.None)
         {
             fileTextSearchResult output = new fileTextSearchResult(__needle, file.FullName, useRegex);
@@ -488,8 +467,10 @@ namespace imbSCI.Core.files.search
         /// <summary>
         /// Searches lines with specified needle and returns resulting collection
         /// </summary>
-        /// <param name="__needle">The needle.</param>
-        /// <param name="useRegex">if set to <c>true</c> [use regex].</param>
+        /// <param name="__needle">The needle to search for or regex expression to test lines against</param>
+        /// <param name="useRegex">if set to <c>true</c> it will interpret the needle as regex</param>
+        /// <param name="limitResult">Result size limit - it stops the search procedure once the limit is reached. Leave it -1 to disable the limit</param>
+        /// <param name="regexOptions">The regex options, used in combination with <c>useRegex</c> = true</param>
         /// <returns></returns>
         public fileTextSearchResult Search(String __needle, Boolean useRegex = false, Int32 limitResult=-1, RegexOptions regexOptions = RegexOptions.None)
         {
@@ -528,12 +509,14 @@ namespace imbSCI.Core.files.search
 
 
         /// <summary>
-        /// Search file with multiple needles
+        /// Search file with multiple needles - performs search with multiple needles.
         /// </summary>
-        /// <param name="__needles">The needles.</param>
-        /// <param name="useRegex">if set to <c>true</c> [use regex].</param>
+        /// <param name="__needles">Set of needles or regex expressions to evaluate lines with</param>
+        /// <param name="useRegex">if set to <c>true</c> it will interpret the needle as regex</param>
         /// <param name="comparison">The comparison.</param>
-        /// <returns></returns>
+        /// <param name="regexOptions">The regex options, used in combination with <c>useRegex</c> = true</param>
+        /// <param name="limitResult">Result size limit - it stops the search procedure once the limit is reached. Leave it -1 to disable the limit</param>
+        /// <returns>Set of results</returns>
         public fileTextSearchResultSet Search(IEnumerable<String> __needles, Boolean useRegex = false, StringComparison comparison=StringComparison.CurrentCultureIgnoreCase, RegexOptions regexOptions = RegexOptions.None, Int32 limitResult = -1)
         {
             fileTextSearchResultSet output = new fileTextSearchResultSet(__needles, file.FullName, useRegex);
@@ -566,10 +549,7 @@ namespace imbSCI.Core.files.search
             return output;
         }
 
-        //public FileInfo Replace(fileTextLineCollection replacementLines, String newFilename="")
-        //{
-
-        //}
+       
 
     }
 
