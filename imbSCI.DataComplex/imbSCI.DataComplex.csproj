@@ -255,16 +255,6 @@
     <Compile Include="trends\NamespaceDoc.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\imbSCI.Core\imbSCI.Core.csproj">
-      <Project>{d02f731c-3a1c-4094-ba85-a8b563906e7e}</Project>
-      <Name>imbSCI.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\imbSCI.Data\imbSCI.Data.csproj">
-      <Project>{22b51684-1a11-4523-8c5c-fc6d76818bc4}</Project>
-      <Name>imbSCI.Data</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="imbSCI.DataComplex.licenseheader" />
     <None Include="packages.config" />
     <None Include="tree\imbTreeElements.dgml" />
@@ -274,6 +264,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="tree\tree\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\imbSCI.Core\imbSCI.Core.csproj">
+      <Project>{d02f731c-3a1c-4094-ba85-a8b563906e7e}</Project>
+      <Name>imbSCI.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\imbSCI.Data\imbSCI.Data.csproj">
+      <Project>{22b51684-1a11-4523-8c5c-fc6d76818bc4}</Project>
+      <Name>imbSCI.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

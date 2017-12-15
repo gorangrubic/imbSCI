@@ -63,7 +63,14 @@ namespace imbSCI.Core.extensions.typeworks
             if (hostType != null)
             {
                 namespaceString = hostType.Namespace;
+                
             }
+
+            if (flags.HasFlag(CollectTypeFlags.ofThisAssembly) || flags.HasFlag(CollectTypeFlags.ofAllAssemblies))
+            {
+                flags |= CollectTypeFlags.ofThisAssembly;
+            }
+
 
             if (flags.HasFlag(CollectTypeFlags.ofThisAssembly))
             {
@@ -130,6 +137,23 @@ namespace imbSCI.Core.extensions.typeworks
             return output;
 
 
+        }
+
+        /// <summary>
+        /// Converts a list of <see cref="Type"/> to Dictionary having <see cref="Type.Name"/> as key
+        /// </summary>
+        /// <param name="list">The list.</param>
+        /// <returns></returns>
+        public static Dictionary<String, Type> TypeListToDictionary(this List<Type> list)
+        {
+            Dictionary<String, Type> output = new Dictionary<string, Type>();
+
+            foreach (Type pet in list)
+            {
+                if (!output.ContainsKey(pet.Name)) output.Add(pet.Name, pet);
+            }
+
+            return output;
         }
 
 

@@ -250,20 +250,6 @@
     <Folder Include="meta\style\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\imbSCI.Core\imbSCI.Core.csproj">
-      <Project>{d02f731c-3a1c-4094-ba85-a8b563906e7e}</Project>
-      <Name>imbSCI.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\imbSCI.DataComplex\imbSCI.DataComplex.csproj">
-      <Project>{84869e5f-cc21-425d-beb6-5ef4d4773b15}</Project>
-      <Name>imbSCI.DataComplex</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\imbSCI.Data\imbSCI.Data.csproj">
-      <Project>{22B51684-1A11-4523-8C5C-FC6D76818BC4}</Project>
-      <Name>imbSCI.Data</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="imbVeles48.ico" />
     <Content Include="resources\reporting\include\d3\d3.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -380,6 +366,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="imbSCI.Reporting.licenseheader" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\imbSCI.Core\imbSCI.Core.csproj">
+      <Project>{d02f731c-3a1c-4094-ba85-a8b563906e7e}</Project>
+      <Name>imbSCI.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\imbSCI.DataComplex\imbSCI.DataComplex.csproj">
+      <Project>{84869e5f-cc21-425d-beb6-5ef4d4773b15}</Project>
+      <Name>imbSCI.DataComplex</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\imbSCI.Data\imbSCI.Data.csproj">
+      <Project>{22b51684-1a11-4523-8c5c-fc6d76818bc4}</Project>
+      <Name>imbSCI.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
