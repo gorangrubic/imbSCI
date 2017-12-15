@@ -65,6 +65,11 @@ namespace imbSCI.DataComplex.tables
     public abstract class objectTableBase : changeBindableBase, IObjectWithName, IObjectWithNameAndDescription
     {
 
+        protected objectTableBase()
+        {
+
+        }
+
         private string _description;
         /// <summary> </summary>
         public string description
@@ -306,6 +311,11 @@ namespace imbSCI.DataComplex.tables
 
             return c;
         }
+
+
+      
+        
+
 
         /// <summary>
         /// Loads the content from specified path

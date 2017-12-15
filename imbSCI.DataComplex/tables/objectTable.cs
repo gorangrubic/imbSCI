@@ -51,6 +51,9 @@ namespace imbSCI.DataComplex.tables
     using imbSCI.Data.enums;
     using imbSCI.Data.collection.nested;
 
+
+
+
     /// <summary>
     /// Applied object table
     /// </summary>
@@ -70,8 +73,10 @@ namespace imbSCI.DataComplex.tables
             }
         }
 
+        protected objectTable()
+        {
 
-
+        }
 
         /// <summary>
         /// New object table with unspecified filepath

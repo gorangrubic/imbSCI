@@ -193,7 +193,7 @@ namespace imbSCI.Core.files.fileDataStructure
             {
                 case fileStructureMode.subdirectory:
                     //parentFolder = Directory.CreateDirectory(parentFolder.path);
-
+                    if (instance.folder == null) instance.folder = parentFolder.Add(instance.name, instance.name, "Directory for [" + instance.GetType().Name+"]. " + instance.description);
                     filename = type.Name.getCleanPropertyName().add(formatMode.GetExtension(), ".");
 
                     break;

@@ -1,0 +1,44 @@
+﻿<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>SCI FileData Property</Title>
+      <Shortcut>_imbSCI_FileData</Shortcut>
+      <Description>Property that will be saved in a separate file</Description>
+      <Author>imbVeles</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>type</ID>
+          <ToolTip>Property type</ToolTip>
+          <Default>List&lt;String&gt;</String></Default>
+        </Literal>
+        <Literal>
+          <ID>property</ID>
+          <ToolTip>Property name</ToolTip>
+          <Default>DataContent</Default>
+        </Literal>
+        <Literal>
+          <ID>categoryGroup</ID>
+          <ToolTip>Category of configuration</ToolTip>
+          <Default>FileData</Default>
+        </Literal>
+        <Literal>
+          <ID>description</ID>
+          <ToolTip>de</ToolTip>
+          <Default>Content data, saved in separate file</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+/// &lt;summary&gt; $description$ &lt;/summary&gt;
+[Category("$categoryGroup$")][DisplayName("$property$")][Description("$description$")]
+[XmlIgnore][fileData(fileDataFilenameMode.memberInfoName, fileDataPropertyMode.text)]
+public $type$ $property$ {get; set;} = new $type$();
+	
+	$end$</Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

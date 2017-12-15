@@ -127,9 +127,15 @@ namespace imbSCI.Core.extensions.typeworks
 
             foreach (Type t in types)
             {
-                if (flags.HasFlag(CollectTypeFlags.ofSameNamespace)) if (t.Namespace == namespaceString) output.Add(t);
-                if (flags.HasFlag(CollectTypeFlags.ofChildNamespaces)) if (t.Namespace.StartsWith(namespaceString)) output.Add(t);
-                if (flags.HasFlag(CollectTypeFlags.ofParentNamespace)) if (t.Namespace.StartsWith(namespaceParent)) output.Add(t);
+                if (!t.Name.StartsWith("<"))
+                {
+                    if (t.Namespace != null)
+                    {
+                        if (flags.HasFlag(CollectTypeFlags.ofSameNamespace)) if (t.Namespace == namespaceString) output.Add(t);
+                        if (flags.HasFlag(CollectTypeFlags.ofChildNamespaces)) if (t.Namespace.StartsWith(namespaceString)) output.Add(t);
+                        if (flags.HasFlag(CollectTypeFlags.ofParentNamespace)) if (t.Namespace.StartsWith(namespaceParent)) output.Add(t);
+                    }
+                }
             }
 
             if (!output.Any()) output = types;

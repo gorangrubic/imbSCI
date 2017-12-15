@@ -31,6 +31,8 @@ namespace imbSCI.Data.interfaces
 {
     using System;
 
+
+
     /// <summary>
     /// Classes that support autosave registration
     /// </summary>

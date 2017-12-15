@@ -112,6 +112,7 @@
     <Compile Include="interfaces\IHasDescribeMethod.cs" />
     <Compile Include="interfaces\IPerformanceTake.cs" />
     <Compile Include="interfaces\IPerformanceTaker.cs" />
+    <Compile Include="interfaces\ISupportLoadSave.cs" />
     <Compile Include="NamespaceDoc.cs" />
     <Compile Include="primitives\coordinateXY.cs" />
     <Compile Include="collection\nested\aceConcurrentBag.cs" />

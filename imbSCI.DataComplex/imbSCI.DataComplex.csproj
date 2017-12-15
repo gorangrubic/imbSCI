@@ -210,6 +210,7 @@
     <Compile Include="tables\objectDataSet.cs" />
     <Compile Include="tables\objectTable.cs" />
     <Compile Include="tables\objectTableBase.cs" />
+    <Compile Include="tables\objectTableCustom.cs" />
     <Compile Include="tables\objectTableSortEnum.cs" />
     <Compile Include="tables\objectTableUpdatePolicy.cs" />
     <Compile Include="tests\testDefinition.cs" />

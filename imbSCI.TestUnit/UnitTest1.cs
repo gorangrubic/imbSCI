@@ -9,7 +9,13 @@ namespace imbSCI.TestUnit
     using imbSCI.Data.enums;
     using imbSCI.Data.enums.appends;
     using imbSCI.Data.enums.reporting;
+    using imbSCI.DataComplex.data;
+    using imbSCI.TestUnit.testObjects;
     using System.Collections.Generic;
+    using System.Linq;
+    using imbSCI.Core.files.fileDataStructure;
+    using System.IO;
+    using imbSCI.Core.files.folders;
 
     [TestClass]
     public class UnitTestForSCIData
@@ -20,62 +26,4 @@ namespace imbSCI.TestUnit
         }
     }
 
-    
-
-    [TestClass]
-    public class UnitTestForSCICode
-    {
-        [TestMethod]
-        public void TestCollectTypes()
-        {
-
-            Type t = typeof(imbSCI.Data.enums.appends.appendLinkType);
-
-            List<Type> testOneResult = new List<Type>();
-            testOneResult.AddRange(new Type[] { typeof(appendLinkType), typeof(appendOpenTag), typeof(appendRelativeLinkType), typeof(appendTableBorderFlags), typeof(appendTableOptionFlags) });
-
-
-            var testTwoResult = new List<Type>();
-            testTwoResult.AddRange(testOneResult);
-            testTwoResult.Add(typeof(typedParamDeclarationType));
-            testTwoResult.Add(typeof(exportFormats));
-
-            var testOneDict = testOneResult.TypeListToDictionary();
-            var testTwoDict = testTwoResult.TypeListToDictionary();
-
-            var sameNamespace = t.CollectTypes(CollectTypeFlags.includeEnumTypes | CollectTypeFlags.ofSameNamespace | CollectTypeFlags.ofThisAssembly);
-
-            Boolean hasAll = true;
-
-            foreach (String key in testOneDict.Keys)
-            {
-                if (!sameNamespace.ContainsKey(key))
-                {
-                    hasAll = false;
-                    break;
-                }
-            }
-
-            Assert.AreEqual(hasAll, true);
-
-
-            var parentNamespace = t.CollectTypes(CollectTypeFlags.includeEnumTypes | CollectTypeFlags.ofParentNamespace | CollectTypeFlags.ofThisAssembly);
-
-            hasAll = true;
-
-            foreach (String key in testTwoDict.Keys)
-            {
-                if (!parentNamespace.ContainsKey(key))
-                {
-                    hasAll = false;
-                    break;
-                }
-            }
-
-            Assert.AreEqual(hasAll, true);
-
-
-
-        }
-    }
 }

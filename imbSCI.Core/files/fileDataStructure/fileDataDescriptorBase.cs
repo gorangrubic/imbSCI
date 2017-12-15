@@ -142,37 +142,49 @@ namespace imbSCI.Core.files.fileDataStructure
 
             try
             {
-                switch (formatMode)
+                if (options.HasFlag(fileDataPropertyOptions.SupportLoadSave))
                 {
-                    case fileDataPropertyMode.XML:
-                        objectSerialization.saveObjectToXML(instance, fullpath);
-                        break;
-                    case fileDataPropertyMode.JSON:
-                        throw new NotImplementedException("JSON not implemented yet");
-                        break;
-                    case fileDataPropertyMode.binary:
-                        throw new NotImplementedException("binary file not implemented yet");
-                        break;
-                    case fileDataPropertyMode.text:
-                        String text = "";// openBase.openFileToString(filepath, false);
+                    ISupportLoadSave loadSave = instance as ISupportLoadSave;
+                    loadSave.SaveAs(fullpath, getWritableFileMode.overwrite);
+                }
+                else
+                {
 
-                        if (type == typeof(List<String>))
-                        {
-                            List<String> list = (List<String>)instance;
-                            text = list.toCsvInLine(ListStringSeparator);
-                        }
-                        else if (type == typeof(String))
-                        {
-                            text = instance as String;
-                        }
-                        else
-                        {
-                            throw new InvalidDataException("Format type [" + formatMode + "] not supported for type [" + type.Name + "] "+ "Format not supported - SaveDataFile");
-                        }
+                    switch (formatMode)
+                    {
+                        case fileDataPropertyMode.XML:
 
-                        text.saveStringToFile(fullpath, getWritableFileMode.overwrite);
 
-                        break;
+                            objectSerialization.saveObjectToXML(instance, fullpath);
+
+                            break;
+                        case fileDataPropertyMode.JSON:
+                            throw new NotImplementedException("JSON not implemented yet");
+                            break;
+                        case fileDataPropertyMode.binary:
+                            throw new NotImplementedException("binary file not implemented yet");
+                            break;
+                        case fileDataPropertyMode.text:
+                            String text = "";// openBase.openFileToString(filepath, false);
+
+                            if (type == typeof(List<String>))
+                            {
+                                List<String> list = (List<String>)instance;
+                                text = list.toCsvInLine(ListStringSeparator);
+                            }
+                            else if (type == typeof(String))
+                            {
+                                text = instance as String;
+                            }
+                            else
+                            {
+                                throw new InvalidDataException("Format type [" + formatMode + "] not supported for type [" + type.Name + "] " + "Format not supported - SaveDataFile");
+                            }
+
+                            text.saveStringToFile(fullpath, getWritableFileMode.overwrite);
+
+                            break;
+                    }
                 }
             } catch (Exception ex) {
 
@@ -215,34 +227,47 @@ namespace imbSCI.Core.files.fileDataStructure
             if (itemType == null) itemType = type;
             if (File.Exists(filepath))
             {
-
-                switch (formatMode)
+                if (options.HasFlag(fileDataPropertyOptions.SupportLoadSave))
                 {
-                    case fileDataPropertyMode.XML:
-                        instance = objectSerialization.loadObjectFromXML(filepath, itemType);
-                        break;
-                    case fileDataPropertyMode.JSON:
-                        throw new NotImplementedException("JSON not implemented yet");
-                        break;
-                    case fileDataPropertyMode.binary:
-                        throw new NotImplementedException("binary file not implemented yet");
-                        break;
-                    case fileDataPropertyMode.text:
-                        String text = openBase.openFileToString(filepath, false);
 
-                        if (type == typeof(List<String>))
-                        {
-                            instance = imbSciStringExtensions.SplitSmart(text, ListStringSeparator, "", false, true);
-                        }
-                        else if (type == typeof(String)) { 
-                            instance = text;
-                        } else {
+                    ISupportLoadSave loadSave = itemType.getInstance() as ISupportLoadSave;
+                    loadSave.name = name;
+                    loadSave.LoadFrom(filepath);
+                }
+                else
+                {
 
-                            throw new InvalidDataException("Format type [" + formatMode + "] not supported for type [" + type.Name + "]"+ "Format not supported - LoadDataFile");
-                        }
-                        
-                        
-                        break;
+                    switch (formatMode)
+                    {
+                        case fileDataPropertyMode.XML:
+                            instance = objectSerialization.loadObjectFromXML(filepath, itemType);
+                            break;
+                        case fileDataPropertyMode.JSON:
+                            throw new NotImplementedException("JSON not implemented yet");
+                            break;
+                        case fileDataPropertyMode.binary:
+                            throw new NotImplementedException("binary file not implemented yet");
+                            break;
+                        case fileDataPropertyMode.text:
+                            String text = openBase.openFileToString(filepath, false);
+
+                            if (type == typeof(List<String>))
+                            {
+                                instance = imbSciStringExtensions.SplitSmart(text, ListStringSeparator, "", false, true);
+                            }
+                            else if (type == typeof(String))
+                            {
+                                instance = text;
+                            }
+                            else
+                            {
+
+                                throw new InvalidDataException("Format type [" + formatMode + "] not supported for type [" + type.Name + "]" + "Format not supported - LoadDataFile");
+                            }
+
+
+                            break;
+                    }
                 }
             }
             else
@@ -282,7 +307,17 @@ namespace imbSCI.Core.files.fileDataStructure
                 PropertyInfo pi = memberInfo as PropertyInfo;
                 type = pi.PropertyType;
 
+                if (type.GetInterface(nameof(ISupportLoadSave)) != null)
+                {
+                    options |= fileDataPropertyOptions.SupportLoadSave;
+
+                    if (formatMode == fileDataPropertyMode.autoTextOrXml) formatMode = fileDataPropertyMode.XML;
+                } 
+
+
                 if (formatMode == fileDataPropertyMode.autoTextOrXml) {
+
+
 
                     if (type == typeof(String))
                     {

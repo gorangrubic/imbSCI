@@ -61,6 +61,7 @@ namespace imbSCI.Core.files.fileDataStructure
         /// Works for List and Dictionary: index or key is added to defined filename prefix, each item is saved as separate file
         /// </summary>
         itemAsFile = 2,
+        SupportLoadSave = 3,
     }
 
 }
