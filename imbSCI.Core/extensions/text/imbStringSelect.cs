@@ -103,6 +103,47 @@ namespace imbSCI.Core.extensions.text
 
 
 
+        /// <summary>
+        /// Regex select IsTokenStream : [\s\,\;\-]+
+        /// </summary>
+        /// <remarks>
+        /// <para>For text: example text</para>
+        /// <para>Selects: ex</para>
+        /// </remarks>
+        public static Regex _select_isIsTokenStream = new Regex(@"[\s\,\;\-]+", RegexOptions.Compiled);
+
+        /// <summary>
+        /// Test if input matches [\s\,\;\-]+ : checks if the input is a solid, single token (false) or it is one of token streams kinds (like: "token,token,51", "tkn tk2, 50;", "50;rk;23", "tk-tj"
+        /// </summary>
+        /// <param name="input">String to test</param>
+        /// <returns>IsMatch against _select_isIsTokenStream</returns>
+        public static Boolean isTokenStream(this String input)
+        {
+            if (String.IsNullOrEmpty(input)) return false;
+            return _select_isIsTokenStream.IsMatch(input);
+        }
+
+        /// <summary>
+        /// opposite to <see cref="isTokenStream"/> test
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <returns>
+        ///   <c>true</c> if [is single token] [the specified input]; otherwise, <c>false</c>.
+        /// </returns>
+        public static Boolean isSingleToken(this String input)
+        {
+            return !input.isTokenStream();
+        }
+
+
+
+
+        //public static Boolean isSequenceString(this String input)
+        //{
+
+        //}
+
+
 
 
         //#region REGEX BUNDLE 

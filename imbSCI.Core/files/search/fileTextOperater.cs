@@ -515,9 +515,9 @@ namespace imbSCI.Core.files.search
         /// <param name="useRegex">if set to <c>true</c> it will interpret the needle as regex</param>
         /// <param name="comparison">The comparison.</param>
         /// <param name="regexOptions">The regex options, used in combination with <c>useRegex</c> = true</param>
-        /// <param name="limitResult">Result size limit - it stops the search procedure once the limit is reached. Leave it -1 to disable the limit</param>
+        /// <param name="limitResult">Result size limit (per needle) - it stops the search procedure once the limit is reached. Leave it -1 to disable the limit</param>
         /// <returns>Set of results</returns>
-        public fileTextSearchResultSet Search(IEnumerable<String> __needles, Boolean useRegex = false, StringComparison comparison=StringComparison.CurrentCultureIgnoreCase, RegexOptions regexOptions = RegexOptions.None, Int32 limitResult = -1)
+        public fileTextSearchResultSet Search(IEnumerable<String> __needles, Boolean useRegex = false, RegexOptions regexOptions = RegexOptions.None, Int32 limitResult = -1)
         {
             fileTextSearchResultSet output = new fileTextSearchResultSet(__needles, file.FullName, useRegex);
             fileTextOperaterWorker eval = new fileTextOperaterWorker(__needles, useRegex, regexOptions);

@@ -37,6 +37,7 @@ namespace imbSCI.Data.collection.graph
 {
     using System;
     using System.Collections;
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Xml.Serialization;
     using imbSCI.Data.interfaces;
@@ -50,7 +51,7 @@ namespace imbSCI.Data.collection.graph
     /// <seealso cref="aceCommonTypes.core.interfaces.IObjectWithPath" />
     /// <seealso cref="aceCommonTypes.interfaces.IObjectWithName" />
     /// <seealso cref="aceCommonTypes.interfaces.IObjectWithPathAndChildren" />
-    public class graphWrapNode<TItem> : graphNode, IEnumerable, IEnumerable<graphWrapNode<TItem>>, 
+    public class graphWrapNode<TItem> : graphNodeBase, IGraphNode, IEnumerable, IEnumerable<graphWrapNode<TItem>>, 
         IObjectWithParent, IObjectWithPath, IObjectWithName, IObjectWithPathAndChildren, IObjectWithTreeView where TItem : IObjectWithName
     {
 
@@ -58,7 +59,7 @@ namespace imbSCI.Data.collection.graph
 
         IEnumerator<graphWrapNode<TItem>> IEnumerable<graphWrapNode<TItem>>.GetEnumerator()
         {
-            return children.Values.GetEnumerator();
+            return mychildren.Values.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -68,19 +69,24 @@ namespace imbSCI.Data.collection.graph
 
         public IEnumerator<IObjectWithPathAndChildren> GetEnumerator()
         {
-            return children.Values.GetEnumerator();
+            return mychildren.Values.GetEnumerator();
         }
 
+        protected override IDictionary children {
+           get
+            {
+             return mychildren;
+            }
+        }
 
-
-        private Dictionary<String, graphWrapNode<TItem>> _children = new Dictionary<String, graphWrapNode<TItem>>();
+        private ConcurrentDictionary<String, graphWrapNode<TItem>> _children = new ConcurrentDictionary<String, graphWrapNode<TItem>>();
         /// <summary>
         /// Gets or sets the children.
         /// </summary>
         /// <value>
         /// The children.
         /// </value>
-        protected Dictionary<String, graphWrapNode<TItem>> children
+        protected ConcurrentDictionary<String, graphWrapNode<TItem>> mychildren
         {
             get
             {
@@ -147,18 +153,18 @@ namespace imbSCI.Data.collection.graph
         /// </value>
         /// <param name="key">The key.</param>
         /// <returns></returns>
-        public graphWrapNode<TItem> this[String key]
+        public override IGraphNode this[String key]
         {
             get
             {
 
-                return children[key];
+                return mychildren[key];
             }
             set
             {
-                if (children.ContainsKey(key))
+                if (mychildren.ContainsKey(key))
                 {
-                    children[key].item = value;
+                    mychildren[key].item = value as graphWrapNode<TItem>;
                 }
                 else
                 {
@@ -166,6 +172,9 @@ namespace imbSCI.Data.collection.graph
                 }
             }
         }
+
+
+        
 
         /// <summary>
         /// Ime koje je dodeljeno objektu
@@ -192,13 +201,13 @@ namespace imbSCI.Data.collection.graph
         /// <summary>
         /// Referenca prema parent objektu
         /// </summary>
-        public override graphNode parent
+        public override IGraphNode parent
         {
             get
             {
                 return _parent;
             }
-            protected set
+            set
             {
                 _parent = (graphWrapNode<TItem>) value;
             }
@@ -217,14 +226,14 @@ namespace imbSCI.Data.collection.graph
         /// <param name="__item">The item.</param>
         public virtual graphWrapNode<TItem> Add(TItem __item)
         {
-            if (!children.ContainsKey(__item.name))
+            if (!mychildren.ContainsKey(__item.name))
             {
                 var tkng = new graphWrapNode<TItem>(__item, this);
                 
                 children.Add(__item.name, tkng);
                 return tkng;
             }
-            return this[__item.name];
+            return this[__item.name] as graphWrapNode<TItem>;
         }
 
         /// <summary>
@@ -234,14 +243,14 @@ namespace imbSCI.Data.collection.graph
         /// <returns></returns>
         public virtual graphWrapNode<TItem> Add(String __name)
         {
-            if (!children.ContainsKey(__name))
+            if (!mychildren.ContainsKey(__name))
             {
                 var tkng = new graphWrapNode<TItem>(__name, this);
                 children.Add(__name, tkng);
                 tkng.parent = this;
                 return tkng;
             }
-            return this[__name];
+            return this[__name] as graphWrapNode<TItem>;
         }
 
         /// <summary>
@@ -267,7 +276,26 @@ namespace imbSCI.Data.collection.graph
             
         }
 
+        /// <summary>
+        /// Adds the specified <c>newChild</c>, if its name is not already occupied
+        /// </summary>
+        /// <param name="newChild">The new child.</param>
+        /// <returns></returns>
+        public override bool Add(IGraphNode newChild)
+        {
+            if (children.Contains(newChild.name))
+            {
+                return false;
+            }
+            else
+            {
+                IGraphNode gn = newChild as IGraphNode;
+                gn.parent = this;
+                children.Add(gn.name, gn);
+                return true;
+            }
 
+        }
 
 
         public const String SEPARATOR = "--> ";
@@ -297,6 +325,10 @@ namespace imbSCI.Data.collection.graph
                 return name;
             }
         }
+
+       // public override IGraphNode this[string key] { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+
 
         /*
         public String ToStringTreeview(String prefix = "", Boolean showType = false, Int32 gen = 0)
@@ -433,7 +465,7 @@ namespace imbSCI.Data.collection.graph
        }
        */
 
-        
+
 
     }
 

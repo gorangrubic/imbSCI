@@ -30,6 +30,7 @@
 namespace imbSCI.Core.extensions.typeworks
 {
     using imbSCI.Core.extensions.data;
+    using imbSCI.Core.extensions.text;
     using imbSCI.Data;
     #region imbVeles using
 
@@ -41,11 +42,124 @@ namespace imbSCI.Core.extensions.typeworks
 
     #endregion
 
+
     /// <summary>
     /// 2013: pomoćne alatke za rad sa tipovima
     /// </summary>
     public static class imbTypologyHelpers
     {
+        /// <summary>
+        /// Collects the types.
+        /// </summary>
+        /// <param name="flags">The flags.</param>
+        /// <param name="hostAssembly">The host assembly.</param>
+        /// <param name="hostType">Type of the host.</param>
+        /// <returns></returns>
+        public static List<Type> CollectTypes(CollectTypeFlags flags, Assembly hostAssembly=null, Type hostType=null)
+        {
+            List<Type> output = new List<Type>();
+            String namespaceString = "";
+
+            if (hostType != null)
+            {
+                namespaceString = hostType.Namespace;
+            }
+
+            if (flags.HasFlag(CollectTypeFlags.ofThisAssembly))
+            {
+                if (hostAssembly == null)
+                {
+                    if (hostType != null) hostAssembly = hostType.Assembly;
+                }
+                
+                if (hostAssembly == null)
+                {
+                    hostAssembly = Assembly.GetExecutingAssembly();
+                }
+
+                output.AddRange(hostAssembly.GetTypes());
+            } else if (flags.HasFlag(CollectTypeFlags.ofAllAssemblies))
+            {
+                foreach (Assembly ass in AppDomain.CurrentDomain.GetAssemblies())
+                {
+                    output.AddRange(ass.GetTypes());
+                }
+            }
+
+            output = FilterTypeList(output, flags);
+            if (!namespaceString.isNullOrEmpty()) output = FilterByNamespace(output, namespaceString, flags);
+
+            return output;
+
+        }
+
+        private static List<Type> FilterTypeList(List<Type> types , CollectTypeFlags flags)
+        {
+            List<Type> output = new List<Type>();
+
+            foreach (Type t in types)
+            {
+                if (flags.HasFlag(CollectTypeFlags.includeClassTypes)) if (t.IsClass) output.Add(t);
+                if (flags.HasFlag(CollectTypeFlags.includeEnumTypes)) if (t.IsEnum) output.Add(t);
+                if (flags.HasFlag(CollectTypeFlags.includeValueTypes)) if (t.IsValueType) output.Add(t);
+                if (flags.HasFlag(CollectTypeFlags.includeGenericTypes)) if (t.IsGenericType) output.Add(t);
+
+            }
+
+            if (!output.Any()) output = types;
+
+            return output;
+        }
+
+        private static List<Type> FilterByNamespace(List<Type> types, String namespaceString, CollectTypeFlags flags)
+        {
+
+            List<Type> output = new List<Type>();
+
+            String namespaceParent = namespaceString.getPathVersion(-1);
+
+            foreach (Type t in types)
+            {
+                if (flags.HasFlag(CollectTypeFlags.ofSameNamespace)) if (t.Namespace == namespaceString) output.Add(t);
+                if (flags.HasFlag(CollectTypeFlags.ofChildNamespaces)) if (t.Namespace.StartsWith(namespaceString)) output.Add(t);
+                if (flags.HasFlag(CollectTypeFlags.ofParentNamespace)) if (t.Namespace.StartsWith(namespaceParent)) output.Add(t);
+            }
+
+            if (!output.Any()) output = types;
+
+            return output;
+
+
+        }
+
+
+        /// <summary>
+        /// Collects the types around the <c>hostType</c> - according to specified flags
+        /// </summary>
+        /// <param name="hostType">Type of the host.</param>
+        /// <param name="flags">The flags.</param>
+        /// <returns>Dictionary of collected types, keys are <see cref="Type.Name"/></returns>
+        public static Dictionary<String, Type> CollectTypes(this Type hostType, CollectTypeFlags flags)
+        {
+            Dictionary<String, Type> output = new Dictionary<string, Type>();
+
+            
+            List<Type> list = CollectTypes(flags, hostType.Assembly, hostType);
+
+            
+                       
+            
+            foreach (Type pet in list)
+            {
+                if (!output.ContainsKey(pet.Name))  output.Add(pet.Name, pet);
+            }
+
+            return output;
+        }
+
+
+
+
         /// <summary>
         /// Gets the name of the type from.
         /// </summary>

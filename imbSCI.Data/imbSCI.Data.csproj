@@ -22,6 +22,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>1</WarningLevel>
     <DocumentationFile>bin\Debug\imbSCI.Data.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -48,6 +49,9 @@
     <Compile Include="collection\aceCollection.cs" />
     <Compile Include="collection\aceCollectionLimitSafe.cs" />
     <Compile Include="collection\aceDictionaryCollection.cs" />
+    <Compile Include="collection\graph\graphAxisEnum.cs" />
+    <Compile Include="collection\graph\graphNodeBase.cs" />
+    <Compile Include="collection\graph\graphNodeCustom.cs" />
     <Compile Include="collection\graph\graphOperationFlag.cs" />
     <Compile Include="collection\graph\graphTools.cs" />
     <Compile Include="collection\graph\IGraphNode.cs" />
@@ -84,6 +88,9 @@
     <Compile Include="data\ObjectPathChangeMonitor.cs" />
     <Compile Include="data\ObjectPathParentAndRootMonitor.cs" />
     <Compile Include="data\ObjectScopeChangeReport.cs" />
+    <Compile Include="data\sample\sampleTake.cs" />
+    <Compile Include="data\sample\samplingOrderEnum.cs" />
+    <Compile Include="data\sample\samplingSettings.cs" />
     <Compile Include="data\text\NamespaceDoc.cs" />
     <Compile Include="enums\cursorVariatorOddEvenFlags.cs" />
     <Compile Include="enums\directoryOperation.cs" />
@@ -92,6 +99,7 @@
     <Compile Include="enums\getWritableFileMode.cs" />
     <Compile Include="enums\logOutputSpecial.cs" />
     <Compile Include="enums\onErrorPolicy.cs" />
+    <Compile Include="enums\tableReporting\dataTableIOFlags.cs" />
     <Compile Include="enums\typedParamDeclarationType.cs" />
     <Compile Include="enums\urlSegment.cs" />
     <Compile Include="enums\urlShema.cs" />

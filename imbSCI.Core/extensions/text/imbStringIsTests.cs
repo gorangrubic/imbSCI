@@ -46,6 +46,13 @@ namespace imbSCI.Core.extensions.text
     {
 
 
+        public static bool isRegexMatch(this String input, String regExpresion)
+        {
+            
+            return Regex.IsMatch(input, regExpresion);
+        }
+
+
         public static bool IsDate(this string input)
         {
             DateTime dt;
@@ -246,7 +253,7 @@ namespace imbSCI.Core.extensions.text
         /// <para>For text: example text</para>
         /// <para>Selects: ex</para>
         /// </remarks>
-        public static Regex _select_wordcaseUpper = new Regex(@"([A-ZČŠĆŽĐ]{1,})", RegexOptions.Compiled);
+        public static Regex _select_wordcaseUpper = new Regex(@"([\p{Lu}]{1,})", RegexOptions.Compiled);
 
 
         /// <summary>
@@ -256,7 +263,7 @@ namespace imbSCI.Core.extensions.text
         /// <para>For text: example text</para>
         /// <para>Selects: ex</para>
         /// </remarks>
-        public static Regex _select_wordcaseLower = new Regex(@"([a-zžđščć]{1,})", RegexOptions.Compiled);
+        public static Regex _select_wordcaseLower = new Regex(@"([\p{Ll}]{1,})", RegexOptions.Compiled);
 
 
         /// <summary>
@@ -267,7 +274,7 @@ namespace imbSCI.Core.extensions.text
         /// <para>Selects: ex</para>
         /// </remarks>
         public static Regex _select_isSentenceCase = new Regex(
-            @"^[A-ZČŠĆŽĐ]{1}[A-ZČŠĆŽĐa-zžđščć\s\d\.\-_,:;\(\)]{1,}$", RegexOptions.Compiled);
+            @"^[\p{Lu}]{1}[\p{Ll}\s\d\.\-_,:;\(\)]{1,}$", RegexOptions.Compiled);
 
 
         /// <summary>
@@ -277,8 +284,110 @@ namespace imbSCI.Core.extensions.text
         /// <para>Proverava da li je u pitanju pravilan sentence case: prvo slovo je veliko, ostalo su mala slova</para>
         /// <para>Selects: ex</para>
         /// </remarks>
-        public static Regex _select_isStrictSentenceCase = new Regex(@"^[A-ZČŠĆŽĐ]{1}[a-zžđščć\s\d\-_,\.:;\(\)]{1,}$",
+        public static Regex _select_isStrictSentenceCase = new Regex(@"^[\p{Lu}]{1}[\p{Ll}\s\d\-_,\.:;\(\)]{1,}$",
                                                                      RegexOptions.Compiled);
+
+
+
+
+
+
+        /// <summary>
+        /// Regex select EndsWithExclamationPunctation : ([\w\s]+)[\!]+$
+        /// </summary>
+        /// <remarks>
+        /// <para>For text: example text</para>
+        /// <para>Selects: ex</para>
+        /// </remarks>
+        public static Regex _select_isEndsWithExclamationPunctation = new Regex(@"([\w\s]+)[\!]+$", RegexOptions.Compiled);
+
+        /// <summary>
+        /// Test if input matches ([\w\s]+)[\!]+$
+        /// </summary>
+        /// <param name="input">String to test</param>
+        /// <returns>IsMatch against _select_isEndsWithExclamationPunctation</returns>
+        public static Boolean isEndsWithExclamationPunctation(this String input)
+        {
+            if (String.IsNullOrEmpty(input)) return false;
+            return _select_isEndsWithExclamationPunctation.IsMatch(input);
+        }
+
+
+
+
+
+        /// <summary>
+        /// Regex select EndsWithQuestionPunctation : ([\w\s]+)[\?]+$
+        /// </summary>
+        /// <remarks>
+        /// <para>For text: example text</para>
+        /// <para>Selects: ex</para>
+        /// </remarks>
+        public static Regex _select_isEndsWithQuestionPunctation = new Regex(@"([\w\s]+)[\?]+$", RegexOptions.Compiled);
+
+        /// <summary>
+        /// Test if input matches ([\w\s]+)[\?]+$
+        /// </summary>
+        /// <param name="input">String to test</param>
+        /// <returns>IsMatch against _select_isEndsWithQuestionPunctation</returns>
+        public static Boolean isEndsWithQuestionPunctation(this String input)
+        {
+            if (String.IsNullOrEmpty(input)) return false;
+            return _select_isEndsWithQuestionPunctation.IsMatch(input);
+        }
+
+
+
+
+
+
+        /// <summary>
+        /// Regex select EndsWithEnumerationPunctation : ([\w\s]+)[\:]+$
+        /// </summary>
+        /// <remarks>
+        /// <para>For text: example text</para>
+        /// <para>Selects: ex</para>
+        /// </remarks>
+        public static Regex _select_isEndsWithEnumerationPunctation = new Regex(@"([\w\s]+)[\:]+$", RegexOptions.Compiled);
+
+        /// <summary>
+        /// Test if input matches ([\w\s]+)[\:]+$
+        /// </summary>
+        /// <param name="input">String to test</param>
+        /// <returns>IsMatch against _select_isEndsWithEnumerationPunctation</returns>
+        public static Boolean isEndsWithEnumerationPunctation(this String input)
+        {
+            if (String.IsNullOrEmpty(input)) return false;
+            return _select_isEndsWithEnumerationPunctation.IsMatch(input);
+        }
+
+
+
+
+
+
+        /// <summary>
+        /// Regex select NoLowerCaseTokenStream : ^[\P{Ll}]*$
+        /// </summary>
+        /// <remarks>
+        /// <para>For text: example text</para>
+        /// <para>Selects: ex</para>
+        /// </remarks>
+        public static Regex _select_isNoLowerCaseTokenStream = new Regex(@"^[\P{Ll}]*$", RegexOptions.Compiled);
+
+        /// <summary>
+        /// Test if input matches ^[\P{Ll}]*$
+        /// </summary>
+        /// <param name="input">String to test</param>
+        /// <returns>IsMatch against _select_isNoLowerCaseTokenStream</returns>
+        public static Boolean isNoLowerCaseTokenStream(this String input)
+        {
+            if (String.IsNullOrEmpty(input)) return false;
+            return _select_isNoLowerCaseTokenStream.IsMatch(input);
+        }
+
+
+
 
 
         /// <summary>
@@ -439,6 +548,80 @@ namespace imbSCI.Core.extensions.text
             return _select_isUpperCase.IsMatch(input);
         }
 
+
+
+
+        /// <summary>
+        /// Regex select FirstCapitalRestLowerCase : ([\p{Lu}]{1}[\p{Ll}]+)
+        /// </summary>
+        /// <remarks>
+        /// <para>For text: example text</para>
+        /// <para>Selects: ex</para>
+        /// </remarks>
+        public static Regex _select_isFirstCapitalRestLowerCase = new Regex(@"\b([\p{Lu}]{1}[\p{Ll}]+)\b", RegexOptions.Compiled);
+
+        /// <summary>
+        /// Test if input matches ([\p{Lu}]{1}[\p{Ll}]+)
+        /// </summary>
+        /// <param name="input">String to test</param>
+        /// <returns>IsMatch against _select_isFirstCapitalRestLowerCase</returns>
+        public static Boolean isFirstCapitalRestLowerCase(this String input)
+        {
+            if (String.IsNullOrEmpty(input)) return false;
+            return _select_isFirstCapitalRestLowerCase.IsMatch(input);
+        }
+
+
+
+
+        /// <summary>
+        /// Regex select AllCapitalLetterCaseWord : ([\p{Lu}]+)\b
+        /// </summary>
+        /// <remarks>
+        /// <para>Single word all capital</para>
+        /// <para>Selects: ex</para>
+        /// </remarks>
+        public static Regex _select_isAllCapitalLetterCaseWord = new Regex(@"\b([\p{Lu}]+)\b", RegexOptions.Compiled);
+
+        /// <summary>
+        /// Test if input matches ([\p{Lu}]+)\b
+        /// </summary>
+        /// <param name="input">String to test</param>
+        /// <returns>IsMatch against _select_isAllCapitalLetterCaseWord</returns>
+        public static Boolean isAllCapitalLetterCaseWord(this String input)
+        {
+            if (String.IsNullOrEmpty(input)) return false;
+            return _select_isAllCapitalLetterCaseWord.IsMatch(input);
+        }
+
+
+
+
+
+        /// <summary>
+        /// Regex select AllLowerLetterCaseWord : \b([\p{Ll}]+)\b
+        /// </summary>
+        /// <remarks>
+        /// <para>For text: example text</para>
+        /// <para>Selects: ex</para>
+        /// </remarks>
+        public static Regex _select_isAllLowerLetterCaseWord = new Regex(@"\b([\p{Ll}]+)\b", RegexOptions.Compiled);
+
+        /// <summary>
+        /// Test if input matches \b([\p{Ll}]+)\b
+        /// </summary>
+        /// <param name="input">String to test</param>
+        /// <returns>IsMatch against _select_isAllLowerLetterCaseWord</returns>
+        public static Boolean isAllLowerLetterCaseWord(this String input)
+        {
+            if (String.IsNullOrEmpty(input)) return false;
+            return _select_isAllLowerLetterCaseWord.IsMatch(input);
+        }
+
+
+
+
+
         public static Boolean isWordCaseCamel(this String input)
         {
             if (String.IsNullOrEmpty(input)) return false;
@@ -470,7 +653,7 @@ namespace imbSCI.Core.extensions.text
         }
 
         /// <summary>
-        /// Test if input matches ^[A-ZČŠĆŽĐ]{1}[a-zžđščć\s\d\-_,\:;]{1,}$
+        /// Test if input matches ^[]{1}[a-zžđščć\s\d\-_,\:;]{1,}$
         /// </summary>
         /// <param name="input">String to test</param>
         /// <returns>IsMatch against _select_isStrictSentenceCase</returns>
@@ -534,7 +717,15 @@ namespace imbSCI.Core.extensions.text
         /// <para>For text: TOOL60101 RC 15 5 5 270 MT01</para>
         /// <para>Selects: RC</para>
         /// </remarks>
-        public static Regex _select_isCleanWord = new Regex(@"\b([A-ZČŠĆŽĐa-zžđščć\\p{IsCyrillic}]{1,})\b", RegexOptions.Compiled);
+        public static Regex _select_cleanWord = new Regex(@"\b(\\p{L}]{1,})\b", RegexOptions.Compiled);
+
+
+
+
+
+        public static Regex _select_isCleanWord = new Regex(@"^\p{L}*$", RegexOptions.Compiled);
+
+
 
         /// <summary>
         /// Proverava da li je string cista rec ili ima jos nesto u sebi -  ([A-ZČŠĆŽĐa-zžđščć]{1,})\b
@@ -571,6 +762,139 @@ namespace imbSCI.Core.extensions.text
             if (String.IsNullOrEmpty(input)) return false;
             return _select_isNumber.IsMatch(input);
         }
+
+
+
+
+
+
+
+        /// <summary>
+        /// Regex select NumberFormatted : [\+]? [\p{P}]? [\d\s\p{P}]+ \d+
+        /// </summary>
+        /// <remarks>
+        /// <para>From "22330 Nova Pazova, Srbija  telefon: +381 (0) 22-323-598- (centrala) | 022 332 5987 RSD sddsa 105-85680000064 godina  2015."</para>
+        /// <para>Matches: 22330, +381 (0) 22-323-598, 022 332 5987, 105-85680000064 and 2015 but without .</para>
+        /// </remarks>
+        public static Regex _select_isNumberFormatted = new Regex(@"[\+]? [\p{P}]? [\d\s\p{P}]+ \d+", RegexOptions.Compiled | RegexOptions.IgnorePatternWhitespace);
+
+        /// <summary>
+        /// Test if input matches [\+]? [\p{P}]? [\d\s\p{P}]+ \d+
+        /// </summary>
+        /// <param name="input">String to test</param>
+        /// <returns>IsMatch against _select_isNumberFormatted</returns>
+        public static Boolean isNumberFormatted(this String input)
+        {
+            if (String.IsNullOrEmpty(input)) return false;
+            return _select_isNumberFormatted.IsMatch(input);
+        }
+
+
+
+
+
+        /// <summary>
+        /// Regex select PercentageNumber : (([\-\+]?[\s]?)?([\d\.\,]+[\s]?%))
+        /// </summary>
+        /// <remarks>
+        /// <para>For: " 120.5%  - 2.0%  +10 %"</para>
+        /// <para>Selects: in group nr=2 </para>
+        /// </remarks>
+        public static Regex _select_isPercentageNumber = new Regex(@"(([\-\+]?[\s]?)?([\d\.\,]+[\s]?%))", RegexOptions.Compiled);
+
+        /// <summary>
+        /// Test if input matches (([\-\+]?[\s]?)?([\d\.\,]+[\s]?%))
+        /// </summary>
+        /// <param name="input">String to test</param>
+        /// <returns>IsMatch against _select_isPercentageNumber</returns>
+        public static Boolean isPercentageNumber(this String input)
+        {
+            if (String.IsNullOrEmpty(input)) return false;
+            return _select_isPercentageNumber.IsMatch(input);
+        }
+
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// Regex select WithNumericChars : [\d]
+        /// </summary>
+        /// <remarks>
+        /// <para>For text: example text</para>
+        /// <para>Selects: ex</para>
+        /// </remarks>
+        public static Regex _select_isWithNumericChars = new Regex(@"[\d]", RegexOptions.Compiled);
+
+        /// <summary>
+        /// Test if input matches [\d]
+        /// </summary>
+        /// <param name="input">String to test</param>
+        /// <returns>IsMatch against _select_isWithNumericChars</returns>
+        public static Boolean isWithNumericChars(this String input)
+        {
+            if (String.IsNullOrEmpty(input)) return false;
+            return _select_isWithNumericChars.IsMatch(input);
+        }
+
+
+
+
+        /// <summary>
+        /// Regex select WithLetterChars : \p{L}
+        /// </summary>
+        /// <remarks>
+        /// <para>For text: example text</para>
+        /// <para>Selects: ex</para>
+        /// </remarks>
+        public static Regex _select_isWithLetterChars = new Regex(@"\p{L}", RegexOptions.Compiled);
+
+        /// <summary>
+        /// Test if input matches \p{L}
+        /// </summary>
+        /// <param name="input">String to test</param>
+        /// <returns>IsMatch against _select_isWithLetterChars</returns>
+        public static Boolean isWithLetterChars(this String input)
+        {
+            if (String.IsNullOrEmpty(input)) return false;
+            return _select_isWithLetterChars.IsMatch(input);
+        }
+
+
+
+        /// <summary>
+        /// Regex select WithPunctChars : \p{P}
+        /// </summary>
+        /// <remarks>
+        /// <para>For text: example text</para>
+        /// <para>Selects: ex</para>
+        /// </remarks>
+        public static Regex _select_isWithPunctChars = new Regex(@"\p{P}", RegexOptions.Compiled);
+
+        /// <summary>
+        /// Test if input matches \p{P}
+        /// </summary>
+        /// <param name="input">String to test</param>
+        /// <returns>IsMatch against _select_isWithPunctChars</returns>
+        public static Boolean isWithPunctChars(this String input)
+        {
+            if (String.IsNullOrEmpty(input)) return false;
+            return _select_isWithPunctChars.IsMatch(input);
+        }
+
+
+
+
+
+
+
+
+
+
 
 
 

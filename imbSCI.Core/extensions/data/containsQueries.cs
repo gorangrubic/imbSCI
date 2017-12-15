@@ -6,8 +6,38 @@ using System.Text;
 
 namespace imbSCI.Core.extensions.data
 {
+    public enum containsQueryTypeEnum
+    {
+        ContainsOnly,
+        ContainsAny,
+        ContainsAll,
+        
+
+    }
+
+
     public static class containsQueries
     {
+        public static Boolean ContainsByEnum(this IList flags, Object[] needles, containsQueryTypeEnum type)
+        {
+            switch (type)
+            {
+                case containsQueryTypeEnum.ContainsAll:
+                    return flags.ContainsAll(needles);
+                    break;
+                default:
+                case containsQueryTypeEnum.ContainsAny:
+                    return flags.ContainsAny(needles);
+                    break;
+
+                case containsQueryTypeEnum.ContainsOnly:
+                    return flags.ContainsOnly(needles);
+                    break;
+                
+            }
+        }
+
+
         public static Boolean ContainsOnly(this IList flags, params Object[] tests)
         {
 

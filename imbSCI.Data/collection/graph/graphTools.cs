@@ -37,10 +37,47 @@ using imbSCI.Data.interfaces;
 
 
     /// <summary>
-    /// Extensions for <see cref="graphNode"/> and <see cref="graphWrapNode{TItem}"/>
+    /// Extensions for <see cref="graphNode"/> , <see cref="graphWrapNode{TItem}"/> and other graphNode derivatives
     /// </summary>
     public static class graphTools
     {
+
+
+        /// <summary>
+        /// Makes the unique name for a child, based on proposal and counter, formatted by limit digit width: e.g. if <c>limit</c> is 100, format is: D3, producing: <c>proposal</c>+001, +002, +003...
+        /// </summary>
+        /// <param name="parent">The parent for whom the child name is made</param>
+        /// <param name="proposal">The proposal form, neither it already exist or not</param>
+        /// <param name="limit">The limit: number of cycles to terminate the search</param>
+        /// <param name="addNumberSufixForFirst">if set to <c>true</c> it adds number sufix even if it is the first child with proposed name</param>
+        /// <returns>
+        /// Unique name for new child in format: <c>proposal</c>001 up to <c>limit</c>
+        /// </returns>
+        public static String MakeUniqueChildName(this IGraphNode parent, String proposal, Int32 limit = 999, Boolean addNumberSufixForFirst=true)
+        {
+            var existingNames = parent.getChildNames();
+            String originalProposal = proposal;
+
+            String format = "D" + limit.ToString().Length.ToString();
+
+            Int32 c = 0;
+
+            if (addNumberSufixForFirst)
+            {
+                c++;
+                proposal = originalProposal + c.ToString(format);
+            }
+
+            while (existingNames.Contains(proposal))
+            {
+                c++;
+                proposal = originalProposal + c.ToString(format);
+                if (c > limit) break;
+                
+            }
+
+            return proposal;
+        }
 
 
         /// <summary>

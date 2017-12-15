@@ -41,6 +41,8 @@ namespace imbSCI.Data.collection.graph
     using System.Collections.Generic;
     using System.Linq;
     using imbSCI.Data.interfaces;
+    using System.Collections.Concurrent;
+
 
     /// <summary>
     /// Universal T-Graph structure with nodes having unique <see cref="name"/> property. To be used without <see cref="graph{TItem}"/> class.
@@ -52,11 +54,27 @@ namespace imbSCI.Data.collection.graph
     /// <seealso cref="aceCommonTypes.interfaces.IObjectWithName" />
     /// <seealso cref="aceCommonTypes.interfaces.IObjectWithPathAndChildren" />
     /// <seealso cref="aceCommonTypes.interfaces.IObjectWithTreeView" />
-    public class graphNode: IEnumerable<graphNode>, IGraphNode
+    public class graphNode: graphNodeBase, IEnumerable<IGraphNode>, IGraphNode
     {
 
+        protected override IDictionary children
+        {
+            get
+            {
+                return mychildren;
+            }
+        }
 
-        public IGraphNode this[String key]
+
+        /// <summary>
+        /// Gets or sets the <see cref="IGraphNode"/> with the specified key.
+        /// </summary>
+        /// <value>
+        /// The <see cref="IGraphNode"/>.
+        /// </value>
+        /// <param name="key">The key.</param>
+        /// <returns></returns>
+        public override IGraphNode this[String key]
         {
             get
             {
@@ -65,68 +83,40 @@ namespace imbSCI.Data.collection.graph
             }
             set
             {
-                if (children.ContainsKey(key))
+                if (children.Contains(key))
                 {
-                    children[key] = value as graphNode;
+                    
+                    children.Remove(key);
+                    value.parent = value;
+                    children[key] = value as IGraphNode;
                 }
                 else
                 {
                     Add(value);
                 }
-            }
-        }
-    
 
-        /// <summary>
-        /// Gets the depth level, where 1 is the root
-        /// </summary>
-        /// <value>
-        /// The level.
-        /// </value>
-        public Int32 level
-        {
-            get
-            {
-                Int32 output = 1;
-                if (parent != null) return parent.level + output;
-                return output;
+
+
+                //if (children.ContainsKey(key))
+                //{
+
+                //}
+                //else
+                //{
+                //    Add(value);
+                //}
             }
         }
 
-        /// <summary>
-        /// Gets the child names.
-        /// </summary>
-        /// <returns></returns>
-        public List<String> getChildNames()
-        {
-            return children.Keys.ToList();
-        }
 
-
-        /// <summary>
-        /// Gets the first.
-        /// </summary>
-        /// <returns></returns>
-        public graphNode getFirst()
-        {
-            if (children.Any())
-            {
-                return children.First().Value;
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        private Dictionary<String, graphNode> _children = new Dictionary<String, graphNode>();
+        private ConcurrentDictionary<String, IGraphNode> _children = new ConcurrentDictionary<String, IGraphNode>();
         /// <summary>
         /// Gets or sets the children.
         /// </summary>
         /// <value>
         /// The children.
         /// </value>
-        protected Dictionary<String, graphNode> children
+        protected ConcurrentDictionary<String, IGraphNode> mychildren
         {
             get
             {
@@ -135,26 +125,9 @@ namespace imbSCI.Data.collection.graph
             set { _children = value; }
         }
 
-
-        public Int32 Count()
+        IEnumerator<IGraphNode> IEnumerable<IGraphNode>.GetEnumerator()
         {
-            return children.Count();
-        }
-
-        /// <summary>
-        /// Removes by the key specified
-        /// </summary>
-        /// <param name="key">The key.</param>
-        public void Remove(String key)
-        {
-            children.Remove(key);
-        }
-
-
-
-        IEnumerator<graphNode> IEnumerable<graphNode>.GetEnumerator()
-        {
-            return children.Values.GetEnumerator();
+            return (IEnumerator<IGraphNode>)children.Values.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -162,61 +135,19 @@ namespace imbSCI.Data.collection.graph
             return children.Values.GetEnumerator();
         }
 
-        public IEnumerator<IObjectWithPathAndChildren> GetEnumerator()
-        {
-            return children.Values.GetEnumerator();
-        }
-
-        /// <summary>
-        /// Removes child matching the specified key, on no match returns <c>false</c>
-        /// </summary>
-        /// <param name="key">The key to match children against</param>
-        /// <returns>
-        /// True if a child removed, false if no child matched by the key
-        /// </returns>
-        public bool RemoveByKey(string key)
-        {
-            if (children.ContainsKey(key))
-            {
-                children[key].parent = null;
-                children.Remove(key);
-                return true;
-            } else
-            {
-                return false;
-            }
-        }
-
-        /// <summary>
-        /// Removes all children with matching <see cref="graphNode.name" />
-        /// </summary>
-        /// <param name="keys">The keys to match children with</param>
-        /// <returns>
-        /// Number of child nodes matched and removed
-        /// </returns>
-        public int Remove(IEnumerable<string> keys)
-        {
-            Int32 c = 0;
-            foreach (String k in keys)
-            {
-                if (RemoveByKey(k)) c++;
-            }
-            return c;
-        }
-
         /// <summary>
         /// Adds the specified <c>newChild</c>, if its name is not already occupied
         /// </summary>
         /// <param name="newChild">The new child.</param>
         /// <returns></returns>
-        public bool Add(IGraphNode newChild)
+        public override bool Add(IGraphNode newChild)
         {
-            if (children.ContainsKey(newChild.name))
+            if (children.Contains(newChild.name))
             {
                 return false;
             } else
             {
-                graphNode gn = newChild as graphNode;
+                IGraphNode gn = newChild as IGraphNode;
                 gn.parent = this;
                 children.Add(gn.name, gn);
                 return true;
@@ -238,98 +169,6 @@ namespace imbSCI.Data.collection.graph
             }
         }
 
-
-        private graphNode _parent;
-        /// <summary>
-        /// Referenca prema parent objektu
-        /// </summary>
-        public virtual graphNode parent
-        {
-            get
-            {
-                return _parent;
-            }
-            protected set
-            {
-                _parent = value;
-            }
-        }
-
-
-        private String _name;
-        /// <summary>
-        /// Ime koje je dodeljeno objektu
-        /// </summary>
-        public virtual String name
-        {
-            get
-            {
-                return _name;
-               
-            }
-            set
-            {
-               
-                    _name = value;
-                
-
-            }
-        }
-
-        /// <summary>
-        /// Gets the path separator used in this path format
-        /// </summary>
-        /// <value>
-        /// The path separator.
-        /// </value>
-        public virtual string pathSeparator
-        {
-            get
-            {
-                return "\\";
-            }
-        }
-
-        /// <summary>
-        /// Putanja objekta
-        /// </summary>
-        public virtual string path
-        {
-            get
-            {
-                String output = name;
-                if (parent != null) return parent.path + pathSeparator + name;
-                return output;
-            }
-        }
-
-
-
-        /// <summary>
-        /// Gets the root.
-        /// </summary>
-        /// <value>
-        /// The root.
-        /// </value>
-        public object root
-        {
-            get
-            {
-                if (parent == null) return this;
-                return parent.root;
-            }
-        }
-
-        /// <summary>
-        /// Referenca prema parent objektu
-        /// </summary>
-        object IObjectWithParent.parent
-        {
-            get
-            {
-                return parent;
-            }
-        }
     }
 
 }

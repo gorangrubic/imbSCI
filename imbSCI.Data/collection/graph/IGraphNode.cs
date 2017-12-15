@@ -101,7 +101,7 @@ namespace imbSCI.Data.collection.graph
         /// <summary>
         /// Referenca prema parent objektu
         /// </summary>
-        graphNode parent { get; }
+        IGraphNode parent { get; set; }
 
         /// <summary>
         /// Ime koje je dodeljeno objektu
@@ -139,7 +139,7 @@ namespace imbSCI.Data.collection.graph
         /// Gets the first.
         /// </summary>
         /// <returns></returns>
-        graphNode getFirst();
+        IGraphNode getFirst();
 
         Int32 Count();
 

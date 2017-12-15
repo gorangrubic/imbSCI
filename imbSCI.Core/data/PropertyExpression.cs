@@ -174,11 +174,11 @@ namespace imbSCI.Core.data
         {
             get
             {
-                if (children.Any())
+                if (children.Count > 0)
                 {
-                    String k = Enumerable.First<string>(children.Keys);
+                    PropertyExpression pe = getFirst() as PropertyExpression;
 
-                    PropertyExpression pe = children[k] as PropertyExpression;
+                    
                     return pe.Leaf;
                 } else
                 {
@@ -240,7 +240,7 @@ namespace imbSCI.Core.data
                 if (__parent != null)
                 {
                     parent = __parent;
-                    if (!__parent.children.ContainsKey(this.name))
+                    if (!__parent.children.Contains(this.name))
                     {
                         __parent.children.Add(this.name, this);
                     }

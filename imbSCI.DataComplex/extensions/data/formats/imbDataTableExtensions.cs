@@ -61,6 +61,10 @@ namespace imbSCI.DataComplex.extensions.data.formats
     using imbSCI.DataComplex.extensions.data.operations;
     using imbSCI.Data.enums;
     using imbSCI.Core.reporting.lowLevelApi;
+    using imbSCI.Data.enums.tableReporting;
+
+    
+
 
     /// <summary>
     /// Extensions for DataTable creation and data manipulation
@@ -223,8 +227,10 @@ namespace imbSCI.DataComplex.extensions.data.formats
         /// <param name="target">The target.</param>
         /// <param name="log">The log.</param>
         /// <returns></returns>
-        public static DataSet deserializeExcelFileToDataSet(this string path, DataSet target, ILogBuilder log)
+        public static DataSet deserializeExcelFileToDataSet(this string path, DataSet target, ILogBuilder log, dataTableIOFlags IOFlags = dataTableIOFlags.defaultFlags)
         {
+
+
 
             string name = Path.GetFileNameWithoutExtension(path);
             if (target == null) target = new DataSet(name);
@@ -297,7 +303,22 @@ namespace imbSCI.DataComplex.extensions.data.formats
         }
 
 
+        private static dataTableIOFlags GetIOFlags(this object[] resources)
+        {
+            dataTableIOFlags IOFlags = dataTableIOFlags.defaultFlags;
 
+            if (resources != null)
+            {
+
+                if (resources.Any(x => x.GetType() == typeof(dataTableIOFlags)))
+                {
+                    IOFlags = (dataTableIOFlags)resources.getAllOfType<dataTableIOFlags>(false).First();
+                }
+
+            }
+
+            return IOFlags;
+        }
 
 
         /// <summary>
@@ -311,6 +332,10 @@ namespace imbSCI.DataComplex.extensions.data.formats
         /// <exception cref="NotImplementedException"></exception>
         public static DataTable deserializeDataTable(this string filename, dataTableExportEnum format, DirectoryInfo directory=null, DataTable table=null, params object[] resources)
         {
+
+            dataTableIOFlags iOFlags = resources.GetIOFlags();
+
+
             string output = "";
             string filepath = "";
             FileInfo fileInfo = null;
@@ -351,18 +376,22 @@ namespace imbSCI.DataComplex.extensions.data.formats
                     StreamReader sr = new StreamReader(fileInfo.FullName);
 
                     var csvr = new CsvReader(sr);
-                    csvr.ReadHeader();
 
-                    csvr.Configuration.WillThrowOnMissingField = false;
                     
+
+                        csvr.ReadHeader();
+
+                        csvr.Configuration.WillThrowOnMissingField = false;
+
+
+                        foreach (string column in csvr.FieldHeaders)
+                        {
+
+                            var DataColumn = table.Columns.Add(column.Replace("__", "_"));
+
+                        }
+
                     
-                    foreach (string column in csvr.FieldHeaders)
-                    {
-
-                        var DataColumn = table.Columns.Add(column.Replace("__","_"));
-
-                    }
-
                     
 
                     while (csvr.Read())
@@ -394,9 +423,11 @@ namespace imbSCI.DataComplex.extensions.data.formats
                 case dataTableExportEnum.excel:
                     try
                     {
+                       
+
                         using (ExcelPackage pck = new ExcelPackage(fileInfo))
                         {
-                            var dts = pck.ToDataSet(false);
+                            var dts = pck.ToDataSet(iOFlags.HasFlag(dataTableIOFlags.firstRowColumnNames));
                             table = dts.Tables.imbFirstSafe() as DataTable;
                         }
                     } catch (Exception ex)
@@ -486,6 +517,8 @@ namespace imbSCI.DataComplex.extensions.data.formats
 
         public static string serializeDataSet(this DataSet source,  string filename, DirectoryInfo directory, dataTableExportEnum format, params object[] resources)
         {
+            dataTableIOFlags IOFlags = resources.GetIOFlags();
+
             string output = filename;
             FileInfo fileInfo = null;
 
@@ -661,6 +694,8 @@ namespace imbSCI.DataComplex.extensions.data.formats
         /// <returns></returns>
         public static string serializeDataTable(this DataTable source, dataTableExportEnum format, string filename, DirectoryInfo directory, params object[] resources)
         {
+            dataTableIOFlags IOFlags = resources.GetIOFlags();
+
             if (source == null) return "";
             if (source.Columns.Count==0)
             {
