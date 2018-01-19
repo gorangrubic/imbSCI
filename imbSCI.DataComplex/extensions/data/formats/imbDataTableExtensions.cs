@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="imbDataTableExtensions.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -57,13 +57,15 @@ namespace imbSCI.DataComplex.extensions.data.formats
     using imbSCI.Data.enums.fields;
     using CsvHelper;
     using imbSCI.DataComplex.exceptions;
-    using Newtonsoft.Json;
+    // using Newtonsoft.Json;
     using imbSCI.DataComplex.extensions.data.operations;
     using imbSCI.Data.enums;
     using imbSCI.Core.reporting.lowLevelApi;
     using imbSCI.Data.enums.tableReporting;
+    using imbSCI.Core.files;
+    using imbSCI.Core.files.folders;
 
-    
+
 
 
     /// <summary>
@@ -330,7 +332,7 @@ namespace imbSCI.DataComplex.extensions.data.formats
         /// <param name="resources">Supports: IObjectWithNameAndDescription</param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public static DataTable deserializeDataTable(this string filename, dataTableExportEnum format, DirectoryInfo directory=null, DataTable table=null, params object[] resources)
+        public static DataTable deserializeDataTable(this string filename, dataTableExportEnum format, folderNode directory=null, DataTable table=null, params object[] resources)
         {
 
             dataTableIOFlags iOFlags = resources.GetIOFlags();
@@ -345,7 +347,7 @@ namespace imbSCI.DataComplex.extensions.data.formats
             } else
             {
                 if (directory == null) directory = new DirectoryInfo(Directory.GetCurrentDirectory());
-                filepath = directory.FullName.add(filename, "\\");
+                filepath = directory.pathFor(filename, getWritableFileMode.existing, table.GetDescription());
             }
 
             if (!File.Exists(filepath))
@@ -494,9 +496,11 @@ namespace imbSCI.DataComplex.extensions.data.formats
                     output = fileInfo.FullName;
                     break;
                 case dataTableExportEnum.json:
+                   
                     
                     string json = openBase.openFileToString(filepath, true);
-                    table = JsonConvert.DeserializeObject<DataTable>(json);
+                    table = objectSerialization.DeserializeJson<DataTable>(json);
+                 
                     
                     break;
                 case dataTableExportEnum.markdown:
@@ -515,7 +519,7 @@ namespace imbSCI.DataComplex.extensions.data.formats
         }
 
 
-        public static string serializeDataSet(this DataSet source,  string filename, DirectoryInfo directory, dataTableExportEnum format, params object[] resources)
+        public static string serializeDataSet(this DataSet source,  string filename, folderNode directory, dataTableExportEnum format, params object[] resources)
         {
             dataTableIOFlags IOFlags = resources.GetIOFlags();
 
@@ -529,13 +533,13 @@ namespace imbSCI.DataComplex.extensions.data.formats
 
             if (directory == null) directory = new DirectoryInfo(Directory.GetCurrentDirectory());
             string cleanfilename = source.FilenameForDataset(filename);
-            filename = directory.FullName.add(cleanfilename, "\\");
+            filename = directory.pathFor(cleanfilename, getWritableFileMode.overwrite, "Exported DataSet [" + source.DataSetName + "] with [" + source.Tables.Count + "] tables. " + source.GetDesc());
 
             DirectoryInfo dix = null; 
             switch (format)
             {
                 case dataTableExportEnum.csv:
-                    dix = directory.CreateSubdirectory(cleanfilename);
+                    dix = directory.Add(cleanfilename, source.DataSetName, "Folder with CSV exports of DataSet [" + source.DataSetName + "] with [" + source.Tables.Count + "] tables. " + source.GetDesc());
                     foreach (DataTable table in source.Tables)
                     {
                         table.serializeDataTable(format, table.FilenameForTable(), dix);
@@ -655,13 +659,15 @@ namespace imbSCI.DataComplex.extensions.data.formats
                     output = fileInfo.FullName;
                     break;
                 case dataTableExportEnum.json:
-                    dix = directory.CreateSubdirectory(cleanfilename);
-                    output = JsonConvert.SerializeObject(source, Newtonsoft.Json.Formatting.Indented);
+                    dix = directory.Add(cleanfilename, source.DataSetName, "Folder with JSON exports of DataSet [" + source.DataSetName + "] with [" + source.Tables.Count + "] tables. " + source.GetDesc());
+
+                    output = objectSerialization.SerializeJson<DataSet>(source);
+                   
                     fileInfo = output.saveStringToFile(imbSciStringExtensions.ensureEndsWith(filename, ".json")); //.FullName;
                     output = fileInfo.FullName;
                     break;
                 case dataTableExportEnum.markdown:
-                    dix = directory.CreateSubdirectory(cleanfilename);
+                    dix = directory.Add(cleanfilename, source.DataSetName, "Folder with Markdown exports of DataSet [" + source.DataSetName + "] with [" + source.Tables.Count + "] tables. " + source.GetDesc());
                     foreach (DataTable table in source.Tables)
                     {
                         table.serializeDataTable(format, table.FilenameForTable(), dix);
@@ -669,7 +675,7 @@ namespace imbSCI.DataComplex.extensions.data.formats
                     output = dix.FullName;
                     break;
                 case dataTableExportEnum.xml:
-                    dix = directory.CreateSubdirectory(cleanfilename);
+                    dix = directory.Add(cleanfilename, source.DataSetName, "Folder with  XML exports of DataSet [" + source.DataSetName + "] with [" + source.Tables.Count + "] tables. " + source.GetDesc());
                     foreach (DataTable table in source.Tables)
                     {
                         table.serializeDataTable(format, table.FilenameForTable(), dix);
@@ -692,7 +698,7 @@ namespace imbSCI.DataComplex.extensions.data.formats
         /// <param name="filename">The filename, without extension.</param>
         /// <param name="directory">The directory to save into.</param>
         /// <returns></returns>
-        public static string serializeDataTable(this DataTable source, dataTableExportEnum format, string filename, DirectoryInfo directory, params object[] resources)
+        public static string serializeDataTable(this DataTable source, dataTableExportEnum format, string filename, folderNode directory, params object[] resources)
         {
             dataTableIOFlags IOFlags = resources.GetIOFlags();
 
@@ -713,9 +719,9 @@ namespace imbSCI.DataComplex.extensions.data.formats
 
             if (directory == null) directory = new DirectoryInfo(Directory.GetCurrentDirectory());
             string cleanfilename = source.FilenameForTable(filename);
-            filename = directory.FullName.add(cleanfilename, "\\");
+            filename = directory.pathFor(cleanfilename, getWritableFileMode.overwrite, "Exported DataTable [" + source.GetTitle() + "][" + source.GetDescription() + "]. ");
 
-            
+
             switch (format)
             {
                 case dataTableExportEnum.csv:
@@ -801,7 +807,8 @@ namespace imbSCI.DataComplex.extensions.data.formats
                     output = fileInfo.FullName;
                     break;
                 case dataTableExportEnum.json:
-                    output = JsonConvert.SerializeObject(source, Newtonsoft.Json.Formatting.Indented);
+                    output = objectSerialization.SerializeJson(source);
+                    // JsonConvert.SerializeObject(source, Newtonsoft.Json.Formatting.Indented);
                     fileInfo = output.saveStringToFile(imbSciStringExtensions.ensureEndsWith(filename, ".json")); //.FullName;
                     output = fileInfo.FullName;
                     break;

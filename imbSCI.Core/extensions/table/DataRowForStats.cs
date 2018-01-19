@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="DataRowForStats.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -29,7 +29,9 @@
 // ------------------------------------------------------------------------------------------------------------------
 namespace imbSCI.Core.extensions.table
 {
+    using System.Collections.Generic;
     using System.Data;
+
 
     public class DataRowForStats : DataRow
     {

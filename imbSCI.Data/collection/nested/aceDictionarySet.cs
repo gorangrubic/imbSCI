@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="aceDictionarySet.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -32,8 +32,6 @@ namespace imbSCI.Data.collection.nested
     using System;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
-//using aceCommonTypes.extensions;
-    //using aceCommonTypes.extensions.enumworks;
 
 
     /// <summary>

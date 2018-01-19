@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="filePathOperations.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -41,6 +41,7 @@ namespace imbSCI.Core.extensions.io
     using System.Text.RegularExpressions;
     using imbSCI.Core.reporting;
     using System.Threading;
+    using imbSCI.Core.files;
 
 
 
@@ -538,9 +539,16 @@ namespace imbSCI.Core.extensions.io
             }
 
             String dir = Path.GetDirectoryName(path);
-            if (!imbSciStringExtensions.isNullOrEmptyString(dir))
+            if (!imbSciStringExtensions.isNullOrEmpty(dir))
             {
-                var di = Directory.CreateDirectory(dir);
+                try
+                {
+                    var di = Directory.CreateDirectory(dir);
+                } catch (Exception ex)
+                {
+                    throw new imbFileException("getWritableFile [" + mode.ToString() + "] failed when directory should be created from [" + dir.toStringSafe() + "]. " 
+                        + ex.Message, ex, null, path, null);
+                }
             }
 
             Int32 retryCount = 5;
@@ -572,7 +580,7 @@ namespace imbSCI.Core.extensions.io
                             catch (Exception ex)
                             {
 
-                                if (logger != null) logger.log("The file [" + path + "] is blocked by another application.");
+                                if (logger != null) logger.log("The file [" + path + "] is blocked by another application. " + ex.Message);
                                 jobDone = false;
                             }
                             break;

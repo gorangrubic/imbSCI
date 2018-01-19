@@ -1,7 +1,7 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="objectSerialization.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -54,13 +54,41 @@ using imbSCI.Data.interfaces;
 namespace imbSCI.Core.files
 {
     using System.IO;
+    using System.Runtime.Serialization.Json;
+    using System.Text;
     using System.Xml.Serialization;
+
+
+
+   
 
     /// <summary>
     /// Tool for easy object serialization 
     /// </summary>
     public static class objectSerialization
     {
+
+        public static string SerializeJson<T>(T aObject) where T : new()
+        {
+            T serializedObj = new T();
+            MemoryStream ms = new MemoryStream();
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(T));
+            ser.WriteObject(ms, serializedObj);
+            byte[] json = ms.ToArray();
+            ms.Close();
+            return Encoding.UTF8.GetString(json, 0, json.Length);
+        }
+
+        public static T DeserializeJson<T>(string aJSON) where T : new()
+        {
+            T deserializedObj = new T();
+            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(aJSON));
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(aJSON.GetType());
+            deserializedObj = (T)ser.ReadObject(ms);
+            ms.Close();
+            return deserializedObj;
+        }
+
         /// <summary>
         /// Serialize object to XML
         /// </summary>

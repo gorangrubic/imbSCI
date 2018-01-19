@@ -1,7 +1,7 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="IFileDataStructure.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -58,6 +58,12 @@ namespace imbSCI.Core.files.fileDataStructure
 
         String description { get; set; }
 
+
+        /// <summary>
+        /// Sets description for the folder
+        /// </summary>
+        void SetFolderDescription(Boolean generateReadme = false, aceAuthorNotation notation = null);
+
         /// <summary>
         /// Called when object is loaded
         /// </summary>
@@ -67,5 +73,8 @@ namespace imbSCI.Core.files.fileDataStructure
         /// Called when before saving the data structure
         /// </summary>
         void OnBeforeSave();
+
+
+        void Save(ILogBuilder logger = null);
     }
 }

@@ -1,7 +1,7 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="modelDataSet.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -42,6 +42,7 @@ namespace imbSCI.DataComplex.data
     using imbSCI.Core.extensions.typeworks;
     using imbSCI.Core.interfaces;
     using imbSCI.Core.reporting;
+    using imbSCI.Core.reporting.render.builders;
     using imbSCI.Data.data;
     using imbSCI.Data.interfaces;
 
@@ -110,7 +111,7 @@ namespace imbSCI.DataComplex.data
             ((ILogable)logBuilder).log(message);
         }
 
-        protected ILogBuilder _log; // new ILogBuilder();
+        protected ILogBuilder _log = new builderForLogBase(); // new ILogBuilder();
         /// <summary>
         /// Log creator
         /// </summary>

@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="DataTableCategorySets.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -71,7 +71,7 @@ namespace imbSCI.DataComplex.tables
 
             int i = 0;
 
-            string cat = table.Columns.getFirstOfType<DataColumn>().GetGroup();
+            string cat = table.Columns.getFirstOfType<DataColumn>().GetGroup().ToUpper();
             int start = 0;
             int end = 1;
             DataColumn dcl = null;
@@ -80,23 +80,23 @@ namespace imbSCI.DataComplex.tables
                 dcl = dc;
                 i++;
                 
-                if (dc.GetGroup() == cat)
+                if (dc.GetGroup().ToUpper() == cat)
                 {
                     end = i;
                 } else
                 {
-                    Add(cat, dc);
+                    Add(cat.ToUpper(), dc);
                     int st = start - 1;
                     if (st < 0) st = 0;
                     int ln = (end - start)-1;
                     if (ln < 0) ln = 0;
                     var zone = new selectZone(st, 0, ln, 0);
                    // aceLog.log(cat + " " + zone.ToStringDump(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.GetProperty, 10));
-                    categoryZones.Add(cat, zone);
+                    categoryZones.Add(cat.ToUpper(), zone);
                     start = i;
                     end = i;
-                    cat = dc.GetGroup();
-                    categoryList.Add(cat);
+                    cat = dc.GetGroup().ToUpper();
+                    categoryList.Add(cat.ToUpper());
                 }
             }
 
@@ -105,10 +105,10 @@ namespace imbSCI.DataComplex.tables
                 int ln2 = (end - start) - 1;
                 if (ln2 < 0) ln2 = 0;
 
-                Add(cat, dcl);
-                cat = dcl.GetGroup();
-                categoryZones.Add(cat, new selectZone(start, 0, ln2, 0));
-                categoryList.Add(cat);
+                Add(cat.ToUpper(), dcl);
+                cat = dcl.GetGroup().ToUpper();
+                categoryZones.Add(cat.ToUpper(), new selectZone(start, 0, ln2, 0));
+                categoryList.Add(cat.ToUpper());
             }
             
         }

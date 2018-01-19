@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="graphTools.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -44,6 +44,26 @@ using imbSCI.Data.interfaces;
 
 
         /// <summary>
+        /// Gets the parents.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source">The source.</param>
+        /// <returns></returns>
+        public static List<T> GetParents<T>(this IEnumerable<T> source) where T:class, IGraphNode
+        {
+            List<T> output = new List<T>();
+            foreach (T t in source)
+            {
+                if (!output.Contains(t.parent as T))
+                {
+                    output.Add(t.parent as T);
+                }
+            }
+            return output;
+        }
+
+
+        /// <summary>
         /// Makes the unique name for a child, based on proposal and counter, formatted by limit digit width: e.g. if <c>limit</c> is 100, format is: D3, producing: <c>proposal</c>+001, +002, +003...
         /// </summary>
         /// <param name="parent">The parent for whom the child name is made</param>
@@ -53,14 +73,17 @@ using imbSCI.Data.interfaces;
         /// <returns>
         /// Unique name for new child in format: <c>proposal</c>001 up to <c>limit</c>
         /// </returns>
-        public static String MakeUniqueChildName(this IGraphNode parent, String proposal, Int32 limit = 999, Boolean addNumberSufixForFirst=true)
+        public static String MakeUniqueChildName(this IGraphNode parent, String proposal, Int32 limit = 999, Int32 toSkip=0, Boolean addNumberSufixForFirst=true)
         {
-            var existingNames = parent.getChildNames();
+         
             String originalProposal = proposal;
+            if (originalProposal == null) originalProposal = "G";
+
+            limit = limit + toSkip;
 
             String format = "D" + limit.ToString().Length.ToString();
 
-            Int32 c = 0;
+            Int32 c = toSkip;
 
             if (addNumberSufixForFirst)
             {
@@ -68,12 +91,16 @@ using imbSCI.Data.interfaces;
                 proposal = originalProposal + c.ToString(format);
             }
 
-            while (existingNames.Contains(proposal))
+            
+
+            while (parent.ContainsKey(proposal))
             {
                 c++;
                 proposal = originalProposal + c.ToString(format);
-                if (c > limit) break;
-                
+                if (c > limit)
+                {
+                    break;
+                }
             }
 
             return proposal;

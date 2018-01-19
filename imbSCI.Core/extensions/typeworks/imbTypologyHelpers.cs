@@ -1,7 +1,7 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="imbTypologyHelpers.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -89,7 +89,10 @@ namespace imbSCI.Core.extensions.typeworks
             {
                 foreach (Assembly ass in AppDomain.CurrentDomain.GetAssemblies())
                 {
-                    output.AddRange(ass.GetTypes());
+                    if (flags.HasFlag(CollectTypeFlags.includeNonImbAssemblies) || ass.FullName.StartsWith("imb"))
+                    {
+                        output.AddRange(ass.GetTypes());
+                    }
                 }
             }
 
@@ -300,12 +303,31 @@ namespace imbSCI.Core.extensions.typeworks
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        private static IEnumerable<Type> GetBaseTypes(this Type type)
+        private static List<Type> GetBaseTypes(this Type type, Int32 callCount=0)
         {
-            IEnumerable<Type> output = new Type[] {};
+            List<Type> output = new List<Type>();
             if (type == null) return output;
-            output = Enumerable.Repeat(type.BaseType, 1).Concat(type.BaseType.GetBaseTypes());
-            return output.Where(x => (x != null));
+            if (callCount < 100)
+            {
+                Type head = type;
+                Int32 c = 0;
+                while (head != null)
+                {
+                    c++;
+                    if (!output.Contains(head))
+                    {
+                        output.Add(head);
+                    }
+                    head = head.BaseType;
+
+                    if (c>100)
+                    {
+                        break;
+                    }
+                }
+                
+            }
+            return output;
         }
 
         /// <summary>
@@ -318,21 +340,16 @@ namespace imbSCI.Core.extensions.typeworks
         /// <returns>Listu nasledjivanja</returns>
         /// \ingroup_disabled ace_ext_type_highlight
         public static List<Type> GetBaseTypeList(this Type type, Boolean includeSelf = false,
-                                                 Boolean uniqueTypes = false, Type untilClass = null)
+                                                 Boolean uniqueTypes = false, Type untilClass = null, Int32 callCount = 0)
         {
             String signature = type.AssemblyQualifiedName + includeSelf.ToString() + uniqueTypes.ToString();
             if (untilClass != null) signature += untilClass.Name;
             
             List<Type> baseTypes = new List<Type>();
             Type[] tmp;
-            if (uniqueTypes)
-            {
-                baseTypes.AddRangeImb(type.GetBaseTypes());
-            }
-            else
-            {
-                baseTypes.AddRange(type.GetBaseTypes());
-            }
+
+            baseTypes.AddRange(type.GetBaseTypes(callCount++), uniqueTypes);
+
             baseTypes.Reverse();
             if (includeSelf) baseTypes.Add(type);
             if (untilClass != null)

@@ -16,7 +16,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -58,6 +58,7 @@
     <Compile Include="collection\graph\NamespaceDoc.cs" />
     <Compile Include="collection\IAceCollection.cs" />
     <Compile Include="collection\IAceDictionaryCollection.cs" />
+    <Compile Include="collection\nested\aceDictionaryLetterIndexSet.cs" />
     <Compile Include="collection\special\circularSelector.cs" />
     <Compile Include="collection\special\colorWhellForContent.cs" />
     <Compile Include="collection\layers\layerCollection.cs" />

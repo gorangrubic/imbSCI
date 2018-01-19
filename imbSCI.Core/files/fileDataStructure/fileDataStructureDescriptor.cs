@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="fileDataStructureDescriptor.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -74,13 +74,12 @@ namespace imbSCI.Core.files.fileDataStructure
         /// <exception cref="System.NotImplementedException">Can't have File Data Structure loaded if no file structure mode specified</exception>
         internal IFileDataStructure LoadDataStructure(String path, folderNode parentFolder = null, IFileDataStructure instance=null, ILogBuilder output=null)
         {
-            
-            if (parentFolder == null) parentFolder = Directory.CreateDirectory(Directory.GetCurrentDirectory());
 
-            String filename = ""; // GetFilepath(path, instance, false);
-            
+            if (parentFolder == null) parentFolder = new folderNode();
+
 
             
+
             switch (mode)
             {
                 case fileStructureMode.subdirectory:
@@ -89,7 +88,8 @@ namespace imbSCI.Core.files.fileDataStructure
                         path = Path.GetDirectoryName(path);
                         if (path.isNullOrEmptyString())
                         {
-                            throw new ArgumentException("This is subdirectory data structure, do not use directory names with dot [" + path + "] " + "Path contains dot", nameof(path));
+                            fileDataStructureExtensions.FileDataStructureError("This is subdirectory data structure, do not use directory names with dot [" + path + "] " + "Path contains dot", parentFolder, output, null, instance);
+                            //throw new ArgumentException("This is subdirectory data structure, do not use directory names with dot [" + path + "] " + "Path contains dot", nameof(path));
                         }
                     }
 
@@ -106,7 +106,8 @@ namespace imbSCI.Core.files.fileDataStructure
                     break;
                 case fileStructureMode.none:
                     filename = GetFilepath(path, instance, false);
-                    throw new NotImplementedException("Can't have File Data Structure loaded if no file structure mode specified");
+                    fileDataStructureExtensions.FileDataStructureError("Can't have File Data Structure loaded if no file structure mode specified. " + path, parentFolder, output, null, instance);
+                    //throw new NotImplementedException("Can't have File Data Structure loaded if no file structure mode specified");
                     break;
             }
 
@@ -118,15 +119,34 @@ namespace imbSCI.Core.files.fileDataStructure
             {
 
                 instance = LoadDataFile(filepath, output) as IFileDataStructure;
+            } else
+            {
+                if (instance == null)
+                {
+                    fileDataStructureExtensions.FileDataStructureError("File not found[" + filepath + "] no instance created", parentFolder, output, null, instance);
+                    
+                } else
+                {
+                    fileDataStructureExtensions.FileDataStructureError("File not found[" + filepath + "] default instance created", parentFolder, output, null, instance);
+                    //  Console.WriteLine("File not found [" + filepath + "] default instance created");
+                }
             }
                         
             instance.folder = parentFolder;
+
 
             
             foreach (var pair in fileDataProperties)
             {
                 fileDataPropertyDescriptor pDesc = pair.Value;
-                pDesc.LoadDataAndSet(instance, parentFolder, output);
+                try
+                {
+                    pDesc.LoadDataAndSet(instance, parentFolder, output);
+                } catch (Exception ex)
+                {
+                    fileDataStructureExtensions.FileDataStructureError("Loading property [" + pDesc.name + "] for [" + instance.name + "] failed. " + ex.Message, parentFolder, output, ex, instance);
+                    
+                }
             }
 
 
@@ -136,7 +156,14 @@ namespace imbSCI.Core.files.fileDataStructure
                 parentFolder.caption = instance.name;
             }
 
-            instance.OnLoaded();
+            try
+            {
+                instance.OnLoaded();
+            } catch (Exception ex)
+            {
+                fileDataStructureExtensions.FileDataStructureError("instance [" + instance.name + "] OnLoaded() failed. " + ex.Message + " : " + ex.StackTrace, parentFolder, output, ex, instance);
+                //Console.WriteLine("instance [" + instance.name + "] OnLoaded() failed. " + ex.Message + " : " + ex.StackTrace);
+            }
 
             return instance;
         }
@@ -166,44 +193,68 @@ namespace imbSCI.Core.files.fileDataStructure
                     
                     break;
                 case fileStructureMode.none:
-                    throw new NotImplementedException("Can't have File Data Structure loaded if no file structure mode specified");
+                    fileDataStructureExtensions.FileDataStructureError("Can't have File Data Structure loaded if no file structure mode specified", instance?.folder, output, null, instance);
+                    //throw new NotImplementedException("Can't have File Data Structure loaded if no file structure mode specified");
                     break;
             }
 
             return true;
         }
 
+        private String GetFilenameAndSetInstanceFolder(IFileDataStructure instance, folderNode parentFolder = null, ILogBuilder output = null)
+        {
+            String filename = ""; // GetFilepath("", instance, false);
+            try
+            {
+                switch (mode)
+                {
+                    case fileStructureMode.subdirectory:
+                        //parentFolder = Directory.CreateDirectory(parentFolder.path);
+                        if (instance.folder == null)
+                        {
+                            instance.folder = parentFolder.Add(instance.name, instance.name, "Directory for [" + instance.GetType().Name + "]. " + instance.description);
+                        }
+                        else
+                        {
+                            if (instance.folder.name != instance.name)
+                            {
+                                instance.folder = parentFolder.Add(instance.name, instance.name, "Directory for [" + instance.GetType().Name + "]. " + instance.description);
+                            }
+                        }
+                        filename = type.Name.getCleanPropertyName().add(formatMode.GetExtension(), ".");
 
+                        break;
+                    case fileStructureMode.none:
+                        fileDataStructureExtensions.FileDataStructureError("Can't have File Data Structure loaded if no file structure mode specified", parentFolder, output, null, instance);
+
+                        //throw new NotImplementedException("Can't have File Data Structure loaded if no file structure mode specified");
+                        break;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                fileDataStructureExtensions.FileDataStructureError("SaveDataStructure failed at designating folder and filename: " + ex.Message, parentFolder, output, ex, instance);
+            }
+            return filename;
+        }
 
         /// <summary>
         /// Saves the data structure: its properties marked with <see cref="fileDataAttribute"/> attribute and it self
         /// </summary>
-        /// <param name="instance">The instance.</param>
-        /// <param name="parentFolder">The parent folder.</param>
-        /// <param name="output">The output.</param>
+        /// <param name="instance">The instance that has to be saved</param>
+        /// <param name="parentFolder">The parent folder in which this instance will be saved - if not specified the application current folder is used</param>
+        /// <param name="output">Logger</param>
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException">Can't have File Data Structure loaded if no file structure mode specified</exception>
         internal String SaveDataStructure(IFileDataStructure instance, folderNode parentFolder = null, ILogBuilder output = null)
         {
-            if (parentFolder == null) parentFolder = instance.folder;
-
-            String filename = ""; // GetFilepath("", instance, false);
-
-            switch (mode)
+            if (parentFolder == null)
             {
-                case fileStructureMode.subdirectory:
-                    //parentFolder = Directory.CreateDirectory(parentFolder.path);
-                    if (instance.folder == null) instance.folder = parentFolder.Add(instance.name, instance.name, "Directory for [" + instance.GetType().Name+"]. " + instance.description);
-                    filename = type.Name.getCleanPropertyName().add(formatMode.GetExtension(), ".");
-
-                    break;
-                case fileStructureMode.none:
-                    throw new NotImplementedException("Can't have File Data Structure loaded if no file structure mode specified");
-                    break;
+                parentFolder = new folderNode();
             }
 
-            
-
+            String filename = GetFilenameAndSetInstanceFolder(instance, parentFolder, output);
 
             instance.OnBeforeSave();
 
@@ -281,7 +332,7 @@ namespace imbSCI.Core.files.fileDataStructure
                 case fileDataFilenameMode.propertyValue:
 
                     filepath = Path.GetFileNameWithoutExtension(path);
-                    path = imbStringPathTools.getPathVersion(path, 1, "\\");
+                    path = imbStringPathTools.getPathVersion(path, 1, Path.DirectorySeparatorChar);
                     if (instance != null)
                     {
                         PropertyExpression pexp = new PropertyExpression(instance, nameOrPropertyPath);
@@ -290,8 +341,7 @@ namespace imbSCI.Core.files.fileDataStructure
                     break;
                 default:
 
-                    // 
-                    //throw new NotImplementedException("File Data Structure can't have filename by property value");
+                    fileDataStructureExtensions.FileDataStructureError("File Data Structure can't have filename by property value. "+path , instance?.folder, null,null, instance);
                     break;
             }
 
@@ -303,7 +353,7 @@ namespace imbSCI.Core.files.fileDataStructure
 
             //path = path.ensureEndsWith(filepath);
 
-            if (appendPathInOutput) path = path.add(filepath, "\\");
+            if (appendPathInOutput) path = path.add(filepath, Path.DirectorySeparatorChar);
 
             return path;
         }

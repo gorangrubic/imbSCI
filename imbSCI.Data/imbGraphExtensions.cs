@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="imbGraphExtensions.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -594,50 +594,129 @@ namespace imbSCI.Data
 
 
         /// <summary>
+        /// Gets the type of all children in.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="parent">The parent.</param>
+        /// <param name="pathFilter">The path filter.</param>
+        /// <param name="inverse">if set to <c>true</c> it inverses the filter</param>
+        /// <param name="recursiveIndex">Index of the recursive calls (if orderByPath is true)</param>
+        /// <param name="recursiveLimit">The recursive calls limit.</param>
+        /// <returns></returns>
+        public static List<T> getAllChildrenInType<T>(this T parent, Regex pathFilter = null, Boolean inverse = false, Boolean orderByPath = true, Int32 recursiveIndex = 1, Int32 recursiveLimit = 500, Boolean includingParent = false) where T:class,IObjectWithPathAndChildren
+        {
+            List<IObjectWithPathAndChildren> output = parent.getAllChildren(pathFilter, inverse, orderByPath, recursiveIndex, recursiveLimit);
+
+            List<T> response = new List<T>();
+            foreach (IObjectWithPathAndChildren r in output)
+            {
+                var rn = r as T;
+                
+                if (rn != null)
+                {
+                    response.Add(rn);
+                }
+            }
+
+
+
+            return response;
+        }
+
+        /// <summary>
         /// Gets all children. If pathFilder defined, it uses it to select only children with appropriate path
         /// </summary>
         /// <param name="parent">The parent.</param>
         /// <param name="pathFilter">The path filter.</param>
-        /// <param name="inverse">if set to <c>true</c> [inverse].</param>
+        /// <param name="inverse">if set to <c>true</c> it inverses the filter</param>
+        /// <param name="orderByPath">if set to <c>true</c> [order by path].</param>
+        /// <param name="recursiveIndex">Index of the recursive calls (if orderByPath is true)</param>
+        /// <param name="recursiveLimit">The recursive calls limit.</param>
         /// <returns></returns>
-        public static List<IObjectWithPathAndChildren> getAllChildren(this IObjectWithPathAndChildren parent, Regex pathFilter = null, Boolean inverse = false)
+        public static List<IObjectWithPathAndChildren> getAllChildren(this IObjectWithPathAndChildren parent, Regex pathFilter = null, Boolean inverse = false, Boolean orderByPath =false, Int32 recursiveIndex=1, Int32 recursiveLimit=500, Boolean includingParent = false)
         {
             List<IObjectWithPathAndChildren> output = new List<IObjectWithPathAndChildren>();
 
             List<IObjectWithPathAndChildren> stack = new List<IObjectWithPathAndChildren>();
             stack.Add(parent);
-
+            if (recursiveIndex > recursiveLimit)
+            {
+                Console.WriteLine("RECURSIVE LIMIT REACHED [" + recursiveIndex + "] in getAllChildren - [" + parent.name + "] (" + parent.GetType().Name + ")");
+                return output;
+            }
             while (stack.Any())
             {
                 var n_stack = new List<IObjectWithPathAndChildren>();
 
                 foreach (IObjectWithPathAndChildren child in stack)
                 {
-                    if (pathFilter != null)
+                    if (orderByPath)
                     {
-                        if (pathFilter.IsMatch(child.path))
+                        
+                        if (pathFilter != null)
                         {
-                            if (!inverse) output.Add(child);
+                            if (pathFilter.IsMatch(child.path))
+                            {
+                                if (!inverse)
+                                {
+                                    output.Add(child);
+                                    
+                                }
+                            }
+                            else
+                            {
+                                if (inverse)
+                                {
+                                    output.Add(child);
+                                    
+                                }
+                            }
                         }
                         else
                         {
-                            if (inverse) output.Add(child);
+                            output.Add(child);
+                            
                         }
+
+                        if (child.Any())
+                        {
+                            foreach (IObjectWithPathAndChildren c in child)
+                            {
+                                output.AddRange(getAllChildren(c, pathFilter, inverse, orderByPath, recursiveIndex + 1, recursiveLimit, true));
+                            }
+                        }
+
                     }
                     else
                     {
-                        output.Add(child);
-                    }
+                        if (pathFilter != null)
+                        {
+                            if (pathFilter.IsMatch(child.path))
+                            {
+                                if (!inverse) output.Add(child);
+                            }
+                            else
+                            {
+                                if (inverse) output.Add(child);
+                            }
+                        }
+                        else
+                        {
+                            output.Add(child);
+                        }
 
-                    if (child.Any())
-                    {
-                        foreach (IObjectWithPathAndChildren c in child) n_stack.Add(c);
+                        if (child.Any())
+                        {
+                            foreach (IObjectWithPathAndChildren c in child) n_stack.Add(c);
+                        }
                     }
                 }
 
                 stack = n_stack;
 
             }
+
+            if (!includingParent) output.Remove(parent);
             return output;
         }
 
@@ -804,7 +883,7 @@ namespace imbSCI.Data
 
 
         /// <summary>
-        /// Gets all leafs, optionally applies Regex criteria used to child name
+        /// Gets all leafs, optionally applies Regex criteria used to child name [[[doesn't work]]]
         /// </summary>
         /// <param name="parent">The parent.</param>
         /// <param name="nameFilter">The name filter.</param>

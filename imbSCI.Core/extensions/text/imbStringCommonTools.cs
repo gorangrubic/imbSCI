@@ -1,7 +1,7 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="imbStringCommonTools.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -34,6 +34,7 @@
 
 namespace imbSCI.Core.extensions.text
 {
+    using imbSCI.Core.extensions.data;
     using imbSCI.Core.extensions.enumworks;
     using imbSCI.Core.process;
     #region imbVeles using
@@ -41,9 +42,14 @@ namespace imbSCI.Core.extensions.text
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Text;
     using System.Text.RegularExpressions;
 
     #endregion
+
+
+
+
 
     /// <summary>
     /// Zajednički alati za obradu strigova na različite načine

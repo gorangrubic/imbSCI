@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="settingsMemberInfoEntry.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -364,6 +364,9 @@ namespace imbSCI.Core.data
                             break;
                         case imbAttributeName.measure_expression:
                             expression = propAtt_imbAttribute.getMessage().toStringSafe("");
+                            break;
+                        case imbAttributeName.reporting_columnWidth:
+                            width = propAtt_imbAttribute.getMessage().imbToNumber<Int32>();
                             break;
                         case imbAttributeName.measure_calcGroup:
                         case imbAttributeName.measure_displayGroup:

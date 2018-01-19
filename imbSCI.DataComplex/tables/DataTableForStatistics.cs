@@ -1,7 +1,7 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="DataTableForStatistics.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -61,6 +61,7 @@ namespace imbSCI.DataComplex.tables
     using imbSCI.DataComplex.extensions.data.operations;
     using imbSCI.DataComplex.extensions.data;
     using imbSCI.Core.files.folders;
+    using imbSCI.Core.config;
 
     /// <summary>
     /// IDEJA SAMO
@@ -68,8 +69,20 @@ namespace imbSCI.DataComplex.tables
     /// <seealso cref="System.Data.DataTable" />
     public class DataTableForStatistics : DataTable
     {
-        public static bool AUTOSAVE_CleanDataTable = true;
-        public static bool AUTOSAVE_FieldsText = true;
+        public static bool AUTOSAVE_CleanDataTable
+        {
+            get
+            {
+                return imbSCICoreConfig.settings.DataTableReports_DoExportCleanData;
+            }
+        }
+        public static bool AUTOSAVE_FieldsText
+        {
+            get
+            {
+                return imbSCICoreConfig.settings.DataTableReports_DoExportColMetaData;
+            }
+        }
 
 
         public int RowStart { get; set; } = 1;
@@ -667,8 +680,20 @@ namespace imbSCI.DataComplex.tables
             DeployStyle(legend, ws);
         }
 
-        public static int ROW_LIMIT_FOR_STYLE = 100;
-        public static int ROW_LIMIT_TODISABLE_STYLING = 200;
+        public static int ROW_LIMIT_FOR_STYLE
+        {
+            get
+            {
+                return imbSCICoreConfig.settings.DataTableReports_RowsApplyStylingLimit;
+            }
+        }
+        public static int ROW_LIMIT_TODISABLE_STYLING
+        {
+            get
+            {
+                return imbSCICoreConfig.settings.DataTableReports_RowsCountToDisableStyling;
+            }
+        }
 
         public void SaveToWorksheet(ExcelWorksheet ws)
         {

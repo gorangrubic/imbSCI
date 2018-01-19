@@ -1,7 +1,7 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="objectTableBase.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -56,6 +56,7 @@ namespace imbSCI.DataComplex.tables
     using imbSCI.Data.enums;
     using imbSCI.Core.files;
     using imbSCI.Core.extensions.io;
+    using imbSCI.Core.files.folders;
 
     /// <summary>
     /// Base class for typed DataTable collection
@@ -96,13 +97,24 @@ namespace imbSCI.DataComplex.tables
 
 
         /// <summary>
-        /// Stops any modifications
+        /// If true it prevents updating the table but increases performances drastically and provides full thread-safety
         /// </summary>
         /// <value>
         ///   <c>true</c> if [read only mode]; otherwise, <c>false</c>.
         /// </value>
         public bool ReadOnlyMode { get; set; } = false;
 
+
+        protected bool WriteOnlyModeWarningIssued { get; set; } = false;
+
+
+        /// <summary>
+        /// If true avoids existing item check procedure - drastically increases performance 
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [write only mode]; otherwise, <c>false</c>.
+        /// </value>
+        public bool WriteOnlyMode { get; set; } = false;
 
         
 
@@ -112,11 +124,32 @@ namespace imbSCI.DataComplex.tables
             {
                 if (!ReadOnlyModeWarningIssued)
                 {
+#if DEBUG
                     Console.WriteLine("READ-ONLY MODE [" + name + "] (" + GetType().Name + ") --- MODIFICATION OF THE TABLE IS DISABLED");
+#endif
                     ReadOnlyModeWarningIssued = true;
                 }
                 return true;
             } else
+            {
+                return false;
+            }
+        }
+
+        protected bool WriteOnlyEnforce()
+        {
+            if (WriteOnlyMode)
+            {
+                if (!WriteOnlyModeWarningIssued)
+                {
+#if DEBUG
+                    Console.WriteLine("WRITE-ONLY MODE [" + name + "] (" + GetType().Name + ") --- UPDATE on AddOrUpdate and CREATE on GetOrCreate are disabled");
+#endif
+                    WriteOnlyModeWarningIssued = true;
+                }
+                return true;
+            }
+            else
             {
                 return false;
             }
@@ -313,17 +346,18 @@ namespace imbSCI.DataComplex.tables
         }
 
 
-      
-        
 
+
+        public Boolean LoadFailed { get; set; } = false;
 
         /// <summary>
         /// Loads the content from specified path
         /// </summary>
         /// <param name="path">The path.</param>
         /// <returns></returns>
-        public bool Load(string path = "", bool autoBuildOnFail = true)
+        public virtual bool Load(string path = "", bool autoBuildOnFail = true)
         {
+            
             if (!path.isNullOrEmpty())
             {
                 info = new FileInfo(path);
@@ -333,20 +367,54 @@ namespace imbSCI.DataComplex.tables
                 throw new dataException("objectTableBase.Load() can't be called before [info]:FileInfo initiated.", null, this, GetType().Name + ".Load(\"\") - filepath never specified");
             }
 
-            if (info.Exists)
+            if (info.Exists) LoadFailed = false;
+
+            if (!LoadFailed)
             {
-                DataTable in_table = objectSerialization.loadObjectFromXML(info.FullName, typeof(DataTable)) as DataTable;
-                table = checkTableShema(in_table);
-                return true;
-            } else
+                try
+                {
+                    DataTable in_table = objectSerialization.loadObjectFromXML(info.FullName, typeof(DataTable)) as DataTable;
+                    table = checkTableShema(in_table);
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    String message = "Table load failed [" + info.FullName + "] " + path + " ex: " + ex.Message + "   at  ObjectTable<" + type.FullName + "> failed to load " + path;
+                    message = Environment.NewLine + ex.StackTrace;
+
+                    Console.WriteLine(message);
+                    
+                    var p = path.getWritableFile(getWritableFileMode.autoRenameExistingToBack);
+
+                    folderNode fn = p.Directory;
+                    String ef = fn.pathFor("error.txt");
+
+                    ef = ef.getWritableFile(getWritableFileMode.autoRenameExistingToBack).FullName;
+                    message.saveStringToFile(ef, getWritableFileMode.autoRenameExistingToBack);
+
+
+                    String d = p.Directory.FullName;
+
+
+                    
+                    File.Delete(path);
+
+                    //imbSCI.Core.screenOutputControl.logToConsoleControl.writeToConsole()
+
+                    LoadFailed = true;
+                }
+            }
+
+            if (LoadFailed)
             {
                 if (autoBuildOnFail)
                 {
                     buildTable();
                     return Save();
                 }
-                return false;
             }
+            return LoadFailed;
+
         }
 
         /// <summary>
@@ -355,7 +423,7 @@ namespace imbSCI.DataComplex.tables
         /// <param name="path">The path.</param>
         /// <param name="mode">The mode.</param>
         /// <returns></returns>
-        public bool SaveAs(string path, getWritableFileMode mode = getWritableFileMode.newOrExisting)
+        public virtual bool SaveAs(string path, getWritableFileMode mode = getWritableFileMode.newOrExisting)
         {
             info = path.getWritableFile(mode);
 
@@ -391,12 +459,24 @@ namespace imbSCI.DataComplex.tables
         {
             if (key.isNullOrEmpty()) key = GetKeyValue(item);
 
-            string expression = GetPrimaryKeySelect(key);
-            var rows = tableSelect(expression);
+            Boolean _exists = false;
+            DataRow[] rows = null;
+            if (!WriteOnlyEnforce())
+            {
+                string select_exp = GetPrimaryKeySelect(key);
+                rows = tableSelect(select_exp);
+                _exists = rows.Any();
+            } else
+            {
+                return;
+            }
+
+
+
 
             //var rows = table.Select(GetPrimaryKeySelect(key));
 
-            if (rows.Any())
+            if (_exists)
             {
                 SetRowWithObject(rows.First(), item, objectTableUpdatePolicy.overwrite);
                 /*
@@ -491,7 +571,7 @@ namespace imbSCI.DataComplex.tables
         /// </summary>
         /// <returns>TRUE if saved sucessfully</returns>
         /// <exception cref="aceCommonTypes.core.exceptions.dataException">Can't just call Save() when no FileInfo instance ever set - null - Save() failed, call SaveAs() first</exception>
-        public bool Save(getWritableFileMode mode = getWritableFileMode.newOrExisting)
+        public virtual bool Save(getWritableFileMode mode = getWritableFileMode.newOrExisting)
         {
             
             if (info != null)
@@ -662,6 +742,10 @@ namespace imbSCI.DataComplex.tables
 
         protected settingsEntriesForObject settings { get; set; }
 
+
+        
+
+
         /// <summary>
         /// Prepares the collection table shema
         /// </summary>
@@ -697,6 +781,8 @@ namespace imbSCI.DataComplex.tables
                 buildTable();
             }
         }
+
+
 
         protected void buildTable()
         {
@@ -834,12 +920,22 @@ namespace imbSCI.DataComplex.tables
                     return instanceRegistry[keyValue];
                 }
             }
-            
-            string select_exp = GetPrimaryKeySelect(keyValue);
-            DataRow[] rows = tableSelect(select_exp);
+
+            Boolean _exists = false;
+            DataRow[] rows = null;
+            if (!WriteOnlyEnforce())
+            {
+                string select_exp = GetPrimaryKeySelect(keyValue);
+                rows = tableSelect(select_exp);
+                _exists = rows.Any();
+            }
+
+
+            //string select_exp = GetPrimaryKeySelect(keyValue);
+            //DataRow[] rows = tableSelect(select_exp);
            
 
-            if (rows.Any())
+            if (_exists)
             {
                 output = GetObjectFromRow(rows.First());
             } else
@@ -1018,13 +1114,16 @@ namespace imbSCI.DataComplex.tables
                     }
                 }
 
+            Boolean _exists = false;
+            DataRow[] rows = null;
+            if (!WriteOnlyEnforce())
+            {
                 string select_exp = GetPrimaryKeySelect(keyValue);
-                DataRow[] rows = tableSelect(select_exp);
+                 rows =tableSelect(select_exp);
+                _exists = rows.Any();
+            }
 
-
-           
-
-                if (rows.Any())
+                if (_exists)
                 {
                     SetRowWithObject(rows.First(), input, policy);
                     output = false;
@@ -1109,7 +1208,7 @@ namespace imbSCI.DataComplex.tables
                             string primKey = row[primaryKeyName].toStringSafe("");
                             if (!keyCache.Contains(primKey)) keyCache.Add(primKey);
                         }
-                        #region SWITCH
+#region SWITCH
                         switch (policy)
                         {
                             default:
@@ -1148,7 +1247,7 @@ namespace imbSCI.DataComplex.tables
                                 break;
 
                         }
-                        #endregion
+#endregion
                     }
                 }
 

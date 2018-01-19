@@ -1,7 +1,7 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="DataTableReportTools.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -46,6 +46,9 @@ namespace imbSCI.DataComplex.tables.extensions
     using imbSCI.Data.enums.fields;
     using imbSCI.Data.interfaces;
     using imbSCI.DataComplex.extensions.data.modify;
+    using imbSCI.DataComplex.extensions.data.formats;
+    using imbSCI.DataComplex.extensions.text;
+    using imbSCI.DataComplex.tables.extensions;
 
     public static class DataTableReportTools
     {

@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="folderStructure.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -82,41 +82,7 @@ namespace imbSCI.Core.files.folders
         }
 
 
-        private Object GenerateReadmeLock = new Object();
-
-
-        /// <summary>
-        /// Generates the readme files and the folder structure
-        /// </summary>
-        /// <param name="notation">The notation.</param>
-        public void generateReadmeFiles(aceAuthorNotation notation, String readmeFileName= "readme_directory.md")
-        {
-            lock (GenerateReadmeLock)
-            {
-
-                String readme_filename = readmeFileName;
-                String mpath = imbSciStringExtensions.add(path, readme_filename, "\\");
-                generateFolderReadme(notation).saveStringToFile(mpath);
-
-
-
-                foreach (KeyValuePair<String, folderNode> ni in this)
-                {
-
-                    String path = imbSciStringExtensions.add(ni.Value.path, readme_filename, "\\");
-
-
-                    FileInfo fi = path.getWritableFile(getWritableFileMode.overwrite);
-
-                    String content = ni.Value.generateFolderReadme(notation);
-                    content.saveStringToFile(fi.FullName, getWritableFileMode.overwrite);
-                    saveBase.saveToFile(fi.FullName, content);
-
-                }
-            } 
-
-        }
-
+      
 
         private String _baseDirectoryPath;
         /// <summary>

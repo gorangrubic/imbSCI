@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="objectTable.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -50,7 +50,9 @@ namespace imbSCI.DataComplex.tables
     using imbSCI.DataComplex.exceptions;
     using imbSCI.Data.enums;
     using imbSCI.Data.collection.nested;
-
+    using imbSCI.Core.extensions.io;
+    using imbSCI.Core.extensions.table;
+    using imbSCI.DataComplex.extensions.data.schema;
 
 
 
@@ -108,15 +110,16 @@ namespace imbSCI.DataComplex.tables
             {
                 throw new dataException("No primary key was declared in type: " + type.Name + " by valid imbAttributeName.collectionPrimaryKey", null, this, "No imbAttributeName.collectionPrimaryKey found in " + type.Name);
             }
-
+           
             if (autoLoad)
             {
                 Load(__filePath);
-            } else
+            }
+            else
             {
                 SaveAs(__filePath, getWritableFileMode.autoRenameThis);
             }
-            
+
         }
 
         /// <summary>

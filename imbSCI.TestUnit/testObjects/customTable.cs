@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace imbSCI.TestUnit.testObjects
 {
+    
+
     public class customTable : objectTableCustom<customTableEntry>
     {
         public override string keyPropertyName

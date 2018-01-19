@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="dataTableRenderingSetup.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -106,12 +106,12 @@ namespace imbSCI.Core.extensions.table
 
             foreach (String cat in ct)
             {
-                ct.AddUnique(cat);
+                ct.AddUnique(cat.ToUpper());
             }
 
             foreach (String cat in ct)
             {
-                var clm = columns.Where(x => x.GetGroup().ToLower() == cat.ToLower()).OrderBy<DataColumn, int>(x => x.GetPriority());
+                var clm = columns.Where(x => x.GetGroup().ToUpper() == cat.ToUpper()).OrderBy<DataColumn, int>(x => x.GetPriority());
                 foreach (DataColumn dc in clm)
                 {
                     if (i >= dc.Table.Columns.Count) break;
@@ -180,7 +180,7 @@ namespace imbSCI.Core.extensions.table
                         String cat = d.GetGroup();
                         if (cat != null)
                         {
-                            cats.AddUnique(cat);
+                            cats.AddUnique(cat.ToUpper());
                         }
                     }
                     dc.SetCategoryPriority(cats);

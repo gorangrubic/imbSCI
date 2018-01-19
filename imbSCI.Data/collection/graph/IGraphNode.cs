@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="IGraphNode.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -47,6 +47,9 @@ namespace imbSCI.Data.collection.graph
     /// <seealso cref="imbSCI.Data.interfaces.IObjectWithTreeView" />
     public interface IGraphNode : IEnumerable, IObjectWithParent, IObjectWithPath, IObjectWithName, IObjectWithPathAndChildren, IObjectWithTreeView
     {
+
+
+        Boolean ContainsKey(String key);
 
         /// <summary>
         /// Gets or sets the <see cref="IGraphNode"/> with the specified key.

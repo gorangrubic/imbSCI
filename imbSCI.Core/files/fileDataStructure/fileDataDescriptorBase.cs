@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="fileDataDescriptorBase.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -189,9 +189,8 @@ namespace imbSCI.Core.files.fileDataStructure
             } catch (Exception ex) {
 
                 //if (output == null && preventThrow) output = aceLog.loger;
-
-                output.log("Error saving [" + fullpath + "] of type: " + instance.GetType().Name + " [" + ex.Message + "]");
-
+                
+                fileDataStructureExtensions.FileDataStructureError("Error saving [" + fullpath + "] of type: " + instance.GetType().Name, null, output, ex, instance as IFileDataStructure);
                 if (!preventThrow) throw;
             }
         }
@@ -199,7 +198,7 @@ namespace imbSCI.Core.files.fileDataStructure
         //public String ListStringSeparator = ";" + Environment.NewLine;
 
 
-        private String _ListStringSeparator = ";" + Environment.NewLine;
+        private String _ListStringSeparator = Environment.NewLine;
         /// <summary>
         /// 
         /// </summary>
@@ -215,12 +214,17 @@ namespace imbSCI.Core.files.fileDataStructure
         /// </summary>
         /// <param name="filepath">The filepath.</param>
         /// <param name="output">The output.</param>
+        /// <param name="itemType">Type of the item.</param>
         /// <returns></returns>
-        /// <exception cref="System.NotImplementedException">
+        /// <exception cref="NotImplementedException">
         /// JSON not implemented yet
         /// or
         /// binary file not implemented yet
         /// </exception>
+        /// <exception cref="InvalidDataException">Format type [" + formatMode + "] not supported for type [" + type.Name + "]" + "Format not supported - LoadDataFile</exception>
+        /// <exception cref="System.NotImplementedException">JSON not implemented yet
+        /// or
+        /// binary file not implemented yet</exception>
         protected Object LoadDataFile(String filepath, ILogBuilder output=null, Type itemType=null)
         {
             Object instance = null;
@@ -239,6 +243,7 @@ namespace imbSCI.Core.files.fileDataStructure
 
                     switch (formatMode)
                     {
+                        default:
                         case fileDataPropertyMode.XML:
                             instance = objectSerialization.loadObjectFromXML(filepath, itemType);
                             break;
@@ -272,8 +277,23 @@ namespace imbSCI.Core.files.fileDataStructure
             }
             else
             {
-               // if (output == null) output = aceLog.loger;
-                if (output != null) output.log("Loading [" + filepath + "] failed as file not found (" + itemType.Name + ")");
+                
+                var constructor = type.GetConstructor(new Type[] { });
+                if (constructor!=null)
+                {
+                    instance = Activator.CreateInstance(itemType, new Type[] { });
+                    if (output != null)
+                    {
+                       // output.log("File [" + filepath + "] not found - but new instance of (" + itemType.Name + ") created");
+                    }
+                } else
+                {
+                    if (output != null)
+                    {
+                        //output.log("Loading [" + filepath + "] failed as file not found (" + itemType.Name + ")");
+                    }
+                }
+                
 
 
             }

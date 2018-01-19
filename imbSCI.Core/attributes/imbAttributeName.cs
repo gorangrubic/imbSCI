@@ -1,7 +1,7 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="imbAttributeName.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -668,6 +668,11 @@ namespace imbSCI.Core.attributes
         reporting_agregate_function,
 
         reporting_aggregation,
+
+        /// <summary>
+        /// The reporting column width: defines width of column in tabular report
+        /// </summary>
+        reporting_columnWidth,
 
         measure_letter,
         DataTableExport,

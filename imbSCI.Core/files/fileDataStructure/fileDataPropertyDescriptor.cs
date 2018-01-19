@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="fileDataPropertyDescriptor.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -217,6 +217,8 @@ namespace imbSCI.Core.files.fileDataStructure
                 IList vlList = type.getInstance() as IList;
                 Type itemType = type.GetGenericArguments().FirstOrDefault();
                 String fpattern = GetFilepath("", instance, false);
+
+                fpattern = fpattern.Replace(WILLCARD_SUFIX, "*");
 
                 List<String> found = parentFolder.findFiles(fpattern, System.IO.SearchOption.TopDirectoryOnly);
 

@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="DataTableForStatisticsExtension.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -267,15 +267,21 @@ namespace imbSCI.DataComplex.tables
            // if (source == null) return new DataTableForStatistics();
             if (source.Columns.Count > 0)
             {
+                folderNode dataFolder = null;
+                if (DataTableForStatistics.AUTOSAVE_CleanDataTable || DataTableForStatistics.AUTOSAVE_FieldsText)
+                {
+                    dataFolder = folder.Add(EXTRAFOLDER, "Excel report meta data", "Folder containing clean data export (single header row, CSV format) for easier use by other software platforms and/or column meta descriptions - additional information - in separate txt file for each Excel report created.");
+                }
+
                 if (DataTableForStatistics.AUTOSAVE_CleanDataTable)
                 {
-                    string cld = source.serializeDataTable(dataTableExportEnum.csv,  PREFIX_CLEANDATATABLE + filenamePrefix.getFilename() + ".csv", folder[EXTRAFOLDER], notation);
+                    string cld = source.serializeDataTable(dataTableExportEnum.csv,  PREFIX_CLEANDATATABLE + filenamePrefix.getFilename() + ".csv", dataFolder, notation);
                     source.SetAdditionalInfoEntry("Clean data", cld);
                 }
 
                 if (DataTableForStatistics.AUTOSAVE_FieldsText)
                 {
-                    string cli = folder[EXTRAFOLDER].pathFor(PREFIX_COLUMNINFO + filenamePrefix.getFilename() + ".txt");
+                    string cli = dataFolder.pathFor(PREFIX_COLUMNINFO + filenamePrefix.getFilename() + ".txt");
                     source.GetUserManualForTableSaved(cli);
                     source.SetAdditionalInfoEntry("Column info", cli);
                 }

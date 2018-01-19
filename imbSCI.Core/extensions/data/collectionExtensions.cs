@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="collectionExtensions.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -670,6 +670,8 @@ namespace imbSCI.Core.extensions.data
             }
             return false;
         }
+
+
 
         /// <summary>
         /// Gets the first instance that <c>is</c> compatibile with <c>T</c> in supplied collection. Supports PropertyCollection and other collections

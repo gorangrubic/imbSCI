@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="fileDataStructure.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -67,6 +67,103 @@ namespace imbSCI.Core.files.fileDataStructure
         public folderNode folder { get; set; }
 
 
+        private fileDataStructureDescriptor _descriptor;
+
+        /// <summary>
+        /// Meta information about this file data structure
+        /// </summary>
+        /// <value>
+        /// The descriptor.
+        /// </value>
+        protected fileDataStructureDescriptor descriptor
+        {
+            get
+            {
+                if (_descriptor == null || true)
+                {
+                    IFileDataStructure st = this as IFileDataStructure;
+                    if (st != null)
+                    {
+                        _descriptor = st.GetFileDataStructureDescriptor();
+                    }
+                }
+
+                
+                return _descriptor;
+            }
+        }
+
+        /// <summary>
+        /// Sets the folder description
+        /// </summary>
+        /// <param name="generateReadme">If true it will call <see cref="folderNode.generateReadmeFiles(aceAuthorNotation, string)"/> after description set.</param>
+        /// <param name="notation">Information on author or application</param>
+        public void SetFolderDescription(Boolean generateReadme = false, aceAuthorNotation notation=null)
+        {
+            if (folder == null)
+            {
+                return;
+            }
+
+            List<String> output = new List<string>();
+
+
+                output.Add("Data structure:     " + descriptor.name + " [" + descriptor.type.Name + "]");
+                output.Add("Description:        " + descriptor.description);
+                output.Add("File:               " + descriptor.filename);
+                output.Add("----");
+            Boolean hasFiles = descriptor.fileDataProperties.Any();
+            if (hasFiles) output.Add("In this data structure:");
+            foreach (var pair in descriptor.fileDataProperties)
+            {
+             output.Add("[" + pair.Key.ToString("D3") + "]   " + pair.Value.name + "                    [" + pair.Value.type.Name + "]");
+                output.Add(" > " + pair.Value.description);
+                output.Add(" > Path: " + pair.Value.filename + "        [" + pair.Value.filenameMode + "]");
+            }
+            if (hasFiles) output.Add("---");
+
+            output.AddRange(CustomFolderDescriptionLines());
+
+            folder.AdditionalDescriptionLines.AddRange(output, true);
+
+            if (generateReadme)
+            {
+                folder.generateReadmeFiles(notation);
+            }
+        }
+
+        /// <summary>
+        /// OVERIDE THIS TO PROVIDE ADDITIONAL FILE-FOLDER DESCRIPTION
+        /// </summary>
+        /// <returns></returns>
+        protected virtual List<String> CustomFolderDescriptionLines()
+        {
+            List<String> output = new List<string>();
+
+            return output;
+        }
+
+        /// <summary>
+        /// Saves this data structure
+        /// </summary>
+        /// <param name="logger">The logger.</param>
+        public void Save(ILogBuilder logger=null)
+        {
+            if (folder == null) {
+                fileDataStructureExtensions.FileDataStructureError("Folder not set - can't save fileDataStructure " + descriptor.name + " [" + descriptor.type.Name + "]",
+                    folder, logger, null, this as IFileDataStructure);
+            }
+            IFileDataStructure st = this as IFileDataStructure;
+            if (st != null)
+            {
+                folderNode fp = folder;
+                if (descriptor.mode == fileStructureMode.subdirectory)
+                {
+                    fp = folder.parent as folderNode;
+                }
+                st.SaveDataStructure(fp);
+            }
+        }
 
         /// <summary>
         /// Called when object is loaded

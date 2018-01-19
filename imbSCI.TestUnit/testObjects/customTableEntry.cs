@@ -13,6 +13,9 @@ namespace imbSCI.TestUnit.testObjects
     {
         public String name { get; set; } = "someName";
 
+
+
+
         public customTableEntry()
         {
 

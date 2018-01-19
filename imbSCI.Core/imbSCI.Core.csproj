@@ -16,7 +16,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -56,6 +56,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -68,9 +69,17 @@
   <ItemGroup>
     <Compile Include="config\imbSCICoreConfig.cs" />
     <Compile Include="extensions\data\containsQueries.cs" />
+    <Compile Include="extensions\table\DataRowCollectionTools.cs" />
+    <Compile Include="extensions\text\imbStringBuilderExtensions.cs" />
     <Compile Include="extensions\typeworks\CollectTypeFlags.cs" />
+    <Compile Include="files\fileTools.cs" />
+    <Compile Include="files\imbFileException.cs" />
     <Compile Include="files\search\NamespaceDoc.cs" />
     <Compile Include="imbSCICoreManager.cs" />
+    <Compile Include="math\classificationMetrics\classificationEval.cs" />
+    <Compile Include="math\classificationMetrics\classificationEvalMetricSet.cs" />
+    <Compile Include="math\classificationMetrics\classificationMetricComputation.cs" />
+    <Compile Include="math\classificationMetrics\classificationReport.cs" />
     <Compile Include="reporting\aceLogToConsoleControl.cs" />
     <Compile Include="attributes\aceCriterieConfig.cs" />
     <Compile Include="attributes\aceRangeConfig.cs" />
@@ -106,6 +115,7 @@
     <Compile Include="collection\resourceDictionaryBase.cs" />
     <Compile Include="data\aceAuthorNotation.cs" />
     <Compile Include="interfaces\IAceLogToConsoleControl.cs" />
+    <Compile Include="reporting\render\builders\builderForLogBase.cs" />
     <Compile Include="screenOutputControl.cs" />
     <Compile Include="syntax\param\typedParam.cs" />
     <Compile Include="syntax\param\typedParamCollection.cs" />

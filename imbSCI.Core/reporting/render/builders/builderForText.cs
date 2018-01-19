@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="builderForText.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -36,6 +36,9 @@ namespace imbSCI.Core.reporting.render.builders
     using imbSCI.Core.reporting.zone;
     using imbSCI.Data.enums;
     using imbSCI.Data.enums.appends;
+
+
+
 
     /// <summary>
     /// Builder for text output

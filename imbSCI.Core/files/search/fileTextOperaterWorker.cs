@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="fileTextOperaterWorker.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -130,6 +130,7 @@ namespace imbSCI.Core.files.search
                         if (rg.IsMatch(line))
                         {
                             match = rg.ToString();
+                            if (match == "") match = line;
                             return true;
                         }
                     }
@@ -139,6 +140,7 @@ namespace imbSCI.Core.files.search
 
                     if (line.ContainsAny(needles, out match))
                     {
+                        if (match == "") match = line;
                         return true; // output.Add(ln, line, false);
                     }
                 }
@@ -149,6 +151,7 @@ namespace imbSCI.Core.files.search
                     if (rgex.IsMatch(line))
                     {
                         match = rgex.ToString();
+                        if (match == "") match = line;
                         return true; // output.Add(ln, line, false);
                     }
                 }
@@ -157,6 +160,7 @@ namespace imbSCI.Core.files.search
                     if (line.Contains(needle))
                     {
                         match = needle;
+                        if (match == "") match = line;
                         return true; // output.Add(ln, line, false);
                     }
                 }

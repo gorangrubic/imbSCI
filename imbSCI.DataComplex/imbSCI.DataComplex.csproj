@@ -18,7 +18,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -58,9 +58,6 @@
     </Reference>
     <Reference Include="EPPlus, Version=4.1.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\..\imbACE\packages\EPPlus.4.1.1\lib\net40\EPPlus.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\imbACE\packages\Newtonsoft.Json.10.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
@@ -151,9 +148,9 @@
     <Compile Include="extensions\data\schema\DataTableBuilders.cs" />
     <Compile Include="extensions\data\schema\dataTableShemaExtensions.cs" />
     <Compile Include="extensions\text\imbStringCleaners.cs" />
-    <Compile Include="linknode\linknodeBuilder.cs" />
-    <Compile Include="linknode\linknodeElement.cs" />
-    <Compile Include="linknode\linknodeTools.cs" />
+    <Compile Include="data\linknode\linknodeBuilder.cs" />
+    <Compile Include="data\linknode\linknodeElement.cs" />
+    <Compile Include="data\linknode\linknodeTools.cs" />
     <Compile Include="path\dynamicSubMenuType.cs" />
     <Compile Include="path\pathElementFormat.cs" />
     <Compile Include="path\pathElementFormatCollection.cs" />
@@ -200,10 +197,16 @@
     </Compile>
     <Compile Include="tables\DataTableAggregationDefinition.cs" />
     <Compile Include="tables\DataTableCategorySets.cs" />
+    <Compile Include="tables\DataTableExtended.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="tables\DataTableForStatistics.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="tables\DataTableForStatisticsExtension.cs" />
+    <Compile Include="tables\DataTableTypeExtended.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="tables\extensions\DataTableReportTools.cs" />
     <Compile Include="tables\IObjectTableAdvancedEntry.cs" />
     <Compile Include="tables\IObjectTableEntry.cs" />
@@ -224,6 +227,8 @@
     <Compile Include="tf-idf\IWeightTableSetOperations.cs" />
     <Compile Include="tf-idf\IWeightTableTerm.cs" />
     <Compile Include="tf-idf\termTableColumns.cs" />
+    <Compile Include="tf-idf\TFDFContainer.cs" />
+    <Compile Include="tf-idf\TFDFCounter.cs" />
     <Compile Include="tf-idf\weightTable.cs" />
     <Compile Include="tf-idf\weightTableCompiled.cs" />
     <Compile Include="tf-idf\weightTableGenericTerm.cs" />

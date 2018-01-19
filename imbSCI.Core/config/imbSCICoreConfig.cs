@@ -1,7 +1,7 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="imbSCICoreConfig.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -82,6 +82,21 @@ namespace imbSCI.Core.config
         }
 
         #endregion --------------------------------------------------- DO NOT MODIFY --------------------------------------------------------------
+
+
+        public Boolean DoShowFileDataStructureErrors { get; set; } = false;
+
+        public Boolean DoSaveLogNoteForDataStructureErrors { get; set; } = true;
+
+        public Boolean DoThrowExceptionOnDataStructureErrors { get; set; } = true;
+
+        public Boolean DataTableReports_DoExportCleanData { get; set; } = true;
+
+        public Boolean DataTableReports_DoExportColMetaData { get; set; } = true;
+
+        public Int32 DataTableReports_RowsCountToDisableStyling { get; set; } = 200;
+
+        public Int32 DataTableReports_RowsApplyStylingLimit { get; set; } = 120;
 
         // Insert below your global configuration properties. 
         // Snippets: _imbSCI_DoBool, _imbSCI_String, _imbSCI_Ratio ....

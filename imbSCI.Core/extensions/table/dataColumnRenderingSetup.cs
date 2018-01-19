@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="dataColumnRenderingSetup.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -693,10 +693,12 @@ namespace imbSCI.Core.extensions.table
         }
         public static String GetGroup(this DataColumn dc)
         {
-            return dc.ExtendedProperties.getProperString(templateFieldDataTable.col_group, imbAttributeName.measure_calcGroup, imbAttributeName.measure_displayGroup).toStringSafe("Data");
+            return dc.ExtendedProperties.getProperString(templateFieldDataTable.col_group, imbAttributeName.measure_calcGroup, imbAttributeName.measure_displayGroup).toStringSafe("Data").ToUpper();
         }
         public static DataColumn SetGroup(this DataColumn dc, String col_group)
         {
+            if (col_group == null) col_group = "";
+            col_group = col_group.ToUpper();
             dc.ExtendedProperties.add(templateFieldDataTable.col_group, col_group);
 
             dc.ExtendedProperties.add(imbAttributeName.measure_displayGroup, col_group);

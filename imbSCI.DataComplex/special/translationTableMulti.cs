@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="translationTableMulti.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -55,6 +55,14 @@ namespace imbSCI.DataComplex.special
     public class translationTableMulti<TKey, TValue> : dataBindableBase, IEnumerable<KeyValuePair<TKey, TValue>>
     {
 
+        public Int32 Count
+        {
+            get
+            {
+                return entries.Count;
+            }
+        }
+
         public virtual void AddRange(IEnumerable<KeyValuePair<TKey, TValue>> source)
         {
             foreach (var pair in source)
@@ -70,6 +78,30 @@ namespace imbSCI.DataComplex.special
             //{
                 entries.Add(t);
             //}
+        }
+
+        public Boolean ContainsKey(TKey key)
+        {
+            foreach (var pair in entries)
+            {
+                if (pair.Key.Equals(key))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public Boolean ContainsValue(TValue val)
+        {
+            foreach (var pair in entries)
+            {
+                if (pair.Value.Equals(val))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public List<TKey> GetKeys()
@@ -97,7 +129,7 @@ namespace imbSCI.DataComplex.special
             List<TValue> output = new List<TValue>();
             foreach (var pair in entries)
             {
-                if (pair.Value.Equals(needle))
+                if (pair.Key.Equals(needle))
                 {
                     output.AddUnique(pair.Value);
                 }
@@ -105,6 +137,51 @@ namespace imbSCI.DataComplex.special
             return output;
         }
 
+        public virtual TKey GetOfTypeByValue(TValue needle, Type t=null)
+        {
+            List<TKey> output = new List<TKey>();
+            if (t == null) t = typeof(TKey);
+            foreach (var pair in entries)
+            {
+                if (pair.Value.Equals(needle))
+                {
+                    output.AddUnique(pair.Key);
+                }
+            }
+
+            foreach (var o in output)
+            {
+                if (o.GetType() == t)
+                {
+                    return o;
+                }
+            }
+
+            return default(TKey);
+        }
+
+        public virtual TValue GetOfTypeByKey(TKey needle, Type t=null)
+        {
+            List<TValue> output = new List<TValue>();
+            if (t == null) t = typeof(TValue);
+            foreach (var pair in entries)
+            {
+                if (pair.Key.Equals(needle))
+                {
+                    output.AddUnique(pair.Value);
+                }
+            }
+
+            foreach (var o in output)
+            {
+                if (o.GetType() == t)
+                {
+                    return o;
+                }
+            }
+
+            return default(TValue);
+        }
 
         public virtual List<TKey> GetByValue(TValue needle)
         {

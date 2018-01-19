@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="settingsEntriesForObject.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -224,7 +224,7 @@ namespace imbSCI.Core.data
         /// <param name="type">The type.</param>
         /// <param name="includeCollectionItems">if set to <c>true</c> [include collection items].</param>
         /// <param name="target">The target.</param>
-        protected void processType(Type type, Boolean includeCollectionItems, Object target = null)
+        protected void processType(Type type, Boolean includeCollectionItems, Object target = null, Int32 call=0)
         {
             targetType = type;
 
@@ -244,9 +244,9 @@ namespace imbSCI.Core.data
             
 
 
-            var pTypes = type.GetBaseTypeList(true, true);
+            var pTypes = type.GetBaseTypeList(false, true, null, call++);
 
-
+            pTypes.Add(type);
 
             List<PropertyInfo> props = new List<PropertyInfo>();
             foreach (var t in pTypes)
@@ -261,7 +261,7 @@ namespace imbSCI.Core.data
 
             
 
-            if (target != null) pce = target.buildPCE(true);
+            //if (target != null) pce = target.buildPCE(true);
             List<PropertyInfo> propList = new List<PropertyInfo>();
 
 

@@ -5,17 +5,45 @@ namespace imbSCI.TestUnit
 {
 using Microsoft.VisualStudio.TestTools.UnitTesting;
     using imbSCI.Core;
+    using imbSCI.Core.data;
+    using imbSCI.Core.extensions.data;
     using imbSCI.Core.extensions.typeworks;
     using imbSCI.Data;
     using imbSCI.Data.enums;
     using imbSCI.Data.enums.appends;
     using imbSCI.Data.enums.reporting;
     using imbSCI.DataComplex.data;
-
+    using imbSCI.Reporting.script;
 
     [TestClass]
     public class UnitTestForSCICore
     {
+        [TestMethod]
+        public void TextObjectForSettings()
+        {
+
+            Type t = typeof(docScript);
+
+            settingsEntriesForObject sEO = new settingsEntriesForObject(t, false);
+
+            Assert.IsTrue(sEO.pis.Any());
+
+
+            //docScript ds = new docScript("testScript");
+
+            //sEO = new settingsEntriesForObject(ds, false, false);
+
+            //Assert.IsTrue(sEO.pis.Any());
+
+
+            //sEO = new settingsEntriesForObject(ds, true, true);
+
+            //Assert.IsTrue(sEO.pis.Any());
+
+        }
+
+
+
         [TestMethod]
         public void TestCollectTypes()
         {

@@ -1,7 +1,7 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="imbSCIReportingConfig.cs" company="" >
+// <copyright file="imbSCIReportingConfig.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 gorangrubic
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -17,10 +17,9 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/. 
 // </copyright>
 // <summary>
-// Project: $projectname$
-// Author: gorangrubic
+// Project: imbSCI.Reporting
+// Author: Goran Grubic
 // ------------------------------------------------------------------------------------------------------------------
-// Based on Project Item template: imbSCI Global Config 
 // Project web site: http://blog.veles.rs
 // GitHub: http://github.com/gorangrubic
 // Mendeley profile: http://www.mendeley.com/profiles/goran-grubi2/

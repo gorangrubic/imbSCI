@@ -1,7 +1,7 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="imbStringIsTests.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -48,7 +48,7 @@ namespace imbSCI.Core.extensions.text
 
         public static bool isRegexMatch(this String input, String regExpresion)
         {
-            
+            if (input == null) input = "";
             return Regex.IsMatch(input, regExpresion);
         }
 
@@ -90,6 +90,7 @@ namespace imbSCI.Core.extensions.text
 
         public static bool IsValidUrl(this string text)
         {
+            if (text == null) return false;
             Regex rx = new Regex(@"http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?");
             return rx.IsMatch(text);
         }
@@ -103,6 +104,7 @@ namespace imbSCI.Core.extensions.text
         /// </returns>
         public static Boolean isProperHtmlDocument(this String source)
         {
+            if (source == null) return false;
             source = source.ToLower();
             if (source.Contains("<!doctype html")) return true;
             if (source.Contains("<html") && source.Contains("<body")) {
@@ -428,7 +430,7 @@ namespace imbSCI.Core.extensions.text
         /// <para>For text: example text</para>
         /// <para>Selects: ex</para>
         /// </remarks>
-        public static Regex _select_isNumber = new Regex(@"\b([\d]+)\b", RegexOptions.Compiled);
+        public static Regex _select_isNumber = new Regex(@"^([\d\.,]+)$", RegexOptions.Compiled);
 
 
         /// <summary>

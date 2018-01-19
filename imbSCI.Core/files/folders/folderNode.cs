@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright file="folderNode.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -62,6 +62,39 @@ namespace imbSCI.Core.files.folders
     /// <seealso cref="System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String, imbACE.Core.files.folders.folderNode}}" />
     public class folderNode:imbBindable, IFolderNode, IEnumerable<KeyValuePair<string, folderNode>>, IEnumerable<folderNode>
     {
+
+        /// <summary>
+        /// Refers to the current directory of application
+        /// </summary>
+        public folderNode(String _description="")
+        {
+            try
+            {
+                DirectoryInfo info = new DirectoryInfo(Directory.GetCurrentDirectory());
+                folderNode par = info.Parent;
+
+                parent = par;
+
+
+
+                _name = info.Name;
+                caption = _name.imbTitleCamelOperation(true);
+                if (_description.isNullOrEmpty())
+                {
+                    description = "Application root directory";
+                }
+                else
+                {
+                    description = _description;
+                }
+
+
+                par.Add(this);
+            } catch (Exception ex)
+            {
+                throw new imbFileException("folderNode construction failed", ex, this, null, null);
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="folderNode"/> class.
@@ -391,11 +424,13 @@ namespace imbSCI.Core.files.folders
 
 
         /// <summary>
-        /// Returns path with filename specified
+        /// Returns path with filename specified. Optionally, sets <c>fileDescription</c> for directory readme generator
         /// </summary>
         /// <param name="filename">The filename.</param>
+        /// <param name="mode">The mode.</param>
+        /// <param name="fileDescription">The file description - if not specified, it will try to improvize :)</param>
         /// <returns></returns>
-        public string pathFor(string filename, getWritableFileMode mode=getWritableFileMode.none)
+        public string pathFor(string filename, getWritableFileMode mode=getWritableFileMode.none, String fileDescription="")
         {
             filename = filename.getCleanFilepath("");
             //filename = filename.getCleanFileName(false);
@@ -406,18 +441,97 @@ namespace imbSCI.Core.files.folders
                 filename = imbSciStringExtensions.removeStartsWith(filename, path);
             }
 
-            string output = imbSciStringExtensions.add(path, filename, "\\");
-            output = output.Replace("\\\\", "\\");
-            output = output.Replace("\\\\", "\\");
+
+
+            string output = imbSciStringExtensions.add(path, filename, Path.DirectorySeparatorChar);
+            output = output.Replace("\\\\", Path.DirectorySeparatorChar.ToString());
+            output = output.Replace("\\\\", Path.DirectorySeparatorChar.ToString());
 
             if (mode != getWritableFileMode.none)
             {
                 output = output.getWritableFile(mode).FullName;
             }
 
+            if (fileDescription.isNullOrEmpty())
+            {
+                String fileClean = Path.GetFileNameWithoutExtension(filename);
+                String fileTitle = fileClean.imbTitleCamelOperation(true);
+
+                String ext = Path.GetExtension(filename).Trim('.').ToLower();
+                switch (ext)
+                {
+                    case "json":
+                        fileDescription = "JSON Serialized Data Object";
+                        break;
+                    case "xml":
+                        fileDescription = "XML Serialized Data Object";
+                        if (filename.ContainsAny(new String[] { "setup", "Setup", "config", "Config", "settings", "Settings" }))
+                        {
+                            fileTitle = fileClean.imbTitleCamelOperation(true);
+                            fileDescription = "Serialized configuration [" + fileTitle + "] object";
+                        }
+
+                        break;
+                    case "txt":
+                        fileDescription = "Plain text file";
+                        if (filename.StartsWith("ci_"))
+                        {
+                            fileClean = fileClean.removeStartsWith("ci_");
+                            fileTitle = fileClean.imbTitleCamelOperation(true);
+                            fileDescription = "Column / Fields meta information for data table [" + fileTitle + "] export";
+                        }
+                        if (fileClean == "note")
+                        {
+                            fileDescription = "Relevant notes on [" + caption + "] in markdown/text format";
+                        }
+                        break;
+                    case "csv":
+                        fileDescription = "Comma Separated Value data dump";
+                        if (filename.StartsWith("dc_"))
+                        {
+                            fileClean = fileClean.removeStartsWith("dc_");
+                            fileTitle = fileClean.imbTitleCamelOperation(true);
+                            fileDescription = "Clean data CSV version of data table [" + fileTitle + "] export";
+                        }
+                        break;
+                    case "xls":
+                    case "xlsx":
+                        fileDescription = "Excel spreadsheet";
+                        if (filename.StartsWith("dt_"))
+                        {
+                            fileClean = fileClean.removeStartsWith("dt_");
+                            fileTitle = fileClean.imbTitleCamelOperation(true);
+                            fileDescription = "Excel spreadsheet report on [" + fileTitle + "] data table";
+                        }
+                        break;
+                    case "md":
+                        fileDescription = "Markdown document";
+                        break;
+                    case "bin":
+                        fileDescription = "Binary Serialized Data Object";
+                        break;
+                    case "dgml":
+                        fileDescription = "Serialized graph in Directed-Graph Markup Language format";
+                        break;
+                    case "html":
+                        fileDescription = "HTML Document";
+                        break;
+                    case "log":
+                        fileDescription = "Log output plain text file";
+                        break;
+                    default:
+                        fileDescription = ext.ToUpper() + " file";
+                        break;
+                }
+
+            }
+
+            AdditionalFileEntries.Add(String.Format(FileDescriptionFormat, filename, fileDescription));
             
             return output;
         }
+
+        public static String FileDescriptionFormat { get; set; } = "[{0,-30}] {1}";
 
 
         public void deleteFiles(string selectionPattern="*.*", bool subFolders=true)
@@ -537,45 +651,74 @@ namespace imbSCI.Core.files.folders
         /// <summary>
         /// Generates the folder readme.
         /// </summary>
-        /// <param name="folders">The folders.</param>
-        /// <param name="folder">The folder.</param>
+        /// <param name="notation">The notation.</param>
+        /// <param name="builder">The builder.</param>
         /// <returns></returns>
         public string generateFolderReadme(aceAuthorNotation notation, ITextRender builder=null)
         {
             if (builder == null) builder = new builderForMarkdown();
-
+            String prefix = "";
 
             
-                builder.AppendHeading("Folder information", 2);
+
+            String mypath = path;
+            if (parent != null)
+            {
+                mypath = mypath.removeStartsWith(parent.path);
+                prefix = parent.path;
+            }
+
+            builder.AppendHeading("Directory information", 2);
             
 
-                builder.AppendHeading(caption, 3);
-                builder.AppendLine(" > " + path);
-                builder.AppendLine(" > " + description);
+
+            builder.AppendHeading(caption, 3);
+            builder.AppendLine(" > " + mypath);
+            builder.AppendLine(" > " + description);
             
 
+            builder.AppendHorizontalLine();
+
+            foreach (String st in AdditionalDescriptionLines)
+            {
+                builder.AppendLine(st);
+            }
+
+            if (AdditionalDescriptionLines.Any())
+            {
                 builder.AppendHorizontalLine();
+            }
 
-          
-                //builder.AppendHeading("Folder treeview", 2);
+            //builder.AppendHeading("Folder treeview", 2);
 
-                //builder.Append(this.tree)    
+            //builder.Append(this.tree)    
 
 
-                builder.AppendParagraph("Structure");
+            builder.AppendHeading("Structure",2);
                 builder.AppendHorizontalLine();
-
-                foreach (var fold in this)
+            var folderNodes = this.getAllChildrenInType<folderNode>();
+            foreach (var fold in folderNodes)
                 {
                     //    builder.nextTabLevel();
-                    builder.AppendHeading(fold.Value.caption, 3);
-                    builder.AppendLine(" > " + fold.Value.path);
-                    builder.AppendLine(" > " + fold.Value.description);
+                    builder.AppendHeading(fold.caption, 3);
+                    builder.AppendLine(" > " + fold.path.removeStartsWith(prefix));
+                if (!fold.description.isNullOrEmpty()) builder.AppendLine(" > " + fold.description);
                     builder.AppendLine();
                     //  builder.prevTabLevel();
                 }
-            
 
+            AdditionalFileEntries.Sort(String.CompareOrdinal);
+
+            if (AdditionalFileEntries.Any())
+            {
+                builder.AppendHeading("Files in this directory:", 2);
+                String format = "D" + AdditionalFileEntries.Count().ToString().Length.ToString();
+                Int32 flc = 1;
+                foreach (var fl in AdditionalFileEntries)
+                {
+                    builder.AppendLine(flc.ToString(format) + " : " + fl);
+                }
+            }
 
             if (notation != null)
             {
@@ -583,10 +726,15 @@ namespace imbSCI.Core.files.folders
                 
                 builder.AppendHorizontalLine();
 
+                if (!notation.author.isNullOrEmpty()) builder.AppendPair("Author", notation.author, true, ": ");
+                if (!notation.copyright.isNullOrEmpty()) builder.AppendPair("Copyright", notation.copyright, true, ": ");
+                if (!notation.license.isNullOrEmpty()) builder.AppendPair("License", notation.license, true, ": ");
+                if (!notation.software.isNullOrEmpty()) builder.AppendPair("Software", notation.software, true, ": ");
+                if (!notation.organization.isNullOrEmpty()) builder.AppendPair("Organization", notation.organization, true, ": ");
+                if (!notation.comment.isNullOrEmpty()) builder.AppendPair("Comment", notation.comment, true, ": ");
 
-                PropertyCollection pc = notation.buildPropertyCollection<PropertyCollection>(false, false, "cite");
 
-                builder.AppendPairs(pc, false);
+                
 
             }
 
@@ -598,6 +746,57 @@ namespace imbSCI.Core.files.folders
 
 
             return builder.ContentToString(true);
+        }
+
+        private Object GenerateReadmeLock = new Object();
+
+
+        /// <summary>
+        /// These are additional description lines that will be inserted in readme file generated by <see cref="generateFolderReadme(aceAuthorNotation, ITextRender)"/>
+        /// </summary>
+        /// <value>
+        /// The additional description lines.
+        /// </value>
+        public List<String> AdditionalDescriptionLines { get; protected set; } = new List<string>();
+
+
+        /// <summary>
+        /// Gets or sets the additional file entries.
+        /// </summary>
+        /// <value>
+        /// The additional file entries.
+        /// </value>
+        public List<String> AdditionalFileEntries { get; protected set; } = new List<string>();
+
+
+        /// <summary>
+        /// Generates the readme files for complete folder tree
+        /// </summary>
+        /// <param name="notation">The notation.</param>
+        public void generateReadmeFiles(aceAuthorNotation notation, String readmeFileName = "directory_readme.txt")
+        {
+            lock (GenerateReadmeLock)
+            {
+
+                String readme_filename = readmeFileName;
+                String mpath = this.pathFor(readme_filename); //imbSciStringExtensions.add(path, readme_filename, "\\");
+                generateFolderReadme(notation).saveStringToFile(mpath);
+                var folderNodes = this.getAllChildrenInType<folderNode>();
+                foreach (folderNode ni in folderNodes)
+                {
+
+                    String path = ni.pathFor(readme_filename);
+
+
+                    FileInfo fi = path.getWritableFile(getWritableFileMode.overwrite);
+
+                    String content = ni.generateFolderReadme(notation);
+                    content.saveStringToFile(fi.FullName, getWritableFileMode.overwrite);
+                    saveBase.saveToFile(fi.FullName, content);
+
+                }
+            }
+
         }
 
 

@@ -1,7 +1,7 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="imbSciStringExtensions.cs" company="imbVeles" >
 //
-// Copyright (C) 2017 imbVeles
+// Copyright (C) 2018 imbVeles
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the +terms of the GNU General Public License as published by
@@ -337,26 +337,32 @@ namespace imbSCI.Data
             return input;
         }
 
-        public static string ensureEndsWith(this String output, String input)
+        /// <summary>
+        /// Ensures the ends with.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <param name="sufix">The sufix.</param>
+        /// <returns></returns>
+        public static String ensureEndsWith(this String input, String sufix)
         {
             if (String.IsNullOrEmpty(input))
             {
-                return output;
+                return input;
             }
-            if (output.Length == 0)
+            if (input.Length == 0)
             {
-                output = input;
-                return output;
+                input = sufix;
+                return input;
             }
-            if (output.Length > 0)
+            if (input.Length > 0)
             {
-                if (!output.EndsWith(input))
+                if (!input.EndsWith(sufix))
                 {
 
-                    output += input;
+                    input += sufix;
                 }
             }
-            return output;
+            return input;
 
         }
 
