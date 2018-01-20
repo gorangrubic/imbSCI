@@ -244,6 +244,7 @@ namespace imbSCI.Data.enums.fields
         renderEmptySpace,
         description,
         title,
+        table_styleset,
     }
 
 }

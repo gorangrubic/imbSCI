@@ -46,6 +46,7 @@ namespace imbSCI.DataComplex.tables
     using imbSCI.Data.interfaces;
     using imbSCI.Core.math.aggregation;
     using imbSCI.Data.enums.fields;
+    using imbSCI.Core.extensions.table;
 
     public class DataRowMetaDefinition:PropertyCollectionExtended
     {

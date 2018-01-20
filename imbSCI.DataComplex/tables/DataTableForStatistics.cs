@@ -67,7 +67,7 @@ namespace imbSCI.DataComplex.tables
     /// IDEJA SAMO
     /// </summary>
     /// <seealso cref="System.Data.DataTable" />
-    public class DataTableForStatistics : DataTable
+    public class DataTableForStatistics : DataTable, IDataTableForStatistics
     {
         public static bool AUTOSAVE_CleanDataTable
         {
@@ -85,6 +85,12 @@ namespace imbSCI.DataComplex.tables
         }
 
 
+        /// <summary>
+        /// Row index position when data starts (after heading rows are created
+        /// </summary>
+        /// <value>
+        /// The row start.
+        /// </value>
         public int RowStart { get; set; } = 1;
         /// <summary>
         /// Rel address of the last aggregated row having maximum number of rows aggregated (i.e. number of common rows)
@@ -94,6 +100,12 @@ namespace imbSCI.DataComplex.tables
         /// </value>
         public int RowsWithMaxAggregation { get; set; } = 1;
 
+        /// <summary>
+        /// Number of rows with data in this report datatable
+        /// </summary>
+        /// <value>
+        /// The rows with data count.
+        /// </value>
         public int RowsWithDataCount { get; set; } = 1;
 
         public DataTableCategorySets categories { get; set; }
@@ -249,13 +261,38 @@ namespace imbSCI.DataComplex.tables
             return output;
         }
 
-        public string fontName { get; set; } = "Cambria"; //"Times New Roman";
-        public System.Drawing.Color columnCaption = System.Drawing.Color.SteelBlue;
-        public System.Drawing.Color extraEven = System.Drawing.Color.LightSlateGray;
-        public System.Drawing.Color extraEvenOther = System.Drawing.Color.LightSteelBlue;
-        public System.Drawing.Color extraOdd = System.Drawing.Color.SlateGray;
-        public System.Drawing.Color dataOdd = System.Drawing.Color.WhiteSmoke;
-        public System.Drawing.Color dataEven = System.Drawing.Color.Snow;
+
+        public dataTableStyleSet styleSet {
+            get
+            {
+                return this.GetStyleSet();
+            }
+        }
+
+        public dataTableRowMetaSet rowMetaSet
+        {
+            get
+            {
+                return this.GetRowMetaSet();
+            }
+        }
+
+
+        public dataTableColumnMetaSet columnMetaSet
+        {
+            get
+            {
+                return this.GetColumnMetaSet();
+            }
+        }
+
+        //public string fontName { get; set; } = "Cambria"; //"Times New Roman";
+        //public System.Drawing.Color columnCaption = System.Drawing.Color.SteelBlue;
+        //public System.Drawing.Color extraEven = System.Drawing.Color.LightSlateGray;
+        //public System.Drawing.Color extraEvenOther = System.Drawing.Color.LightSteelBlue;
+        //public System.Drawing.Color extraOdd = System.Drawing.Color.SlateGray;
+        //public System.Drawing.Color dataOdd = System.Drawing.Color.WhiteSmoke;
+        //public System.Drawing.Color dataEven = System.Drawing.Color.Snow;
 
 
         public void DefineStyles(ExcelWorksheet ws)
@@ -263,97 +300,25 @@ namespace imbSCI.DataComplex.tables
             if (ws.Workbook.Styles.NamedStyles.Count() > 0) return;
 
 
-            var style = ws.Workbook.Styles.CreateNamedStyle(nameof(DataRowInReportTypeEnum.data));
-            style.Style.Font.Name = fontName;
-            
-            style.Style.Fill.PatternType = ExcelFillStyle.Solid;
-            style.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.WhiteSmoke);
-            style.Style.Fill.BackgroundColor.Tint = new decimal(0.8);
-            style.Style.Font.Bold = false;
-            style.Style.Font.Size = 10;
-           // style.StyleXfId = 1;
+            OfficeOpenXml.Style.XmlAccess.ExcelNamedStyleXml style = ws.Workbook.Styles.MakeStyle(styleSet, DataRowInReportTypeEnum.data);
+            style = ws.Workbook.Styles.MakeStyle(styleSet, DataRowInReportTypeEnum.mergedHeaderTitle);//.CreateNamedStyle(nameof(DataRowInReportTypeEnum.mergedHeaderTitle));
 
 
-            style = ws.Workbook.Styles.CreateNamedStyle(nameof(DataRowInReportTypeEnum.mergedHeaderTitle));
-            style.Style.Font.Name = fontName;
-            style.Style.Fill.PatternType = ExcelFillStyle.Solid;
-            style.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.SteelBlue);
-            style.Style.Fill.BackgroundColor.Tint = new decimal(0.2);
-            style.Style.Font.Bold = true;
-            style.Style.Font.Size = 10;
-            style.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-            style.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-            //style.StyleXfId = 2;
+            style = ws.Workbook.Styles.MakeStyle(styleSet, DataRowInReportTypeEnum.mergedHeaderInfo);//.CreateNamedStyle(nameof(DataRowInReportTypeEnum.mergedHeaderInfo));
 
-            style = ws.Workbook.Styles.CreateNamedStyle(nameof(DataRowInReportTypeEnum.mergedHeaderInfo));
-            style.Style.Font.Name = fontName;
-            style.Style.Fill.PatternType = ExcelFillStyle.Solid;
-            style.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightSlateGray);
-            style.Style.Fill.BackgroundColor.Tint = new decimal(0.2);
-            style.Style.Font.Bold = false;
-            style.Style.Font.Size = 9;
-            style.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-            style.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-          //  style.StyleXfId = 3;
-
-            style = ws.Workbook.Styles.CreateNamedStyle(nameof(DataRowInReportTypeEnum.columnCaption));
-            style.Style.Font.Name = fontName;
-            style.Style.Fill.PatternType = ExcelFillStyle.Solid;
-            style.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.SteelBlue);
-            style.Style.Fill.BackgroundColor.Tint = new decimal(0.4);
-            style.Style.Font.Bold = true;
-            style.Style.Font.Size = 10;
-            style.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-            style.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-           // style.StyleXfId = 4;
+            style = ws.Workbook.Styles.MakeStyle(styleSet, DataRowInReportTypeEnum.columnCaption);//.CreateNamedStyle(nameof(DataRowInReportTypeEnum.columnCaption));
 
 
 
-            style = ws.Workbook.Styles.CreateNamedStyle(nameof(DataRowInReportTypeEnum.columnDescription));
-            style.Style.Font.Name = fontName;
-            style.Style.Fill.PatternType = ExcelFillStyle.Solid;
-            style.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightSteelBlue);
-            style.Style.Fill.BackgroundColor.Tint = new decimal(0.4);
-            style.Style.Font.Bold = false;
-            style.Style.Font.Size = 8;
-            style.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-            style.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-           // style.StyleXfId = 5;
+            style = ws.Workbook.Styles.MakeStyle(styleSet, DataRowInReportTypeEnum.columnDescription);//.CreateNamedStyle(nameof(DataRowInReportTypeEnum.columnDescription));
+          
 
-
-            style = ws.Workbook.Styles.CreateNamedStyle(nameof(DataRowInReportTypeEnum.columnInformation));
-            style.Style.Font.Name = fontName;
-            style.Style.Fill.PatternType = ExcelFillStyle.Solid;
-            style.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.SlateGray);
-            style.Style.Fill.BackgroundColor.Tint = new decimal(0.4);
-            style.Style.Font.Bold = false;
-            style.Style.Font.Size = 8;
-            style.Style.HorizontalAlignment = ExcelHorizontalAlignment.Justify;
-            style.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-           // style.StyleXfId = 6;
-
-            style = ws.Workbook.Styles.CreateNamedStyle(nameof(DataRowInReportTypeEnum.mergedCategoryHeader));
-            style.Style.Font.Name = fontName;
-            style.Style.Fill.PatternType = ExcelFillStyle.Solid;
-            style.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightSteelBlue);
-            style.Style.Fill.BackgroundColor.Tint = new decimal(0.8);
-            style.Style.Font.Bold = false;
-            style.Style.Font.Size = 10;
-            style.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-            style.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-          //  style.StyleXfId = 7;
-
-            style = ws.Workbook.Styles.CreateNamedStyle(nameof(DataRowInReportTypeEnum.mergedFooterInfo));
-            style.Style.Font.Name = fontName;
-            style.Style.Fill.PatternType = ExcelFillStyle.Solid;
-            style.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightSlateGray);
-            style.Style.Fill.BackgroundColor.Tint = new decimal(0.8);
-            style.Style.Font.Bold = true;
-            style.Style.Font.Size = 9;
-            style.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-            style.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-            //   style.StyleXfId = 8;
-
+            style = ws.Workbook.Styles.MakeStyle(styleSet, DataRowInReportTypeEnum.columnInformation);//.CreateNamedStyle(nameof(DataRowInReportTypeEnum.columnInformation));
+           
+            style = ws.Workbook.Styles.MakeStyle(styleSet, DataRowInReportTypeEnum.mergedCategoryHeader);//.CreateNamedStyle(nameof(DataRowInReportTypeEnum.mergedCategoryHeader));
+           
+            style = ws.Workbook.Styles.MakeStyle(styleSet, DataRowInReportTypeEnum.mergedFooterInfo);//.CreateNamedStyle(nameof(DataRowInReportTypeEnum.mergedFooterInfo));
+           
         }
 
         public void DeployStyle(DataTable table, ExcelWorksheet ws)
@@ -402,116 +367,52 @@ namespace imbSCI.DataComplex.tables
         public void DeployStyleToRow(ExcelRow ex_row, DataRow in_row, ExcelWorksheet ws)
         {
             DataRowInReportTypeEnum style = DataRowInReportTypeEnum.data;
-
-
+            
             if (extraRowStyles.ContainsKey(in_row))
             {
                 style = extraRowStyles[in_row];
             }
+
             bool isEven = ((in_row.Table.Rows.IndexOf(in_row) % 2) > 0);
-
-           // ex_row.Style.Font.Name = fontName;
             
-            System.Drawing.Color clr = dataEven;
-            System.Drawing.Color clr2 = extraEvenOther;
+            var baseStyle = styleSet.rowStyles[style];
 
-            ex_row.Style.Fill.PatternType = ExcelFillStyle.Solid;
+            var rowsMetaSet = this.GetRowMetaSet();
 
-            
+            baseStyle = rowsMetaSet.evaluate(in_row, this, baseStyle);
+
+            ex_row.SetStyle(baseStyle, isEven);
+
+
           
-
 
             switch (style)
             {
                 case DataRowInReportTypeEnum.mergedHeaderTitle:
-                    ex_row.Height = 30;
-                   ex_row.StyleName = nameof(DataRowInReportTypeEnum.mergedHeaderTitle);
-
-                    ex_row.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    ex_row.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightBlue);
-
                     ws.Cells[ex_row.Row, 1, ex_row.Row, in_row.Table.Columns.Count].Merge = true;
-                    clr = columnCaption;
-                    ex_row.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    ex_row.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    ex_row.Style.Font.Size = 9;
+
                     break;
                 case DataRowInReportTypeEnum.mergedHeaderInfo:
-                    ex_row.Height = 24;
-                   ex_row.StyleName = nameof(DataRowInReportTypeEnum.mergedHeaderInfo);
+                   
                     ws.Cells[ex_row.Row, 1, ex_row.Row, in_row.Table.Columns.Count].Merge = true;
-                    clr = extraOdd;
-                    ex_row.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    ex_row.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    break;
-                case DataRowInReportTypeEnum.columnCaption:
-                    ex_row.Height = 30;
-                   ex_row.StyleName = nameof(DataRowInReportTypeEnum.columnCaption);
-                    clr = columnCaption;
-                    ex_row.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    ex_row.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    ex_row.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    ex_row.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.DarkGray);
-                    ex_row.Style.Fill.BackgroundColor.Tint = new decimal(0.6);
-                    ex_row.Style.Font.Size = 10;
-                    break;
-                case DataRowInReportTypeEnum.mergedFooterInfo:
-                    ex_row.Height = 25;
-                    ex_row.StyleName = nameof(DataRowInReportTypeEnum.mergedFooterInfo);
-                    ws.Cells[ex_row.Row, 1, ex_row.Row, in_row.Table.Columns.Count].Merge = true;
-                    if (isEven)
-                    {
-                        clr = extraEven;
-                    }
-                    else
-                    {
-                        clr = extraOdd;
-                    }
-                    ex_row.Style.HorizontalAlignment = ExcelHorizontalAlignment.Justify;
-                    ex_row.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    break;
-                case DataRowInReportTypeEnum.columnDescription:
-                    ex_row.Height = 18;
-                   ex_row.StyleName = nameof(DataRowInReportTypeEnum.columnDescription);
-
-                    ex_row.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    ex_row.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.DarkGray);
-                    ex_row.Style.Fill.BackgroundColor.Tint = new decimal(0.8);
                     
-                    ex_row.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    ex_row.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                    ex_row.Style.Font.Size = 9;
                     break;
-                case DataRowInReportTypeEnum.columnInformation:
-                    ex_row.Height = 28;
-                    ex_row.StyleName = nameof(DataRowInReportTypeEnum.columnInformation);
-                    if (isEven)
-                    {
-                        clr = extraEven;
-                    }
-                    else
-                    {
-                        clr = extraOdd;
-                    }
-                    ex_row.Style.HorizontalAlignment = ExcelHorizontalAlignment.Justify;
-                    ex_row.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+               
+                case DataRowInReportTypeEnum.mergedFooterInfo:
+                    
+                    ws.Cells[ex_row.Row, 1, ex_row.Row, in_row.Table.Columns.Count].Merge = true;
+                    
                     break;
+
                 case DataRowInReportTypeEnum.mergedHorizontally:
-                    ex_row.Height = 20;
-                    ex_row.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    ex_row.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightGray);
-                    ex_row.Style.Fill.BackgroundColor.Tint = new decimal(0.8);
+
 
                     selectZone z = new selectZone(0, 0, Columns.Count-1, 0);
                     var s2l = ws.getExcelRange(ex_row, z);
                     s2l.Merge = true;
                     break;
                 case DataRowInReportTypeEnum.mergedCategoryHeader:
-                    ex_row.Height = 25;
-                     ex_row.StyleName = nameof(DataRowInReportTypeEnum.mergedCategoryHeader);
-                    ex_row.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    ex_row.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.Gray);
-                    ex_row.Style.Fill.BackgroundColor.Tint = new decimal(0.7);
+
                     double tn = 0.2;
                     int hlip = -1;
                     foreach (var cpair in categories)
@@ -543,13 +444,11 @@ namespace imbSCI.DataComplex.tables
                         
                     }
                     isEven = !isEven;
-                    ex_row.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    ex_row.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
 
                     break;
-                default:
+                
                 case DataRowInReportTypeEnum.data:
-                    ex_row.Height = 15;
+                    
                     //ex_row.Style.Font.Size = 9;
                    
                     foreach (DataColumn dc in in_row.Table.Columns)
@@ -558,34 +457,15 @@ namespace imbSCI.DataComplex.tables
                         if (!format.isNullOrEmpty()) ws.Cells[ex_row.Row, dc.Ordinal + 1].Style.Numberformat.Format = format;
                     }
 
-                   
-                    ex_row.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                    ex_row.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.WhiteSmoke);
-                    ex_row.Style.Fill.BackgroundColor.Tint = new decimal(0.8);
-                    ex_row.Style.Font.Bold = false;
-                    ex_row.Style.Font.Size = 9;
 
-                    if (isEven)
-                    {
-                        ex_row.Style.Fill.BackgroundColor.Tint = new decimal(0.8);
-                        clr = dataEven;
-                    }
-                    else
-                    {
-                        ex_row.Style.Fill.BackgroundColor.Tint = new decimal(0.2);
-                        clr = dataOdd;
-                    }
+
+                   
 
                     break;
 
             }
 
 
-
-
-            //ex_row.StyleID = 1;
-            ex_row.Style.Font.Name = fontName;
-            ex_row.Style.WrapText = true;
 
             if (ex_row.Row == (RowStart + RowsWithMaxAggregation))
             {
@@ -594,19 +474,7 @@ namespace imbSCI.DataComplex.tables
                 ex_row.Style.Border.Bottom.Color.SetColor(System.Drawing.Color.Red);
             }
 
-          
-         //   ex_row.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.WhiteSmoke);
-          //  ex_row.Style.Fill.BackgroundColor.Tint = new decimal(0.2);
-
-           
-
-           //BackgroundColor.SetColor(clr);
-
-
-           
-
-
-            //ex_row.Style.WrapText = true;
+      
         }
 
 
@@ -617,11 +485,11 @@ namespace imbSCI.DataComplex.tables
         {
             DataTable legend = new DataTable("LEGEND");
 
-            DataColumn columnGroup = legend.Add("Group").SetDefaultBackground(columnCaption).SetWidth(25);
-            DataColumn columnName = legend.Add("Name").SetDefaultBackground(extraEven).SetWidth(40);
-            DataColumn columnLetter = legend.Add("Letter").SetDefaultBackground(extraOdd).SetWidth(25);
-            DataColumn columnUnit = legend.Add("Unit").SetDefaultBackground(extraEven).SetWidth(25);
-            DataColumn columnDescription = legend.Add("Description").SetDefaultBackground(dataOdd).SetWidth(180);
+            DataColumn columnGroup = legend.Add("Group").SetDefaultBackground(styleSet.columnCaption).SetWidth(25);
+            DataColumn columnName = legend.Add("Name").SetDefaultBackground(styleSet.extraEven).SetWidth(40);
+            DataColumn columnLetter = legend.Add("Letter").SetDefaultBackground(styleSet.extraOdd).SetWidth(25);
+            DataColumn columnUnit = legend.Add("Unit").SetDefaultBackground(styleSet.extraEven).SetWidth(25);
+            DataColumn columnDescription = legend.Add("Description").SetDefaultBackground(styleSet.dataOdd).SetWidth(180);
 
 
             extraRowStyles.Add(legend.AddRow("Table name", this.GetTitle()), DataRowInReportTypeEnum.columnDescription);

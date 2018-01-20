@@ -46,10 +46,9 @@ namespace imbSCI.Core.reporting.style.enums
         CourierNew,
         TrebuchetMS,
         monospace,
-        LucidConsole
-
-
-
+        LucidConsole,
+        Gulliver,
+        Calibri
     }
 
 }

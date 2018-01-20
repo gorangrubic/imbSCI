@@ -31,6 +31,7 @@ namespace imbSCI.Core.reporting.style.core
 {
     using System;
     using System.ComponentModel;
+    using System.Drawing;
     using imbSCI.Core.reporting.colors;
     using imbSCI.Core.reporting.style.enums;
     using imbSCI.Data.data;
@@ -147,7 +148,7 @@ namespace imbSCI.Core.reporting.style.core
 
         
         #region -----------  type  -------  [type of border on this side]
-        private styleBorderType _type = styleBorderType.none; // = new styleBorderType();
+        private styleBorderType _type = styleBorderType.None; // = new styleBorderType();
         /// <summary>
         /// type of border on this side
         /// </summary>
@@ -174,6 +175,8 @@ namespace imbSCI.Core.reporting.style.core
             }
         }
         #endregion
+
+        public Color borderColorStatic { get; set; } = Color.Black;
 
 
         #region -----------  borderColor  -------  [Color of the border]

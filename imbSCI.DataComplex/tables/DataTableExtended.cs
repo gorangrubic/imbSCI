@@ -84,26 +84,11 @@ namespace imbSCI.DataComplex.tables
         /// <param name="primaryKeyName">Name of the primary key - optionally.</param>
         /// <param name="title">The title.</param>
         /// <param name="description">The description.</param>
-        public DataTableExtended(Type type, string title, String description = "", string primaryKeyName="") :base(title.getCleanPropertyName())
+        public DataTableExtended(Type type, string title, String description = "") :base(title.getCleanPropertyName())
         {
             var settings = new settingsEntriesForObject(type, false);
 
-            if (imbSciStringExtensions.isNullOrEmptyString(primaryKeyName))
-            {
-                foreach (settingsPropertyEntry spe in settings.spes.Values)
-                {
-                    if (spe.isPrimaryKey)
-                    {
-                        primaryKeyName = spe.pi.Name;
-                    }
-                }
-            }
-
-            if (primaryKeyName.isNullOrEmptyString() && settings.spes.ContainsKey("name")) primaryKeyName = "name";
-            if (primaryKeyName.isNullOrEmptyString() && settings.spes.ContainsKey("Name")) primaryKeyName = "Name";
-            if (primaryKeyName.isNullOrEmptyString() && settings.spes.ContainsKey("id")) primaryKeyName = "id";
-            if (primaryKeyName.isNullOrEmptyString() && settings.spes.ContainsKey("uid")) primaryKeyName = "uid";
-
+          
 
             if (description.isNullOrEmpty())
             {
@@ -122,26 +107,19 @@ namespace imbSCI.DataComplex.tables
 
             table.SetCategoryPriority(settings.CategoryByPriority);
 
-            table.PrimaryKey = new DataColumn[] { };
+            //table.PrimaryKey = new DataColumn[] { };
 
             foreach (settingsPropertyEntry spe in settings.spes.Values)
             {
                 if (!spe.IsXmlIgnore)
                 {
                     var column = table.Add(spe);
-                    if (spe.pi.Name == primaryKeyName)
-                    {
-
-                        table.primaryKey = column;
-
-                        table.PrimaryKey = new DataColumn[] { primaryKey };
-                    }
                 }
             }
         }
 
         protected settingsEntriesForObject settings { get; set; }
-        protected DataColumn primaryKey { get; set; }
+      //  protected DataColumn primaryKey { get; set; }
 
         /// <summary>
         /// Adds the object as row in the table
@@ -149,10 +127,40 @@ namespace imbSCI.DataComplex.tables
         /// <param name="input">The input.</param>
         protected void addRow(Object input)
         {
+            if (input == null) return;
+            String key = "";
 
-           
-                var row = this.NewRow();
-                var addTheRow = true;
+            //if (primaryKey != null)
+            //{
+            //    key = input.imbGetPropertySafe(primaryKey.ColumnName, primaryKey.DataType.GetDefaultValue()).toStringSafe();
+            //    String ktry = key;
+            //    Boolean repeat = true;
+            //    Int32 c = 0;
+            //    while (repeat)
+            //    {
+            //        c++;
+
+            //        String exp = primaryKey.ColumnName + " = '" + ktry + "'";
+            //       Int32 i = DefaultView.Find(ktry);
+                    
+            //        if (i > 0)
+            //        {
+            //            Console.WriteLine("Key " + ktry + " found at [" + i + "]");
+            //            repeat = true;
+            //            ktry = key + c.ToString("D5");
+            //        } else
+            //        {
+            //            Console.WriteLine("Key " + ktry + " accepted after [" + c + "]");
+            //            repeat = false;
+            //            input.imbSetPropertySafe(primaryKey.ColumnName, ktry);
+            //        }
+                    
+            //    }
+            //}
+
+
+            var row = this.NewRow();
+            var addTheRow = true;
             
 
 
@@ -161,11 +169,11 @@ namespace imbSCI.DataComplex.tables
             {
                 if (!spe.IsXmlIgnore)
                 {
-                    if (spe.isPrimaryKey)
-                    {
-                        string primKey = row[primaryKey].toStringSafe("");
+                    //if (spe.isPrimaryKey)
+                    //{
+                    //    string primKey = row[primaryKey].toStringSafe("");
                         
-                    }
+                    //}
 
                     row[(string)spe.pi.Name] = input.imbGetPropertySafe(spe.pi, spe.pi.PropertyType.GetDefaultValue());
 
@@ -183,10 +191,7 @@ namespace imbSCI.DataComplex.tables
         }
 
 
-        public static DataTableExtended GetEmptyDataTable(Type type, string primaryKeyName, string title, String description = "")
-        {
-            return new DataTableExtended(type, primaryKeyName, title, description);
-        }
+        
     }
 
 }

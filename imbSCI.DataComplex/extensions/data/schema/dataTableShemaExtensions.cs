@@ -73,6 +73,9 @@ namespace imbSCI.DataComplex.extensions.data.schema
             output.SetAdditionalInfo(table.GetAdditionalInfo());
             output.SetExtraDesc(table.GetExtraDesc());
             output.SetCategoryPriority(table.GetCategoryPriority());
+            output.SetStyleSet(table.GetStyleSet());
+            output.SetColumnMetaSet(table.GetColumnMetaSet());
+            output.SetRowMetaSet(table.GetRowMetaSet());
             //output.SetClassType(table.Get)
 
             List<string> catPri = table.GetCategoryPriority();

@@ -632,6 +632,88 @@ namespace imbSCI.Core.extensions.table
 
 
 
+
+
+        public static dataTableRowMetaSet RowMetaSet(this DataTable dc, dataTableRowMetaSet default_table_metarows)
+        {
+            if (!dc.ExtendedProperties.ContainsKey(templateFieldDataTable.table_metarows))
+            {
+                dc.ExtendedProperties.add(templateFieldDataTable.table_metarows, default_table_metarows);
+            }
+            return dc.ExtendedProperties[templateFieldDataTable.table_metarows] as dataTableRowMetaSet;
+        }
+        public static dataTableRowMetaSet GetRowMetaSet(this DataTable dc)
+        {
+            if (!dc.ExtendedProperties.ContainsKey(templateFieldDataTable.table_metarows))
+            {
+                dc.ExtendedProperties[templateFieldDataTable.table_metarows] = new dataTableRowMetaSet();
+            }
+            return dc.ExtendedProperties[templateFieldDataTable.table_metarows] as dataTableRowMetaSet;
+        }
+        public static DataTable SetRowMetaSet(this DataTable dc, dataTableRowMetaSet table_metarows)
+        {
+            dc.ExtendedProperties.add(templateFieldDataTable.table_metarows, table_metarows);
+            return dc;
+        }
+
+
+        public static dataTableColumnMetaSet ColumnMetaSet(this DataTable dc, dataTableColumnMetaSet default_table_metacolumns)
+        {
+            if (!dc.ExtendedProperties.ContainsKey(templateFieldDataTable.table_metacolumns))
+            {
+                dc.ExtendedProperties.add(templateFieldDataTable.table_metacolumns, default_table_metacolumns);
+            }
+            return dc.ExtendedProperties[templateFieldDataTable.table_metacolumns] as dataTableColumnMetaSet;
+        }
+        public static dataTableColumnMetaSet GetColumnMetaSet(this DataTable dc)
+        {
+            if (!dc.ExtendedProperties.ContainsKey(templateFieldDataTable.table_metacolumns))
+            {
+                dc.ExtendedProperties[templateFieldDataTable.table_metacolumns] = new dataTableColumnMetaSet();
+            }
+            return dc.ExtendedProperties[templateFieldDataTable.table_metacolumns] as dataTableColumnMetaSet;
+        }
+        public static DataTable SetColumnMetaSet(this DataTable dc, dataTableColumnMetaSet table_metacolumns)
+        {
+            dc.ExtendedProperties.add(templateFieldDataTable.table_metacolumns, table_metacolumns);
+            return dc;
+        }
+
+
+
+
+
+
+
+        public static dataTableStyleSet StyleSet(this DataTable dc, dataTableStyleSet default_table_styleset)
+        {
+            if (!dc.ExtendedProperties.ContainsKey(templateFieldDataTable.table_styleset))
+            {
+                dc.ExtendedProperties.add(templateFieldDataTable.table_styleset, default_table_styleset);
+            }
+            return dc.ExtendedProperties[templateFieldDataTable.table_styleset] as dataTableStyleSet;
+
+        }
+        /// <summary>
+        /// Gets table style set
+        /// </summary>
+        /// <param name="dc">The dc.</param>
+        /// <returns></returns>
+        public static dataTableStyleSet GetStyleSet(this DataTable dc)
+        {
+            if (!dc.ExtendedProperties.ContainsKey(templateFieldDataTable.table_styleset))
+            {
+                dc.ExtendedProperties[templateFieldDataTable.table_styleset] =  new dataTableStyleSet();
+            }
+            return dc.ExtendedProperties[templateFieldDataTable.table_styleset] as dataTableStyleSet;
+        }
+        public static DataTable SetStyleSet(this DataTable dc, dataTableStyleSet table_styleset)
+        {
+            dc.ExtendedProperties.add(templateFieldDataTable.table_styleset, table_styleset);
+            return dc;
+        }
+
+
         /// <summary>
         /// Sets the description into <see cref="DataTable.ExtendedProperties"/> under <see cref="imbSCI.Data.enums.fields.templateFieldDataTable.data_tabledesc"/>
         /// </summary>

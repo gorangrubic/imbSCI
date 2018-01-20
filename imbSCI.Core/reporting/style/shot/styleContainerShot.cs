@@ -94,6 +94,11 @@ namespace imbSCI.Core.reporting.style.shot
         }
 
 
+        public styleContainerShot()
+        {
+
+        }
+
         public styleContainerShot(appendRole __role, appendType __type, styleTheme theme)
         {
             processRole(__role, __type, theme);
@@ -142,13 +147,13 @@ namespace imbSCI.Core.reporting.style.shot
             if (roleName.EndsWith("Head"))
             {
                 aligment = textCursorZoneCorner.center;
-                sizeAndBorder.bottom.type = styleBorderType.solid;
+                sizeAndBorder.bottom.type = styleBorderType.Thin;
             }
 
             if (roleName.EndsWith("Foot"))
             {
                 aligment = textCursorZoneCorner.Left;
-                sizeAndBorder.top.type = styleBorderType.solid;
+                sizeAndBorder.top.type = styleBorderType.Thin;
             }
 
 
@@ -182,7 +187,7 @@ namespace imbSCI.Core.reporting.style.shot
                 case appendRole.remark:
                     break;
                 case appendRole.tableHead:
-                    sizeAndBorder.top.type = styleBorderType.@double;
+                    sizeAndBorder.top.type = styleBorderType.Double;
                     doWrapText = true;
                     doCallForMerge = true;
                     break;
@@ -190,23 +195,23 @@ namespace imbSCI.Core.reporting.style.shot
                     doWrapText = true;
                     break;
                 case appendRole.tableColumnFoot:
-                    sizeAndBorder.top.type = styleBorderType.dotted;
+                    sizeAndBorder.top.type = styleBorderType.Dotted;
                     break;
                 case appendRole.tableCellValue:
                     break;
                 case appendRole.tableCellAnnotation:
-                    sizeAndBorder.top.type = styleBorderType.dotted;
-                    sizeAndBorder.bottom.type = styleBorderType.dotted;
+                    sizeAndBorder.top.type = styleBorderType.Dotted;
+                    sizeAndBorder.bottom.type = styleBorderType.Dotted;
                     break;
                 case appendRole.tableCellNovalue:
                     
                     break;
                 case appendRole.tableBetween:
-                    sizeAndBorder.top.type = styleBorderType.dotted;
-                    sizeAndBorder.bottom.type = styleBorderType.dotted;
+                    sizeAndBorder.top.type = styleBorderType.Dotted;
+                    sizeAndBorder.bottom.type = styleBorderType.Dotted;
                     break;
                 case appendRole.tableFoot:
-                    sizeAndBorder.bottom.type = styleBorderType.@double;
+                    sizeAndBorder.bottom.type = styleBorderType.Double;
                     break;
                 case appendRole.i_container:
                     break;

@@ -44,24 +44,24 @@ namespace imbSCI.DataComplex.tables
     using imbSCI.Data.data;
     using imbSCI.Data.interfaces;
 
-    public enum DataRowInReportTypeEnum
-    {
-        none,
-        mergedHeaderTitle,
-        mergedHeaderInfo,
-        columnCaption,
-        columnDescription,
-        columnFooterInfo,
-        mergedFooterInfo,
-        /// <summary>
-        /// The merged horizontally: cells with the same value are merged horizontally
-        /// </summary>
-        mergedHorizontally,
-        info,
-        data,
-        dataAggregate,
-        columnInformation,
-        mergedCategoryHeader,
-    }
+    //public enum DataRowInReportTypeEnum
+    //{
+    //    none,
+    //    mergedHeaderTitle,
+    //    mergedHeaderInfo,
+    //    columnCaption,
+    //    columnDescription,
+    //    columnFooterInfo,
+    //    mergedFooterInfo,
+    //    /// <summary>
+    //    /// The merged horizontally: cells with the same value are merged horizontally
+    //    /// </summary>
+    //    mergedHorizontally,
+    //    info,
+    //    data,
+    //    dataAggregate,
+    //    columnInformation,
+    //    mergedCategoryHeader,
+    //}
 
 }

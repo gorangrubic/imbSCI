@@ -337,7 +337,7 @@ namespace imbSCI.DataComplex.extensions.data.modify
         /// <returns></returns>
         public static DataRow SetPercentValueInCents(this DataRow dr, Int32 value)
         {
-            dr[dc_value] = string.Format("{##0}%", value);
+            dr[dc_value] = string.Format("{0:P3}", value);
             return dr;
         }
 

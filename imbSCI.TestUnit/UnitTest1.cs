@@ -10,14 +10,21 @@ namespace imbSCI.TestUnit
     using imbSCI.Data.enums.appends;
     using imbSCI.Data.enums.reporting;
     using imbSCI.DataComplex.data;
+    using imbSCI.DataComplex.extensions.data.modify;
+    using imbSCI.DataComplex.extensions.data.schema;
+    using imbSCI.DataComplex.tables.extensions;
     using imbSCI.TestUnit.testObjects;
     using System.Collections.Generic;
     using System.Linq;
     using imbSCI.Core.files.fileDataStructure;
     using System.IO;
     using imbSCI.Core.files.folders;
+    using imbSCI.DataComplex.tables;
+    using imbSCI.Core.extensions.table;
+    using imbSCI.Core.files;
 
-    [TestClass]
+
+        [TestClass]
     public class UnitTestForSCIData
     {
         [TestMethod]

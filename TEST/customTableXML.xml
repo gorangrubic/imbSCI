@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataTableTypeExtendedOfcustomTableEntry>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="Custom_x0020_Table_x0020_Entry" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Custom_x0020_Table_x0020_Entry" msprop:shema_sourceinstance="imbSCI.TestUnit.testObjects.customTableEntry" msprop:table_styleset="imbSCI.Core.extensions.table.dataTableStyleSet" msprop:shema_classname="customTableEntry" msprop:table_extraDesc="System.Collections.Generic.List`1[System.String]" msprop:data_additional="        PCE name = &#xD;&#xA;        PCE info = &#xD;&#xA;-------------&#xD;&#xA;       Cleandata = G:\imbVelesOpenSource\imbSCI\TEST\data\dc_customdatatable.csv&#xD;&#xA;      Columninfo = G:\imbVelesOpenSource\imbSCI\TEST\data\ci_customdatatable.txt&#xD;&#xA;          Folder = G:\imbVelesOpenSource\imbSCI\TEST&#xD;&#xA;            File = dt_customdatatable_custom_table_entry.xlsx&#xD;&#xA;              ID = customDataTable&#xD;&#xA;" msprop:categoryPriority="System.Collections.Generic.List`1[System.String]" msprop:table_metacolumns="imbSCI.Core.extensions.table.dataTableColumnMetaSet" msprop:table_metarows="imbSCI.Core.extensions.table.dataTableRowMetaSet" msprop:data_tabledesc="Custom data table extended" msprop:data_tablename="Custom Table Entry">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="name" msdata:Caption="rate" msprop:reporting_valueformat="" msprop:col_propertyInfo="System.String name" msprop:col_group="RATIO" msprop:measure_important="none" msprop:measure_displayGroup="RATIO" msprop:columnWidth="20" msprop:col_hasLinks="False" msprop:col_desc="name" msprop:col_type="System.String" msprop:col_caption="rate" msprop:col_hasTemplate="False" msprop:data_aggregation_type="imbSCI.Core.math.aggregation.dataPointAggregationDefinition" msprop:shema_classname="String" msprop:col_unit="" msprop:col_letter="R" msprop:col_spe="imbSCI.Core.data.settingsPropertyEntryWithContext" msprop:col_pe="" msprop:col_priority="100" msprop:col_format="" msprop:col_importance="none" type="xs:string" minOccurs="0" />
+                <xs:element name="number" msprop:reporting_valueformat="" msprop:col_propertyInfo="Int32 number" msprop:col_group="" msprop:measure_important="none" msprop:measure_displayGroup="" msprop:columnWidth="20" msprop:col_hasLinks="False" msprop:col_desc="number" msprop:col_type="System.Int32" msprop:col_caption="number" msprop:col_hasTemplate="False" msprop:data_aggregation_type="imbSCI.Core.math.aggregation.dataPointAggregationDefinition" msprop:shema_classname="Int32" msprop:col_unit="" msprop:col_letter="" msprop:col_spe="imbSCI.Core.data.settingsPropertyEntryWithContext" msprop:col_pe="" msprop:col_priority="100" msprop:col_format="" msprop:col_importance="none" type="xs:int" minOccurs="0" />
+                <xs:element name="rate" msprop:reporting_valueformat="" msprop:col_propertyInfo="Double rate" msprop:col_group="RATIO" msprop:measure_important="none" msprop:measure_displayGroup="RATIO" msprop:columnWidth="20" msprop:col_hasLinks="False" msprop:col_desc="Ratio" msprop:col_type="System.Double" msprop:col_caption="rate" msprop:col_hasTemplate="False" msprop:data_aggregation_type="imbSCI.Core.math.aggregation.dataPointAggregationDefinition" msprop:shema_classname="Double" msprop:col_unit="%" msprop:col_letter="R" msprop:col_spe="imbSCI.Core.data.settingsPropertyEntryWithContext" msprop:col_pe="" msprop:col_priority="100" msprop:col_format="" msprop:col_importance="none" type="xs:double" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+    <DocumentElement>
+      <Custom_x0020_Table_x0020_Entry diffgr:id="Custom Table Entry1" msdata:rowOrder="0" diffgr:hasChanges="inserted">
+        <name>4wf6ua0sxj8096a</name>
+        <number>246</number>
+        <rate>0.82</rate>
+      </Custom_x0020_Table_x0020_Entry>
+      <Custom_x0020_Table_x0020_Entry diffgr:id="Custom Table Entry2" msdata:rowOrder="1" diffgr:hasChanges="inserted">
+        <name>237xnsjtuhm0923</name>
+        <number>4</number>
+        <rate>0.013333333333333334</rate>
+      </Custom_x0020_Table_x0020_Entry>
+      <Custom_x0020_Table_x0020_Entry diffgr:id="Custom Table Entry3" msdata:rowOrder="2" diffgr:hasChanges="inserted">
+        <name>aa7ehk7wd19c3l8</name>
+        <number>4</number>
+        <rate>0.013333333333333334</rate>
+      </Custom_x0020_Table_x0020_Entry>
+      <Custom_x0020_Table_x0020_Entry diffgr:id="Custom Table Entry4" msdata:rowOrder="3" diffgr:hasChanges="inserted">
+        <name>99dlqx970788m2q</name>
+        <number>4</number>
+        <rate>0.013333333333333334</rate>
+      </Custom_x0020_Table_x0020_Entry>
+      <Custom_x0020_Table_x0020_Entry diffgr:id="Custom Table Entry5" msdata:rowOrder="4" diffgr:hasChanges="inserted">
+        <name>T2</name>
+        <number>4</number>
+        <rate>0.013333333333333334</rate>
+      </Custom_x0020_Table_x0020_Entry>
+      <Custom_x0020_Table_x0020_Entry diffgr:id="Custom Table Entry6" msdata:rowOrder="5" diffgr:hasChanges="inserted">
+        <name>bj4r0x00ob40wd5</name>
+        <number>4</number>
+        <rate>0.013333333333333334</rate>
+      </Custom_x0020_Table_x0020_Entry>
+      <Custom_x0020_Table_x0020_Entry diffgr:id="Custom Table Entry7" msdata:rowOrder="6" diffgr:hasChanges="inserted">
+        <name>1tf1idvrk4a1v3s</name>
+        <number>4</number>
+        <rate>0.013333333333333334</rate>
+      </Custom_x0020_Table_x0020_Entry>
+      <Custom_x0020_Table_x0020_Entry diffgr:id="Custom Table Entry8" msdata:rowOrder="7" diffgr:hasChanges="inserted">
+        <name>ici96hy3760cpc5</name>
+        <number>4</number>
+        <rate>0.013333333333333334</rate>
+      </Custom_x0020_Table_x0020_Entry>
+      <Custom_x0020_Table_x0020_Entry diffgr:id="Custom Table Entry9" msdata:rowOrder="8" diffgr:hasChanges="inserted">
+        <name>T1</name>
+        <number>4</number>
+        <rate>0.013333333333333334</rate>
+      </Custom_x0020_Table_x0020_Entry>
+      <Custom_x0020_Table_x0020_Entry diffgr:id="Custom Table Entry10" msdata:rowOrder="9" diffgr:hasChanges="inserted">
+        <name>1qy3yf270u74yb8</name>
+        <number>4</number>
+        <rate>0.013333333333333334</rate>
+      </Custom_x0020_Table_x0020_Entry>
+      <Custom_x0020_Table_x0020_Entry diffgr:id="Custom Table Entry11" msdata:rowOrder="10" diffgr:hasChanges="inserted">
+        <name>T3</name>
+        <number>4</number>
+        <rate>0.013333333333333334</rate>
+      </Custom_x0020_Table_x0020_Entry>
+    </DocumentElement>
+  </diffgr:diffgram>
+</DataTableTypeExtendedOfcustomTableEntry>

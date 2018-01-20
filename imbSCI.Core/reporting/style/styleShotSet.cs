@@ -44,7 +44,7 @@ namespace imbSCI.Core.reporting.style
     /// </summary>
     public class styleShotSet:IStyleInstruction, IEnumerable
     {
-        protected styleShotSet()
+        public styleShotSet()
         {
 
         }

@@ -219,14 +219,14 @@ namespace imbSCI.Core.math.range
         {
             get
             {
-                throw new NotImplementedException();
+                return isDisabled;
             }
-
             set
             {
-                throw new NotImplementedException();
+                isDisabled = value;
             }
         }
+      
 
 
         /// <summary>

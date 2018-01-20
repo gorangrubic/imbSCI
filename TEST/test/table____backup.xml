@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataTable>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="table" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="table" msprop:shema_classname="customTableEntry" msprop:categoryPriority="System.Collections.Generic.List`1[System.String]" msprop:shema_sourceinstance="imbSCI.TestUnit.testObjects.customTableEntry">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="name" msdata:Caption="rate" msprop:reporting_valueformat="" msprop:col_propertyInfo="System.String name" msprop:col_group="RATIO" msprop:measure_important="none" msprop:measure_displayGroup="RATIO" msprop:columnWidth="20" msprop:col_hasLinks="False" msprop:col_desc="name" msprop:col_type="System.String" msprop:col_caption="rate" msprop:col_hasTemplate="False" msprop:data_aggregation_type="imbSCI.Core.math.aggregation.dataPointAggregationDefinition" msprop:shema_classname="String" msprop:col_unit="" msprop:col_letter="R" msprop:col_spe="imbSCI.Core.data.settingsPropertyEntryWithContext" msprop:col_pe="" msprop:col_priority="100" msprop:col_format="" msprop:col_importance="none" type="xs:string" />
+                <xs:element name="number" msprop:reporting_valueformat="" msprop:col_propertyInfo="Int32 number" msprop:col_group="" msprop:measure_important="none" msprop:measure_displayGroup="" msprop:columnWidth="20" msprop:col_hasLinks="False" msprop:col_desc="number" msprop:col_type="System.Int32" msprop:col_caption="number" msprop:col_hasTemplate="False" msprop:data_aggregation_type="imbSCI.Core.math.aggregation.dataPointAggregationDefinition" msprop:shema_classname="Int32" msprop:col_unit="" msprop:col_letter="" msprop:col_spe="imbSCI.Core.data.settingsPropertyEntryWithContext" msprop:col_pe="" msprop:col_priority="100" msprop:col_format="" msprop:col_importance="none" type="xs:int" minOccurs="0" />
+                <xs:element name="rate" msprop:reporting_valueformat="" msprop:col_propertyInfo="Double rate" msprop:col_group="RATIO" msprop:measure_important="none" msprop:measure_displayGroup="RATIO" msprop:columnWidth="20" msprop:col_hasLinks="False" msprop:col_desc="Ratio" msprop:col_type="System.Double" msprop:col_caption="rate" msprop:col_hasTemplate="False" msprop:data_aggregation_type="imbSCI.Core.math.aggregation.dataPointAggregationDefinition" msprop:shema_classname="Double" msprop:col_unit="%" msprop:col_letter="R" msprop:col_spe="imbSCI.Core.data.settingsPropertyEntryWithContext" msprop:col_pe="" msprop:col_priority="100" msprop:col_format="" msprop:col_importance="none" type="xs:double" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+      <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+        <xs:selector xpath=".//table" />
+        <xs:field xpath="name" />
+      </xs:unique>
+    </xs:element>
+  </xs:schema>
+  <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+    <DocumentElement>
+      <table diffgr:id="table1" msdata:rowOrder="0">
+        <name>testEntry</name>
+        <number>23</number>
+        <rate>0.076666666666666661</rate>
+      </table>
+    </DocumentElement>
+  </diffgr:diffgram>
+</DataTable>

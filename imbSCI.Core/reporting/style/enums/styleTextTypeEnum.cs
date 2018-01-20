@@ -27,32 +27,29 @@
 // Email: hardy@veles.rs
 // </summary>
 // ------------------------------------------------------------------------------------------------------------------
+using System;
+
 namespace imbSCI.Core.reporting.style.enums
 {
     /// <summary>
     /// Compressed subset of appendType
     /// </summary>
+    [Flags]
     public enum styleTextTypeEnum
     {
-        none,
-        regular,
-        bold,
-        heading_1, // heading
-        heading_2,
-        heading_3,
-        heading_4,
-        heading_5,
-        heading_6,
-        italic, // quote
-        marked,
-        squareQuote,
-        quotation,
-        striketrough,
-        blockquote,
-        math,
-        monospace,
-        source, // source
-
+        none=0,
+        regular=1,
+        bold=2,
+        italic=4, // quote
+        marked=8,
+        squareQuote=16,
+        quotation=32,
+        striketrough=64,
+        blockquote=128,
+        math=256,
+        monospace=512,
+        source=1024, // source
+        underline = 2048,
     }
 
 }

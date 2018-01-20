@@ -62,13 +62,22 @@ namespace imbSCI.DataComplex.tables
     /// <seealso cref="imbSCI.DataComplex.tables.DataTableExtended" />
     public class DataTableTypeExtended<T> : DataTableExtended
     {
+
+        /// <summary>
+        /// Parameterless constructor
+        /// </summary>
+        public DataTableTypeExtended():base(typeof(T), typeof(T).Name.imbTitleCamelOperation(true), "Data table with [" + typeof(T).Name + "] records")
+        {
+
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="DataTableTypeExtended{T}"/> class.
         /// </summary>
         /// <param name="title">The title.</param>
         /// <param name="description">The description.</param>
         /// <param name="primaryKeyName">Name of the primary key.</param>
-        public DataTableTypeExtended(string title, String description="", String primaryKeyName="") :base(typeof(T), primaryKeyName, title, description)
+        public DataTableTypeExtended(string title, String description="") :base(typeof(T), title, description)
         {
 
         }

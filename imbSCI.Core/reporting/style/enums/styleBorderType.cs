@@ -42,12 +42,23 @@ namespace imbSCI.Core.reporting.style.enums
     /// \ingroup_disabled report_ll_style
     public enum styleBorderType
     {
-        unknown,
-        none,
-        dotted,
-        dashed,
-        solid,
-        @double,
+        unknown=100,
+        
+        None = 0,
+        Hair = 1,
+        Dotted = 2,
+        DashDot = 3,
+        Thin = 4,
+        DashDotDot = 5,
+        Dashed = 6,
+        MediumDashDotDot = 7,
+        MediumDashed = 8,
+        MediumDashDot = 9,
+        Thick = 10,
+        Medium = 11,
+        Double = 12
+
+       
     }
 
 }

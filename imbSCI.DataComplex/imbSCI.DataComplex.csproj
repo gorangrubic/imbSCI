@@ -139,6 +139,7 @@
     <Compile Include="extensions\data\formats\imbDataTableExtensions.cs" />
     <Compile Include="extensions\data\imbEPPlusExtensions.cs" />
     <Compile Include="extensions\data\modify\dataRowForStats.cs" />
+    <Compile Include="extensions\data\modify\dataTableStyleSet.cs" />
     <Compile Include="extensions\data\operations\collectionAggregation.cs" />
     <Compile Include="extensions\data\operations\collectionAggregationResult.cs" />
     <Compile Include="extensions\data\operations\collectionAggregationResultSet.cs" />

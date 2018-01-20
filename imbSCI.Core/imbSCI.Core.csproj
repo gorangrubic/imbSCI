@@ -69,7 +69,21 @@
   <ItemGroup>
     <Compile Include="config\imbSCICoreConfig.cs" />
     <Compile Include="extensions\data\containsQueries.cs" />
+    <Compile Include="extensions\table\columnMetaEvaluation.cs" />
+    <Compile Include="extensions\table\dataNumericCriterionDynamicStyle.cs" />
     <Compile Include="extensions\table\DataRowCollectionTools.cs" />
+    <Compile Include="extensions\table\dataRowIndexDynamicStyle.cs" />
+    <Compile Include="extensions\table\DataRowInReportTypeEnum.cs" />
+    <Compile Include="extensions\table\dataTableColumnMetaSet.cs" />
+    <Compile Include="extensions\table\dataTableDynamicStyleEntry.cs" />
+    <Compile Include="extensions\table\dataTableMetaSet.cs" />
+    <Compile Include="extensions\table\dataTableRowMetaSet.cs" />
+    <Compile Include="extensions\table\dataTableStyleDictionary.cs" />
+    <Compile Include="extensions\table\dataTableStyleEntry.cs" />
+    <Compile Include="extensions\table\dataTableStyleSet.cs" />
+    <Compile Include="extensions\table\dataValueMatchCriterionDynamicStyle.cs" />
+    <Compile Include="extensions\table\rowMetaEvaluation.cs" />
+    <Compile Include="extensions\table\zoneMetaEvaluation.cs" />
     <Compile Include="extensions\text\imbStringBuilderExtensions.cs" />
     <Compile Include="extensions\typeworks\CollectTypeFlags.cs" />
     <Compile Include="files\fileTools.cs" />
@@ -116,6 +130,9 @@
     <Compile Include="data\aceAuthorNotation.cs" />
     <Compile Include="interfaces\IAceLogToConsoleControl.cs" />
     <Compile Include="reporting\render\builders\builderForLogBase.cs" />
+    <Compile Include="reporting\style\core\styleSurfaceColor.cs" />
+    <Compile Include="reporting\style\core\styleTextFontSingle.cs" />
+    <Compile Include="reporting\style\enums\styleFillType.cs" />
     <Compile Include="screenOutputControl.cs" />
     <Compile Include="syntax\param\typedParam.cs" />
     <Compile Include="syntax\param\typedParamCollection.cs" />

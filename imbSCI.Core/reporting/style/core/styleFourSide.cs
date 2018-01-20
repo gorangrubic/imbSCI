@@ -39,6 +39,10 @@ namespace imbSCI.Core.reporting.style.core
     using imbSCI.Data.data;
     using imbSCI.Core.extensions.data;
     using imbSCI.Core.reporting.geometrics;
+    using System.Drawing;
+
+
+
 
     /// <summary>
     /// Complex settings four style
@@ -108,6 +112,7 @@ namespace imbSCI.Core.reporting.style.core
             processType(__type);
         }
 
+        
 
         internal void processType(appendType __type)
         {
@@ -116,17 +121,37 @@ namespace imbSCI.Core.reporting.style.core
             switch (type)
             {
                 case appendType.c_table:
-                    setup(0, 25, acePaletteRole.colorDefault, 1, styleBorderType.solid, styleSideDirection.left, styleSideDirection.right, styleSideDirection.top);
-                    setup(0, 25, acePaletteRole.colorDefault, 2, styleBorderType.@double, styleSideDirection.bottom);
+                    setup(0, 25, acePaletteRole.colorDefault, 1, styleBorderType.Thin, styleSideDirection.left, styleSideDirection.right, styleSideDirection.top);
+                    setup(0, 25, acePaletteRole.colorDefault, 2, styleBorderType.Double, styleSideDirection.bottom);
                     break;
                 case appendType.c_section:
-                    setup(0, 25, acePaletteRole.colorDefault, 2, styleBorderType.solid, styleSideDirection.left);
+                    setup(0, 25, acePaletteRole.colorDefault, 2, styleBorderType.Thin, styleSideDirection.left);
                     break;
                 default:
                     break;
                    
             }
         }
+
+
+        public void setup(Int32 __padding, Int32 __margin, Color __borderColor, Int32 __thickness, styleBorderType __type, params styleSideDirection[] directions)
+        {
+            List<styleSideDirection> sides = directions.getFlatList<styleSideDirection>();
+            if (sides.Count == 0)
+            {
+                sides.AddMultiple(styleSideDirection.top, styleSideDirection.right, styleSideDirection.left, styleSideDirection.bottom);
+            }
+
+            foreach (styleSideDirection side in sides)
+            {
+                this[side].borderColorStatic = __borderColor;
+                this[side].padding = __padding;
+                this[side].margin = __margin;
+                this[side].thickness = __thickness;
+                this[side].type = __type;
+            }
+        }
+
 
         /// <summary>
         /// Setups the specified padding.

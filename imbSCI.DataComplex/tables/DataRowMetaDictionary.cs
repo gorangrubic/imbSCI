@@ -46,6 +46,7 @@ namespace imbSCI.DataComplex.tables
     using imbSCI.Data.collection.nested;
     using imbSCI.Data.enums.fields;
     using imbSCI.Core.math.aggregation;
+    using imbSCI.Core.extensions.table;
 
     /// <summary>
     /// Describes what rows shall be created once <see cref="DataTable"/> is converted to <see cref="DataTableForStatistics"/> output

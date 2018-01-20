@@ -53,9 +53,241 @@ namespace imbSCI.DataComplex.tables
     using imbSCI.Data.enums.reporting;
     using imbSCI.Core.extensions.io;
     using imbSCI.DataComplex.extensions.data.schema;
+    using OfficeOpenXml.Style.XmlAccess;
+    using imbSCI.Core.reporting.style.core;
+    using imbSCI.Core.reporting.style.enums;
+    using imbSCI.Core.reporting.style.shot;
+    using imbSCI.Core.reporting.zone;
+    using OfficeOpenXml.Style;
+    using OfficeOpenXml;
+    using imbSCI.Core.extensions.enumworks;
 
     public static class DataTableForStatisticsExtension
     {
+        public static ExcelNamedStyleXml MakeStyle(this ExcelStyles styles, dataTableStyleSet styleSet, DataRowInReportTypeEnum data)
+        {
+            var output = styles.CreateNamedStyle(data.ToString());
+            output.Style.SetStyle(styleSet.rowStyles[data]);
+            return output;
+        }
+
+        /// <summary>
+        /// Sets the style.
+        /// </summary>
+        /// <param name="ExcelStyle">The excel style.</param>
+        /// <param name="styleEntry">The style entry.</param>
+        public static void SetStyle(this ExcelStyle Style, dataTableStyleEntry styleEntry, Boolean isEven=false)
+        {
+            Style.Font.SetStyle(styleEntry.Text);
+            //Style.TextRotation = styleEntry.Text.ro2
+
+            if (isEven)
+            {
+                Style.Fill.SetStyle(styleEntry.Background);
+            } else
+            {
+                Style.Fill.SetStyle(styleEntry.BackgroundAlt);
+            }
+            Style.SetStyle(styleEntry.Cell);
+            
+
+        }
+
+        /// <summary>
+        /// Sets the style.
+        /// </summary>
+        /// <param name="Fill">The fill.</param>
+        /// <param name="styleEntry">The style entry.</param>
+        public static void SetStyle(this ExcelFill Fill, styleSurfaceColor styleEntry)
+        {
+            Fill.PatternType = (ExcelFillStyle)styleEntry.FillType;
+            Fill.BackgroundColor.SetColor(styleEntry.Color);
+            Fill.BackgroundColor.Tint = new decimal(styleEntry.Tint);
+            
+        }
+
+        public static void SetStyle(this ExcelRow row, dataTableStyleEntry style, Boolean isEven=false)
+        {
+            row.Height = style.Cell.minSize.height;
+            row.StyleName = style.key.ToString();
+            row.Style.SetStyle(style, isEven);
+        }
+
+        public static void SetStyle(this ExcelStyle Style, styleFourSide side)
+        {
+            Style.SetStyle(side.top);
+            Style.SetStyle(side.bottom);
+            Style.SetStyle(side.left);
+            Style.SetStyle(side.right);
+            
+
+        }
+
+        public static void SetStyle(this ExcelStyle Style, styleSide side)
+        {
+            ExcelBorderItem bri = null;
+            switch (side.direction)
+            {
+                case styleSideDirection.bottom:
+                    bri = Style.Border.Bottom;
+                    break;
+                case styleSideDirection.left:
+                    bri = Style.Border.Left;
+                    break;
+                case styleSideDirection.right:
+                    bri = Style.Border.Right;
+                    break;
+                case styleSideDirection.top:
+                    bri = Style.Border.Top;
+                    break;
+            }
+            
+            if (side.type != styleBorderType.unknown) {
+                bri.Style = (ExcelBorderStyle)side.type.ToInt32();
+                if (bri.Style != ExcelBorderStyle.None) bri.Color.SetColor(side.borderColorStatic);
+            }
+        }
+
+        /// <summary>
+        /// Sets the style.
+        /// </summary>
+        /// <param name="Style">The style.</param>
+        /// <param name="styleEntry">The style entry.</param>
+        public static void SetStyle(this ExcelStyle Style, styleContainerShot styleEntry)
+        {
+            Style.WrapText = styleEntry.doWrapText;
+            Style.SetStyle(styleEntry.sizeAndBorder);
+
+            
+            switch (styleEntry.aligment)
+            {
+                case Core.reporting.zone.textCursorZoneCorner.Bottom:
+                    Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Bottom;
+                    Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+                    break;
+                case textCursorZoneCorner.center:
+                    Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;
+                    Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+                    break;
+                case textCursorZoneCorner.default_corner:
+                    Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;
+                    Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+                    break;
+                case textCursorZoneCorner.DownLeft:
+                    Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Bottom;
+                    Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Left;
+                    break;
+                case textCursorZoneCorner.DownRight:
+                    Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Bottom;
+                    Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Right;
+                    break;
+                case textCursorZoneCorner.Left:
+                    Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Left;
+                    Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;
+                    break;
+                case textCursorZoneCorner.none:
+                    break;
+                case textCursorZoneCorner.Right:
+                    Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Right;
+                    Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Center;
+                    break;
+                case textCursorZoneCorner.Top:
+                    Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Top;
+                    Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+                    break;
+                case textCursorZoneCorner.UpLeft:
+                    Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Top;
+                    Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Left;
+                    break;
+                case textCursorZoneCorner.UpRight:
+                    Style.VerticalAlignment = OfficeOpenXml.Style.ExcelVerticalAlignment.Top;
+                    Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Right;
+                    break;
+                default:
+                    break;
+            }
+            
+
+            Style.ShrinkToFit = styleEntry.doSizedownContent;
+
+        }
+
+        public static void SetStyle(this ExcelFont Font, styleTextFontSingle styleEntry)
+        {
+            Font.Name = styleEntry.FontName.ToString();
+            Font.Color.SetColor(styleEntry.Color);
+
+            Font.Bold = styleEntry.Style.HasFlag(styleTextTypeEnum.bold);
+            Font.Italic = styleEntry.Style.HasFlag(styleTextTypeEnum.italic);
+            Font.Strike = styleEntry.Style.HasFlag(styleTextTypeEnum.striketrough);
+           Font.UnderLine = styleEntry.Style.HasFlag(styleTextTypeEnum.underline);
+            Font.Size = styleEntry.FontSize;
+
+
+
+
+        }
+
+
+        //public static DataTable RenderLegend(this DataTable host)
+        //{
+        //    DataTable legend = new DataTable("LEGEND");
+
+        //    DataColumn columnGroup = legend.Add("Group").SetDefaultBackground(host.columnCaption).SetWidth(25);
+        //    DataColumn columnName = legend.Add("Name").SetDefaultBackground(extraEven).SetWidth(40);
+        //    DataColumn columnLetter = legend.Add("Letter").SetDefaultBackground(extraOdd).SetWidth(25);
+        //    DataColumn columnUnit = legend.Add("Unit").SetDefaultBackground(extraEven).SetWidth(25);
+        //    DataColumn columnDescription = legend.Add("Description").SetDefaultBackground(dataOdd).SetWidth(180);
+
+
+        //    extraRowStyles.Add(legend.AddRow("Table name", host.GetTitle()), DataRowInReportTypeEnum.columnDescription);
+        //    extraRowStyles.Add(legend.AddRow("Table description", host.GetDescription()), DataRowInReportTypeEnum.columnDescription);
+        //    extraRowStyles.Add(legend.AddRow("Aggregated aspect", host.GetAggregationAspect()), DataRowInReportTypeEnum.columnDescription);
+        //    extraRowStyles.Add(legend.AddRow("Aggregated sources", host.GetAggregationOriginCount()), DataRowInReportTypeEnum.columnDescription);
+        //    extraRowStyles.Add(legend.AddRow("Table class name", host.GetClassName()), DataRowInReportTypeEnum.columnDescription);
+        //    legend.AddLineRow();
+        //    //legend.AddRow("Table class name", this.);
+
+        //    extraRowStyles.Add(legend.AddExtraRow(templateFieldDataTable.col_caption, 200), DataRowInReportTypeEnum.columnCaption);
+
+        //    foreach (DataColumn dc in Columns)
+        //    {
+        //        var dr = legend.NewRow();
+
+        //        dr[columnGroup] = dc.GetGroup();
+        //        dr[columnName] = dc.GetHeading();
+        //        dr[columnLetter] = dc.GetLetter();
+        //        dr[columnUnit] = dc.GetUnit();
+        //        dr[columnDescription] = dc.GetDesc();
+
+        //        legend.Rows.Add(dr);
+        //    }
+
+        //    extraRowStyles.Add(legend.AddLineRow(), DataRowInReportTypeEnum.mergedHorizontally);
+
+
+        //    foreach (string ext in this.GetExtraDesc())
+        //    {
+        //        extraRowStyles.Add(legend.AddStringLine(ext), DataRowInReportTypeEnum.mergedHorizontally);
+        //    }
+
+
+        //    extraRowStyles.Add(legend.AddLineRow(), DataRowInReportTypeEnum.mergedHorizontally);
+
+        //    var pce = this.GetAdditionalInfo();
+
+        //    extraRowStyles.Add(legend.AddRow("Additional information"), DataRowInReportTypeEnum.mergedFooterInfo);
+
+        //    extraRowStyles.Add(legend.AddRow("Property", "Value", "Info"), DataRowInReportTypeEnum.columnCaption);
+        //    foreach (KeyValuePair<object, PropertyEntry> entryPair in pce.entries)
+        //    {
+        //        extraRowStyles.Add(legend.AddRow(entryPair.Key, entryPair.Value[PropertyEntryColumn.entry_value], entryPair.Value[PropertyEntryColumn.entry_description]), DataRowInReportTypeEnum.columnInformation);
+        //    }
+
+
+        //    return legend;
+        //}
+
 
         /// <summary>
         /// Checks if data type is allowed for the DataTable
@@ -163,6 +395,8 @@ namespace imbSCI.DataComplex.tables
         public static DataTableForStatistics GetReportTableVersion(this DataTable source, bool disablePrimaryKey=true)
         {
             DataTableForStatistics output = source.GetClonedShema<DataTableForStatistics>(disablePrimaryKey);
+
+            
 
             //output.AddRowNameColumn("Row name", true);
             // output.AddRowDescriptionColumn("Description", true);
