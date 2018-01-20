@@ -62,6 +62,7 @@ namespace imbSCI.DataComplex.tables
     using imbSCI.DataComplex.extensions.data;
     using imbSCI.Core.files.folders;
     using imbSCI.Core.config;
+    using System.Xml.Serialization;
 
     /// <summary>
     /// IDEJA SAMO
@@ -168,9 +169,9 @@ namespace imbSCI.DataComplex.tables
             return output;
         }
 
-
+        [XmlIgnore]
         public DataRowMetaDictionary metaRowInfo { get; set; }
-
+        [XmlIgnore]
         public DataColumnMetaDictionary metaColumnInfo { get; set; }
 
         public DataTable RenderDataTable()
@@ -261,14 +262,14 @@ namespace imbSCI.DataComplex.tables
             return output;
         }
 
-
+        [XmlIgnore]
         public dataTableStyleSet styleSet {
             get
             {
                 return this.GetStyleSet();
             }
         }
-
+        [XmlIgnore]
         public dataTableRowMetaSet rowMetaSet
         {
             get
@@ -277,7 +278,7 @@ namespace imbSCI.DataComplex.tables
             }
         }
 
-
+        [XmlIgnore]
         public dataTableColumnMetaSet columnMetaSet
         {
             get
@@ -455,6 +456,21 @@ namespace imbSCI.DataComplex.tables
                     {
                         string format = dc.GetFormatForExcel();
                         if (!format.isNullOrEmpty()) ws.Cells[ex_row.Row, dc.Ordinal + 1].Style.Numberformat.Format = format;
+
+                        if (dc.DataType.isNumber())
+                        {
+                            ws.Cells[ex_row.Row, dc.Ordinal + 1].Style.HorizontalAlignment = ExcelHorizontalAlignment.Right;
+                        }
+                        else if (dc.DataType.IsEnum)
+                        {
+                            ws.Cells[ex_row.Row, dc.Ordinal + 1].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                        } else if (dc.DataType.isBoolean())
+                        {
+                            ws.Cells[ex_row.Row, dc.Ordinal + 1].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                        } else 
+                        {
+                            ws.Cells[ex_row.Row, dc.Ordinal + 1].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        }
                     }
 
 

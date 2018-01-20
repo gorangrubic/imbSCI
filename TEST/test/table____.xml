@@ -21,5 +21,13 @@
       </xs:unique>
     </xs:element>
   </xs:schema>
-  <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1" />
+  <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+    <DocumentElement>
+      <table diffgr:id="table1" msdata:rowOrder="0">
+        <name>testEntry</name>
+        <number>19</number>
+        <rate>0.063333333333333339</rate>
+      </table>
+    </DocumentElement>
+  </diffgr:diffgram>
 </DataTable>

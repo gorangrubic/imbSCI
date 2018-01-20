@@ -87,6 +87,7 @@
     <Compile Include="extensions\text\imbStringBuilderExtensions.cs" />
     <Compile Include="extensions\typeworks\CollectTypeFlags.cs" />
     <Compile Include="files\fileTools.cs" />
+    <Compile Include="files\folders\folderNodeFileDescriptor.cs" />
     <Compile Include="files\imbFileException.cs" />
     <Compile Include="files\search\NamespaceDoc.cs" />
     <Compile Include="imbSCICoreManager.cs" />

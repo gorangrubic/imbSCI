@@ -387,7 +387,7 @@ namespace imbSCI.DataComplex.tables
                     var p = path.getWritableFile(getWritableFileMode.autoRenameExistingToBack);
 
                     folderNode fn = p.Directory;
-                    String ef = fn.pathFor("error.txt");
+                    String ef = fn.pathFor("error_" + name + ".txt", getWritableFileMode.autoRenameThis, "Error report on failed Load(" + path + ") attempt for [" + name + "]");
 
                     ef = ef.getWritableFile(getWritableFileMode.autoRenameExistingToBack).FullName;
                     message.saveStringToFile(ef, getWritableFileMode.autoRenameExistingToBack);

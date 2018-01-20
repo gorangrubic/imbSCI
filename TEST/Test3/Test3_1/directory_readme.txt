@@ -8,13 +8,13 @@
 
  ------------------------------------------------------------------------------------
 
-### Structure
+### Files in this directory:
+
+1 : [directory_readme.txt          ] Description of directory content (this file)
 
  ------------------------------------------------------------------------------------
 
-### Files in this directory:
-
-1 : [directory_readme.txt          ] Plain text file
+### Subdirectories of: G:\imbVelesOpenSource\imbSCI\TEST\Test3
 
  ------------------------------------------------------------------------------------
 
@@ -32,6 +32,6 @@
 
  ------------------------------------------------------------------------------------
 
-File generated: Saturday, January 20, 2018 4:00:41 AM
+File generated: Saturday, January 20, 2018 8:14:33 PM
 
 

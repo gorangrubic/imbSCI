@@ -95,12 +95,18 @@ namespace imbSCI.Core.extensions.table
             
         }
 
-        public string fontName { get; set; } = "Cambria"; //"Times New Roman";
+        //public string fontName { get; set; } = "Cambria"; //"Times New Roman";
+        [XmlIgnore]
         public System.Drawing.Color columnCaption { get; set; } = System.Drawing.Color.SteelBlue;
+        [XmlIgnore]
         public System.Drawing.Color extraEven { get; set; } = System.Drawing.Color.LightSlateGray;
+        [XmlIgnore]
         public System.Drawing.Color extraEvenOther { get; set; } = System.Drawing.Color.LightSteelBlue;
+        [XmlIgnore]
         public System.Drawing.Color extraOdd { get; set; } = System.Drawing.Color.SlateGray;
+        [XmlIgnore]
         public System.Drawing.Color dataOdd { get; set; } = System.Drawing.Color.WhiteSmoke;
+        [XmlIgnore]
         public System.Drawing.Color dataEven { get; set; } = System.Drawing.Color.Snow;
     }
 

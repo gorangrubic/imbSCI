@@ -452,86 +452,27 @@ namespace imbSCI.Core.files.folders
                 output = output.getWritableFile(mode).FullName;
             }
 
-            if (fileDescription.isNullOrEmpty())
+            lock (addFileDescriptionLock)
             {
-                String fileClean = Path.GetFileNameWithoutExtension(filename);
-                String fileTitle = fileClean.imbTitleCamelOperation(true);
-
-                String ext = Path.GetExtension(filename).Trim('.').ToLower();
-                switch (ext)
+                if (!AdditionalFileEntries.ContainsKey(filename))
                 {
-                    case "json":
-                        fileDescription = "JSON Serialized Data Object";
-                        break;
-                    case "xml":
-                        fileDescription = "XML Serialized Data Object";
-                        if (filename.ContainsAny(new String[] { "setup", "Setup", "config", "Config", "settings", "Settings" }))
-                        {
-                            fileTitle = fileClean.imbTitleCamelOperation(true);
-                            fileDescription = "Serialized configuration [" + fileTitle + "] object";
-                        }
-
-                        break;
-                    case "txt":
-                        fileDescription = "Plain text file";
-                        if (filename.StartsWith("ci_"))
-                        {
-                            fileClean = fileClean.removeStartsWith("ci_");
-                            fileTitle = fileClean.imbTitleCamelOperation(true);
-                            fileDescription = "Column / Fields meta information for data table [" + fileTitle + "] export";
-                        }
-                        if (fileClean == "note")
-                        {
-                            fileDescription = "Relevant notes on [" + caption + "] in markdown/text format";
-                        }
-                        break;
-                    case "csv":
-                        fileDescription = "Comma Separated Value data dump";
-                        if (filename.StartsWith("dc_"))
-                        {
-                            fileClean = fileClean.removeStartsWith("dc_");
-                            fileTitle = fileClean.imbTitleCamelOperation(true);
-                            fileDescription = "Clean data CSV version of data table [" + fileTitle + "] export";
-                        }
-                        break;
-                    case "xls":
-                    case "xlsx":
-                        fileDescription = "Excel spreadsheet";
-                        if (filename.StartsWith("dt_"))
-                        {
-                            fileClean = fileClean.removeStartsWith("dt_");
-                            fileTitle = fileClean.imbTitleCamelOperation(true);
-                            fileDescription = "Excel spreadsheet report on [" + fileTitle + "] data table";
-                        }
-                        break;
-                    case "md":
-                        fileDescription = "Markdown document";
-                        break;
-                    case "bin":
-                        fileDescription = "Binary Serialized Data Object";
-                        break;
-                    case "dgml":
-                        fileDescription = "Serialized graph in Directed-Graph Markup Language format";
-                        break;
-                    case "html":
-                        fileDescription = "HTML Document";
-                        break;
-                    case "log":
-                        fileDescription = "Log output plain text file";
-                        break;
-                    default:
-                        fileDescription = ext.ToUpper() + " file";
-                        break;
+                    AdditionalFileEntries.Add(filename, this.GetFileDescription(filename, fileDescription));
                 }
-
+                else
+                {
+                    AdditionalFileEntries[filename].description = fileDescription;
+                }
             }
 
-            AdditionalFileEntries.Add(String.Format(FileDescriptionFormat, filename, fileDescription));
+            
             
             return output;
         }
 
-        public static String FileDescriptionFormat { get; set; } = "[{0,-30}] {1}";
+
+        private Object addFileDescriptionLock = new Object();
+
+
 
 
         public void deleteFiles(string selectionPattern="*.*", bool subFolders=true)
@@ -689,36 +630,45 @@ namespace imbSCI.Core.files.folders
                 builder.AppendHorizontalLine();
             }
 
-            //builder.AppendHeading("Folder treeview", 2);
-
-            //builder.Append(this.tree)    
-
-
-            builder.AppendHeading("Structure",2);
-                builder.AppendHorizontalLine();
-            var folderNodes = this.getAllChildrenInType<folderNode>();
-            foreach (var fold in folderNodes)
-                {
-                    //    builder.nextTabLevel();
-                    builder.AppendHeading(fold.caption, 3);
-                    builder.AppendLine(" > " + fold.path.removeStartsWith(prefix));
-                if (!fold.description.isNullOrEmpty()) builder.AppendLine(" > " + fold.description);
-                    builder.AppendLine();
-                    //  builder.prevTabLevel();
-                }
-
-            AdditionalFileEntries.Sort(String.CompareOrdinal);
-
             if (AdditionalFileEntries.Any())
             {
                 builder.AppendHeading("Files in this directory:", 2);
                 String format = "D" + AdditionalFileEntries.Count().ToString().Length.ToString();
                 Int32 flc = 1;
-                foreach (var fl in AdditionalFileEntries)
+
+                List<String> sortedKeys = AdditionalFileEntries.Keys.ToList();
+                sortedKeys.Sort(String.CompareOrdinal);
+
+                foreach (String key in sortedKeys)
                 {
-                    builder.AppendLine(flc.ToString(format) + " : " + fl);
+                    builder.AppendLine(flc.ToString(format) + " : " + AdditionalFileEntries[key].description);
+                    flc++;
                 }
             }
+
+
+            //builder.AppendHeading("Folder treeview", 2);
+
+            //builder.Append(this.tree)    
+
+            builder.AppendHorizontalLine();
+
+            builder.AppendHeading("Subdirectories of: " + prefix,2);
+                
+            var folderNodes = this.getAllChildrenInType<folderNode>();
+            foreach (var fold in folderNodes)
+                {
+                    //    builder.nextTabLevel();
+                    builder.AppendHeading(String.Format("{0,-30} : {1,-100}", fold.caption, fold.path.removeStartsWith(prefix)), 3);
+                
+                if (!fold.description.isNullOrEmpty()) builder.AppendLine(" > " + fold.description);
+                    //builder.AppendLine();
+                    //  builder.prevTabLevel();
+                }
+
+          //  AdditionalFileEntries.Sort(String.CompareOrdinal);
+
+         
 
             if (notation != null)
             {
@@ -766,7 +716,7 @@ namespace imbSCI.Core.files.folders
         /// <value>
         /// The additional file entries.
         /// </value>
-        public List<String> AdditionalFileEntries { get; protected set; } = new List<string>();
+        public Dictionary<String, folderNodeFileDescriptor> AdditionalFileEntries { get; protected set; } = new Dictionary<String, folderNodeFileDescriptor>();
 
 
         /// <summary>

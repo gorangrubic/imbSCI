@@ -123,7 +123,7 @@ namespace imbSCI.Core.data
         /// </value>
         public String license { get; set; } = "GNU General Public License v3.0";
 
-        private String _copyright = "All Rights reserved © 2013-2017.";
+        private String _copyright = "All Rights reserved © 2013-2018.";
         /// <summary>
         /// 
         /// </summary>
