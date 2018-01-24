@@ -46,6 +46,11 @@ namespace imbSCI.Core.data
     using System.Reflection;
     using System.Xml.Serialization;
 
+    /// <summary>
+    /// Base class exposing extensive meta information on <see cref="MemberInfo"/>s, used to access meta annotation for reporting. <seealso cref="settingsPropertyEntry"/>, <seealso cref="settingsPropertyEntryWithContext"/> and <see cref="settingsEntriesForObject"/>.
+    /// </summary>
+    /// <remarks>The best way to use this model is to call <see cref="settingsEntriesForObject"/> constructor, that will generate this object for each reflected member</remarks>
+    /// <seealso cref="System.ComponentModel.INotifyPropertyChanged" />
     public class settingsMemberInfoEntry:INotifyPropertyChanged
     {
 

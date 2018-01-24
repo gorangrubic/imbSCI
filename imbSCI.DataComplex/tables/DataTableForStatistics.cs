@@ -174,6 +174,10 @@ namespace imbSCI.DataComplex.tables
         [XmlIgnore]
         public DataColumnMetaDictionary metaColumnInfo { get; set; }
 
+        /// <summary>
+        /// Renders the data table.
+        /// </summary>
+        /// <returns></returns>
         public DataTable RenderDataTable()
         {
             DataTable output = new DataTable(TableName);
@@ -322,7 +326,13 @@ namespace imbSCI.DataComplex.tables
            
         }
 
-        public void DeployStyle(DataTable table, ExcelWorksheet ws)
+        /// <summary>
+        /// Deploys the style.
+        /// </summary>
+        /// <param name="table">The table.</param>
+        /// <param name="ws">The ws.</param>
+        /// <param name="useMetaSetFromTheTable">if set to <c>true</c> it will use style set from the table specified.</param>
+        public void DeployStyle(DataTable table, ExcelWorksheet ws, Boolean useMetaSetFromTheTable=false)
         {
             int rc = ws.Dimension.Rows;
 
@@ -338,7 +348,10 @@ namespace imbSCI.DataComplex.tables
                     var ex_row = ws.Row(i + 1);
                     var in_row = table.Rows[i];
                     if (i > ROW_LIMIT_FOR_STYLE) break;
-                    DeployStyleToRow(ex_row, in_row, ws);
+                    dataTableRowMetaSet metaSet = null;
+
+                    if (useMetaSetFromTheTable) metaSet = table.GetRowMetaSet();
+                    DeployStyleToRow(ex_row, in_row, ws, metaSet);
                 }
             }
 
@@ -365,7 +378,7 @@ namespace imbSCI.DataComplex.tables
         }
 
 
-        public void DeployStyleToRow(ExcelRow ex_row, DataRow in_row, ExcelWorksheet ws)
+        public void DeployStyleToRow(ExcelRow ex_row, DataRow in_row, ExcelWorksheet ws, dataTableRowMetaSet metaSet = null)
         {
             DataRowInReportTypeEnum style = DataRowInReportTypeEnum.data;
             
@@ -379,6 +392,11 @@ namespace imbSCI.DataComplex.tables
             var baseStyle = styleSet.rowStyles[style];
 
             var rowsMetaSet = this.GetRowMetaSet();
+
+
+            if (metaSet != null) rowsMetaSet = metaSet;
+
+            
 
             baseStyle = rowsMetaSet.evaluate(in_row, this, baseStyle);
 
@@ -457,17 +475,21 @@ namespace imbSCI.DataComplex.tables
                         string format = dc.GetFormatForExcel();
                         if (!format.isNullOrEmpty()) ws.Cells[ex_row.Row, dc.Ordinal + 1].Style.Numberformat.Format = format;
 
-                        if (dc.DataType.isNumber())
+                        
+
+                        if (dc.GetValueType().isNumber())
                         {
                             ws.Cells[ex_row.Row, dc.Ordinal + 1].Style.HorizontalAlignment = ExcelHorizontalAlignment.Right;
                         }
-                        else if (dc.DataType.IsEnum)
+                        else if (dc.GetValueType().IsEnum)
                         {
                             ws.Cells[ex_row.Row, dc.Ordinal + 1].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                        } else if (dc.DataType.isBoolean())
+                        }
+                        else if (dc.GetValueType().isBoolean())
                         {
                             ws.Cells[ex_row.Row, dc.Ordinal + 1].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                        } else 
+                        }
+                        else
                         {
                             ws.Cells[ex_row.Row, dc.Ordinal + 1].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
                         }
@@ -534,13 +556,7 @@ namespace imbSCI.DataComplex.tables
             extraRowStyles.Add(legend.AddLineRow(), DataRowInReportTypeEnum.mergedHorizontally);
 
             
-            foreach (string ext in this.GetExtraDesc())
-            {
-                extraRowStyles.Add(legend.AddStringLine(ext), DataRowInReportTypeEnum.mergedHorizontally);
-            }
-
-
-            extraRowStyles.Add(legend.AddLineRow(), DataRowInReportTypeEnum.mergedHorizontally);
+           
 
             var pce = this.GetAdditionalInfo();
 
@@ -552,6 +568,13 @@ namespace imbSCI.DataComplex.tables
                 extraRowStyles.Add(legend.AddRow(entryPair.Key, entryPair.Value[PropertyEntryColumn.entry_value], entryPair.Value[PropertyEntryColumn.entry_description]), DataRowInReportTypeEnum.columnInformation);
             }
 
+            foreach (string ext in this.GetExtraDesc())
+            {
+                extraRowStyles.Add(legend.AddStringLine(ext), DataRowInReportTypeEnum.mergedFooterInfo);
+            }
+
+
+            extraRowStyles.Add(legend.AddLineRow(), DataRowInReportTypeEnum.mergedHorizontally);
 
             return legend;
         }
@@ -561,7 +584,7 @@ namespace imbSCI.DataComplex.tables
             DefineStyles(ws);
             DataTable legend = RenderLegend();
             ws.Cells["A1"].LoadFromDataTable(legend, false);
-            DeployStyle(legend, ws);
+            DeployStyle(legend, ws, true);
         }
 
         public static int ROW_LIMIT_FOR_STYLE

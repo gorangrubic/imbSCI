@@ -83,11 +83,7 @@ using System.Collections.Generic;
         {
             DataTable rowTable = row.Table;
 
-            if (row.Table != table)
-            {
-                if (applyOnlyToMainTable) return defaultStyle;
-
-            }
+           
             if (!rowTable.Columns.Contains(columnName)) return defaultStyle;
 
             DataColumn dc = rowTable.Columns[columnName];

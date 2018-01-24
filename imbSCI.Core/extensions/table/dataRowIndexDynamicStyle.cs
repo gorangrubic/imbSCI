@@ -108,11 +108,7 @@ using System.Collections.Generic;
         {
             var tableReal = row.Table;
 
-            if (row.Table != table)
-            {
-                if (applyOnlyToMainTable) return defaultStyle;
-
-            }
+            
 
             Int32 i = tableReal.Rows.IndexOf(row);
 

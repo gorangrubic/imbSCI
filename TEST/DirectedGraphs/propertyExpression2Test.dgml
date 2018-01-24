@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" GraphDirection="LeftToRight" Layout="DependencyMatrix" NeighborhoodDistance="25" Title="DefaultGraphExportStyle" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Links>
+    <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="GraphStylerSettings" Category="0" Group="Collapsed" Visibility="Visible" Source="DefaultGraphExportStyle" Target="DefaultGraphExportStyle\DefaultGraphExportStyle" />
+  </Links>
+  <Nodes>
+    <Node Stroke="#B2185AC5" StrokeThinkness="7" Label="DefaultGraphExportStyle" Category="0" Group="Collapsed" Visibility="Visible" Id="DefaultGraphExportStyle\DefaultGraphExportStyle" Background="#B2185AC5" />
+  </Nodes>
+  <Properties />
+  <Categories />
+</DirectedGraph>

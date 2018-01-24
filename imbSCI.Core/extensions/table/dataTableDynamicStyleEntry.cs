@@ -64,7 +64,7 @@ namespace imbSCI.Core.extensions.table
         /// </value>
         public dataTableStyleEntry customStyleEntry { get; set; } = null;
 
-        public Boolean applyOnlyToMainTable { get; set; } = true;
+      //  public Boolean applyOnlyToMainTable { get; set; } = true;
 
         //public rowMetaEvaluation rowEvaluation { get; set; }
 

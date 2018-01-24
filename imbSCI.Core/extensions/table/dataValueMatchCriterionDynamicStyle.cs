@@ -50,25 +50,25 @@ using System.Collections.Generic;
     /// <summary>
     /// Evaluates rows for exact value match
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <typeparam name="TEnum">The type of the enum.</typeparam>
+    /// <typeparam name="TValueType">Type of column value</typeparam>
+    /// <typeparam name="TEnum">The type of enum to use when calling the style</typeparam>
     /// <seealso cref="imbSCI.Core.extensions.table.dataTableDynamicStyleEntry" />
-    public class dataValueMatchCriterionDynamicStyle<T, TEnum> : dataTableDynamicStyleEntry
-   where T : IComparable
+    public class dataValueMatchCriterionDynamicStyle<TValueType, TEnum> : dataTableDynamicStyleEntry
+   where TValueType : IComparable
 
     {
         public String columnName { get; set; } = "";
 
         public TEnum styleKey { get; set; }
 
-        public List<T> matchlist { get; set; } = new List<T>();
+        public List<TValueType> matchlist { get; set; } = new List<TValueType>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="dataNumericCriterionDynamicStyle{T, TEnum}"/> class.
         /// </summary>
         /// <param name="_criteria">The criteria.</param>
         /// <param name="key">The key.</param>
-        public dataValueMatchCriterionDynamicStyle(IEnumerable<T> _criteria, TEnum key, String _columnName)
+        public dataValueMatchCriterionDynamicStyle(IEnumerable<TValueType> _criteria, TEnum key, String _columnName)
         {
             matchlist.AddRange(_criteria);
             styleKey = key;
@@ -77,7 +77,7 @@ using System.Collections.Generic;
 
         public Boolean DoInverseLogic { get; set; } = false;
 
-        public void AddMatch(T match)
+        public void AddMatch(TValueType match)
         {
             matchlist.Add(match);
         }
@@ -94,11 +94,6 @@ using System.Collections.Generic;
 
             var tableReal = row.Table;
 
-            if (row.Table != table)
-            {
-                if (applyOnlyToMainTable) return defaultStyle;
-
-            }
 
             if (!tableReal.Columns.Contains(columnName)) return defaultStyle;
 
@@ -106,7 +101,7 @@ using System.Collections.Generic;
 
             Object vo = row[columnName];
 
-            T val = vo.imbConvertValueSafeTyped<T>();
+            TValueType val = vo.imbConvertValueSafeTyped<TValueType>();
 
             Boolean ok = matchlist.Contains(val);
 

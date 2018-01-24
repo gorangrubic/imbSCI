@@ -52,7 +52,7 @@ namespace imbSCI.Core.math.range
         }
 
 
-        public void setCriteria(aceCriterieConfig config)
+        public void setCriteria(aceCriterionConfig config)
         {
             if (config == null)
             {

@@ -1,10 +1,40 @@
-﻿using imbSCI.Core.extensions.data;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="freeGraph.cs" company="imbVeles" >
+//
+// Copyright (C) 2018 imbVeles
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the +terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/. 
+// </copyright>
+// <summary>
+// Project: imbSCI.Graph
+// Author: Goran Grubic
+// ------------------------------------------------------------------------------------------------------------------
+// Project web site: http://blog.veles.rs
+// GitHub: http://github.com/gorangrubic
+// Mendeley profile: http://www.mendeley.com/profiles/goran-grubi2/
+// ORCID ID: http://orcid.org/0000-0003-2673-9471
+// Email: hardy@veles.rs
+// </summary>
+// ------------------------------------------------------------------------------------------------------------------
+using imbSCI.Core.extensions.data;
 using imbSCI.Core.extensions.io;
 using imbSCI.Core.files;
 using imbSCI.Core.files.folders;
 using imbSCI.Core.math;
 using imbSCI.Core.reporting;
 using imbSCI.Data.enums;
+using imbSCI.Data.interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,13 +42,13 @@ using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace imbNLP.PartOfSpeech.TFModels.semanticCloud.core
+namespace imbSCI.Graph.FreeGraph
 {
 
     /// <summary>
     /// 
     /// </summary>
-    public class freeGraph
+    public class freeGraph:IObjectWithName
     {
 
         /// <summary>
@@ -232,11 +262,22 @@ namespace imbNLP.PartOfSpeech.TFModels.semanticCloud.core
 
         }
 
+
+        
+
+        /// <summary>
+        /// Does nothing (by default implementation) -- should be called before saving to xml
+        /// </summary>
+        /// <param name="folder">The folder.</param>
         public virtual void OnBeforeSave(folderNode folder)
         {
 
         }
 
+        /// <summary>
+        /// Does nothing (by default implementation) -- should be called after the graph is loaded
+        /// </summary>
+        /// <param name="folder">The folder.</param>
         public virtual void OnAfterLoad(folderNode folder)
         {
 
@@ -270,7 +311,7 @@ namespace imbNLP.PartOfSpeech.TFModels.semanticCloud.core
 
         }
 
-        public static T Load<T>(String filepath, Boolean createNewIfNotFound=true) where T:freeGraph, new()
+        public static T Load<T>(String filepath, Boolean createNewIfNotFound = true) where T : freeGraph, new()
         {
             T output = default(T);
             if (File.Exists(filepath))
@@ -287,20 +328,52 @@ namespace imbNLP.PartOfSpeech.TFModels.semanticCloud.core
                 output.RebuildIndex();
                 output.OnAfterLoad(fi.Directory);
             }
-            
+
             return output;
         }
 
-        public static void Save<T>(T graph, String filepath, getWritableFileMode mode = imbSCI.Data.enums.getWritableFileMode.overwrite) where T:freeGraph, new()
-        {
-            var fi = filepath.getWritableFile(mode);
-            
-            graph.OnBeforeSave(fi.Directory);
 
+
+        /// <summary>
+        /// Adds new node with <c>nameProposal</c> name or a modified version of the name - in order to have unique node name
+        /// </summary>
+        /// <param name="nameProposal">The name proposal.</param>
+        /// <param name="weight">The weight.</param>
+        /// <param name="type">The type.</param>
+        /// <returns></returns>
+        public freeGraphNodeBase AddNewNode(String nameProposal, Double weight = 1, Int32 type = 0)
+        {
+            Int32 c = 0;
+            if (nameProposal.isNullOrEmpty()) nameProposal = "Node" + nodes.Count();
+            String proposal = nameProposal;
             
-            graph.saveObjectToXML(fi.FullName);
+            Int32 nc = nodes.Count(x => x.name.StartsWith(nameProposal));
+            if (nc > 0)
+            {
+                c = nc;
+                proposal = nameProposal + c.ToString("D3");
+            }
+
+            while(ContainsNode(proposal, true))
+            {
+                c++;
+                proposal = nameProposal + c.ToString("D3");
+            }
+            freeGraphNodeBase node = new freeGraphNodeBase();
+            node.name = proposal;
+            node.weight = weight;
+            node.type = type;
+            nodes.Add(node);
+            return node;
         }
 
+        /// <summary>
+        /// Adds new node under <c>nodeName</c> or just returns if any existing
+        /// </summary>
+        /// <param name="nodeName">Name of the node.</param>
+        /// <param name="weight">The weight.</param>
+        /// <param name="type">The type.</param>
+        /// <returns></returns>
         public freeGraphNodeBase AddNode(String nodeName, Double weight = 1, Int32 type = 0)
         {
             if (ContainsNode(nodeName, true))
@@ -591,6 +664,7 @@ namespace imbNLP.PartOfSpeech.TFModels.semanticCloud.core
         public Boolean ContainsNode(String name, Boolean skipCheck = false)
         {
             if (!skipCheck) Check();
+            if (name.isNullOrEmpty()) return false;
             if (IsReady)
             {
                 return nodeDictionary.ContainsKey(name);

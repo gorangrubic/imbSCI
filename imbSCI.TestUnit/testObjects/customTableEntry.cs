@@ -15,21 +15,21 @@ namespace imbSCI.TestUnit.testObjects
 
     public class customTableEntry
     {
-        [Category("Ratio")]
-        [DisplayName("rate")]
+        [Category("GroupA")]
+        [DisplayName("Name")]
         [imb(imbAttributeName.measure_letter, "R")]
         [imb(imbAttributeName.basicColor, "#773300")]
         public String name { get; set; } = "someName";
 
-
+        [Category("GroupA")]
         public Int32 number { get; set; }
 
-       // public Double rate { get; set; }
+        // public Double rate { get; set; }
 
 
 
         /// <summary> Ratio </summary>
-        [Category("Ratio")]
+        [Category("GroupB")]
         [DisplayName("rate")]
         [imb(imbAttributeName.measure_letter, "R")]
         [imb(imbAttributeName.measure_setUnit, "%")]

@@ -12,7 +12,7 @@ namespace imbSCI.Core.files.folders
 
     public static class folderNodeFileDescriptorTools
     {
-        public static String FileDescriptionFormat { get; set; } = "[{0,-30}] {1}";
+        public static String FileDescriptionFormat { get; set; } = "[{0,-50}] {1}";
 
         public static folderNodeFileDescriptor GetFileDescription(this folderNode folder, String filename, String fileDescription)
         {
@@ -99,9 +99,10 @@ namespace imbSCI.Core.files.folders
                         break;
                 }
 
-                fileDescription = String.Format(FileDescriptionFormat, filename, fileDescription);
+                
 
             }
+            fileDescription = String.Format(FileDescriptionFormat, filename, fileDescription);
 
             var desc =  new folderNodeFileDescriptor();
             desc.filename = filename;

@@ -584,6 +584,8 @@ namespace imbSCI.Core.extensions.text
             else
             {
                 output = _camelOps.Replace(source, " ");
+                output = output.Replace("_", " ");
+                output = output.Replace("  ", " ");
                 if (setFirstCapital)
                 {
                     output = output.imgFirstLetter(true);

@@ -48,10 +48,11 @@ using imbSCI.Data.interfaces;
 namespace imbSCI.Core.data
 {
     using imbSCI.Data.enums.fields;
+    using System.ComponentModel;
     using System.Data;
 
     /// <summary>
-    /// Data set about authos and licence
+    /// Data structure with basic information on the author, application, copyright.. etc. Used when reports are created.
     /// </summary>
     /// <seealso cref="imbBindable" />
     public class aceAuthorNotation:imbBindable, IAppendDataFields, IAppendDataFieldsExtended
@@ -96,7 +97,7 @@ namespace imbSCI.Core.data
 
         private String _software = "imbVeles - application";
         /// <summary>
-        /// 
+        /// Name of the software application
         /// </summary>
         public String software
         {
@@ -107,7 +108,7 @@ namespace imbSCI.Core.data
 
         private String _author = "Goran Grubić";
         /// <summary>
-        /// 
+        /// Author of the software
         /// </summary>
         public String author
         {
@@ -125,7 +126,7 @@ namespace imbSCI.Core.data
 
         private String _copyright = "All Rights reserved © 2013-2018.";
         /// <summary>
-        /// 
+        /// Copyright notice text
         /// </summary>
         public String copyright
         {
@@ -136,7 +137,7 @@ namespace imbSCI.Core.data
 
         private String _comment = "Part of PhD thesis research.";
         /// <summary>
-        /// 
+        /// Comment to be placed in footer/meta info of the reports
         /// </summary>
         public String comment
         {
@@ -147,7 +148,7 @@ namespace imbSCI.Core.data
 
         private String _organization = "imbVeles";
         /// <summary>
-        /// 
+        /// Organization behind the software
         /// </summary>
         public String organization
         {
@@ -156,8 +157,25 @@ namespace imbSCI.Core.data
         }
 
 
+        /// <summary> Web site of the project, software, organization or author </summary>
+        [Category("Label")]
+        [DisplayName("Web")] //[imb(imbAttributeName.measure_letter, "")]
+        [Description("Web site of the project, software, organization or author")] // [imb(imbAttributeName.reporting_escapeoff)]
+        public String web { get; set; } = "http://blog.veles.rs";
 
-        
+
+        /// <summary> E-mail address of the project, author, organization... </summary>
+        [Category("Label")]
+        [DisplayName("E-mail")] //[imb(imbAttributeName.measure_letter, "")]
+        [Description("E-mail address of the project, author, organization...")] // [imb(imbAttributeName.reporting_escapeoff)]
+        public String Email { get; set; } = "hardy@veles.rs";
+
+
+
+
+
+
+
 
     }
 }

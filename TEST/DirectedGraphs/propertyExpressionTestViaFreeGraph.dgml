@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" GraphDirection="Sugiyama" Layout="ForceDirected" NeighborhoodDistance="25" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Links>
+    <Link Stroke="#FF2BDE5B" StrokeThinkness="7" Label="" Category="1" Group="Collapsed" Visibility="Visible" Source="node0" Target="defaultgraphexportstyle" />
+    <Link Stroke="#802BDE5B" StrokeThinkness="7" Label="" Category="1" Group="Collapsed" Visibility="Visible" Source="defaultgraphexportstyle" Target="linemin" />
+    <Link Stroke="#802BDE5B" StrokeThinkness="7" Label="" Category="1" Group="Collapsed" Visibility="Visible" Source="defaultgraphexportstyle" Target="nodegradient" />
+    <Link Stroke="#802BDE5B" StrokeThinkness="7" Label="" Category="1" Group="Collapsed" Visibility="Visible" Source="defaultgraphexportstyle" Target="doaddlinkweightinthelabel" />
+    <Link Stroke="#802BDE5B" StrokeThinkness="7" Label="" Category="1" Group="Collapsed" Visibility="Visible" Source="defaultgraphexportstyle" Target="nodeweightformat" />
+    <Link Stroke="#802BDE5B" StrokeThinkness="7" Label="" Category="1" Group="Collapsed" Visibility="Visible" Source="defaultgraphexportstyle" Target="graphdirection" />
+    <Link Stroke="#802BDE5B" StrokeThinkness="7" Label="" Category="1" Group="Collapsed" Visibility="Visible" Source="defaultgraphexportstyle" Target="gradientresolution" />
+    <Link Stroke="#802BDE5B" StrokeThinkness="7" Label="" Category="1" Group="Collapsed" Visibility="Visible" Source="defaultgraphexportstyle" Target="linemax" />
+    <Link Stroke="#802BDE5B" StrokeThinkness="7" Label="" Category="1" Group="Collapsed" Visibility="Visible" Source="defaultgraphexportstyle" Target="linkweightformat" />
+    <Link Stroke="#802BDE5B" StrokeThinkness="7" Label="" Category="1" Group="Collapsed" Visibility="Visible" Source="defaultgraphexportstyle" Target="alphamin" />
+    <Link Stroke="#802BDE5B" StrokeThinkness="7" Label="" Category="1" Group="Collapsed" Visibility="Visible" Source="defaultgraphexportstyle" Target="linkgradient" />
+    <Link Stroke="#802BDE5B" StrokeThinkness="7" Label="" Category="1" Group="Collapsed" Visibility="Visible" Source="defaultgraphexportstyle" Target="alphamax" />
+    <Link Stroke="#802BDE5B" StrokeThinkness="7" Label="" Category="1" Group="Collapsed" Visibility="Visible" Source="defaultgraphexportstyle" Target="dolinkdirectionfromlowertypetohigher" />
+    <Link Stroke="#802BDE5B" StrokeThinkness="7" Label="" Category="1" Group="Collapsed" Visibility="Visible" Source="defaultgraphexportstyle" Target="doaddnodetypetolabel" />
+    <Link Stroke="#802BDE5B" StrokeThinkness="7" Label="" Category="1" Group="Collapsed" Visibility="Visible" Source="defaultgraphexportstyle" Target="graphlayout" />
+    <Link Stroke="#A32BDE5B" StrokeThinkness="7" Label="" Category="1" Group="Collapsed" Visibility="Visible" Source="nodegradient" Target="hexcolorb" />
+    <Link Stroke="#A32BDE5B" StrokeThinkness="7" Label="" Category="1" Group="Collapsed" Visibility="Visible" Source="nodegradient" Target="hexcolora" />
+    <Link Stroke="#A32BDE5B" StrokeThinkness="7" Label="" Category="1" Group="Collapsed" Visibility="Visible" Source="nodegradient" Target="gradient001" />
+    <Link Stroke="#A32BDE5B" StrokeThinkness="7" Label="" Category="1" Group="Collapsed" Visibility="Visible" Source="linkgradient" Target="hexcolorb001" />
+    <Link Stroke="#A32BDE5B" StrokeThinkness="7" Label="" Category="1" Group="Collapsed" Visibility="Visible" Source="linkgradient" Target="hexcolora001" />
+    <Link Stroke="#A32BDE5B" StrokeThinkness="7" Label="" Category="1" Group="Collapsed" Visibility="Visible" Source="linkgradient" Target="gradient002" />
+  </Links>
+  <Nodes>
+    <Node Stroke="#80DB23CF" StrokeThinkness="7" Label="Node0 (1.00000) [1]" Category="2" Group="Collapsed" Visibility="Visible" Id="node0" Background="#80DB23CF" />
+    <Node Stroke="#FF3E25DC" StrokeThinkness="7" Label="DefaultGraphExportStyle (0.50000) [2]" Category="3" Group="Collapsed" Visibility="Visible" Id="defaultgraphexportstyle" Background="#803E25DC" />
+    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="lineMin (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="linemin" Background="#8028B9DD" />
+    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="NodeGradient (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="nodegradient" Background="#8028B9DD" />
+    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="doAddLinkWeightInTheLabel (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="doaddlinkweightinthelabel" Background="#8028B9DD" />
+    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="NodeWeightFormat (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="nodeweightformat" Background="#8028B9DD" />
+    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="GraphDirection (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="graphdirection" Background="#8028B9DD" />
+    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="gradientResolution (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="gradientresolution" Background="#8028B9DD" />
+    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="lineMax (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="linemax" Background="#8028B9DD" />
+    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="LinkWeightFormat (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="linkweightformat" Background="#8028B9DD" />
+    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="alphaMin (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="alphamin" Background="#8028B9DD" />
+    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="LinkGradient (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="linkgradient" Background="#8028B9DD" />
+    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="alphaMax (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="alphamax" Background="#8028B9DD" />
+    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="doLinkDirectionFromLowerTypeToHigher (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="dolinkdirectionfromlowertypetohigher" Background="#8028B9DD" />
+    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="doAddNodeTypeToLabel (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="doaddnodetypetolabel" Background="#8028B9DD" />
+    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="GraphLayout (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="graphlayout" Background="#8028B9DD" />
+    <Node Stroke="#FFDB23CF" StrokeThinkness="7" Label="HexColorB (0.25000) [4]" Category="0" Group="Collapsed" Visibility="Visible" Id="hexcolorb" Background="#80DB23CF" />
+    <Node Stroke="#FFDB23CF" StrokeThinkness="7" Label="HexColorA (0.25000) [4]" Category="0" Group="Collapsed" Visibility="Visible" Id="hexcolora" Background="#80DB23CF" />
+    <Node Stroke="#FFDB23CF" StrokeThinkness="7" Label="gradient001 (0.25000) [4]" Category="0" Group="Collapsed" Visibility="Visible" Id="gradient001" Background="#80DB23CF" />
+    <Node Stroke="#FFDB23CF" StrokeThinkness="7" Label="HexColorB001 (0.25000) [4]" Category="0" Group="Collapsed" Visibility="Visible" Id="hexcolorb001" Background="#80DB23CF" />
+    <Node Stroke="#FFDB23CF" StrokeThinkness="7" Label="HexColorA001 (0.25000) [4]" Category="0" Group="Collapsed" Visibility="Visible" Id="hexcolora001" Background="#80DB23CF" />
+    <Node Stroke="#FFDB23CF" StrokeThinkness="7" Label="gradient002 (0.25000) [4]" Category="0" Group="Collapsed" Visibility="Visible" Id="gradient002" Background="#80DB23CF" />
+  </Nodes>
+  <Properties />
+  <Categories>
+    <Category StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Id="1">
+      <BasedOn />
+    </Category>
+    <Category StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Id="2">
+      <BasedOn />
+    </Category>
+    <Category StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Id="3">
+      <BasedOn />
+    </Category>
+    <Category StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Id="4">
+      <BasedOn />
+    </Category>
+    <Category StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Id="0">
+      <BasedOn />
+    </Category>
+  </Categories>
+</DirectedGraph>

@@ -1,4 +1,33 @@
-﻿using imbNLP.PartOfSpeech.TFModels.semanticCloud.core;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="freeGraphToDMGL.cs" company="imbVeles" >
+//
+// Copyright (C) 2018 imbVeles
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the +terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/. 
+// </copyright>
+// <summary>
+// Project: imbSCI.Graph
+// Author: Goran Grubic
+// ------------------------------------------------------------------------------------------------------------------
+// Project web site: http://blog.veles.rs
+// GitHub: http://github.com/gorangrubic
+// Mendeley profile: http://www.mendeley.com/profiles/goran-grubi2/
+// ORCID ID: http://orcid.org/0000-0003-2673-9471
+// Email: hardy@veles.rs
+// </summary>
+// ------------------------------------------------------------------------------------------------------------------
+// using imbNLP.PartOfSpeech.TFModels.semanticCloud.core;
 using imbSCI.Data.collection.special;
 using imbSCI.Core.extensions.text;
 using imbSCI.Core.extensions.data;
@@ -6,6 +35,7 @@ using imbSCI.Core.extensions.data;
 using imbSCI.Graph.DGML;
 using imbSCI.Graph.DGML.collections;
 using imbSCI.Graph.DGML.core;
+using imbSCI.Graph.FreeGraph;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -13,9 +43,15 @@ using System.Linq;
 using System.Text;
 using imbSCI.Core.reporting.colors;
 using imbSCI.Graph.Converters.tools;
+using imbSCI.Data.collection.graph;
+using imbSCI.Data;
+using imbSCI.Core.math;
 
 namespace imbSCI.Graph.Converters
 {
+
+
+
 
     public abstract class ToDGMLConverterBase
     {
@@ -37,7 +73,10 @@ namespace imbSCI.Graph.Converters
         public freeGraphToDMGL(GraphStylerSettings settings = null)
         {
             setup = settings;
-            if (setup == null) setup = new GraphStylerSettings();
+            if (setup == null)
+            {
+                setup = imbSCI.Graph.config.imbSCIGraphConversionConfig.settings.DefaultGraphExportStyle;
+            }
         }
         
 
@@ -49,8 +88,8 @@ namespace imbSCI.Graph.Converters
 
            // input.InverseWeights(false, true);
 
-            nodeStyler = new NodeWeightStylerCategories(setup);
-            linkStyler = new NodeWeightStylerCategories(setup);
+            nodeStyler = new NodeWeightStylerCategories(setup.NodeGradient, setup);
+            linkStyler = new NodeWeightStylerCategories(setup.LinkGradient, setup);
 
             foreach (freeGraphNodeBase node in input.nodes)
             {
@@ -95,10 +134,12 @@ namespace imbSCI.Graph.Converters
                     if (node != null)
                     {
                         var nd = output.Nodes.AddNode(node.name);
+                        
                         nd.Category = output.Categories[node.type].Id;
                         nd.Background = nodeStyler.GetHexColor(node.weight, node.type);
                         nd.StrokeThinkness = nodeStyler.GetBorderThickness(node.weight, node.type);
-                        nd.Label = nd.Label + " (" + node.weight.ToString(setup.NodeWeightFormat) + ")";
+                        nd.Stroke = nodeStyler.GetHexColor(1, node.type);
+                         nd.Label = nd.Label + " (" + node.weight.ToString(setup.NodeWeightFormat) + ")";
                         if (setup.doAddNodeTypeToLabel)
                         {
                             nd.Label = nd.Label + " [" + node.type + "]";
@@ -132,7 +173,14 @@ namespace imbSCI.Graph.Converters
                         }
 
 
-                        if (setup.doMakeLinkLabel) lnk.Label = link.weight.ToString(setup.LinkWeightFormat);
+                        if (setup.doAddLinkWeightInTheLabel)
+                        {
+                            lnk.Label = lnk.Label.add(link.weight.ToString(setup.LinkWeightFormat));
+                        } else
+                        {
+                            lnk.Label = link.linkLabel;
+                        }
+                        
                         lnk.Category = output.Categories[link.type].Id;
                         lnk.Stroke = linkStyler.GetHexColor(link.weight, link.type);
                         lnk.StrokeThinkness = linkStyler.GetBorderThickness(link.weight, link.type);

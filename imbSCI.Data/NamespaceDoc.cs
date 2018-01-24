@@ -88,7 +88,8 @@ namespace imbSCI.Data
     /// <see cref="imbSCI.Data.data.maps.mapping.propertyMappingTools.getValuesFromMappedSource(object, data.maps.mapping.propertyMap)"/>
     /// <see cref="imbSCI.Data.collection.nested.aceEnumDictionarySet2D{TEnum, TD1Key, TD2Key, TValue}"/>
     /// </seealso>
-    public class NamespaceDoc
+    [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+    class NamespaceDoc
     {
 
     }

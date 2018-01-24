@@ -35,7 +35,7 @@ namespace imbSCI.Core.interfaces
     public interface IRangeCriteria
     {
         bool isDisabled { get; set; }
-        void setCriteria(aceCriterieConfig config);
+        void setCriteria(aceCriterionConfig config);
         void setCriteria(IComparable even, bool trueIfMore = true);
         void setCriteria(IComparable min, IComparable max, bool trueIfInside = true);
         void setCriteriaExact(IComparable even);

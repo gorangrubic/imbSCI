@@ -256,7 +256,7 @@ namespace imbSCI.Core.extensions.table
         {
             if (!dc.ExtendedProperties.ContainsKey(templateFieldDataTable.data_aggregation_type))
             {
-                return default(dataPointAggregationAspect);
+                dc.ExtendedProperties[templateFieldDataTable.data_aggregation_type] = new dataPointAggregationAspect();
             }
             return (dataPointAggregationAspect) dc.ExtendedProperties[templateFieldDataTable.data_aggregation_type];
         }

@@ -495,10 +495,27 @@ namespace imbSCI.DataComplex.tables
 
         public const string EXTRAFOLDER = "data";
 
+        /// <summary>
+        /// Creates report table version for the <c>source</c> and saves the report on specified <c>folder</c>
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="folder">The folder.</param>
+        /// <param name="notation">The notation.</param>
+        /// <param name="filenamePrefix">The filename prefix.</param>
+        /// <param name="disablePrimaryKey">if set to <c>true</c> [disable primary key].</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException">Folder is null! at GetReportAndSave() for [" + source.TableName + "] at filename [" + filenamePrefix + "]</exception>
         public static DataTableForStatistics GetReportAndSave(this DataTable source, folderNode folder, aceAuthorNotation notation = null, string filenamePrefix = "", bool disablePrimaryKey = true)
         {
 
            // if (source == null) return new DataTableForStatistics();
+
+            if (folder == null)
+            {
+                throw new ArgumentNullException("Folder is null! at GetReportAndSave() for [" + source.TableName + "] at filename [" + filenamePrefix + "]");
+            }
+
+
             if (source.Columns.Count > 0)
             {
                 folderNode dataFolder = null;

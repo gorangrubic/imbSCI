@@ -220,10 +220,19 @@ namespace imbSCI.DataComplex.extensions.data.operations
 
         }
 
+        /// <summary>
+        /// Copies the rows from <c>source</c> into <c>table</c>
+        /// </summary>
+        /// <param name="table">The table to copy into.</param>
+        /// <param name="source">The source data table.</param>
+        /// <param name="rowsSkip">Rows to skip.</param>
+        /// <param name="rowsLimit">Rows limit</param>
         public static void CopyRowsFrom(this DataTable table, DataTable source, int rowsSkip=0, int rowsLimit = -1)
         {
             if (rowsLimit == -1) rowsLimit = source.Rows.Count;
-            
+
+            rowsLimit = Math.Min(rowsLimit, source.Rows.Count);
+
             //Int32 cc = Math.Min(table.Columns.Count, columnLimit);
 
             // IEnumerable<DataRow> rows = table.AsEnumerable().Take(rowsLimit);
@@ -289,9 +298,15 @@ namespace imbSCI.DataComplex.extensions.data.operations
             return output;
         }
 
-       
 
 
+
+        /// <summary>
+        /// Gets the sum data set.
+        /// </summary>
+        /// <param name="datasets">The datasets.</param>
+        /// <param name="dataSetName">Name of the data set.</param>
+        /// <returns></returns>
         public static DataSet GetSumDataSet(this IEnumerable<DataSet> datasets, string dataSetName = "dataset")
         {
             DataSet dss = null;
@@ -324,6 +339,11 @@ namespace imbSCI.DataComplex.extensions.data.operations
             return fin;
         }
 
+        /// <summary>
+        /// Cleans the meta.
+        /// </summary>
+        /// <param name="table">The table.</param>
+        /// <returns></returns>
         public static DataTable CleanMeta(this DataTable table)
         {
             foreach (DataColumn dc in table.Columns)
@@ -340,6 +360,7 @@ namespace imbSCI.DataComplex.extensions.data.operations
         /// <param name="tables">The tables.</param>
         /// <param name="tablename">The tablename.</param>
         /// <param name="aspect">The aspect.</param>
+        /// <param name="logger">The logger.</param>
         /// <returns></returns>
         public static DataTable GetAggregatedTable(this IEnumerable<DataTable> tables, string tablename = "summary", dataPointAggregationAspect aspect = dataPointAggregationAspect.overlapMultiTable, ILogBuilder logger=null)
         {

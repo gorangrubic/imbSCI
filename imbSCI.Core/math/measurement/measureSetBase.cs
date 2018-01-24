@@ -243,7 +243,7 @@ namespace imbSCI.Core.math.measurement
 
                 im.isAlarmTurnedOn = displayInfo.attributes.ContainsKey(imbAttributeName.measure_setAlarm);
                 im.valueRange.setValueRange(displayInfo.attributes.getMessage<aceRangeConfig>(imbAttributeName.measure_setRange));
-                im.alarmCriteria.setCriteria(displayInfo.attributes.getMessage<aceCriterieConfig>(imbAttributeName.measure_setAlarm));
+                im.alarmCriteria.setCriteria(displayInfo.attributes.getMessage<aceCriterionConfig>(imbAttributeName.measure_setAlarm));
 
                 im.metaModelName = displayInfo.attributes.getMessage(imbAttributeName.measure_metaModelName, im.name);
                 im.metaModelPrefix = displayInfo.attributes.getMessage(imbAttributeName.measure_metaModelPrefix, "MN");

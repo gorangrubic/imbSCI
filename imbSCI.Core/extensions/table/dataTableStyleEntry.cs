@@ -68,7 +68,7 @@ namespace imbSCI.Core.extensions.table
             key = enumType;
             Background.FillType = reporting.style.enums.styleFillType.Solid;
             Text.FontName = reporting.style.enums.aceFont.Calibri;
-            Cell.aligment = reporting.zone.textCursorZoneCorner.center;
+            Cell.aligment = reporting.zone.textCursorZoneCorner.Left;
             Text.FontSize = 10;
             Cell.doWrapText = true;
 
@@ -78,49 +78,60 @@ namespace imbSCI.Core.extensions.table
                 case DataRowInReportTypeEnum.columnCaption:
                     Background.Color = System.Drawing.Color.DarkGray;
                     Background.Tint = 0.6;
+                    BackgroundAlt.Color = System.Drawing.Color.DarkGray;
+                    BackgroundAlt.Tint = 0.7;
                     Text.Style = reporting.style.enums.styleTextTypeEnum.bold;
+                    Cell.aligment = reporting.zone.textCursorZoneCorner.center;
                     Cell.minSize.height = 30;
                     break;
                 case DataRowInReportTypeEnum.dataHighlightA:
                     Text.Style = reporting.style.enums.styleTextTypeEnum.bold;
                     Cell.sizeAndBorder.setup(3, 0, Color.OrangeRed, 1, reporting.style.enums.styleBorderType.Dotted, styleSideDirection.top, styleSideDirection.bottom);
                     Background.Color = Color.OrangeRed;
-                    Background.Tint = 0.9;
+                    Background.Tint = 0.5;
                     BackgroundAlt.Color = Color.Orange;
-                    BackgroundAlt.Tint = 0.7;
+                    BackgroundAlt.Tint = 0.5;
                     break;
                 case DataRowInReportTypeEnum.dataHighlightB:
                     Text.Style = reporting.style.enums.styleTextTypeEnum.bold;
                     Cell.sizeAndBorder.setup(3, 0, Color.CadetBlue, 1, reporting.style.enums.styleBorderType.Dotted, styleSideDirection.top, styleSideDirection.bottom);
                     Background.Color = Color.CadetBlue;
-                    Background.Tint = 0.8;
+                    Background.Tint = 0.5;
                     BackgroundAlt.Color = Color.DarkSeaGreen;
-                    BackgroundAlt.Tint = 0.9;
+                    BackgroundAlt.Tint = 0.5;
                     break;
                 case DataRowInReportTypeEnum.dataHighlightC:
                     Text.Style = reporting.style.enums.styleTextTypeEnum.bold;
                     Cell.sizeAndBorder.setup(3, 0, Color.SteelBlue, 1, reporting.style.enums.styleBorderType.Dotted, styleSideDirection.top, styleSideDirection.bottom);
                     Background.Color = Color.SteelBlue;
-                    Background.Tint = 0.8;
+                    Background.Tint = 0.5;
                     BackgroundAlt.Color = Color.SteelBlue;
-                    BackgroundAlt.Tint = 0.6;
+                    BackgroundAlt.Tint = 0.5;
                     break;
                 case DataRowInReportTypeEnum.removedLight:
                     Text.Style = reporting.style.enums.styleTextTypeEnum.regular | styleTextTypeEnum.striketrough; 
-                    Cell.sizeAndBorder.setup(0, 0, Color.Gray, 0, reporting.style.enums.styleBorderType.None);
+                    //Cell.sizeAndBorder.setup(0, 0, Color.Gray, 0, reporting.style.enums.styleBorderType.None);
                     Text.Color = Color.LightGray;
-
+                    Background.Color = Color.WhiteSmoke;
+                    BackgroundAlt.Color = Color.Snow;
+                    Background.Tint = 0.8;
+                    BackgroundAlt.Tint = 0.8;
                     break;
                 case DataRowInReportTypeEnum.removedStrong:
                     Text.Style = reporting.style.enums.styleTextTypeEnum.regular | styleTextTypeEnum.striketrough;
-                    Cell.sizeAndBorder.setup(0, 0, Color.Gray, 0, reporting.style.enums.styleBorderType.None);
+                    //Cell.sizeAndBorder.setup(0, 0, Color.Gray, 0, reporting.style.enums.styleBorderType.None);
                     Text.Color = Color.OrangeRed;
-
+                    Background.Color = Color.WhiteSmoke;
+                    BackgroundAlt.Color = Color.Snow;
+                    Background.Tint = 0.8;
+                    BackgroundAlt.Tint = 0.8;
                     break;
                 case DataRowInReportTypeEnum.columnDescription:
                     Background.Color = Color.LightSteelBlue;
                     BackgroundAlt.Color = Color.LightSteelBlue;
+                    Cell.aligment = reporting.zone.textCursorZoneCorner.center;
                     Background.Tint = 0.4;
+                    BackgroundAlt.Tint = 0.5;
                     Text.FontSize = 9;
                     Cell.minSize.height = 18;
                     break;
@@ -139,7 +150,7 @@ namespace imbSCI.Core.extensions.table
                 case DataRowInReportTypeEnum.data:
                     Background.Color = Color.WhiteSmoke;
                     BackgroundAlt.Color = Color.Snow;
-                    Background.Tint = 0.8;
+                    Background.Tint = 0.2;
                     BackgroundAlt.Tint = 0.2;
                     Text.FontSize = 9;
                     Cell.minSize.height = 15;
@@ -154,6 +165,7 @@ namespace imbSCI.Core.extensions.table
                     BackgroundAlt.Color = Color.Gray;
                     BackgroundAlt.Tint = 0.9;
                     Cell.minSize.height = 25;
+                    Cell.aligment = reporting.zone.textCursorZoneCorner.center;
                     break;
                 case DataRowInReportTypeEnum.mergedFooterInfo:
                     
@@ -183,12 +195,13 @@ namespace imbSCI.Core.extensions.table
                     Cell.minSize.height = 30;
                     break;
                 case DataRowInReportTypeEnum.mergedHorizontally:
-                    Cell.minSize.height = 20;
+                    Cell.minSize.height = 12;
+                    Text.FontSize = 8;
                     Background.Color = Color.LightGray;
                     BackgroundAlt.Color = Color.LightGray;
-                    Background.Tint = 0.8;
+                    Background.Tint = 0.9;
                     BackgroundAlt.Tint = 0.8;
-
+                    Cell.aligment = reporting.zone.textCursorZoneCorner.Left;
                     break;
                 case DataRowInReportTypeEnum.none:
                     break;

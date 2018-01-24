@@ -35,7 +35,7 @@ namespace imbSCI.Core.data
     using System.Linq;
 
     /// <summary>
-    /// Tools for property selection expression resolution
+    /// Tools to work with <see cref="PropertyExpression"/> graphs, to evaluate String path... See: <see cref="GetExpressionResolved(object, string)"/>
     /// </summary>
     public static class PropertyExpressionTools
     {
@@ -59,7 +59,7 @@ namespace imbSCI.Core.data
                 root = pathPart.First();
                 output = new PropertyExpression(host, root);
             }
-            pathPart.Remove(pathPart.First());
+           // pathPart.Remove(pathPart.First());
 
             Object head = host;
             if (output.property == null)
@@ -72,6 +72,7 @@ namespace imbSCI.Core.data
             foreach (String pp in pathPart)
             {
                 currentPart = pp;
+
                 var tmp = output.Add(pp);
                 if (tmp.host == null)
                 {
@@ -85,7 +86,8 @@ namespace imbSCI.Core.data
 
             }
 
-            if (currentPart != pathPart.Last())
+            
+            if (pathPart.Any() && currentPart != pathPart.LastOrDefault())
             {
                 String unp = "";
                 Int32 i = pathPart.IndexOf(currentPart);

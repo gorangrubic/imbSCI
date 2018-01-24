@@ -1,4 +1,33 @@
-﻿using System;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="NodeWeightStyler.cs" company="imbVeles" >
+//
+// Copyright (C) 2018 imbVeles
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the +terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/. 
+// </copyright>
+// <summary>
+// Project: imbSCI.Graph
+// Author: Goran Grubic
+// ------------------------------------------------------------------------------------------------------------------
+// Project web site: http://blog.veles.rs
+// GitHub: http://github.com/gorangrubic
+// Mendeley profile: http://www.mendeley.com/profiles/goran-grubi2/
+// ORCID ID: http://orcid.org/0000-0003-2673-9471
+// Email: hardy@veles.rs
+// </summary>
+// ------------------------------------------------------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -78,6 +107,10 @@ namespace imbSCI.Graph.Converters.tools
         {
             Double w = weight - min;
             w = w.GetRatio(range);
+            if (w > 1)
+            {
+                w = 1;
+            }
             w = s.alphaMin + ((s.alphaMax - s.alphaMin) * w);
             Byte b = Convert.ToByte(w * Byte.MaxValue);
             return b;
@@ -93,7 +126,7 @@ namespace imbSCI.Graph.Converters.tools
         {
             min = Math.Min(weight, min);
             max = Math.Max(weight, max);
-            range = max - min;
+            
         }
 
         /// <summary>
@@ -102,7 +135,11 @@ namespace imbSCI.Graph.Converters.tools
         /// <value>
         /// The range.
         /// </value>
-        public Double range { get; set; } = 0;
+        public Double range {
+            get {
+                return max - min;
+            }
+        }
         /// <summary>
         /// Gets or sets the minimum.
         /// </summary>

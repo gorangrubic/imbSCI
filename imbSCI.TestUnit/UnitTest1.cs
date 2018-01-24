@@ -22,11 +22,15 @@ namespace imbSCI.TestUnit
     using imbSCI.DataComplex.tables;
     using imbSCI.Core.extensions.table;
     using imbSCI.Core.files;
+    using imbSCI.Core.data;
+    using imbSCI.Graph.Converters;
 
-
-        [TestClass]
+    [TestClass]
     public class UnitTestForSCIData
     {
+
+
+
         [TestMethod]
         public void TestFolderStructure()
         {
@@ -39,6 +43,8 @@ namespace imbSCI.TestUnit
             folder.Add("Test2", "Test two", "Some description: ");
             folder.Add("Test3", "Test three", "Some description: ").Add("Test3_1", "Test 3.1", "");
 
+            t11.pathFor("justSomeFake.xml");
+            t11.pathFor("justSomeFakeWithDesc.xml", getWritableFileMode.none, "Some fake description");
             List<folderNode> chld = folder.getAllChildrenInType<folderNode>();
 
             Assert.IsTrue(chld.Any());

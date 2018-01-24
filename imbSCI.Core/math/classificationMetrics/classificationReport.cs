@@ -37,113 +37,25 @@ using System.Text;
 namespace imbSCI.Core.math.classificationMetrics
 {
 
-
-
-    /// <summary>
-    /// Extension methods for <see cref="IClassificationReport"/>
-    /// </summary>
-    public static class classificationReportExtensions
+    [Flags]
+    public enum classificationReportRowFlags
     {
-
-
-        /// <summary>
-        /// Adds the values from specified <c>metrics</c> object
-        /// </summary>
-        /// <param name="a">a.</param>
-        /// <param name="metrics">The metrics.</param>
-        /// <param name="method">The method of ratios computation (F1, Precision, Recall)</param>
-        public static void AddValues(this IClassificationReport a, classificationEvalMetricSet metrics, classificationMetricComputation method)
-        {
-            a.Precision += metrics.GetPrecision(method);
-            a.Recall += metrics.GetRecall(method);
-            a.F1measure += metrics.GetPrecision(method);
-
-            foreach (var p in metrics)
-            {
-                a.Correct += p.Value.correct;
-                a.Wrong += p.Value.wrong;
-                a.Targets += p.Value.correct + p.Value.wrong;
-            }
-
-        }
-
-
-        /// <summary>
-        /// Adds the values from specified <c>source</c>
-        /// </summary>
-        /// <param name="a">a.</param>
-        /// <param name="source">The source.</param>
-        public static void AddValues(this IClassificationReport a, IClassificationReport source)
-        {
-            a.Precision += source.Precision;
-            a.Recall += source.Recall;
-            a.F1measure += source.F1measure;
-            a.Correct += source.Correct;
-            a.Targets += source.Targets;
-            a.Wrong += source.Wrong;
-        }
-
-        /// <summary>
-        /// Divides the values stored in the report
-        /// </summary>
-        /// <param name="a">a.</param>
-        /// <param name="divisor">The divisor.</param>
-        /// <param name="OnlyRatios">if set to <c>true</c> [only ratios].</param>
-        public static void DivideValues(this IClassificationReport a,Double divisor, Boolean OnlyRatios = true)
-        {
-            
-            a.Precision = a.Precision.GetRatio(divisor);
-            a.Recall = a.Recall.GetRatio(divisor);
-            a.F1measure = a.F1measure.GetRatio(divisor);
-            if (!OnlyRatios)
-            {
-                a.Correct = a.Correct.GetRatio(divisor);
-                a.Targets = a.Targets.GetRatio(divisor);
-                a.Wrong = a.Wrong.GetRatio(divisor);
-            }
-        }
-
-        //public static DocumentSetCaseCollectionReport GetAverage(IEnumerable<DocumentSetCaseCollectionReport> input)
-        //{
-        //    DocumentSetCaseCollectionReport output = null;
-        //    DocumentSetCaseCollectionReport first = null;
-        //    Int32 c = 0;
-        //    foreach (var i in input)
-        //    {
-        //        if (first == null)
-        //        {
-        //            first = i;
-        //            output = new DocumentSetCaseCollectionReport(first.Classifier + "_" + "")
-        //            output.Classifier = first.Classifier;
-        //            output.kFoldCase = output.Classifier + " (mean)";
-        //        }
-        //        output.AddValues(i);
-        //        c++;
-        //    }
-        //    output.DivideValues(c);
-
-        //    return output;
-        //}
+        none=0,
+        singleCase=1,
+        singleCategory = 2,
+        singleFold=4,
+        multiCase=8,
+        multiCategory = 16,
+        multiFold=32,
+        classifier=64,
+        FVExtractor=128,
+        macroaverage=256,
+        microaverage=512,
+        
 
     }
 
 
-    /// <summary>
-    /// Interface to classification report objects
-    /// </summary>
-    public interface IClassificationReport
-    {
-        String Name { get; set; }
-        String Classifier { get; set; }
-        Double Correct { get; set; }
-        Double Wrong { get; set; }
-        Double Targets { get; set; }
-        Double Precision { get; set; }
-        Double Recall { get; set; }
-        Double F1measure { get; set; }
-        classificationEvalMetricSet GetSetMetrics(classificationEvalMetricSet _metrics = null);
-
-    }
 
     /// <summary>
     /// Base class for classification reporting
@@ -177,18 +89,18 @@ namespace imbSCI.Core.math.classificationMetrics
         }
 
         /// <summary> the title attached to this k-fold evaluation case instance </summary>
-        [Category("Label")]
+        [Category("Labels")]
         [DisplayName("Name")] //[imb(imbAttributeName.measure_letter, "")]
-        [Description("the title attached to this case instance")]
+        [Description("The label / title, attached to this case / data row / report instance")]
         [imb(imbAttributeName.reporting_columnWidth, "50")]
         public String Name { get; set; } = default(String);
 
 
 
         /// <summary> Name of post classifier </summary>
-        [Category("Label")]
+        [Category("Labels")]
         [DisplayName("Classifier")] //[imb(imbAttributeName.measure_letter, "")]
-        [Description("Name of post classifier")] // [imb(imbAttributeName.reporting_escapeoff)]
+        [Description("Classification algorithm code-name")] // [imb(imbAttributeName.reporting_escapeoff)]
         public String Classifier { get; set; } = default(String);
 
 
@@ -196,36 +108,36 @@ namespace imbSCI.Core.math.classificationMetrics
 
 
         /// <summary> Correct classifications </summary>
-        [Category("Evaluation")]
+        [Category("Basic measures")]
         [DisplayName("Correct")]
         [imb(imbAttributeName.measure_letter, "E_c")]
         [imb(imbAttributeName.measure_setUnit, "n")]
-        [Description("Correct classifications")] // [imb(imbAttributeName.measure_important)][imb(imbAttributeName.reporting_valueformat, "")]
+        [Description("Correct classifications - True positives")] // [imb(imbAttributeName.measure_important)][imb(imbAttributeName.reporting_valueformat, "")]
         public Double Correct { get; set; } = 0;
 
 
         /// <summary> Wrong </summary>
-        [Category("Count")]
+        [Category("Basic measures")]
         [DisplayName("Wrong")]
         [imb(imbAttributeName.measure_letter, "E_w")]
         [imb(imbAttributeName.measure_setUnit, "n")]
-        [Description("Wrong classification count")] // [imb(imbAttributeName.measure_important)][imb(imbAttributeName.reporting_valueformat, "")]
+        [Description("Wrong classification count - False positives")] // [imb(imbAttributeName.measure_important)][imb(imbAttributeName.reporting_valueformat, "")]
         public Double Wrong { get; set; } = default(Int32);
 
 
 
 
         /// <summary> Number of web sites designated for model evaluation </summary>
-        [Category("Evaluation")]
+        [Category("Basic measures")]
         [DisplayName("Targets")]
         [imb(imbAttributeName.measure_letter, "W_n")]
         [imb(imbAttributeName.measure_setUnit, "n")]
-        [Description("Number of web sites designated for model evaluation")] // [imb(imbAttributeName.measure_important)][imb(imbAttributeName.reporting_valueformat, "")]
+        [Description("Number of cases evaluated by the model, in test phase")] // [imb(imbAttributeName.measure_important)][imb(imbAttributeName.reporting_valueformat, "")]
         public Double Targets { get; set; } = default(Int32);
 
 
         /// <summary> Ratio </summary>
-        [Category("Ratio")]
+        [Category("Effectiveness")]
         [DisplayName("Precision")]
         [imb(imbAttributeName.measure_letter, "P")]
         [imb(imbAttributeName.measure_setUnit, "%")]
@@ -235,7 +147,7 @@ namespace imbSCI.Core.math.classificationMetrics
 
 
         /// <summary> Ratio </summary>
-        [Category("Ratio")]
+        [Category("Effectiveness")]
         [DisplayName("Recall")]
         [imb(imbAttributeName.measure_letter, "R")]
         [imb(imbAttributeName.measure_setUnit, "%")]
@@ -246,13 +158,42 @@ namespace imbSCI.Core.math.classificationMetrics
 
 
         /// <summary> F1 measure - harmonic mean of precision and recall </summary>
-        [Category("Ratio")]
+        [Category("Effectiveness")]
         [DisplayName("F1measure")]
         [imb(imbAttributeName.measure_letter, "F1")]
         [imb(imbAttributeName.measure_setUnit, "%")]
         [imb(imbAttributeName.reporting_valueformat, "F5")]
         [Description("F1 measure - harmonic mean of precision and recall")] // [imb(imbAttributeName.measure_important)][imb(imbAttributeName.reporting_valueformat, "")][imb(imbAttributeName.reporting_escapeoff)]
         public Double F1measure { get; set; } = default(Double);
+
+
+
+        /// <summary> Optional information or comment on the data in the row </summary>
+        [Category("Meta")]
+        [DisplayName("Comment")] //[imb(imbAttributeName.measure_letter, "")]
+        [Description("Optional information or comment on the data in the row")] // [imb(imbAttributeName.reporting_escapeoff)]
+        public String Comment { get; set; } = default(String);
+
+
+        /// <summary> Basic enumeration of the report entry, i.e. data row </summary>
+        [Category("Meta")]
+        [DisplayName("Flags")] //[imb(imbAttributeName.measure_letter, "")]
+        [Description("Basic enumeration of the report entry, i.e. data row")] // [imb(imbAttributeName.reporting_escapeoff)]
+        public classificationReportRowFlags EntryFlags { get; set; } = classificationReportRowFlags.none;
+
+
+
+        /// <summary> Number of cases that were aggregated in this row </summary>
+        [Category("Meta")]
+        [DisplayName("Count")]
+        [imb(imbAttributeName.measure_letter, "")]
+        [imb(imbAttributeName.measure_setUnit, "n")]
+        [Description("Number of cases that were aggregated in this row")] // [imb(imbAttributeName.measure_important)][imb(imbAttributeName.reporting_valueformat, "")]
+        public Int32 Count { get; set; }
+
+
+
+
 
 
     }

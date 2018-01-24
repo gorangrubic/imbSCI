@@ -486,7 +486,7 @@ namespace imbSCI.Core.extensions.table
 
 
         /// <summary>
-        /// Sets the value type
+        /// Gets the real Value Type of source DataColumn -- this is NOT same as <see cref="DataColumn.DataType"/>
         /// </summary>
         /// <param name="dc">The dc.</param>
         /// <param name="default_col_type">Default type of the col.</param>
@@ -500,6 +500,11 @@ namespace imbSCI.Core.extensions.table
             }
             return (Type) dc.ExtendedProperties[templateFieldDataTable.col_type];
         }
+        /// <summary>
+        /// Gets the real Value Type of source DataColumn -- this is NOT same as <see cref="DataColumn.DataType"/>
+        /// </summary>
+        /// <param name="dc">The dc.</param>
+        /// <returns></returns>
         public static Type GetValueType(this DataColumn dc)
         {
             if (!dc.ExtendedProperties.ContainsKey(templateFieldDataTable.col_type))
@@ -508,6 +513,12 @@ namespace imbSCI.Core.extensions.table
             }
             return (Type) dc.ExtendedProperties[templateFieldDataTable.col_type];
         }
+        /// <summary>
+        /// Sets the real Value Type of source DataColumn -- this is NOT same as <see cref="DataColumn.DataType" />
+        /// </summary>
+        /// <param name="dc">The dc.</param>
+        /// <param name="col_type">Type of the col.</param>
+        /// <returns></returns>
         public static DataColumn SetValueType(this DataColumn dc, Type col_type)
         {
             dc.ExtendedProperties.add(templateFieldDataTable.col_type, col_type);
@@ -524,6 +535,12 @@ namespace imbSCI.Core.extensions.table
             //dc.DataType = col_type;
             return dc;
         }
+        /// <summary>
+        /// Sets the real Value Type of source DataColumn -- this is NOT same as <see cref="DataColumn.DataType" />
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="dc">The dc.</param>
+        /// <returns></returns>
         public static DataColumn SetValueType<T>(this DataColumn dc)
         {
             Type col_type = typeof(T);

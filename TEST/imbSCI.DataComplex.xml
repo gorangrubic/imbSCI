@@ -3996,6 +3996,14 @@
             </summary>
             <seealso cref="T:System.Data.DataTable" />
         </member>
+        <member name="P:imbSCI.DataComplex.tables.DataTableForStatistics.RowStart">
+            <summary>
+            Row index position when data starts (after heading rows are created
+            </summary>
+            <value>
+            The row start.
+            </value>
+        </member>
         <member name="P:imbSCI.DataComplex.tables.DataTableForStatistics.RowsWithMaxAggregation">
             <summary>
             Rel address of the last aggregated row having maximum number of rows aggregated (i.e. number of common rows)
@@ -4004,10 +4012,32 @@
             The row aggregation all.
             </value>
         </member>
+        <member name="P:imbSCI.DataComplex.tables.DataTableForStatistics.RowsWithDataCount">
+            <summary>
+            Number of rows with data in this report datatable
+            </summary>
+            <value>
+            The rows with data count.
+            </value>
+        </member>
         <member name="P:imbSCI.DataComplex.tables.DataTableForStatistics.lastFilePath">
             <summary>
             Last file path that used for save or load
             </summary>
+        </member>
+        <member name="M:imbSCI.DataComplex.tables.DataTableForStatistics.RenderDataTable">
+            <summary>
+            Renders the data table.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.DataComplex.tables.DataTableForStatistics.DeployStyle(System.Data.DataTable,OfficeOpenXml.ExcelWorksheet,System.Boolean)">
+            <summary>
+            Deploys the style.
+            </summary>
+            <param name="table">The table.</param>
+            <param name="ws">The ws.</param>
+            <param name="useMetaSetFromTheTable">if set to <c>true</c> it will use style set from the table specified.</param>
         </member>
         <member name="M:imbSCI.DataComplex.tables.DataTableForStatistics.ApplyObjectTableTemplate">
             <summary>
@@ -4041,6 +4071,18 @@
             </summary>
             <param name="type">The type.</param>
             <returns></returns>
+        </member>
+        <member name="M:imbSCI.DataComplex.tables.DataTableForStatisticsExtension.GetReportAndSave(System.Data.DataTable,imbSCI.Core.files.folders.folderNode,imbSCI.Core.data.aceAuthorNotation,System.String,System.Boolean)">
+            <summary>
+            Creates report table version for the <c>source</c> and saves the report on specified <c>folder</c>
+            </summary>
+            <param name="source">The source.</param>
+            <param name="folder">The folder.</param>
+            <param name="notation">The notation.</param>
+            <param name="filenamePrefix">The filename prefix.</param>
+            <param name="disablePrimaryKey">if set to <c>true</c> [disable primary key].</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">Folder is null! at GetReportAndSave() for [" + source.TableName + "] at filename [" + filenamePrefix + "]</exception>
         </member>
         <member name="T:imbSCI.DataComplex.tables.DataTableTypeExtended`1">
             <summary>

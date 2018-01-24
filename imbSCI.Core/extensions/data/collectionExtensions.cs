@@ -348,6 +348,15 @@ namespace imbSCI.Core.extensions.data
         }
 
 
+
+        public static List<TTarget> ConvertList<TSource, TTarget>(this List<TSource> source) where TTarget:TSource 
+        {
+            List<TTarget> output = new List<TTarget>();
+            source.ToList().ForEach(x => output.Add((TTarget)x));
+            return output;
+        }
+
+
         /// <summary>
         /// Converts an IList to List
         /// </summary>

@@ -885,6 +885,44 @@
             <param name="defaultStyle">The default style.</param>
             <returns></returns>
         </member>
+        <member name="T:imbSCI.Core.extensions.table.dataRowIndexDynamicStyle`1">
+            <summary>
+            Affects rows on specified index positions
+            </summary>
+            <typeparam name="TEnum">The type of the enum.</typeparam>
+            <seealso cref="T:imbSCI.Core.extensions.table.dataTableDynamicStyleEntry" />
+        </member>
+        <member name="P:imbSCI.Core.extensions.table.dataRowIndexDynamicStyle`1.indexFromSourceTable">
+            <summary>
+            If true - it counts rows from the source table (without column labels)
+            </summary>
+            <value>
+              <c>true</c> if [index from source table]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.dataRowIndexDynamicStyle`1.#ctor(imbSCI.Core.extensions.table.dataTableStyleEntry,System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.extensions.table.dataRowIndexDynamicStyle`1"/> class.
+            </summary>
+            <param name="_key">The key.</param>
+            <param name="indexList">The index list.</param>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.dataRowIndexDynamicStyle`1.#ctor(`0,System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.extensions.table.dataRowIndexDynamicStyle`1"/> class.
+            </summary>
+            <param name="_key">The key.</param>
+            <param name="indexList">The index list.</param>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.dataRowIndexDynamicStyle`1.evaluate(System.Data.DataRow,System.Data.DataTable,imbSCI.Core.extensions.table.dataTableStyleEntry)">
+            <summary>
+            Evaluates the specified row.
+            </summary>
+            <param name="row">The row.</param>
+            <param name="table">The table.</param>
+            <param name="defaultStyle">The default style.</param>
+            <returns></returns>
+        </member>
         <member name="F:imbSCI.Core.extensions.table.DataRowInReportTypeEnum.mergedHorizontally">
             <summary>
             The merged horizontally: cells with the same value are merged horizontally
@@ -904,6 +942,24 @@
         <member name="P:imbSCI.Core.extensions.table.dataTableMetaSet.units">
             <summary> </summary>
         </member>
+        <member name="M:imbSCI.Core.extensions.table.dataTableRowMetaSet.SetStyleForRows(imbSCI.Core.extensions.table.DataRowInReportTypeEnum,System.Int32[])">
+            <summary>
+            Sets the specified style by rows indexes. The row index is interpreted by index in source table (not reporting version of the table -- i.e. heading rows are not counted, only data)
+            </summary>
+            <param name="style">The style.</param>
+            <param name="rowIndexes">The row indexes.</param>
+            <returns>Rule that was created</returns>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.dataTableRowMetaSet.SetStyleForRowsWithValue``1(imbSCI.Core.extensions.table.DataRowInReportTypeEnum,System.String,``0[])">
+            <summary>
+            Sets the style for rows with value.
+            </summary>
+            <typeparam name="TValueType">The type of the value type.</typeparam>
+            <param name="style">The style.</param>
+            <param name="columnName">Name of the column.</param>
+            <param name="rowIndexes">The row indexes.</param>
+            <returns></returns>
+        </member>
         <member name="M:imbSCI.Core.extensions.table.dataTableRowMetaSet.evaluate(System.Data.DataRow,System.Data.DataTable,imbSCI.Core.extensions.table.dataTableStyleEntry)">
             <summary>
             Evaluates the specified row.
@@ -920,8 +976,8 @@
             <summary>
             Evaluates rows for exact value match
             </summary>
-            <typeparam name="T"></typeparam>
-            <typeparam name="TEnum">The type of the enum.</typeparam>
+            <typeparam name="TValueType">Type of column value</typeparam>
+            <typeparam name="TEnum">The type of enum to use when calling the style</typeparam>
             <seealso cref="T:imbSCI.Core.extensions.table.dataTableDynamicStyleEntry" />
         </member>
         <member name="M:imbSCI.Core.extensions.table.dataValueMatchCriterionDynamicStyle`2.#ctor(System.Collections.Generic.IEnumerable{`0},`1,System.String)">
@@ -1056,10 +1112,33 @@
         </member>
         <member name="M:imbSCI.Core.extensions.table.dataColumnRenderingSetup.ValueType(System.Data.DataColumn,System.Type)">
             <summary>
-            Sets the value type
+            Gets the real Value Type of source DataColumn -- this is NOT same as <see cref="P:System.Data.DataColumn.DataType"/>
             </summary>
             <param name="dc">The dc.</param>
             <param name="default_col_type">Default type of the col.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.dataColumnRenderingSetup.GetValueType(System.Data.DataColumn)">
+            <summary>
+            Gets the real Value Type of source DataColumn -- this is NOT same as <see cref="P:System.Data.DataColumn.DataType"/>
+            </summary>
+            <param name="dc">The dc.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.dataColumnRenderingSetup.SetValueType(System.Data.DataColumn,System.Type)">
+            <summary>
+            Sets the real Value Type of source DataColumn -- this is NOT same as <see cref="P:System.Data.DataColumn.DataType" />
+            </summary>
+            <param name="dc">The dc.</param>
+            <param name="col_type">Type of the col.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.dataColumnRenderingSetup.SetValueType``1(System.Data.DataColumn)">
+            <summary>
+            Sets the real Value Type of source DataColumn -- this is NOT same as <see cref="P:System.Data.DataColumn.DataType" />
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dc">The dc.</param>
             <returns></returns>
         </member>
         <member name="M:imbSCI.Core.extensions.table.dataColumnRenderingSetup.Letter(System.Data.DataColumn,System.String)">
@@ -4449,6 +4528,234 @@
             </summary>
             <param name="di">The di.</param>
         </member>
+        <member name="F:imbSCI.Core.files.folders.aceFolderType.etc">
+            <summary>
+            configuration files, external media resources
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.files.folders.aceFolderType.var">
+            <summary>
+            logs, crash info, backup files
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.files.folders.aceFolderType.lib">
+            <summary>
+            script/job/task presets - categorised by folder structure
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.files.folders.aceFolderType.bin">
+            <summary>
+            contins external tools: text editor, html viewer, image viewer etc.
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.files.folders.aceFolderType.usr">
+            <summary>
+            user projects/jobs
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.files.folders.aceFolderType.tmp">
+            <summary>
+            temporary files that are safe to be deleted 
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.files.folders.aceFolderType.root">
+            <summary>
+            root folder
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.files.folders.aceFolderType.source">
+            <summary>
+            folder sa fajlovima koji treba da se obrade
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.files.folders.aceFolderType.result">
+            <summary>
+            folder sa rezultatom - obradjeni 
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.files.folders.aceFolderType.notChanged">
+            <summary>
+            folder sa neobradjenim - jer ne ispunjavaju uslov
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.files.folders.folderNode">
+            <summary>
+            Subfolder in the <see cref="T:imbSCI.Core.files.folders.folderStructure"/>
+            </summary>
+            <seealso cref="T:imbSCI.Data.data.imbBindable" />
+            <seealso cref="!:imbACE.Core.files.folders.IFolderNode" />
+            <seealso cref="!:System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.KeyValuePair&lt;System.String, imbACE.Core.files.folders.folderNode&gt;&gt;" />
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.#ctor(System.String)">
+            <summary>
+            Refers to the current directory of application
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.files.folders.folderNode"/> class.
+            </summary>
+            <param name="__name">The name.</param>
+            <param name="__caption">The caption.</param>
+            <param name="__description">The description.</param>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.Add(System.Enum,System.String,System.String)">
+            <summary>
+            Adds the specified name enum.
+            </summary>
+            <param name="nameEnum">The name enum.</param>
+            <param name="__caption">The caption.</param>
+            <param name="__description">The description.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.Add(System.String,System.String,System.String)">
+            <summary>
+            Adds new node or nodes to correspond to specified path or name. <c>pathOrName</c> can be path like: path1\\path2\\path3
+            </summary>
+            <param name="pathOrName">Name of the path or.</param>
+            <param name="__caption">The caption - display name of the folder</param>
+            <param name="__description">The description - description about the folder</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.files.folders.folderNode.items">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.files.folders.folderNode._description">
+            <summary>
+            description/comment - objasnjenje
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.files.folders.folderNode.description">
+            <summary>
+            description/comment - objasnjenje
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.files.folders.folderNode.caption">
+            <summary>
+            Display title
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.files.folders.folderNode._name">
+            <summary>
+            file system ime direktorijuma
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.files.folders.folderNode.name">
+            <summary>
+            file system ime direktorijuma
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.findFile(System.Boolean@,System.String,System.IO.SearchOption,System.Boolean)">
+            <summary>
+            Finds the file - and returns relative path
+            </summary>
+            <param name="partOrPattern">The part or pattern.</param>
+            <param name="options">The options.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.findFile(System.String,System.IO.SearchOption,System.Boolean)">
+            <summary>
+            Finds the file - and returns relative path. If not found returns emptry string
+            </summary>
+            <param name="partOrPattern">The part or pattern.</param>
+            <param name="options">The options.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.findFiles(System.String,System.IO.SearchOption,System.Boolean)">
+            <summary>
+            Finds the files - returns relative paths
+            </summary>
+            <param name="partOrPattern">The part or pattern.</param>
+            <param name="options">The options.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.findDirectories(System.String,System.IO.SearchOption,System.Boolean)">
+            <summary>
+            Finds the directories - returns relative paths
+            </summary>
+            <param name="partOrPattern">The part or pattern.</param>
+            <param name="options">The options.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.createDirectory(System.String,System.String,System.Boolean)">
+            <summary>
+            Creates the directory, child node and finds unique name if required
+            </summary>
+            <param name="nameOrPath">The proposal.</param>
+            <param name="desc">The desc.</param>
+            <param name="findUniqueName">if set to <c>true</c> [find unique name].</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.pathFor(System.String,imbSCI.Data.enums.getWritableFileMode,System.String)">
+            <summary>
+            Returns path with filename specified. Optionally, sets <c>fileDescription</c> for directory readme generator
+            </summary>
+            <param name="filename">The filename.</param>
+            <param name="mode">The mode.</param>
+            <param name="fileDescription">The file description - if not specified, it will try to improvize :)</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.files.folders.folderNode.parent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.generateFolderReadme(imbSCI.Core.data.aceAuthorNotation,imbSCI.Core.reporting.render.ITextRender,System.Int32)">
+            <summary>
+            Generates the folder readme.
+            </summary>
+            <param name="notation">The notation.</param>
+            <param name="builder">The builder.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.files.folders.folderNode.AdditionalDescriptionLines">
+            <summary>
+            These are additional description lines that will be inserted in readme file generated by <see cref="!:generateFolderReadme(aceAuthorNotation, ITextRender)"/>
+            </summary>
+            <value>
+            The additional description lines.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.files.folders.folderNode.AdditionalFileEntries">
+            <summary>
+            Gets or sets the additional file entries.
+            </summary>
+            <value>
+            The additional file entries.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.generateReadmeFiles(imbSCI.Core.data.aceAuthorNotation,System.String)">
+            <summary>
+            Generates the readme files for complete folder tree
+            </summary>
+            <param name="notation">The notation.</param>
+        </member>
+        <member name="T:imbSCI.Core.files.folders.folderStructure">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderStructure.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.files.folders.folderStructure"/> class.
+            </summary>
+            <param name="__baseDirectoryPath">The base directory path - le</param>
+            <param name="__caption">The caption.</param>
+            <param name="__description">The description.</param>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderStructure.#ctor(System.IO.DirectoryInfo,System.String,System.String,System.IO.SearchOption)">
+            <summary>
+            Creates new instance of structure by scanning <see cref="T:System.IO.DirectoryInfo"/> object subfolders
+            </summary>
+            <param name="directory">The directory.</param>
+        </member>
+        <member name="P:imbSCI.Core.files.folders.folderStructure.baseDirectoryPath">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:imbSCI.Core.files.imbFileException">
             <summary>
             Exception related to this namespace
@@ -5222,234 +5529,6 @@
             
             </summary>
         </member>
-        <member name="F:imbSCI.Core.files.folders.aceFolderType.etc">
-            <summary>
-            configuration files, external media resources
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.files.folders.aceFolderType.var">
-            <summary>
-            logs, crash info, backup files
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.files.folders.aceFolderType.lib">
-            <summary>
-            script/job/task presets - categorised by folder structure
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.files.folders.aceFolderType.bin">
-            <summary>
-            contins external tools: text editor, html viewer, image viewer etc.
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.files.folders.aceFolderType.usr">
-            <summary>
-            user projects/jobs
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.files.folders.aceFolderType.tmp">
-            <summary>
-            temporary files that are safe to be deleted 
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.files.folders.aceFolderType.root">
-            <summary>
-            root folder
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.files.folders.aceFolderType.source">
-            <summary>
-            folder sa fajlovima koji treba da se obrade
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.files.folders.aceFolderType.result">
-            <summary>
-            folder sa rezultatom - obradjeni 
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.files.folders.aceFolderType.notChanged">
-            <summary>
-            folder sa neobradjenim - jer ne ispunjavaju uslov
-            </summary>
-        </member>
-        <member name="T:imbSCI.Core.files.folders.folderNode">
-            <summary>
-            Subfolder in the <see cref="T:imbSCI.Core.files.folders.folderStructure"/>
-            </summary>
-            <seealso cref="T:imbSCI.Data.data.imbBindable" />
-            <seealso cref="!:imbACE.Core.files.folders.IFolderNode" />
-            <seealso cref="!:System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.KeyValuePair&lt;System.String, imbACE.Core.files.folders.folderNode&gt;&gt;" />
-        </member>
-        <member name="M:imbSCI.Core.files.folders.folderNode.#ctor(System.String)">
-            <summary>
-            Refers to the current directory of application
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.files.folders.folderNode.#ctor(System.String,System.String,System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:imbSCI.Core.files.folders.folderNode"/> class.
-            </summary>
-            <param name="__name">The name.</param>
-            <param name="__caption">The caption.</param>
-            <param name="__description">The description.</param>
-        </member>
-        <member name="M:imbSCI.Core.files.folders.folderNode.Add(System.Enum,System.String,System.String)">
-            <summary>
-            Adds the specified name enum.
-            </summary>
-            <param name="nameEnum">The name enum.</param>
-            <param name="__caption">The caption.</param>
-            <param name="__description">The description.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.files.folders.folderNode.Add(System.String,System.String,System.String)">
-            <summary>
-            Adds new node or nodes to correspond to specified path or name. <c>pathOrName</c> can be path like: path1\\path2\\path3
-            </summary>
-            <param name="pathOrName">Name of the path or.</param>
-            <param name="__caption">The caption - display name of the folder</param>
-            <param name="__description">The description - description about the folder</param>
-            <returns></returns>
-        </member>
-        <member name="P:imbSCI.Core.files.folders.folderNode.items">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.files.folders.folderNode._description">
-            <summary>
-            description/comment - objasnjenje
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.files.folders.folderNode.description">
-            <summary>
-            description/comment - objasnjenje
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.files.folders.folderNode.caption">
-            <summary>
-            Display title
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.files.folders.folderNode._name">
-            <summary>
-            file system ime direktorijuma
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.files.folders.folderNode.name">
-            <summary>
-            file system ime direktorijuma
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.files.folders.folderNode.findFile(System.Boolean@,System.String,System.IO.SearchOption,System.Boolean)">
-            <summary>
-            Finds the file - and returns relative path
-            </summary>
-            <param name="partOrPattern">The part or pattern.</param>
-            <param name="options">The options.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.files.folders.folderNode.findFile(System.String,System.IO.SearchOption,System.Boolean)">
-            <summary>
-            Finds the file - and returns relative path. If not found returns emptry string
-            </summary>
-            <param name="partOrPattern">The part or pattern.</param>
-            <param name="options">The options.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.files.folders.folderNode.findFiles(System.String,System.IO.SearchOption,System.Boolean)">
-            <summary>
-            Finds the files - returns relative paths
-            </summary>
-            <param name="partOrPattern">The part or pattern.</param>
-            <param name="options">The options.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.files.folders.folderNode.findDirectories(System.String,System.IO.SearchOption,System.Boolean)">
-            <summary>
-            Finds the directories - returns relative paths
-            </summary>
-            <param name="partOrPattern">The part or pattern.</param>
-            <param name="options">The options.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.files.folders.folderNode.createDirectory(System.String,System.String,System.Boolean)">
-            <summary>
-            Creates the directory, child node and finds unique name if required
-            </summary>
-            <param name="nameOrPath">The proposal.</param>
-            <param name="desc">The desc.</param>
-            <param name="findUniqueName">if set to <c>true</c> [find unique name].</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.files.folders.folderNode.pathFor(System.String,imbSCI.Data.enums.getWritableFileMode,System.String)">
-            <summary>
-            Returns path with filename specified. Optionally, sets <c>fileDescription</c> for directory readme generator
-            </summary>
-            <param name="filename">The filename.</param>
-            <param name="mode">The mode.</param>
-            <param name="fileDescription">The file description - if not specified, it will try to improvize :)</param>
-            <returns></returns>
-        </member>
-        <member name="P:imbSCI.Core.files.folders.folderNode.parent">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.files.folders.folderNode.generateFolderReadme(imbSCI.Core.data.aceAuthorNotation,imbSCI.Core.reporting.render.ITextRender)">
-            <summary>
-            Generates the folder readme.
-            </summary>
-            <param name="notation">The notation.</param>
-            <param name="builder">The builder.</param>
-            <returns></returns>
-        </member>
-        <member name="P:imbSCI.Core.files.folders.folderNode.AdditionalDescriptionLines">
-            <summary>
-            These are additional description lines that will be inserted in readme file generated by <see cref="M:imbSCI.Core.files.folders.folderNode.generateFolderReadme(imbSCI.Core.data.aceAuthorNotation,imbSCI.Core.reporting.render.ITextRender)"/>
-            </summary>
-            <value>
-            The additional description lines.
-            </value>
-        </member>
-        <member name="P:imbSCI.Core.files.folders.folderNode.AdditionalFileEntries">
-            <summary>
-            Gets or sets the additional file entries.
-            </summary>
-            <value>
-            The additional file entries.
-            </value>
-        </member>
-        <member name="M:imbSCI.Core.files.folders.folderNode.generateReadmeFiles(imbSCI.Core.data.aceAuthorNotation,System.String)">
-            <summary>
-            Generates the readme files for complete folder tree
-            </summary>
-            <param name="notation">The notation.</param>
-        </member>
-        <member name="T:imbSCI.Core.files.folders.folderStructure">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.files.folders.folderStructure.#ctor(System.String,System.String,System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:imbSCI.Core.files.folders.folderStructure"/> class.
-            </summary>
-            <param name="__baseDirectoryPath">The base directory path - le</param>
-            <param name="__caption">The caption.</param>
-            <param name="__description">The description.</param>
-        </member>
-        <member name="M:imbSCI.Core.files.folders.folderStructure.#ctor(System.IO.DirectoryInfo,System.String,System.String,System.IO.SearchOption)">
-            <summary>
-            Creates new instance of structure by scanning <see cref="T:System.IO.DirectoryInfo"/> object subfolders
-            </summary>
-            <param name="directory">The directory.</param>
-        </member>
-        <member name="P:imbSCI.Core.files.folders.folderStructure.baseDirectoryPath">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="T:imbSCI.Core.files.job.aceFileJobBase">
             <summary>
             2017: Polazna klasa za ACE radni projekat / Job. Primenjuje se na ncFileJob ali ima ulogu i u imbVeles projektu.
@@ -5984,39 +6063,6 @@
             The macro averaging: result is average of the same measure computed on level of category. So called: "local" approach
             </summary>
         </member>
-        <member name="T:imbSCI.Core.math.classificationMetrics.classificationReportExtensions">
-            <summary>
-            Extension methods for <see cref="T:imbSCI.Core.math.classificationMetrics.IClassificationReport"/>
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.math.classificationMetrics.classificationReportExtensions.AddValues(imbSCI.Core.math.classificationMetrics.IClassificationReport,imbSCI.Core.math.classificationMetrics.classificationEvalMetricSet,imbSCI.Core.math.classificationMetrics.classificationMetricComputation)">
-            <summary>
-            Adds the values from specified <c>metrics</c> object
-            </summary>
-            <param name="a">a.</param>
-            <param name="metrics">The metrics.</param>
-            <param name="method">The method of ratios computation (F1, Precision, Recall)</param>
-        </member>
-        <member name="M:imbSCI.Core.math.classificationMetrics.classificationReportExtensions.AddValues(imbSCI.Core.math.classificationMetrics.IClassificationReport,imbSCI.Core.math.classificationMetrics.IClassificationReport)">
-            <summary>
-            Adds the values from specified <c>source</c>
-            </summary>
-            <param name="a">a.</param>
-            <param name="source">The source.</param>
-        </member>
-        <member name="M:imbSCI.Core.math.classificationMetrics.classificationReportExtensions.DivideValues(imbSCI.Core.math.classificationMetrics.IClassificationReport,System.Double,System.Boolean)">
-            <summary>
-            Divides the values stored in the report
-            </summary>
-            <param name="a">a.</param>
-            <param name="divisor">The divisor.</param>
-            <param name="OnlyRatios">if set to <c>true</c> [only ratios].</param>
-        </member>
-        <member name="T:imbSCI.Core.math.classificationMetrics.IClassificationReport">
-            <summary>
-            Interface to classification report objects
-            </summary>
-        </member>
         <member name="T:imbSCI.Core.math.classificationMetrics.classificationReport">
             <summary>
             Base class for classification reporting
@@ -6053,6 +6099,48 @@
         </member>
         <member name="P:imbSCI.Core.math.classificationMetrics.classificationReport.F1measure">
             <summary> F1 measure - harmonic mean of precision and recall </summary>
+        </member>
+        <member name="P:imbSCI.Core.math.classificationMetrics.classificationReport.Comment">
+            <summary> Optional information or comment on the data in the row </summary>
+        </member>
+        <member name="P:imbSCI.Core.math.classificationMetrics.classificationReport.EntryFlags">
+            <summary> Basic enumeration of the report entry, i.e. data row </summary>
+        </member>
+        <member name="P:imbSCI.Core.math.classificationMetrics.classificationReport.Count">
+            <summary> Number of cases that were aggregated in this row </summary>
+        </member>
+        <member name="T:imbSCI.Core.math.classificationMetrics.classificationReportExtensions">
+            <summary>
+            Extension methods for <see cref="T:imbSCI.Core.math.classificationMetrics.IClassificationReport"/>
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.classificationMetrics.classificationReportExtensions.AddValues(imbSCI.Core.math.classificationMetrics.IClassificationReport,imbSCI.Core.math.classificationMetrics.classificationEvalMetricSet,imbSCI.Core.math.classificationMetrics.classificationMetricComputation)">
+            <summary>
+            Adds the values from specified <c>metrics</c> object
+            </summary>
+            <param name="a">a.</param>
+            <param name="metrics">The metrics.</param>
+            <param name="method">The method of ratios computation (F1, Precision, Recall)</param>
+        </member>
+        <member name="M:imbSCI.Core.math.classificationMetrics.classificationReportExtensions.AddValues(imbSCI.Core.math.classificationMetrics.IClassificationReport,imbSCI.Core.math.classificationMetrics.IClassificationReport)">
+            <summary>
+            Adds the values from specified <c>source</c>
+            </summary>
+            <param name="a">a.</param>
+            <param name="source">The source.</param>
+        </member>
+        <member name="M:imbSCI.Core.math.classificationMetrics.classificationReportExtensions.DivideValues(imbSCI.Core.math.classificationMetrics.IClassificationReport,System.Double,System.Boolean)">
+            <summary>
+            Divides the values stored in the report
+            </summary>
+            <param name="a">a.</param>
+            <param name="divisor">The divisor.</param>
+            <param name="OnlyRatios">if set to <c>true</c> [only ratios].</param>
+        </member>
+        <member name="T:imbSCI.Core.math.classificationMetrics.IClassificationReport">
+            <summary>
+            Interface to classification report objects
+            </summary>
         </member>
         <member name="F:imbSCI.Core.math.aggregation.dataPointAggregationAspect.subSetOfRows">
             <summary>
@@ -14635,6 +14723,60 @@
             maksimalna spoljna visina formata (innerHeight+padding+margin=Windows.Height)
             </summary>
         </member>
+        <member name="T:imbSCI.Core.attributes.NamespaceDoc">
+            <summary>
+            <para>Extensive Scientific Data annotation-purpose tools.</para>
+            </summary>
+            <remarks>
+            <para>The <see cref="T:imbSCI.Core.attributes.imbAttribute"/> is used to declare meta information for data agregation, reporting, user-help content creation and similar.</para>
+            <list>
+            	<listheader>
+            		<term>Key points</term>
+            	</listheader>
+            	<item>
+            		<term>Declare meta annotation for your classes</term>
+            		<description>Use <see cref="T:imbSCI.Core.attributes.imbAttribute"/> with <see cref="T:imbSCI.Core.attributes.imbAttributeName"/> te control table/column format and legend-content of a property or whole class</description>
+            	</item>
+            	<item>
+            		<term>Aggregate data</term>
+            		<description>Use <see cref="N:imbSCI.Core.extensions.table"/> and <see cref="N:imbSCI.Core.extensions.data"/> to aggregate data</description>
+            	</item>
+            	<item>
+            		<term>Generate spreadsheet reports</term>
+            		<description>Use <see cref="!:imbSCI.DataComplex.tables"/> to easly generate feature rich Excel, CSV... reports from object collections</description>
+            	</item>
+            	<item>
+            		<term>Generate text reports</term>
+            		<description>Use <see cref="T:imbSCI.Core.data.settingsEntriesForObject"/> to generate textual description of your (setup, or data report summaries) objects</description>
+            	</item>
+            </list>
+            <example>
+            .NET Framework's basic attributes are used when possible: <see cref="T:System.ComponentModel.DisplayNameAttribute"/>, <see cref="T:System.ComponentModel.DescriptionAttribute"/>,
+            <see cref="T:System.ComponentModel.CategoryAttribute"/>
+            <code>
+            [Category("Switch")]
+            [DisplayName("doSomething")]
+            [Description("If true it will do something")]
+            public Boolean doSomething { get; set; } = true;
+            </code>
+            But for more specifics, you can use <see cref="T:imbSCI.Core.attributes.imbAttribute"/> (<c>_imbSCI*</c> snippets)
+            <code>
+            [imb(imbAttributeName.measure_letter, "V")] // --- letter we use in our sci article for some parameter
+            [imb(imbAttributeName.measure_setUnit, "sec")] // ----- unit of measure, associated with the property
+            [imb(imbAttributeName.reporting_columnWidth, 50)] // ----- width of column in the report spreadsheet
+            [imb(imbAttributeName.measure_important)] // ----- tells that this column/property is important, resulting in application of highlighted style in the report
+            [imb(imbAttributeName.reporting_valueformat, "#.0")] // --- specifies number format to be applied for cell value, in the report 	
+            </code>
+            </example>
+            </remarks>
+            <seealso cref="T:imbSCI.Core.attributes.imbAttribute" />
+            <seealso cref="T:imbSCI.Core.attributes.imbAttributeName" />
+        </member>
+        <member name="T:imbSCI.Core.attributes.aceCriterionConfig">
+            <summary>
+            Criterion definition (general purpose, meant for use with <see cref="T:imbSCI.Core.attributes.imbAttribute"/>
+            </summary>
+        </member>
         <member name="F:imbSCI.Core.attributes.aceReportingMacros.tableVertical">
             <summary>
             Mapirano na displayName / menuCommandName
@@ -16249,7 +16391,7 @@
         </member>
         <member name="T:imbSCI.Core.data.aceAuthorNotation">
             <summary>
-            Data set about authos and licence
+            Data structure with basic information on the author, application, copyright.. etc. Used when reports are created.
             </summary>
             <seealso cref="T:imbSCI.Data.data.imbBindable" />
         </member>
@@ -16272,12 +16414,12 @@
         </member>
         <member name="P:imbSCI.Core.data.aceAuthorNotation.software">
             <summary>
-            
+            Name of the software application
             </summary>
         </member>
         <member name="P:imbSCI.Core.data.aceAuthorNotation.author">
             <summary>
-            
+            Author of the software
             </summary>
         </member>
         <member name="P:imbSCI.Core.data.aceAuthorNotation.license">
@@ -16290,18 +16432,30 @@
         </member>
         <member name="P:imbSCI.Core.data.aceAuthorNotation.copyright">
             <summary>
-            
+            Copyright notice text
             </summary>
         </member>
         <member name="P:imbSCI.Core.data.aceAuthorNotation.comment">
             <summary>
-            
+            Comment to be placed in footer/meta info of the reports
             </summary>
         </member>
         <member name="P:imbSCI.Core.data.aceAuthorNotation.organization">
             <summary>
-            
+            Organization behind the software
             </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.aceAuthorNotation.web">
+            <summary> Web site of the project, software, organization or author </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.aceAuthorNotation.Email">
+            <summary> E-mail address of the project, author, organization... </summary>
+        </member>
+        <member name="T:imbSCI.Core.data.PropertyExpression">
+            <summary>
+            Graph-tree structure providing access to simple-type (string, numbers, boolean, enums) values (get/set/describe) properties of complex objects
+            </summary>
+            <seealso cref="T:imbSCI.Data.collection.graph.graphNode" />
         </member>
         <member name="P:imbSCI.Core.data.PropertyExpression.undesolvedPart">
             <summary>
@@ -16336,6 +16490,14 @@
         <member name="P:imbSCI.Core.data.PropertyExpression.property">
             <summary>Property information about this expression node</summary>
         </member>
+        <member name="P:imbSCI.Core.data.PropertyExpression.valueType">
+            <summary>
+            Type of the value that is pointed by property expression
+            </summary>
+            <value>
+            The type of the value.
+            </value>
+        </member>
         <member name="P:imbSCI.Core.data.PropertyExpression.Leaf">
             <summary>
             Opposite to root -- the last child
@@ -16344,21 +16506,76 @@
             The leaf.
             </value>
         </member>
-        <member name="M:imbSCI.Core.data.PropertyExpression.getValue">
+        <member name="M:imbSCI.Core.data.PropertyExpression.getValue(System.Object)">
             <summary>
             Gets the value at this expression node
             </summary>
+            <param name="ifNotFoundReturn">If not found return.</param>
             <returns></returns>
         </member>
-        <member name="M:imbSCI.Core.data.PropertyExpression.setValue(System.Object)">
+        <member name="M:imbSCI.Core.data.PropertyExpression.setValue(System.Object,System.Boolean)">
             <summary>
             Sets the value at this expression node
             </summary>
             <param name="val">The value.</param>
+            <param name="allowAddToCollection">if set to <c>true</c> [allow add to collection].</param>
+        </member>
+        <member name="P:imbSCI.Core.data.PropertyExpression.IsWritable">
+            <summary>
+            Gets a value indicating whether this instance is writable.
+            </summary>
+            <value>
+              <c>true</c> if this instance is writable; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.data.PropertyExpression.IsReady">
+            <summary>
+            Gets a value indicating whether this instance is ready for reading value
+            </summary>
+            <value>
+              <c>true</c> if this instance is ready; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.data.PropertyExpression.Expand(System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Expands this property expression with sub properties, until specified <c>maxDepth</c> <see cref="P:imbSCI.Data.collection.graph.IGraphNode.level"/>
+            </summary>
+            <param name="maxDepth">The maximum depth.</param>
+            <param name="IncludeReadOnly">if set to <c>true</c> [include read only].</param>
+            <param name="IncludeListsAndDictionaries">if set to <c>true</c> [include lists].</param>
+        </member>
+        <member name="M:imbSCI.Core.data.PropertyExpression.Add(System.String,System.Object)">
+            <summary>
+            Includes new property in the tree
+            </summary>
+            <param name="__pathPart">The path part.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.data.PropertyExpression.#ctor(System.Object,System.String,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Creates root expression - cannot set value directy, used for expression tree building
+            </summary>
+            <param name="__host">The host.</param>
+        </member>
+        <member name="M:imbSCI.Core.data.PropertyExpression.#ctor(System.Collections.IDictionary,System.String,imbSCI.Core.data.PropertyExpression)">
+            <summary>
+            Adds sub PropertyExpression for property inside <see cref="T:System.Collections.IList"/>
+            </summary>
+            <param name="__host">The host.</param>
+            <param name="__index">The index.</param>
+            <param name="__parent">The parent.</param>
+        </member>
+        <member name="M:imbSCI.Core.data.PropertyExpression.#ctor(System.Collections.IList,System.Int32,imbSCI.Core.data.PropertyExpression)">
+            <summary>
+            Adds sub PropertyExpression for property inside <see cref="T:System.Collections.IList"/>
+            </summary>
+            <param name="__host">The host.</param>
+            <param name="__index">The index.</param>
+            <param name="__parent">The parent.</param>
         </member>
         <member name="T:imbSCI.Core.data.PropertyExpressionTools">
             <summary>
-            Tools for property selection expression resolution
+            Tools to work with <see cref="T:imbSCI.Core.data.PropertyExpression"/> graphs, to evaluate String path... See: <see cref="M:imbSCI.Core.data.PropertyExpressionTools.GetExpressionResolved(System.Object,System.String)"/>
             </summary>
         </member>
         <member name="M:imbSCI.Core.data.PropertyExpressionTools.GetExpressionResolved(System.Object,System.String)">
@@ -16454,6 +16671,13 @@
             <summary>
             settings entries with context
             </summary>
+        </member>
+        <member name="T:imbSCI.Core.data.settingsMemberInfoEntry">
+            <summary>
+            Base class exposing extensive meta information on <see cref="T:System.Reflection.MemberInfo"/>s, used to access meta annotation for reporting. <seealso cref="T:imbSCI.Core.data.settingsPropertyEntry"/>, <seealso cref="T:imbSCI.Core.data.settingsPropertyEntryWithContext"/> and <see cref="T:imbSCI.Core.data.settingsEntriesForObject"/>.
+            </summary>
+            <remarks>The best way to use this model is to call <see cref="T:imbSCI.Core.data.settingsEntriesForObject"/> constructor, that will generate this object for each reflected member</remarks>
+            <seealso cref="T:System.ComponentModel.INotifyPropertyChanged" />
         </member>
         <member name="M:imbSCI.Core.data.settingsMemberInfoEntry.#ctor(System.Reflection.MemberInfo,imbSCI.Core.collection.PropertyCollectionExtended)">
             <summary>

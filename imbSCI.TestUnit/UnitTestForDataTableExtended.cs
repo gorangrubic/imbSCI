@@ -51,13 +51,17 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
             table.AddRow(new customTableEntry());
             table.AddRow(new customTableEntry("T3"));
 
-         
+            table.AddExtra("This is a custom data table used for testing");
+            table.AddExtra("Lorem Ipsum BRE");
+            table.AddExtra("I tako. Šta rade tvoji?");
             Assert.IsTrue(table.Rows.Count > 0);
 
             table.GetRowMetaSet().AddUnit(new dataNumericCriterionDynamicStyle<Int32, DataRowInReportTypeEnum>(new Core.math.range.rangeCriteria<int>(10, 60), DataRowInReportTypeEnum.dataHighlightA, "number"));
 
+            var indexC = new dataRowIndexDynamicStyle<DataRowInReportTypeEnum>(DataRowInReportTypeEnum.dataHighlightB, new Int32[] { 2, 8 });
+            indexC.indexFromSourceTable = true;
 
-            table.GetRowMetaSet().AddUnit(new dataRowIndexDynamicStyle<DataRowInReportTypeEnum>(DataRowInReportTypeEnum.dataHighlightB, new Int32[] { 2, 8 }));
+            table.GetRowMetaSet().AddUnit(indexC);
 
             table.GetRowMetaSet().AddUnit(new dataValueMatchCriterionDynamicStyle<String, DataRowInReportTypeEnum>(new String[] { "T1", "T2" }, DataRowInReportTypeEnum.dataHighlightC, "name"));
 
@@ -80,7 +84,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
             Assert.IsTrue(table2.Rows.Count > 0);
 
-          //  Assert.IsTrue(table2.GetDescription() == table.GetDescription());
+
+            folder.generateReadmeFiles(new Core.data.aceAuthorNotation());
+
+            //  Assert.IsTrue(table2.GetDescription() == table.GetDescription());
 
 
             //Assert.IsTrue(readmeFiles.Count > 5);

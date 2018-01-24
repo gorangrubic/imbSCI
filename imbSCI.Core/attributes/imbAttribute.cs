@@ -200,7 +200,7 @@ namespace imbSCI.Core.attributes
         {
             name = _name.ToString();
             nameEnum = _name;
-            objMsg = new aceCriterieConfig(_min, _max, _even, _mode);
+            objMsg = new aceCriterionConfig(_min, _max, _even, _mode);
         }
 
         public imbAttribute(imbAttributeName _name, Double _min, Double _max,  numberRangeModifyRule _mode)

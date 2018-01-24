@@ -48,6 +48,37 @@ namespace imbSCI.Core.extensions.table
 
         }
 
+
+        /// <summary>
+        /// Sets the specified style by rows indexes. The row index is interpreted by index in source table (not reporting version of the table -- i.e. heading rows are not counted, only data)
+        /// </summary>
+        /// <param name="style">The style.</param>
+        /// <param name="rowIndexes">The row indexes.</param>
+        /// <returns>Rule that was created</returns>
+        public dataRowIndexDynamicStyle<DataRowInReportTypeEnum> SetStyleForRows(DataRowInReportTypeEnum style, params Int32[] rowIndexes)
+        {
+            var indexC = new dataRowIndexDynamicStyle<DataRowInReportTypeEnum>(style, rowIndexes);
+            indexC.indexFromSourceTable = true;
+            units.Add(indexC);
+            return indexC;
+        }
+
+        /// <summary>
+        /// Sets the style for rows with value.
+        /// </summary>
+        /// <typeparam name="TValueType">The type of the value type.</typeparam>
+        /// <param name="style">The style.</param>
+        /// <param name="columnName">Name of the column.</param>
+        /// <param name="rowIndexes">The row indexes.</param>
+        /// <returns></returns>
+        public dataValueMatchCriterionDynamicStyle<TValueType, DataRowInReportTypeEnum> SetStyleForRowsWithValue<TValueType>(DataRowInReportTypeEnum style, String columnName, params TValueType[] rowIndexes) where TValueType:IComparable
+        {
+            var indexC = new dataValueMatchCriterionDynamicStyle<TValueType, DataRowInReportTypeEnum>(rowIndexes,  style, columnName);
+            
+            units.Add(indexC);
+            return indexC;
+        }
+
         /// <summary>
         /// Evaluates the specified row.
         /// </summary>

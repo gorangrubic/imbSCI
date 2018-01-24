@@ -95,6 +95,8 @@
     <Compile Include="math\classificationMetrics\classificationEvalMetricSet.cs" />
     <Compile Include="math\classificationMetrics\classificationMetricComputation.cs" />
     <Compile Include="math\classificationMetrics\classificationReport.cs" />
+    <Compile Include="math\classificationMetrics\classificationReportExtensions.cs" />
+    <Compile Include="math\classificationMetrics\IClassificationReport.cs" />
     <Compile Include="reporting\aceLogToConsoleControl.cs" />
     <Compile Include="attributes\aceCriterieConfig.cs" />
     <Compile Include="attributes\aceRangeConfig.cs" />

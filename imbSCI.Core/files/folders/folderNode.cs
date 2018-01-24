@@ -460,7 +460,7 @@ namespace imbSCI.Core.files.folders
                 }
                 else
                 {
-                    AdditionalFileEntries[filename].description = fileDescription;
+                    if (!fileDescription.isNullOrEmpty()) AdditionalFileEntries[filename] = this.GetFileDescription(filename, fileDescription);
                 }
             }
 
@@ -595,7 +595,7 @@ namespace imbSCI.Core.files.folders
         /// <param name="notation">The notation.</param>
         /// <param name="builder">The builder.</param>
         /// <returns></returns>
-        public string generateFolderReadme(aceAuthorNotation notation, ITextRender builder=null)
+        internal string generateFolderReadme(aceAuthorNotation notation, ITextRender builder=null, Int32 directoryStructureDepthLimit=3)
         {
             if (builder == null) builder = new builderForMarkdown();
             String prefix = "";
@@ -655,16 +655,31 @@ namespace imbSCI.Core.files.folders
 
             builder.AppendHeading("Subdirectories of: " + prefix,2);
                 
-            var folderNodes = this.getAllChildrenInType<folderNode>();
+            var folderNodes = this.getAllChildrenInType<folderNode>(null, false, true, 0, directoryStructureDepthLimit);
+
             foreach (var fold in folderNodes)
+            {
+                Int32 levelDistance = fold.level - level;
+
+                String insert = " -- ".Repeat(levelDistance);
+
+
+                if (levelDistance > directoryStructureDepthLimit)
                 {
-                    //    builder.nextTabLevel();
-                    builder.AppendHeading(String.Format("{0,-30} : {1,-100}", fold.caption, fold.path.removeStartsWith(prefix)), 3);
-                
-                if (!fold.description.isNullOrEmpty()) builder.AppendLine(" > " + fold.description);
+                    if (fold.count() > 0)
+                    {
+                        builder.AppendCite(insert + "> directory " + fold.caption + " with [" + fold.count() + "] sub directories ...");
+                    }
+                }
+                else
+                {
+                    builder.AppendLine(String.Format("{0,-60} : {1,-100}", insert + "> " + fold.caption, fold.path.removeStartsWith(prefix)));
+                    if (!fold.description.isNullOrEmpty()) builder.AppendLine(insert + "| " + fold.description);
+
+                }
                     //builder.AppendLine();
                     //  builder.prevTabLevel();
-                }
+            }
 
           //  AdditionalFileEntries.Sort(String.CompareOrdinal);
 
@@ -677,6 +692,8 @@ namespace imbSCI.Core.files.folders
                 builder.AppendHorizontalLine();
 
                 if (!notation.author.isNullOrEmpty()) builder.AppendPair("Author", notation.author, true, ": ");
+                if (!notation.Email.isNullOrEmpty()) builder.AppendPair("E-mail", notation.Email, true, ": ");
+                if (!notation.web.isNullOrEmpty()) builder.AppendPair("Web", notation.web, true, ": ");
                 if (!notation.copyright.isNullOrEmpty()) builder.AppendPair("Copyright", notation.copyright, true, ": ");
                 if (!notation.license.isNullOrEmpty()) builder.AppendPair("License", notation.license, true, ": ");
                 if (!notation.software.isNullOrEmpty()) builder.AppendPair("Software", notation.software, true, ": ");
