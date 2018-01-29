@@ -641,7 +641,9 @@ namespace imbSCI.Data
             stack.Add(parent);
             if (recursiveIndex > recursiveLimit)
             {
+#if DEBUG
                 Console.WriteLine("RECURSIVE LIMIT REACHED [" + recursiveIndex + "] in getAllChildren - [" + parent.name + "] (" + parent.GetType().Name + ")");
+#endif
                 return output;
             }
             while (stack.Any())

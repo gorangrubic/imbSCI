@@ -34,6 +34,7 @@ using System.Text;
 using System.Windows;
 using imbSCI.Graph.DGML.enums;
 using System.Xml.Serialization;
+using imbSCI.Data.interfaces;
 
 namespace imbSCI.Graph.DGML.core
 {
@@ -42,7 +43,7 @@ namespace imbSCI.Graph.DGML.core
     /// <summary>
     /// 
     /// </summary>
-    public abstract class GraphElement
+    public abstract class GraphElement:IGraphElement
     {
         [XmlAttribute]
         public String Stroke { get; set; }
@@ -66,6 +67,19 @@ namespace imbSCI.Graph.DGML.core
         public Visibility Visibility { get; set; } = Visibility.Visible;
 
 
+        private String _id;
+        /// <summary>
+        /// 
+        /// </summary>
+        [XmlAttribute]
+        public virtual String Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
+
+
+        string IObjectWithName.name { get { return Label; } set { Label = value; } }
     }
 
 }

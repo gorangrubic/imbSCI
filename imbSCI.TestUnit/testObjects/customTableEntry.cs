@@ -36,6 +36,31 @@ namespace imbSCI.TestUnit.testObjects
         [Description("Ratio")] // [imb(imbAttributeName.measure_important)][imb(imbAttributeName.reporting_valueformat, "")][imb(imbAttributeName.reporting_escapeoff)]
         public Double rate { get; set; } = default(Double);
 
+        [Category("GroupA")]
+        public Int32 number2 { get; set; } = 0;
+
+        [Category("GroupA")]
+        public Int32 number3 { get; set; }
+
+
+        [Category("GroupB")]
+        public Int32 number4 { get; set; }
+
+        [Category("GroupB")]
+        [imb(imbAttributeName.basicColor, "#773300")]
+        public Int32 number5 { get; set; }
+
+        [Category("GroupB")]
+        public Int32 numberD { get; set; }
+
+
+        [Category("GroupC")]
+        [imb(imbAttributeName.basicColor, "#773300")]
+        public Int32 number6 { get; set; }
+
+        [Category("GroupB")]
+        public Int32 number7 { get; set; }
+
         public customTableEntry() {
 
             name = imbSCI.Core.extensions.text.imbStringGenerators.getRandomString(15);

@@ -24,28 +24,28 @@
     <Link Stroke="#A32BDE5B" StrokeThinkness="7" Label="" Category="1" Group="Collapsed" Visibility="Visible" Source="linkgradient" Target="gradient002" />
   </Links>
   <Nodes>
-    <Node Stroke="#80DB23CF" StrokeThinkness="7" Label="Node0 (1.00000) [1]" Category="2" Group="Collapsed" Visibility="Visible" Id="node0" Background="#80DB23CF" />
-    <Node Stroke="#FF3E25DC" StrokeThinkness="7" Label="DefaultGraphExportStyle (0.50000) [2]" Category="3" Group="Collapsed" Visibility="Visible" Id="defaultgraphexportstyle" Background="#803E25DC" />
-    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="lineMin (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="linemin" Background="#8028B9DD" />
-    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="NodeGradient (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="nodegradient" Background="#8028B9DD" />
-    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="doAddLinkWeightInTheLabel (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="doaddlinkweightinthelabel" Background="#8028B9DD" />
-    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="NodeWeightFormat (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="nodeweightformat" Background="#8028B9DD" />
-    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="GraphDirection (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="graphdirection" Background="#8028B9DD" />
-    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="gradientResolution (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="gradientresolution" Background="#8028B9DD" />
-    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="lineMax (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="linemax" Background="#8028B9DD" />
-    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="LinkWeightFormat (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="linkweightformat" Background="#8028B9DD" />
-    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="alphaMin (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="alphamin" Background="#8028B9DD" />
-    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="LinkGradient (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="linkgradient" Background="#8028B9DD" />
-    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="alphaMax (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="alphamax" Background="#8028B9DD" />
-    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="doLinkDirectionFromLowerTypeToHigher (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="dolinkdirectionfromlowertypetohigher" Background="#8028B9DD" />
-    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="doAddNodeTypeToLabel (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="doaddnodetypetolabel" Background="#8028B9DD" />
-    <Node Stroke="#FF28B9DD" StrokeThinkness="7" Label="GraphLayout (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Id="graphlayout" Background="#8028B9DD" />
-    <Node Stroke="#FFDB23CF" StrokeThinkness="7" Label="HexColorB (0.25000) [4]" Category="0" Group="Collapsed" Visibility="Visible" Id="hexcolorb" Background="#80DB23CF" />
-    <Node Stroke="#FFDB23CF" StrokeThinkness="7" Label="HexColorA (0.25000) [4]" Category="0" Group="Collapsed" Visibility="Visible" Id="hexcolora" Background="#80DB23CF" />
-    <Node Stroke="#FFDB23CF" StrokeThinkness="7" Label="gradient001 (0.25000) [4]" Category="0" Group="Collapsed" Visibility="Visible" Id="gradient001" Background="#80DB23CF" />
-    <Node Stroke="#FFDB23CF" StrokeThinkness="7" Label="HexColorB001 (0.25000) [4]" Category="0" Group="Collapsed" Visibility="Visible" Id="hexcolorb001" Background="#80DB23CF" />
-    <Node Stroke="#FFDB23CF" StrokeThinkness="7" Label="HexColorA001 (0.25000) [4]" Category="0" Group="Collapsed" Visibility="Visible" Id="hexcolora001" Background="#80DB23CF" />
-    <Node Stroke="#FFDB23CF" StrokeThinkness="7" Label="gradient002 (0.25000) [4]" Category="0" Group="Collapsed" Visibility="Visible" Id="gradient002" Background="#80DB23CF" />
+    <Node Stroke="#809525A7" StrokeThinkness="7" Label="Node0 (1.00000) [1]" Category="2" Group="Collapsed" Visibility="Visible" Background="#809525A7" />
+    <Node Stroke="#FFA7255D" StrokeThinkness="7" Label="DefaultGraphExportStyle (0.50000) [2]" Category="3" Group="Collapsed" Visibility="Visible" Background="#80A7255D" />
+    <Node Stroke="#FFA74725" StrokeThinkness="7" Label="lineMin (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Background="#80A74725" />
+    <Node Stroke="#FFA74725" StrokeThinkness="7" Label="NodeGradient (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Background="#80A74725" />
+    <Node Stroke="#FFA74725" StrokeThinkness="7" Label="doAddLinkWeightInTheLabel (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Background="#80A74725" />
+    <Node Stroke="#FFA74725" StrokeThinkness="7" Label="NodeWeightFormat (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Background="#80A74725" />
+    <Node Stroke="#FFA74725" StrokeThinkness="7" Label="GraphDirection (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Background="#80A74725" />
+    <Node Stroke="#FFA74725" StrokeThinkness="7" Label="gradientResolution (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Background="#80A74725" />
+    <Node Stroke="#FFA74725" StrokeThinkness="7" Label="lineMax (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Background="#80A74725" />
+    <Node Stroke="#FFA74725" StrokeThinkness="7" Label="LinkWeightFormat (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Background="#80A74725" />
+    <Node Stroke="#FFA74725" StrokeThinkness="7" Label="alphaMin (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Background="#80A74725" />
+    <Node Stroke="#FFA74725" StrokeThinkness="7" Label="LinkGradient (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Background="#80A74725" />
+    <Node Stroke="#FFA74725" StrokeThinkness="7" Label="alphaMax (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Background="#80A74725" />
+    <Node Stroke="#FFA74725" StrokeThinkness="7" Label="doLinkDirectionFromLowerTypeToHigher (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Background="#80A74725" />
+    <Node Stroke="#FFA74725" StrokeThinkness="7" Label="doAddNodeTypeToLabel (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Background="#80A74725" />
+    <Node Stroke="#FFA74725" StrokeThinkness="7" Label="GraphLayout (0.33333) [3]" Category="4" Group="Collapsed" Visibility="Visible" Background="#80A74725" />
+    <Node Stroke="#FF9525A7" StrokeThinkness="7" Label="HexColorB (0.25000) [4]" Category="0" Group="Collapsed" Visibility="Visible" Background="#809525A7" />
+    <Node Stroke="#FF9525A7" StrokeThinkness="7" Label="HexColorA (0.25000) [4]" Category="0" Group="Collapsed" Visibility="Visible" Background="#809525A7" />
+    <Node Stroke="#FF9525A7" StrokeThinkness="7" Label="gradient001 (0.25000) [4]" Category="0" Group="Collapsed" Visibility="Visible" Background="#809525A7" />
+    <Node Stroke="#FF9525A7" StrokeThinkness="7" Label="HexColorB001 (0.25000) [4]" Category="0" Group="Collapsed" Visibility="Visible" Background="#809525A7" />
+    <Node Stroke="#FF9525A7" StrokeThinkness="7" Label="HexColorA001 (0.25000) [4]" Category="0" Group="Collapsed" Visibility="Visible" Background="#809525A7" />
+    <Node Stroke="#FF9525A7" StrokeThinkness="7" Label="gradient002 (0.25000) [4]" Category="0" Group="Collapsed" Visibility="Visible" Background="#809525A7" />
   </Nodes>
   <Properties />
   <Categories>

@@ -40,6 +40,7 @@ namespace imbSCI.Data
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Text;
 
 
 
@@ -73,6 +74,53 @@ namespace imbSCI.Data
         //    }
         //    return false;
         //}
+        public static String LogException(this Exception ex, String context, String prefix = "", Boolean skipSave = false)
+        {
+            var sb = new StringBuilder();
+
+            if (!skipSave) sb.AppendLine("--------------------------------");
+           sb.AppendLine(prefix + context);
+            sb.AppendLine(prefix + " > " + ex.Message + "");
+            sb.AppendLine(prefix + " > " + ex.StackTrace + "");
+
+            if (ex.InnerException != null)
+            {
+                sb.AppendLine(LogException(ex.InnerException, "Inner exception", prefix + " > ", true));
+            }
+            if (ex is AggregateException exa)
+            {
+                if (exa.InnerExceptions != null)
+                {
+
+                    foreach (Exception exsub in exa.InnerExceptions)
+                    {
+                        if (exsub != null)
+                        {
+                            sb.AppendLine(prefix + " > InnerException [" + exsub.Message + "]");
+                            sb.AppendLine(prefix + " > > " + exsub.StackTrace);
+
+
+                        }
+                    }
+                }
+
+            }
+
+            
+
+
+            if (!skipSave)
+            {
+                
+
+
+                sb.AppendLine("--------------------------------");
+                
+            }
+            return sb.ToString();
+        }
+
+
 
 
         /// <summary>

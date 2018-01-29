@@ -1973,12 +1973,36 @@
             <param name="rowsLimit">The rows limit.</param>
             <returns></returns>
         </member>
+        <member name="M:imbSCI.DataComplex.extensions.data.operations.dataTableDataOperations.CopyRowsFrom(System.Data.DataTable,System.Data.DataTable,System.Int32,System.Int32)">
+            <summary>
+            Copies the rows from <c>source</c> into <c>table</c>
+            </summary>
+            <param name="table">The table to copy into.</param>
+            <param name="source">The source data table.</param>
+            <param name="rowsSkip">Rows to skip.</param>
+            <param name="rowsLimit">Rows limit</param>
+        </member>
         <member name="M:imbSCI.DataComplex.extensions.data.operations.dataTableDataOperations.GetRowCollectionTable(System.Collections.Generic.IEnumerable{System.Data.DataTable},System.String)">
             <summary>
             Merges all table rows into single table with all rows
             </summary>
             <param name="tables">The tables.</param>
             <param name="tablename">The tablename.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.DataComplex.extensions.data.operations.dataTableDataOperations.GetSumDataSet(System.Collections.Generic.IEnumerable{System.Data.DataSet},System.String)">
+            <summary>
+            Gets the sum data set.
+            </summary>
+            <param name="datasets">The datasets.</param>
+            <param name="dataSetName">Name of the data set.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.DataComplex.extensions.data.operations.dataTableDataOperations.CleanMeta(System.Data.DataTable)">
+            <summary>
+            Cleans the meta.
+            </summary>
+            <param name="table">The table.</param>
             <returns></returns>
         </member>
         <member name="M:imbSCI.DataComplex.extensions.data.operations.dataTableDataOperations.GetAggregatedTable(System.Collections.Generic.IEnumerable{System.Data.DataTable},System.String,imbSCI.Core.math.aggregation.dataPointAggregationAspect,imbSCI.Core.reporting.ILogBuilder)">
@@ -1988,6 +2012,7 @@
             <param name="tables">The tables.</param>
             <param name="tablename">The tablename.</param>
             <param name="aspect">The aspect.</param>
+            <param name="logger">The logger.</param>
             <returns></returns>
         </member>
         <member name="M:imbSCI.DataComplex.extensions.data.operations.dataTableDataOperations.GetSumTable(System.Collections.Generic.IEnumerable{System.Data.DataTable},System.String)">
@@ -4039,6 +4064,32 @@
             <param name="ws">The ws.</param>
             <param name="useMetaSetFromTheTable">if set to <c>true</c> it will use style set from the table specified.</param>
         </member>
+        <member name="M:imbSCI.DataComplex.tables.DataTableForStatistics.DeployStyleToRow(OfficeOpenXml.ExcelRow,System.Data.DataRow,OfficeOpenXml.ExcelWorksheet,imbSCI.Core.extensions.table.dataTableRowMetaSet)">
+            <summary>
+            Deploys the style to row.
+            </summary>
+            <param name="ex_row">The ex row.</param>
+            <param name="in_row">The in row.</param>
+            <param name="ws">The ws.</param>
+            <param name="metaSet">The meta set.</param>
+        </member>
+        <member name="M:imbSCI.DataComplex.tables.DataTableForStatistics.InsertAggregation(OfficeOpenXml.ExcelWorksheet,System.Data.DataTable)">
+            <summary>
+            Inserts the aggregation.
+            </summary>
+            <param name="ws">The ws.</param>
+            <param name="dataTable">The data table.</param>
+        </member>
+        <member name="M:imbSCI.DataComplex.tables.DataTableForStatistics.Save(imbSCI.Core.files.folders.folderNode,imbSCI.Core.data.aceAuthorNotation,System.String)">
+            <summary>
+            Saves the specified folder.
+            </summary>
+            <param name="folder">The folder.</param>
+            <param name="notation">The notation.</param>
+            <param name="filenamePrefix">The filename prefix.</param>
+            <returns></returns>
+            <exception cref="T:imbSCI.DataComplex.exceptions.dataException">Excell: " + ex.Message - Export to excell</exception>
+        </member>
         <member name="M:imbSCI.DataComplex.tables.DataTableForStatistics.ApplyObjectTableTemplate">
             <summary>
             Applies the object table template.
@@ -4058,6 +4109,13 @@
             <param name="Fill">The fill.</param>
             <param name="styleEntry">The style entry.</param>
         </member>
+        <member name="M:imbSCI.DataComplex.tables.DataTableForStatisticsExtension.SetStyle(OfficeOpenXml.Style.ExcelStyle,imbSCI.Core.reporting.style.core.styleSide)">
+            <summary>
+            Sets the style.
+            </summary>
+            <param name="Style">The style.</param>
+            <param name="side">The side.</param>
+        </member>
         <member name="M:imbSCI.DataComplex.tables.DataTableForStatisticsExtension.SetStyle(OfficeOpenXml.Style.ExcelStyle,imbSCI.Core.reporting.style.shot.styleContainerShot)">
             <summary>
             Sets the style.
@@ -4072,7 +4130,16 @@
             <param name="type">The type.</param>
             <returns></returns>
         </member>
-        <member name="M:imbSCI.DataComplex.tables.DataTableForStatisticsExtension.GetReportAndSave(System.Data.DataTable,imbSCI.Core.files.folders.folderNode,imbSCI.Core.data.aceAuthorNotation,System.String,System.Boolean)">
+        <member name="M:imbSCI.DataComplex.tables.DataTableForStatisticsExtension.RenderPivoted(System.Data.DataTable,System.Int32,System.Int32)">
+            <summary>
+            Renders pivoted table
+            </summary>
+            <param name="source">The source.</param>
+            <param name="rows">The rows.</param>
+            <param name="rowsSkip">The rows skip.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.DataComplex.tables.DataTableForStatisticsExtension.GetReportAndSave(System.Data.DataTable,imbSCI.Core.files.folders.folderNode,imbSCI.Core.data.aceAuthorNotation,System.String,System.Boolean,System.Boolean)">
             <summary>
             Creates report table version for the <c>source</c> and saves the report on specified <c>folder</c>
             </summary>

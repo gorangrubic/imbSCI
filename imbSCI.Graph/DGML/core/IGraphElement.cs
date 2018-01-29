@@ -34,11 +34,12 @@ using System.Text;
 using System.Windows;
 using imbSCI.Graph.DGML.enums;
 using System.Xml.Serialization;
+using imbSCI.Data.interfaces;
 
 namespace imbSCI.Graph.DGML.core
 {
 
-    public interface IGraphElement
+    public interface IGraphElement:IObjectWithName
     {
         
         String Stroke { get; set; }
@@ -61,6 +62,7 @@ namespace imbSCI.Graph.DGML.core
         
         Visibility Visibility { get; set; }
 
+        string Id { get; set; }
     }
 
 }

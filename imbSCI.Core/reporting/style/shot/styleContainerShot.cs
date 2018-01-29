@@ -58,6 +58,24 @@ namespace imbSCI.Core.reporting.style.shot
             private set { _type = value; }
         }
 
+       public styleContainerShot Clone()
+        {
+            styleContainerShot output = new styleContainerShot();
+
+            output.aligment = aligment;
+            output.doCallForMerge = doCallForMerge;
+            output.doSizedownContent = doSizedownContent;
+            output.doWrapText = doWrapText;
+            output.minSize = minSize;
+            output.numberFormat = numberFormat;
+            output.role = role;
+            output.sizeAndBorder = new styleFourSide();
+            sizeAndBorder.CopySideSettingsTo(output.sizeAndBorder);
+
+            return output;//.apply(sizeAndBorder.sget
+
+        }
+
         public static String getCodeName(appendRole __role, appendType __type, styleTheme theme)
         {
             return __role.ToString() + "_" + __type.ToString() + "_" + theme.getCodeName();

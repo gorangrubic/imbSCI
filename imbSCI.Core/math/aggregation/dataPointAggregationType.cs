@@ -52,14 +52,14 @@ namespace imbSCI.Core.math.aggregation
         clear = 256,
         stdev = 512,
         range = 1024,
-        var = 2028,
-        entropy = 4056,
+        var = 2048,
+        entropy = 4096,
 
         /// <summary>
         /// Value will be caption for column in multitable scenario
         /// </summary>
-        groupCaption = 8112,
-        rowSnap = 16224,
+        groupCaption = 8192,
+        rowSnap = 16384,
         
 
 

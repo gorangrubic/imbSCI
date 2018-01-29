@@ -43,6 +43,17 @@ namespace imbSCI.Core.reporting.style.core
 
         }
 
+        public styleTextFontSingle Clone()
+        {
+            styleTextFontSingle output = new styleTextFontSingle();
+
+            output.Style = Style;
+            output.FontName = FontName;
+            output.FontSize = FontSize;
+            output.Color = Color;
+
+            return output;
+        }
 
         public styleTextTypeEnum Style { get; set; } = styleTextTypeEnum.regular;
 

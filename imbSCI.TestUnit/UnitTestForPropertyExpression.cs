@@ -32,6 +32,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
         [TestMethod]
         public void TestPropertyExpressionFunctions()
         {
+
+            dotToDirectedGraphConverterBasic dotConverter = new dotToDirectedGraphConverterBasic();
+
+
+
             folderNode folder = new folderNode();
             var DMGLFolder = folder.Add("DirectedGraphs", "Folder with directed graph tests", "Some description: ");
 
@@ -56,6 +61,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
             fg.Save(DMGLFolder.pathFor("freeGraphOfPropertyExpression.xml", getWritableFileMode.none, "XML export of the graph"), getWritableFileMode.overwrite);
 
             var dmgl = pe.ConvertToDGML(50);
+
+            var dot = dotConverter.Convert(dmgl, 50);
+            dot.CompileAndSave(DMGLFolder.pathFor("dorgraph.dot", getWritableFileMode.overwrite, "Version of graph exported to DOT language"));
+
             dmgl.Save(DMGLFolder.pathFor("propertyExpressionTest", getWritableFileMode.overwrite, "Testing property expression tree expansion"));
 
             var dmgl2 = fg.ConvertToDGML();

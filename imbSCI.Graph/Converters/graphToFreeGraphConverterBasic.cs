@@ -1,3 +1,32 @@
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="graphToFreeGraphConverterBasic.cs" company="imbVeles" >
+//
+// Copyright (C) 2018 imbVeles
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the +terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/. 
+// </copyright>
+// <summary>
+// Project: imbSCI.Graph
+// Author: Goran Grubic
+// ------------------------------------------------------------------------------------------------------------------
+// Project web site: http://blog.veles.rs
+// GitHub: http://github.com/gorangrubic
+// Mendeley profile: http://www.mendeley.com/profiles/goran-grubi2/
+// ORCID ID: http://orcid.org/0000-0003-2673-9471
+// Email: hardy@veles.rs
+// </summary>
+// ------------------------------------------------------------------------------------------------------------------
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -31,7 +60,7 @@ namespace imbSCI.Graph.Converters
     /// Basic <see cref="IGraphNode"/> to <see cref="freeGraph"/> converter
     /// </summary>
     /// <typeparam name="T">Base type of <see cref="IGraphNode"/> this converter interprets</typeparam>
-    public class graphToFreeGraphConverterBasic<T>:graphToGraphConverterBase<T, freeGraph> where T: IGraphNode
+    public class graphToFreeGraphConverterBasic<T>:graphToGraphConverterBase<T, freeGraph, T, freeGraphNodeBase> where T: IGraphNode,new()
     {
         /// <summary>
         /// Gets the type of the node - by default implementation returns <see cref="IGraphNode.level"/>
@@ -100,11 +129,11 @@ namespace imbSCI.Graph.Converters
         /// <param name="source">The source.</param>
         /// <param name="depthLimit">The depth limit.</param>
         /// <returns></returns>
-        public override freeGraph Convert(T source, Int32 depthLimit=500)
+        public override freeGraph Convert(T source, Int32 depthLimit=500, IEnumerable<T> rootNodes = null)
         {
             freeGraph output = new freeGraph();
             output.DisableCheck = true;
-            output.name = source.name;
+            output.Id = source.name;
             output.description = "FreeGraph built from " + source.GetType().Name + ":GraphNodeBase graph";
                         
             var nodes = source.getAllChildren(null, false, false, 1, depthLimit, true);
@@ -139,6 +168,81 @@ namespace imbSCI.Graph.Converters
             return output;
         }
 
+
+
+
+        public override T Convert(freeGraph source, int depthLimit = 500, IEnumerable<freeGraphNodeBase> rootNodes = null)
+        {
+            T output = new T();
+
+            output.name = source.Id;
+
+            if (!source.Any()) return output;
+
+            List<T> nodes = new List<T>();
+            List<String> nodeNames = new List<string>();
+
+            Dictionary<T, freeGraphNodeBase> next = new Dictionary<T, freeGraphNodeBase>();
+
+            Boolean run = true;
+
+
+            foreach (var io in rootNodes)
+            {
+                var tmp = new T();
+                tmp.name = io.name;
+                
+                next.Add(tmp, io);
+                output.Add(tmp);
+            }
+
+            //List<Node> next = new List<Node>();
+
+
+            // next.AddRange(rootNodes.ConvertList<IObjectWithName,Node>());
+
+            Int32 i = 0;
+            while (run)
+            {
+                Dictionary<T, freeGraphNodeBase> newnext = new Dictionary<T, freeGraphNodeBase>();
+                // List<T> newT = new ListItemType<();
+
+                foreach (var pair in next)
+                {
+                    T tNode = new T();
+
+                    tNode.name = pair.Value.name; // g.Id;
+
+                    foreach (var ln in source.GetLinkedNodes(pair.Value.name, false))
+                    {
+
+                        if (!nodeNames.Contains(ln.name))
+                        {
+                            var tmp = new T();
+                            tmp.name = ln.name;
+                            
+                            newnext.Add(tmp, ln);
+                            pair.Key.Add(tmp);
+                        }
+                        nodeNames.Add(ln.name);
+                    }
+
+                }
+                i++;
+                if (i > depthLimit)
+                {
+                    run = false;
+                    break;
+                }
+                next = newnext;
+                run = next.Any();
+
+            }
+
+            return output;
+        }
+
+       
         //public override double GetLinkWeight(T nodeA, T nodeB)
         //{
         //    return 1.GetRatio(nodeA.Count() + 1);

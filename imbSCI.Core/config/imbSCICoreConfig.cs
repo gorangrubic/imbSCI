@@ -97,6 +97,7 @@ namespace imbSCI.Core.config
         public Int32 DataTableReports_RowsCountToDisableStyling { get; set; } = 200;
 
         public Int32 DataTableReports_RowsApplyStylingLimit { get; set; } = 120;
+        public Boolean DataTableReports_AsyncExportCalls { get; set; } = true;
 
         // Insert below your global configuration properties. 
         // Snippets: _imbSCI_DoBool, _imbSCI_String, _imbSCI_Ratio ....

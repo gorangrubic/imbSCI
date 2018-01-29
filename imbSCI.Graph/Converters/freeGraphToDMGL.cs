@@ -27,7 +27,6 @@
 // Email: hardy@veles.rs
 // </summary>
 // ------------------------------------------------------------------------------------------------------------------
-// using imbNLP.PartOfSpeech.TFModels.semanticCloud.core;
 using imbSCI.Data.collection.special;
 using imbSCI.Core.extensions.text;
 using imbSCI.Core.extensions.data;
@@ -84,7 +83,7 @@ namespace imbSCI.Graph.Converters
         public DirectedGraph ConvertToDMGL(freeGraph input)
         {
             DirectedGraph output = new DirectedGraph();
-            output.Title = input.name;
+            output.Title = input.Id;
 
            // input.InverseWeights(false, true);
 

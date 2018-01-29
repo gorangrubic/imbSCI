@@ -28,6 +28,7 @@
 // </summary>
 // ------------------------------------------------------------------------------------------------------------------
 using imbSCI.Core.extensions.data;
+using imbSCI.Data.interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +38,7 @@ using System.Xml.Serialization;
 namespace imbSCI.Graph.FreeGraph
 {
 
-    public class freeGraphNodeBase
+    public class freeGraphNodeBase:IObjectWithName
     {
         public freeGraphNodeBase()
         {

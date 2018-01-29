@@ -37,6 +37,7 @@ using imbSCI.Data.collection.special;
 using imbSCI.DataComplex.special;
 using imbSCI.Core.math;
 using imbSCI.Core.reporting.colors;
+using imbSCI.Core.style.color;
 using System.Xml.Serialization;
 
 namespace imbSCI.Graph.Converters.tools

@@ -36,7 +36,11 @@ using System.Text;
 namespace imbSCI.Graph.DGML.collections
 {
 
-    public class LinkCollection : List<Link>
+    /// <summary>
+    /// Links
+    /// </summary>
+    /// <seealso cref="imbSCI.Graph.DGML.collections.GraphElementCollection{imbSCI.Graph.DGML.core.Link}" />
+    public class LinkCollection : GraphElementCollection<Link>
     {
         public LinkCollection()
         {

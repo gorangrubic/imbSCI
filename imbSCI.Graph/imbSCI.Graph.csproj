@@ -69,17 +69,20 @@
     <Reference Include="EPPlus, Version=4.1.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\..\imbWBI\packages\EPPlus.4.1.1\lib\net40\EPPlus.dll</HintPath>
     </Reference>
-    <Reference Include="imbSCI.Core, Version=0.1.6598.24488, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\imbWBI\packages\imbSCI.0.1.2.13\lib\net40\imbSCI.Core.dll</HintPath>
+    <Reference Include="imbSCI.Core, Version=0.1.6601.43128, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\imbWBI\packages\imbSCI.0.1.2.24\lib\net40\imbSCI.Core.dll</HintPath>
     </Reference>
-    <Reference Include="imbSCI.Data, Version=0.1.6598.24488, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\imbWBI\packages\imbSCI.0.1.2.13\lib\net40\imbSCI.Data.dll</HintPath>
+    <Reference Include="imbSCI.Data, Version=0.1.6599.15407, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\imbWBI\packages\imbSCI.0.1.2.24\lib\net40\imbSCI.Data.dll</HintPath>
     </Reference>
-    <Reference Include="imbSCI.DataComplex, Version=0.1.6598.24489, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\imbWBI\packages\imbSCI.0.1.2.13\lib\net40\imbSCI.DataComplex.dll</HintPath>
+    <Reference Include="imbSCI.DataComplex, Version=0.1.6601.43129, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\imbWBI\packages\imbSCI.0.1.2.24\lib\net40\imbSCI.DataComplex.dll</HintPath>
     </Reference>
-    <Reference Include="imbSCI.Reporting, Version=0.1.6598.24489, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\imbWBI\packages\imbSCI.0.1.2.13\lib\net40\imbSCI.Reporting.dll</HintPath>
+    <Reference Include="imbSCI.Reporting, Version=0.1.6601.43129, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\imbWBI\packages\imbSCI.0.1.2.24\lib\net40\imbSCI.Reporting.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics, Version=3.20.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\imbWBI\packages\MathNet.Numerics.3.20.2\lib\net40\MathNet.Numerics.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
@@ -97,6 +100,7 @@
     <Compile Include="config\imbSCIGraphConversionConfig.cs" />
     <Compile Include="Converters\DirectedGraphConverterBase.cs" />
     <Compile Include="Converters\DirectedGraphStylingCase.cs" />
+    <Compile Include="Converters\dotToDirectedGraphConverterBasic.cs" />
     <Compile Include="Converters\freeGraphToDMGL.cs" />
     <Compile Include="Converters\GraphConversionTools.cs" />
     <Compile Include="Converters\graphToDirectedGraphConverterBase.cs" />
@@ -105,14 +109,11 @@
     <Compile Include="Converters\graphToGraphConverterBase.cs" />
     <Compile Include="Converters\propertyExpressionToDirectedGraphConverter.cs" />
     <Compile Include="Converters\propertyExpressionToDirectedGraphConverter_2.cs" />
-    <Compile Include="Converters\tools\ColorGradient.cs" />
-    <Compile Include="Converters\tools\ColorGradientDictionary.cs" />
-    <Compile Include="Converters\tools\ColorGradientFunction.cs" />
-    <Compile Include="Converters\tools\ColorHSVPoint.cs" />
     <Compile Include="Converters\tools\GraphStylerSettings.cs" />
     <Compile Include="Converters\tools\NodeWeightStyler.cs" />
     <Compile Include="Converters\tools\NodeWeightStylerCategories.cs" />
     <Compile Include="DGML\collections\CategoryCollection.cs" />
+    <Compile Include="DGML\collections\GraphElementCollection.cs" />
     <Compile Include="DGML\collections\LinkCollection.cs" />
     <Compile Include="DGML\collections\NodeCollection.cs" />
     <Compile Include="DGML\collections\PropertyList.cs" />
@@ -125,7 +126,18 @@
     <Compile Include="DGML\core\Property.cs" />
     <Compile Include="DGML\DirectedGraph.cs" />
     <Compile Include="DGML\DirectedGraphExtensions.cs" />
+    <Compile Include="DGML\enums\GraphDirectionEnum.cs" />
+    <Compile Include="DGML\enums\GraphLayoutEnum.cs" />
     <Compile Include="DGML\enums\GroupEnum.cs" />
+    <Compile Include="DOT\DotArrow.cs" />
+    <Compile Include="DOT\DotArrowShape.cs" />
+    <Compile Include="DOT\DotAttributeAttribute.cs" />
+    <Compile Include="DOT\DotColor.cs" />
+    <Compile Include="DOT\DotGraph.cs" />
+    <Compile Include="DOT\DotNode.cs" />
+    <Compile Include="DOT\DotNodeShape.cs" />
+    <Compile Include="DOT\DotNodeStyle.cs" />
+    <Compile Include="attributes\GraphExtractionAttribute.cs" />
     <Compile Include="FreeGraph\freeGraph.cs" />
     <Compile Include="FreeGraph\freeGraphExtensions.cs" />
     <Compile Include="FreeGraph\freeGraphLink.cs" />
@@ -134,6 +146,7 @@
     <Compile Include="FreeGraph\freeGraphNodeAndLinks.cs" />
     <Compile Include="FreeGraph\freeGraphNodeBase.cs" />
     <Compile Include="FreeGraph\freeGraphQueryResult.cs" />
+    <Compile Include="FreeGraph\NamespaceDoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

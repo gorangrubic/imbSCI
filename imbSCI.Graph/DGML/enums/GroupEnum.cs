@@ -40,20 +40,4 @@ namespace imbSCI.Graph.DGML.enums
         Collapsed
     }
 
-    public enum GraphDirectionEnum
-    {
-        Sugiyama,
-        TopToBottom,
-        BottomToTop,
-        LeftToRight,
-        RightToLeft
-    }
-
-    public enum GraphLayoutEnum
-    {
-        None,
-        Sugiyama,
-        ForceDirected,
-        DependencyMatrix
-    }
 }

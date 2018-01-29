@@ -35,6 +35,7 @@ using System.Text;
 using System.Xml.Serialization;
 using imbSCI.Core.extensions.text;
 using imbSCI.Core.extensions.io;
+using imbSCI.Graph.DGML.core;
 
 namespace imbSCI.Graph.DGML
 {
@@ -46,6 +47,8 @@ namespace imbSCI.Graph.DGML
 
     public static class DirectedGraphExtensions
     {
+        
+
         public static String GetIDFromLabel(this String labelString)
         {
             return labelString.getFilename();

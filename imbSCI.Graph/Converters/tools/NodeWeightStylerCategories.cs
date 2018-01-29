@@ -39,6 +39,7 @@ using imbSCI.Core.math;
 using imbSCI.Core.reporting.colors;
 using System.Xml.Serialization;
 using imbSCI.Core.extensions.data;
+using imbSCI.Core.style.color;
 
 namespace imbSCI.Graph.Converters.tools
 {

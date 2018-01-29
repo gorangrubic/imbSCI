@@ -664,6 +664,11 @@ namespace imbSCI.Core.data
 
         }
 
+
+        public PropertyExpression()
+        {
+        }
+
         /// <summary>
         /// Adds sub PropertyExpression for property inside <see cref="IList"/>
         /// </summary>

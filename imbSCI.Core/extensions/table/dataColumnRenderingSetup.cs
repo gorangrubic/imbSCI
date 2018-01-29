@@ -37,16 +37,63 @@ namespace imbSCI.Core.extensions.table
     using imbSCI.Core.extensions.text;
     using imbSCI.Core.extensions.typeworks;
     using imbSCI.Core.math.aggregation;
+    using imbSCI.Core.reporting.colors;
     using imbSCI.Data.enums.fields;
     using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Drawing;
+    using System.Linq;
 
     /// <summary>
     /// 
     /// </summary>
     public static class dataColumnRenderingSetup
     {
+
+
+        /// <summary>
+        /// Gets the groups of columns - grouped by <see cref="SetGroup(DataColumn, string)"/>
+        /// </summary>
+        /// <param name="table">The table.</param>
+        /// <returns></returns>
+        public static List<List<DataColumn>> getGroupsOfColumns(this DataTable table)
+        {
+            Dictionary<String, DataColumn> registry = new Dictionary<string, DataColumn>();
+
+            List<List<DataColumn>> groups = new List<List<DataColumn>>();
+            List<DataColumn> group = new List<DataColumn>();
+
+            Boolean startOfTheGroup = false;
+            String lastKey = "";
+            foreach (DataColumn c in table.Columns)
+            {
+                String key = c.GetGroup().ToUpper();
+
+                if (lastKey != "" && lastKey != key)
+                {
+                    startOfTheGroup = true;
+                }
+
+                if (startOfTheGroup)
+                {
+                    if (group.Any())
+                    {
+                        groups.Add(group);
+                    }
+                    group = new List<DataColumn>();
+                    startOfTheGroup = false;
+                }
+
+                group.Add(c);
+
+                lastKey = key;
+            }
+            groups.Add(group);
+
+            return groups;
+        }
+
 
 
 
@@ -62,13 +109,19 @@ namespace imbSCI.Core.extensions.table
         {
             if (!dc.ExtendedProperties.ContainsKey(templateFieldDataTable.col_color))
             {
-                return default(Color);
+                return Color.Gray;
             }
             return (Color) dc.ExtendedProperties[templateFieldDataTable.col_color];
         }
         public static Boolean HasDefaultBackground(this DataColumn dc)
         {
             return dc.ExtendedProperties.ContainsKey(templateFieldDataTable.col_color);
+        }
+        public static DataColumn SetDefaultBackground(this DataColumn dc, String col_color)
+        {
+
+            dc.ExtendedProperties.add(templateFieldDataTable.col_color, aceColorConverts.getColorFromHex(col_color));
+            return dc;
         }
 
         public static DataColumn SetDefaultBackground(this DataColumn dc, Color col_color)
@@ -299,6 +352,12 @@ namespace imbSCI.Core.extensions.table
         }
 
 
+        /// <summary>
+        /// Spes the specified default col spe.
+        /// </summary>
+        /// <param name="dc">The dc.</param>
+        /// <param name="default_col_spe">The default col spe.</param>
+        /// <returns></returns>
         public static settingsPropertyEntry SPE(this DataColumn dc, settingsPropertyEntry default_col_spe)
         {
             if (!dc.ExtendedProperties.ContainsKey(templateFieldDataTable.col_spe))
@@ -310,6 +369,11 @@ namespace imbSCI.Core.extensions.table
             return dc.ExtendedProperties[templateFieldDataTable.col_spe] as settingsPropertyEntry;
 
         }
+        /// <summary>
+        /// Gets <see cref="settingsMemberInfoEntry"/> 
+        /// </summary>
+        /// <param name="dc">The dc.</param>
+        /// <returns></returns>
         public static settingsPropertyEntry GetSPE(this DataColumn dc)
         {
             if (!dc.ExtendedProperties.ContainsKey(templateFieldDataTable.col_spe))
@@ -329,6 +393,7 @@ namespace imbSCI.Core.extensions.table
                 spe.unit = dc.GetUnit();
                 spe.priority = dc.Ordinal;
                 spe.width = dc.GetWidth();
+                spe.color = dc.GetDefaultBackground().toHexColor();
                 dc.SetSPE(spe);
                 return spe;
             }
@@ -346,7 +411,7 @@ namespace imbSCI.Core.extensions.table
             dc.SetUnit(col_spe.unit);
             dc.SetDesc(col_spe.description);
             dc.SetGroup(col_spe.categoryName);
-
+            dc.SetDefaultBackground(col_spe.color);
             dc.SetHeading(col_spe.displayName);
             dc.ColumnName = col_spe.name;
             dc.DataType = col_spe.type;

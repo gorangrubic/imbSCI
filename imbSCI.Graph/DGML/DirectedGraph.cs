@@ -42,6 +42,7 @@ using imbSCI.Data.enums;
 using System.IO;
 using imbSCI.Graph.DGML.enums;
 using imbSCI.Data.interfaces;
+using imbSCI.Graph.DGML.core;
 
 namespace imbSCI.Graph.DGML
 {
@@ -58,6 +59,13 @@ namespace imbSCI.Graph.DGML
         {
 
         }
+        /// <summary>
+        /// Gets the name.
+        /// </summary>
+        /// <value>
+        /// The name.
+        /// </value>
+        public string Id { get; set; }
 
         /// <summary>
         /// Loads the specified path.
@@ -137,7 +145,27 @@ namespace imbSCI.Graph.DGML
             }
         }
 
-        
+        public List<Node> GetLinked(Node node, Boolean inverse=false)
+        {
+            List<Node> output = new List<Node>();
+            foreach (Link lnks in Links.Where(x => x.Source == node.Id))
+            {
+
+                if (Nodes.Any(x => x.Id == lnks.Target))
+                {
+                    output.Add(Nodes.First(x => x.Id == lnks.Target));
+                    //T cNode = new T();
+                    //cNode.name = lnks.Target;
+                    //nodeNames.Add(lnks.Target);
+                    //newnext.Add(source.Nodes.First(x => x.Id == lnks.Target));
+
+                    //tNode.Add(cNode);
+                }
+            }
+            return output;
+        }
+
+
         public LinkCollection Links { get; set; } = new LinkCollection();
 
         public NodeCollection Nodes { get; set; } = new NodeCollection();
@@ -145,6 +173,13 @@ namespace imbSCI.Graph.DGML
         public PropertyList Properties { get; set; } = new PropertyList();
 
         public CategoryCollection Categories { get; set; } = new CategoryCollection();
-         
+    //    string IObjectWithName.name {
+    //        get {
+    //            return Title; } 
+    //        set
+    //        {
+    //            Title = value;
+    //        }
+    //    }
     }
 }

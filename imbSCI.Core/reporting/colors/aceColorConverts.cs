@@ -37,6 +37,7 @@ namespace imbSCI.Core.reporting.colors
     using imbSCI.Core.math.range;
     using AForge.Imaging;
     using System.Windows.Media;
+    using imbSCI.Core.extensions.data;
 
     //using System.Drawing;
 
@@ -251,8 +252,17 @@ namespace imbSCI.Core.reporting.colors
         /// <returns></returns>
         public static mColor fromHexColor(this String color)
         {
-            
-            return (mColor)ColorConverter.ConvertFromString(color);
+            String st = color;
+            if (st.isNullOrEmpty())
+            {
+                st = "#FF333333";
+            }
+            if (color.Length == 7)
+            {
+                st = st.Trim('#');
+                st = "#FF" + st;
+            }
+            return (mColor)ColorConverter.ConvertFromString(st);
         }
 
 

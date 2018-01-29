@@ -47,12 +47,21 @@ namespace imbSCI.DataComplex.tables
     using imbSCI.Data.collection.nested;
     using imbSCI.Core.reporting.zone;
     using imbSCI.Core.extensions.table;
+    using System.Drawing;
 
     public class DataTableCategorySets:aceDictionarySet<string, DataColumn>
     {
+        //protected enum groupState
+        //{
+        //    start,
+        //    inside,
+        //    theLastColumn,
+        //}
+
         /// <summary> </summary>
         public aceDictionarySet<string, selectZone> categoryZones { get; protected set; } = new aceDictionarySet<string, selectZone>();
 
+        public Dictionary<String, Color> categoryColors { get; protected set; } = new Dictionary<string, Color>();
 
         /// <summary> </summary>
         public List<string> categoryList { get; protected set; } = new List<string>();
@@ -60,9 +69,29 @@ namespace imbSCI.DataComplex.tables
 
         public DataTableCategorySets(DataTable table)
         {
-            process(table);
+            processAlt(table);
+
         }
 
+
+
+        protected void processAlt(DataTable table)
+        {
+            var groups = table.getGroupsOfColumns();
+
+            Int32 c = 0;
+            foreach (var group in groups)
+            {
+                var cn = group.First();
+                String groupName = cn.GetGroup().ToUpper();
+                categoryList.Add(groupName);
+
+                if (!categoryColors.ContainsKey(groupName)) categoryColors.Add(groupName, cn.DefaultBackground(Color.Gray));
+                categoryZones.Add(groupName, new selectZone(c, 0, group.Count-1, 0));
+                Add(groupName, cn);
+                c = c + group.Count;
+            }
+        }
 
 
         protected void process(DataTable table)

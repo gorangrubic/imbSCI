@@ -1010,6 +1010,13 @@
             
             </summary>
         </member>
+        <member name="M:imbSCI.Core.extensions.table.dataColumnRenderingSetup.getGroupsOfColumns(System.Data.DataTable)">
+            <summary>
+            Gets the groups of columns - grouped by <see cref="M:imbSCI.Core.extensions.table.dataColumnRenderingSetup.SetGroup(System.Data.DataColumn,System.String)"/>
+            </summary>
+            <param name="table">The table.</param>
+            <returns></returns>
+        </member>
         <member name="M:imbSCI.Core.extensions.table.dataColumnRenderingSetup.Format(System.Data.DataColumn,System.String)">
             <summary>
             Formats the specified default col format.
@@ -1069,6 +1076,21 @@
             </summary>
             <param name="dc">The dc.</param>
             <param name="shema_classname">The shema classname.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.dataColumnRenderingSetup.SPE(System.Data.DataColumn,imbSCI.Core.data.settingsPropertyEntry)">
+            <summary>
+            Spes the specified default col spe.
+            </summary>
+            <param name="dc">The dc.</param>
+            <param name="default_col_spe">The default col spe.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.dataColumnRenderingSetup.GetSPE(System.Data.DataColumn)">
+            <summary>
+            Gets <see cref="T:imbSCI.Core.data.settingsMemberInfoEntry"/> 
+            </summary>
+            <param name="dc">The dc.</param>
             <returns></returns>
         </member>
         <member name="M:imbSCI.Core.extensions.table.dataColumnRenderingSetup.SetSPE(System.Data.DataColumn,imbSCI.Core.data.settingsPropertyEntry)">
@@ -6500,7 +6522,36 @@
             Counter reset
             </summary>
         </member>
-        <member name="M:imbSCI.Core.math.entropy.GetEntropy(System.Collections.Generic.IEnumerable{System.Double},System.Double,System.Boolean)">
+        <member name="T:imbSCI.Core.math.StatisticsExtensions">
+            <summary>
+            Entropy, and some wrappers to <see cref="N:MathNet.Numerics"/>
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.StatisticsExtensions.GetStatistics(System.Collections.Generic.IEnumerable{System.Double},System.Boolean)">
+            <summary>
+            Gets the statistics - <see cref="N:MathNet.Numerics.Statistics"/>
+            </summary>
+            <param name="rFreqs">The r freqs.</param>
+            <param name="increasedAccuricy">if set to <c>true</c> [increased accuricy].</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.math.StatisticsExtensions.GetVariance(System.Collections.Generic.IEnumerable{System.Double},System.Boolean)">
+            <summary>
+            Gets the variance.
+            </summary>
+            <param name="rFreqs">The r freqs.</param>
+            <param name="isSample">if set to <c>true</c> [is sample].</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.math.StatisticsExtensions.GetStdDeviation(System.Collections.Generic.IEnumerable{System.Double},System.Boolean)">
+            <summary>
+            Gets the standard deviation - just a wrapper <see cref="N:MathNet.Numerics.Statistics"/>
+            </summary>
+            <param name="rFreqs">The r freqs.</param>
+            <param name="isSample">if set to <c>true</c> [population].</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.math.StatisticsExtensions.GetEntropy(System.Collections.Generic.IEnumerable{System.Double},System.Double,System.Boolean)">
             <summary>
             Calculates entropy, normalizes the output if <c>normalize</c> is <c>true</c>
             </summary>

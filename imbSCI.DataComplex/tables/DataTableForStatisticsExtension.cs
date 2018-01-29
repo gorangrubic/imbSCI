@@ -61,6 +61,9 @@ namespace imbSCI.DataComplex.tables
     using OfficeOpenXml.Style;
     using OfficeOpenXml;
     using imbSCI.Core.extensions.enumworks;
+    using System.Threading.Tasks;
+    using System.Threading;
+    using imbSCI.Core.extensions.table.style;
 
     public static class DataTableForStatisticsExtension
     {
@@ -78,6 +81,7 @@ namespace imbSCI.DataComplex.tables
         /// <param name="styleEntry">The style entry.</param>
         public static void SetStyle(this ExcelStyle Style, dataTableStyleEntry styleEntry, Boolean isEven=false)
         {
+
             Style.Font.SetStyle(styleEntry.Text);
             //Style.TextRotation = styleEntry.Text.ro2
 
@@ -100,29 +104,46 @@ namespace imbSCI.DataComplex.tables
         /// <param name="styleEntry">The style entry.</param>
         public static void SetStyle(this ExcelFill Fill, styleSurfaceColor styleEntry)
         {
-            Fill.PatternType = (ExcelFillStyle)styleEntry.FillType;
-            Fill.BackgroundColor.SetColor(styleEntry.Color);
-            Fill.BackgroundColor.Tint = new decimal(styleEntry.Tint);
+            if (styleEntry != null)
+            {
+                Fill.PatternType = (ExcelFillStyle)styleEntry.FillType;
+                Fill.BackgroundColor.SetColor(styleEntry.Color);
+                Fill.BackgroundColor.Tint = new decimal(styleEntry.Tint);
+            }
             
         }
 
         public static void SetStyle(this ExcelRow row, dataTableStyleEntry style, Boolean isEven=false)
         {
-            row.Height = style.Cell.minSize.height;
-            row.StyleName = style.key.ToString();
-            row.Style.SetStyle(style, isEven);
+            if (style != null)
+            {
+                if (style?.Cell?.minSize?.height == null)
+                {
+                    return;
+                }
+                row.Height = style.Cell.minSize.height;
+                row.StyleName = style.key.ToString();
+                row.Style.SetStyle(style, isEven);
+            }
         }
 
         public static void SetStyle(this ExcelStyle Style, styleFourSide side)
         {
-            Style.SetStyle(side.top);
-            Style.SetStyle(side.bottom);
-            Style.SetStyle(side.left);
-            Style.SetStyle(side.right);
-            
+            if (side != null)
+            {
+                Style.SetStyle(side.top);
+                Style.SetStyle(side.bottom);
+                Style.SetStyle(side.left);
+                Style.SetStyle(side.right);
+            }
 
         }
 
+        /// <summary>
+        /// Sets the style.
+        /// </summary>
+        /// <param name="Style">The style.</param>
+        /// <param name="side">The side.</param>
         public static void SetStyle(this ExcelStyle Style, styleSide side)
         {
             ExcelBorderItem bri = null;
@@ -318,9 +339,16 @@ namespace imbSCI.DataComplex.tables
             return false;
         }
 
-      
 
 
+
+        /// <summary>
+        /// Renders pivoted table
+        /// </summary>
+        /// <param name="source">The source.</param>
+        /// <param name="rows">The rows.</param>
+        /// <param name="rowsSkip">The rows skip.</param>
+        /// <returns></returns>
         public static DataTable RenderPivoted(this DataTable source, int rows = 2, int rowsSkip = 1)
         {
             DataTable legend = new DataTable(source.TableName);
@@ -495,6 +523,11 @@ namespace imbSCI.DataComplex.tables
 
         public const string EXTRAFOLDER = "data";
 
+
+
+     
+
+
         /// <summary>
         /// Creates report table version for the <c>source</c> and saves the report on specified <c>folder</c>
         /// </summary>
@@ -505,10 +538,21 @@ namespace imbSCI.DataComplex.tables
         /// <param name="disablePrimaryKey">if set to <c>true</c> [disable primary key].</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">Folder is null! at GetReportAndSave() for [" + source.TableName + "] at filename [" + filenamePrefix + "]</exception>
-        public static DataTableForStatistics GetReportAndSave(this DataTable source, folderNode folder, aceAuthorNotation notation = null, string filenamePrefix = "", bool disablePrimaryKey = true)
+        public static DataTableForStatistics GetReportAndSave(this DataTable source, folderNode folder, aceAuthorNotation notation = null, string filenamePrefix = "", bool disablePrimaryKey = true, Boolean allowAsyncCall=false)
         {
+            if (allowAsyncCall)
+            {
+                if (imbSCI.Core.config.imbSCICoreConfig.settings.DataTableReports_AsyncExportCalls)
+                {
+                    DataTableForStatisticsExportJob job = new DataTableForStatisticsExportJob(source, folder, notation, filenamePrefix, disablePrimaryKey);
+                    Thread t = new Thread(job.Do);
+                    t.Start();
+                    return null;
+                    // Task.Factory
+                }
+            }
 
-           // if (source == null) return new DataTableForStatistics();
+            // if (source == null) return new DataTableForStatistics();
 
             if (folder == null)
             {

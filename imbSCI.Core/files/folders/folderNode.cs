@@ -53,6 +53,15 @@ namespace imbSCI.Core.files.folders
     using System.Collections;
     using System.Data;
     using System.IO;
+    using System.Text.RegularExpressions;
+
+
+    //[Flags]
+    //public enum folderNodeQueryResponse
+    //{
+    //    none=0,
+
+    //}
 
     /// <summary>
     /// Subfolder in the <see cref="folderStructure"/>
@@ -174,10 +183,13 @@ namespace imbSCI.Core.files.folders
         /// <summary>
         /// Adds new node or nodes to correspond to specified path or name. <c>pathOrName</c> can be path like: path1\\path2\\path3
         /// </summary>
+        /// <remarks>
+        /// If directory under specified path already exists, it will update its <see cref="caption"/> and <see cref="description"/> if these are empty, and return the existing node.
+        /// </remarks>
         /// <param name="pathOrName">Name of the path or.</param>
         /// <param name="__caption">The caption - display name of the folder</param>
         /// <param name="__description">The description - description about the folder</param>
-        /// <returns></returns>
+        /// <returns>Newly created or existing directory node</returns>
         public folderNode Add(string pathOrName, string __caption, string __description)
         {
             List<string> pathParts = imbSciStringExtensions.SplitSmart(pathOrName, "\\");
@@ -212,10 +224,140 @@ namespace imbSCI.Core.files.folders
         }
 
         /// <summary>
+        /// Attaches sub directory, sets <see cref="caption"/> and <see cref="description"/>. If these are not specified, it will scan the directory for readme file. <see cref="ScanReadMe(ILogBuilder)"/>
+        /// </summary>
+        /// <param name="directory">The subdirectory name.</param>
+        /// <param name="__caption">The caption.</param>
+        /// <param name="__description">The description.</param>
+        /// <param name="forceScan">if set to <c>true</c> it will force readme file scan <see cref="ScanReadMe(ILogBuilder)"/>.</param>
+        /// <param name="autoCreate">if set to <c>true</c> it will create the directory, if not existing already.</param>
+        /// <param name="logger">The logger.</param>
+        /// <returns>Reference on newly attached directory, or null if it wasn't found nor created</returns>
+        public folderNode Attach(String directory, String __caption = "", String __description = "", Boolean forceScan = false, Boolean autoCreate = true, ILogBuilder logger = null)
+        {
+            var di = new DirectoryInfo(path + Path.DirectorySeparatorChar + directory);
+            return Attach(di, __caption, __description, forceScan, autoCreate, logger);
+        }
+
+
+        /// <summary>
+        /// Attaches sub directory, sets <see cref="caption"/> and <see cref="description"/>. If these are not specified, it will scan the directory for readme file. <see cref="ScanReadMe(ILogBuilder)"/>
+        /// </summary>
+        /// <param name="directory">The directory.</param>
+        /// <param name="__caption">The caption.</param>
+        /// <param name="__description">The description.</param>
+        /// <param name="forceScan">if set to <c>true</c> it will force readme file scan <see cref="ScanReadMe(ILogBuilder)"/>.</param>
+        /// <param name="autoCreate">if set to <c>true</c> it will create the directory, if not existing already.</param>
+        /// <param name="logger">The logger.</param>
+        /// <returns>Reference on newly attached directory, or null if it wasn't found nor created</returns>
+        public folderNode Attach(DirectoryInfo directory, String __caption="", String __description="", Boolean forceScan=false, Boolean autoCreate=true, ILogBuilder logger=null)
+        {
+            
+
+            if (!directory.Exists)
+            {
+                if (autoCreate)
+                {
+                    directory.Create();
+                }
+                else
+                {
+                    if (logger != null) logger.log("Directory [" + directory.FullName + "] does not exist.");
+                    return null;
+                }
+            }
+            if (__caption.isNullOrEmpty())
+            {
+                __caption = directory.Name.imbTitleCamelOperation(true);
+            }
+            Boolean callForScan = forceScan;
+            if (__description.isNullOrEmpty())
+            {
+                callForScan = true;
+            }
+            
+            folderNode output = Add(directory.Name, __caption, __description);
+
+            output.ScanReadMe(logger);
+            return output;
+        }
+
+        //public void AttachSubdirs(ILogBuilder logger)
+        //{
+        //    Directory.GetDirectories(
+        //}
+
+
+        /// <summary>
+        /// Searches for readme file (<see cref="directory_readme_filename"/>) in this folder and extracts: <see cref="caption"/>, <see cref="description"/> and list of files
+        /// </summary>
+        /// <param name="logger">The logger.</param>
+        public void ScanReadMe(ILogBuilder logger = null) {
+
+            var p = path + Path.DirectorySeparatorChar + directory_readme_filename;
+            if (!File.Exists(p))
+            {
+                if (logger != null) logger.log("Readme file not found at [" + p + "]");
+                return;
+            }
+
+            var lines = File.ReadAllLines(p);
+            String line = lines.FirstOrDefault(x => x.StartsWith("####"));
+            if (line.isNullOrEmpty())
+            {
+                if (logger != null) logger.log("Readme file [" + p + "] format not recognized");
+                return;
+            }
+
+            caption = line.removeStartsWith("#### ");
+
+            var descriptionLines = lines.Where(x => x.StartsWith(" > ")).ToList();
+
+            if (descriptionLines.Count > 1)
+            {
+                description = descriptionLines[1];
+                description = description.removeStartsWith(" > ");
+            }
+
+            Int32 lc = 0;
+            for (int i = 10; i < lines.Length; i++)
+            {
+                String ln = lines[i];
+                if (ln.isNullOrEmpty())
+                {
+
+                }
+                else if (ln.Contains("-----------------------"))
+                {
+                    lc++;
+                    if (lc > 1) break;
+                }
+                else
+                {
+                    folderNodeFileDescriptor fInfo = folderNodeFileDescriptorTools.GetFileDescription(ln);
+                    if (fInfo != null)
+                    {
+                        RegisterFile(fInfo.filename, fInfo.description);
+                     //   AdditionalFileEntries.Add(fInfo.filename, this.GetFileDescription(fInfo.filename, fInfo.description));
+                    }
+                }
+            }
+            
+        }
+
+
+        /// <summary>
         /// 
         /// </summary>
         protected Dictionary<string, folderNode> items { get; set; } = new Dictionary<string, folderNode>();
 
+        /// <summary>
+        /// Determines whether it has a subdirectory under specified key. Important: it only accounts for already registered filesystem entries. Check: <see cref="Attach(DirectoryInfo, string, string, bool, bool, ILogBuilder)"/>
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <returns>
+        ///   <c>true</c> if [contains] [the specified key]; otherwise, <c>false</c>.
+        /// </returns>
         public bool Contains(string key) => items.ContainsKey(key);
 
         /// <summary>
@@ -452,6 +594,19 @@ namespace imbSCI.Core.files.folders
                 output = output.getWritableFile(mode).FullName;
             }
 
+            RegisterFile(filename, fileDescription);
+            
+            
+            return output;
+        }
+
+        /// <summary>
+        /// Registers the file
+        /// </summary>
+        /// <param name="filename">The filename.</param>
+        /// <param name="fileDescription">The file description.</param>
+        public void RegisterFile(String filename, String fileDescription)
+        {
             lock (addFileDescriptionLock)
             {
                 if (!AdditionalFileEntries.ContainsKey(filename))
@@ -464,9 +619,6 @@ namespace imbSCI.Core.files.folders
                 }
             }
 
-            
-            
-            return output;
         }
 
 
@@ -735,13 +887,18 @@ namespace imbSCI.Core.files.folders
         /// </value>
         public Dictionary<String, folderNodeFileDescriptor> AdditionalFileEntries { get; protected set; } = new Dictionary<String, folderNodeFileDescriptor>();
 
-
+        public static String directory_readme_filename = "directory_readme.txt";
         /// <summary>
         /// Generates the readme files for complete folder tree
         /// </summary>
-        /// <param name="notation">The notation.</param>
-        public void generateReadmeFiles(aceAuthorNotation notation, String readmeFileName = "directory_readme.txt")
+        /// <param name="notation">The notation data object</param>
+        /// <param name="readmeFileName">Overrides the default readme file name, defined by <see cref="directory_readme_filename"/>.</param>
+        public void generateReadmeFiles(aceAuthorNotation notation, String readmeFileName = "")
         {
+            if (readmeFileName.isNullOrEmpty())
+            {
+                readmeFileName = directory_readme_filename;
+            }
             lock (GenerateReadmeLock)
             {
 

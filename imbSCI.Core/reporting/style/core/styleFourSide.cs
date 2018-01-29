@@ -195,6 +195,14 @@ namespace imbSCI.Core.reporting.style.core
             this[styleSideDirection.right, target] = setting.right;
         }
 
+        public void CopySideSettingsTo(styleFourSide target)
+        {
+            target[styleSideDirection.bottom] = bottom;
+            target[styleSideDirection.top] = top;
+            target[styleSideDirection.left] = left;
+            target[styleSideDirection.right] = right;
+        }
+
 
 
         public Object this[styleSideDirection side, styleFourSideParameter param]
@@ -239,6 +247,24 @@ namespace imbSCI.Core.reporting.style.core
                         break;
                 }
                 return left;
+            }
+            set
+            {
+                switch (key)
+                {
+                    case styleSideDirection.bottom:
+                        bottom = value;
+                        break;
+                    case styleSideDirection.left:
+                        left = value;
+                        break;
+                    case styleSideDirection.right:
+                        right = value;
+                        break;
+                    case styleSideDirection.top:
+                        top = value;
+                        break;
+                }
             }
         }
 

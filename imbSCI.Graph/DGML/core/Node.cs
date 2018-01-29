@@ -41,7 +41,7 @@ namespace imbSCI.Graph.DGML.core
     /// 
     /// </summary>
     /// <seealso cref="imbSCI.Graph.DGML.core.GraphNodeElement" />
-    public class Node:GraphNodeElement
+    public class Node:GraphNodeElement, IGraphElement
     {
         public Node()
         {

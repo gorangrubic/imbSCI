@@ -35,13 +35,18 @@ using System.Xml.Serialization;
 
 namespace imbSCI.Graph.DGML.core
 {
-    public class Link:GraphElement
+    public class Link:GraphElement, IGraphElement
     {
 
         public Link()
         {
 
         }
+
+        //String IGraphElement.Id {
+        //    get { return Source; }
+        //    set { Source = value; }
+        //}
 
         public Link(String _source, String _target)
         {

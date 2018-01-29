@@ -1,0 +1,6 @@
+--------------------------------
+>>test
+>> > The given key was not present in the dictionary.
+>> >    at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at imbSCI.TestUnit.UnitTestForExceptions.TestException() in G:\imbVelesOpenSource\imbSCI\imbSCI.TestUnit\UnitTestForExceptions.cs:line 46
+--------------------------------

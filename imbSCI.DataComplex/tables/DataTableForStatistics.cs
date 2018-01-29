@@ -63,6 +63,8 @@ namespace imbSCI.DataComplex.tables
     using imbSCI.Core.files.folders;
     using imbSCI.Core.config;
     using System.Xml.Serialization;
+    using imbSCI.Core.extensions.table.style;
+    using imbSCI.Core.extensions.table.core;
 
     /// <summary>
     /// IDEJA SAMO
@@ -70,6 +72,11 @@ namespace imbSCI.DataComplex.tables
     /// <seealso cref="System.Data.DataTable" />
     public class DataTableForStatistics : DataTable, IDataTableForStatistics
     {
+        //public DataTableForStatistics()
+        //{
+
+        //}
+
         public static bool AUTOSAVE_CleanDataTable
         {
             get
@@ -274,7 +281,7 @@ namespace imbSCI.DataComplex.tables
             }
         }
         [XmlIgnore]
-        public dataTableRowMetaSet rowMetaSet
+        public tableStyleRowSetter rowMetaSet
         {
             get
             {
@@ -283,7 +290,7 @@ namespace imbSCI.DataComplex.tables
         }
 
         [XmlIgnore]
-        public dataTableColumnMetaSet columnMetaSet
+        public tableStyleColumnSetter columnMetaSet
         {
             get
             {
@@ -348,7 +355,7 @@ namespace imbSCI.DataComplex.tables
                     var ex_row = ws.Row(i + 1);
                     var in_row = table.Rows[i];
                     if (i > ROW_LIMIT_FOR_STYLE) break;
-                    dataTableRowMetaSet metaSet = null;
+                    tableStyleRowSetter metaSet = null;
 
                     if (useMetaSetFromTheTable) metaSet = table.GetRowMetaSet();
                     DeployStyleToRow(ex_row, in_row, ws, metaSet);
@@ -378,7 +385,14 @@ namespace imbSCI.DataComplex.tables
         }
 
 
-        public void DeployStyleToRow(ExcelRow ex_row, DataRow in_row, ExcelWorksheet ws, dataTableRowMetaSet metaSet = null)
+        /// <summary>
+        /// Deploys the style to row.
+        /// </summary>
+        /// <param name="ex_row">The ex row.</param>
+        /// <param name="in_row">The in row.</param>
+        /// <param name="ws">The ws.</param>
+        /// <param name="metaSet">The meta set.</param>
+        public void DeployStyleToRow(ExcelRow ex_row, DataRow in_row, ExcelWorksheet ws, tableStyleRowSetter metaSet = null)
         {
             DataRowInReportTypeEnum style = DataRowInReportTypeEnum.data;
             
@@ -396,9 +410,14 @@ namespace imbSCI.DataComplex.tables
 
             if (metaSet != null) rowsMetaSet = metaSet;
 
-            
+            var response = rowsMetaSet.evaluate(in_row, this, baseStyle);
+            if (response != null) if (response.style != null) baseStyle = response.style;
+            if (baseStyle == null) baseStyle = styleSet.rowStyles[style];
+            foreach (string s in response.notes)
+            {
+                Console.WriteLine(s);
+            }
 
-            baseStyle = rowsMetaSet.evaluate(in_row, this, baseStyle);
 
             ex_row.SetStyle(baseStyle, isEven);
 
@@ -407,6 +426,9 @@ namespace imbSCI.DataComplex.tables
 
             switch (style)
             {
+                case DataRowInReportTypeEnum.columnCaption:
+
+                    break;
                 case DataRowInReportTypeEnum.mergedHeaderTitle:
                     ws.Cells[ex_row.Row, 1, ex_row.Row, in_row.Table.Columns.Count].Merge = true;
 
@@ -454,7 +476,8 @@ namespace imbSCI.DataComplex.tables
                             sl.Value = cpair.Key.ToUpper();
                             sl.Style.Fill.PatternType = ExcelFillStyle.Solid;
 
-                            sl.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.Gray);
+                            var col = categories.categoryColors[cpair.Key]; //.First().DefaultBackground(System.Drawing.Color.Gray);
+                            sl.Style.Fill.BackgroundColor.SetColor(col);
                             sl.Style.Fill.BackgroundColor.Tint = new decimal(tn);
                          
                         }
@@ -614,6 +637,11 @@ namespace imbSCI.DataComplex.tables
         }
 
 
+        /// <summary>
+        /// Inserts the aggregation.
+        /// </summary>
+        /// <param name="ws">The ws.</param>
+        /// <param name="dataTable">The data table.</param>
         public void InsertAggregation(ExcelWorksheet ws, DataTable dataTable)
         {
 
@@ -657,6 +685,14 @@ namespace imbSCI.DataComplex.tables
 
         //public static String GetFileName(this DataTa)
 
+        /// <summary>
+        /// Saves the specified folder.
+        /// </summary>
+        /// <param name="folder">The folder.</param>
+        /// <param name="notation">The notation.</param>
+        /// <param name="filenamePrefix">The filename prefix.</param>
+        /// <returns></returns>
+        /// <exception cref="dataException">Excell: " + ex.Message - Export to excell</exception>
         public string Save(folderNode folder, aceAuthorNotation notation = null, string filenamePrefix = "")
         {
             string msg = "tried to save a data table [" + this.GetTitle() + "][" + TableName + "] -> " + folder.path + " [" + DateTime.Now.ToLongTimeString() + "/" + DateTime.Now.ToLongDateString() + "]";
@@ -731,18 +767,19 @@ namespace imbSCI.DataComplex.tables
                 {
                     throw new dataException("Excell: " + ex.Message, ex, this, "Export to excell");
 
-                    msg = msg.addLine(ex.Message);
-                    msg = msg.addLine(ex.StackTrace);
+                    
+                    msg = msg + ex.LogException("Saving Excel file [" + fileInfo.FullName + "]", "DataTable");
 
                     msg.saveStringToFile(folder.pathFor(fl, getWritableFileMode.none), getWritableFileMode.autoRenameExistingToBack);
+
+                    
                 }
 
                 output = fileInfo.FullName;
                 return output;
             } catch (Exception ex2) {
 
-                msg = msg.addLine(ex2.Message);
-                msg = msg.addLine(ex2.StackTrace);
+                msg = msg + ex2.LogException("Saving Excel file [" + fileInfo.FullName + "]", "DataTable");
 
                 msg.saveStringToFile(folder.pathFor(fl, getWritableFileMode.none), getWritableFileMode.autoRenameExistingToBack);
             }

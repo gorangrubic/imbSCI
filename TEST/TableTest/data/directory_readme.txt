@@ -10,9 +10,9 @@
 
 ### Files in this directory:
 
-1 : [ci_customdatatable.txt                            ] Column / Fields meta information for data table [Customdatatable] export
+1 : [ci_exporttext.xlsx.txt                            ] Column / Fields meta information for data table [Exporttext .xlsx] export
 
-2 : [dc_customdatatable.csv                            ] Exported DataTable [Custom Table Entry][Custom data table extended]. 
+2 : [dc_exporttext.xlsx.csv                            ] Exported DataTable [Custom Table Entry][Custom data table extended]. 
 
 3 : [directory_readme.txt                              ] Description of directory content (this file)
 
@@ -23,6 +23,10 @@
  ------------------------------------------------------------------------------------
 
 **Author**: _Goran Grubić_
+
+**E-mail**: _hardy@veles.rs_
+
+**Web**: _http://blog.veles.rs_
 
 **Copyright**: _All Rights reserved © 2013-2018._
 
@@ -36,6 +40,6 @@
 
  ------------------------------------------------------------------------------------
 
-File generated: Tuesday, January 23, 2018 5:23:05 AM
+File generated: Saturday, January 27, 2018 11:57:52 PM
 
 

@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,6 +53,9 @@
     <Reference Include="DotNetZip, Version=1.10.1.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
       <HintPath>..\..\imbACE\packages\DotNetZip.1.10.1\lib\net20\DotNetZip.dll</HintPath>
     </Reference>
+    <Reference Include="MathNet.Numerics, Version=3.20.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.3.20.2\lib\net40\MathNet.Numerics.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -69,21 +74,23 @@
   <ItemGroup>
     <Compile Include="config\imbSCICoreConfig.cs" />
     <Compile Include="extensions\data\containsQueries.cs" />
-    <Compile Include="extensions\table\columnMetaEvaluation.cs" />
-    <Compile Include="extensions\table\dataNumericCriterionDynamicStyle.cs" />
+    <Compile Include="extensions\table\core\columnMetaEvaluation.cs" />
+    <Compile Include="extensions\table\core\IDataTableForStatistics.cs" />
+    <Compile Include="extensions\table\core\tableStyleColumnSetter.cs" />
+    <Compile Include="extensions\table\core\tableStyleRowSetter.cs" />
+    <Compile Include="extensions\table\core\tableStyleSetterBase.cs" />
+    <Compile Include="extensions\table\dynamics\tableStyleDynamicRule.cs" />
+    <Compile Include="extensions\table\dynamics\dataNumericCriterionDynamicStyle.cs" />
     <Compile Include="extensions\table\DataRowCollectionTools.cs" />
-    <Compile Include="extensions\table\dataRowIndexDynamicStyle.cs" />
+    <Compile Include="extensions\table\dynamics\dataRowIndexDynamicStyle.cs" />
     <Compile Include="extensions\table\DataRowInReportTypeEnum.cs" />
-    <Compile Include="extensions\table\dataTableColumnMetaSet.cs" />
-    <Compile Include="extensions\table\dataTableDynamicStyleEntry.cs" />
-    <Compile Include="extensions\table\dataTableMetaSet.cs" />
-    <Compile Include="extensions\table\dataTableRowMetaSet.cs" />
-    <Compile Include="extensions\table\dataTableStyleDictionary.cs" />
-    <Compile Include="extensions\table\dataTableStyleEntry.cs" />
-    <Compile Include="extensions\table\dataTableStyleSet.cs" />
-    <Compile Include="extensions\table\dataValueMatchCriterionDynamicStyle.cs" />
-    <Compile Include="extensions\table\rowMetaEvaluation.cs" />
-    <Compile Include="extensions\table\zoneMetaEvaluation.cs" />
+    <Compile Include="extensions\table\style\dataTableStyleDictionary.cs" />
+    <Compile Include="extensions\table\style\dataTableStyleEntry.cs" />
+    <Compile Include="extensions\table\style\dataTableStyleSet.cs" />
+    <Compile Include="extensions\table\dynamics\dataValueMatchCriterionDynamicStyle.cs" />
+    <Compile Include="extensions\table\core\rowMetaEvaluation.cs" />
+    <Compile Include="extensions\table\core\zoneMetaEvaluation.cs" />
+    <Compile Include="extensions\table\style\tableStyleSetterResponse.cs" />
     <Compile Include="extensions\text\imbStringBuilderExtensions.cs" />
     <Compile Include="extensions\typeworks\CollectTypeFlags.cs" />
     <Compile Include="files\fileTools.cs" />
@@ -97,6 +104,7 @@
     <Compile Include="math\classificationMetrics\classificationReport.cs" />
     <Compile Include="math\classificationMetrics\classificationReportExtensions.cs" />
     <Compile Include="math\classificationMetrics\IClassificationReport.cs" />
+    <Compile Include="math\StatisticsExtensions.cs" />
     <Compile Include="reporting\aceLogToConsoleControl.cs" />
     <Compile Include="attributes\aceCriterieConfig.cs" />
     <Compile Include="attributes\aceRangeConfig.cs" />
@@ -136,7 +144,12 @@
     <Compile Include="reporting\style\core\styleSurfaceColor.cs" />
     <Compile Include="reporting\style\core\styleTextFontSingle.cs" />
     <Compile Include="reporting\style\enums\styleFillType.cs" />
+    <Compile Include="reporting\zone\selectRangeAreaLimiter.cs" />
     <Compile Include="screenOutputControl.cs" />
+    <Compile Include="style\color\ColorGradient.cs" />
+    <Compile Include="style\color\ColorGradientDictionary.cs" />
+    <Compile Include="style\color\ColorGradientFunction.cs" />
+    <Compile Include="style\color\ColorHSVPoint.cs" />
     <Compile Include="syntax\param\typedParam.cs" />
     <Compile Include="syntax\param\typedParamCollection.cs" />
     <Compile Include="syntax\param\typedParamInfo.cs" />
@@ -615,6 +628,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="NewFolder1\" />
     <Folder Include="syntax\nc\syntaxes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

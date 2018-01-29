@@ -744,9 +744,10 @@ namespace imbSCI.Core.data
             extraData[templateFieldDataTable.col_expression] = expression;
             extraData[templateFieldDataTable.col_imbattributes] = attributes;
             extraData[templateFieldDataTable.col_unit] = unit;
+            extraData[templateFieldDataTable.col_color] = color;
 
             // extraData[templateFieldDataTable.col_alignment] = attributes;
-          //  extraData.AppendData(pe, existingDataMode.overwriteExisting, false);
+            //  extraData.AppendData(pe, existingDataMode.overwriteExisting, false);
             return extraData;
         }
 

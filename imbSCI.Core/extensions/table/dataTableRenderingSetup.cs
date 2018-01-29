@@ -34,6 +34,8 @@ namespace imbSCI.Core.extensions.table
     using imbSCI.Core.enums;
     using imbSCI.Core.extensions.data;
     using imbSCI.Core.extensions.io;
+    using imbSCI.Core.extensions.table.core;
+    using imbSCI.Core.extensions.table.style;
     using imbSCI.Core.extensions.text;
     using imbSCI.Core.math.aggregation;
     using imbSCI.Core.reporting.colors;
@@ -634,46 +636,46 @@ namespace imbSCI.Core.extensions.table
 
 
 
-        public static dataTableRowMetaSet RowMetaSet(this DataTable dc, dataTableRowMetaSet default_table_metarows)
+        public static tableStyleRowSetter RowMetaSet(this DataTable dc, tableStyleRowSetter default_table_metarows)
         {
             if (!dc.ExtendedProperties.ContainsKey(templateFieldDataTable.table_metarows))
             {
                 dc.ExtendedProperties.add(templateFieldDataTable.table_metarows, default_table_metarows);
             }
-            return dc.ExtendedProperties[templateFieldDataTable.table_metarows] as dataTableRowMetaSet;
+            return dc.ExtendedProperties[templateFieldDataTable.table_metarows] as tableStyleRowSetter;
         }
-        public static dataTableRowMetaSet GetRowMetaSet(this DataTable dc)
+        public static tableStyleRowSetter GetRowMetaSet(this DataTable dc)
         {
             if (!dc.ExtendedProperties.ContainsKey(templateFieldDataTable.table_metarows))
             {
-                dc.ExtendedProperties[templateFieldDataTable.table_metarows] = new dataTableRowMetaSet();
+                dc.ExtendedProperties[templateFieldDataTable.table_metarows] = new tableStyleRowSetter();
             }
-            return dc.ExtendedProperties[templateFieldDataTable.table_metarows] as dataTableRowMetaSet;
+            return dc.ExtendedProperties[templateFieldDataTable.table_metarows] as tableStyleRowSetter;
         }
-        public static DataTable SetRowMetaSet(this DataTable dc, dataTableRowMetaSet table_metarows)
+        public static DataTable SetRowMetaSet(this DataTable dc, tableStyleRowSetter table_metarows)
         {
             dc.ExtendedProperties.add(templateFieldDataTable.table_metarows, table_metarows);
             return dc;
         }
 
 
-        public static dataTableColumnMetaSet ColumnMetaSet(this DataTable dc, dataTableColumnMetaSet default_table_metacolumns)
+        public static tableStyleColumnSetter ColumnMetaSet(this DataTable dc, tableStyleColumnSetter default_table_metacolumns)
         {
             if (!dc.ExtendedProperties.ContainsKey(templateFieldDataTable.table_metacolumns))
             {
                 dc.ExtendedProperties.add(templateFieldDataTable.table_metacolumns, default_table_metacolumns);
             }
-            return dc.ExtendedProperties[templateFieldDataTable.table_metacolumns] as dataTableColumnMetaSet;
+            return dc.ExtendedProperties[templateFieldDataTable.table_metacolumns] as tableStyleColumnSetter;
         }
-        public static dataTableColumnMetaSet GetColumnMetaSet(this DataTable dc)
+        public static tableStyleColumnSetter GetColumnMetaSet(this DataTable dc)
         {
             if (!dc.ExtendedProperties.ContainsKey(templateFieldDataTable.table_metacolumns))
             {
-                dc.ExtendedProperties[templateFieldDataTable.table_metacolumns] = new dataTableColumnMetaSet();
+                dc.ExtendedProperties[templateFieldDataTable.table_metacolumns] = new tableStyleColumnSetter();
             }
-            return dc.ExtendedProperties[templateFieldDataTable.table_metacolumns] as dataTableColumnMetaSet;
+            return dc.ExtendedProperties[templateFieldDataTable.table_metacolumns] as tableStyleColumnSetter;
         }
-        public static DataTable SetColumnMetaSet(this DataTable dc, dataTableColumnMetaSet table_metacolumns)
+        public static DataTable SetColumnMetaSet(this DataTable dc, tableStyleColumnSetter table_metacolumns)
         {
             dc.ExtendedProperties.add(templateFieldDataTable.table_metacolumns, table_metacolumns);
             return dc;

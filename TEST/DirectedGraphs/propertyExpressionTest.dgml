@@ -39,11 +39,11 @@
     <Node Stroke="#FFC518B0" StrokeThinkness="7" Label="doLinkDirectionFromLowerTypeToHigher" Category="2" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\doLinkDirectionFromLowerTypeToHigher" Background="#FFC518B0" />
     <Node Stroke="#FFC518B0" StrokeThinkness="7" Label="doAddNodeTypeToLabel" Category="2" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\doAddNodeTypeToLabel" Background="#FFC518B0" />
     <Node Stroke="#FFC518B0" StrokeThinkness="7" Label="GraphLayout" Category="2" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\GraphLayout" Background="#FFC518B0" />
-    <Node Stroke="#B218C52D" StrokeThinkness="7" Label="HexColorB = &quot;#224ECA&quot;" Category="3" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\NodeGradient\HexColorB" Background="#B218C52D" />
-    <Node Stroke="#B218C52D" StrokeThinkness="7" Label="HexColorA = &quot;#D82323&quot;" Category="3" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\NodeGradient\HexColorA" Background="#B218C52D" />
+    <Node Stroke="#B218C52D" StrokeThinkness="7" Label="HexColorB = &quot;#FF72a725&quot;" Category="3" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\NodeGradient\HexColorB" Background="#B218C52D" />
+    <Node Stroke="#B218C52D" StrokeThinkness="7" Label="HexColorA = &quot;#FF3b25a7&quot;" Category="3" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\NodeGradient\HexColorA" Background="#B218C52D" />
     <Node Stroke="#B2C518B0" StrokeThinkness="7" Label="gradient" Category="2" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\NodeGradient\gradient" Background="#B2C518B0" />
-    <Node Stroke="#B218C52D" StrokeThinkness="7" Label="HexColorB = &quot;#224ECA&quot;" Category="3" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\LinkGradient\HexColorB" Background="#B218C52D" />
-    <Node Stroke="#B218C52D" StrokeThinkness="7" Label="HexColorA = &quot;#D82323&quot;" Category="3" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\LinkGradient\HexColorA" Background="#B218C52D" />
+    <Node Stroke="#B218C52D" StrokeThinkness="7" Label="HexColorB = &quot;#FF224ECA&quot;" Category="3" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\LinkGradient\HexColorB" Background="#B218C52D" />
+    <Node Stroke="#B218C52D" StrokeThinkness="7" Label="HexColorA = &quot;#FFD82323&quot;" Category="3" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\LinkGradient\HexColorA" Background="#B218C52D" />
     <Node Stroke="#B2C518B0" StrokeThinkness="7" Label="gradient" Category="2" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\LinkGradient\gradient" Background="#B2C518B0" />
   </Nodes>
   <Properties />

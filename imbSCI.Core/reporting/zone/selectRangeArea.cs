@@ -41,6 +41,12 @@ namespace imbSCI.Core.reporting.zone
     using System;
     using System.Collections.Generic;
 
+
+
+
+
+
+
     /// <summary>
     /// Selection area> with its starting poing, ending point and size. It automatically calculates> x, y, width and height fields
     /// </summary>
@@ -60,6 +66,28 @@ namespace imbSCI.Core.reporting.zone
             return output;
         }
 
+
+        public selectRangeArea GetVerticalAxis(Int32 atX, Int32 atW=1)
+        {
+            selectRangeArea output = new selectRangeArea(atX, y);
+            output.x = atX;
+
+            output.y = y;
+            output.width = atW;
+            output.height = height;
+            return output;
+        }
+
+        public selectRange GetHorizontalAxis(Int32 atY, Int32 atH=1)
+        {
+            selectRangeArea output = new selectRangeArea(x, atY);
+            output.x = x;
+
+            output.y = atY;
+            output.width = width;
+            output.height = atH;
+            return output;
+        }
 
 
         /// <summary>
@@ -229,7 +257,7 @@ namespace imbSCI.Core.reporting.zone
         /// <returns>
         ///   <c>true</c> if x,y is inside, and not on the edge
         /// </returns>
-        public Boolean isInside(Int32 tX, Int32 tY)
+        public virtual Boolean isInside(Int32 tX, Int32 tY)
         {
             if (tX < TopLeft.x) return false;
             if (tX > BottomRight.x) return false;
@@ -248,7 +276,7 @@ namespace imbSCI.Core.reporting.zone
         /// <returns>
         ///   <c>true</c> when x,y are inside area + area extended by the edge. If edge is 1 than exact size of area is tested.
         /// </returns>
-        public Boolean isInsideOrEdge(Int32 tX, Int32 tY, Int32 edge=1)
+        public virtual Boolean isInsideOrEdge(Int32 tX, Int32 tY, Int32 edge=1)
         {
             if (tX < TopLeft.x-edge) return false;
             if (tX > BottomRight.x+edge) return false;

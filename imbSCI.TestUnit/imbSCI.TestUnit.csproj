@@ -55,7 +55,9 @@
     <Compile Include="testObjects\customTableEntry.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTestFolderNodes.cs" />
     <Compile Include="UnitTestForDataTableExtended.cs" />
+    <Compile Include="UnitTestForExceptions.cs" />
     <Compile Include="UnitTestForFileDataStructure.cs" />
     <Compile Include="UnitTestForPropertyExpression.cs" />
     <Compile Include="UnitTestForSCICore.cs" />

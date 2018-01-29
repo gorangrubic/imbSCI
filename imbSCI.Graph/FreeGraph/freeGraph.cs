@@ -45,11 +45,18 @@ using System.Xml.Serialization;
 namespace imbSCI.Graph.FreeGraph
 {
 
+
+
+
+
+
     /// <summary>
     /// 
     /// </summary>
     public class freeGraph:IObjectWithName
     {
+
+        public String name { get; set; } = "freeGraph";
 
         /// <summary>
         /// Normalizes the node weights.
@@ -106,7 +113,14 @@ namespace imbSCI.Graph.FreeGraph
                 }
             }
         }
-        public String name { get; set; } = "";
+        public String Id {
+            get {
+                return name;
+            } set
+            {
+                name = value;
+            }
+        } 
         public String description { get; set; } = "";
 
 
@@ -293,7 +307,7 @@ namespace imbSCI.Graph.FreeGraph
         public T CloneIntoType<T>(Boolean callCheck=true) where T:freeGraph, new()
         {
             T output = new T();
-            output.name = name;
+            output.Id = Id;
             output.description = description;
             foreach (freeGraphNodeBase node in nodes)
             {
@@ -791,6 +805,6 @@ namespace imbSCI.Graph.FreeGraph
         /// </value>
         public List<freeGraphLinkBase> links { get; set; } = new List<freeGraphLinkBase>();
 
-
+        
     }
 }

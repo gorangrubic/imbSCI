@@ -347,9 +347,20 @@ namespace imbSCI.Core.extensions.data
             return output;
         }
 
+        public static List<TTarget> ConvertToList<TTarget>(this IEnumerable source)
+        {
+            
+            List<TTarget> output = new List<TTarget>();
+            foreach (var o in source)
+            {
+                TTarget ot = (TTarget)o;
+                output.Add(ot);
+            }
+            return output;
+        }
 
 
-        public static List<TTarget> ConvertList<TSource, TTarget>(this List<TSource> source) where TTarget:TSource 
+        public static List<TTarget> ConvertList<TSource, TTarget>(this IEnumerable<TSource> source) where TTarget:TSource 
         {
             List<TTarget> output = new List<TTarget>();
             source.ToList().ForEach(x => output.Add((TTarget)x));
@@ -364,7 +375,7 @@ namespace imbSCI.Core.extensions.data
         /// <typeparam name="TTarget">The type of the target.</typeparam>
         /// <param name="source">The source.</param>
         /// <returns></returns>
-        public static List<TTarget> ConvertIList<TSource, TTarget>(this IList<TSource> source) where TSource:TTarget
+        public static List<TTarget> ConvertIList<TSource, TTarget>(this IEnumerable<TSource> source) where TSource:TTarget
         {
             List<TTarget> output = new List<TTarget>();
             source.ToList().ForEach(x => output.Add((TTarget)x));

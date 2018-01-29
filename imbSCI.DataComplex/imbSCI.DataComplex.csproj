@@ -204,6 +204,7 @@
     <Compile Include="tables\DataTableForStatistics.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="tables\DataTableForStatisticsExportJob.cs" />
     <Compile Include="tables\DataTableForStatisticsExtension.cs" />
     <Compile Include="tables\DataTableTypeExtended.cs">
       <SubType>Component</SubType>

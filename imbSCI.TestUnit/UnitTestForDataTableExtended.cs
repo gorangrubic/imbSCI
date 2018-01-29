@@ -21,7 +21,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
     using imbSCI.DataComplex.tables;
     using imbSCI.Core.extensions.table;
     using imbSCI.Core.files;
-
+    using imbSCI.Core.extensions.table.dynamics;
 
     [TestClass]
     public class UnitTestForDataTableExtended
@@ -56,16 +56,18 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
             table.AddExtra("I tako. Šta rade tvoji?");
             Assert.IsTrue(table.Rows.Count > 0);
 
-            table.GetRowMetaSet().AddUnit(new dataNumericCriterionDynamicStyle<Int32, DataRowInReportTypeEnum>(new Core.math.range.rangeCriteria<int>(10, 60), DataRowInReportTypeEnum.dataHighlightA, "number"));
+            table.GetRowMetaSet().AddUnit(new dataNumericCriterionDynamicStyle<Int32, DataRowInReportTypeEnum>(new Core.math.range.rangeCriteria<int>(10, 60), DataRowInReportTypeEnum.mergedHeaderTitle, "number"));
 
-            var indexC = new dataRowIndexDynamicStyle<DataRowInReportTypeEnum>(DataRowInReportTypeEnum.dataHighlightB, new Int32[] { 2, 8 });
+            var indexC = new dataRowIndexDynamicStyle<DataRowInReportTypeEnum>(DataRowInReportTypeEnum.dataHighlightA, new Int32[] { 2, 8,10,9 });
             indexC.indexFromSourceTable = true;
 
             table.GetRowMetaSet().AddUnit(indexC);
 
-            table.GetRowMetaSet().AddUnit(new dataValueMatchCriterionDynamicStyle<String, DataRowInReportTypeEnum>(new String[] { "T1", "T2" }, DataRowInReportTypeEnum.dataHighlightC, "name"));
+             table.GetRowMetaSet().AddUnit(new dataValueMatchCriterionDynamicStyle<String, DataRowInReportTypeEnum>(new String[] { "T1", "T2" }, DataRowInReportTypeEnum.dataHighlightC, "name"));
 
-            table.GetReportAndSave(folder, new Core.data.aceAuthorNotation(), "customDataTable");
+            var p = folder.pathFor("exporttext.xlsx", getWritableFileMode.autoRenameThis, "");
+            
+            table.GetReportAndSave(folder, new Core.data.aceAuthorNotation(), Path.GetFileName(p));
 
             table.saveObjectToXML(folder.pathFor("customTableXML.xml"));
 

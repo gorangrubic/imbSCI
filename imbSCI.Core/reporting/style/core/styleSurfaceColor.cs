@@ -42,19 +42,56 @@ namespace imbSCI.Core.reporting.style.core
     using imbSCI.Core.reporting.geometrics;
     using System.Drawing;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public class styleSurfaceColor
     {
+        /// <summary>
+        /// Gets or sets the type of the fill.
+        /// </summary>
+        /// <value>
+        /// The type of the fill.
+        /// </value>
         public styleFillType FillType { get; set; } = styleFillType.Solid;
 
+        /// <summary>
+        /// Gets or sets the tint.
+        /// </summary>
+        /// <value>
+        /// The tint.
+        /// </value>
         public Double Tint { get; set; } = 1;
 
+        /// <summary>
+        /// Gets or sets the color.
+        /// </summary>
+        /// <value>
+        /// The color.
+        /// </value>
         public Color Color { get; set; } = Color.Gray;
 
-       // public Color ColorAlt { get; set; } = Color.Snow;
+       
 
         public styleSurfaceColor()
         {
 
+        }
+
+        /// <summary>
+        /// Clones this instance.
+        /// </summary>
+        /// <returns></returns>
+        public styleSurfaceColor Clone()
+        {
+            styleSurfaceColor output = new styleSurfaceColor();
+
+            output.FillType = FillType;
+            output.Tint = Tint;
+            output.Color = Color;
+
+
+            return output;
         }
 
 

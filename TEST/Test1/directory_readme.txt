@@ -22,6 +22,10 @@
 
 **Author**: _Goran Grubić_
 
+**E-mail**: _hardy@veles.rs_
+
+**Web**: _http://blog.veles.rs_
+
 **Copyright**: _All Rights reserved © 2013-2018._
 
 **License**: _GNU General Public License v3.0_
@@ -34,6 +38,6 @@
 
  ------------------------------------------------------------------------------------
 
-File generated: Tuesday, January 23, 2018 5:23:03 AM
+File generated: Saturday, January 27, 2018 11:57:49 PM
 
 

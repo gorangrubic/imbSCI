@@ -1,3 +1,32 @@
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="GraphConversionTools.cs" company="imbVeles" >
+//
+// Copyright (C) 2018 imbVeles
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the +terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/. 
+// </copyright>
+// <summary>
+// Project: imbSCI.Graph
+// Author: Goran Grubic
+// ------------------------------------------------------------------------------------------------------------------
+// Project web site: http://blog.veles.rs
+// GitHub: http://github.com/gorangrubic
+// Mendeley profile: http://www.mendeley.com/profiles/goran-grubi2/
+// ORCID ID: http://orcid.org/0000-0003-2673-9471
+// Email: hardy@veles.rs
+// </summary>
+// ------------------------------------------------------------------------------------------------------------------
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -16,6 +45,7 @@ using imbSCI.Data;
 using imbSCI.Core.math;
 using imbSCI.Graph.FreeGraph;
 using imbSCI.Core.data;
+using imbSCI.Graph.DOT;
 
 namespace imbSCI.Graph.Converters
 {
@@ -26,13 +56,30 @@ namespace imbSCI.Graph.Converters
     public static class GraphConversionTools
     {
 
+        public static List<DotNode> ConvertNodes(this List<Node> nodes)
+        {
+            List<DotNode> output = new List<DotNode>();
+
+            foreach (Node n in nodes)
+            {
+                DotNode dn = new DotNode(n.Label);
+                dn.Group = n.Group;
+                dn.Shape = DotNodeShape.Box;
+                dn.Style = DotNodeStyle.Dashed;
+                dn.Visibility = n.Visibility;
+                output.Add(dn);
+            }
+
+            return output;
+        }
+
         /// <summary>
         /// Converts to free graph -- from the specified node to its leafs (downwards)
         /// </summary>
         /// <param name="graph">The graph.</param>
         /// <param name="DepthLimit">The depth limit.</param>
         /// <returns></returns>
-        public static freeGraph ConvertToFreeGraph(this IGraphNode graph, Int32 DepthLimit = 300)
+        public static freeGraph ConvertToFreeGraph(this graphNode graph, Int32 DepthLimit = 300)
         {
             return GraphConversionTools.BasicConverterInstance.Convert(graph, DepthLimit);
         }
@@ -55,7 +102,7 @@ namespace imbSCI.Graph.Converters
         /// <param name="graph">The graph.</param>
         /// <param name="DepthLimit">The depth limit.</param>
         /// <returns></returns>
-        public static DirectedGraph ConvertToDGML(this IGraphNode graph, Int32 DepthLimit = 300)
+        public static DirectedGraph ConvertToDGML(this graphNode graph, Int32 DepthLimit = 300)
         {
             
             return DefaultGraphToDGMLConverterInstance.Convert(graph, DepthLimit);
@@ -102,17 +149,17 @@ namespace imbSCI.Graph.Converters
 
 
 
-        private static graphToFreeGraphConverterBasic<IGraphNode> _DefaultFreeGraphConverterInstance;
+        private static graphToFreeGraphConverterBasic<graphNode> _DefaultFreeGraphConverterInstance;
         /// <summary>
         /// Basic instance of <see cref="graphNode"/> to <see cref="freeGraph"/> converter
         /// </summary>
-        public static graphToFreeGraphConverterBasic<IGraphNode> BasicConverterInstance
+        public static graphToFreeGraphConverterBasic<graphNode> BasicConverterInstance
         {
             get
             {
                 if (_DefaultFreeGraphConverterInstance == null)
                 {
-                    _DefaultFreeGraphConverterInstance = new graphToFreeGraphConverterBasic<IGraphNode>();
+                    _DefaultFreeGraphConverterInstance = new graphToFreeGraphConverterBasic<graphNode>();
                 }
                 return _DefaultFreeGraphConverterInstance;
             }

@@ -4,12 +4,19 @@
     <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="Custom_x0020_Table_x0020_Entry" msdata:UseCurrentLocale="true">
       <xs:complexType>
         <xs:choice minOccurs="0" maxOccurs="unbounded">
-          <xs:element name="Custom_x0020_Table_x0020_Entry" msprop:shema_sourceinstance="imbSCI.TestUnit.testObjects.customTableEntry" msprop:data_additional="        PCE name = &#xD;&#xA;        PCE info = &#xD;&#xA;-------------&#xD;&#xA;       Cleandata = G:\imbVelesOpenSource\imbSCI\TEST\TableTest\data\dc_customdatatable.csv&#xD;&#xA;      Columninfo = G:\imbVelesOpenSource\imbSCI\TEST\TableTest\data\ci_customdatatable.txt&#xD;&#xA;          Folder = G:\imbVelesOpenSource\imbSCI\TEST\TableTest&#xD;&#xA;            File = dt_customdatatable_custom_table_entry.xlsx&#xD;&#xA;              ID = customDataTable&#xD;&#xA;" msprop:table_styleset="imbSCI.Core.extensions.table.dataTableStyleSet" msprop:shema_classname="customTableEntry" msprop:table_extraDesc="System.Collections.Generic.List`1[System.String]" msprop:categoryPriority="System.Collections.Generic.List`1[System.String]" msprop:table_metacolumns="imbSCI.Core.extensions.table.dataTableColumnMetaSet" msprop:table_metarows="imbSCI.Core.extensions.table.dataTableRowMetaSet" msprop:data_tabledesc="Custom data table extended" msprop:data_tablename="Custom Table Entry">
+          <xs:element name="Custom_x0020_Table_x0020_Entry" msprop:shema_sourceinstance="imbSCI.TestUnit.testObjects.customTableEntry" msprop:data_additional="        PCE name = &#xD;&#xA;        PCE info = &#xD;&#xA;-------------&#xD;&#xA;       Cleandata = G:\imbVelesOpenSource\imbSCI\TEST\TableTest\data\dc_exporttext.xlsx.csv&#xD;&#xA;      Columninfo = G:\imbVelesOpenSource\imbSCI\TEST\TableTest\data\ci_exporttext.xlsx.txt&#xD;&#xA;          Folder = G:\imbVelesOpenSource\imbSCI\TEST\TableTest&#xD;&#xA;            File = dt_exporttext.xlsx_custom_table_entry.xlsx&#xD;&#xA;              ID = exporttext.xlsx&#xD;&#xA;" msprop:table_styleset="imbSCI.Core.extensions.table.style.dataTableStyleSet" msprop:shema_classname="customTableEntry" msprop:data_aggregation_type="none" msprop:table_extraDesc="System.Collections.Generic.List`1[System.String]" msprop:categoryPriority="System.Collections.Generic.List`1[System.String]" msprop:table_metacolumns="imbSCI.Core.extensions.table.core.tableStyleColumnSetter" msprop:table_metarows="imbSCI.Core.extensions.table.core.tableStyleRowSetter" msprop:data_tabledesc="Custom data table extended" msprop:data_tablename="Custom Table Entry">
             <xs:complexType>
               <xs:sequence>
-                <xs:element name="name" msdata:Caption="Name" msprop:reporting_valueformat="" msprop:col_propertyInfo="System.String name" msprop:col_group="GROUPA" msprop:measure_important="none" msprop:measure_displayGroup="GROUPA" msprop:columnWidth="20" msprop:col_hasLinks="False" msprop:col_desc="name" msprop:col_type="System.String" msprop:col_caption="Name" msprop:col_hasTemplate="False" msprop:data_aggregation_type="imbSCI.Core.math.aggregation.dataPointAggregationDefinition" msprop:shema_classname="String" msprop:col_unit="" msprop:col_letter="R" msprop:col_spe="imbSCI.Core.data.settingsPropertyEntryWithContext" msprop:col_pe="" msprop:col_priority="100" msprop:col_format="" msprop:col_importance="none" type="xs:string" minOccurs="0" />
-                <xs:element name="number" msprop:reporting_valueformat="" msprop:col_propertyInfo="Int32 number" msprop:col_group="GROUPA" msprop:measure_important="none" msprop:measure_displayGroup="GROUPA" msprop:columnWidth="20" msprop:col_hasLinks="False" msprop:col_desc="number" msprop:col_type="System.Int32" msprop:col_caption="number" msprop:col_hasTemplate="False" msprop:data_aggregation_type="imbSCI.Core.math.aggregation.dataPointAggregationDefinition" msprop:shema_classname="Int32" msprop:col_unit="" msprop:col_letter="" msprop:col_spe="imbSCI.Core.data.settingsPropertyEntryWithContext" msprop:col_pe="" msprop:col_priority="100" msprop:col_format="" msprop:col_importance="none" type="xs:int" minOccurs="0" />
-                <xs:element name="rate" msprop:reporting_valueformat="" msprop:col_propertyInfo="Double rate" msprop:col_group="GROUPB" msprop:measure_important="none" msprop:measure_displayGroup="GROUPB" msprop:columnWidth="20" msprop:col_hasLinks="False" msprop:col_desc="Ratio" msprop:col_type="System.Double" msprop:col_caption="rate" msprop:col_hasTemplate="False" msprop:data_aggregation_type="imbSCI.Core.math.aggregation.dataPointAggregationDefinition" msprop:shema_classname="Double" msprop:col_unit="%" msprop:col_letter="R" msprop:col_spe="imbSCI.Core.data.settingsPropertyEntryWithContext" msprop:col_pe="" msprop:col_priority="100" msprop:col_format="" msprop:col_importance="none" type="xs:double" minOccurs="0" />
+                <xs:element name="name" msdata:Caption="Name" msprop:reporting_valueformat="" msprop:col_propertyInfo="System.String name" msprop:col_group="GROUPA" msprop:measure_important="none" msprop:measure_displayGroup="GROUPA" msprop:columnWidth="20" msprop:col_hasLinks="False" msprop:col_desc="name" msprop:col_type="System.String" msprop:col_caption="Name" msprop:col_hasTemplate="False" msprop:data_aggregation_type="imbSCI.Core.math.aggregation.dataPointAggregationDefinition" msprop:shema_classname="String" msprop:col_unit="" msprop:col_letter="R" msprop:col_spe="imbSCI.Core.data.settingsPropertyEntryWithContext" msprop:col_pe="" msprop:col_priority="100" msprop:col_format="" msprop:col_color="Color [A=255, R=119, G=51, B=0]" msprop:col_importance="none" type="xs:string" minOccurs="0" />
+                <xs:element name="number" msprop:reporting_valueformat="" msprop:col_propertyInfo="Int32 number" msprop:col_group="GROUPA" msprop:measure_important="none" msprop:measure_displayGroup="GROUPA" msprop:columnWidth="20" msprop:col_hasLinks="False" msprop:col_desc="number" msprop:col_type="System.Int32" msprop:col_caption="number" msprop:col_hasTemplate="False" msprop:data_aggregation_type="imbSCI.Core.math.aggregation.dataPointAggregationDefinition" msprop:shema_classname="Int32" msprop:col_unit="" msprop:col_letter="" msprop:col_spe="imbSCI.Core.data.settingsPropertyEntryWithContext" msprop:col_pe="" msprop:col_priority="100" msprop:col_format="" msprop:col_color="Color [A=255, R=51, G=51, B=51]" msprop:col_importance="none" type="xs:int" minOccurs="0" />
+                <xs:element name="rate" msprop:reporting_valueformat="" msprop:col_propertyInfo="Double rate" msprop:col_group="GROUPB" msprop:measure_important="none" msprop:measure_displayGroup="GROUPB" msprop:columnWidth="20" msprop:col_hasLinks="False" msprop:col_desc="Ratio" msprop:col_type="System.Double" msprop:col_caption="rate" msprop:col_hasTemplate="False" msprop:data_aggregation_type="imbSCI.Core.math.aggregation.dataPointAggregationDefinition" msprop:shema_classname="Double" msprop:col_unit="%" msprop:col_letter="R" msprop:col_spe="imbSCI.Core.data.settingsPropertyEntryWithContext" msprop:col_pe="" msprop:col_priority="100" msprop:col_format="" msprop:col_color="Color [A=255, R=51, G=51, B=51]" msprop:col_importance="none" type="xs:double" minOccurs="0" />
+                <xs:element name="number2" msprop:reporting_valueformat="" msprop:col_propertyInfo="Int32 number2" msprop:col_group="GROUPA" msprop:measure_important="none" msprop:measure_displayGroup="GROUPA" msprop:columnWidth="20" msprop:col_hasLinks="False" msprop:col_desc="number2" msprop:col_type="System.Int32" msprop:col_caption="number2" msprop:col_hasTemplate="False" msprop:data_aggregation_type="imbSCI.Core.math.aggregation.dataPointAggregationDefinition" msprop:shema_classname="Int32" msprop:col_unit="" msprop:col_letter="" msprop:col_spe="imbSCI.Core.data.settingsPropertyEntryWithContext" msprop:col_pe="" msprop:col_priority="100" msprop:col_format="" msprop:col_color="Color [A=255, R=51, G=51, B=51]" msprop:col_importance="none" type="xs:int" minOccurs="0" />
+                <xs:element name="number3" msprop:reporting_valueformat="" msprop:col_propertyInfo="Int32 number3" msprop:col_group="GROUPA" msprop:measure_important="none" msprop:measure_displayGroup="GROUPA" msprop:columnWidth="20" msprop:col_hasLinks="False" msprop:col_desc="number3" msprop:col_type="System.Int32" msprop:col_caption="number3" msprop:col_hasTemplate="False" msprop:data_aggregation_type="imbSCI.Core.math.aggregation.dataPointAggregationDefinition" msprop:shema_classname="Int32" msprop:col_unit="" msprop:col_letter="" msprop:col_spe="imbSCI.Core.data.settingsPropertyEntryWithContext" msprop:col_pe="" msprop:col_priority="100" msprop:col_format="" msprop:col_color="Color [A=255, R=51, G=51, B=51]" msprop:col_importance="none" type="xs:int" minOccurs="0" />
+                <xs:element name="number4" msprop:reporting_valueformat="" msprop:col_propertyInfo="Int32 number4" msprop:col_group="GROUPB" msprop:measure_important="none" msprop:measure_displayGroup="GROUPB" msprop:columnWidth="20" msprop:col_hasLinks="False" msprop:col_desc="number4" msprop:col_type="System.Int32" msprop:col_caption="number4" msprop:col_hasTemplate="False" msprop:data_aggregation_type="imbSCI.Core.math.aggregation.dataPointAggregationDefinition" msprop:shema_classname="Int32" msprop:col_unit="" msprop:col_letter="" msprop:col_spe="imbSCI.Core.data.settingsPropertyEntryWithContext" msprop:col_pe="" msprop:col_priority="100" msprop:col_format="" msprop:col_color="Color [A=255, R=51, G=51, B=51]" msprop:col_importance="none" type="xs:int" minOccurs="0" />
+                <xs:element name="number5" msprop:reporting_valueformat="" msprop:col_propertyInfo="Int32 number5" msprop:col_group="GROUPB" msprop:measure_important="none" msprop:measure_displayGroup="GROUPB" msprop:columnWidth="20" msprop:col_hasLinks="False" msprop:col_desc="number5" msprop:col_type="System.Int32" msprop:col_caption="number5" msprop:col_hasTemplate="False" msprop:data_aggregation_type="imbSCI.Core.math.aggregation.dataPointAggregationDefinition" msprop:shema_classname="Int32" msprop:col_unit="" msprop:col_letter="" msprop:col_spe="imbSCI.Core.data.settingsPropertyEntryWithContext" msprop:col_pe="" msprop:col_priority="100" msprop:col_format="" msprop:col_color="Color [A=255, R=119, G=51, B=0]" msprop:col_importance="none" type="xs:int" minOccurs="0" />
+                <xs:element name="numberD" msprop:reporting_valueformat="" msprop:col_propertyInfo="Int32 numberD" msprop:col_group="GROUPB" msprop:measure_important="none" msprop:measure_displayGroup="GROUPB" msprop:columnWidth="20" msprop:col_hasLinks="False" msprop:col_desc="numberD" msprop:col_type="System.Int32" msprop:col_caption="numberD" msprop:col_hasTemplate="False" msprop:data_aggregation_type="imbSCI.Core.math.aggregation.dataPointAggregationDefinition" msprop:shema_classname="Int32" msprop:col_unit="" msprop:col_letter="" msprop:col_spe="imbSCI.Core.data.settingsPropertyEntryWithContext" msprop:col_pe="" msprop:col_priority="100" msprop:col_format="" msprop:col_color="Color [A=255, R=51, G=51, B=51]" msprop:col_importance="none" type="xs:int" minOccurs="0" />
+                <xs:element name="number6" msprop:reporting_valueformat="" msprop:col_propertyInfo="Int32 number6" msprop:col_group="GROUPC" msprop:measure_important="none" msprop:measure_displayGroup="GROUPC" msprop:columnWidth="20" msprop:col_hasLinks="False" msprop:col_desc="number6" msprop:col_type="System.Int32" msprop:col_caption="number6" msprop:col_hasTemplate="False" msprop:data_aggregation_type="imbSCI.Core.math.aggregation.dataPointAggregationDefinition" msprop:shema_classname="Int32" msprop:col_unit="" msprop:col_letter="" msprop:col_spe="imbSCI.Core.data.settingsPropertyEntryWithContext" msprop:col_pe="" msprop:col_priority="100" msprop:col_format="" msprop:col_color="Color [A=255, R=119, G=51, B=0]" msprop:col_importance="none" type="xs:int" minOccurs="0" />
+                <xs:element name="number7" msprop:reporting_valueformat="" msprop:col_propertyInfo="Int32 number7" msprop:col_group="GROUPB" msprop:measure_important="none" msprop:measure_displayGroup="GROUPB" msprop:columnWidth="20" msprop:col_hasLinks="False" msprop:col_desc="number7" msprop:col_type="System.Int32" msprop:col_caption="number7" msprop:col_hasTemplate="False" msprop:data_aggregation_type="imbSCI.Core.math.aggregation.dataPointAggregationDefinition" msprop:shema_classname="Int32" msprop:col_unit="" msprop:col_letter="" msprop:col_spe="imbSCI.Core.data.settingsPropertyEntryWithContext" msprop:col_pe="" msprop:col_priority="100" msprop:col_format="" msprop:col_color="Color [A=255, R=51, G=51, B=51]" msprop:col_importance="none" type="xs:int" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>
@@ -20,59 +27,136 @@
   <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
     <DocumentElement>
       <Custom_x0020_Table_x0020_Entry diffgr:id="Custom Table Entry1" msdata:rowOrder="0" diffgr:hasChanges="inserted">
-        <name>2tw9565y2f163q3</name>
+        <name>h6f9008g6iyl249</name>
         <number>267</number>
         <rate>0.89</rate>
+        <number2>0</number2>
+        <number3>0</number3>
+        <number4>0</number4>
+        <number5>0</number5>
+        <numberD>0</numberD>
+        <number6>0</number6>
+        <number7>0</number7>
       </Custom_x0020_Table_x0020_Entry>
       <Custom_x0020_Table_x0020_Entry diffgr:id="Custom Table Entry2" msdata:rowOrder="1" diffgr:hasChanges="inserted">
-        <name>jykl764mi44ivts</name>
+        <name>jvya05a7k917i08</name>
         <number>22</number>
         <rate>0.073333333333333334</rate>
+        <number2>0</number2>
+        <number3>0</number3>
+        <number4>0</number4>
+        <number5>0</number5>
+        <numberD>0</numberD>
+        <number6>0</number6>
+        <number7>0</number7>
       </Custom_x0020_Table_x0020_Entry>
       <Custom_x0020_Table_x0020_Entry diffgr:id="Custom Table Entry3" msdata:rowOrder="2" diffgr:hasChanges="inserted">
-        <name>0hmab4oh3bxdrw3</name>
+        <name>kx46jvh531m9d60</name>
         <number>34</number>
         <rate>0.11333333333333333</rate>
+        <number2>0</number2>
+        <number3>0</number3>
+        <number4>0</number4>
+        <number5>0</number5>
+        <numberD>0</numberD>
+        <number6>0</number6>
+        <number7>0</number7>
       </Custom_x0020_Table_x0020_Entry>
       <Custom_x0020_Table_x0020_Entry diffgr:id="Custom Table Entry4" msdata:rowOrder="3" diffgr:hasChanges="inserted">
-        <name>jevivb55tvyfug7</name>
+        <name>eu3kmi38nt54825</name>
         <number>197</number>
         <rate>0.65666666666666662</rate>
+        <number2>0</number2>
+        <number3>0</number3>
+        <number4>0</number4>
+        <number5>0</number5>
+        <numberD>0</numberD>
+        <number6>0</number6>
+        <number7>0</number7>
       </Custom_x0020_Table_x0020_Entry>
       <Custom_x0020_Table_x0020_Entry diffgr:id="Custom Table Entry5" msdata:rowOrder="4" diffgr:hasChanges="inserted">
         <name>T2</name>
         <number>204</number>
         <rate>0.68</rate>
+        <number2>0</number2>
+        <number3>0</number3>
+        <number4>0</number4>
+        <number5>0</number5>
+        <numberD>0</numberD>
+        <number6>0</number6>
+        <number7>0</number7>
       </Custom_x0020_Table_x0020_Entry>
       <Custom_x0020_Table_x0020_Entry diffgr:id="Custom Table Entry6" msdata:rowOrder="5" diffgr:hasChanges="inserted">
-        <name>nb4en1l14w20d03</name>
+        <name>9lvg2gbx44a7n8x</name>
         <number>0</number>
         <rate>0</rate>
+        <number2>0</number2>
+        <number3>0</number3>
+        <number4>0</number4>
+        <number5>0</number5>
+        <numberD>0</numberD>
+        <number6>0</number6>
+        <number7>0</number7>
       </Custom_x0020_Table_x0020_Entry>
       <Custom_x0020_Table_x0020_Entry diffgr:id="Custom Table Entry7" msdata:rowOrder="6" diffgr:hasChanges="inserted">
-        <name>0jo81xn10h60e18</name>
+        <name>160n1w84nsgd8iu</name>
         <number>61</number>
         <rate>0.20333333333333334</rate>
+        <number2>0</number2>
+        <number3>0</number3>
+        <number4>0</number4>
+        <number5>0</number5>
+        <numberD>0</numberD>
+        <number6>0</number6>
+        <number7>0</number7>
       </Custom_x0020_Table_x0020_Entry>
       <Custom_x0020_Table_x0020_Entry diffgr:id="Custom Table Entry8" msdata:rowOrder="7" diffgr:hasChanges="inserted">
-        <name>2d89kd363x840ie</name>
+        <name>qr9kb9xesxd536r</name>
         <number>158</number>
         <rate>0.52666666666666662</rate>
+        <number2>0</number2>
+        <number3>0</number3>
+        <number4>0</number4>
+        <number5>0</number5>
+        <numberD>0</numberD>
+        <number6>0</number6>
+        <number7>0</number7>
       </Custom_x0020_Table_x0020_Entry>
       <Custom_x0020_Table_x0020_Entry diffgr:id="Custom Table Entry9" msdata:rowOrder="8" diffgr:hasChanges="inserted">
         <name>T1</name>
         <number>123</number>
         <rate>0.41</rate>
+        <number2>0</number2>
+        <number3>0</number3>
+        <number4>0</number4>
+        <number5>0</number5>
+        <numberD>0</numberD>
+        <number6>0</number6>
+        <number7>0</number7>
       </Custom_x0020_Table_x0020_Entry>
       <Custom_x0020_Table_x0020_Entry diffgr:id="Custom Table Entry10" msdata:rowOrder="9" diffgr:hasChanges="inserted">
-        <name>770e9r8634h0sa6</name>
+        <name>9e73t0ij3j7f0nf</name>
         <number>134</number>
         <rate>0.44666666666666666</rate>
+        <number2>0</number2>
+        <number3>0</number3>
+        <number4>0</number4>
+        <number5>0</number5>
+        <numberD>0</numberD>
+        <number6>0</number6>
+        <number7>0</number7>
       </Custom_x0020_Table_x0020_Entry>
       <Custom_x0020_Table_x0020_Entry diffgr:id="Custom Table Entry11" msdata:rowOrder="10" diffgr:hasChanges="inserted">
         <name>T3</name>
         <number>180</number>
         <rate>0.6</rate>
+        <number2>0</number2>
+        <number3>0</number3>
+        <number4>0</number4>
+        <number5>0</number5>
+        <numberD>0</numberD>
+        <number6>0</number6>
+        <number7>0</number7>
       </Custom_x0020_Table_x0020_Entry>
     </DocumentElement>
   </diffgr:diffgram>
