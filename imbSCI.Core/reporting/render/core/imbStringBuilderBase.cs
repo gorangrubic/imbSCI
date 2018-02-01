@@ -800,11 +800,11 @@ namespace imbSCI.Core.reporting.render.core
 
 
         /// <summary>
-        /// Gets specified content range, or complete content
+        /// Gets specified content segment, or complete content
         /// </summary>
         /// <param name="fromLength">From length - by default from start</param>
         /// <param name="toLength">To length - by default to the end</param>
-        /// <returns>Content slice</returns>
+        /// <returns>The slice of the content</returns>
         public String GetContent(long fromLength=long.MinValue, long toLength=long.MinValue)
         {
             if (fromLength == long.MinValue) fromLength = 0;

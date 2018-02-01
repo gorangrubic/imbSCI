@@ -73,6 +73,16 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
             Assert.AreEqual(folderTest11.description, t11.description);
 
 
+            var folderNew = new folderNode();
+
+            folderNew.AttachSubfolders();
+
+            Assert.IsTrue(folderNew.CountAll() >= folder.CountAll());
+
+            folderNew.generateReadmeFiles(new aceAuthorNotation(), "_attachSubFolderTest.txt");
+            //if (folderNew.CountAll()
+
+
         }
     }
 

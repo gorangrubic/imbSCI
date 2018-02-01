@@ -53,6 +53,12 @@ namespace imbSCI.Core.reporting.render
         long lastLength { get; }
         long Length { get; }
 
+        /// <summary>
+        /// Gets specified content segment, or complete content
+        /// </summary>
+        /// <param name="fromLength">From length - by default from start</param>
+        /// <param name="toLength">To length - by default to the end</param>
+        /// <returns>The slice of the content</returns>
         String GetContent(long fromLength = long.MinValue, long toLength = long.MinValue);
         String getLastLine(Boolean removeIt = false);
         void consoleAltColorToggle(Boolean setExact = false, Int32 altChange = -1);

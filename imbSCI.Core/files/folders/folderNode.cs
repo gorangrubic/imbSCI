@@ -223,6 +223,46 @@ namespace imbSCI.Core.files.folders
             }
         }
 
+
+        /// <summary>
+        /// Scans the File System for unregistered sub directories at this folder, and returns newly registered ones.
+        /// </summary>
+        /// <param name="searchPattern">The search pattern - to match subdires names.</param>
+        /// <param name="forceScan">if set to <c>true</c> it will force scan of readme file, that will pick up folder description and registered files.</param>
+        /// <param name="attachSubdirectories">if set to <c>true</c> it will run the procedure recursevly over complete directory tree.</param>
+        /// <param name="logger">The logger - to send debug information.</param>
+        /// <returns>List of all previously unregistered subfolders</returns>
+        public List<folderNode> AttachSubfolders(String searchPattern="*", Boolean forceScan=true, Boolean attachSubdirectories=true, ILogBuilder logger = null) {
+
+            DirectoryInfo di = this;
+            var foundDirectories = di.GetDirectories(searchPattern, SearchOption.TopDirectoryOnly);
+
+            List<folderNode> output = new List<folderNode>();
+
+            foreach (DirectoryInfo d in foundDirectories)
+            {
+                if (!Contains(d.Name))
+                {
+                    output.Add(Attach(d, "", "", forceScan, false, logger));
+                }
+            }
+
+            if (attachSubdirectories)
+            {
+                List<folderNode> toscan = output.ToList();
+
+                foreach (folderNode t in toscan)
+                {
+                    output.AddRange(t.AttachSubfolders(searchPattern, forceScan, attachSubdirectories, logger));
+                }
+            }
+
+
+            return output;
+
+        }
+
+
         /// <summary>
         /// Attaches sub directory, sets <see cref="caption"/> and <see cref="description"/>. If these are not specified, it will scan the directory for readme file. <see cref="ScanReadMe(ILogBuilder)"/>
         /// </summary>
@@ -278,7 +318,7 @@ namespace imbSCI.Core.files.folders
             
             folderNode output = Add(directory.Name, __caption, __description);
 
-            output.ScanReadMe(logger);
+            if (callForScan) output.ScanReadMe(logger);
             return output;
         }
 
@@ -427,8 +467,10 @@ namespace imbSCI.Core.files.folders
         /// <summary>
         /// Finds the file - and returns relative path
         /// </summary>
+        /// <param name="found">if set to <c>true</c> [found].</param>
         /// <param name="partOrPattern">The part or pattern.</param>
         /// <param name="options">The options.</param>
+        /// <param name="returnRelative">if set to <c>true</c> [return relative].</param>
         /// <returns></returns>
         public string findFile(out bool found, string partOrPattern, SearchOption options = SearchOption.TopDirectoryOnly, bool returnRelative=false)
         {
@@ -454,6 +496,7 @@ namespace imbSCI.Core.files.folders
         /// </summary>
         /// <param name="partOrPattern">The part or pattern.</param>
         /// <param name="options">The options.</param>
+        /// <param name="returnRelative">if set to <c>true</c> [return relative].</param>
         /// <returns></returns>
         public string findFile(string partOrPattern, SearchOption options = SearchOption.TopDirectoryOnly, bool returnRelative = false)
         {
@@ -468,6 +511,7 @@ namespace imbSCI.Core.files.folders
         /// </summary>
         /// <param name="partOrPattern">The part or pattern.</param>
         /// <param name="options">The options.</param>
+        /// <param name="returnRelative">if set to <c>true</c> [return relative].</param>
         /// <returns></returns>
         public List<string> findFiles(string partOrPattern = "*.*", SearchOption options = SearchOption.TopDirectoryOnly, bool returnRelative = false)
         {
@@ -496,6 +540,7 @@ namespace imbSCI.Core.files.folders
         /// </summary>
         /// <param name="partOrPattern">The part or pattern.</param>
         /// <param name="options">The options.</param>
+        /// <param name="returnRelative">if set to <c>true</c> [return relative].</param>
         /// <returns></returns>
         public List<string> findDirectories(string partOrPattern = "*", SearchOption options = SearchOption.TopDirectoryOnly, bool returnRelative = false)
         {
@@ -546,6 +591,11 @@ namespace imbSCI.Core.files.folders
         //}
 
 
+        /// <summary>
+        /// Finds a unique directory name, for new directory to be created
+        /// </summary>
+        /// <param name="proposal">The proposal.</param>
+        /// <returns></returns>
         public string findUniqueDirectoryName(string proposal)
         {
             string pt = imbSciStringExtensions.add(path, proposal, "\\");
@@ -601,7 +651,7 @@ namespace imbSCI.Core.files.folders
         }
 
         /// <summary>
-        /// Registers the file
+        /// Registers the file, with description provided. Later, this description is used for <see cref="generateReadmeFiles(aceAuthorNotation, string)"/>
         /// </summary>
         /// <param name="filename">The filename.</param>
         /// <param name="fileDescription">The file description.</param>
@@ -627,6 +677,11 @@ namespace imbSCI.Core.files.folders
 
 
 
+        /// <summary>
+        /// Deletes all files, matching the <c>selectionPattern</c> in the folder and all sub folders if <c>subfolders</c> is <c>true</c>
+        /// </summary>
+        /// <param name="selectionPattern">The selection pattern.</param>
+        /// <param name="subFolders">if set to <c>true</c> [sub folders].</param>
         public void deleteFiles(string selectionPattern="*.*", bool subFolders=true)
         {
             fileOpsBase.deleteFiles(path, selectionPattern, subFolders);
@@ -634,11 +689,17 @@ namespace imbSCI.Core.files.folders
 
 
         /// <summary>
-        /// 
+        /// Reference to the registered parent node (if any)
         /// </summary>
         public virtual IFolderNode parent { get; protected set; }
 
 
+        /// <summary>
+        /// Depth level, from the root <see cref="folderNode"/> object in the hierarchy
+        /// </summary>
+        /// <value>
+        /// The level.
+        /// </value>
         public int level
         {
             get
@@ -653,6 +714,12 @@ namespace imbSCI.Core.files.folders
             }
         }
 
+        /// <summary>
+        /// Gets the root node in the structure
+        /// </summary>
+        /// <value>
+        /// The root.
+        /// </value>
         public IFolderNode root
         {
             get
@@ -703,6 +770,14 @@ namespace imbSCI.Core.files.folders
             }
         }
 
+        /// <summary>
+        /// Gets the <see cref="folderNode"/> with the specified key. If not found it will create new sub folder with <c>key</c> name
+        /// </summary>
+        /// <value>
+        /// The <see cref="folderNode"/>.
+        /// </value>
+        /// <param name="key">The key.</param>
+        /// <returns></returns>
         public folderNode this[Enum key]
         {
             get
@@ -723,6 +798,14 @@ namespace imbSCI.Core.files.folders
         }
 
 
+        /// <summary>
+        /// Gets the <see cref="folderNode"/> with the specified key. If not found it will create new sub folder with <c>key</c> name
+        /// </summary>
+        /// <value>
+        /// The <see cref="folderNode"/>.
+        /// </value>
+        /// <param name="key">The key.</param>
+        /// <returns></returns>
         public folderNode this[string key]
         {
             get
@@ -746,6 +829,7 @@ namespace imbSCI.Core.files.folders
         /// </summary>
         /// <param name="notation">The notation.</param>
         /// <param name="builder">The builder.</param>
+        /// <param name="directoryStructureDepthLimit">The directory structure depth limit - i.e. until what subdirectory depth is described in the readme file.</param>
         /// <returns></returns>
         internal string generateFolderReadme(aceAuthorNotation notation, ITextRender builder=null, Int32 directoryStructureDepthLimit=3)
         {
@@ -838,23 +922,9 @@ namespace imbSCI.Core.files.folders
          
 
             if (notation != null)
-            {
-                
-                
+            {  
                 builder.AppendHorizontalLine();
-
-                if (!notation.author.isNullOrEmpty()) builder.AppendPair("Author", notation.author, true, ": ");
-                if (!notation.Email.isNullOrEmpty()) builder.AppendPair("E-mail", notation.Email, true, ": ");
-                if (!notation.web.isNullOrEmpty()) builder.AppendPair("Web", notation.web, true, ": ");
-                if (!notation.copyright.isNullOrEmpty()) builder.AppendPair("Copyright", notation.copyright, true, ": ");
-                if (!notation.license.isNullOrEmpty()) builder.AppendPair("License", notation.license, true, ": ");
-                if (!notation.software.isNullOrEmpty()) builder.AppendPair("Software", notation.software, true, ": ");
-                if (!notation.organization.isNullOrEmpty()) builder.AppendPair("Organization", notation.organization, true, ": ");
-                if (!notation.comment.isNullOrEmpty()) builder.AppendPair("Comment", notation.comment, true, ": ");
-
-
-                
-
+                notation.GetDescription(builder);
             }
 
             builder.AppendLine();
@@ -871,7 +941,7 @@ namespace imbSCI.Core.files.folders
 
 
         /// <summary>
-        /// These are additional description lines that will be inserted in readme file generated by <see cref="generateFolderReadme(aceAuthorNotation, ITextRender)"/>
+        /// These are additional description lines that will be inserted in readme file generated by <see cref="generateReadmeFiles(aceAuthorNotation, string)" />
         /// </summary>
         /// <value>
         /// The additional description lines.
@@ -887,7 +957,11 @@ namespace imbSCI.Core.files.folders
         /// </value>
         public Dictionary<String, folderNodeFileDescriptor> AdditionalFileEntries { get; protected set; } = new Dictionary<String, folderNodeFileDescriptor>();
 
+        /// <summary>
+        /// Default directory readme filename, used for <see cref="generateReadmeFiles(aceAuthorNotation, string)"/>
+        /// </summary>
         public static String directory_readme_filename = "directory_readme.txt";
+       
         /// <summary>
         /// Generates the readme files for complete folder tree
         /// </summary>
@@ -924,32 +998,92 @@ namespace imbSCI.Core.files.folders
         }
 
 
+        /// <summary>
+        /// Gets the number of registered subfolders
+        /// </summary>
+        /// <value>
+        /// The count.
+        /// </value>
+        public Int32 Count
+        {
+            get
+            {
+                return items.Count;
+            }
+        }
 
+        /// <summary>
+        /// Gets the number of all registered subfolders in full subtree depth
+        /// </summary>
+        /// <returns>Number of all registered subfolders - including the ones from child nodes</returns>
+        public Int32 CountAll()
+        {
+            Int32 c = Count;
+            foreach (folderNode fl in items.Values)
+            {
+                c += fl.CountAll();
+            }
+            return c;
+        }
+
+
+        /// <summary>
+        /// Returns an enumerator that iterates through the collection.
+        /// </summary>
+        /// <returns>
+        /// An enumerator that can be used to iterate through the collection.
+        /// </returns>
         public IEnumerator<KeyValuePair<string, folderNode>> GetEnumerator()
         {
             return ((IDictionary<string, folderNode>)items).GetEnumerator();
         }
 
+        /// <summary>
+        /// Returns an enumerator that iterates through a collection.
+        /// </summary>
+        /// <returns>
+        /// An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.
+        /// </returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return ((IDictionary<string, folderNode>)items).GetEnumerator();
         }
 
+        /// <summary>
+        /// Returns an enumerator that iterates through the collection.
+        /// </summary>
+        /// <returns>
+        /// An enumerator that can be used to iterate through the collection.
+        /// </returns>
         IEnumerator<folderNode> IEnumerable<folderNode>.GetEnumerator()
         {
             return items.Values.GetEnumerator();
         }
 
+        /// <summary>
+        /// Unregisteres an subfolder from the node. It will not delete actual directory from the file system
+        /// </summary>
+        /// <param name="key">The key.</param>
         public void Remove(string key)
         {
             items.Remove(key);
         }
 
+        /// <summary>
+        /// Returns an enumerator that iterates through the collection.
+        /// </summary>
+        /// <returns>
+        /// An enumerator that can be used to iterate through the collection.
+        /// </returns>
         IEnumerator<IObjectWithPathAndChildren> IEnumerable<IObjectWithPathAndChildren>.GetEnumerator()
         {
             return items.Values.GetEnumerator();
         }
 
+        /// <summary>
+        /// Removes the specified key.
+        /// </summary>
+        /// <param name="key">The key.</param>
         void IObjectWithPathAndChildren.Remove(string key) => Remove(key);
         
     }

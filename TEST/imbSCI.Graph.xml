@@ -1,0 +1,941 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>imbSCI.Graph</name>
+    </assembly>
+    <members>
+        <member name="T:imbSCI.Graph.config.imbSCIGraphConversionConfig">
+            <summary>
+            General configuration object for domain of <see cref="N:imbSCI.Graph.config"/>
+            </summary>
+        </member>
+        <member name="M:imbSCI.Graph.config.imbSCIGraphConversionConfig.#ctor">
+            <summary>
+            Constructor without arguments is obligatory for XML serialization
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.config.imbSCIGraphConversionConfig.isDefaultReplaced">
+            <summary>
+            Gets or sets a value indicating whether, since program start, <see cref="P:imbSCI.Graph.config.imbSCIGraphConversionConfig.settings"/> were replaced with another instance, i.e. loaded externally
+            </summary>
+            <value>
+              <c>true</c> if this instance is default replaced; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:imbSCI.Graph.config.imbSCIGraphConversionConfig.settings">
+            <summary>
+            General configuration instance for domain of <see cref="N:imbSCI.Graph.config"/>
+            </summary>
+            <value>
+            Global settings
+            </value>
+        </member>
+        <member name="T:imbSCI.Graph.Converters.DirectedGraphConverterBase`2">
+            <summary>
+            Foundation for DirectedGraph converter
+            </summary>
+            <typeparam name="T"></typeparam>
+            <seealso cref="!:imbSCI.Graph.Converters.graphToGraphConverterBase&lt;T, imbSCI.Graph.DGML.DirectedGraph&gt;" />
+        </member>
+        <member name="M:imbSCI.Graph.Converters.DirectedGraphConverterBase`2.GetNodeLabel(`0)">
+            <summary>
+            Gets the node label.
+            </summary>
+            <param name="node">The node.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.DirectedGraphConverterBase`2.GetNodeID(`0)">
+            <summary>
+            Gets the node identifier.
+            </summary>
+            <param name="node">The node.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.DirectedGraphConverterBase`2.GetLink(`0,`0)">
+            <summary>
+            Gets a new <see cref="T:imbSCI.Graph.DGML.core.Link"/>
+            </summary>
+            <param name="nodeA">The node a.</param>
+            <param name="nodeB">The node b.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.dotToDirectedGraphConverterBasic.Convert(imbSCI.Graph.DOT.DotGraph,System.Int32,System.Collections.Generic.IEnumerable{imbSCI.Graph.DGML.core.GraphElement})">
+            <summary>
+            Conversion from <see cref="!:&lt;TGraphTo&gt;" /> to <see cref="!:&lt;TGraphFrom&gt;" />
+            </summary>
+            <param name="source">The source.</param>
+            <param name="depthLimit">The depth limit.</param>
+            <param name="rootNodes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.dotToDirectedGraphConverterBasic.Convert(imbSCI.Graph.DGML.DirectedGraph,System.Int32,System.Collections.Generic.IEnumerable{imbSCI.Graph.DGML.core.GraphElement})">
+            <summary>
+            Converts from <see cref="!:&lt;TGraphTo&gt;" /> to <see cref="!:&lt;TGraphFrom&gt;" />
+            </summary>
+            <param name="source">The source.</param>
+            <param name="depthLimit">The depth limit.</param>
+            <param name="rootNodes"></param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Graph.Converters.freeGraphToDMGL">
+            <summary>
+            Free graph to DMGL converter
+            </summary>
+        </member>
+        <member name="T:imbSCI.Graph.Converters.GraphConversionTools">
+            <summary>
+            Set of default graph converters
+            </summary>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.GraphConversionTools.ConvertToFreeGraph(imbSCI.Data.collection.graph.graphNode,System.Int32)">
+            <summary>
+            Converts to free graph -- from the specified node to its leafs (downwards)
+            </summary>
+            <param name="graph">The graph.</param>
+            <param name="DepthLimit">The depth limit.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.GraphConversionTools.ConvertToDGML(imbSCI.Graph.FreeGraph.freeGraph)">
+            <summary>
+            Converts to free graph -- from the specified node to its leafs (downwards)
+            </summary>
+            <param name="graph">The graph.</param>
+            <param name="DepthLimit">The depth limit.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.GraphConversionTools.ConvertToDGML(imbSCI.Data.collection.graph.graphNode,System.Int32)">
+            <summary>
+            Converts to free graph -- from the specified node to its leafs (downwards)
+            </summary>
+            <param name="graph">The graph.</param>
+            <param name="DepthLimit">The depth limit.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Graph.Converters.GraphConversionTools.PropertyExpressionConverterToDGML">
+            <summary>
+            static and autoinitiated object
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Converters.GraphConversionTools.DefaultGraphToDGMLConverterInstance">
+            <summary>
+            Basic implementation of the graph to <see cref="T:imbSCI.Graph.DGML.DirectedGraph"/> converter
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Converters.GraphConversionTools.BasicConverterInstance">
+            <summary>
+            Basic instance of <see cref="T:imbSCI.Data.collection.graph.graphNode"/> to <see cref="T:imbSCI.Graph.FreeGraph.freeGraph"/> converter
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Converters.GraphConversionTools.DefaultDMGLConverter">
+            <summary>
+            Default instance of <see cref="T:imbSCI.Graph.FreeGraph.freeGraph"/> to <see cref="T:imbSCI.Graph.DGML.DirectedGraph"/> converter
+            </summary>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.graphToDirectedGraphConverterBase`1.Convert(imbSCI.Graph.DGML.DirectedGraph,System.Int32,System.Collections.Generic.IEnumerable{imbSCI.Graph.DGML.core.GraphElement})">
+            <summary>
+            Converts from <see cref="!:&lt;TGraphTo&gt;" /> to <see cref="!:&lt;TGraphFrom&gt;" />
+            </summary>
+            <param name="source">The source.</param>
+            <param name="depthLimit">The depth limit.</param>
+            <param name="rootNodes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.graphToDirectedGraphConverterBase`1.Convert(`0,System.Int32,System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Converts the specified source: from <c>T</c> to DirectedGraph 
+            </summary>
+            <param name="source">The source.</param>
+            <param name="depthLimit">The depth limit.</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Graph.Converters.graphToDirectedGraphConverterBasic">
+            <summary>
+            Basic implementation of graph to DGML converter
+            </summary>
+            <seealso cref="!:imbSCI.Graph.Converters.graphToDirectedGraphConverterBase&lt;imbSCI.Data.collection.graph.IGraphNode&gt;" />
+        </member>
+        <member name="T:imbSCI.Graph.Converters.graphToFreeGraphConverterBasic`1">
+            <summary>
+            Basic <see cref="T:imbSCI.Data.collection.graph.IGraphNode"/> to <see cref="T:imbSCI.Graph.FreeGraph.freeGraph"/> converter
+            </summary>
+            <typeparam name="T">Base type of <see cref="T:imbSCI.Data.collection.graph.IGraphNode"/> this converter interprets</typeparam>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.graphToFreeGraphConverterBasic`1.GetNodeType(`0)">
+            <summary>
+            Gets the type of the node - by default implementation returns <see cref="P:imbSCI.Data.collection.graph.IGraphNode.level"/>
+            </summary>
+            <param name="node">The node.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.graphToFreeGraphConverterBasic`1.GetNodeWeight(`0)">
+            <summary>
+            Gets the node weight - by default implementation it is 1 / <see cref="P:imbSCI.Data.collection.graph.IGraphNode.level"/>
+            </summary>
+            <param name="node">The node.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.graphToFreeGraphConverterBasic`1.GetLinkWeight(`0,`0)">
+            <summary>
+            Provides the link weight, by default implementation returns 1 / <see cref="M:imbSCI.Data.collection.graph.IGraphNode.Count"/>
+            </summary>
+            <param name="nodeA">The node a.</param>
+            <param name="nodeB">The node b.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.graphToFreeGraphConverterBasic`1.GetLinkType(`0,`0)">
+            <summary>
+            Provides type of link between nodeA and nodeB
+            </summary>
+            <param name="nodeA">The node a.</param>
+            <param name="nodeB">The node b.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.graphToFreeGraphConverterBasic`1.Convert(`0,System.Int32,System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Converts the specified source.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="depthLimit">The depth limit.</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Graph.Converters.graphToGraphConverterBase`4">
+            <summary>
+            Common foundation of graph converters
+            </summary>
+            <typeparam name="TGraphFrom">The type of the graph from.</typeparam>
+            <typeparam name="TGraphTo">The type of the graph to.</typeparam>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.graphToGraphConverterBase`4.GetNodeWeight(`0)">
+            <summary>
+            Gets the node weight - by default implementation it is 1 / <see cref="P:imbSCI.Data.collection.graph.IGraphNode.level"/>
+            </summary>
+            <param name="node">The node.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.graphToGraphConverterBase`4.GetLinkWeight(`0,`0)">
+            <summary>
+            Provides the link weight, by default implementation returns 1 / <see cref="M:imbSCI.Data.collection.graph.IGraphNode.Count"/>
+            </summary>
+            <param name="nodeA">The node a.</param>
+            <param name="nodeB">The node b.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.graphToGraphConverterBase`4.GetLinkLabel(`0,`0)">
+            <summary>
+            Gets the label for link - by default implementation returns empty string
+            </summary>
+            <param name="nodeA">The node a.</param>
+            <param name="nodeB">The node b.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.graphToGraphConverterBase`4.GetNodeName(`0)">
+            <summary>
+            Provides display Label for specified node, in default implementation returns <see cref="!:IGraphNode.Id"/>
+            </summary>
+            <param name="node">The node.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.graphToGraphConverterBase`4.Convert(`0,System.Int32,System.Collections.Generic.IEnumerable{`2})">
+            <summary>
+            Conversion from <see cref="!:&lt;TGraphTo&gt;"/> to <see cref="!:&lt;TGraphFrom&gt;"/>
+            </summary>
+            <param name="source">The source.</param>
+            <param name="depthLimit">The depth limit.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.graphToGraphConverterBase`4.Convert(`1,System.Int32,System.Collections.Generic.IEnumerable{`3})">
+            <summary>
+            Converts from <see cref="!:&lt;TGraphTo&gt;"/> to <see cref="!:&lt;TGraphFrom&gt;"/>
+            </summary>
+            <param name="source">The source.</param>
+            <param name="depthLimit">The depth limit.</param>
+            <returns></returns>
+        </member>
+        <member name="F:imbSCI.Graph.Converters.tools.ColorTransformationMode.colorGradient">
+            <summary>
+            Uses the color gradient
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.Converters.tools.ColorTransformationMode.explicitColorViaGradient">
+            <summary>
+            Takes Category's <see cref="!:Category.ExplicitColor"/> as base color (ColorA) of <see cref="T:imbSCI.Core.style.color.ColorGradient"/> and applies rules of the gradient
+            </summary>
+        </member>
+        <member name="T:imbSCI.Graph.Converters.tools.GraphStylerSettings">
+            <summary>
+            Graph styler
+            </summary>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.tools.GraphStylerSettings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Graph.Converters.tools.GraphStylerSettings"/> class.
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.Converters.tools.GraphStylerSettings.colorsForCircularSelector">
+            <summary>
+            The colors
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Converters.tools.GraphStylerSettings.alphaMax">
+            <summary>
+            Gets or sets the alpha maximum.
+            </summary>
+            <value>
+            The alpha maximum.
+            </value>
+        </member>
+        <member name="P:imbSCI.Graph.Converters.tools.GraphStylerSettings.alphaMin">
+            <summary>
+            Gets or sets the alpha minimum.
+            </summary>
+            <value>
+            The alpha minimum.
+            </value>
+        </member>
+        <member name="P:imbSCI.Graph.Converters.tools.GraphStylerSettings.lineMin">
+            <summary>
+            Gets or sets the line minimum.
+            </summary>
+            <value>
+            The line minimum.
+            </value>
+        </member>
+        <member name="P:imbSCI.Graph.Converters.tools.GraphStylerSettings.lineMax">
+            <summary>
+            Gets or sets the line maximum.
+            </summary>
+            <value>
+            The line maximum.
+            </value>
+        </member>
+        <member name="T:imbSCI.Graph.Converters.tools.NodeWeightStyler">
+            <summary>
+            Node Weight styler
+            </summary>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.tools.NodeWeightStyler.#ctor(System.Int32,System.Drawing.Color)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Graph.Converters.tools.NodeWeightStyler"/> class.
+            </summary>
+            <param name="_type">The type.</param>
+            <param name="_color">The color.</param>
+        </member>
+        <member name="P:imbSCI.Graph.Converters.tools.NodeWeightStyler.type">
+            <summary>
+            Gets or sets the type.
+            </summary>
+            <value>
+            The type.
+            </value>
+        </member>
+        <member name="P:imbSCI.Graph.Converters.tools.NodeWeightStyler.color">
+            <summary>
+            Gets or sets the color.
+            </summary>
+            <value>
+            The color.
+            </value>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.tools.NodeWeightStyler.GetThickness(System.Double,imbSCI.Graph.Converters.tools.GraphStylerSettings)">
+            <summary>
+            Gets the thickness.
+            </summary>
+            <param name="weight">The weight.</param>
+            <param name="s">The s.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.tools.NodeWeightStyler.GetAlpha(System.Double,imbSCI.Graph.Converters.tools.GraphStylerSettings)">
+            <summary>
+            Gets the alpha.
+            </summary>
+            <param name="weight">The weight.</param>
+            <param name="s">The s.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.tools.NodeWeightStyler.learn(System.Double)">
+            <summary>
+            Learns the specified weight.
+            </summary>
+            <param name="weight">The weight.</param>
+        </member>
+        <member name="P:imbSCI.Graph.Converters.tools.NodeWeightStyler.range">
+            <summary>
+            Gets or sets the range.
+            </summary>
+            <value>
+            The range.
+            </value>
+        </member>
+        <member name="P:imbSCI.Graph.Converters.tools.NodeWeightStyler.min">
+            <summary>
+            Gets or sets the minimum.
+            </summary>
+            <value>
+            The minimum.
+            </value>
+        </member>
+        <member name="P:imbSCI.Graph.Converters.tools.NodeWeightStyler.max">
+            <summary>
+            Gets or sets the maximum.
+            </summary>
+            <value>
+            The maximum.
+            </value>
+        </member>
+        <member name="T:imbSCI.Graph.Converters.tools.NodeWeightStylerCategories">
+            <summary>
+            Managing styles for different categories
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Converters.tools.NodeWeightStylerCategories.settings">
+            <summary>
+            Gets or sets the settings.
+            </summary>
+            <value>
+            The settings.
+            </value>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.tools.NodeWeightStylerCategories.learn(System.Int32,System.Double)">
+            <summary>
+            Learns the specified type.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="weight">The weight.</param>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.tools.NodeWeightStylerCategories.GetBorderThickness(System.Double,System.Int32,System.Boolean)">
+            <summary>
+            Gets the border thickness.
+            </summary>
+            <param name="weight">The weight.</param>
+            <param name="type">The type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.tools.NodeWeightStylerCategories.GetHexColor(System.Double,System.Int32,System.Boolean)">
+            <summary>
+            Gets the color of the hexadecimal.
+            </summary>
+            <param name="weight">The weight.</param>
+            <param name="type">The type.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Graph.DGML.collections.CategoryCollection.Item(System.String)">
+            <summary>
+            Gets the <see cref="T:imbSCI.Graph.DGML.core.Category"/> with the specified identifier.
+            </summary>
+            <value>
+            The <see cref="T:imbSCI.Graph.DGML.core.Category"/>.
+            </value>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.DGML.collections.CategoryCollection.AddOrGetCategory(System.Int32,System.String,System.String)">
+            <summary>
+            Adds the or get category.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="basedOn">The based on.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.DGML.collections.GraphElementCollection`1.AddNode(System.String,System.String)">
+            <summary>
+            Adds the node.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="name">The name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.DGML.collections.GraphElementCollection`1.AddNode(System.String)">
+            <summary>
+            Adds the node.
+            </summary>
+            <param name="name">The name.</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Graph.DGML.collections.LinkCollection">
+            <summary>
+            Links
+            </summary>
+            <seealso cref="!:imbSCI.Graph.DGML.collections.GraphElementCollection&lt;imbSCI.Graph.DGML.core.Link&gt;" />
+        </member>
+        <member name="M:imbSCI.Graph.DGML.collections.PropertyList.AddProperty(System.String,System.String,System.Type)">
+            <summary>
+            Adds the property.
+            </summary>
+            <param name="propertyName">Name of the property.</param>
+            <param name="label">The label.</param>
+            <param name="type">The type.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Graph.DGML.core.Category.ExplicitColor">
+            <summary>
+            Explicitly assigned color
+            </summary>
+            <value>
+            The color of the excplicit.
+            </value>
+        </member>
+        <member name="T:imbSCI.Graph.DGML.core.GraphElement">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.DGML.core.GraphElement.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:imbSCI.Graph.DGML.core.Node">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:imbSCI.Graph.DGML.core.GraphNodeElement" />
+        </member>
+        <member name="T:imbSCI.Graph.DGML.core.Property">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:imbSCI.Graph.DGML.core.Property.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Graph.DGML.core.Property"/> class.
+            </summary>
+        </member>
+        <member name="M:imbSCI.Graph.DGML.core.Property.MakeProperty``1(``0,System.String)">
+            <summary>
+            Creates new property [Experimental]
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value">The value.</param>
+            <param name="_label">The label.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Graph.DGML.DirectedGraph.Id">
+            <summary>
+            Gets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="M:imbSCI.Graph.DGML.DirectedGraph.Load``1(System.String)">
+            <summary>
+            Loads the specified path.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="path">The path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.DGML.DirectedGraph.Save(System.String,imbSCI.Data.enums.getWritableFileMode)">
+            <summary>
+            Saves the specified path.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="mode">The mode.</param>
+        </member>
+        <member name="T:imbSCI.Graph.DOT.DotLink">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:imbSCI.Graph.DGML.core.Link" />
+        </member>
+        <member name="M:imbSCI.Graph.DOT.DotLink.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Graph.DOT.DotLink"/> class.
+            </summary>
+            <param name="source">Start name of the node.</param>
+            <param name="target">Name of the target node.</param>
+        </member>
+        <member name="M:imbSCI.Graph.DOT.DotLink.#ctor(imbSCI.Graph.DOT.DotNode,imbSCI.Graph.DOT.DotNode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Graph.DOT.DotLink"/> class.
+            </summary>
+            <param name="startNode">The start node.</param>
+            <param name="targetNode">The target node.</param>
+        </member>
+        <member name="T:imbSCI.Graph.DOT.DotArrowShape">
+            <summary>
+            Shape of the arrow 
+            </summary>
+        </member>
+        <member name="T:imbSCI.Graph.DOT.DotColor">
+            <summary>
+            Colors supported by DOT
+            </summary>
+        </member>
+        <member name="T:imbSCI.Graph.DOT.DotGraph">
+            <summary>
+            DOT Graph - partially based on: DotNetGraph https://github.com/vfrz/DotNetGraph
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.DOT.DotGraph.Directed">
+            <summary>
+            Gets a value indicating whether this <see cref="T:imbSCI.Graph.DOT.DotGraph"/> is directed.
+            </summary>
+            <value>
+              <c>true</c> if directed; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:imbSCI.Graph.DOT.DotGraph.Nodes">
+            <summary>
+            Gets or sets the nodes.
+            </summary>
+            <value>
+            The nodes.
+            </value>
+        </member>
+        <member name="P:imbSCI.Graph.DOT.DotGraph.Link">
+            <summary>
+            Gets or sets the link.
+            </summary>
+            <value>
+            The link.
+            </value>
+        </member>
+        <member name="M:imbSCI.Graph.DOT.DotGraph.#ctor">
+            <summary>
+            The elements
+            </summary>
+        </member>
+        <member name="M:imbSCI.Graph.DOT.DotGraph.#ctor(System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Graph.DOT.DotGraph"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="directed">if set to <c>true</c> [directed].</param>
+        </member>
+        <member name="M:imbSCI.Graph.DOT.DotGraph.CompileAndSave(System.String,System.Boolean)">
+            <summary>
+            Compiles the and save.
+            </summary>
+            <param name="filename">The filename.</param>
+            <param name="minified">if set to <c>true</c> [minified].</param>
+        </member>
+        <member name="M:imbSCI.Graph.DOT.DotGraph.Compile(System.Boolean)">
+            <summary>
+            Compiles the specified minified.
+            </summary>
+            <param name="minified">if set to <c>true</c> [minified].</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.DOT.DotGraph.Add(imbSCI.Graph.DGML.core.IGraphElement)">
+            <summary>
+            Adds the specified element.
+            </summary>
+            <param name="element">The element.</param>
+        </member>
+        <member name="T:imbSCI.Graph.attributes.GraphExtractionAttribute">
+            <summary>
+            This attribute marks a property as graph node source - for automatic graph extraction
+            </summary>
+            <seealso cref="T:System.Attribute" />
+        </member>
+        <member name="T:imbSCI.Graph.FreeGraph.freeGraph">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraph.normalizeNodeWeights(System.Boolean)">
+            <summary>
+            Normalizes the node weights.
+            </summary>
+            <param name="minToZero">if set to <c>true</c> it will remap minimum to zero, otherwise it will just scale down to have max at 1.</param>
+        </member>
+        <member name="P:imbSCI.Graph.FreeGraph.freeGraph.LinkWeightsInversed">
+            <summary>
+            When weights are inversed then link weights are between 0 and 1. If the weights are not inversed then weights are above 1
+            </summary>
+            <value>
+              <c>true</c> if [link weights inversed]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraph.DetectIfLinkWeightsAreInversed(System.Boolean)">
+            <summary>
+            Detects if link weights are inversed.
+            </summary>
+            <param name="saveResultAsState">if set to <c>true</c> [save result as state].</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraph.InverseWeights(System.Boolean,System.Boolean)">
+            <summary>
+            Inversing the link weights, When state is Inversed, weights are between 0 and 1, when Inversed is false - the weights are from 1 to infinite
+            </summary>
+            <param name="toState">State of inversion that is desired.</param>
+            <param name="detectFirst">if set to <c>true</c> [detect first].</param>
+            <returns>Final state of inversion</returns>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraph.OnBeforeSave(imbSCI.Core.files.folders.folderNode)">
+            <summary>
+            Does nothing (by default implementation) -- should be called before saving to xml
+            </summary>
+            <param name="folder">The folder.</param>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraph.OnAfterLoad(imbSCI.Core.files.folders.folderNode)">
+            <summary>
+            Does nothing (by default implementation) -- should be called after the graph is loaded
+            </summary>
+            <param name="folder">The folder.</param>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraph.CloneIntoType``1(System.Boolean)">
+            <summary>
+            Clones the graph into specified inherited type of freeGraph
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="callCheck">if set to <c>true</c> [call check].</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraph.AddNewNode(System.String,System.Double,System.Int32)">
+            <summary>
+            Adds new node with <c>nameProposal</c> name or a modified version of the name - in order to have unique node name
+            </summary>
+            <param name="nameProposal">The name proposal.</param>
+            <param name="weight">The weight.</param>
+            <param name="type">The type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraph.AddNode(System.String,System.Double,System.Int32)">
+            <summary>
+            Adds new node under <c>nodeName</c> or just returns if any existing
+            </summary>
+            <param name="nodeName">Name of the node.</param>
+            <param name="weight">The weight.</param>
+            <param name="type">The type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraph.AddNodeOrSum(imbSCI.Graph.FreeGraph.freeGraphNodeBase)">
+            <summary>
+            Adds new node into graph or sums weight of the specified and existing - and applies type that is greater
+            </summary>
+            <param name="link">The link.</param>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraph.AddLinkOrSum(imbSCI.Graph.FreeGraph.freeGraphLinkBase)">
+            <summary>
+            Adds new link into graph or sums weight of the specified and existing - and applies type that is greater
+            </summary>
+            <param name="link">The link.</param>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraph.AddCloud(imbSCI.Graph.FreeGraph.freeGraph)">
+            <summary>
+            Merges specified cloud into this one by summing overlaping node and link weights and picks type that is greater
+            </summary>
+            <param name="x">The x.</param>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraph.GetLink(System.String,System.String)">
+            <summary>
+            Gets link in one or the other direction
+            </summary>
+            <param name="nodeNameA">The node name a.</param>
+            <param name="nodeNameB">The node name b.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraph.GetLinkedNodes(System.Collections.Generic.IEnumerable{System.String},System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Iterative query for linked nodes.
+            </summary>
+            <param name="queryNodeNames">The query node names.</param>
+            <param name="expansionSteps">The expansion steps - number of iterations in linked nodes collecting process</param>
+            <param name="includeBtoAlinks">if set to <c>true</c> [include bto alinks].</param>
+            <param name="includeQueryNodesInResult">if set to <c>true</c> [include query nodes in result].</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraph.GetLinkedNodes(System.String,System.Boolean,imbSCI.Graph.FreeGraph.freeGraphQueryResult)">
+            <summary>
+            Gets the linked nodes.
+            </summary>
+            <param name="centralNodeName">Name of the central node.</param>
+            <param name="includeBtoALinks">if set to <c>true</c> [include bto a links].</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraph.Remove(System.String,System.Boolean,imbSCI.Core.reporting.ILogBuilder)">
+            <summary>
+            Removes nodes and related links
+            </summary>
+            <param name="nodeName">Name of the node.</param>
+            <param name="skipCheck">if set to <c>true</c> [skip check].</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraph.GetNode(System.String,System.Boolean)">
+            <summary>
+            Gets the node.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="skipCheck">if set to <c>true</c> [skip check].</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraph.ContainsNode(System.String,System.Boolean)">
+            <summary>
+            Determines whether contains node, with the specified name 
+            </summary>
+            <param name="name">The name.</param>
+            <returns>
+              <c>true</c> if  contains node, with the specified name otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="P:imbSCI.Graph.FreeGraph.freeGraph.nodes">
+            <summary>
+            List of nodes, used only for serialization and deserialization
+            </summary>
+            <value>
+            The nodes.
+            </value>
+        </member>
+        <member name="P:imbSCI.Graph.FreeGraph.freeGraph.links">
+            <summary>
+            List of links, used only for serialization and deserialization
+            </summary>
+            <value>
+            The links.
+            </value>
+        </member>
+        <member name="T:imbSCI.Graph.FreeGraph.freeGraphExtensions">
+            <summary>
+            Extensions when working with free graphs
+            </summary>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraphExtensions.PingGraphSize(imbSCI.Graph.FreeGraph.freeGraph,imbSCI.Graph.FreeGraph.freeGraphNodeBase,System.Boolean,imbSCI.Graph.FreeGraph.freeGraphPingType,System.Int32)">
+            <summary>
+            Pings the size of the graph by expanding from specified <c>pingSources</c> until number of reached nodes is increasing. <see cref="T:imbSCI.Graph.FreeGraph.freeGraphPingType"/>
+            </summary>
+            <param name="graph">The graph that is probed.</param>
+            <param name="pingSources">The ping sources - nodes to start ping expansion from.</param>
+            <param name="bothDirections">if set to <c>true</c> if will expand trough both backward and forward links</param>
+            <param name="pingType">Type of the ping operation</param>
+            <param name="pingLimit">The ping limit - after which the expansion will stop.</param>
+            <returns>Value according to specified <c>pingType</c> or 0 on failure</returns>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraphExtensions.PingGraphSize(imbSCI.Graph.FreeGraph.freeGraph,System.Collections.Generic.IEnumerable{imbSCI.Graph.FreeGraph.freeGraphNodeBase},System.Boolean,imbSCI.Graph.FreeGraph.freeGraphPingType,System.Int32)">
+            <summary>
+            Pings the size of the graph by expanding from specified <c>pingSources</c> until number of reached nodes is increasing. <see cref="T:imbSCI.Graph.FreeGraph.freeGraphPingType"/>
+            </summary>
+            <param name="graph">The graph that is probed.</param>
+            <param name="pingSources">The ping sources - nodes to start ping expansion from.</param>
+            <param name="bothDirections">if set to <c>true</c> if will expand trough both backward and forward links</param>
+            <param name="pingType">Type of the ping operation</param>
+            <param name="pingLimit">The ping limit - after which the expansion will stop.</param>
+            <returns>Value according to specified <c>pingType</c> or 0 on failure</returns>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraphExtensions.Save``1(``0,System.String,imbSCI.Data.enums.getWritableFileMode)">
+            <summary>
+            Saves the specified filepath.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="graph">The graph.</param>
+            <param name="filepath">The filepath.</param>
+            <param name="mode">The mode.</param>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraphExtensions.GetQueryResultClones(System.Collections.Generic.IEnumerable{imbSCI.Graph.FreeGraph.freeGraphNodeBase},System.Int32,System.Double)">
+            <summary>
+            Gets the query result clones.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="distanceIncrease">The distance increase.</param>
+            <param name="weightFactor">The weight factor.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraphExtensions.GetWeightDictionary(System.Collections.Generic.IEnumerable{imbSCI.Graph.FreeGraph.freeGraphNodeBase})">
+            <summary>
+            Gets the weight dictionary.
+            </summary>
+            <param name="source">The source.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraphLinkRegistry.GetLinkKey(System.String,System.String)">
+            <summary>
+            Makes the link key - for quering the optimized collections
+            </summary>
+            <param name="nodeNameA">The node name a.</param>
+            <param name="nodeNameB">The node name b.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraphLinkRegistry.GetLink(System.String,System.String)">
+            <summary>
+            Gets the link - order of nodeNameA and nodeNameB is irrelevant for the query
+            </summary>
+            <param name="nodeNameA">The node name a.</param>
+            <param name="nodeNameB">The node name b.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraphLinkRegistry.RegisterLink(imbSCI.Graph.FreeGraph.freeGraphLinkBase,System.Collections.Generic.Dictionary{System.String,imbSCI.Graph.FreeGraph.freeGraphNodeBase})">
+            <summary>
+            Registers the link, returns true if this link is redundant
+            </summary>
+            <param name="link">The link.</param>
+            <param name="nodeDictionary">The node dictionary.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraphNodeBase.GetQueryResultClone(System.Int32)">
+            <summary>
+            Just clones the node and adds specified distance 
+            </summary>
+            <param name="distanceIncrease">The distance increase.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Graph.FreeGraph.freeGraphNodeBase.distance">
+            <summary>
+            Distance from query node/s, only relevant when it is query result
+            </summary>
+            <value>
+            The distance.
+            </value>
+        </member>
+        <member name="T:imbSCI.Graph.FreeGraph.freeGraphPingType">
+            <summary>
+            Type of graph ping operation. <see cref="M:imbSCI.Graph.FreeGraph.freeGraphExtensions.PingGraphSize(imbSCI.Graph.FreeGraph.freeGraph,imbSCI.Graph.FreeGraph.freeGraphNodeBase,System.Boolean,imbSCI.Graph.FreeGraph.freeGraphPingType,System.Int32)"/>
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.FreeGraph.freeGraphPingType.maximumPingLength">
+            <summary>
+            The maximum ping length: performs ping operation for each <see cref="T:imbSCI.Graph.FreeGraph.freeGraphNodeBase"/> separatly, and returns the highest ping length (number of cycles until number of pinged nodes becomes stable)
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.FreeGraph.freeGraphPingType.averagePingLength">
+            <summary>
+            The average ping length: performs ping operation for each <see cref="T:imbSCI.Graph.FreeGraph.freeGraphNodeBase"/> separatly, and returns the average ping length (number of cycles until number of pinged nodes becomes stable)
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.FreeGraph.freeGraphPingType.unisonPingLength">
+            <summary>
+            The unison ping length: performs ping at once from all ping sources
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.FreeGraph.freeGraphPingType.numberOfPingedNodes">
+            <summary>
+            The number of pinged nodes: returns number of nodes reached by ping
+            </summary>
+        </member>
+        <member name="T:imbSCI.Graph.FreeGraph.freeGraphQueryResult">
+            <summary>
+            Result of a query over <see cref="T:imbSCI.Graph.FreeGraph.freeGraph"/> collection, contains clones of  matched graphs
+            </summary>
+            <seealso cref="!:System.Collections.Generic.List&lt;imbNLP.PartOfSpeech.TFModels.semanticCloud.core.freeGraphNodeBase&gt;" />
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraphQueryResult.AddNewNodes(System.Collections.Generic.IEnumerable{imbSCI.Graph.FreeGraph.freeGraphNodeBase})">
+            <summary>
+            Adds nodes if they are not already inside, and returns the ones that were new fot this result
+            </summary>
+            <param name="nodes">The nodes.</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Graph.FreeGraph.NamespaceDoc">
+            <summary>
+            <para>Undirected Graph where nodes can connect to each other without restriction</para>
+            </summary>
+            <remarks>
+            <para>The graph is built from <see cref="T:imbSCI.Graph.FreeGraph.freeGraphNodeBase"/> and <see cref="T:imbSCI.Graph.FreeGraph.freeGraphLinkBase"/> that have weights assigned</para>
+            <list type="bullet">
+            	<listheader>
+            		<term>When to use <see cref="T:imbSCI.Graph.FreeGraph.freeGraph"/>?</term>
+            	</listheader>
+            	<item>
+            		<term>Expansion queries</term>
+            		<description>When you want to select other nodes by expansion from selected nodes</description>
+            	</item>
+            	<item>
+            		<term>Named Tweens</term>
+            		<description>When you're not inheriting <see cref="T:imbSCI.Graph.FreeGraph.freeGraphNodeBase"/> but using the <see cref="T:imbSCI.Graph.FreeGraph.freeGraph"/> as tween structure representation, where <see cref="P:imbSCI.Graph.FreeGraph.freeGraphNodeBase.name"/> is suitable link between your data objects and the graph</description>
+            	</item>
+            </list>
+            </remarks>
+            <seealso cref="T:imbSCI.Graph.Converters.GraphConversionTools" />
+        </member>
+    </members>
+</doc>

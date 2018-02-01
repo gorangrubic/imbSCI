@@ -31,6 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\imbSCI.Graph.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>imbSCI.ico</ApplicationIcon>
@@ -145,6 +146,7 @@
     <Compile Include="FreeGraph\freeGraphLinkRegistry.cs" />
     <Compile Include="FreeGraph\freeGraphNodeAndLinks.cs" />
     <Compile Include="FreeGraph\freeGraphNodeBase.cs" />
+    <Compile Include="FreeGraph\freeGraphPingType.cs" />
     <Compile Include="FreeGraph\freeGraphQueryResult.cs" />
     <Compile Include="FreeGraph\NamespaceDoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

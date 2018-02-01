@@ -4064,7 +4064,7 @@
             <param name="ws">The ws.</param>
             <param name="useMetaSetFromTheTable">if set to <c>true</c> it will use style set from the table specified.</param>
         </member>
-        <member name="M:imbSCI.DataComplex.tables.DataTableForStatistics.DeployStyleToRow(OfficeOpenXml.ExcelRow,System.Data.DataRow,OfficeOpenXml.ExcelWorksheet,imbSCI.Core.extensions.table.dataTableRowMetaSet)">
+        <member name="M:imbSCI.DataComplex.tables.DataTableForStatistics.DeployStyleToRow(OfficeOpenXml.ExcelRow,System.Data.DataRow,OfficeOpenXml.ExcelWorksheet,imbSCI.Core.extensions.table.core.tableStyleRowSetter)">
             <summary>
             Deploys the style to row.
             </summary>
@@ -4095,7 +4095,12 @@
             Applies the object table template.
             </summary>
         </member>
-        <member name="M:imbSCI.DataComplex.tables.DataTableForStatisticsExtension.SetStyle(OfficeOpenXml.Style.ExcelStyle,imbSCI.Core.extensions.table.dataTableStyleEntry,System.Boolean)">
+        <member name="T:imbSCI.DataComplex.tables.DataTableForStatisticsExportJob">
+            <summary>
+            Temporary object - handling report export process
+            </summary>
+        </member>
+        <member name="M:imbSCI.DataComplex.tables.DataTableForStatisticsExtension.SetStyle(OfficeOpenXml.Style.ExcelStyle,imbSCI.Core.extensions.table.style.dataTableStyleEntry,System.Boolean)">
             <summary>
             Sets the style.
             </summary>

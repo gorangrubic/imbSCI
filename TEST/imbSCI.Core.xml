@@ -118,7 +118,7 @@
             <exception cref="T:System.ArgumentOutOfRangeException">iterationLimit - Failed to make name from proposal [" + proposal + "] after [" + c.ToString() + "] iterations!</exception>
             <exception cref="T:System.Exception">Failed to make name from proposal [" + proposal + "] after [" + c.ToString() + "] iterations!</exception>
         </member>
-        <member name="M:imbSCI.Core.extensions.data.collectionExtensions.ConvertIList``2(System.Collections.Generic.IList{``0})">
+        <member name="M:imbSCI.Core.extensions.data.collectionExtensions.ConvertIList``2(System.Collections.Generic.IEnumerable{``0})">
             <summary>
             Converts an IList to List
             </summary>
@@ -869,80 +869,40 @@
             <param name="tableColumn">The table column.</param>
             <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
-        <member name="M:imbSCI.Core.extensions.table.dataNumericCriterionDynamicStyle`2.#ctor(imbSCI.Core.math.range.rangeCriteria{`0},`1,System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:imbSCI.Core.extensions.table.dataNumericCriterionDynamicStyle`2"/> class.
-            </summary>
-            <param name="_criteria">The criteria.</param>
-            <param name="key">The key.</param>
-        </member>
-        <member name="M:imbSCI.Core.extensions.table.dataNumericCriterionDynamicStyle`2.evaluate(System.Data.DataRow,System.Data.DataTable,imbSCI.Core.extensions.table.dataTableStyleEntry)">
-            <summary>
-            Evaluates the <see cref="P:imbSCI.Core.extensions.table.dataNumericCriterionDynamicStyle`2.columnName"/> column of the <c>row</c> against <see cref="P:imbSCI.Core.extensions.table.dataNumericCriterionDynamicStyle`2.criteria"/>, if test is positive returns the style associated with <see cref="P:imbSCI.Core.extensions.table.dataNumericCriterionDynamicStyle`2.styleKey"/>
-            </summary>
-            <param name="row">The row.</param>
-            <param name="table">The table.</param>
-            <param name="defaultStyle">The default style.</param>
-            <returns></returns>
-        </member>
-        <member name="T:imbSCI.Core.extensions.table.dataRowIndexDynamicStyle`1">
-            <summary>
-            Affects rows on specified index positions
-            </summary>
-            <typeparam name="TEnum">The type of the enum.</typeparam>
-            <seealso cref="T:imbSCI.Core.extensions.table.dataTableDynamicStyleEntry" />
-        </member>
-        <member name="P:imbSCI.Core.extensions.table.dataRowIndexDynamicStyle`1.indexFromSourceTable">
-            <summary>
-            If true - it counts rows from the source table (without column labels)
-            </summary>
-            <value>
-              <c>true</c> if [index from source table]; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="M:imbSCI.Core.extensions.table.dataRowIndexDynamicStyle`1.#ctor(imbSCI.Core.extensions.table.dataTableStyleEntry,System.Collections.Generic.IEnumerable{System.Int32})">
-            <summary>
-            Initializes a new instance of the <see cref="T:imbSCI.Core.extensions.table.dataRowIndexDynamicStyle`1"/> class.
-            </summary>
-            <param name="_key">The key.</param>
-            <param name="indexList">The index list.</param>
-        </member>
-        <member name="M:imbSCI.Core.extensions.table.dataRowIndexDynamicStyle`1.#ctor(`0,System.Collections.Generic.IEnumerable{System.Int32})">
-            <summary>
-            Initializes a new instance of the <see cref="T:imbSCI.Core.extensions.table.dataRowIndexDynamicStyle`1"/> class.
-            </summary>
-            <param name="_key">The key.</param>
-            <param name="indexList">The index list.</param>
-        </member>
-        <member name="M:imbSCI.Core.extensions.table.dataRowIndexDynamicStyle`1.evaluate(System.Data.DataRow,System.Data.DataTable,imbSCI.Core.extensions.table.dataTableStyleEntry)">
-            <summary>
-            Evaluates the specified row.
-            </summary>
-            <param name="row">The row.</param>
-            <param name="table">The table.</param>
-            <param name="defaultStyle">The default style.</param>
-            <returns></returns>
-        </member>
-        <member name="F:imbSCI.Core.extensions.table.DataRowInReportTypeEnum.mergedHorizontally">
-            <summary>
-            The merged horizontally: cells with the same value are merged horizontally
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.extensions.table.dataTableColumnMetaSet.items">
+        <member name="P:imbSCI.Core.extensions.table.core.tableStyleColumnSetter.items">
             <summary> </summary>
         </member>
-        <member name="P:imbSCI.Core.extensions.table.dataTableDynamicStyleEntry.customStyleEntry">
+        <member name="T:imbSCI.Core.extensions.table.core.tableStyleRowSetter">
             <summary>
-            If not null - it will be returned if evaluation is positive
+            
             </summary>
-            <value>
-            The custom style entry.
-            </value>
+            <seealso cref="T:imbSCI.Core.extensions.table.core.tableStyleSetterBase" />
         </member>
-        <member name="P:imbSCI.Core.extensions.table.dataTableMetaSet.units">
+        <member name="M:imbSCI.Core.extensions.table.core.tableStyleRowSetter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.extensions.table.core.tableStyleRowSetter"/> class.
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.core.tableStyleRowSetter.AddToIgnoreList(System.Data.DataRow)">
+            <summary>
+            Adds to ignore list.
+            </summary>
+            <param name="dr">The dr.</param>
+        </member>
+        <member name="P:imbSCI.Core.extensions.table.core.tableStyleRowSetter.ignoreList">
             <summary> </summary>
         </member>
-        <member name="M:imbSCI.Core.extensions.table.dataTableRowMetaSet.SetStyleForRows(imbSCI.Core.extensions.table.DataRowInReportTypeEnum,System.Int32[])">
+        <member name="M:imbSCI.Core.extensions.table.core.tableStyleRowSetter.SetStyleForRows(imbSCI.Core.extensions.table.DataRowInReportTypeEnum,System.Int32)">
+            <summary>
+            Sets the specified style by rows indexes. The row index is interpreted by index in source table (not reporting version of the table -- i.e. heading rows are not counted, only data)
+            </summary>
+            <param name="style">The style.</param>
+            <param name="rowIndex">Index of the row.</param>
+            <returns>
+            Rule that was created
+            </returns>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.core.tableStyleRowSetter.SetStyleForRows(imbSCI.Core.extensions.table.DataRowInReportTypeEnum,System.Collections.Generic.IEnumerable{System.Int32})">
             <summary>
             Sets the specified style by rows indexes. The row index is interpreted by index in source table (not reporting version of the table -- i.e. heading rows are not counted, only data)
             </summary>
@@ -950,7 +910,17 @@
             <param name="rowIndexes">The row indexes.</param>
             <returns>Rule that was created</returns>
         </member>
-        <member name="M:imbSCI.Core.extensions.table.dataTableRowMetaSet.SetStyleForRowsWithValue``1(imbSCI.Core.extensions.table.DataRowInReportTypeEnum,System.String,``0[])">
+        <member name="M:imbSCI.Core.extensions.table.core.tableStyleRowSetter.SetStyleForRowsWithValue``1(imbSCI.Core.extensions.table.DataRowInReportTypeEnum,System.String,``0)">
+            <summary>
+            Sets the style for rows with value.
+            </summary>
+            <typeparam name="TValueType">The type of the value type.</typeparam>
+            <param name="style">The style.</param>
+            <param name="columnName">Name of the column.</param>
+            <param name="rowIndex">Index of the row.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.core.tableStyleRowSetter.SetStyleForRowsWithValue``1(imbSCI.Core.extensions.table.DataRowInReportTypeEnum,System.String,System.Collections.Generic.IEnumerable{``0})">
             <summary>
             Sets the style for rows with value.
             </summary>
@@ -960,7 +930,7 @@
             <param name="rowIndexes">The row indexes.</param>
             <returns></returns>
         </member>
-        <member name="M:imbSCI.Core.extensions.table.dataTableRowMetaSet.evaluate(System.Data.DataRow,System.Data.DataTable,imbSCI.Core.extensions.table.dataTableStyleEntry)">
+        <member name="M:imbSCI.Core.extensions.table.core.tableStyleRowSetter.evaluate(System.Data.DataRow,System.Data.DataTable,imbSCI.Core.extensions.table.style.dataTableStyleEntry)">
             <summary>
             Evaluates the specified row.
             </summary>
@@ -969,41 +939,245 @@
             <param name="defaultStyle">The default style.</param>
             <returns></returns>
         </member>
-        <member name="P:imbSCI.Core.extensions.table.dataTableRowMetaSet.items">
+        <member name="P:imbSCI.Core.extensions.table.core.tableStyleRowSetter.items">
             <summary> </summary>
         </member>
-        <member name="T:imbSCI.Core.extensions.table.dataValueMatchCriterionDynamicStyle`2">
-            <summary>
-            Evaluates rows for exact value match
-            </summary>
-            <typeparam name="TValueType">Type of column value</typeparam>
-            <typeparam name="TEnum">The type of enum to use when calling the style</typeparam>
-            <seealso cref="T:imbSCI.Core.extensions.table.dataTableDynamicStyleEntry" />
+        <member name="P:imbSCI.Core.extensions.table.core.tableStyleSetterBase.units">
+            <summary> </summary>
         </member>
-        <member name="M:imbSCI.Core.extensions.table.dataValueMatchCriterionDynamicStyle`2.#ctor(System.Collections.Generic.IEnumerable{`0},`1,System.String)">
+        <member name="T:imbSCI.Core.extensions.table.core.tableStyleDynamicRule">
             <summary>
-            Initializes a new instance of the <see cref="T:imbSCI.Core.extensions.table.dataNumericCriterionDynamicStyle`2"/> class.
+            
             </summary>
-            <param name="_criteria">The criteria.</param>
-            <param name="key">The key.</param>
         </member>
-        <member name="M:imbSCI.Core.extensions.table.dataValueMatchCriterionDynamicStyle`2.evaluate(System.Data.DataRow,System.Data.DataTable,imbSCI.Core.extensions.table.dataTableStyleEntry)">
+        <member name="M:imbSCI.Core.extensions.table.core.tableStyleDynamicRule.#ctor">
             <summary>
-            Evaluates the <see cref="P:imbSCI.Core.extensions.table.dataValueMatchCriterionDynamicStyle`2.columnName"/> column of the <c>row</c> against <see cref="!:criteria"/>, if test is positive returns the style associated with <see cref="P:imbSCI.Core.extensions.table.dataValueMatchCriterionDynamicStyle`2.styleKey"/>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.extensions.table.core.tableStyleDynamicRule"/> class.
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.core.tableStyleDynamicRule.makeDefaultResponse(System.Boolean,imbSCI.Core.extensions.table.style.dataTableStyleEntry,imbSCI.Core.extensions.table.style.dataTableStyleEntry)">
+            <summary>
+            Makes the default response.
+            </summary>
+            <param name="evaluationValue">if set to <c>true</c> [evaluation value].</param>
+            <param name="okStype">The default style.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.extensions.table.core.tableStyleDynamicRule.allowedZone">
+            <summary>
+            Gets or sets the allowed zone.
+            </summary>
+            <value>
+            The allowed zone.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.core.tableStyleDynamicRule.SetZone(System.Data.DataColumn,System.Data.DataColumn,System.Boolean)">
+            <summary>
+            Sets the zone.
+            </summary>
+            <param name="dcLeft">The dc left.</param>
+            <param name="dcRight">The dc right.</param>
+            <param name="isActiveY">if set to <c>true</c> [is active y].</param>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.core.tableStyleDynamicRule.confirmZoneAndCriterion(System.Data.DataRow,System.Data.DataColumn)">
+            <summary>
+            Confirms the zone and criterion.
+            </summary>
+            <param name="dr">The dr.</param>
+            <param name="dc">The dc.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.core.tableStyleDynamicRule.confirmZone(System.Data.DataRow,System.Data.DataColumn)">
+            <summary>
+            Confirms the zone.
+            </summary>
+            <param name="dr">The dr.</param>
+            <param name="dc">The dc.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.core.tableStyleDynamicRule.confirmCritarion(System.Object)">
+            <summary>
+            Confirms the critarion.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.core.tableStyleDynamicRule.makeDefaultResponse(System.Double,imbSCI.Core.extensions.table.style.dataTableStyleEntry,imbSCI.Core.extensions.table.style.dataTableStyleEntry)">
+            <summary>
+            Makes the default response.
+            </summary>
+            <param name="evaluationValue">The evaluation value.</param>
+            <param name="okStyle">The default style.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.core.tableStyleDynamicRule.evaluate(System.Data.DataRow,System.Data.DataTable,imbSCI.Core.extensions.table.style.dataTableStyleEntry)">
+            <summary>
+            Evaluates the specified row.
             </summary>
             <param name="row">The row.</param>
             <param name="table">The table.</param>
             <param name="defaultStyle">The default style.</param>
             <returns></returns>
         </member>
-        <member name="T:imbSCI.Core.extensions.table.rowMetaEvaluation">
+        <member name="P:imbSCI.Core.extensions.table.core.tableStyleDynamicRule.customStyleEntry">
             <summary>
-            Delegate used by <see cref="T:imbSCI.Core.extensions.table.dataTableDynamicStyleEntry"/> to evaluate and set style
+            If not null - it will be returned if evaluation is positive
+            </summary>
+            <value>
+            The custom style entry.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.extensions.table.core.tableStyleDynamicRule.colorGradientDictionary">
+            <summary>
+            Gets or sets the color gradient dictionary.
+            </summary>
+            <value>
+            The color gradient dictionary.
+            </value>
+        </member>
+        <member name="T:imbSCI.Core.extensions.table.core.rowMetaEvaluation">
+            <summary>
+            Delegate used by <see cref="T:imbSCI.Core.extensions.table.core.tableStyleDynamicRule"/> to evaluate and set style
             </summary>
             <param name="row">The row.</param>
             <param name="table">The table.</param>
             <param name="entry">The entry.</param>
             <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.dynamics.dataNumericCriterionDynamicStyle`2.#ctor(imbSCI.Core.math.range.rangeCriteria{`0},`1,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.extensions.table.dynamics.dataNumericCriterionDynamicStyle`2"/> class.
+            </summary>
+            <param name="_criteria">The criteria.</param>
+            <param name="key">The key.</param>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.dynamics.dataNumericCriterionDynamicStyle`2.evaluate(System.Data.DataRow,System.Data.DataTable,imbSCI.Core.extensions.table.style.dataTableStyleEntry)">
+            <summary>
+            Evaluates the <see cref="P:imbSCI.Core.extensions.table.dynamics.dataNumericCriterionDynamicStyle`2.columnName"/> column of the <c>row</c> against <see cref="P:imbSCI.Core.extensions.table.dynamics.dataNumericCriterionDynamicStyle`2.criteria"/>, if test is positive returns the style associated with <see cref="P:imbSCI.Core.extensions.table.dynamics.dataNumericCriterionDynamicStyle`2.styleKey"/>
+            </summary>
+            <param name="row">The row.</param>
+            <param name="table">The table.</param>
+            <param name="defaultStyle">The default style.</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.extensions.table.dynamics.dataRowIndexDynamicStyle`1">
+            <summary>
+            Affects rows on specified index positions
+            </summary>
+            <typeparam name="TEnum">The type of the enum.</typeparam>
+            <seealso cref="!:imbSCI.Core.extensions.table.dataTableDynamicStyleEntry" />
+        </member>
+        <member name="P:imbSCI.Core.extensions.table.dynamics.dataRowIndexDynamicStyle`1.indexFromSourceTable">
+            <summary>
+            If true - it counts rows from the source table (without column labels)
+            </summary>
+            <value>
+              <c>true</c> if [index from source table]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.dynamics.dataRowIndexDynamicStyle`1.#ctor(imbSCI.Core.extensions.table.style.dataTableStyleEntry,System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.extensions.table.dynamics.dataRowIndexDynamicStyle`1"/> class.
+            </summary>
+            <param name="_key">The key.</param>
+            <param name="indexList">The index list.</param>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.dynamics.dataRowIndexDynamicStyle`1.#ctor(`0,System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.extensions.table.dynamics.dataRowIndexDynamicStyle`1"/> class.
+            </summary>
+            <param name="_key">The key.</param>
+            <param name="indexList">The index list.</param>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.dynamics.dataRowIndexDynamicStyle`1.evaluate(System.Data.DataRow,System.Data.DataTable,imbSCI.Core.extensions.table.style.dataTableStyleEntry)">
+            <summary>
+            Evaluates the specified row.
+            </summary>
+            <param name="row">The row.</param>
+            <param name="table">The table.</param>
+            <param name="defaultStyle">The default style.</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.extensions.table.dynamics.dataValueMatchCriterionDynamicStyle`2">
+            <summary>
+            Evaluates rows for exact value match
+            </summary>
+            <typeparam name="TValueType">Type of column value</typeparam>
+            <typeparam name="TEnum">The type of enum to use when calling the style</typeparam>
+            <seealso cref="!:imbSCI.Core.extensions.table.dataTableDynamicStyleEntry" />
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.dynamics.dataValueMatchCriterionDynamicStyle`2.#ctor(System.Collections.Generic.IEnumerable{`0},`1,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.extensions.table.dynamics.dataNumericCriterionDynamicStyle`2"/> class.
+            </summary>
+            <param name="_criteria">The criteria.</param>
+            <param name="key">The key.</param>
+        </member>
+        <member name="P:imbSCI.Core.extensions.table.dynamics.dataValueMatchCriterionDynamicStyle`2.DoInverseLogic">
+            <summary>
+            Gets or sets a value indicating whether [do inverse logic].
+            </summary>
+            <value>
+              <c>true</c> if [do inverse logic]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.dynamics.dataValueMatchCriterionDynamicStyle`2.evaluate(System.Data.DataRow,System.Data.DataTable,imbSCI.Core.extensions.table.style.dataTableStyleEntry)">
+            <summary>
+            Evaluates the <see cref="P:imbSCI.Core.extensions.table.dynamics.dataValueMatchCriterionDynamicStyle`2.columnName"/> column of the <c>row</c> against <see cref="!:criteria"/>, if test is positive returns the style associated with <see cref="P:imbSCI.Core.extensions.table.dynamics.dataValueMatchCriterionDynamicStyle`2.styleKey"/>
+            </summary>
+            <param name="row">The row.</param>
+            <param name="table">The table.</param>
+            <param name="defaultStyle">The default style.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.dynamics.dataValueMatchCriterionDynamicStyle`2.confirmCritarion(System.Object)">
+            <summary>
+            Confirms the critarion.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="F:imbSCI.Core.extensions.table.DataRowInReportTypeEnum.mergedHorizontally">
+            <summary>
+            The merged horizontally: cells with the same value are merged horizontally
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.extensions.table.style.dataTableStyleDictionary`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <seealso cref="!:imbSCI.Data.collection.nested.aceEnumDictionary&lt;T, imbSCI.Core.extensions.table.style.dataTableStyleEntry&gt;" />
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.style.dataTableStyleEntry.CloneBackground">
+            <summary>
+            Clones only the backgrounds: <see cref="P:imbSCI.Core.extensions.table.style.dataTableStyleEntry.Background"/> and <see cref="P:imbSCI.Core.extensions.table.style.dataTableStyleEntry.BackgroundAlt"/> while the rest of data is just referenced
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.extensions.table.style.dataTableStyleEntry.Clone">
+            <summary>
+            Clones this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.extensions.table.style.dataTableStyleSet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.extensions.table.style.tableStyleSetterResponse">
+            <summary>
+            Response created by a setter
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.extensions.table.style.tableStyleSetterResponse.zone">
+            <summary>
+            Zone - if set - limit application of this style to the zonal borders
+            </summary>
+            <value>
+            The zone.
+            </value>
         </member>
         <member name="T:imbSCI.Core.extensions.table.dataColumnRenderingSetup">
             <summary>
@@ -4550,6 +4724,13 @@
             </summary>
             <param name="di">The di.</param>
         </member>
+        <member name="M:imbSCI.Core.files.folders.folderNodeFileDescriptorTools.GetFileDescription(System.String)">
+            <summary>
+            Gets the file description.
+            </summary>
+            <param name="descriptionLine">The description line.</param>
+            <returns></returns>
+        </member>
         <member name="F:imbSCI.Core.files.folders.aceFolderType.etc">
             <summary>
             configuration files, external media resources
@@ -4634,15 +4815,67 @@
             <summary>
             Adds new node or nodes to correspond to specified path or name. <c>pathOrName</c> can be path like: path1\\path2\\path3
             </summary>
+            <remarks>
+            If directory under specified path already exists, it will update its <see cref="P:imbSCI.Core.files.folders.folderNode.caption"/> and <see cref="P:imbSCI.Core.files.folders.folderNode.description"/> if these are empty, and return the existing node.
+            </remarks>
             <param name="pathOrName">Name of the path or.</param>
             <param name="__caption">The caption - display name of the folder</param>
             <param name="__description">The description - description about the folder</param>
-            <returns></returns>
+            <returns>Newly created or existing directory node</returns>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.AttachSubfolders(System.String,System.Boolean,System.Boolean,imbSCI.Core.reporting.ILogBuilder)">
+            <summary>
+            Scans the File System for unregistered sub directories at this folder, and returns newly registered ones.
+            </summary>
+            <param name="searchPattern">The search pattern - to match subdires names.</param>
+            <param name="forceScan">if set to <c>true</c> it will force scan of readme file, that will pick up folder description and registered files.</param>
+            <param name="attachSubdirectories">if set to <c>true</c> it will run the procedure recursevly over complete directory tree.</param>
+            <param name="logger">The logger - to send debug information.</param>
+            <returns>List of all previously unregistered subfolders</returns>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.Attach(System.String,System.String,System.String,System.Boolean,System.Boolean,imbSCI.Core.reporting.ILogBuilder)">
+            <summary>
+            Attaches sub directory, sets <see cref="P:imbSCI.Core.files.folders.folderNode.caption"/> and <see cref="P:imbSCI.Core.files.folders.folderNode.description"/>. If these are not specified, it will scan the directory for readme file. <see cref="M:imbSCI.Core.files.folders.folderNode.ScanReadMe(imbSCI.Core.reporting.ILogBuilder)"/>
+            </summary>
+            <param name="directory">The subdirectory name.</param>
+            <param name="__caption">The caption.</param>
+            <param name="__description">The description.</param>
+            <param name="forceScan">if set to <c>true</c> it will force readme file scan <see cref="M:imbSCI.Core.files.folders.folderNode.ScanReadMe(imbSCI.Core.reporting.ILogBuilder)"/>.</param>
+            <param name="autoCreate">if set to <c>true</c> it will create the directory, if not existing already.</param>
+            <param name="logger">The logger.</param>
+            <returns>Reference on newly attached directory, or null if it wasn't found nor created</returns>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.Attach(System.IO.DirectoryInfo,System.String,System.String,System.Boolean,System.Boolean,imbSCI.Core.reporting.ILogBuilder)">
+            <summary>
+            Attaches sub directory, sets <see cref="P:imbSCI.Core.files.folders.folderNode.caption"/> and <see cref="P:imbSCI.Core.files.folders.folderNode.description"/>. If these are not specified, it will scan the directory for readme file. <see cref="M:imbSCI.Core.files.folders.folderNode.ScanReadMe(imbSCI.Core.reporting.ILogBuilder)"/>
+            </summary>
+            <param name="directory">The directory.</param>
+            <param name="__caption">The caption.</param>
+            <param name="__description">The description.</param>
+            <param name="forceScan">if set to <c>true</c> it will force readme file scan <see cref="M:imbSCI.Core.files.folders.folderNode.ScanReadMe(imbSCI.Core.reporting.ILogBuilder)"/>.</param>
+            <param name="autoCreate">if set to <c>true</c> it will create the directory, if not existing already.</param>
+            <param name="logger">The logger.</param>
+            <returns>Reference on newly attached directory, or null if it wasn't found nor created</returns>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.ScanReadMe(imbSCI.Core.reporting.ILogBuilder)">
+            <summary>
+            Searches for readme file (<see cref="F:imbSCI.Core.files.folders.folderNode.directory_readme_filename"/>) in this folder and extracts: <see cref="P:imbSCI.Core.files.folders.folderNode.caption"/>, <see cref="P:imbSCI.Core.files.folders.folderNode.description"/> and list of files
+            </summary>
+            <param name="logger">The logger.</param>
         </member>
         <member name="P:imbSCI.Core.files.folders.folderNode.items">
             <summary>
             
             </summary>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.Contains(System.String)">
+            <summary>
+            Determines whether it has a subdirectory under specified key. Important: it only accounts for already registered filesystem entries. Check: <see cref="M:imbSCI.Core.files.folders.folderNode.Attach(System.IO.DirectoryInfo,System.String,System.String,System.Boolean,System.Boolean,imbSCI.Core.reporting.ILogBuilder)"/>
+            </summary>
+            <param name="key">The key.</param>
+            <returns>
+              <c>true</c> if [contains] [the specified key]; otherwise, <c>false</c>.
+            </returns>
         </member>
         <member name="F:imbSCI.Core.files.folders.folderNode._description">
             <summary>
@@ -4673,8 +4906,10 @@
             <summary>
             Finds the file - and returns relative path
             </summary>
+            <param name="found">if set to <c>true</c> [found].</param>
             <param name="partOrPattern">The part or pattern.</param>
             <param name="options">The options.</param>
+            <param name="returnRelative">if set to <c>true</c> [return relative].</param>
             <returns></returns>
         </member>
         <member name="M:imbSCI.Core.files.folders.folderNode.findFile(System.String,System.IO.SearchOption,System.Boolean)">
@@ -4683,6 +4918,7 @@
             </summary>
             <param name="partOrPattern">The part or pattern.</param>
             <param name="options">The options.</param>
+            <param name="returnRelative">if set to <c>true</c> [return relative].</param>
             <returns></returns>
         </member>
         <member name="M:imbSCI.Core.files.folders.folderNode.findFiles(System.String,System.IO.SearchOption,System.Boolean)">
@@ -4691,6 +4927,7 @@
             </summary>
             <param name="partOrPattern">The part or pattern.</param>
             <param name="options">The options.</param>
+            <param name="returnRelative">if set to <c>true</c> [return relative].</param>
             <returns></returns>
         </member>
         <member name="M:imbSCI.Core.files.folders.folderNode.findDirectories(System.String,System.IO.SearchOption,System.Boolean)">
@@ -4699,6 +4936,7 @@
             </summary>
             <param name="partOrPattern">The part or pattern.</param>
             <param name="options">The options.</param>
+            <param name="returnRelative">if set to <c>true</c> [return relative].</param>
             <returns></returns>
         </member>
         <member name="M:imbSCI.Core.files.folders.folderNode.createDirectory(System.String,System.String,System.Boolean)">
@@ -4710,6 +4948,13 @@
             <param name="findUniqueName">if set to <c>true</c> [find unique name].</param>
             <returns></returns>
         </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.findUniqueDirectoryName(System.String)">
+            <summary>
+            Finds a unique directory name, for new directory to be created
+            </summary>
+            <param name="proposal">The proposal.</param>
+            <returns></returns>
+        </member>
         <member name="M:imbSCI.Core.files.folders.folderNode.pathFor(System.String,imbSCI.Data.enums.getWritableFileMode,System.String)">
             <summary>
             Returns path with filename specified. Optionally, sets <c>fileDescription</c> for directory readme generator
@@ -4719,10 +4964,60 @@
             <param name="fileDescription">The file description - if not specified, it will try to improvize :)</param>
             <returns></returns>
         </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.RegisterFile(System.String,System.String)">
+            <summary>
+            Registers the file, with description provided. Later, this description is used for <see cref="M:imbSCI.Core.files.folders.folderNode.generateReadmeFiles(imbSCI.Core.data.aceAuthorNotation,System.String)"/>
+            </summary>
+            <param name="filename">The filename.</param>
+            <param name="fileDescription">The file description.</param>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.deleteFiles(System.String,System.Boolean)">
+            <summary>
+            Deletes all files, matching the <c>selectionPattern</c> in the folder and all sub folders if <c>subfolders</c> is <c>true</c>
+            </summary>
+            <param name="selectionPattern">The selection pattern.</param>
+            <param name="subFolders">if set to <c>true</c> [sub folders].</param>
+        </member>
         <member name="P:imbSCI.Core.files.folders.folderNode.parent">
             <summary>
-            
+            Reference to the registered parent node (if any)
             </summary>
+        </member>
+        <member name="P:imbSCI.Core.files.folders.folderNode.level">
+            <summary>
+            Depth level, from the root <see cref="T:imbSCI.Core.files.folders.folderNode"/> object in the hierarchy
+            </summary>
+            <value>
+            The level.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.files.folders.folderNode.root">
+            <summary>
+            Gets the root node in the structure
+            </summary>
+            <value>
+            The root.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.files.folders.folderNode.Item(System.Enum)">
+            <summary>
+            Gets the <see cref="T:imbSCI.Core.files.folders.folderNode"/> with the specified key. If not found it will create new sub folder with <c>key</c> name
+            </summary>
+            <value>
+            The <see cref="T:imbSCI.Core.files.folders.folderNode"/>.
+            </value>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.files.folders.folderNode.Item(System.String)">
+            <summary>
+            Gets the <see cref="T:imbSCI.Core.files.folders.folderNode"/> with the specified key. If not found it will create new sub folder with <c>key</c> name
+            </summary>
+            <value>
+            The <see cref="T:imbSCI.Core.files.folders.folderNode"/>.
+            </value>
+            <param name="key">The key.</param>
+            <returns></returns>
         </member>
         <member name="M:imbSCI.Core.files.folders.folderNode.generateFolderReadme(imbSCI.Core.data.aceAuthorNotation,imbSCI.Core.reporting.render.ITextRender,System.Int32)">
             <summary>
@@ -4730,11 +5025,12 @@
             </summary>
             <param name="notation">The notation.</param>
             <param name="builder">The builder.</param>
+            <param name="directoryStructureDepthLimit">The directory structure depth limit - i.e. until what subdirectory depth is described in the readme file.</param>
             <returns></returns>
         </member>
         <member name="P:imbSCI.Core.files.folders.folderNode.AdditionalDescriptionLines">
             <summary>
-            These are additional description lines that will be inserted in readme file generated by <see cref="!:generateFolderReadme(aceAuthorNotation, ITextRender)"/>
+            These are additional description lines that will be inserted in readme file generated by <see cref="M:imbSCI.Core.files.folders.folderNode.generateReadmeFiles(imbSCI.Core.data.aceAuthorNotation,System.String)" />
             </summary>
             <value>
             The additional description lines.
@@ -4748,11 +5044,75 @@
             The additional file entries.
             </value>
         </member>
+        <member name="F:imbSCI.Core.files.folders.folderNode.directory_readme_filename">
+            <summary>
+            Default directory readme filename, used for <see cref="M:imbSCI.Core.files.folders.folderNode.generateReadmeFiles(imbSCI.Core.data.aceAuthorNotation,System.String)"/>
+            </summary>
+        </member>
         <member name="M:imbSCI.Core.files.folders.folderNode.generateReadmeFiles(imbSCI.Core.data.aceAuthorNotation,System.String)">
             <summary>
             Generates the readme files for complete folder tree
             </summary>
-            <param name="notation">The notation.</param>
+            <param name="notation">The notation data object</param>
+            <param name="readmeFileName">Overrides the default readme file name, defined by <see cref="F:imbSCI.Core.files.folders.folderNode.directory_readme_filename"/>.</param>
+        </member>
+        <member name="P:imbSCI.Core.files.folders.folderNode.Count">
+            <summary>
+            Gets the number of registered subfolders
+            </summary>
+            <value>
+            The count.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.CountAll">
+            <summary>
+            Gets the number of all registered subfolders in full subtree depth
+            </summary>
+            <returns>Number of all registered subfolders - including the ones from child nodes</returns>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            An enumerator that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.System#Collections#Generic#IEnumerable{imbSCI#Core#files#folders#folderNode}#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            An enumerator that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.Remove(System.String)">
+            <summary>
+            Unregisteres an subfolder from the node. It will not delete actual directory from the file system
+            </summary>
+            <param name="key">The key.</param>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.System#Collections#Generic#IEnumerable{imbSCI#Data#interfaces#IObjectWithPathAndChildren}#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            An enumerator that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.imbSCI#Data#interfaces#IObjectWithPathAndChildren#Remove(System.String)">
+            <summary>
+            Removes the specified key.
+            </summary>
+            <param name="key">The key.</param>
         </member>
         <member name="T:imbSCI.Core.files.folders.folderStructure">
             <summary>
@@ -6164,6 +6524,44 @@
             Interface to classification report objects
             </summary>
         </member>
+        <member name="T:imbSCI.Core.math.StatisticsExtensions">
+            <summary>
+            Entropy, and some wrappers to <see cref="N:MathNet.Numerics"/>
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.StatisticsExtensions.GetStatistics(System.Collections.Generic.IEnumerable{System.Double},System.Boolean)">
+            <summary>
+            Gets the statistics - <see cref="N:MathNet.Numerics.Statistics"/>
+            </summary>
+            <param name="rFreqs">The r freqs.</param>
+            <param name="increasedAccuricy">if set to <c>true</c> [increased accuricy].</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.math.StatisticsExtensions.GetVariance(System.Collections.Generic.IEnumerable{System.Double},System.Boolean)">
+            <summary>
+            Gets the variance.
+            </summary>
+            <param name="rFreqs">The r freqs.</param>
+            <param name="isSample">if set to <c>true</c> [is sample].</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.math.StatisticsExtensions.GetStdDeviation(System.Collections.Generic.IEnumerable{System.Double},System.Boolean)">
+            <summary>
+            Gets the standard deviation - just a wrapper <see cref="N:MathNet.Numerics.Statistics"/>
+            </summary>
+            <param name="rFreqs">The r freqs.</param>
+            <param name="isSample">if set to <c>true</c> [population].</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.math.StatisticsExtensions.GetEntropy(System.Collections.Generic.IEnumerable{System.Double},System.Double,System.Boolean)">
+            <summary>
+            Calculates entropy, normalizes the output if <c>normalize</c> is <c>true</c>
+            </summary>
+            <param name="rFreqs">Unsorted array of relative requencies. Relative requency is calculated as absolute freq. / max. freq. </param>
+            <param name="eps">The eps.</param>
+            <param name="normalize">if set to <c>true</c> [normalize].</param>
+            <returns></returns>
+        </member>
         <member name="F:imbSCI.Core.math.aggregation.dataPointAggregationAspect.subSetOfRows">
             <summary>
             Sub set of some row
@@ -6521,44 +6919,6 @@
             <summary>
             Counter reset
             </summary>
-        </member>
-        <member name="T:imbSCI.Core.math.StatisticsExtensions">
-            <summary>
-            Entropy, and some wrappers to <see cref="N:MathNet.Numerics"/>
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.math.StatisticsExtensions.GetStatistics(System.Collections.Generic.IEnumerable{System.Double},System.Boolean)">
-            <summary>
-            Gets the statistics - <see cref="N:MathNet.Numerics.Statistics"/>
-            </summary>
-            <param name="rFreqs">The r freqs.</param>
-            <param name="increasedAccuricy">if set to <c>true</c> [increased accuricy].</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.math.StatisticsExtensions.GetVariance(System.Collections.Generic.IEnumerable{System.Double},System.Boolean)">
-            <summary>
-            Gets the variance.
-            </summary>
-            <param name="rFreqs">The r freqs.</param>
-            <param name="isSample">if set to <c>true</c> [is sample].</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.math.StatisticsExtensions.GetStdDeviation(System.Collections.Generic.IEnumerable{System.Double},System.Boolean)">
-            <summary>
-            Gets the standard deviation - just a wrapper <see cref="N:MathNet.Numerics.Statistics"/>
-            </summary>
-            <param name="rFreqs">The r freqs.</param>
-            <param name="isSample">if set to <c>true</c> [population].</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.math.StatisticsExtensions.GetEntropy(System.Collections.Generic.IEnumerable{System.Double},System.Double,System.Boolean)">
-            <summary>
-            Calculates entropy, normalizes the output if <c>normalize</c> is <c>true</c>
-            </summary>
-            <param name="rFreqs">Unsorted array of relative requencies. Relative requency is calculated as absolute freq. / max. freq. </param>
-            <param name="eps">The eps.</param>
-            <param name="normalize">if set to <c>true</c> [normalize].</param>
-            <returns></returns>
         </member>
         <member name="T:imbSCI.Core.math.Fraction">
             <summary>
@@ -8936,11 +9296,11 @@
         </member>
         <member name="M:imbSCI.Core.reporting.render.core.imbStringBuilderBase.GetContent(System.Int64,System.Int64)">
             <summary>
-            Gets specified content range, or complete content
+            Gets specified content segment, or complete content
             </summary>
             <param name="fromLength">From length - by default from start</param>
             <param name="toLength">To length - by default to the end</param>
-            <returns>Content slice</returns>
+            <returns>The slice of the content</returns>
         </member>
         <member name="P:imbSCI.Core.reporting.render.core.imbStringBuilderBase.lastLength">
             <summary>
@@ -9715,6 +10075,14 @@
             </summary>
             \ingroup_disabled report_int
         </member>
+        <member name="M:imbSCI.Core.reporting.render.ITextRender.GetContent(System.Int64,System.Int64)">
+            <summary>
+            Gets specified content segment, or complete content
+            </summary>
+            <param name="fromLength">From length - by default from start</param>
+            <param name="toLength">To length - by default to the end</param>
+            <returns>The slice of the content</returns>
+        </member>
         <member name="M:imbSCI.Core.reporting.render.ITextRender.savePage(System.String,imbSCI.Core.reporting.format.reportOutputFormatName)">
             <summary>
             Saves the document containing this page. 
@@ -9854,6 +10222,41 @@
             <summary>
             Stylers are providing implementation of abstract style structures into contrete objects (i.e. style classes of EEPlus, FlowDocument...) or code (i.e. CSS)
             </summary>
+        </member>
+        <member name="T:imbSCI.Core.reporting.style.core.styleSurfaceColor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.style.core.styleSurfaceColor.FillType">
+            <summary>
+            Gets or sets the type of the fill.
+            </summary>
+            <value>
+            The type of the fill.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.reporting.style.core.styleSurfaceColor.Tint">
+            <summary>
+            Gets or sets the tint.
+            </summary>
+            <value>
+            The tint.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.reporting.style.core.styleSurfaceColor.Color">
+            <summary>
+            Gets or sets the color.
+            </summary>
+            <value>
+            The color.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.reporting.style.core.styleSurfaceColor.Clone">
+            <summary>
+            Clones this instance.
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:imbSCI.Core.reporting.style.core.styleFourSide">
             <summary>
@@ -11137,6 +11540,1484 @@
         <member name="P:imbSCI.Core.reporting.style.table.tableRangeStyle.innerLayout">
             <summary>
             top=column heading, left=firstColumn, right=lastColumn, down=column foot
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.reporting.zone.cursor">
+            <summary>
+            Universal 2D cursor for text and data navigation
+            </summary>
+            \ingroup_disabled report_ll_zone
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursor.name">
+            <summary>
+            sole purpose of name is for easier diagnostics
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursor.frame">
+            <summary>
+            Active frame
+            </summary>
+            <value>
+            Active frame
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursor.isTempFrameActive">
+            <summary>
+            Returns TRUE if currently the cursor uses temporary frame not the main
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursor.useTempFrame">
+            <summary>
+            The use temporary frame
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursor.mainFrame">
+            <summary>
+            The main frame
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursor.tempFrame">
+            <summary>
+            The temporary frame -- when set
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursor.mode">
+            <summary>
+            The mode
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursor.currentZone">
+            <summary>
+            Gets or sets the current zone.
+            </summary>
+            <value>
+            The current zone.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursor.valueReadZone">
+            <summary>
+            snimljena pozicija na ekranu odakle treba kasnije da se iscitava unos sa tastature
+            </summary>
+            <value>
+            The value read zone.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.autoValueReadZone">
+            <summary>
+            Automatski pravi value read zonu na mestu gde je stao kursor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursor.doPivotTranslation">
+            <summary>
+            If TRUE cursor will rotate orientation so X is vertical and Y is horisontal
+            </summary>
+            <value>
+              <c>true</c> if [do pivot translation]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursor.pencil">
+            <summary>
+            Defines zone affected by background brushing, value writing, merge call, value delete or other spatial operation
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursor.pencilAbsolute">
+            <summary>
+            Gets the pencil projected on current cursor position 
+            </summary>
+            <value>
+            Result is trimmed accprding to the current zone within the frame
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.getPencil(imbSCI.Core.reporting.zone.pencilType,System.Int32)">
+            <summary>
+            Gets the pencil according to <see cref="T:imbSCI.Core.reporting.zone.pencilType"/> 
+            </summary>
+            <param name="ptype">The ptype.</param>
+            <returns>area covered by pencil</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.projectArea(imbSCI.Core.reporting.zone.selectRangeArea)">
+            <summary>
+            Projects an area onto current cursor position and returns its crosection with allowed zone frame  area if it colides with current frame zone
+            </summary>
+            <param name="area">The area.</param>
+            <returns>area or part of area within allowed zone frame</returns>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursor.doUseDefaultPencil">
+            <summary>
+            Default pencil is seen when get called on <c>pencilAbsolute</c>
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursor.doPencilWidthToZone">
+            <summary>
+            if TRUE it will keep pencil width locked to current zone
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.setPencil(System.Boolean,System.Boolean)">
+            <summary>
+            Sets pencil options
+            </summary>
+            <param name="useDefaultPencil">if set to <c>true</c> pencil will be ignored and default pencil will be returned on get pencilAbsolute.</param>
+            <param name="pencilWidthToZone">if set to <c>true</c> pencil width will automatically follow width of current zone</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.getSelectZone(System.Int32,System.Int32,imbSCI.Core.reporting.zone.selectZoneOption[])">
+            <summary>
+            Pravi selectZone na osnovu sadrzaja trenutne linije. Trazi [ i ] kao granicnike zone. Ako ih ima vise, upotrebice prvi par.
+            </summary>
+            <param name="zoneHeight">Height of the zone.</param>
+            <param name="zoneWidth">Width of the zone.</param>
+            <param name="option">The option.</param>
+            <returns>
+            selectZone objekat koji treba upotrebiti kao inputReadZone ili za nesto drugo
+            </returns>
+            <remarks>
+            Ako u trenutnoj liniji:
+            - ima vise [ ] parova: upotrebice prvi
+            - je sve prazno ili popunjeno razmacima: upotrebice celu liniju kao zonu
+            - ako je od x-a do desnog inner x-a prazno
+            </remarks>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.#ctor(imbSCI.Core.reporting.zone.cursorZone,imbSCI.Core.reporting.zone.textCursorMode,imbSCI.Core.reporting.zone.textCursorZone,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.reporting.zone.cursor"/> class.
+            </summary>
+            <param name="__target">The target.</param>
+            <param name="__mode">The mode.</param>
+            <param name="__zone">The zone.</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.switchToZone(imbSCI.Core.reporting.zone.textCursorZone,imbSCI.Core.reporting.zone.textCursorZoneCorner)">
+            <summary>
+            Prebacuje kursor u datu zonu
+            </summary>
+            <param name="__zone">The zone.</param>
+            <param name="__corner">The corner.</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.switchToMainZone">
+            <summary>
+            Vraca kursor na njegovu glavnu zonu
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursor.mainZone">
+            <summary>
+            zona koja je "home" za ovaj kursor - odnosno, zona za koju je ovaj kursor primarno namenjen i u koju se vraca nakon privremenih premestanja u druge zone metodom switchToZone()
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.placeChild(imbSCI.Core.reporting.zone.ISupportsBasicCursor)">
+            <summary>
+            Postavlja child objekat na poziciju kursora
+            </summary>
+            <param name="child"></param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.setTempFrame(imbSCI.Core.reporting.zone.cursorSubzoneFrame,imbSCI.Core.reporting.zone.textCursorZoneCorner)">
+            <summary>
+            Sets the temporary frame by using subzone preset
+            </summary>
+            <param name="sub">The sub.</param>
+            <param name="startPosition">The start position.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.setTempFrame(System.Int32,System.Int32,imbSCI.Core.reporting.zone.textCursorZoneCorner,System.Int32,System.Int32)">
+            <summary>
+            Sets the temporary zone by adjusting
+            </summary>
+            <param name="rel_width">From current position to <c>rel_width</c>.</param>
+            <param name="rel_height">Height of the relative<c>rel_height</c></param>
+            <param name="startPosition">The start position.</param>
+            <param name="leftRightPadding">The left right padding.</param>
+            <param name="topBottomPadding">The top bottom padding.</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.setToParentFrame(imbSCI.Core.reporting.zone.textCursorZoneCorner)">
+            <summary>
+            Cancels temporal frame if tempFrame was used
+            </summary>
+            <param name="startPosition">The start position.</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.backToMainFrame(imbSCI.Core.reporting.zone.textCursorZoneCorner,System.Boolean)">
+            <summary>
+            Cancels temporal frame if tempFrame was used
+            </summary>
+            <param name="startPosition">The start position.</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.selectZoneAreaIn(imbSCI.Core.reporting.zone.textCursorZoneCorner,System.Int32)">
+            <summary>
+            Selects the zone area in.
+            </summary>
+            <param name="direction">The direction.</param>
+            <param name="steps">The steps.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.selectZoneArea">
+            <summary>
+            Selects the current zone RangeArea accorting to marigin, pading and ZoneMode 
+            </summary>
+            <returns>Area struct with coordinates and dimensions</returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.selectZone">
+            <summary>
+            Vraca dimenzije trenutne zone
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.selectAreaToCorner(imbSCI.Core.reporting.zone.textCursorZoneCorner)">
+            <summary>
+            Vraca rastojanje izmedju trenutne pozicije kursora i datog kraja/coska
+            </summary>
+            <param name="__corner">The corner.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.selectToCorner(imbSCI.Core.reporting.zone.textCursorZoneCorner)">
+            <summary>
+            Vraca rastojanje izmedju trenutne pozicije kursora i datog kraja/coska
+            </summary>
+            <param name="__corner">The corner.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.moveToCorner(imbSCI.Core.reporting.zone.textCursorZoneCorner)">
+            <summary>
+            Pomera kursor u dati ugao
+            </summary>
+            <param name="__corner">The corner.</param>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursor.default_direction">
+            <summary>
+            Default movement direction to be applied when .none is sent
+            </summary>
+            <value>
+            The default direction.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.setDefaultDirection(imbSCI.Core.reporting.zone.textCursorZoneCorner)">
+            <summary>
+            Sets the default direction.
+            </summary>
+            <param name="newDefault">The new default.</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.moveInDirection(imbSCI.Core.reporting.zone.textCursorZoneCorner,System.Int32)">
+            <summary>
+            Pomera kursor u dati ugao
+            </summary>
+            <param name="__corner">The corner.</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.setMarginHere(imbSCI.Core.reporting.zone.textCursorZoneCorner)">
+            <summary>
+            Sets margin at current position using direction parameter
+            </summary>
+            <param name="direction">What border of margin to set at this position</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.checkPositions">
+            <summary>
+            proverava poziciju i primenjuje ogranicenje
+            </summary>
+            <returns>TRUE if correction was made</returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.moveFor(System.Int32,System.Int32)">
+            <summary>
+            Moves for specified X and Y. It calls checkPositions() afterwards.
+            </summary>
+            <param name="xMovement">The x movement. Above 0 means in Right direction, below 0 means in Left direction</param>
+            <param name="yMovement">The y movement. Above 0 means Downward, below 0 means Upward</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.moveLineTo(System.Int32)">
+            <summary>
+            Pomera kursor na lokalnu liniju
+            </summary>
+            <param name="zoneLineNumber">The zone line number.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.enter">
+            <summary>
+            Moves downwards and places X on left border
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.nextLine(System.Int32)">
+            <summary>
+            Moves downwards by step without affecting Y position
+            </summary>
+            <param name="step"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.prevLine(System.Int32)">
+            <summary>
+            Previouses the line.
+            </summary>
+            <param name="step">The step.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.next(System.Int32)">
+            <summary>
+            Nexts the specified step.
+            </summary>
+            <param name="step">The step.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.prev(System.Int32)">
+            <summary>
+            Move X by step on left *negative*
+            </summary>
+            <param name="step">Step of movement</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursor.x">
+            <summary>
+            X pozicija kursora
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursor.y">
+            <summary>
+            pozicija po liniji
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursor.OnPropertyChanged(System.String)">
+            <summary>
+            Called when [property changed].
+            </summary>
+            <param name="propertyName">Name of the property.</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursorDimConversions.toExcelWidth(System.Int32)">
+            <summary>
+            Converts width in mm into EEPlus Excel column witdh parameter
+            </summary>
+            <param name="mmWidth">desired width in mm</param>
+            <returns></returns>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursorSubzoneFrame.fullFrame">
+            <summary>
+            The full frame - takes full size of source frame
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursorSubzoneFrame.h1">
+            <summary>
+            The first half of width
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursorSubzoneFrame.h2">
+            <summary>
+            The second half of width
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursorSubzoneFrame.q1">
+            <summary>
+            The first quorter of width
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursorSubzoneFrame.q2">
+            <summary>
+            The 2nd quirter of width
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursorSubzoneFrame.q3">
+            <summary>
+            The q3 quorter of width
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursorSubzoneFrame.q4">
+            <summary>
+            The q4 quorter of width
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.reporting.zone.cursorVariator">
+            <summary>
+            Helper class used for easier table styling
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorVariator.minor">
+            <summary>
+            Bindable property
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorVariator.major">
+            <summary>
+            Bindable property
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorVariator.headZone">
+            <summary>
+            Bindable property
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorVariator.headZoneExtension">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorVariator.footZoneExtension">
+            <summary>
+            Bindable property
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorVariator.footZone">
+            <summary>
+            Bindable property
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorVariator.leftZone">
+            <summary>
+            Bindable property
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorVariator.rightZone">
+            <summary>
+            Bindable property
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorVariator.area">
+            <summary>
+            Bindable property
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursorVariator.#ctor(imbSCI.Core.reporting.zone.selectRangeArea,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Defines variator zone with odd/even, normal/major/minor vertical, head/headExtension/foot/footExtension, normal/left/right horizontal detection.
+            </summary>
+            <param name="__area">The area.</param>
+            <param name="minorLine">Minor line is every Nth. 0 will disable this alternation</param>
+            <param name="majorLine">Major line is every Nth. 0 will disable this alternation</param>
+            <param name="__headZone">The head zone - the top N rows</param>
+            <param name="__footZone">The foot zone - the last N rows</param>
+            <param name="__headZoneExtension">The head zone extension are N rows after headZone</param>
+            <param name="__footZoneExtension">The foot zone extension are N rows before footZone</param>
+            <param name="__leftZone">The left zone is N columns from left</param>
+            <param name="__rightZone">The right zone is N columns from right</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursorVariator.setFromFlags(imbSCI.Data.enums.cursorVariatorOddEvenFlags)">
+            <summary>
+            Sets from flags.
+            </summary>
+            <param name="flags">The flags.</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursorVariator.setFromFlags(imbSCI.Core.enums.cursorVariatorHeadFootFlags)">
+            <summary>
+            Sets Head and foot flags
+            </summary>
+            <param name="flags">The flags.</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursorVariator.setColorUse(imbSCI.Core.reporting.zone.cursorVariatorState)">
+            <summary>
+            Sets the color use.
+            </summary>
+            <param name="output">The output.</param>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorVariator.lastState">
+            <summary>
+            Result of last <see cref="M:imbSCI.Core.reporting.zone.cursorVariator.state(System.Int32,System.Int32)"/> call
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursorVariator.state(System.Int32,System.Int32)">
+            <summary>
+            Returns state of speficied position according to <c>area</c>, <c>headZone</c>, <c>footZone</c> and other parameters.
+            </summary>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.reporting.zone.cursorVariatorState">
+            <summary>
+            State of coordinates after tested by cursorVariator
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursorVariatorState.isHeadZoneExtended">
+            <summary>
+            Is coordinate inside head zone extended - the zone between headZone and normal rows
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursorVariatorState.useLayoutPalette">
+            <summary>
+            If TRUE it will use color for layout
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursorVariatorState.useColorIndex">
+            <summary>
+            Applied to select color brightness from pallete
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursorVariatorState.useInvertedForeground">
+            <summary>
+            The use inverted - inverts in
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.reporting.zone.cursorZone">
+            <summary>
+            Zone within cursor is allowed to move. Has 3 ranges: inner, boxed and outter
+            </summary>
+            \ingroup_disabled report_ll_zone
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursorZone.getCodeName">
+            <summary>
+            Gets code name of the object. CodeName should be unique per each unique set of values of properties. In other words: if two instances of the same class have different CodeName that means values of their key properties are not same.
+            </summary>
+            <returns>
+            Unique string to identify unique values
+            </returns>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorZone.subzones">
+            <summary>
+            Zones within this zone. Master zone is automatically set by constructor
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorZone.parent">
+            <summary>
+            Reference to the parent zone. if null this is a master zone
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursorZone.selectRangeArea(imbSCI.Core.reporting.zone.textCursorZone)">
+            <summary>
+            Selects the range area of space allocated within this zone, respecting what sub area type is specified
+            </summary>
+            <param name="subAreaType">Type of the sub area.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorZone.spatialUnit">
+            <summary>
+            Describes how big is one 'character' / position space of cursor - 2D
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursorZone.#ctor">
+            <summary>
+            Zone without any space within. Dimensions must be set later
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursorZone.#ctor(imbSCI.Core.reporting.zone.cursorZone,imbSCI.Core.reporting.zone.cursorSubzoneFrame)">
+            <summary>
+            Subzone frame by preset <see cref="T:imbSCI.Core.reporting.zone.cursorZone"/>
+            </summary>
+            <param name="sourceZone">The source zone.</param>
+            <param name="sz">Subzone preset</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursorZone.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Konstruktor za dvodimenziono podesavanje
+            </summary>
+            <param name="__width"></param>
+            <param name="__height"></param>
+            <param name="__leftRightMargin"></param>
+            <param name="__topBottomMargin"></param>
+            <param name="__leftRightPadding"></param>
+            <param name="__topBottomPadding"></param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursorZone.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            konstruktor za jednolinijsko podesavanje
+            </summary>
+            <param name="__width"></param>
+            <param name="__leftRightMargin"></param>
+            <param name="__leftRightPadding"></param>
+        </member>
+        <member name="T:imbSCI.Core.reporting.zone.cursorZoneBuilder">
+            <summary>
+            Helps with constructing subzones inside target zone
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursorZoneBuilder.#ctor(imbSCI.Core.reporting.zone.cursorZone)">
+            <summary>
+            Builder to create subzones in speficied target. Target is <see cref="T:imbSCI.Core.reporting.zone.cursorZoneBuilder"/> class
+            </summary>
+            <param name="__target">The target.</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursorZoneBuilder.buildColumns(System.Int32,System.Int32[])">
+            <summary>
+            Builds the columns in targeted zone - respecting provided relative withs
+            </summary>
+            <param name="numberOfColumns">Number of columns to build inside the zone. Use small numbers.</param>
+            <param name="relWidth">Relative width ratio for each column. If less is provided than <c>numberOfColumns</c> the rest of columns will have relWidth=1</param>
+            <remarks>
+            <para>Widths are relative to each other. If you want first column to be double in width than each of the other two use:  2,1,1</para>
+            </remarks>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorZoneBuilder.c">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorZoneBuilder.target">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.reporting.zone.cursorZoneCollection">
+            <summary>
+            Collection of zones
+            </summary>
+            <seealso cref="T:System.Collections.IEnumerable" />
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursorZoneCollection.Add(imbSCI.Core.reporting.zone.cursorZoneRole,imbSCI.Core.reporting.zone.cursorZone)">
+            <summary>
+            Adds a zone into collection. Null <c>zone</c> will be ignored.
+            </summary>
+            <remarks>
+            <para>If role is supports multiple items (column, section) on existing zone for the role it will create indexed key.</para>
+            <para>If its a singular (footer, header, master) role it will replace any existing.</para>
+            <para>If <c>master</c> zone is set, all zones will have the <c>master</c> zone set as parent.</para>
+            <para>You may set the <c>master</c> zone with constructor or any time later with Add() call - it will automatically set parent for existing zones</para>
+            </remarks>
+            <param name="role">The role for the zone</param>
+            <param name="zone">The zone to add into collection</param>
+            <returns>Key that was finally used for the zone. Possibly important in case of roles supporting multiple entries</returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursorZoneCollection.getBoundaryOf(imbSCI.Core.reporting.zone.cursorZoneRole,imbSCI.Core.reporting.zone.textCursorZone)">
+            <summary>
+            Gets the boundary rectangle to hold all subzones with the specified role. 
+            </summary>
+            <param name="role">The role of subzone or subzones to select</param>
+            <param name="scope">The scope to look into for each subzone</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursorZoneCollection.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorZoneCollection.Item(imbSCI.Core.reporting.zone.cursorZoneRole,System.Int32)">
+            <summary>
+            Gets the <see cref="T:imbSCI.Core.reporting.zone.cursorZone"/> with the specified role. If the role supports multiple entries then specify index to choose what zone to get.
+            </summary>
+            <value>
+            The <see cref="T:imbSCI.Core.reporting.zone.cursorZone"/>.
+            </value>
+            <param name="role">The role.</param>
+            <param name="index">The index.</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.reporting.zone.cursorZoneExecutionSettings">
+            <summary>
+            Settings about behaviour of cursor inside a zone
+            </summary>
+            <seealso cref="!:aceCommonTypes.primitives.imbBindable" />
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorZoneExecutionSettings.pageScopeInZone">
+            <summary>
+            zone to be applied upod entering or creating new document
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorZoneExecutionSettings.cursorMode">
+            <summary>
+            Way that cursor should hangle vertical spacing
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorZoneExecutionSettings.pageScopeInMove">
+            <summary>
+            Cursor move once new or existing page is scoped
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorZoneExecutionSettings.scopeInMove">
+            <summary>
+            What movement of cursor it should do <c>just before</c> scoping inside child MetaContent
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorZoneExecutionSettings.scopeOutMove">
+            <summary>
+             What movement of cursor it should do <c>just before</c> scoping <c>outside</c> child MetaContent
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursorZoneExtensions.getPresetSpatialSettings(imbSCI.Core.reporting.zone.cursorZoneSpatialPreset)">
+            <summary>
+            Gets the preset spatial settings based on preset
+            </summary>
+            <param name="preset">The preset.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursorZoneExtensions.setPresetSpatialSettings(imbSCI.Core.reporting.zone.cursorZoneSpatialSettings,imbSCI.Core.reporting.zone.cursorZoneSpatialPreset)">
+            <summary>
+            Deplozs spatial settings from named preset
+            </summary>
+            <param name="output">The output.</param>
+            <param name="preset">The preset.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.cursorZoneExtensions.setZoneStructure(imbSCI.Core.reporting.zone.cursorZone,imbSCI.Core.reporting.zone.cursorZoneLayoutPreset,System.Boolean)">
+            <summary>
+            Builds the zone.
+            </summary>
+            <param name="layoutPreset">The layout preset.</param>
+            <param name="spatialPreset">The spatial preset.</param>
+            <param name="target">The target.</param>
+            <returns>Resulting zone</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">If Layout presed never implemented</exception>
+        </member>
+        <member name="T:imbSCI.Core.reporting.zone.cursorZoneRole">
+            <summary>
+            Role that a zone may have inside another zone
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursorZoneRole.master">
+            <summary>
+            The parent zone for all zones
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursorZoneRole.header">
+            <summary>
+            The header - top most section with given height
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursorZoneRole.footer">
+            <summary>
+            The footer - bottom most section with given height
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursorZoneRole.section">
+            <summary>
+            The section - horizontal division of a zone where height is defined as part of parent zone
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursorZoneRole.column">
+            <summary>
+            The column - vertical division of a zone where width is defined as part of parent zone
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursorZoneSpatialPreset.sheetNormal">
+            <summary>
+            The sheet normal: t=1, wc=12, hc=120, sp=160px
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursorZoneSpatialPreset.sheetSquareCell">
+            <summary>
+            20x20px cell dimension
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursorZoneSpatialPreset.textPage">
+            <summary>
+            The text page - t=8, wc=100, hc=60, sp=10
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursorZoneSpatialPreset.console">
+            <summary>
+            The console - wc85 x hc43, t=4
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursorZoneSpatialPreset.wideConsole">
+            <summary>
+            The wide console - wc=160, hc=78
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.cursorZoneSpatialPreset.a4OnFont10pt">
+            <summary>
+            The a4 on font size 10pt
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.reporting.zone.cursorZoneSpatialSettings">
+            <summary>
+            Zone setup for spacing and sizing
+            </summary>
+            <seealso cref="T:imbSCI.Core.reporting.zone.textFormatSetupBase" />
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorZoneSpatialSettings.spatialUnit">
+            <summary>
+            Gets or sets the spatial unit (width): width of one Cell Unit
+            </summary>
+            <value>
+            The spatial unit.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorZoneSpatialSettings.spatialUnitRatioYPerX">
+            <summary>
+            Gets or sets the spatial unit ratio y per x.
+            </summary>
+            <value>
+            The spatial unit ratio y per x.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorZoneSpatialSettings.spatialUnitMarginRatio">
+            <summary>
+            ratio to calculate margin spacing unit from standard spatial unit
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorZoneSpatialSettings.spatialUnitPaddingRatio">
+            <summary>
+            ratio to calculate padding spacing unit from standard spatial unit
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorZoneSpatialSettings.spatialUnitHeight">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorZoneSpatialSettings.spatialUnitMargin">
+            <summary>
+            recalculated margin spatial unit, based on ratio
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorZoneSpatialSettings.spatialUnitPadding">
+            <summary>
+            recalculated padding unit
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.cursorZoneSpatialSettings.tabPerCellUnit">
+            <summary>
+            Number of cell units per one tab
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.ISupportsBasicCursor.innerWidth">
+            <summary>
+            Width - padding - margin: sirina u koju se upisuje sadrzaj
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.ISupportsBasicCursor.innerLeftPosition">
+            <summary>
+            Pozicija od koje pocinje upisivanje sadrzaja
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.ISupportsBasicCursor.innerRightPosition">
+            <summary>
+            Pozicija do koje se upisuje sadrzaj (width - padding.right, margin.right)
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.ISupportsBasicCursor.innerBoxedWidth">
+            <summary>
+            Sirina na kojoj se ispisuje pozadina (width-margin)
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.ISupportsBasicCursor.innerHeight">
+            <summary>
+            Visina na kojoj se ispisuje sadrzaj> height - padding - margin
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.ISupportsBasicCursor.innerBoxedHeight">
+            <summary>
+            Visina na kojoj se ispisuje pozadina> height - margin
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.ISupportsBasicCursor.width">
+            <summary>
+            maksimalna spoljna sirina formata (innerWidth+padding+margin = Windows.width) 
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.ISupportsBasicCursor.height">
+            <summary>
+            maksimalna spoljna visina formata (innerHeight+padding+margin=Windows.Height)
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.ISupportsBasicCursor.outerBottomPosition">
+            <summary>
+            Pozicija na kojoj se zavrsava sav sadrzaj ovog bloka: Y+margin+padding+innerHeight
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.ISupportsBasicCursor.outerRightPosition">
+            <summary>
+            Pozicija sa sve marginom> x+margin.left+padding.left+innerWidth+padding.right+margin.right
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.reporting.zone.selectRange">
+            <summary>
+            2D selection information
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRange.getCodeName">
+            <summary>
+            Gets code name of the object. CodeName should be unique per each unique set of values of properties. In other words: if two instances of the same class have different CodeName that means values of their key properties are not same.
+            </summary>
+            <returns>
+            Unique string to identify unique values
+            </returns>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.selectRange.x">
+            <summary>
+            x position
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.selectRange.y">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRange.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.reporting.zone.selectRange"/> class.
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRange.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.reporting.zone.selectRange"/> class.
+            </summary>
+            <param name="__x">The x.</param>
+            <param name="__y">The y.</param>
+        </member>
+        <member name="T:imbSCI.Core.reporting.zone.selectRangeArea">
+            <summary>
+            Selection area> with its starting poing, ending point and size. It automatically calculates> x, y, width and height fields
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.selectRangeArea._topLeft">
+            <summary>
+            The top left - starting point
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.selectRangeArea._bottomRight">
+            <summary>
+            Down right - end point
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.selectRangeArea.yCenter">
+            <summary>
+            Gets the y (vertical) center of area.
+            </summary>
+            <value>
+            The y center.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.resize(System.Int32,System.Int32)">
+            <summary>
+            Resizes the area to specified width and height. Negative values will be ignored. Use -1 to keep a dimension unchanged.
+            </summary>
+            <param name="__width">The width. Negative value will be ignored. Use -1 to keep it unchanged.</param>
+            <param name="__height">The height. Negative value will be ignored. Use -1 to keep it unchanged.</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.reset(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Sets new position and optionally new size
+            </summary>
+            <param name="__x">The x.</param>
+            <param name="__y">The y.</param>
+            <param name="__width">The width - leave -1 to keep it unchanged</param>
+            <param name="__height">The height - leave -1 to keep it unchanged</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.setToChanged">
+            <summary>
+            Sets to changed state
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.isInside(System.Int32,System.Int32)">
+            <summary>
+            Determines whether the specified x,y coordinates are showing to position within this area.
+            </summary>
+            <param name="tX">The t x.</param>
+            <param name="tY">The t y.</param>
+            <returns>
+              <c>true</c> if x,y is inside, and not on the edge
+            </returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.isInsideOrEdge(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Determines whether x,y coordinates are inside or within edge of this area.
+            </summary>
+            <param name="tX">The t x.</param>
+            <param name="tY">The t y.</param>
+            <param name="edge">The edge thickness. It is applied in both direction: inside and outside from border zone</param>
+            <returns>
+              <c>true</c> when x,y are inside area + area extended by the edge. If edge is 1 than exact size of area is tested.
+            </returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.isNearAnyCornerOrEdge(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Determines if x,y is near to an edge, corner or center of this area - respecting specified limit distance.
+            </summary>
+            <param name="tX">X (horizontal position) to test</param>
+            <param name="tY">Y (vertical position) to test </param>
+            <param name="nearLimit">Absolute distance considered to be near.</param>
+            <returns>Edge, corner or center that is near to x,y. <see cref="F:imbSCI.Core.reporting.zone.textCursorZoneCorner.none"/> is returned if nothing is near within <c>nearLimit</c> range </returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.getDistanceFromCorner(System.Int32,System.Int32,imbSCI.Core.reporting.zone.textCursorZoneCorner)">
+            <summary>
+            Absolute distance from corner or edge
+            </summary>
+            <param name="tX"></param>
+            <param name="tY"></param>
+            <param name="edgeOrCorner"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.isNearToCorner(System.Int32,System.Int32,imbSCI.Core.reporting.zone.textCursorZoneCorner,System.Int32)">
+            <summary>
+            Determines whether x,y coordinates are near to the specified corner or edge of the area
+            </summary>
+            <param name="tX">X (horizontal position) to test</param>
+            <param name="tY">Y (vertical position) to test </param>
+            <param name="edgeOrCorner">The edge or corner to test against</param>
+            <param name="nearLimit">Absolute distance considered to be near</param>
+            <returns>
+              <c>true</c> if [is near to corner] [the specified t x]; otherwise, <c>false</c>.
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:imbSCI.Core.reporting.zone.selectRangeArea.isOnEdge(System.Int32,System.Int32)" -->
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.expandToWrap(imbSCI.Core.reporting.zone.selectRangeArea)">
+            <summary>
+            Expands this rangeArea to have specified rangeArea inside its boundaries
+            </summary>
+            <param name="areaToWrap">The area to wrap.</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.expand(imbSCI.Core.reporting.zone.textCursorZoneCorner,System.Int32)">
+            <summary>
+            Expands in the specified direction for given number of steps
+            </summary>
+            <param name="direction">The direction.</param>
+            <param name="step">The step.</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.expand(imbSCI.Core.reporting.zone.textCursorZoneCorner,System.Boolean)">
+            <summary>
+            Expands the specified direction.
+            </summary>
+            <param name="direction">The direction of expansion</param>
+            <param name="stepCriteria">If <c>true</c> it will expand one step</param>
+            <returns>Size of expansion</returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.expand(imbSCI.Core.reporting.zone.textCursorZoneCorner,System.Int32,System.Boolean[])">
+            <summary>
+            Expands in the specified direction for number of boolean arguments being true
+            </summary>
+            <param name="direction">The direction.</param>
+            <param name="stepCriterias">The step criterias.</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.getCrossection(imbSCI.Core.reporting.zone.selectRangeArea)">
+            <summary>
+            Gets the crossection / overlap area / with <c>operant</c>
+            </summary>
+            <param name="operand">The operand to get overlap with</param>
+            <returns>Area of overlap between this and <c>operand</c> area</returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.#ctor(imbSCI.Core.reporting.zone.selectRange,imbSCI.Core.reporting.zone.selectRange)">
+            <summary>
+            Two-point constructor: Initializes a new instance of the <see cref="T:imbSCI.Core.reporting.zone.selectRangeArea"/> struct.
+            </summary>
+            <param name="topLeft">The top left.</param>
+            <param name="bottomRight">The bottom right.</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.#ctor(imbSCI.Core.reporting.zone.selectRange,System.Int32,System.Int32)">
+            <summary>
+            Starting point, width and height. Initializes a new instance of the <see cref="T:imbSCI.Core.reporting.zone.selectRangeArea"/> struct.
+            </summary>
+            <param name="start">The start.</param>
+            <param name="width">The width.</param>
+            <param name="height">The height.</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.reporting.zone.selectRangeArea"/> class.
+            </summary>
+            <param name="x_end">Width</param>
+            <param name="y_end">Height</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Absolute coordinate constructor: TopLeft + BottomRight. Initializes a new instance of the <see cref="T:imbSCI.Core.reporting.zone.selectRangeArea"/> struct.
+            </summary>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+            <param name="x_end">The x end.</param>
+            <param name="y_end">The y end.</param>
+        </member>
+        <member name="T:imbSCI.Core.reporting.zone.selectRangeAreaDictionary">
+            <summary>
+            Memory of saved ranges
+            </summary>
+            <seealso cref="T:imbSCI.Data.interfaces.IObjectWithChildSelector" />
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.getLastClosed(System.Int32)">
+            <summary>
+            Gets a entry <c>n</c>additions <c>ago</c> from back/end, counting only ones that are <c>isClosed</c>=true. 
+            </summary>
+            <param name="ago">The ago. If 1 it will return the last closed entry. 0 or less will throw exception</param>
+            <returns>Last selectRangeAreaNamed that is closed</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">ago - Must be between 0 and infinity. If it is above Count() - the first is returned</exception>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.getLastUnclosed(System.Int32)">
+            <summary>
+            Gets the last or <c>N-th</c> that must be unclosed.
+            </summary>
+            <param name="ago">The ago.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.getLastAny(System.Int32)">
+            <summary>
+            Gets the last  or <c>N-th</c> - without isClosed criteria.
+            </summary>
+            <param name="ago">The ago.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.getLast(System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            Gets the last.
+            </summary>
+            <param name="mustBeUnclosed">if set to <c>true</c> [must be unclosed].</param>
+            <param name="allowUnclosed">if set to <c>true</c> [allow unclosed].</param>
+            <param name="ago">The ago.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">ago - Must be between 0 and infinity. If it is above Count() - the first is returned</exception>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.Add(imbSCI.Core.reporting.zone.selectRangeAreaNamed)">
+            <summary>
+            Adds the specified item.
+            </summary>
+            <param name="item">The item.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.Add(System.String,imbSCI.Core.reporting.zone.selectRangeArea,System.Boolean)">
+            <summary>
+            Adds the specified path.
+            </summary>
+            <param name="__path">The path.</param>
+            <param name="item">The item.</param>
+            <param name="doClose">if set to <c>true</c> [do close].</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.Add(System.String,System.Int32,System.Int32)">
+            <summary>
+            Adds the specified path.
+            </summary>
+            <param name="__path">The path.</param>
+            <param name="x_st">The x st.</param>
+            <param name="y_st">The y st.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.reporting.zone.selectRangeAreaDictionary"/> class.
+            </summary>
+            <param name="__name">Name of this dictionary</param>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.Item(System.String)">
+            <summary>
+            Gets the <see cref="T:System.Object"/> with the specified path.
+            </summary>
+            <value>
+            The <see cref="T:System.Object"/>.
+            </value>
+            <param name="path">The path.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.Item(System.Int32)">
+            <summary>
+            Gets the <see cref="T:System.Object"/> with the specified key.
+            </summary>
+            <value>
+            The <see cref="T:System.Object"/>.
+            </value>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.name">
+            <summary>
+            Dictionary name
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.items">
+            <summary>
+            Members
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.Count">
+            <summary>
+            Number of child items
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.GetEnumerator">
+            <summary>
+            Gets the enumerator.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.indexOf(imbSCI.Data.interfaces.IObjectWithChildSelector)">
+            <summary>
+            Index of supplied child - in his collection
+            </summary>
+            <param name="child"></param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.reporting.zone.selectRangeAreaNamed">
+            <summary>
+            Named entry of selectRangeArea, saved for lager use
+            </summary>
+            <seealso cref="T:imbSCI.Core.reporting.zone.selectRangeArea" />
+            <seealso cref="T:imbSCI.Data.interfaces.IObjectWithPath" />
+            <seealso cref="T:imbSCI.Data.interfaces.IObjectWithName" />
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.selectRangeAreaNamed.name">
+            <summary>
+            name, last part of path
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.selectRangeAreaNamed.path">
+            <summary>
+            its full path, including name
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaNamed.#ctor(System.String,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.reporting.zone.selectRangeAreaNamed"/> class.
+            </summary>
+            <param name="__path">The path.</param>
+            <param name="x_st">The x st.</param>
+            <param name="y_st">The y st.</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaNamed.setStart(System.Int32,System.Int32)">
+            <summary>
+            Sets the start of Area
+            </summary>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaNamed.setEnd(System.Int32,System.Int32)">
+            <summary>
+            Sets the end of Area and marks it as closed
+            </summary>
+            <param name="x_end">The x end.</param>
+            <param name="y_end">The y end.</param>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.selectRangeAreaNamed.isClosed">
+            <summary>
+            TRUE if this area is closed, ready to be applied
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.selectZone.x">
+            <summary>
+            Horizontalna pozicija
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.selectZone.y">
+            <summary>
+            Vertikalna pozicija
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.selectZone.weight">
+            <summary>
+            Sirina
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.selectZone.height">
+            <summary>
+            Visina
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.reporting.zone.textCursorMode">
+            <summary>
+            Primena ogranicenja kursora
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.reporting.zone.textCursorZone">
+            <summary>
+            Zona kretanja kursora
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.textCursorZone.innerZone">
+            <summary>
+            Zona ogranicena padding + margin
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.textCursorZone.innerBoxedZone">
+            <summary>
+            Zona ogranicena marginom
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.textCursorZone.outterZone">
+            <summary>
+            Zona celog prikaza
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.textCursorZone.unknownZone">
+            <summary>
+            zona nije zadata - ovo ne bi smelo da ostane drugo kao vrednost
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.textCursorZoneCorner.default_corner">
+            <summary>
+            The default corner
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.textCursorZoneCorner.UpLeft">
+            <summary>
+            Up left
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.textCursorZoneCorner.UpRight">
+            <summary>
+            Up right
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.textCursorZoneCorner.DownLeft">
+            <summary>
+            Down left
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.textCursorZoneCorner.DownRight">
+            <summary>
+            Down right
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.textCursorZoneCorner.Left">
+            <summary>
+            The left
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.textCursorZoneCorner.Right">
+            <summary>
+            The right
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.textCursorZoneCorner.Top">
+            <summary>
+            The top
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.textCursorZoneCorner.Bottom">
+            <summary>
+            The bottom
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.textCursorZoneCorner.center">
+            <summary>
+            The center - center of the zone, div, cell...
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.reporting.zone.textFormatSetupBase">
+            <summary>
+            Block formatting base
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.textFormatSetupBase.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Konstruktor za dvodimenziono podesavanje
+            </summary>
+            <param name="__width"></param>
+            <param name="__height"></param>
+            <param name="__leftRightMargin"></param>
+            <param name="__topBottomMargin"></param>
+            <param name="__leftRightPadding"></param>
+            <param name="__topBottomPadding"></param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.textFormatSetupBase.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            konstruktor za jednolinijsko podesavanje
+            </summary>
+            <param name="__width"></param>
+            <param name="__leftRightMargin"></param>
+            <param name="__leftRightPadding"></param>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.textFormatSetupBase.autoHeight(System.Boolean,System.Int32)">
+            <summary>
+            postavlja automatsku visinu 
+            </summary>
+            <param name="ifLess"></param>
+            <param name="contentHeight"></param>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.innerWidth">
+            <summary>
+            Width - padding - margin: sirina u koju se upisuje sadrzaj
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.innerLeftPosition">
+            <summary>
+            Pozicija od koje pocinje upisivanje sadrzaja
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.innerRightPosition">
+            <summary>
+            Pozicija do koje se upisuje sadrzaj (width - padding.right, margin.right)
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.innerBoxedLeftPosition">
+            <summary>
+            Pozicija za leve strane - marget.left
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.innerBoxedRightPosition">
+            <summary>
+            Pozicija na desnoj strani - witdh - margin.right
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.innerBoxedWidth">
+            <summary>
+            Sirina na kojoj se ispisuje pozadina (width-margin)
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.innerHeight">
+            <summary>
+            Visina na kojoj se ispisuje sadrzaj> height - padding - margin
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.innerBoxedHeight">
+            <summary>
+            Visina na kojoj se ispisuje pozadina> height - margin
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.innerTopPosition">
+            <summary>
+            Prva vertikalna pozicija u kojoj moze da pise sadrzaj
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.innerBottomPosition">
+            <summary>
+            Krajnja vertikalna pozicija na kojoj moze da pise sadrzaj
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.innerBoxedTopPosition">
+            <summary>
+            Prva vertikalna pozicija - bez paddinga
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.innerBoxedBottomPosition">
+            <summary>
+            Krajnja vertikalna pozicija na kojoj moze da pise sadrzaj
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.margin">
+            <summary>
+            margina za liniju koja se ne boji pozadinskim sablonom
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.padding">
+            <summary>
+            padding za koji se sadrzaj odvaja od ivice pozadne
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.outerBottomPosition">
+            <summary>
+            Pozicija na kojoj se zavrsava sav sadrzaj ovog bloka: Y+margin+padding+innerHeight
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.outerRightPosition">
+            <summary>
+            Pozicija sa sve marginom> x+margin.left+padding.left+innerWidth+padding.right+margin.right
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.textFormatSetupBase.left(imbSCI.Core.reporting.zone.textCursorZone)">
+            <summary>
+            Left position for specified zone.
+            </summary>
+            <param name="currentZone">Zone to test against</param>
+            <returns>Requested position</returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.textFormatSetupBase.right(imbSCI.Core.reporting.zone.textCursorZone)">
+            <summary>
+            Right position for specified zone.
+            </summary>
+            <param name="currentZone">Zone to test against</param>
+            <returns>Requested position</returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.textFormatSetupBase.top(imbSCI.Core.reporting.zone.textCursorZone)">
+            <summary>
+            Top position for specified zone.
+            </summary>
+            <param name="currentZone">Zone to test against</param>
+            <returns>Requested position</returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.textFormatSetupBase.bottom(imbSCI.Core.reporting.zone.textCursorZone)">
+            <summary>
+            Bottom position for specified zone.
+            </summary>
+            <param name="currentZone">Zone to test against</param>
+            <returns>Requested position</returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.textFormatSetupBase.getHeight(imbSCI.Core.reporting.zone.textCursorZone)">
+            <summary>
+            Heights the specified current zone.
+            </summary>
+            <param name="currentZone">The current zone.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupSize.width">
+            <summary>
+            maksimalna spoljna sirina formata (innerWidth+padding+margin = Windows.width) 
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupSize.height">
+            <summary>
+            maksimalna spoljna visina formata (innerHeight+padding+margin=Windows.Height)
             </summary>
         </member>
         <member name="T:imbSCI.Core.reporting.appendBreakFlag">
@@ -13296,1484 +15177,6 @@
             string koji se ubacuje u template string
             </returns>
         </member>
-        <member name="T:imbSCI.Core.reporting.zone.cursor">
-            <summary>
-            Universal 2D cursor for text and data navigation
-            </summary>
-            \ingroup_disabled report_ll_zone
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursor.name">
-            <summary>
-            sole purpose of name is for easier diagnostics
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursor.frame">
-            <summary>
-            Active frame
-            </summary>
-            <value>
-            Active frame
-            </value>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursor.isTempFrameActive">
-            <summary>
-            Returns TRUE if currently the cursor uses temporary frame not the main
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursor.useTempFrame">
-            <summary>
-            The use temporary frame
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursor.mainFrame">
-            <summary>
-            The main frame
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursor.tempFrame">
-            <summary>
-            The temporary frame -- when set
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursor.mode">
-            <summary>
-            The mode
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursor.currentZone">
-            <summary>
-            Gets or sets the current zone.
-            </summary>
-            <value>
-            The current zone.
-            </value>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursor.valueReadZone">
-            <summary>
-            snimljena pozicija na ekranu odakle treba kasnije da se iscitava unos sa tastature
-            </summary>
-            <value>
-            The value read zone.
-            </value>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.autoValueReadZone">
-            <summary>
-            Automatski pravi value read zonu na mestu gde je stao kursor
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursor.doPivotTranslation">
-            <summary>
-            If TRUE cursor will rotate orientation so X is vertical and Y is horisontal
-            </summary>
-            <value>
-              <c>true</c> if [do pivot translation]; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursor.pencil">
-            <summary>
-            Defines zone affected by background brushing, value writing, merge call, value delete or other spatial operation
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursor.pencilAbsolute">
-            <summary>
-            Gets the pencil projected on current cursor position 
-            </summary>
-            <value>
-            Result is trimmed accprding to the current zone within the frame
-            </value>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.getPencil(imbSCI.Core.reporting.zone.pencilType,System.Int32)">
-            <summary>
-            Gets the pencil according to <see cref="T:imbSCI.Core.reporting.zone.pencilType"/> 
-            </summary>
-            <param name="ptype">The ptype.</param>
-            <returns>area covered by pencil</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.projectArea(imbSCI.Core.reporting.zone.selectRangeArea)">
-            <summary>
-            Projects an area onto current cursor position and returns its crosection with allowed zone frame  area if it colides with current frame zone
-            </summary>
-            <param name="area">The area.</param>
-            <returns>area or part of area within allowed zone frame</returns>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursor.doUseDefaultPencil">
-            <summary>
-            Default pencil is seen when get called on <c>pencilAbsolute</c>
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursor.doPencilWidthToZone">
-            <summary>
-            if TRUE it will keep pencil width locked to current zone
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.setPencil(System.Boolean,System.Boolean)">
-            <summary>
-            Sets pencil options
-            </summary>
-            <param name="useDefaultPencil">if set to <c>true</c> pencil will be ignored and default pencil will be returned on get pencilAbsolute.</param>
-            <param name="pencilWidthToZone">if set to <c>true</c> pencil width will automatically follow width of current zone</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.getSelectZone(System.Int32,System.Int32,imbSCI.Core.reporting.zone.selectZoneOption[])">
-            <summary>
-            Pravi selectZone na osnovu sadrzaja trenutne linije. Trazi [ i ] kao granicnike zone. Ako ih ima vise, upotrebice prvi par.
-            </summary>
-            <param name="zoneHeight">Height of the zone.</param>
-            <param name="zoneWidth">Width of the zone.</param>
-            <param name="option">The option.</param>
-            <returns>
-            selectZone objekat koji treba upotrebiti kao inputReadZone ili za nesto drugo
-            </returns>
-            <remarks>
-            Ako u trenutnoj liniji:
-            - ima vise [ ] parova: upotrebice prvi
-            - je sve prazno ili popunjeno razmacima: upotrebice celu liniju kao zonu
-            - ako je od x-a do desnog inner x-a prazno
-            </remarks>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.#ctor(imbSCI.Core.reporting.zone.cursorZone,imbSCI.Core.reporting.zone.textCursorMode,imbSCI.Core.reporting.zone.textCursorZone,System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:imbSCI.Core.reporting.zone.cursor"/> class.
-            </summary>
-            <param name="__target">The target.</param>
-            <param name="__mode">The mode.</param>
-            <param name="__zone">The zone.</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.switchToZone(imbSCI.Core.reporting.zone.textCursorZone,imbSCI.Core.reporting.zone.textCursorZoneCorner)">
-            <summary>
-            Prebacuje kursor u datu zonu
-            </summary>
-            <param name="__zone">The zone.</param>
-            <param name="__corner">The corner.</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.switchToMainZone">
-            <summary>
-            Vraca kursor na njegovu glavnu zonu
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursor.mainZone">
-            <summary>
-            zona koja je "home" za ovaj kursor - odnosno, zona za koju je ovaj kursor primarno namenjen i u koju se vraca nakon privremenih premestanja u druge zone metodom switchToZone()
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.placeChild(imbSCI.Core.reporting.zone.ISupportsBasicCursor)">
-            <summary>
-            Postavlja child objekat na poziciju kursora
-            </summary>
-            <param name="child"></param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.setTempFrame(imbSCI.Core.reporting.zone.cursorSubzoneFrame,imbSCI.Core.reporting.zone.textCursorZoneCorner)">
-            <summary>
-            Sets the temporary frame by using subzone preset
-            </summary>
-            <param name="sub">The sub.</param>
-            <param name="startPosition">The start position.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.setTempFrame(System.Int32,System.Int32,imbSCI.Core.reporting.zone.textCursorZoneCorner,System.Int32,System.Int32)">
-            <summary>
-            Sets the temporary zone by adjusting
-            </summary>
-            <param name="rel_width">From current position to <c>rel_width</c>.</param>
-            <param name="rel_height">Height of the relative<c>rel_height</c></param>
-            <param name="startPosition">The start position.</param>
-            <param name="leftRightPadding">The left right padding.</param>
-            <param name="topBottomPadding">The top bottom padding.</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.setToParentFrame(imbSCI.Core.reporting.zone.textCursorZoneCorner)">
-            <summary>
-            Cancels temporal frame if tempFrame was used
-            </summary>
-            <param name="startPosition">The start position.</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.backToMainFrame(imbSCI.Core.reporting.zone.textCursorZoneCorner,System.Boolean)">
-            <summary>
-            Cancels temporal frame if tempFrame was used
-            </summary>
-            <param name="startPosition">The start position.</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.selectZoneAreaIn(imbSCI.Core.reporting.zone.textCursorZoneCorner,System.Int32)">
-            <summary>
-            Selects the zone area in.
-            </summary>
-            <param name="direction">The direction.</param>
-            <param name="steps">The steps.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.selectZoneArea">
-            <summary>
-            Selects the current zone RangeArea accorting to marigin, pading and ZoneMode 
-            </summary>
-            <returns>Area struct with coordinates and dimensions</returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.selectZone">
-            <summary>
-            Vraca dimenzije trenutne zone
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.selectAreaToCorner(imbSCI.Core.reporting.zone.textCursorZoneCorner)">
-            <summary>
-            Vraca rastojanje izmedju trenutne pozicije kursora i datog kraja/coska
-            </summary>
-            <param name="__corner">The corner.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.selectToCorner(imbSCI.Core.reporting.zone.textCursorZoneCorner)">
-            <summary>
-            Vraca rastojanje izmedju trenutne pozicije kursora i datog kraja/coska
-            </summary>
-            <param name="__corner">The corner.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.moveToCorner(imbSCI.Core.reporting.zone.textCursorZoneCorner)">
-            <summary>
-            Pomera kursor u dati ugao
-            </summary>
-            <param name="__corner">The corner.</param>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursor.default_direction">
-            <summary>
-            Default movement direction to be applied when .none is sent
-            </summary>
-            <value>
-            The default direction.
-            </value>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.setDefaultDirection(imbSCI.Core.reporting.zone.textCursorZoneCorner)">
-            <summary>
-            Sets the default direction.
-            </summary>
-            <param name="newDefault">The new default.</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.moveInDirection(imbSCI.Core.reporting.zone.textCursorZoneCorner,System.Int32)">
-            <summary>
-            Pomera kursor u dati ugao
-            </summary>
-            <param name="__corner">The corner.</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.setMarginHere(imbSCI.Core.reporting.zone.textCursorZoneCorner)">
-            <summary>
-            Sets margin at current position using direction parameter
-            </summary>
-            <param name="direction">What border of margin to set at this position</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.checkPositions">
-            <summary>
-            proverava poziciju i primenjuje ogranicenje
-            </summary>
-            <returns>TRUE if correction was made</returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.moveFor(System.Int32,System.Int32)">
-            <summary>
-            Moves for specified X and Y. It calls checkPositions() afterwards.
-            </summary>
-            <param name="xMovement">The x movement. Above 0 means in Right direction, below 0 means in Left direction</param>
-            <param name="yMovement">The y movement. Above 0 means Downward, below 0 means Upward</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.moveLineTo(System.Int32)">
-            <summary>
-            Pomera kursor na lokalnu liniju
-            </summary>
-            <param name="zoneLineNumber">The zone line number.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.enter">
-            <summary>
-            Moves downwards and places X on left border
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.nextLine(System.Int32)">
-            <summary>
-            Moves downwards by step without affecting Y position
-            </summary>
-            <param name="step"></param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.prevLine(System.Int32)">
-            <summary>
-            Previouses the line.
-            </summary>
-            <param name="step">The step.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.next(System.Int32)">
-            <summary>
-            Nexts the specified step.
-            </summary>
-            <param name="step">The step.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.prev(System.Int32)">
-            <summary>
-            Move X by step on left *negative*
-            </summary>
-            <param name="step">Step of movement</param>
-            <returns></returns>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursor.x">
-            <summary>
-            X pozicija kursora
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursor.y">
-            <summary>
-            pozicija po liniji
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursor.OnPropertyChanged(System.String)">
-            <summary>
-            Called when [property changed].
-            </summary>
-            <param name="propertyName">Name of the property.</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursorDimConversions.toExcelWidth(System.Int32)">
-            <summary>
-            Converts width in mm into EEPlus Excel column witdh parameter
-            </summary>
-            <param name="mmWidth">desired width in mm</param>
-            <returns></returns>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursorSubzoneFrame.fullFrame">
-            <summary>
-            The full frame - takes full size of source frame
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursorSubzoneFrame.h1">
-            <summary>
-            The first half of width
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursorSubzoneFrame.h2">
-            <summary>
-            The second half of width
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursorSubzoneFrame.q1">
-            <summary>
-            The first quorter of width
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursorSubzoneFrame.q2">
-            <summary>
-            The 2nd quirter of width
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursorSubzoneFrame.q3">
-            <summary>
-            The q3 quorter of width
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursorSubzoneFrame.q4">
-            <summary>
-            The q4 quorter of width
-            </summary>
-        </member>
-        <member name="T:imbSCI.Core.reporting.zone.cursorVariator">
-            <summary>
-            Helper class used for easier table styling
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorVariator.minor">
-            <summary>
-            Bindable property
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorVariator.major">
-            <summary>
-            Bindable property
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorVariator.headZone">
-            <summary>
-            Bindable property
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorVariator.headZoneExtension">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorVariator.footZoneExtension">
-            <summary>
-            Bindable property
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorVariator.footZone">
-            <summary>
-            Bindable property
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorVariator.leftZone">
-            <summary>
-            Bindable property
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorVariator.rightZone">
-            <summary>
-            Bindable property
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorVariator.area">
-            <summary>
-            Bindable property
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursorVariator.#ctor(imbSCI.Core.reporting.zone.selectRangeArea,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
-            <summary>
-            Defines variator zone with odd/even, normal/major/minor vertical, head/headExtension/foot/footExtension, normal/left/right horizontal detection.
-            </summary>
-            <param name="__area">The area.</param>
-            <param name="minorLine">Minor line is every Nth. 0 will disable this alternation</param>
-            <param name="majorLine">Major line is every Nth. 0 will disable this alternation</param>
-            <param name="__headZone">The head zone - the top N rows</param>
-            <param name="__footZone">The foot zone - the last N rows</param>
-            <param name="__headZoneExtension">The head zone extension are N rows after headZone</param>
-            <param name="__footZoneExtension">The foot zone extension are N rows before footZone</param>
-            <param name="__leftZone">The left zone is N columns from left</param>
-            <param name="__rightZone">The right zone is N columns from right</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursorVariator.setFromFlags(imbSCI.Data.enums.cursorVariatorOddEvenFlags)">
-            <summary>
-            Sets from flags.
-            </summary>
-            <param name="flags">The flags.</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursorVariator.setFromFlags(imbSCI.Core.enums.cursorVariatorHeadFootFlags)">
-            <summary>
-            Sets Head and foot flags
-            </summary>
-            <param name="flags">The flags.</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursorVariator.setColorUse(imbSCI.Core.reporting.zone.cursorVariatorState)">
-            <summary>
-            Sets the color use.
-            </summary>
-            <param name="output">The output.</param>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorVariator.lastState">
-            <summary>
-            Result of last <see cref="M:imbSCI.Core.reporting.zone.cursorVariator.state(System.Int32,System.Int32)"/> call
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursorVariator.state(System.Int32,System.Int32)">
-            <summary>
-            Returns state of speficied position according to <c>area</c>, <c>headZone</c>, <c>footZone</c> and other parameters.
-            </summary>
-            <param name="x">The x.</param>
-            <param name="y">The y.</param>
-            <returns></returns>
-        </member>
-        <member name="T:imbSCI.Core.reporting.zone.cursorVariatorState">
-            <summary>
-            State of coordinates after tested by cursorVariator
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursorVariatorState.isHeadZoneExtended">
-            <summary>
-            Is coordinate inside head zone extended - the zone between headZone and normal rows
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursorVariatorState.useLayoutPalette">
-            <summary>
-            If TRUE it will use color for layout
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursorVariatorState.useColorIndex">
-            <summary>
-            Applied to select color brightness from pallete
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursorVariatorState.useInvertedForeground">
-            <summary>
-            The use inverted - inverts in
-            </summary>
-        </member>
-        <member name="T:imbSCI.Core.reporting.zone.cursorZone">
-            <summary>
-            Zone within cursor is allowed to move. Has 3 ranges: inner, boxed and outter
-            </summary>
-            \ingroup_disabled report_ll_zone
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursorZone.getCodeName">
-            <summary>
-            Gets code name of the object. CodeName should be unique per each unique set of values of properties. In other words: if two instances of the same class have different CodeName that means values of their key properties are not same.
-            </summary>
-            <returns>
-            Unique string to identify unique values
-            </returns>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorZone.subzones">
-            <summary>
-            Zones within this zone. Master zone is automatically set by constructor
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorZone.parent">
-            <summary>
-            Reference to the parent zone. if null this is a master zone
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursorZone.selectRangeArea(imbSCI.Core.reporting.zone.textCursorZone)">
-            <summary>
-            Selects the range area of space allocated within this zone, respecting what sub area type is specified
-            </summary>
-            <param name="subAreaType">Type of the sub area.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorZone.spatialUnit">
-            <summary>
-            Describes how big is one 'character' / position space of cursor - 2D
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursorZone.#ctor">
-            <summary>
-            Zone without any space within. Dimensions must be set later
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursorZone.#ctor(imbSCI.Core.reporting.zone.cursorZone,imbSCI.Core.reporting.zone.cursorSubzoneFrame)">
-            <summary>
-            Subzone frame by preset <see cref="T:imbSCI.Core.reporting.zone.cursorZone"/>
-            </summary>
-            <param name="sourceZone">The source zone.</param>
-            <param name="sz">Subzone preset</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursorZone.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
-            <summary>
-            Konstruktor za dvodimenziono podesavanje
-            </summary>
-            <param name="__width"></param>
-            <param name="__height"></param>
-            <param name="__leftRightMargin"></param>
-            <param name="__topBottomMargin"></param>
-            <param name="__leftRightPadding"></param>
-            <param name="__topBottomPadding"></param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursorZone.#ctor(System.Int32,System.Int32,System.Int32)">
-            <summary>
-            konstruktor za jednolinijsko podesavanje
-            </summary>
-            <param name="__width"></param>
-            <param name="__leftRightMargin"></param>
-            <param name="__leftRightPadding"></param>
-        </member>
-        <member name="T:imbSCI.Core.reporting.zone.cursorZoneBuilder">
-            <summary>
-            Helps with constructing subzones inside target zone
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursorZoneBuilder.#ctor(imbSCI.Core.reporting.zone.cursorZone)">
-            <summary>
-            Builder to create subzones in speficied target. Target is <see cref="T:imbSCI.Core.reporting.zone.cursorZoneBuilder"/> class
-            </summary>
-            <param name="__target">The target.</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursorZoneBuilder.buildColumns(System.Int32,System.Int32[])">
-            <summary>
-            Builds the columns in targeted zone - respecting provided relative withs
-            </summary>
-            <param name="numberOfColumns">Number of columns to build inside the zone. Use small numbers.</param>
-            <param name="relWidth">Relative width ratio for each column. If less is provided than <c>numberOfColumns</c> the rest of columns will have relWidth=1</param>
-            <remarks>
-            <para>Widths are relative to each other. If you want first column to be double in width than each of the other two use:  2,1,1</para>
-            </remarks>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorZoneBuilder.c">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorZoneBuilder.target">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:imbSCI.Core.reporting.zone.cursorZoneCollection">
-            <summary>
-            Collection of zones
-            </summary>
-            <seealso cref="T:System.Collections.IEnumerable" />
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursorZoneCollection.Add(imbSCI.Core.reporting.zone.cursorZoneRole,imbSCI.Core.reporting.zone.cursorZone)">
-            <summary>
-            Adds a zone into collection. Null <c>zone</c> will be ignored.
-            </summary>
-            <remarks>
-            <para>If role is supports multiple items (column, section) on existing zone for the role it will create indexed key.</para>
-            <para>If its a singular (footer, header, master) role it will replace any existing.</para>
-            <para>If <c>master</c> zone is set, all zones will have the <c>master</c> zone set as parent.</para>
-            <para>You may set the <c>master</c> zone with constructor or any time later with Add() call - it will automatically set parent for existing zones</para>
-            </remarks>
-            <param name="role">The role for the zone</param>
-            <param name="zone">The zone to add into collection</param>
-            <returns>Key that was finally used for the zone. Possibly important in case of roles supporting multiple entries</returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursorZoneCollection.getBoundaryOf(imbSCI.Core.reporting.zone.cursorZoneRole,imbSCI.Core.reporting.zone.textCursorZone)">
-            <summary>
-            Gets the boundary rectangle to hold all subzones with the specified role. 
-            </summary>
-            <param name="role">The role of subzone or subzones to select</param>
-            <param name="scope">The scope to look into for each subzone</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursorZoneCollection.GetEnumerator">
-            <summary>
-            Returns an enumerator that iterates through a collection.
-            </summary>
-            <returns>
-            An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.
-            </returns>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorZoneCollection.Item(imbSCI.Core.reporting.zone.cursorZoneRole,System.Int32)">
-            <summary>
-            Gets the <see cref="T:imbSCI.Core.reporting.zone.cursorZone"/> with the specified role. If the role supports multiple entries then specify index to choose what zone to get.
-            </summary>
-            <value>
-            The <see cref="T:imbSCI.Core.reporting.zone.cursorZone"/>.
-            </value>
-            <param name="role">The role.</param>
-            <param name="index">The index.</param>
-            <returns></returns>
-        </member>
-        <member name="T:imbSCI.Core.reporting.zone.cursorZoneExecutionSettings">
-            <summary>
-            Settings about behaviour of cursor inside a zone
-            </summary>
-            <seealso cref="!:aceCommonTypes.primitives.imbBindable" />
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorZoneExecutionSettings.pageScopeInZone">
-            <summary>
-            zone to be applied upod entering or creating new document
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorZoneExecutionSettings.cursorMode">
-            <summary>
-            Way that cursor should hangle vertical spacing
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorZoneExecutionSettings.pageScopeInMove">
-            <summary>
-            Cursor move once new or existing page is scoped
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorZoneExecutionSettings.scopeInMove">
-            <summary>
-            What movement of cursor it should do <c>just before</c> scoping inside child MetaContent
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorZoneExecutionSettings.scopeOutMove">
-            <summary>
-             What movement of cursor it should do <c>just before</c> scoping <c>outside</c> child MetaContent
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursorZoneExtensions.getPresetSpatialSettings(imbSCI.Core.reporting.zone.cursorZoneSpatialPreset)">
-            <summary>
-            Gets the preset spatial settings based on preset
-            </summary>
-            <param name="preset">The preset.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursorZoneExtensions.setPresetSpatialSettings(imbSCI.Core.reporting.zone.cursorZoneSpatialSettings,imbSCI.Core.reporting.zone.cursorZoneSpatialPreset)">
-            <summary>
-            Deplozs spatial settings from named preset
-            </summary>
-            <param name="output">The output.</param>
-            <param name="preset">The preset.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.cursorZoneExtensions.setZoneStructure(imbSCI.Core.reporting.zone.cursorZone,imbSCI.Core.reporting.zone.cursorZoneLayoutPreset,System.Boolean)">
-            <summary>
-            Builds the zone.
-            </summary>
-            <param name="layoutPreset">The layout preset.</param>
-            <param name="spatialPreset">The spatial preset.</param>
-            <param name="target">The target.</param>
-            <returns>Resulting zone</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">If Layout presed never implemented</exception>
-        </member>
-        <member name="T:imbSCI.Core.reporting.zone.cursorZoneRole">
-            <summary>
-            Role that a zone may have inside another zone
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursorZoneRole.master">
-            <summary>
-            The parent zone for all zones
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursorZoneRole.header">
-            <summary>
-            The header - top most section with given height
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursorZoneRole.footer">
-            <summary>
-            The footer - bottom most section with given height
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursorZoneRole.section">
-            <summary>
-            The section - horizontal division of a zone where height is defined as part of parent zone
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursorZoneRole.column">
-            <summary>
-            The column - vertical division of a zone where width is defined as part of parent zone
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursorZoneSpatialPreset.sheetNormal">
-            <summary>
-            The sheet normal: t=1, wc=12, hc=120, sp=160px
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursorZoneSpatialPreset.sheetSquareCell">
-            <summary>
-            20x20px cell dimension
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursorZoneSpatialPreset.textPage">
-            <summary>
-            The text page - t=8, wc=100, hc=60, sp=10
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursorZoneSpatialPreset.console">
-            <summary>
-            The console - wc85 x hc43, t=4
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursorZoneSpatialPreset.wideConsole">
-            <summary>
-            The wide console - wc=160, hc=78
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.cursorZoneSpatialPreset.a4OnFont10pt">
-            <summary>
-            The a4 on font size 10pt
-            </summary>
-        </member>
-        <member name="T:imbSCI.Core.reporting.zone.cursorZoneSpatialSettings">
-            <summary>
-            Zone setup for spacing and sizing
-            </summary>
-            <seealso cref="T:imbSCI.Core.reporting.zone.textFormatSetupBase" />
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorZoneSpatialSettings.spatialUnit">
-            <summary>
-            Gets or sets the spatial unit (width): width of one Cell Unit
-            </summary>
-            <value>
-            The spatial unit.
-            </value>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorZoneSpatialSettings.spatialUnitRatioYPerX">
-            <summary>
-            Gets or sets the spatial unit ratio y per x.
-            </summary>
-            <value>
-            The spatial unit ratio y per x.
-            </value>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorZoneSpatialSettings.spatialUnitMarginRatio">
-            <summary>
-            ratio to calculate margin spacing unit from standard spatial unit
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorZoneSpatialSettings.spatialUnitPaddingRatio">
-            <summary>
-            ratio to calculate padding spacing unit from standard spatial unit
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorZoneSpatialSettings.spatialUnitHeight">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorZoneSpatialSettings.spatialUnitMargin">
-            <summary>
-            recalculated margin spatial unit, based on ratio
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorZoneSpatialSettings.spatialUnitPadding">
-            <summary>
-            recalculated padding unit
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.cursorZoneSpatialSettings.tabPerCellUnit">
-            <summary>
-            Number of cell units per one tab
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.ISupportsBasicCursor.innerWidth">
-            <summary>
-            Width - padding - margin: sirina u koju se upisuje sadrzaj
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.ISupportsBasicCursor.innerLeftPosition">
-            <summary>
-            Pozicija od koje pocinje upisivanje sadrzaja
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.ISupportsBasicCursor.innerRightPosition">
-            <summary>
-            Pozicija do koje se upisuje sadrzaj (width - padding.right, margin.right)
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.ISupportsBasicCursor.innerBoxedWidth">
-            <summary>
-            Sirina na kojoj se ispisuje pozadina (width-margin)
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.ISupportsBasicCursor.innerHeight">
-            <summary>
-            Visina na kojoj se ispisuje sadrzaj> height - padding - margin
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.ISupportsBasicCursor.innerBoxedHeight">
-            <summary>
-            Visina na kojoj se ispisuje pozadina> height - margin
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.ISupportsBasicCursor.width">
-            <summary>
-            maksimalna spoljna sirina formata (innerWidth+padding+margin = Windows.width) 
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.ISupportsBasicCursor.height">
-            <summary>
-            maksimalna spoljna visina formata (innerHeight+padding+margin=Windows.Height)
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.ISupportsBasicCursor.outerBottomPosition">
-            <summary>
-            Pozicija na kojoj se zavrsava sav sadrzaj ovog bloka: Y+margin+padding+innerHeight
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.ISupportsBasicCursor.outerRightPosition">
-            <summary>
-            Pozicija sa sve marginom> x+margin.left+padding.left+innerWidth+padding.right+margin.right
-            </summary>
-        </member>
-        <member name="T:imbSCI.Core.reporting.zone.selectRange">
-            <summary>
-            2D selection information
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRange.getCodeName">
-            <summary>
-            Gets code name of the object. CodeName should be unique per each unique set of values of properties. In other words: if two instances of the same class have different CodeName that means values of their key properties are not same.
-            </summary>
-            <returns>
-            Unique string to identify unique values
-            </returns>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.selectRange.x">
-            <summary>
-            x position
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.selectRange.y">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRange.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:imbSCI.Core.reporting.zone.selectRange"/> class.
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRange.#ctor(System.Int32,System.Int32)">
-            <summary>
-            Initializes a new instance of the <see cref="T:imbSCI.Core.reporting.zone.selectRange"/> class.
-            </summary>
-            <param name="__x">The x.</param>
-            <param name="__y">The y.</param>
-        </member>
-        <member name="T:imbSCI.Core.reporting.zone.selectRangeArea">
-            <summary>
-            Selection area> with its starting poing, ending point and size. It automatically calculates> x, y, width and height fields
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.selectRangeArea._topLeft">
-            <summary>
-            The top left - starting point
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.selectRangeArea._bottomRight">
-            <summary>
-            Down right - end point
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.selectRangeArea.yCenter">
-            <summary>
-            Gets the y (vertical) center of area.
-            </summary>
-            <value>
-            The y center.
-            </value>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.resize(System.Int32,System.Int32)">
-            <summary>
-            Resizes the area to specified width and height. Negative values will be ignored. Use -1 to keep a dimension unchanged.
-            </summary>
-            <param name="__width">The width. Negative value will be ignored. Use -1 to keep it unchanged.</param>
-            <param name="__height">The height. Negative value will be ignored. Use -1 to keep it unchanged.</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.reset(System.Int32,System.Int32,System.Int32,System.Int32)">
-            <summary>
-            Sets new position and optionally new size
-            </summary>
-            <param name="__x">The x.</param>
-            <param name="__y">The y.</param>
-            <param name="__width">The width - leave -1 to keep it unchanged</param>
-            <param name="__height">The height - leave -1 to keep it unchanged</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.setToChanged">
-            <summary>
-            Sets to changed state
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.isInside(System.Int32,System.Int32)">
-            <summary>
-            Determines whether the specified x,y coordinates are showing to position within this area.
-            </summary>
-            <param name="tX">The t x.</param>
-            <param name="tY">The t y.</param>
-            <returns>
-              <c>true</c> if x,y is inside, and not on the edge
-            </returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.isInsideOrEdge(System.Int32,System.Int32,System.Int32)">
-            <summary>
-            Determines whether x,y coordinates are inside or within edge of this area.
-            </summary>
-            <param name="tX">The t x.</param>
-            <param name="tY">The t y.</param>
-            <param name="edge">The edge thickness. It is applied in both direction: inside and outside from border zone</param>
-            <returns>
-              <c>true</c> when x,y are inside area + area extended by the edge. If edge is 1 than exact size of area is tested.
-            </returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.isNearAnyCornerOrEdge(System.Int32,System.Int32,System.Int32)">
-            <summary>
-            Determines if x,y is near to an edge, corner or center of this area - respecting specified limit distance.
-            </summary>
-            <param name="tX">X (horizontal position) to test</param>
-            <param name="tY">Y (vertical position) to test </param>
-            <param name="nearLimit">Absolute distance considered to be near.</param>
-            <returns>Edge, corner or center that is near to x,y. <see cref="F:imbSCI.Core.reporting.zone.textCursorZoneCorner.none"/> is returned if nothing is near within <c>nearLimit</c> range </returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.getDistanceFromCorner(System.Int32,System.Int32,imbSCI.Core.reporting.zone.textCursorZoneCorner)">
-            <summary>
-            Absolute distance from corner or edge
-            </summary>
-            <param name="tX"></param>
-            <param name="tY"></param>
-            <param name="edgeOrCorner"></param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.isNearToCorner(System.Int32,System.Int32,imbSCI.Core.reporting.zone.textCursorZoneCorner,System.Int32)">
-            <summary>
-            Determines whether x,y coordinates are near to the specified corner or edge of the area
-            </summary>
-            <param name="tX">X (horizontal position) to test</param>
-            <param name="tY">Y (vertical position) to test </param>
-            <param name="edgeOrCorner">The edge or corner to test against</param>
-            <param name="nearLimit">Absolute distance considered to be near</param>
-            <returns>
-              <c>true</c> if [is near to corner] [the specified t x]; otherwise, <c>false</c>.
-            </returns>
-            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
-        </member>
-        <!-- Badly formed XML comment ignored for member "M:imbSCI.Core.reporting.zone.selectRangeArea.isOnEdge(System.Int32,System.Int32)" -->
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.expandToWrap(imbSCI.Core.reporting.zone.selectRangeArea)">
-            <summary>
-            Expands this rangeArea to have specified rangeArea inside its boundaries
-            </summary>
-            <param name="areaToWrap">The area to wrap.</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.expand(imbSCI.Core.reporting.zone.textCursorZoneCorner,System.Int32)">
-            <summary>
-            Expands in the specified direction for given number of steps
-            </summary>
-            <param name="direction">The direction.</param>
-            <param name="step">The step.</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.expand(imbSCI.Core.reporting.zone.textCursorZoneCorner,System.Boolean)">
-            <summary>
-            Expands the specified direction.
-            </summary>
-            <param name="direction">The direction of expansion</param>
-            <param name="stepCriteria">If <c>true</c> it will expand one step</param>
-            <returns>Size of expansion</returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.expand(imbSCI.Core.reporting.zone.textCursorZoneCorner,System.Int32,System.Boolean[])">
-            <summary>
-            Expands in the specified direction for number of boolean arguments being true
-            </summary>
-            <param name="direction">The direction.</param>
-            <param name="stepCriterias">The step criterias.</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.getCrossection(imbSCI.Core.reporting.zone.selectRangeArea)">
-            <summary>
-            Gets the crossection / overlap area / with <c>operant</c>
-            </summary>
-            <param name="operand">The operand to get overlap with</param>
-            <returns>Area of overlap between this and <c>operand</c> area</returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.#ctor(imbSCI.Core.reporting.zone.selectRange,imbSCI.Core.reporting.zone.selectRange)">
-            <summary>
-            Two-point constructor: Initializes a new instance of the <see cref="T:imbSCI.Core.reporting.zone.selectRangeArea"/> struct.
-            </summary>
-            <param name="topLeft">The top left.</param>
-            <param name="bottomRight">The bottom right.</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.#ctor(imbSCI.Core.reporting.zone.selectRange,System.Int32,System.Int32)">
-            <summary>
-            Starting point, width and height. Initializes a new instance of the <see cref="T:imbSCI.Core.reporting.zone.selectRangeArea"/> struct.
-            </summary>
-            <param name="start">The start.</param>
-            <param name="width">The width.</param>
-            <param name="height">The height.</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.#ctor(System.Int32,System.Int32)">
-            <summary>
-            Initializes a new instance of the <see cref="T:imbSCI.Core.reporting.zone.selectRangeArea"/> class.
-            </summary>
-            <param name="x_end">Width</param>
-            <param name="y_end">Height</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
-            <summary>
-            Absolute coordinate constructor: TopLeft + BottomRight. Initializes a new instance of the <see cref="T:imbSCI.Core.reporting.zone.selectRangeArea"/> struct.
-            </summary>
-            <param name="x">The x.</param>
-            <param name="y">The y.</param>
-            <param name="x_end">The x end.</param>
-            <param name="y_end">The y end.</param>
-        </member>
-        <member name="T:imbSCI.Core.reporting.zone.selectRangeAreaDictionary">
-            <summary>
-            Memory of saved ranges
-            </summary>
-            <seealso cref="T:imbSCI.Data.interfaces.IObjectWithChildSelector" />
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.getLastClosed(System.Int32)">
-            <summary>
-            Gets a entry <c>n</c>additions <c>ago</c> from back/end, counting only ones that are <c>isClosed</c>=true. 
-            </summary>
-            <param name="ago">The ago. If 1 it will return the last closed entry. 0 or less will throw exception</param>
-            <returns>Last selectRangeAreaNamed that is closed</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">ago - Must be between 0 and infinity. If it is above Count() - the first is returned</exception>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.getLastUnclosed(System.Int32)">
-            <summary>
-            Gets the last or <c>N-th</c> that must be unclosed.
-            </summary>
-            <param name="ago">The ago.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.getLastAny(System.Int32)">
-            <summary>
-            Gets the last  or <c>N-th</c> - without isClosed criteria.
-            </summary>
-            <param name="ago">The ago.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.getLast(System.Boolean,System.Boolean,System.Int32)">
-            <summary>
-            Gets the last.
-            </summary>
-            <param name="mustBeUnclosed">if set to <c>true</c> [must be unclosed].</param>
-            <param name="allowUnclosed">if set to <c>true</c> [allow unclosed].</param>
-            <param name="ago">The ago.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">ago - Must be between 0 and infinity. If it is above Count() - the first is returned</exception>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.Add(imbSCI.Core.reporting.zone.selectRangeAreaNamed)">
-            <summary>
-            Adds the specified item.
-            </summary>
-            <param name="item">The item.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.Add(System.String,imbSCI.Core.reporting.zone.selectRangeArea,System.Boolean)">
-            <summary>
-            Adds the specified path.
-            </summary>
-            <param name="__path">The path.</param>
-            <param name="item">The item.</param>
-            <param name="doClose">if set to <c>true</c> [do close].</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.Add(System.String,System.Int32,System.Int32)">
-            <summary>
-            Adds the specified path.
-            </summary>
-            <param name="__path">The path.</param>
-            <param name="x_st">The x st.</param>
-            <param name="y_st">The y st.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:imbSCI.Core.reporting.zone.selectRangeAreaDictionary"/> class.
-            </summary>
-            <param name="__name">Name of this dictionary</param>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.Item(System.String)">
-            <summary>
-            Gets the <see cref="T:System.Object"/> with the specified path.
-            </summary>
-            <value>
-            The <see cref="T:System.Object"/>.
-            </value>
-            <param name="path">The path.</param>
-            <returns></returns>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.Item(System.Int32)">
-            <summary>
-            Gets the <see cref="T:System.Object"/> with the specified key.
-            </summary>
-            <value>
-            The <see cref="T:System.Object"/>.
-            </value>
-            <param name="key">The key.</param>
-            <returns></returns>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.name">
-            <summary>
-            Dictionary name
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.items">
-            <summary>
-            Members
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.Count">
-            <summary>
-            Number of child items
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.GetEnumerator">
-            <summary>
-            Gets the enumerator.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaDictionary.indexOf(imbSCI.Data.interfaces.IObjectWithChildSelector)">
-            <summary>
-            Index of supplied child - in his collection
-            </summary>
-            <param name="child"></param>
-            <returns></returns>
-        </member>
-        <member name="T:imbSCI.Core.reporting.zone.selectRangeAreaNamed">
-            <summary>
-            Named entry of selectRangeArea, saved for lager use
-            </summary>
-            <seealso cref="T:imbSCI.Core.reporting.zone.selectRangeArea" />
-            <seealso cref="T:imbSCI.Data.interfaces.IObjectWithPath" />
-            <seealso cref="T:imbSCI.Data.interfaces.IObjectWithName" />
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.selectRangeAreaNamed.name">
-            <summary>
-            name, last part of path
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.selectRangeAreaNamed.path">
-            <summary>
-            its full path, including name
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaNamed.#ctor(System.String,System.Int32,System.Int32)">
-            <summary>
-            Initializes a new instance of the <see cref="T:imbSCI.Core.reporting.zone.selectRangeAreaNamed"/> class.
-            </summary>
-            <param name="__path">The path.</param>
-            <param name="x_st">The x st.</param>
-            <param name="y_st">The y st.</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaNamed.setStart(System.Int32,System.Int32)">
-            <summary>
-            Sets the start of Area
-            </summary>
-            <param name="x">The x.</param>
-            <param name="y">The y.</param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.selectRangeAreaNamed.setEnd(System.Int32,System.Int32)">
-            <summary>
-            Sets the end of Area and marks it as closed
-            </summary>
-            <param name="x_end">The x end.</param>
-            <param name="y_end">The y end.</param>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.selectRangeAreaNamed.isClosed">
-            <summary>
-            TRUE if this area is closed, ready to be applied
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.selectZone.x">
-            <summary>
-            Horizontalna pozicija
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.selectZone.y">
-            <summary>
-            Vertikalna pozicija
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.selectZone.weight">
-            <summary>
-            Sirina
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.selectZone.height">
-            <summary>
-            Visina
-            </summary>
-        </member>
-        <member name="T:imbSCI.Core.reporting.zone.textCursorMode">
-            <summary>
-            Primena ogranicenja kursora
-            </summary>
-        </member>
-        <member name="T:imbSCI.Core.reporting.zone.textCursorZone">
-            <summary>
-            Zona kretanja kursora
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.textCursorZone.innerZone">
-            <summary>
-            Zona ogranicena padding + margin
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.textCursorZone.innerBoxedZone">
-            <summary>
-            Zona ogranicena marginom
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.textCursorZone.outterZone">
-            <summary>
-            Zona celog prikaza
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.textCursorZone.unknownZone">
-            <summary>
-            zona nije zadata - ovo ne bi smelo da ostane drugo kao vrednost
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.textCursorZoneCorner.default_corner">
-            <summary>
-            The default corner
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.textCursorZoneCorner.UpLeft">
-            <summary>
-            Up left
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.textCursorZoneCorner.UpRight">
-            <summary>
-            Up right
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.textCursorZoneCorner.DownLeft">
-            <summary>
-            Down left
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.textCursorZoneCorner.DownRight">
-            <summary>
-            Down right
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.textCursorZoneCorner.Left">
-            <summary>
-            The left
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.textCursorZoneCorner.Right">
-            <summary>
-            The right
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.textCursorZoneCorner.Top">
-            <summary>
-            The top
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.textCursorZoneCorner.Bottom">
-            <summary>
-            The bottom
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.reporting.zone.textCursorZoneCorner.center">
-            <summary>
-            The center - center of the zone, div, cell...
-            </summary>
-        </member>
-        <member name="T:imbSCI.Core.reporting.zone.textFormatSetupBase">
-            <summary>
-            Block formatting base
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.textFormatSetupBase.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
-            <summary>
-            Konstruktor za dvodimenziono podesavanje
-            </summary>
-            <param name="__width"></param>
-            <param name="__height"></param>
-            <param name="__leftRightMargin"></param>
-            <param name="__topBottomMargin"></param>
-            <param name="__leftRightPadding"></param>
-            <param name="__topBottomPadding"></param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.textFormatSetupBase.#ctor(System.Int32,System.Int32,System.Int32)">
-            <summary>
-            konstruktor za jednolinijsko podesavanje
-            </summary>
-            <param name="__width"></param>
-            <param name="__leftRightMargin"></param>
-            <param name="__leftRightPadding"></param>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.textFormatSetupBase.autoHeight(System.Boolean,System.Int32)">
-            <summary>
-            postavlja automatsku visinu 
-            </summary>
-            <param name="ifLess"></param>
-            <param name="contentHeight"></param>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.innerWidth">
-            <summary>
-            Width - padding - margin: sirina u koju se upisuje sadrzaj
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.innerLeftPosition">
-            <summary>
-            Pozicija od koje pocinje upisivanje sadrzaja
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.innerRightPosition">
-            <summary>
-            Pozicija do koje se upisuje sadrzaj (width - padding.right, margin.right)
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.innerBoxedLeftPosition">
-            <summary>
-            Pozicija za leve strane - marget.left
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.innerBoxedRightPosition">
-            <summary>
-            Pozicija na desnoj strani - witdh - margin.right
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.innerBoxedWidth">
-            <summary>
-            Sirina na kojoj se ispisuje pozadina (width-margin)
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.innerHeight">
-            <summary>
-            Visina na kojoj se ispisuje sadrzaj> height - padding - margin
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.innerBoxedHeight">
-            <summary>
-            Visina na kojoj se ispisuje pozadina> height - margin
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.innerTopPosition">
-            <summary>
-            Prva vertikalna pozicija u kojoj moze da pise sadrzaj
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.innerBottomPosition">
-            <summary>
-            Krajnja vertikalna pozicija na kojoj moze da pise sadrzaj
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.innerBoxedTopPosition">
-            <summary>
-            Prva vertikalna pozicija - bez paddinga
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.innerBoxedBottomPosition">
-            <summary>
-            Krajnja vertikalna pozicija na kojoj moze da pise sadrzaj
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.margin">
-            <summary>
-            margina za liniju koja se ne boji pozadinskim sablonom
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.padding">
-            <summary>
-            padding za koji se sadrzaj odvaja od ivice pozadne
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.outerBottomPosition">
-            <summary>
-            Pozicija na kojoj se zavrsava sav sadrzaj ovog bloka: Y+margin+padding+innerHeight
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupBase.outerRightPosition">
-            <summary>
-            Pozicija sa sve marginom> x+margin.left+padding.left+innerWidth+padding.right+margin.right
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.textFormatSetupBase.left(imbSCI.Core.reporting.zone.textCursorZone)">
-            <summary>
-            Left position for specified zone.
-            </summary>
-            <param name="currentZone">Zone to test against</param>
-            <returns>Requested position</returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.textFormatSetupBase.right(imbSCI.Core.reporting.zone.textCursorZone)">
-            <summary>
-            Right position for specified zone.
-            </summary>
-            <param name="currentZone">Zone to test against</param>
-            <returns>Requested position</returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.textFormatSetupBase.top(imbSCI.Core.reporting.zone.textCursorZone)">
-            <summary>
-            Top position for specified zone.
-            </summary>
-            <param name="currentZone">Zone to test against</param>
-            <returns>Requested position</returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.textFormatSetupBase.bottom(imbSCI.Core.reporting.zone.textCursorZone)">
-            <summary>
-            Bottom position for specified zone.
-            </summary>
-            <param name="currentZone">Zone to test against</param>
-            <returns>Requested position</returns>
-        </member>
-        <member name="M:imbSCI.Core.reporting.zone.textFormatSetupBase.getHeight(imbSCI.Core.reporting.zone.textCursorZone)">
-            <summary>
-            Heights the specified current zone.
-            </summary>
-            <param name="currentZone">The current zone.</param>
-            <returns></returns>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupSize.width">
-            <summary>
-            maksimalna spoljna sirina formata (innerWidth+padding+margin = Windows.width) 
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.reporting.zone.textFormatSetupSize.height">
-            <summary>
-            maksimalna spoljna visina formata (innerHeight+padding+margin=Windows.Height)
-            </summary>
-        </member>
         <member name="T:imbSCI.Core.attributes.NamespaceDoc">
             <summary>
             <para>Extensive Scientific Data annotation-purpose tools.</para>
@@ -16453,6 +16856,13 @@
             <param name="data">Property collection to add data into</param>
             <returns>Updated or newly created property collection</returns>
         </member>
+        <member name="M:imbSCI.Core.data.aceAuthorNotation.GetDescription(imbSCI.Core.reporting.render.ITextRender)">
+            <summary>
+            Gets the description lines for data defined in this instance
+            </summary>
+            <param name="builder">The builder.</param>
+            <returns></returns>
+        </member>
         <member name="M:imbSCI.Core.data.aceAuthorNotation.imbSCI#Core#reporting#IAppendDataFields#AppendDataFields(System.Data.PropertyCollection)">
             <summary>
             Appends its data points into new or existing property collection
@@ -17148,6 +17558,64 @@
             <summary>
             The log to console control
             </summary>
+        </member>
+        <member name="T:imbSCI.Core.style.color.ColorGradient">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.style.color.ColorGradient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.style.color.ColorGradient"/> class.
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.style.color.ColorGradient.#ctor(System.String,System.String,imbSCI.Core.style.color.ColorGradientFunction)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.style.color.ColorGradient"/> class.
+            </summary>
+            <param name="HexA">The hexadecimal a.</param>
+            <param name="HexB">The hexadecimal b.</param>
+            <param name="options">The options.</param>
+        </member>
+        <member name="M:imbSCI.Core.style.color.ColorGradient.GetHexColor(System.Double,System.Boolean)">
+            <summary>
+            Gets the color of the hexadecimal.
+            </summary>
+            <param name="ratio">The ratio: from 0 to 1</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.style.color.ColorGradient.GetHexColorDictionary(System.Int32,System.Boolean)">
+            <summary>
+            Gets the hexadecimal color dictionary - where Key is color, Double is upper limit for the color segment
+            </summary>
+            <param name="colorSegments">The color segments.</param>
+            <param name="withAlpha">if set to <c>true</c> [with alpha].</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.style.color.ColorGradientDictionary">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:System.Collections.Generic.Dictionary&lt;System.String, System.Double&gt;" />
+        </member>
+        <member name="T:imbSCI.Core.style.color.ColorHSVPoint">
+            <summary>
+            HSV 
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.style.color.ColorHSVPoint.GetRange(imbSCI.Core.style.color.ColorHSVPoint)">
+            <summary>
+            Gets the range version --- values are allowed to be negative
+            </summary>
+            <param name="b">The b.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.style.color.ColorHSVPoint.GetRangeMultiplied(System.Double)">
+            <summary>
+            Performs multiplication without <see cref="M:imbSCI.Core.style.color.ColorHSVPoint.DeployValues"/> call
+            </summary>
+            <param name="b">The b.</param>
+            <returns></returns>
         </member>
         <member name="T:imbSCI.Core.syntax.param.typedParam">
             <summary>

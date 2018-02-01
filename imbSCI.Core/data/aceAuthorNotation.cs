@@ -47,6 +47,8 @@ using imbSCI.Data.interfaces;
 
 namespace imbSCI.Core.data
 {
+    using imbSCI.Core.reporting.render;
+    using imbSCI.Core.reporting.render.builders;
     using imbSCI.Data.enums.fields;
     using System.ComponentModel;
     using System.Data;
@@ -76,6 +78,30 @@ namespace imbSCI.Core.data
 
             data.Add(templateFieldBasic.meta_softwareComment, software, "Software info", "");
             return data;
+        }
+
+        /// <summary>
+        /// Gets the description lines for data defined in this instance
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <returns></returns>
+        public String GetDescription(ITextRender builder=null)
+        {
+            if (builder == null) builder = new builderForMarkdown();
+
+            var l = builder.Length;
+            var notation = this;
+
+            if (!notation.author.isNullOrEmpty()) builder.AppendPair("Author", notation.author, true, ": ");
+            if (!notation.Email.isNullOrEmpty()) builder.AppendPair("E-mail", notation.Email, true, ": ");
+            if (!notation.web.isNullOrEmpty()) builder.AppendPair("Web", notation.web, true, ": ");
+            if (!notation.copyright.isNullOrEmpty()) builder.AppendPair("Copyright", notation.copyright, true, ": ");
+            if (!notation.license.isNullOrEmpty()) builder.AppendPair("License", notation.license, true, ": ");
+            if (!notation.software.isNullOrEmpty()) builder.AppendPair("Software", notation.software, true, ": ");
+            if (!notation.organization.isNullOrEmpty()) builder.AppendPair("Organization", notation.organization, true, ": ");
+            if (!notation.comment.isNullOrEmpty()) builder.AppendPair("Comment", notation.comment, true, ": ");
+
+            return builder.GetContent(l);
         }
 
         /// <summary>
