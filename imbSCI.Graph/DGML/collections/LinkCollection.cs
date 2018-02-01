@@ -49,7 +49,9 @@ namespace imbSCI.Graph.DGML.collections
 
         public Link AddLink(Node nodeA, Node nodeB, String linkLabel)
         {
-            Link l = new Link(nodeA.Id, nodeB.Id);
+            Link l = new Link();
+            l.Source = nodeA.Id;
+            l.Target = nodeB.Id;
             l.Label = linkLabel;
             Add(l);
             return l;

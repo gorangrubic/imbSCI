@@ -57,6 +57,13 @@ namespace imbSCI.Graph.DGML.core
 
         }
 
+        public Category(String id, String label, String basedOn)
+        {
+            Id = id;
+            Label = label;
+            BasedOn = basedOn;
+        }
+
 
         public Category(Int32 id, String label, String basedOn)
         {

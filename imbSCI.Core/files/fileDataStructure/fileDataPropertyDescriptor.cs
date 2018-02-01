@@ -149,7 +149,7 @@ namespace imbSCI.Core.files.fileDataStructure
 
             String fp = GetFilepath("", instance, false);
 
-            fp = parentFolder.pathFor(fp, getWritableFileMode.none);
+            fp = parentFolder.pathFor(fp, getWritableFileMode.none, description, true);
 
             if (normalHandling)
             {

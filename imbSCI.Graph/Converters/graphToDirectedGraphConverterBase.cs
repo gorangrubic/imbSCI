@@ -186,7 +186,7 @@ namespace imbSCI.Graph.Converters
                 gn.Background = styleCase.nodeStyler.GetHexColor(w, tid);
                 gn.StrokeThinkness = styleCase.nodeStyler.GetBorderThickness(w, tid);
                 gn.Stroke = styleCase.nodeStyler.GetHexColor(w, tid);
-                SetNodeStyle(child, gn, styleCase);
+                SetNodeCustomization(child, gn, styleCase);
             }
 
             foreach (var ch in nodes)
@@ -204,7 +204,7 @@ namespace imbSCI.Graph.Converters
                         tmp.Category = styleCase.Categories.AddOrGetCategory(l_tid.ToString(), "", "").Id;
                         tmp.StrokeThinkness = styleCase.linkStyler.GetBorderThickness(l_w, l_tid);
                         tmp.Stroke = styleCase.linkStyler.GetHexColor(l_w, l_tid);
-                        SetLinkStyle(parent, child, tmp, styleCase);
+                        SetLinkCustomization(parent, child, tmp, styleCase);
                     }
                 }
 
@@ -216,12 +216,12 @@ namespace imbSCI.Graph.Converters
             return output;
         }
 
-        public virtual void SetLinkStyle(T parent, T child, Link link, DirectedGraphStylingCase styleCase)
+        public virtual void SetLinkCustomization(T parent, T child, Link link, DirectedGraphStylingCase styleCase)
         {
             
         }
 
-        public virtual void SetNodeStyle(T child, Node link, DirectedGraphStylingCase styleCase)
+        public virtual void SetNodeCustomization(T sourceNode, Node targetNode, DirectedGraphStylingCase styleCase)
         {
 
         }

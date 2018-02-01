@@ -54,5 +54,10 @@ namespace imbSCI.Graph.DGML.core
             Id = label.GetIDFromLabel();
             Label = label;
         }
+
+        //public Link AddLinkTo(Node target)
+        //{
+        //    Link l = new Link(
+        //}
     }
 }

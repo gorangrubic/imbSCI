@@ -82,6 +82,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
             folderNew.generateReadmeFiles(new aceAuthorNotation(), "_attachSubFolderTest.txt");
             //if (folderNew.CountAll()
 
+            var dgml = folderNew.GetDirectedGraph(true, true, true);
+            dgml.Save(folderTest1.pathFor("folderStructure.dgml", getWritableFileMode.overwrite, "DGML of folder"));
+
 
         }
     }

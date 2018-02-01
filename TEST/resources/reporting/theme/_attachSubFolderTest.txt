@@ -14,15 +14,15 @@
 
  ------------------------------------------------------------------------------------
 
-### Subdirectories of: G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting
+### Subdirectories of: G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\theme
 
- -- > Compact                                                : \theme\compact                                                                                      
+ -- > Compact                                                : \compact                                                                                            
 
- -- > Standard                                               : \theme\standard                                                                                     
+ -- > Standard                                               : \standard                                                                                           
 
- -- > Velestrap                                              : \theme\velestrap                                                                                    
+ -- > Velestrap                                              : \velestrap                                                                                          
 
- -- > Veles report                                           : \theme\veles_report                                                                                 
+ -- > Veles report                                           : \veles_report                                                                                       
 
  ------------------------------------------------------------------------------------
 
@@ -44,6 +44,6 @@
 
  ------------------------------------------------------------------------------------
 
-File generated: Thursday, February 01, 2018 2:40:52 AM
+File generated: Thursday, February 01, 2018 5:06:00 AM
 
 

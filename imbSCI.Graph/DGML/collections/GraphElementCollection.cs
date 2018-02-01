@@ -56,6 +56,8 @@ namespace imbSCI.Graph.DGML.collections
         public T AddNode(String id, String name)
         {
             var output = this.FirstOrDefault(x => x.Id == id);
+            //if (EqualityComparer<T>.Default.Equals(output, default(T)))
+            //{
             if (EqualityComparer<T>.Default.Equals(output, default(T)))
             {
                 output = new T();
@@ -64,6 +66,7 @@ namespace imbSCI.Graph.DGML.collections
                 output.Id = id;
                 Add(output);
             }
+            //}
             return output;
         }
 

@@ -14,27 +14,27 @@
 
  ------------------------------------------------------------------------------------
 
-### Subdirectories of: G:\imbVelesOpenSource\imbSCI\TEST
+### Subdirectories of: G:\imbVelesOpenSource\imbSCI\TEST\resources
 
- -- > Reporting                                              : \resources\reporting                                                                                
+ -- > Reporting                                              : \reporting                                                                                          
 
- --  -- > Include                                            : \resources\reporting\include                                                                        
+ --  -- > Include                                            : \reporting\include                                                                                  
 
- --  --  -- > D 3                                            : \resources\reporting\include\d3                                                                     
+ --  --  -- > D 3                                            : \reporting\include\d3                                                                               
 
- --  --  -- > Jquery                                         : \resources\reporting\include\jquery                                                                 
+ --  --  -- > Jquery                                         : \reporting\include\jquery                                                                           
 
- --  --  -- > Strapdown                                      : \resources\reporting\include\strapdown                                                              
+ --  --  -- > Strapdown                                      : \reporting\include\strapdown                                                                        
 
- --  -- > Theme                                              : \resources\reporting\theme                                                                          
+ --  -- > Theme                                              : \reporting\theme                                                                                    
 
- --  --  -- > Compact                                        : \resources\reporting\theme\compact                                                                  
+ --  --  -- > Compact                                        : \reporting\theme\compact                                                                            
 
- --  --  -- > Standard                                       : \resources\reporting\theme\standard                                                                 
+ --  --  -- > Standard                                       : \reporting\theme\standard                                                                           
 
- --  --  -- > Velestrap                                      : \resources\reporting\theme\velestrap                                                                
+ --  --  -- > Velestrap                                      : \reporting\theme\velestrap                                                                          
 
- --  --  -- > Veles report                                   : \resources\reporting\theme\veles_report                                                             
+ --  --  -- > Veles report                                   : \reporting\theme\veles_report                                                                       
 
  ------------------------------------------------------------------------------------
 
@@ -56,6 +56,6 @@
 
  ------------------------------------------------------------------------------------
 
-File generated: Thursday, February 01, 2018 2:40:52 AM
+File generated: Thursday, February 01, 2018 5:06:00 AM
 
 

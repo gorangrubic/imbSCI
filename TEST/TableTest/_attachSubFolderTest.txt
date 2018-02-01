@@ -22,9 +22,9 @@
 
  ------------------------------------------------------------------------------------
 
-### Subdirectories of: G:\imbVelesOpenSource\imbSCI\TEST
+### Subdirectories of: G:\imbVelesOpenSource\imbSCI\TEST\TableTest
 
- -- > Excel report meta data                                 : \TableTest\data                                                                                     
+ -- > Excel report meta data                                 : \data                                                                                               
 
  -- | Folder containing clean data export (single header row, CSV format) for easier use by other software platforms and/or column meta descriptions - additional information - in separate txt file for each Excel report created.
 
@@ -48,6 +48,6 @@
 
  ------------------------------------------------------------------------------------
 
-File generated: Thursday, February 01, 2018 2:40:52 AM
+File generated: Thursday, February 01, 2018 5:06:00 AM
 
 

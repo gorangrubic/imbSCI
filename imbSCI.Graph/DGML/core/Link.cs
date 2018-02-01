@@ -48,10 +48,25 @@ namespace imbSCI.Graph.DGML.core
         //    set { Source = value; }
         //}
 
-        public Link(String _source, String _target)
+        public Link(Node _source, Node _target)
         {
-            Source = _source.GetIDFromLabel();
-            Target = _target.GetIDFromLabel();
+            Source = _source.Id;
+            Target = _target.Id;
+        }
+
+
+        public Link(String _source, String _target, Boolean isID=true)
+        {
+            if (isID)
+            {
+                Source = _source;
+                Target = _target;
+            }
+            else
+            {
+                Source = _source.GetIDFromLabel();
+                Target = _target.GetIDFromLabel();
+            }
 
         }
 

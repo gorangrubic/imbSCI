@@ -621,8 +621,9 @@ namespace imbSCI.Core.files.folders
         /// <param name="filename">The filename.</param>
         /// <param name="mode">The mode.</param>
         /// <param name="fileDescription">The file description - if not specified, it will try to improvize :)</param>
+        /// <param name="updateExisting">if set to <c>true</c> it will force update if any existing file description was found. <see cref="RegisterFile(string, string, bool)"/></param>
         /// <returns></returns>
-        public string pathFor(string filename, getWritableFileMode mode=getWritableFileMode.none, String fileDescription="")
+        public string pathFor(string filename, getWritableFileMode mode=getWritableFileMode.none, String fileDescription="", Boolean updateExisting=false)
         {
             filename = filename.getCleanFilepath("");
             //filename = filename.getCleanFileName(false);
@@ -644,21 +645,26 @@ namespace imbSCI.Core.files.folders
                 output = output.getWritableFile(mode).FullName;
             }
 
-            RegisterFile(filename, fileDescription);
+            RegisterFile(filename, fileDescription, updateExisting);
             
             
             return output;
         }
 
         /// <summary>
-        /// Registers the file, with description provided. Later, this description is used for <see cref="generateReadmeFiles(aceAuthorNotation, string)"/>
+        /// Registers the file, with description provided. Later, this description is used for <see cref="generateReadmeFiles(aceAuthorNotation, string, int)"/> />
         /// </summary>
         /// <param name="filename">The filename.</param>
         /// <param name="fileDescription">The file description.</param>
-        public void RegisterFile(String filename, String fileDescription)
+        /// <param name="updateExisting">if set to <c>true</c> it will force update if any existing file description was found.</param>
+        public void RegisterFile(String filename, String fileDescription,Boolean updateExisting= false)
         {
             lock (addFileDescriptionLock)
             {
+                if (updateExisting)
+                {
+                    if (AdditionalFileEntries.ContainsKey(filename)) AdditionalFileEntries.Remove(filename);
+                }
                 if (!AdditionalFileEntries.ContainsKey(filename))
                 {
                     AdditionalFileEntries.Add(filename, this.GetFileDescription(filename, fileDescription));
@@ -842,7 +848,7 @@ namespace imbSCI.Core.files.folders
             if (parent != null)
             {
                 mypath = mypath.removeStartsWith(parent.path);
-                prefix = parent.path;
+                prefix = path;
             }
 
             builder.AppendHeading("Directory information", 2);
@@ -961,13 +967,14 @@ namespace imbSCI.Core.files.folders
         /// Default directory readme filename, used for <see cref="generateReadmeFiles(aceAuthorNotation, string)"/>
         /// </summary>
         public static String directory_readme_filename = "directory_readme.txt";
-       
+
         /// <summary>
         /// Generates the readme files for complete folder tree
         /// </summary>
         /// <param name="notation">The notation data object</param>
-        /// <param name="readmeFileName">Overrides the default readme file name, defined by <see cref="directory_readme_filename"/>.</param>
-        public void generateReadmeFiles(aceAuthorNotation notation, String readmeFileName = "")
+        /// <param name="readmeFileName">Overrides the default readme file name, defined by <see cref="directory_readme_filename" />.</param>
+        /// <param name="directoryStructureDepthLimit">The directory structure depth limit.</param>
+        public void generateReadmeFiles(aceAuthorNotation notation, String readmeFileName = "", Int32 directoryStructureDepthLimit = 3)
         {
             if (readmeFileName.isNullOrEmpty())
             {
@@ -988,7 +995,7 @@ namespace imbSCI.Core.files.folders
 
                     FileInfo fi = path.getWritableFile(getWritableFileMode.overwrite);
 
-                    String content = ni.generateFolderReadme(notation);
+                    String content = ni.generateFolderReadme(notation, null, directoryStructureDepthLimit);
                     content.saveStringToFile(fi.FullName, getWritableFileMode.overwrite);
                     saveBase.saveToFile(fi.FullName, content);
 

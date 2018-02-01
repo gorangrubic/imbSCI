@@ -77,6 +77,22 @@
             <param name="rootNodes"></param>
             <returns></returns>
         </member>
+        <member name="T:imbSCI.Graph.Converters.StaticConverters">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.StaticConverters.GetDirectedGraph(imbSCI.Core.files.folders.folderNode,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            Gets the directed graph from <see cref="T:imbSCI.Core.files.folders.folderNode"/>
+            </summary>
+            <param name="folder">The folder.</param>
+            <param name="doFolderDescription">if set to <c>true</c> [do folder description].</param>
+            <param name="doFileEntries">if set to <c>true</c> [do file entries].</param>
+            <param name="doFileDescriptions">if set to <c>true</c> [do file descriptions].</param>
+            <param name="limit">The limit.</param>
+            <returns></returns>
+        </member>
         <member name="T:imbSCI.Graph.Converters.freeGraphToDMGL">
             <summary>
             Free graph to DMGL converter
@@ -249,6 +265,61 @@
             </summary>
             <param name="source">The source.</param>
             <param name="depthLimit">The depth limit.</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Graph.Converters.propertyExpressionToDirectedGraphConverter">
+            <summary>
+            Converter from <see cref="T:imbSCI.Core.data.PropertyExpression"/> tree to <see cref="T:imbSCI.Graph.DGML.DirectedGraph"/> graph
+            </summary>
+            <seealso cref="!:imbSCI.Graph.Converters.graphToDirectedGraphConverterBase&lt;imbSCI.Core.data.PropertyExpression&gt;" />
+        </member>
+        <member name="M:imbSCI.Graph.Converters.propertyExpressionToDirectedGraphConverter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Graph.Converters.propertyExpressionToDirectedGraphConverter"/> class.
+            </summary>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.propertyExpressionToDirectedGraphConverter.GetCategoryID(imbSCI.Core.data.PropertyExpression)">
+            <summary>
+            Gets the category identifier.
+            </summary>
+            <param name="nodeOrLink">The node or link.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.propertyExpressionToDirectedGraphConverter.GetLinkWeight(imbSCI.Core.data.PropertyExpression,imbSCI.Core.data.PropertyExpression)">
+            <summary>
+            Provides the link weight, by default implementation returns 1 / <see cref="M:imbSCI.Data.collection.graph.IGraphNode.Count" />
+            </summary>
+            <param name="nodeA">The node a.</param>
+            <param name="nodeB">The node b.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.propertyExpressionToDirectedGraphConverter.GetNodeWeight(imbSCI.Core.data.PropertyExpression)">
+            <summary>
+            Gets the node weight - by default implementation it is 1 / <see cref="P:imbSCI.Data.collection.graph.IGraphNode.level" />
+            </summary>
+            <param name="node">The node.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.propertyExpressionToDirectedGraphConverter.GetLinkLabel(imbSCI.Core.data.PropertyExpression,imbSCI.Core.data.PropertyExpression)">
+            <summary>
+            Gets the label for link - by default implementation returns empty string
+            </summary>
+            <param name="nodeA">The node a.</param>
+            <param name="nodeB">The node b.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.propertyExpressionToDirectedGraphConverter.GetNodeLabel(imbSCI.Core.data.PropertyExpression)">
+            <summary>
+            Gets the node label.
+            </summary>
+            <param name="node">The node.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.propertyExpressionToDirectedGraphConverter.GetTypeID(imbSCI.Core.data.PropertyExpression)">
+            <summary>
+            Gets the type identifier.
+            </summary>
+            <param name="nodeOrLink">The node or link.</param>
             <returns></returns>
         </member>
         <member name="F:imbSCI.Graph.Converters.tools.ColorTransformationMode.colorGradient">

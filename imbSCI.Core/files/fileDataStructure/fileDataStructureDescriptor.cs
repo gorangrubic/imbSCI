@@ -254,6 +254,9 @@ namespace imbSCI.Core.files.fileDataStructure
                 parentFolder = new folderNode();
             }
 
+            String desc = instance.description;
+            if (desc.isNullOrEmpty()) desc = description;
+
             String filename = GetFilenameAndSetInstanceFolder(instance, parentFolder, output);
 
             instance.OnBeforeSave();
@@ -263,9 +266,12 @@ namespace imbSCI.Core.files.fileDataStructure
                 fileDataPropertyDescriptor pDesc = pair.Value;
                 pDesc.SaveData(instance, instance.folder, output);
             }
+           
+            String filepath = instance.folder.pathFor(filename, getWritableFileMode.overwrite, desc, true);
 
-            String filepath = instance.folder.pathFor(filename);
             SaveDataFile(instance, filepath, output);
+
+            
 
             return filepath;
         }
