@@ -394,6 +394,7 @@ namespace imbSCI.Core.extensions.table
                 spe.priority = dc.Ordinal;
                 spe.width = dc.GetWidth();
                 spe.color = dc.GetDefaultBackground().toHexColor();
+                spe.isHiddenInReport = dc.ExtendedProperties.ContainsKey(imbAttributeName.reporting_hide); // if (col_spe.isHiddenInReport) dc.ExtendedProperties.add(imbAttributeName.reporting_hide, true, false);
                 dc.SetSPE(spe);
                 return spe;
             }
@@ -425,6 +426,8 @@ namespace imbSCI.Core.extensions.table
             dc.ExtendedProperties.add(templateFieldDataTable.col_spe, col_spe);
             dc.ExtendedProperties.add(templateFieldDataTable.col_pe, col_spe.pe);
             dc.ExtendedProperties.add(templateFieldDataTable.col_propertyInfo, col_spe.pi);
+            if (col_spe.isHiddenInReport) dc.ExtendedProperties.add(imbAttributeName.reporting_hide, true, false);
+            //dc.ExtendedProperties.add(imbAttributeName.reporting_hide);
             return dc;
         }
 

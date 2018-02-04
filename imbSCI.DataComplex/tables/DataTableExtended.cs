@@ -113,6 +113,7 @@ namespace imbSCI.DataComplex.tables
             {
                 if (!spe.IsXmlIgnore)
                 {
+                    
                     var column = table.Add(spe);
                 }
             }

@@ -114,6 +114,45 @@ namespace imbSCI.Graph.Converters
         }
 
 
+        /// <summary>
+        /// Converts DirectedGraph to DOT graph
+        /// </summary>
+        /// <param name="graph">The graph.</param>
+        /// <returns></returns>
+        public static DotGraph ConvertToDOT(this DirectedGraph graph)
+        {
+            return DefaultDotToDGMLConverter.Convert(graph);
+        }
+
+        /// <summary>
+        /// Converts DOT graph to DirectedGraph
+        /// </summary>
+        /// <param name="graph">The graph.</param>
+        /// <returns></returns>
+        public static DirectedGraph ConvertToDGML(this DotGraph graph)
+        {
+            return DefaultDotToDGMLConverter.Convert(graph);
+        }
+
+
+        private static dotToDirectedGraphConverterBasic _DefaultDotToDGMLConverter;
+        /// <summary>
+        /// static and autoinitiated object
+        /// </summary>
+        public static dotToDirectedGraphConverterBasic DefaultDotToDGMLConverter
+        {
+            get
+            {
+                if (_DefaultDotToDGMLConverter == null)
+                {
+                    _DefaultDotToDGMLConverter = new dotToDirectedGraphConverterBasic();
+                }
+                return _DefaultDotToDGMLConverter;
+            }
+        }
+
+
+
         private static propertyExpressionToDirectedGraphConverter _PropertyExpressionConverterToDGML;
         /// <summary>
         /// static and autoinitiated object

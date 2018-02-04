@@ -161,13 +161,13 @@ namespace imbSCI.Graph.Converters
                         var nodeA = input.GetNode(link.nodeNameA);
                         var nodeB = input.GetNode(link.nodeNameB);
 
-                        var lnk = new Link(link.nodeNameA, link.nodeNameB);
+                        var lnk = new Link(link.nodeNameA, link.nodeNameB, false);
 
                         if (setup.doLinkDirectionFromLowerTypeToHigher)
                         {
                             if (nodeB.type < nodeA.type)
                             {
-                                lnk = new Link(link.nodeNameB, link.nodeNameA);
+                                lnk = new Link(link.nodeNameB, link.nodeNameA, false);
                             }
                         }
 

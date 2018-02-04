@@ -44,11 +44,11 @@ namespace imbSCI.Core
     {
 
 
-        private static IAceLogToConsoleControl _logControl;
+        private static aceLogToConsoleControl _logControl;
         /// <summary>
         /// The log to console control
         /// </summary>
-        public static IAceLogToConsoleControl logToConsoleControl
+        public static aceLogToConsoleControl logToConsoleControl
         {
             get
             {

@@ -43,7 +43,7 @@ namespace imbSCI.Core.interfaces
 {
     using System;
     using imbSCI.Core.reporting;
-
+    /*
     public interface IAceLogToConsoleControl
     {
         /// <summary>
@@ -100,5 +100,5 @@ namespace imbSCI.Core.interfaces
         /// <param name="loger">The loger.</param>
         void removeFromOutput(IConsoleControl loger);
     }
-
+    */
 }

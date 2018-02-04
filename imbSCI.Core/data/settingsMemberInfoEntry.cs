@@ -63,6 +63,16 @@ namespace imbSCI.Core.data
 
         public String info_helpTitle { get; set; } = "";
 
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is hidden in report.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance is hidden in report; otherwise, <c>false</c>.
+        /// </value>
+        public Boolean isHiddenInReport { get; set; } = false;
+
+
         public String name { get; set; } = "";
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -361,6 +371,9 @@ namespace imbSCI.Core.data
                         case imbAttributeName.reporting_valueformat:
                             format = propAtt_imbAttribute.getMessage().toStringSafe("");
                             break;
+                        case imbAttributeName.reporting_hide:
+                            isHiddenInReport = true;
+                            break;
                         case imbAttributeName.measure_setUnit:
                             unit = propAtt_imbAttribute.getMessage().toStringSafe("");
                             break;
@@ -391,6 +404,7 @@ namespace imbSCI.Core.data
                         case imbAttributeName.collectionPrimaryKey:
                             isPrimaryKey = true;
                             break;
+
 
                         case imbAttributeName.measure_letter:
                         case imbAttributeName.menuCommandKey:

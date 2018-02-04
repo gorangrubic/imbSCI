@@ -36,6 +36,16 @@
   <PropertyGroup>
     <ApplicationIcon>imbSCI.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ReleaseInstall|AnyCPU'">
+    <OutputPath>bin\ReleaseInstall\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>bin\Release\imbSCI.Graph.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accord, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
       <HintPath>..\..\imbWBI\packages\Accord.3.8.0\lib\net40\Accord.dll</HintPath>
@@ -70,17 +80,17 @@
     <Reference Include="EPPlus, Version=4.1.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\..\imbWBI\packages\EPPlus.4.1.1\lib\net40\EPPlus.dll</HintPath>
     </Reference>
-    <Reference Include="imbSCI.Core, Version=0.1.6606.7341, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\imbSCI.0.1.2.26\lib\net40\imbSCI.Core.dll</HintPath>
+    <Reference Include="imbSCI.Core, Version=0.1.6609.8147, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\imbSCI.0.1.2.31\lib\net40\imbSCI.Core.dll</HintPath>
     </Reference>
     <Reference Include="imbSCI.Data, Version=0.1.6603.21536, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\imbSCI.0.1.2.26\lib\net40\imbSCI.Data.dll</HintPath>
+      <HintPath>..\packages\imbSCI.0.1.2.31\lib\net40\imbSCI.Data.dll</HintPath>
     </Reference>
-    <Reference Include="imbSCI.DataComplex, Version=0.1.6606.7342, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\imbSCI.0.1.2.26\lib\net40\imbSCI.DataComplex.dll</HintPath>
+    <Reference Include="imbSCI.DataComplex, Version=0.1.6609.8148, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\imbSCI.0.1.2.31\lib\net40\imbSCI.DataComplex.dll</HintPath>
     </Reference>
-    <Reference Include="imbSCI.Reporting, Version=0.1.6606.7343, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\imbSCI.0.1.2.26\lib\net40\imbSCI.Reporting.dll</HintPath>
+    <Reference Include="imbSCI.Reporting, Version=0.1.6609.8149, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\imbSCI.0.1.2.31\lib\net40\imbSCI.Reporting.dll</HintPath>
     </Reference>
     <Reference Include="MathNet.Numerics, Version=3.20.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\imbWBI\packages\MathNet.Numerics.3.20.2\lib\net40\MathNet.Numerics.dll</HintPath>
@@ -141,6 +151,7 @@
     <Compile Include="attributes\GraphExtractionAttribute.cs" />
     <Compile Include="FreeGraph\freeGraph.cs" />
     <Compile Include="FreeGraph\freeGraphExtensions.cs" />
+    <Compile Include="FreeGraph\freeGraphIsland.cs" />
     <Compile Include="FreeGraph\freeGraphLink.cs" />
     <Compile Include="FreeGraph\freeGraphLinkBase.cs" />
     <Compile Include="FreeGraph\freeGraphLinkRegistry.cs" />
@@ -148,6 +159,7 @@
     <Compile Include="FreeGraph\freeGraphNodeBase.cs" />
     <Compile Include="FreeGraph\freeGraphPingType.cs" />
     <Compile Include="FreeGraph\freeGraphQueryResult.cs" />
+    <Compile Include="FreeGraph\freeGraphReport.cs" />
     <Compile Include="FreeGraph\NamespaceDoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

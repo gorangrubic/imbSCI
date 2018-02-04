@@ -140,6 +140,10 @@ namespace imbSCI.DataComplex.extensions.data.schema
         {
             DataColumn output = Add(table, (string) spe.name, spe.description, spe.letter, spe.type, spe.importance, spe.format, spe.displayName);
             output.SetClassName(spe.type.Name);
+
+
+
+            
             // output.SetPriority(spe.priority);
             output.SetSPE(spe);
             // output.SetGroup(spe.categoryName);

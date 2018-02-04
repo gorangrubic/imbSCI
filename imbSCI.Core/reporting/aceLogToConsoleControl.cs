@@ -52,13 +52,13 @@ namespace imbSCI.Core.reporting
     /// <summary>
     /// Helper class that contains list of IConsoleControls that have permission to write to console
     /// </summary>
-    public class aceLogToConsoleControl : IAceLogToConsoleControl
+    public class aceLogToConsoleControl 
     {
 
 
         private Dictionary<IConsoleControl, String> _prefixRegistar = new Dictionary<IConsoleControl, String> ();
         /// <summary> </summary>
-        protected Dictionary<IConsoleControl, String>  prefixRegistar
+        protected virtual Dictionary<IConsoleControl, String>  prefixRegistar
         {
             get
             {
@@ -72,12 +72,12 @@ namespace imbSCI.Core.reporting
 
 
 
-        protected circularSelector<ConsoleColor> colorSelector = new circularSelector<ConsoleColor>(ConsoleColor.Blue, ConsoleColor.Red, ConsoleColor.Green, ConsoleColor.Cyan, ConsoleColor.Yellow, ConsoleColor.Magenta, ConsoleColor.Gray, ConsoleColor.DarkCyan, ConsoleColor.White);
+        protected circularSelector<ConsoleColor> colorSelector = new circularSelector<ConsoleColor>(ConsoleColor.White, ConsoleColor.Red, ConsoleColor.Green, ConsoleColor.Yellow, ConsoleColor.Magenta, ConsoleColor.Gray, ConsoleColor.DarkCyan);
 
 
         private Dictionary<IConsoleControl, ConsoleColor> _colorRegistar = new Dictionary<IConsoleControl, ConsoleColor>();
         /// <summary> </summary>
-        protected Dictionary<IConsoleControl, ConsoleColor> colorRegistar
+        protected virtual Dictionary<IConsoleControl, ConsoleColor> colorRegistar
         {
             get
             {
@@ -97,7 +97,7 @@ namespace imbSCI.Core.reporting
         /// Sets as only output - removes all the rest
         /// </summary>
         /// <param name="loger">The loger.</param>
-        public void setAsOnlyOutput(IConsoleControl loger, String prefix = "")
+        public virtual void setAsOnlyOutput(IConsoleControl loger, String prefix = "")
         {
             colorRegistar.Clear();
             prefixRegistar.Clear();
@@ -107,7 +107,11 @@ namespace imbSCI.Core.reporting
 
 
 
-        public void setLogFileWriter(String path = null)
+        /// <summary>
+        /// Sets the log file path
+        /// </summary>
+        /// <param name="path">The path.</param>
+        public virtual void setLogFileWriter(String path = null)
         {
             if (_logWritter != null)
             {
@@ -165,39 +169,101 @@ namespace imbSCI.Core.reporting
 
 
         /// <summary>
-        /// Sets this loger on allow list
+        /// Makes sure that <c>loggerA</c> and <c>loggerB</c> have different colors assigned for their outputs to the Console buffer.
         /// </summary>
-        /// <param name="loger">The loger.</param>
-        public void setAsOutput(IConsoleControl loger, String prefix = "")
+        /// <param name="loggerA">The logger a.</param>
+        /// <param name="loggerB">The logger b.</param>
+        /// <returns>true if the loggers have different colors, false if one of loggers is not in the current output or if otherwise failed to update color of <c>loggerB</c></returns>
+        public virtual Boolean makeSureHaveDifferentColors(IConsoleControl loggerA, IConsoleControl loggerB)
         {
+            if (!colorRegistar.ContainsKey(loggerA)) return false;
+            if (!colorRegistar.ContainsKey(loggerB)) return false;
+
+            if (colorRegistar[loggerA] != colorRegistar[loggerB]) return true;
+
+            Int32 limit = 10;
+            while (colorRegistar[loggerA] == colorRegistar[loggerB])
+            {
+                limit--;
+                colorRegistar[loggerB] = colorSelector.next(1);
+                if (limit < 0) return false;
+            }
+
+            return true;
+        }
+
+
+        /// <summary>
+        /// Allows access to the console output bugger to the <c>logger</c> and sets its color and prefix. If you call this method on logger that was already set to output, it will result in changed color
+        /// </summary>
+        /// <param name="logger">The logger assigned to the console output</param>
+        /// <param name="prefix">The prefix that will appear in front of each <see cref="IAceLogable.log(string)"/> call. It will update it if already registered prefix exist</param>
+        /// <param name="preferedColor">If not <see cref="ConsoleColor.Black"/> - it will assign specified color to the logger. Otherwise, if <see cref="ConsoleColor.Black"/> is specified, it will assign automatically a color from the <see cref="colorSelector"/></param>
+        public virtual void setAsOutput(IConsoleControl logger, String prefix = "", ConsoleColor preferedColor = ConsoleColor.Black)
+        {
+
             lock (setAsOutputLock)
             {
-                if (!colorRegistar.ContainsKey(loger)) colorRegistar.Add(loger, colorSelector.next());
-                if (!allowList.Contains(loger))
+                if (!colorRegistar.ContainsKey(logger))
                 {
-                    allowList.Add(loger);
-                }
-                if (!prefixRegistar.ContainsKey(loger))
-                {
-                    if (!prefix.isNullOrEmpty())
+                    if (preferedColor != ConsoleColor.Black)
                     {
-                        prefix = prefix.toWidthExact(8, " ") + ": ";
+                        colorRegistar.Add(logger, preferedColor);
                     }
-                    prefixRegistar.Add(loger, prefix);
+                    else
+                    {
+                        colorRegistar.Add(logger, colorSelector.next());
+                    }
+
                 }
-                loger.VAR_AllowInstanceToOutputToConsole = true;
+                else
+                {
+                    if (preferedColor != ConsoleColor.Black)
+                    {
+                        colorRegistar[logger] = preferedColor;
+                        
+                    }
+                    else
+                    {
+                        colorRegistar[logger] = colorSelector.next();
+                    }
+                    
+                }
+
+                if (!allowList.Contains(logger))
+                {
+                    allowList.Add(logger);
+                }
+                if (!prefix.isNullOrEmpty())
+                {
+                    prefix = prefix.toWidthExact(8, " ") + ": ";
+                }
+
+                if (!prefixRegistar.ContainsKey(logger))
+                {
+                    prefixRegistar.Add(logger, prefix);
+                }
+                else
+                {
+                    prefixRegistar[logger] = prefix;
+                }
+
+                
+                
+                
+                logger.VAR_AllowInstanceToOutputToConsole = true;
             }
         }
 
         /// <summary>
-        /// Replaces the output.
+        /// Replaces the two loggers in the console output
         /// </summary>
-        /// <param name="oldLoger">The old loger.</param>
-        /// <param name="newLoger">The new loger.</param>
-        public void replaceOutput(IConsoleControl oldLoger, IConsoleControl newLoger)
+        /// <param name="oldLogger">The old loger.</param>
+        /// <param name="newLogger">The new loger.</param>
+        public virtual void replaceOutput(IConsoleControl oldLogger, IConsoleControl newLogger)
         {
-            removeFromOutput(oldLoger);
-            setAsOutput(newLoger);
+            removeFromOutput(oldLogger);
+            setAsOutput(newLogger);
         }
 
         private IConsoleControl lastLogerToWrite = null;
@@ -205,7 +271,7 @@ namespace imbSCI.Core.reporting
 
         private Boolean _convertToDos = true;
         /// <summary>
-        /// 
+        /// IT will convert all characters sent to output into compatibile DOS encoding
         /// </summary>
         public Boolean convertToDos
         {
@@ -225,7 +291,7 @@ namespace imbSCI.Core.reporting
         }
 
 
-        private List<String> preprocessMessage(String message, IConsoleControl loger)
+        protected virtual List<String> preprocessMessage(String message, IConsoleControl loger)
         {           
             List<String> lines = new List<string>();
             foreach (String line in message.breakLines(false))
@@ -241,9 +307,19 @@ namespace imbSCI.Core.reporting
 
         private Object writeToLogWritterLock = new Object();
 
-        private static Regex reg_highlight = new Regex(@"_([\w\s\.\-\:\,\%]*)_");
+        /// <summary>
+        /// The highlight regex - used for all console output
+        /// </summary>
+        private static Regex reg_highlight = new Regex(@" _([\w\s\.\\_\-\:\-,\%\?\!\^\\$#~]*)_ ");
 
-        public void writeToConsole(String message, IConsoleControl loger, Boolean breakline, Int32 altColor=-1)
+        /// <summary>
+        /// Writes to console.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <param name="loger">The loger.</param>
+        /// <param name="breakline">if set to <c>true</c> [breakline].</param>
+        /// <param name="altColor">Color of the alt.</param>
+        public virtual void writeToConsole(String message, IConsoleControl loger, Boolean breakline, Int32 altColor=-1)
         {
             lock (writeToLogWritterLock)
             {
@@ -292,7 +368,7 @@ namespace imbSCI.Core.reporting
             }       
         }
 
-        private void writeLine(String ln, IConsoleControl loger)
+       protected virtual void writeLine(String ln, IConsoleControl loger)
         {
             if (reg_highlight.IsMatch(ln))
             {
@@ -359,7 +435,7 @@ namespace imbSCI.Core.reporting
         /// </summary>
         /// <param name="loger">The loger.</param>
         /// <returns></returns>
-        public Boolean checkOutputPermission(IConsoleControl loger)
+        public virtual Boolean checkOutputPermission(IConsoleControl loger)
         {
             try
             {
@@ -379,7 +455,7 @@ namespace imbSCI.Core.reporting
         /// Removes this loger from output permission
         /// </summary>
         /// <param name="loger">The loger.</param>
-        public void removeFromOutput(IConsoleControl loger)
+        public virtual void removeFromOutput(IConsoleControl loger)
         {
             //writeToConsole(loger.GetType().Name + ": went off", loger, true);
             lock (removeFromOutputLock)

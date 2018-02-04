@@ -49,17 +49,19 @@ namespace imbSCI.Graph.FreeGraph
     public static class freeGraphExtensions {
 
         /// <summary>
-        /// Pings the size of the graph by expanding from specified <c>pingSources</c> until number of reached nodes is increasing. <see cref="freeGraphPingType"/>
+        /// Pings the size of the graph by expanding from specified <c>pingSources</c> until number of reached nodes is increasing. <see cref="freeGraphPingType" />
         /// </summary>
         /// <param name="graph">The graph that is probed.</param>
-        /// <param name="pingSources">The ping sources - nodes to start ping expansion from.</param>
+        /// <param name="pingSource">The ping source.</param>
         /// <param name="bothDirections">if set to <c>true</c> if will expand trough both backward and forward links</param>
         /// <param name="pingType">Type of the ping operation</param>
         /// <param name="pingLimit">The ping limit - after which the expansion will stop.</param>
-        /// <returns>Value according to specified <c>pingType</c> or 0 on failure</returns>
+        /// <returns>
+        /// Value according to specified <c>pingType</c> or 0 on failure
+        /// </returns>
         public static Double PingGraphSize(this freeGraph graph, freeGraphNodeBase pingSource, Boolean bothDirections, freeGraphPingType pingType, Int32 pingLimit = 100)
         {
-            return PingGraphSize(graph, new List<freeGraphNodeBase>() { pingSource }, bothDirections, pingType, pingLimit);
+            return PingGraphSize(graph, new List<freeGraphNodeBase> { pingSource }, bothDirections, pingType, pingLimit);
 
         }
 
@@ -106,7 +108,7 @@ namespace imbSCI.Graph.FreeGraph
 
                 }
 
-                Int32 pingSize = 0;
+                Int32 pingSize = 1;
                 Int32 c = 0;
 
 
@@ -135,7 +137,7 @@ namespace imbSCI.Graph.FreeGraph
                     {
                         break;
                     }
-
+                    c++;
                     if (pingSize > pingLimit) break;
                 }
 

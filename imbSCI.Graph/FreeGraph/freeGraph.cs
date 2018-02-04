@@ -214,6 +214,36 @@ namespace imbSCI.Graph.FreeGraph
             return output;
         }
 
+        public Int32 CountLinks(String nodeName, Boolean AtoB = true, Boolean BtoA = true)
+        {
+            Int32 output = 0;
+            
+            if (AtoB)
+            {
+                output += links.Count(x => x.nodeNameA == nodeName);
+            }
+
+            if (BtoA)
+            {
+                output += links.Count(x => x.nodeNameB == nodeName);
+            }
+
+            return output;
+
+        }
+
+
+        /// <summary>
+        /// Gets the links.
+        /// </summary>
+        /// <param name="nodeName">Name of the node.</param>
+        /// <param name="AtoB">if set to <c>true</c> [ato b].</param>
+        /// <param name="BtoA">if set to <c>true</c> [bto a].</param>
+        /// <param name="nodeWeightFactor">The node weight factor.</param>
+        /// <param name="nodeType">Type of the node.</param>
+        /// <param name="skipCheck">if set to <c>true</c> [skip check].</param>
+        /// <param name="initialWeightFromParent">if set to <c>true</c> [initial weight from parent].</param>
+        /// <returns></returns>
         public freeGraphNodeAndLinks GetLinks(String nodeName, Boolean AtoB = true, Boolean BtoA = true, Double nodeWeightFactor = 1.0, Int32 nodeType = 0, Boolean skipCheck=true, Boolean initialWeightFromParent=true)
         {
 
@@ -538,7 +568,7 @@ namespace imbSCI.Graph.FreeGraph
         /// <param name="includeBtoAlinks">if set to <c>true</c> [include bto alinks].</param>
         /// <param name="includeQueryNodesInResult">if set to <c>true</c> [include query nodes in result].</param>
         /// <returns></returns>
-        public freeGraphQueryResult GetLinkedNodes(IEnumerable<String> queryNodeNames, Int32 expansionSteps=1, Boolean includeBtoAlinks = false, Boolean includeQueryNodesInResult=false)
+        public freeGraphQueryResult GetLinkedNodes(IEnumerable<String> queryNodeNames, Int32 expansionSteps=1, Boolean includeBtoAlinks = false, Boolean includeQueryNodesInResult=false, Boolean cloneAndAdjustWeight=true)
         {
             var output = new freeGraphQueryResult();
             if (!Check())
@@ -561,8 +591,8 @@ namespace imbSCI.Graph.FreeGraph
 
                 foreach (var node in queryNodes)
                 {
-                    expansion.AddRange(GetLinksBase(node.name, false, 1, true));
-                    if (includeBtoAlinks) expansion.AddRange(GetLinksBase(node.name, true, 1, true));
+                    expansion.AddRange(GetLinksBase(node.name, false, 1, cloneAndAdjustWeight));
+                    if (includeBtoAlinks) expansion.AddRange(GetLinksBase(node.name, true, 1, cloneAndAdjustWeight));
                 }
 
                 queryNodes = output.AddNewNodes(expansion);

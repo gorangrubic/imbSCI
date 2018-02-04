@@ -522,12 +522,27 @@ namespace imbSCI.Core.extensions.io
         public static Int32 RETRY_DELAY = 5000;
 
 
+        public static String ApplicationHomePath { get; set; } = "";
+
+        //public static String CheckApplicationHomePath()
+        //{
+        //    if (ApplicationHomePath == "")
+        //    {
+        //        AppDomain.CurrentDomain.BaseDirectory
+        //    }
+
+
+        //}
+
         /// <summary>
-        /// Gets writable file based on selected mode. By default it will do overwrite. Autorename calls <see cref="addUniqueSufix(string, string)"/> extension that counts existing files and sets proper number.
+        /// Gets writable file based on selected mode. By default it will do overwrite. Autorename calls <see cref="addUniqueSufix(string, string)" /> extension that counts existing files and sets proper number.
         /// </summary>
         /// <param name="path">The path.</param>
         /// <param name="mode">The mode.</param>
+        /// <param name="logger">The logger.</param>
         /// <returns></returns>
+        /// <exception cref="imbFileException">getWritableFile [" + mode.ToString() + "] failed when directory should be created from [" + dir.toStringSafe() + "]. " 
+        ///                         + ex.Message - null - null</exception>
         public static FileInfo getWritableFile(this String path, getWritableFileMode mode = getWritableFileMode.overwrite, ILogBuilder logger = null)
         {
             String output = path;

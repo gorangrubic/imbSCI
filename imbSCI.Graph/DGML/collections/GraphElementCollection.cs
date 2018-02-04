@@ -82,6 +82,7 @@ namespace imbSCI.Graph.DGML.collections
             {
                 output = new T();
                 output.Label = name;
+                output.Id = name.GetIDFromLabel();
                 Add(output);
             }
             return output;
