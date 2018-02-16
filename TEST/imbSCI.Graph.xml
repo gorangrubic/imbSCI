@@ -4,6 +4,17 @@
         <name>imbSCI.Graph</name>
     </assembly>
     <members>
+        <member name="T:imbSCI.Graph.attributes.NamespaceDoc">
+            <summary>
+            <para>In future, these attributes will allow declarative DataObject to Graph conversions</para>
+            </summary>
+        </member>
+        <member name="T:imbSCI.Graph.attributes.GraphExtractionAttribute">
+            <summary>
+            This attribute marks a property as graph node source - for automatic graph extraction
+            </summary>
+            <seealso cref="T:System.Attribute" />
+        </member>
         <member name="T:imbSCI.Graph.config.imbSCIGraphConversionConfig">
             <summary>
             General configuration object for domain of <see cref="N:imbSCI.Graph.config"/>
@@ -29,6 +40,11 @@
             <value>
             Global settings
             </value>
+        </member>
+        <member name="T:imbSCI.Graph.config.NamespaceDoc">
+            <summary>
+            <para>Global application-level configuration for graph visualisation</para>
+            </summary>
         </member>
         <member name="T:imbSCI.Graph.Converters.DirectedGraphConverterBase`2">
             <summary>
@@ -127,6 +143,25 @@
             <param name="DepthLimit">The depth limit.</param>
             <returns></returns>
         </member>
+        <member name="M:imbSCI.Graph.Converters.GraphConversionTools.ConvertToDOT(imbSCI.Graph.DGML.DirectedGraph)">
+            <summary>
+            Converts DirectedGraph to DOT graph
+            </summary>
+            <param name="graph">The graph.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.GraphConversionTools.ConvertToDGML(imbSCI.Graph.DOT.DotGraph)">
+            <summary>
+            Converts DOT graph to DirectedGraph
+            </summary>
+            <param name="graph">The graph.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Graph.Converters.GraphConversionTools.DefaultDotToDGMLConverter">
+            <summary>
+            static and autoinitiated object
+            </summary>
+        </member>
         <member name="P:imbSCI.Graph.Converters.GraphConversionTools.PropertyExpressionConverterToDGML">
             <summary>
             static and autoinitiated object
@@ -158,10 +193,11 @@
         </member>
         <member name="M:imbSCI.Graph.Converters.graphToDirectedGraphConverterBase`1.Convert(`0,System.Int32,System.Collections.Generic.IEnumerable{`0})">
             <summary>
-            Converts the specified source: from <c>T</c> to DirectedGraph 
+            Converts the specified source: from <c>T</c> to DirectedGraph
             </summary>
             <param name="source">The source.</param>
             <param name="depthLimit">The depth limit.</param>
+            <param name="rootNodes"></param>
             <returns></returns>
         </member>
         <member name="T:imbSCI.Graph.Converters.graphToDirectedGraphConverterBasic">
@@ -266,6 +302,11 @@
             <param name="source">The source.</param>
             <param name="depthLimit">The depth limit.</param>
             <returns></returns>
+        </member>
+        <member name="T:imbSCI.Graph.Converters.NamespaceDoc">
+            <summary>
+            <para>Default static graph converters, accessable trough extensions - and base classes for development of customized graph converters</para>
+            </summary>
         </member>
         <member name="T:imbSCI.Graph.Converters.propertyExpressionToDirectedGraphConverter">
             <summary>
@@ -555,6 +596,11 @@
             
             </summary>
         </member>
+        <member name="T:imbSCI.Graph.DGML.core.NamespaceDoc">
+            <summary>
+            <para>Core elements of the DirectedGraph</para>
+            </summary>
+        </member>
         <member name="T:imbSCI.Graph.DGML.core.Node">
             <summary>
             
@@ -602,6 +648,14 @@
             </summary>
             <param name="path">The path.</param>
             <param name="mode">The mode.</param>
+        </member>
+        <member name="T:imbSCI.Graph.DGML.NamespaceDoc">
+            <summary>
+            <para>Classes for construction of DirectedGraph structure, primarly intended for serialization and later visualisation in Visual Studio. Not meant for direct use as data structure, altough it might serve that purpose as well</para>
+            </summary>
+            <remarks>
+            For weighted graph data-structure better idea is to use <see cref="T:imbSCI.Graph.FreeGraph.freeGraph"/>
+            </remarks>
         </member>
         <member name="T:imbSCI.Graph.DOT.DotLink">
             <summary>
@@ -694,12 +748,6 @@
             </summary>
             <param name="element">The element.</param>
         </member>
-        <member name="T:imbSCI.Graph.attributes.GraphExtractionAttribute">
-            <summary>
-            This attribute marks a property as graph node source - for automatic graph extraction
-            </summary>
-            <seealso cref="T:System.Attribute" />
-        </member>
         <member name="T:imbSCI.Graph.FreeGraph.freeGraph">
             <summary>
             
@@ -733,6 +781,19 @@
             <param name="toState">State of inversion that is desired.</param>
             <param name="detectFirst">if set to <c>true</c> [detect first].</param>
             <returns>Final state of inversion</returns>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraph.GetLinks(System.String,System.Boolean,System.Boolean,System.Double,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Gets the links.
+            </summary>
+            <param name="nodeName">Name of the node.</param>
+            <param name="AtoB">if set to <c>true</c> [ato b].</param>
+            <param name="BtoA">if set to <c>true</c> [bto a].</param>
+            <param name="nodeWeightFactor">The node weight factor.</param>
+            <param name="nodeType">Type of the node.</param>
+            <param name="skipCheck">if set to <c>true</c> [skip check].</param>
+            <param name="initialWeightFromParent">if set to <c>true</c> [initial weight from parent].</param>
+            <returns></returns>
         </member>
         <member name="M:imbSCI.Graph.FreeGraph.freeGraph.OnBeforeSave(imbSCI.Core.files.folders.folderNode)">
             <summary>
@@ -798,7 +859,7 @@
             <param name="nodeNameB">The node name b.</param>
             <returns></returns>
         </member>
-        <member name="M:imbSCI.Graph.FreeGraph.freeGraph.GetLinkedNodes(System.Collections.Generic.IEnumerable{System.String},System.Int32,System.Boolean,System.Boolean)">
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraph.GetLinkedNodes(System.Collections.Generic.IEnumerable{System.String},System.Int32,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             Iterative query for linked nodes.
             </summary>
@@ -864,14 +925,16 @@
         </member>
         <member name="M:imbSCI.Graph.FreeGraph.freeGraphExtensions.PingGraphSize(imbSCI.Graph.FreeGraph.freeGraph,imbSCI.Graph.FreeGraph.freeGraphNodeBase,System.Boolean,imbSCI.Graph.FreeGraph.freeGraphPingType,System.Int32)">
             <summary>
-            Pings the size of the graph by expanding from specified <c>pingSources</c> until number of reached nodes is increasing. <see cref="T:imbSCI.Graph.FreeGraph.freeGraphPingType"/>
+            Pings the size of the graph by expanding from specified <c>pingSources</c> until number of reached nodes is increasing. <see cref="T:imbSCI.Graph.FreeGraph.freeGraphPingType" />
             </summary>
             <param name="graph">The graph that is probed.</param>
-            <param name="pingSources">The ping sources - nodes to start ping expansion from.</param>
+            <param name="pingSource">The ping source.</param>
             <param name="bothDirections">if set to <c>true</c> if will expand trough both backward and forward links</param>
             <param name="pingType">Type of the ping operation</param>
             <param name="pingLimit">The ping limit - after which the expansion will stop.</param>
-            <returns>Value according to specified <c>pingType</c> or 0 on failure</returns>
+            <returns>
+            Value according to specified <c>pingType</c> or 0 on failure
+            </returns>
         </member>
         <member name="M:imbSCI.Graph.FreeGraph.freeGraphExtensions.PingGraphSize(imbSCI.Graph.FreeGraph.freeGraph,System.Collections.Generic.IEnumerable{imbSCI.Graph.FreeGraph.freeGraphNodeBase},System.Boolean,imbSCI.Graph.FreeGraph.freeGraphPingType,System.Int32)">
             <summary>
@@ -908,6 +971,90 @@
             </summary>
             <param name="source">The source.</param>
             <returns></returns>
+        </member>
+        <member name="T:imbSCI.Graph.FreeGraph.freeGraphIsland">
+            <summary>
+            Describes one graph island, detected in a <see cref="T:imbSCI.Graph.FreeGraph.freeGraph"/>
+            </summary>
+            <remarks>
+            Graph island is a group of interconnected graph nodes
+            </remarks>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraphIsland.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Graph.FreeGraph.freeGraphIsland"/> class.
+            </summary>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraphIsland.Add(System.Collections.Generic.IEnumerable{imbSCI.Graph.FreeGraph.freeGraphNodeBase})">
+            <summary>
+            Adds the specified input.
+            </summary>
+            <param name="input">The input.</param>
+        </member>
+        <member name="P:imbSCI.Graph.FreeGraph.freeGraphIsland.type">
+            <summary>
+            Gets the <see cref="T:imbSCI.Graph.FreeGraph.freeGraphIslandType" />, indicating the size (called mass, count of nodes) of the island. Set is ignored, it is declared just to enable proper XML serialization of Get value
+            </summary>
+            <value>
+            The type.
+            </value>
+        </member>
+        <member name="P:imbSCI.Graph.FreeGraph.freeGraphIsland.Count">
+            <summary>
+            Gets the node count
+            </summary>
+            <value>
+            The count.
+            </value>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraphIsland.Add(imbSCI.Graph.FreeGraph.freeGraphQueryResult)">
+            <summary>
+            Adds all nodes from the query into collection that are not already in the island (identified by: <see cref="P:imbSCI.Graph.FreeGraph.freeGraphNodeBase.name"/> )
+            </summary>
+            <param name="queryResult">The query result.</param>
+        </member>
+        <member name="P:imbSCI.Graph.FreeGraph.freeGraphIsland.nodes">
+            <summary>
+            Name of nodes found in the island
+            </summary>
+            <value>
+            The nodes.
+            </value>
+        </member>
+        <member name="T:imbSCI.Graph.FreeGraph.freeGraphIslandType">
+            <summary>
+            Type of <see cref="T:imbSCI.Graph.FreeGraph.freeGraphIsland"/> by number of <see cref="T:imbSCI.Graph.FreeGraph.freeGraphNodeBase"/> contained
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.FreeGraph.freeGraphIslandType.none">
+            <summary>
+            Island is actually non island, since it has zero nodes
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.FreeGraph.freeGraphIslandType.mononodal">
+            <summary>
+            The mononodal: has only one node
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.FreeGraph.freeGraphIslandType.binodal">
+            <summary>
+            The binodal: has two nodes
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.FreeGraph.freeGraphIslandType.trinodal">
+            <summary>
+            The trinodal: has three nodes
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.FreeGraph.freeGraphIslandType.polinodal">
+            <summary>
+            The polinodal: has more then three nodes
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.FreeGraph.freeGraphIslandType.unknown">
+            <summary>
+            The unknown: this indicates some problem, as you should never see an island taggd as <see cref="F:imbSCI.Graph.FreeGraph.freeGraphIslandType.unknown"/>
+            </summary>
         </member>
         <member name="M:imbSCI.Graph.FreeGraph.freeGraphLinkRegistry.GetLinkKey(System.String,System.String)">
             <summary>
@@ -986,12 +1133,68 @@
             <param name="nodes">The nodes.</param>
             <returns></returns>
         </member>
+        <member name="T:imbSCI.Graph.FreeGraph.freeGraphReport">
+            <summary>
+            Report on free graph
+            </summary>
+            <seealso cref="T:imbSCI.Data.interfaces.IObjectWithNameAndDescription" />
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraphReport.Save(imbSCI.Core.files.folders.folderNode,System.String)">
+            <summary>
+            Saves the report to the <c>folder</c> using specified filename or default: "analysis_[<see cref="P:imbSCI.Graph.FreeGraph.freeGraphReport.name" />].xml"
+            </summary>
+            <param name="folder">The folder.</param>
+            <param name="filename">The filename.</param>
+        </member>
+        <member name="P:imbSCI.Graph.FreeGraph.freeGraphReport.name">
+            <summary> Name of the report </summary>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraphReport.#ctor(imbSCI.Graph.FreeGraph.freeGraph)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Graph.FreeGraph.freeGraphReport"/> class and performs analysis on <c>graph</c>
+            </summary>
+            <param name="graph">The graph.</param>
+        </member>
+        <member name="M:imbSCI.Graph.FreeGraph.freeGraphReport.Deploy(imbSCI.Graph.FreeGraph.freeGraph)">
+            <summary>
+            Populates the graph report
+            </summary>
+            <param name="graph">The graph.</param>
+        </member>
+        <member name="P:imbSCI.Graph.FreeGraph.freeGraphReport.BinodalN">
+            <summary> Number of nodes in binode islands: two nodes with one link between them, disconnected from the rest of the graph </summary>
+        </member>
+        <member name="P:imbSCI.Graph.FreeGraph.freeGraphReport.TrinodalN">
+            <summary> Number of trinode islands: tri nodes with two or three links between them, disconnected from the rest of the graph </summary>
+        </member>
+        <member name="P:imbSCI.Graph.FreeGraph.freeGraphReport.PolinodalN">
+            <summary> Number of islands counting more then three linked nodes </summary>
+        </member>
+        <member name="P:imbSCI.Graph.FreeGraph.freeGraphReport.AllIslands">
+            <summary> Number of all islands, including the continent </summary>
+        </member>
+        <member name="P:imbSCI.Graph.FreeGraph.freeGraphReport.PolinodalRatio">
+            <summary> Node count ratio, in which polinode island nodes, participate in total node count </summary>
+        </member>
+        <member name="P:imbSCI.Graph.FreeGraph.freeGraphReport.Trinodal">
+            <summary> Number of trinode islands: tri nodes with two or three links between them, disconnected from the rest of the graph </summary>
+        </member>
+        <member name="P:imbSCI.Graph.FreeGraph.freeGraphReport.Polinodal">
+            <summary> Number of nodes in polinode islands counting more then three linked nodes </summary>
+        </member>
+        <member name="P:imbSCI.Graph.FreeGraph.freeGraphReport.NodeCount">
+            <summary> Cross category number of nodes in the Semantic Cloud </summary>
+        </member>
+        <member name="P:imbSCI.Graph.FreeGraph.freeGraphReport.LinkRatio">
+            <summary> Cross category average number of links per node, in the Semantic Cloud </summary>
+        </member>
         <member name="T:imbSCI.Graph.FreeGraph.NamespaceDoc">
             <summary>
             <para>Undirected Graph where nodes can connect to each other without restriction</para>
             </summary>
             <remarks>
-            <para>The graph is built from <see cref="T:imbSCI.Graph.FreeGraph.freeGraphNodeBase"/> and <see cref="T:imbSCI.Graph.FreeGraph.freeGraphLinkBase"/> that have weights assigned</para>
+            <para>The graph is built from <see cref="T:imbSCI.Graph.FreeGraph.freeGraphNodeBase"/> and <see cref="T:imbSCI.Graph.FreeGraph.freeGraphLinkBase"/> that have weights (<see cref="P:imbSCI.Graph.FreeGraph.freeGraphLinkBase.weight"/>) and types (<see cref="P:imbSCI.Graph.FreeGraph.freeGraphNodeBase.type"/>) assigned.</para>
+            <para><see cref="T:imbSCI.Graph.FreeGraph.freeGraphReport"/> provides nice structural analysis of the graph, and detects the <see cref="T:imbSCI.Graph.FreeGraph.freeGraphIsland"/>s within a graph</para>
             <list type="bullet">
             	<listheader>
             		<term>When to use <see cref="T:imbSCI.Graph.FreeGraph.freeGraph"/>?</term>
@@ -1007,6 +1210,558 @@
             </list>
             </remarks>
             <seealso cref="T:imbSCI.Graph.Converters.GraphConversionTools" />
+        </member>
+        <member name="T:imbSCI.Graph.Graphics.HeatMap.HeatMapModel">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:System.Collections.Generic.List&lt;System.Collections.Generic.List&lt;System.Double&gt;&gt;" />
+        </member>
+        <member name="P:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.deployed">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Graph.Graphics.HeatMap.HeatMapModel"/> class.
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.ArtificialMaximum">
+            <summary>
+            Gets or sets the artificial maximum.
+            </summary>
+            <value>
+            The artificial maximum.
+            </value>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.#ctor(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Initializes square heat map matrix
+            </summary>
+            <param name="columnsAndRows">The columns and rows.</param>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.Deploy(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Initializes rectanglural heat map matrix
+            </summary>
+            <param name="columns">The columns.</param>
+            <param name="rows">The rows.</param>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.CreateRandom(System.Int32,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Creates randomized heat map, with specified x-y axis size.
+            </summary>
+            <param name="width">The width.</param>
+            <param name="height">The height.</param>
+            <param name="min">The minimum.</param>
+            <param name="max">The maximum.</param>
+            <param name="axisFormat">The axis format.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.Item(System.String,System.String)">
+            <summary>
+            Selection by string labels
+            </summary>
+            <value>
+            The <see cref="T:System.Double"/>.
+            </value>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.AllocateSize(System.Int32,System.Int32)">
+            <summary>
+            Allocates the size.
+            </summary>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+        </member>
+        <member name="P:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the <see cref="T:System.Double"/> with the specified x.
+            </summary>
+            <value>
+            The <see cref="T:System.Double"/>.
+            </value>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.Randomize(System.Int32,System.Int32)">
+            <summary>
+            Randomizes the values writen in the matrix
+            </summary>
+            <param name="min">The minimum.</param>
+            <param name="max">The maximum.</param>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.GetRatioValue(System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets the value that is 
+            </summary>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.ranger">
+            <summary>
+            Gets or sets the ranger.
+            </summary>
+            <value>
+            The ranger.
+            </value>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.DetectMinMax">
+            <summary>
+            Sets the ranger
+            </summary>
+        </member>
+        <member name="T:imbSCI.Graph.Graphics.HeatMap.SVGTools">
+            <summary>
+            Helper tools for SVG
+            </summary>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.HeatMap.SVGTools.Get_ci(System.Int32)">
+            <summary>
+            Gets 100th part of inch * <c>val</c>
+            </summary>
+            <param name="val">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Graph.Graphics.HeatMap.HeatMapRender">
+            <summary>
+            Utility class used for rendering of <see cref="T:imbSCI.Graph.Graphics.HeatMap.HeatMapModel"/>
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Graphics.HeatMap.HeatMapRender.style">
+            <summary>
+            Gets or sets the style.
+            </summary>
+            <value>
+            The style.
+            </value>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.HeatMap.HeatMapRender.RenderAndSave(imbSCI.Graph.Graphics.HeatMap.HeatMapModel,System.String)">
+            <summary>
+            Renders the heat map and saves the output to <c>filePath</c>. This is void alias to <see cref="M:imbSCI.Graph.Graphics.HeatMap.HeatMapRender.Render(imbSCI.Graph.Graphics.HeatMap.HeatMapModel,System.String)"/>
+            </summary>
+            <param name="model">The model.</param>
+            <param name="filePath">The file path.</param>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.HeatMap.HeatMapRender.Render(imbSCI.Graph.Graphics.HeatMap.HeatMapModel,System.String)">
+            <summary>
+            Renders the specified <see cref="T:imbSCI.Graph.Graphics.HeatMap.HeatMapModel"/>, optionally saves the output SVG
+            </summary>
+            <param name="model">The model.</param>
+            <param name="filePath">The file path.</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Graph.Graphics.HeatMap.HeatMapRenderOptions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:imbSCI.Graph.Graphics.HeatMap.HeatMapRenderStyle">
+            <summary>
+            Heat map rendering style
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Graphics.HeatMap.HeatMapRenderStyle.accronimLength">
+            <summary>
+            Number of letters in key accronims
+            </summary>
+            <value>
+            The length of the accronim.
+            </value>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.AxisChart.GetMaxValue(System.Data.DataTable,System.String)">
+            <summary>
+            Get the collection's max value
+            </summary>
+            <param name="_data">DataTable</param>
+            <param name="_colValues">string</param>
+            <returns>double</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.AxisChart.GetMinValue(System.Data.DataTable,System.String)">
+            <summary>
+            Get the collection's min value
+            </summary>
+            <param name="_data">DataTable</param>
+            <param name="_colValues">string</param>
+            <returns>double</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.AxisChart.GetMaxFillFactor(System.Double,System.Double)">
+            <summary>
+            Get the max factor
+            </summary>
+            <param name="maxValue">double</param>
+            <param name="minValue">double</param>
+            <returns>double</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.AxisChart.GetMinFillFactor(System.Double,System.Double)">
+            <summary>
+            Get the min factor
+            </summary>
+            <param name="minValue">double</param>
+            <param name="maxValue">double</param>
+            <returns>double</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.AxisChart.AddTextLegend(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Add the text legend text bellow the x axis.
+            </summary>
+            <param name="_x">double</param>
+            <param name="_y">double</param>
+            <param name="_fontSize">double</param>
+            <param name="_legendValue">double</param>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.AxisChart.InitializeValues(System.Data.DataTable,System.String)">
+            <summary>
+            Initialize main values for generate the layout
+            </summary>
+            <param name="_data">DataTable</param>
+            <param name="_colValues">string</param>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.AxisChart.GenerateAxis">
+            <summary>
+            Creates x and y Axis
+            </summary>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.Chart.CalcLegendArea">
+            <summary>
+            Calculate the Legend Area
+            </summary>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.Chart.CalcChartArea">
+            <summary>
+            Calculate the Chart Area
+            </summary>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.Chart.GenerateChart(System.Data.DataTable,System.String,System.String)">
+            <summary>
+            Get a XmlDocument with the svg's transformed document.
+            </summary>
+            <param name="_data">DataTable</param>
+            <param name="_colNames">string</param>
+            <param name="_colValues">string</param>
+            <returns>XmlDocument</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.Chart.GenerateLegendItem(System.String,System.Int32@,System.Int32@,System.Int32)">
+            <summary>
+            Creates the legend item for a value.
+            </summary>
+            <param name="text">string</param>
+            <param name="indexColumn">int</param>
+            <param name="indexRow">int</param>
+            <param name="indexColor">int</param>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.Chart.Transform">
+            <summary>
+            Parse de XmlDocument with the svg objects to a well formated SVG Document.
+            </summary>
+            <returns>XmlDocument</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.Doughnut3DChart.GenerateChart(System.Data.DataTable,System.String,System.String)">
+            <summary>
+            Get a XmlDocument with the svg's transformed document.
+            </summary>
+            <param name="_data">DataTable</param>
+            <param name="_colNames">string</param>
+            <param name="_colValues">string</param>
+            <returns>XmlDocument</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.Doughnut3DChart.CreateCheese(System.Double,System.Double@,System.Drawing.Color,System.Double@)">
+            <summary>
+            Creates the polygon's value.        
+            </summary>
+            <param name="_value">double</param>
+            <param name="_sumDegree">double</param>
+            <param name="_color">Color</param>
+            <param name="_degree">double</param>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.Doughnut3DChart.CreateInnerSection(System.Double,System.Double@,System.Drawing.Color,System.Double@)">
+            <summary>
+            Create the inner polygon of the doughnut.
+            </summary>
+            <param name="_value">double</param>
+            <param name="_sumDegree">double</param>
+            <param name="_color">Color</param>
+            <param name="_degree">double</param>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.DoughnutChart.CreateCheese(System.Double,System.Double@,System.Drawing.Color,System.Double@)">
+            <summary>
+            Creates the polygon's value.
+            </summary>
+            <param name="_value">double</param>
+            <param name="_sumDegree">double</param>
+            <param name="_color">Color</param>
+            <param name="_degree">double</param>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.Histogram3DChart.GenerateChart(System.Data.DataTable,System.String,System.String)">
+            <summary>
+            Get a XmlDocument with the svg's transformed document.
+            </summary>
+            <param name="_data">DataTable</param>
+            <param name="_colNames">string</param>
+            <param name="_colValues">string</param>
+            <returns>XmlDocument</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.Histogram3DChart.GenerateTopPol(imbSCI.Graph.Graphics.SvgDocument.Rectangle,System.Int32)">
+            <summary>
+            Get the Polygon for the top of the bar.
+            </summary>
+            <param name="_bar">Rectangle</param>
+            <param name="_indexRow">int</param>
+            <returns>Polygon</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.Histogram3DChart.GenerateSidePol(imbSCI.Graph.Graphics.SvgDocument.Rectangle,System.Int32)">
+            <summary>
+            Get the Polygon for the side of the bar
+            </summary>
+            <param name="_bar">Rectangle</param>
+            <param name="_indexRow">int</param>
+            <returns>Polygon</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.HistogramChart.GenerateChart(System.Data.DataTable,System.String,System.String)">
+            <summary>
+            Get a XmlDocument with the svg's transformed document.
+            </summary>
+            <param name="_data">DataTable</param>
+            <param name="_colNames">string</param>
+            <param name="_colValues">string</param>
+            <returns>XmlDocument</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.HistogramChart.GenerateBar(System.Double,System.Double,System.Double,System.Int32)">
+            <summary>
+            Creates the value's Rectangle
+            </summary>
+            <param name="_value">double</param>
+            <param name="_x">double</param>
+            <param name="_y">double</param>
+            <param name="_indexRow">int</param>
+            <returns>Rectangle</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.LinearChart.AddPoint(imbSCI.Graph.Graphics.SvgDocument.SVGPoint)">
+            <summary>
+            Add the value's point
+            </summary>
+            <param name="_point">SVGObject.point</param>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.LinearChart.GenerateChart(System.Data.DataTable,System.String,System.String)">
+            <summary>
+            Get a XmlDocument with the svg's transformed document.
+            </summary>
+            <param name="_data">DataTable</param>
+            <param name="_colNames">string</param>
+            <param name="_colValues">string</param>
+            <returns>XmlDocument</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.LinearChart.UnionPoints">
+            <summary>
+            Creates the line 
+            </summary>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.LinearChart.CreateLine(imbSCI.Graph.Graphics.SvgDocument.SVGPoint,imbSCI.Graph.Graphics.SvgDocument.SVGPoint)">
+            <summary>
+            Creates a line with two points of the collection
+            </summary>
+            <param name="_source">SVGPoint</param>
+            <param name="_target">SVGPoint</param>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.LinearChart.GeneratePoint(System.Double,System.Double,System.Double)">
+            <summary>
+            Get a value's point
+            </summary>
+            <param name="_value">double</param>
+            <param name="_xStartPosition">double</param>
+            <param name="_yStartPosition">double</param>
+            <returns>SVGPoint</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.LinearChart.GenerateLegendItem(System.Data.DataTable,System.String)">
+            <summary>
+            Creates a value's legend item
+            </summary>
+            <param name="_data">DataTable</param>
+            <param name="_colNames">string</param>
+        </member>
+        <member name="T:imbSCI.Graph.Graphics.SvgChart.NamespaceDoc">
+            <summary>
+            <para>SVG Chart generation</para>
+            </summary>
+            <remarks>
+            <para>This namespace is developed from original work of: GERARD CASTELLÓ (17/JUN/2010), published on: https://www.codeproject.com/Articles/43483/Making-SVG-Charts-with-Common-Objects</para>
+            </remarks>
+            <seealso cref="!:remarks" />
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.Pie3DChart.GetPoint(System.Double)">
+            <summary>
+            Returns a point in the area depending of the angle's degree.
+            </summary>
+            <param name="_degree">double</param>
+            <returns>SVGPoint</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.Pie3DChart.GetPoint(System.Double,System.Double,System.Double)">
+            <summary>
+            Returns a point in the area depending of the angle's degree and the width and height of the pie.
+            </summary>
+            <param name="_degree">double</param>
+            <param name="_width">double</param>
+            <param name="_height">double</param>
+            <returns>SVGPoint</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.Pie3DChart.CreateCheese(System.Double,System.Double@,System.Drawing.Color,System.Double@)">
+            <summary>
+            Creates the polygon's value
+            </summary>
+            <param name="_value">double</param>
+            <param name="_sumDegree">double</param>
+            <param name="_color">Color</param>
+            <param name="_degree">double</param>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.PieChart.GenerateChart(System.Data.DataTable,System.String,System.String)">
+            <summary>
+            Get a XmlDocument with the svg's transformed document.
+            </summary>
+            <param name="_data">DataTable</param>
+            <param name="_colNames">string</param>
+            <param name="_colValues">string</param>
+            <returns>XmlDocument</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.PieChart.GetPoint(System.Double)">
+            <summary>
+            Get a point from one degree
+            </summary>
+            <param name="_degree">double</param>
+            <returns>SVGPoint</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.PieChart.GetPoint(System.Double,System.Double)">
+            <summary>
+            Returns a point in the area depending of the angle's degree and the height.
+            </summary>
+            <param name="_degree">double</param>
+            <param name="_height">double</param>
+            <returns>SVGPoint</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.PieChart.GetRadians(System.Double)">
+            <summary>
+            Converts degrees to radians.
+            </summary>
+            <param name="_degree">double</param>
+            <returns>double</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.PieChart.CreateCheese(System.Double,System.Double@,System.Drawing.Color,System.Double@)">
+            <summary>
+            Creates the polygon's value
+            </summary>
+            <param name="_value">double</param>
+            <param name="_sumDegree">double</param>
+            <param name="_color">Color</param>
+            <param name="_degree">double</param>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgChart.PieChart.GenerateLegendItem(System.String,System.Int32@,System.Int32@,System.Int32,System.Double)">
+            <summary>
+            Creates the legend item value
+            </summary>
+            <param name="text">string</param>
+            <param name="indexColumn">int</param>
+            <param name="indexRow">int</param>
+            <param name="indexColor">int</param>
+            <param name="currentDegree">double</param>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgDocument.Document.ToXml">
+            <summary>
+            Get a XmlDocument with all details of the svg document.
+            </summary>
+            <returns>XmlDocument</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgDocument.Line.ToXml">
+            <summary>
+            Get a XmlNode with all details of this object.
+            </summary>
+            <returns>XmlNode</returns>
+        </member>
+        <member name="T:imbSCI.Graph.Graphics.SvgDocument.NamespaceDoc">
+            <summary>
+            <para>SVG Object model</para>
+            </summary>
+            <remarks>
+            <para>This namespace is developed from original work of: GERARD CASTELLÓ (17/JUN/2010), published on: https://www.codeproject.com/Articles/43483/Making-SVG-Charts-with-Common-Objects </para>
+            <para>Linked in page: http://www.linkedin.com/pub/gerard-castell%C3%B3-viader/67/748/a80 </para>
+            </remarks>
+            <seealso cref="!:remarks" />
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgDocument.Polygon.AddPoint(System.Double,System.Double)">
+            <summary>
+            Add a point to the array
+            </summary>
+            <param name="_xvalue">double</param>
+            <param name="_yvalue">double</param>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgDocument.Polygon.AddPoint(imbSCI.Graph.Graphics.SvgDocument.SVGPoint)">
+            <summary>
+            Add a point to the array
+            </summary>
+            <param name="_point">SVGPoint</param>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgDocument.Polygon.AddPoint(imbSCI.Graph.Graphics.SvgDocument.SVGPoint[])">
+            <summary>
+            Add points to the current array
+            </summary>
+            <param name="_points">Point[]</param>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgDocument.Polygon.ToXml">
+            <summary>
+            Get a XmlNode with all details of this object
+            </summary>
+            <returns>XmlNode</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgDocument.Rectangle.ToXml">
+            <summary>
+            Get a XmlNode with all details of this object
+            </summary>
+            <returns>XmlNode</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgDocument.SVGObject.GetNode(System.Xml.XmlDocument)">
+            <summary>
+            Get a XmlDocument with the object's main details
+            </summary>
+            <param name="xmlObject">XmlDocument</param>
+            <returns>XmlDocument</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.SvgDocument.Text.ToXml">
+            <summary>
+            Get a XmlNode with all details of this object
+            </summary>
+            <returns>XmlNode</returns>
+        </member>
+        <member name="T:imbSCI.Graph.NamespaceDoc">
+            <summary>
+            <para>Library dedicated to graph data structures and graph-for-visualisation conversion</para>
+            </summary>
+            <remarks>
+            <para>The main datastructure of the library is <see cref="T:imbSCI.Graph.FreeGraph.freeGraph"/>, a non-hierarchical graph with weighted <see cref="T:imbSCI.Graph.FreeGraph.freeGraphNodeBase"/> nodes and <see cref="T:imbSCI.Graph.FreeGraph.freeGraphLinkBase"/> links.</para>
+            <list>
+            	<listheader>
+            		<term>Key features of the library</term>
+            		<description></description>
+            	</listheader>
+            	<item>
+            		<term>Graph conversion</term>
+            		<description>Use <see cref="T:imbSCI.Graph.Converters.GraphConversionTools"/> extensions to convert between <see cref="T:imbSCI.Data.collection.graph.graphNodeBase"/> graphs, <see cref="T:imbSCI.Graph.DGML.DirectedGraph"/> and <see cref="T:imbSCI.Graph.FreeGraph.freeGraph"/></description>
+            	</item>
+            	<item>
+            		<term>Export for visualisation</term>
+            		<description>Use <see cref="T:imbSCI.Graph.DGML.DirectedGraph"/> and <see cref="T:imbSCI.Graph.DOT.DotGraph"/> to export graph structured for visualisation in Visual Studio or GraphViz</description>
+            	</item>
+            	<item>
+            		<term>Query and analyse</term>
+            		<description>There are several utility classes for quering and analysis of <see cref="T:imbSCI.Graph.FreeGraph.freeGraph"/>, like: <see cref="T:imbSCI.Graph.FreeGraph.freeGraphIsland"/>, <see cref="T:imbSCI.Graph.FreeGraph.freeGraphQueryResult"/>, <see cref="T:imbSCI.Graph.FreeGraph.freeGraphReport"/></description>
+            	</item>
+            </list>
+            </remarks>
+            <seealso cref="T:imbSCI.Graph.DGML.DirectedGraph" />
+            <seealso cref="T:imbSCI.Graph.DOT.DotGraph" />
+            <seealso cref="T:imbSCI.Graph.FreeGraph.freeGraph" />
         </member>
     </members>
 </doc>

@@ -34,7 +34,6 @@ namespace imbSCI.Core.math
 {
     using MathNet.Numerics.Statistics;
 
-
     /// <summary>
     /// Entropy, and some wrappers to <see cref="MathNet.Numerics"/>
     /// </summary>

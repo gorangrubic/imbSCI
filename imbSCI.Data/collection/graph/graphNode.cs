@@ -54,6 +54,7 @@ namespace imbSCI.Data.collection.graph
     /// <seealso cref="aceCommonTypes.interfaces.IObjectWithName" />
     /// <seealso cref="aceCommonTypes.interfaces.IObjectWithPathAndChildren" />
     /// <seealso cref="aceCommonTypes.interfaces.IObjectWithTreeView" />
+    [Serializable]
     public class graphNode: graphNodeBase, IEnumerable<IGraphNode>, IGraphNode
     {
 

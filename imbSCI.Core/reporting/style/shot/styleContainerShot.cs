@@ -112,6 +112,18 @@ namespace imbSCI.Core.reporting.style.shot
         }
 
 
+        /// <summary>
+        /// Returns the zone spatial settings -- btw. top/bottom and left/right margin and padding are equalized: top=>bottom, left=>right
+        /// </summary>
+        /// <returns></returns>
+        public cursorZoneSpatialSettings GetFormatSetup()
+        {
+            cursorZoneSpatialSettings output = new cursorZoneSpatialSettings(minSize.width, minSize.height, sizeAndBorder.left.margin, sizeAndBorder.top.margin, sizeAndBorder.left.padding, sizeAndBorder.top.padding);
+
+            return output;
+
+        }
+
         public styleContainerShot()
         {
 

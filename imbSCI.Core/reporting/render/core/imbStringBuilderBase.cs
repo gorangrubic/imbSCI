@@ -170,6 +170,25 @@ namespace imbSCI.Core.reporting.render.core
             }
         }
 
+
+        private Object sbAppendLock = new Object();
+
+        protected void __lockedAppend(String __in, Boolean line= false) {
+
+            lock (sbAppendLock)
+            {
+                if (line)
+                {
+                    sb.AppendLine(__in);
+                }
+                else
+                {
+                    sb.Append(__in);
+                }
+            }
+        }
+
+
         /// <summary>
         /// Direct content injection, bypassing all internal transformations by class implementing <see cref="ITextRender" />
         /// </summary>
@@ -177,7 +196,12 @@ namespace imbSCI.Core.reporting.render.core
         public virtual void AppendDirect(string content)
         {
             if (VAR_AllowAutoOutputToConsole) writeToConsole(content, false);
-            if (isEnabled) sb.Append(content);
+            if (isEnabled)
+            {
+                __lockedAppend(content);
+                
+
+            }
         }
 
         /// <summary>
@@ -983,7 +1007,21 @@ namespace imbSCI.Core.reporting.render.core
         /// \ingroup_disabled renderapi_service
         public virtual String ContentToString(Boolean doFlush=false, reportOutputFormatName format = reportOutputFormatName.none)
         {
-            String output = sb.ToString();
+            String output = "";
+            if (sb.Length > 0)
+            {
+                try
+                {
+                    output = sb.ToString();
+                }
+                catch (Exception ex)
+                {
+                    output = "ERROR in ContentToString() call";
+                    output = output.addLine(ex.LogException("imbStringBuilderBase failed to deliver the content", "imbStringBuilderBase failed"));
+                }
+            }
+
+            
             if (doFlush) Clear();
             return output;
         }
@@ -1005,14 +1043,14 @@ namespace imbSCI.Core.reporting.render.core
         protected virtual void _AppendLine(String input)
         {
            // String newContent = linePrefix + tabInsert + input;
-           
+          // sb.AppendLine
             input = input.ensureStartsWith(linePrefix + tabInsert);
             input = imbSciStringExtensions.removeStartsWith(imbSciStringExtensions.removeEndsWith(input, newLineInsert), newLineInsert);
             input = imbSciStringExtensions.ensureEndsWith(input, newLineInsert);
 
             // contentElements.Add(newContent);
 
-            if (isEnabled) sb.Append(input);
+            if (isEnabled) __lockedAppend(input); // sb.Append(input);
             if (VAR_AllowAutoOutputToConsole) writeToConsole(input, true);
             //getLastLine(false);
         }
@@ -1031,7 +1069,7 @@ namespace imbSCI.Core.reporting.render.core
             else
             {
                 if (VAR_AllowAutoOutputToConsole) writeToConsole(input, breakLine);
-                if (isEnabled) sb.Append(input);
+                if (isEnabled) { __lockedAppend(input); } // sb.Append(input);
             }
             
             //getLastLine(false);

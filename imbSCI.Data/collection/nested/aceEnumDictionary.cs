@@ -36,6 +36,7 @@ namespace imbSCI.Data.collection.nested
     /// <summary>
     /// Recnik koji automatski popuni stavke svim TEnum enumeracijama - a value mu je new TObject();
     /// </summary>
+    [Serializable]
     public class aceEnumDictionary<TEnum, TObject> : Dictionary<TEnum, TObject> where TObject:class
     {
         public aceEnumDictionary()

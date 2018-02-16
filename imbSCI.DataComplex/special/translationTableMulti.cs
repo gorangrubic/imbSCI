@@ -52,6 +52,7 @@ namespace imbSCI.DataComplex.special
     /// <typeparam name="TValue">The type of the value.</typeparam>
     /// <seealso cref="dataBindableBase" />
     /// <seealso cref="System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{TKey, TValue}}" />
+    [Serializable]
     public class translationTableMulti<TKey, TValue> : dataBindableBase, IEnumerable<KeyValuePair<TKey, TValue>>
     {
 

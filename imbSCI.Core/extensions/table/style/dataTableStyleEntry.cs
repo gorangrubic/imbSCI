@@ -138,7 +138,7 @@ namespace imbSCI.Core.extensions.table.style
                     Background.Color = Color.SteelBlue;
                     Background.Tint = 0.5;
                     BackgroundAlt.Color = Color.SteelBlue;
-                    BackgroundAlt.Tint = 0.5;
+                    BackgroundAlt.Tint = 0.3;
                     break;
                 case DataRowInReportTypeEnum.removedLight:
                     Text.Style = reporting.style.enums.styleTextTypeEnum.regular | styleTextTypeEnum.striketrough; 
@@ -238,7 +238,38 @@ namespace imbSCI.Core.extensions.table.style
                 case DataRowInReportTypeEnum.none:
                     break;
                 default:
+                    Text.Style = reporting.style.enums.styleTextTypeEnum.regular;
+                    //Cell.sizeAndBorder.setup(0, 0, Color.Gray, 0, reporting.style.enums.styleBorderType.None);
+                   // Text.Color = Color.OrangeRed;
+                    Background.Color = Color.WhiteSmoke;
+                    BackgroundAlt.Color = Color.Snow;
+                    Background.Tint = 0.4;
+                    BackgroundAlt.Tint = 0.2;
                     break;
+            }
+
+            switch (enumType) {
+                case DataRowInReportTypeEnum.group01:
+                    Background.Color = Color.LightBlue;
+                    BackgroundAlt.Color = Color.LightBlue;
+                    break;
+                case DataRowInReportTypeEnum.group02:
+                    Background.Color = Color.Bisque;
+                    BackgroundAlt.Color = Color.Bisque;
+                    break;
+                case DataRowInReportTypeEnum.group03:
+                    Background.Color = Color.LightCyan;
+                    BackgroundAlt.Color = Color.LightCyan;
+                    break;
+                case DataRowInReportTypeEnum.group04:
+                    Background.Color = Color.LightGoldenrodYellow;
+                    BackgroundAlt.Color = Color.LightGoldenrodYellow;
+                    break;
+                case DataRowInReportTypeEnum.group05:
+                    Background.Color = Color.LightPink;
+                    BackgroundAlt.Color = Color.LightPink;
+                    break;
+
             }
         }
 

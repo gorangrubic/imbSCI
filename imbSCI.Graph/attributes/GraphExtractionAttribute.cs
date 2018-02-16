@@ -34,6 +34,9 @@ using System.Collections.Generic;
 namespace imbSCI.Graph.attributes
 {
 
+
+
+
     /// <summary>
     /// This attribute marks a property as graph node source - for automatic graph extraction
     /// </summary>

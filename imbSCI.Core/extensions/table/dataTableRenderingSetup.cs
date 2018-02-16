@@ -442,10 +442,13 @@ namespace imbSCI.Core.extensions.table
             return dc.ExtendedProperties[templateFieldDataTable.data_additional] as PropertyCollectionExtended;
         }
 
-        public static DataTable SetAdditionalInfoEntry(this DataTable dc, String data_name, Object data_value)
+        public static DataTable SetAdditionalInfoEntry(this DataTable dc, String data_name, Object data_value, String description="")
         {
             var pce = dc.GetAdditionalInfo();
             pce[data_name] = data_value;
+            if (!description.isNullOrEmpty()) pce.entries[PropertyEntryColumn.entry_description].EntryValue = description;
+
+
             dc.ExtendedProperties.add(templateFieldDataTable.data_additional, pce);
             return dc;
         }

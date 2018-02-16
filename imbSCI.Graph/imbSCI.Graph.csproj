@@ -80,22 +80,25 @@
     <Reference Include="EPPlus, Version=4.1.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\..\imbWBI\packages\EPPlus.4.1.1\lib\net40\EPPlus.dll</HintPath>
     </Reference>
-    <Reference Include="imbSCI.Core, Version=0.1.6609.8147, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\imbSCI.0.1.2.31\lib\net40\imbSCI.Core.dll</HintPath>
+    <Reference Include="imbSCI.Core, Version=0.1.6620.43133, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\imbWBI\packages\imbSCI.0.1.2.45\lib\net40\imbSCI.Core.dll</HintPath>
     </Reference>
-    <Reference Include="imbSCI.Data, Version=0.1.6603.21536, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\imbSCI.0.1.2.31\lib\net40\imbSCI.Data.dll</HintPath>
+    <Reference Include="imbSCI.Data, Version=0.1.6620.43132, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\imbWBI\packages\imbSCI.0.1.2.45\lib\net40\imbSCI.Data.dll</HintPath>
     </Reference>
-    <Reference Include="imbSCI.DataComplex, Version=0.1.6609.8148, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\imbSCI.0.1.2.31\lib\net40\imbSCI.DataComplex.dll</HintPath>
+    <Reference Include="imbSCI.DataComplex, Version=0.1.6620.43135, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\imbWBI\packages\imbSCI.0.1.2.45\lib\net40\imbSCI.DataComplex.dll</HintPath>
     </Reference>
-    <Reference Include="imbSCI.Reporting, Version=0.1.6609.8149, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\imbSCI.0.1.2.31\lib\net40\imbSCI.Reporting.dll</HintPath>
+    <Reference Include="imbSCI.Reporting, Version=0.1.6620.43135, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\imbWBI\packages\imbSCI.0.1.2.45\lib\net40\imbSCI.Reporting.dll</HintPath>
     </Reference>
     <Reference Include="MathNet.Numerics, Version=3.20.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\imbWBI\packages\MathNet.Numerics.3.20.2\lib\net40\MathNet.Numerics.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
+    <Reference Include="Svg, Version=2.2.1.39233, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Svg.2.3.0\lib\net35\Svg.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -108,7 +111,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="attributes\NamespaceDoc.cs" />
     <Compile Include="config\imbSCIGraphConversionConfig.cs" />
+    <Compile Include="config\NamespaceDoc.cs" />
     <Compile Include="Converters\DirectedGraphConverterBase.cs" />
     <Compile Include="Converters\DirectedGraphStylingCase.cs" />
     <Compile Include="Converters\dotToDirectedGraphConverterBasic.cs" />
@@ -119,6 +124,7 @@
     <Compile Include="Converters\graphToDirectedGraphConverterBasic.cs" />
     <Compile Include="Converters\graphToFreeGraphConverterBasic.cs" />
     <Compile Include="Converters\graphToGraphConverterBase.cs" />
+    <Compile Include="Converters\NamespaceDoc.cs" />
     <Compile Include="Converters\propertyExpressionToDirectedGraphConverter.cs" />
     <Compile Include="Converters\tools\GraphStylerSettings.cs" />
     <Compile Include="Converters\tools\NodeWeightStyler.cs" />
@@ -133,6 +139,7 @@
     <Compile Include="DGML\core\GraphNodeElement.cs" />
     <Compile Include="DGML\core\IGraphElement.cs" />
     <Compile Include="DGML\core\Link.cs" />
+    <Compile Include="DGML\core\NamespaceDoc.cs" />
     <Compile Include="DGML\core\Node.cs" />
     <Compile Include="DGML\core\Property.cs" />
     <Compile Include="DGML\DirectedGraph.cs" />
@@ -140,6 +147,7 @@
     <Compile Include="DGML\enums\GraphDirectionEnum.cs" />
     <Compile Include="DGML\enums\GraphLayoutEnum.cs" />
     <Compile Include="DGML\enums\GroupEnum.cs" />
+    <Compile Include="DGML\NamespaceDoc.cs" />
     <Compile Include="DOT\DotArrow.cs" />
     <Compile Include="DOT\DotArrowShape.cs" />
     <Compile Include="DOT\DotAttributeAttribute.cs" />
@@ -152,6 +160,7 @@
     <Compile Include="FreeGraph\freeGraph.cs" />
     <Compile Include="FreeGraph\freeGraphExtensions.cs" />
     <Compile Include="FreeGraph\freeGraphIsland.cs" />
+    <Compile Include="FreeGraph\freeGraphIslandType.cs" />
     <Compile Include="FreeGraph\freeGraphLink.cs" />
     <Compile Include="FreeGraph\freeGraphLinkBase.cs" />
     <Compile Include="FreeGraph\freeGraphLinkRegistry.cs" />
@@ -161,15 +170,44 @@
     <Compile Include="FreeGraph\freeGraphQueryResult.cs" />
     <Compile Include="FreeGraph\freeGraphReport.cs" />
     <Compile Include="FreeGraph\NamespaceDoc.cs" />
+    <Compile Include="Graphics\HeatMap\HeatMapModel.cs" />
+    <Compile Include="Graphics\HeatMap\HeatMapRender.cs" />
+    <Compile Include="Graphics\HeatMap\HeatMapRenderOptions.cs" />
+    <Compile Include="Graphics\HeatMap\HeatMapRenderStyle.cs" />
+    <Compile Include="Graphics\SvgChart\AxisChart.cs" />
+    <Compile Include="Graphics\SvgChart\Chart.cs" />
+    <Compile Include="Graphics\SvgChart\Doughnut3DChart.cs" />
+    <Compile Include="Graphics\SvgChart\DoughnutChart.cs" />
+    <Compile Include="Graphics\SvgChart\Histogram3DChart.cs" />
+    <Compile Include="Graphics\SvgChart\HistogramChart.cs" />
+    <Compile Include="Graphics\SvgChart\LinearChart.cs" />
+    <Compile Include="Graphics\SvgChart\NamespaceDoc.cs" />
+    <Compile Include="Graphics\SvgChart\Pie3DChart.cs" />
+    <Compile Include="Graphics\SvgChart\PieChart.cs" />
+    <Compile Include="Graphics\SvgDocument\Document.cs" />
+    <Compile Include="Graphics\SvgDocument\Line.cs" />
+    <Compile Include="Graphics\SvgDocument\NamespaceDoc.cs" />
+    <Compile Include="Graphics\SvgDocument\Polygon.cs" />
+    <Compile Include="Graphics\SvgDocument\Rectangle.cs" />
+    <Compile Include="Graphics\SvgDocument\SVGObject.cs" />
+    <Compile Include="Graphics\SvgDocument\SVGPoint.cs" />
+    <Compile Include="Graphics\SvgDocument\SVGTranform.cs" />
+    <Compile Include="Graphics\SvgDocument\Text.cs" />
+    <Compile Include="Graphics\UniveralGenerators.cs" />
+    <Compile Include="NamespaceDoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="imbSCI.ico" />
+    <Content Include="resources\graph\Charts.xslt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="imbSCI.Graph.licenseheader" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\imbWBI\packages\Accord.3.8.0\build\Accord.targets" Condition="Exists('..\..\imbWBI\packages\Accord.3.8.0\build\Accord.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -1,4 +1,33 @@
-﻿using imbSCI.Core.attributes;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="freeGraphReport.cs" company="imbVeles" >
+//
+// Copyright (C) 2018 imbVeles
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the +terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/. 
+// </copyright>
+// <summary>
+// Project: imbSCI.Graph
+// Author: Goran Grubic
+// ------------------------------------------------------------------------------------------------------------------
+// Project web site: http://blog.veles.rs
+// GitHub: http://github.com/gorangrubic
+// Mendeley profile: http://www.mendeley.com/profiles/goran-grubi2/
+// ORCID ID: http://orcid.org/0000-0003-2673-9471
+// Email: hardy@veles.rs
+// </summary>
+// ------------------------------------------------------------------------------------------------------------------
+using imbSCI.Core.attributes;
 using imbSCI.Core.math;
 using imbSCI.Core.extensions.io;
 using imbSCI.Core.files;
@@ -47,12 +76,6 @@ namespace imbSCI.Graph.FreeGraph
 
 
 
-
-        [Category("Label")]
-        [DisplayName("Description")] //[imb(imbAttributeName.measure_letter, "")]
-        [Description("Description of the report and graph")] // [imb(imbAttributeName.reporting_escapeoff)]
-        [imb(imbAttributeName.reporting_columnWidth, 70)]
-        public String description { get; set; } = "";
 
         [Category("Node Weights")]
         [imb(imbAttributeName.reporting_hide)]
@@ -117,8 +140,15 @@ namespace imbSCI.Graph.FreeGraph
                         var result = graph.GetLinkedNodes(new String[] { n.name }, 100, true, true, false);
                         freeGraphIsland island = new freeGraphIsland();
                         island.Add(result);
-                        islands.Add(island);
-                        result.ForEach(x => processed.Add(x.name));
+
+
+                        if (island.type != freeGraphIslandType.none)
+                        {
+                            islands.Add(island);
+                            processed.AddRange(island.nodes);
+                        }
+                        
+                        //result.ForEach(x => processed.Add(x.name));
                         
                     }
 
@@ -226,7 +256,7 @@ namespace imbSCI.Graph.FreeGraph
 
         /// <summary> Number of nodes in binode islands: two nodes with one link between them, disconnected from the rest of the graph </summary>
         [Category("Number of islands")]
-        [DisplayName("Binodal")]
+        [DisplayName("Bi.")]
         [imb(imbAttributeName.measure_letter, "|I_2nd|")]
         [imb(imbAttributeName.measure_setUnit, "n")]
         [imb(imbAttributeName.reporting_columnWidth, 7)]
@@ -235,7 +265,7 @@ namespace imbSCI.Graph.FreeGraph
 
         /// <summary> Number of trinode islands: tri nodes with two or three links between them, disconnected from the rest of the graph </summary>
         [Category("Number of islands")]
-        [DisplayName("Trinodal")]
+        [DisplayName("Tri.")]
         [imb(imbAttributeName.measure_letter, "|I_3nd|")]
         [imb(imbAttributeName.measure_setUnit, "n")]
         [imb(imbAttributeName.reporting_columnWidth, 7)]
@@ -244,7 +274,7 @@ namespace imbSCI.Graph.FreeGraph
 
         /// <summary> Number of islands counting more then three linked nodes </summary>
         [Category("Number of islands")]
-        [DisplayName("Polinodal")]
+        [DisplayName("Poli.")]
         [imb(imbAttributeName.measure_letter, "|I_Pnd|")]
         [imb(imbAttributeName.measure_setUnit, "n")]
         [imb(imbAttributeName.reporting_columnWidth, 7)]
@@ -280,7 +310,7 @@ namespace imbSCI.Graph.FreeGraph
 
 
         [Category("Node count per island type")]
-        [DisplayName("Binodal")]
+        [DisplayName("Bi.")]
         [imb(imbAttributeName.measure_letter, "|nd∈I_2n|")]
         [imb(imbAttributeName.measure_setUnit, "nd")]
         [imb(imbAttributeName.reporting_columnWidth, 7)]
@@ -289,7 +319,7 @@ namespace imbSCI.Graph.FreeGraph
 
         /// <summary> Number of trinode islands: tri nodes with two or three links between them, disconnected from the rest of the graph </summary>
         [Category("Node count per island type")]
-        [DisplayName("Trinodal")]
+        [DisplayName("Tri.")]
         [imb(imbAttributeName.measure_letter, "|nd∈I_3n|")]
         [imb(imbAttributeName.measure_setUnit, "nd")]
         [imb(imbAttributeName.reporting_columnWidth, 7)]
@@ -298,7 +328,7 @@ namespace imbSCI.Graph.FreeGraph
 
         /// <summary> Number of nodes in polinode islands counting more then three linked nodes </summary>
         [Category("Node count per island type")]
-        [DisplayName("Polinodal")]
+        [DisplayName("Poli.")]
         [imb(imbAttributeName.measure_letter, "|nd∈I_Pn|")]
         [imb(imbAttributeName.measure_setUnit, "nd")]
         [imb(imbAttributeName.reporting_columnWidth, 7)]
@@ -315,6 +345,7 @@ namespace imbSCI.Graph.FreeGraph
         [imb(imbAttributeName.measure_letter, "|nd_c|")]
         [imb(imbAttributeName.measure_setUnit, "nd")]
         [imb(imbAttributeName.reporting_columnWidth, 10)]
+        [imb(imbAttributeName.basicColor, "#FFFF3300")]
         [Description("Number of nodes in the primary continent, constelation connected to the primary terms")] // [imb(imbAttributeName.measure_important)][imb(imbAttributeName.reporting_valueformat, "")]
         public Int32 ContinentMass { get; set; } = default(Int32);
 
@@ -368,6 +399,12 @@ namespace imbSCI.Graph.FreeGraph
         public Double LinkRatio { get; set; } = default(Double);
 
 
+
+        [Category("Label")]
+        [DisplayName("Description")] //[imb(imbAttributeName.measure_letter, "")]
+        [Description("Description of the report and graph")] // [imb(imbAttributeName.reporting_escapeoff)]
+        [imb(imbAttributeName.reporting_columnWidth, 40)]
+        public String description { get; set; } = "";
 
         public freeGraphReport()
         {

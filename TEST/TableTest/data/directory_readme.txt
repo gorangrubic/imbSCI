@@ -12,9 +12,11 @@
 
 1 : [ci_exporttext.xlsx.txt                            ] Column / Fields meta information for data table [Exporttext .xlsx] export
 
-2 : [dc_exporttext.xlsx.csv                            ] Exported DataTable [Custom Table Entry][Custom data table extended]. 
+2 : [custom_table_entry.xml                            ] XML Serialized DataTable [Custom Table Entry]
 
-3 : [directory_readme.txt                              ] Description of directory content (this file)
+3 : [dc_exporttext.xlsx.csv                            ] Exported DataTable [Custom Table Entry][Custom data table extended]. 
+
+4 : [directory_readme.txt                              ] Description of directory content (this file)
 
  ------------------------------------------------------------------------------------
 
@@ -40,6 +42,6 @@
 
  ------------------------------------------------------------------------------------
 
-File generated: Thursday, February 01, 2018 5:11:47 AM
+File generated: Thursday, February 08, 2018 1:38:45 AM
 
 

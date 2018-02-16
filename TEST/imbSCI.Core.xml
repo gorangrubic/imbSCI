@@ -30,6 +30,14 @@
             Global settings
             </value>
         </member>
+        <member name="P:imbSCI.Core.config.imbSCICoreConfig.DataTableReports_DoExportXMLData">
+            <summary>
+            It will export serialized table object in "clean data" sub folder
+            </summary>
+            <value>
+              <c>true</c> if [data table reports do export XML data]; otherwise, <c>false</c>.
+            </value>
+        </member>
         <member name="M:imbSCI.Core.extensions.data.containsQueries.Contains``1(System.Collections.Generic.IList{``0},``0[])">
             <summary>
             Logical sum of criterias. All must be true to pass.
@@ -1140,6 +1148,46 @@
         <member name="F:imbSCI.Core.extensions.table.DataRowInReportTypeEnum.mergedHorizontally">
             <summary>
             The merged horizontally: cells with the same value are merged horizontally
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.extensions.table.DataRowInReportTypeEnum.dataHighlightA">
+            <summary>
+            The data highlight a: OrangeRed by default style
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.extensions.table.DataRowInReportTypeEnum.dataHighlightB">
+            <summary>
+            The data highlight b: CadetBlue by default style
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.extensions.table.DataRowInReportTypeEnum.dataHighlightC">
+            <summary>
+            The data highlight c: SteelBlue by default style
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.extensions.table.DataRowInReportTypeEnum.group01">
+            <summary>
+            The group01: lightblue
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.extensions.table.DataRowInReportTypeEnum.group02">
+            <summary>
+            The group02: bisque
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.extensions.table.DataRowInReportTypeEnum.group03">
+            <summary>
+            The group03: lightcyan
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.extensions.table.DataRowInReportTypeEnum.group04">
+            <summary>
+            The group04: light golded rod
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.extensions.table.DataRowInReportTypeEnum.group05">
+            <summary>
+            The group05: light pink
             </summary>
         </member>
         <member name="T:imbSCI.Core.extensions.table.style.dataTableStyleDictionary`1">
@@ -4466,11 +4514,14 @@
         </member>
         <member name="M:imbSCI.Core.extensions.io.filePathOperations.getWritableFile(System.String,imbSCI.Data.enums.getWritableFileMode,imbSCI.Core.reporting.ILogBuilder)">
             <summary>
-            Gets writable file based on selected mode. By default it will do overwrite. Autorename calls <see cref="M:imbSCI.Core.extensions.io.filePathOperations.addUniqueSufix(System.String,System.String)"/> extension that counts existing files and sets proper number.
+            Gets writable file based on selected mode. By default it will do overwrite. Autorename calls <see cref="M:imbSCI.Core.extensions.io.filePathOperations.addUniqueSufix(System.String,System.String)" /> extension that counts existing files and sets proper number.
             </summary>
             <param name="path">The path.</param>
             <param name="mode">The mode.</param>
+            <param name="logger">The logger.</param>
             <returns></returns>
+            <exception cref="T:imbSCI.Core.files.imbFileException">getWritableFile [" + mode.ToString() + "] failed when directory should be created from [" + dir.toStringSafe() + "]. " 
+                                    + ex.Message - null - null</exception>
         </member>
         <member name="M:imbSCI.Core.extensions.io.filePathOperations.getAbsoluteDirectory(System.Enum,System.String)">
             <summary>
@@ -6527,6 +6578,444 @@
             Interface to classification report objects
             </summary>
         </member>
+        <member name="T:imbSCI.Core.math.range.finder.NamespaceDoc">
+            <summary>
+            <para>Range finders are utility objects, used to make descriptive statistics from collection of numbers and add agregate rows and conditional formatting to DataTable reports</para>
+            </summary>
+            <remarks>
+            <para>rangeFinder comes in three flavors</para>
+            <list>
+            	<item>
+            		<term>Lightweight</term>
+            		<description>basic <see cref="T:imbSCI.Core.math.range.finder.rangeFinder"/> finds min, max, avg, sum and count</description>
+            	</item>
+            	<item>
+            		<term>Record keeper</term>
+            		<description><see cref="T:imbSCI.Core.math.range.finder.rangeFinderWithData"/> keeps all values sent trough <see cref="M:imbSCI.Core.math.range.finder.rangeFinder.Learn(System.Double)"/> method, taking some memory to have ability to compute standard deviation, entropy ... etc.</description>
+            	</item>
+            	<item>
+            		<term>Report utility</term>
+            		<description><see cref="T:imbSCI.Core.math.range.finder.rangeFinderForDataTable"/> is capable to scan and modify <see cref="T:System.Data.DataTable"/> by adding agregate rows and conditional formatting for min and max rows</description>
+            	</item>
+            </list>
+            </remarks>
+            <seealso cref="T:System.Data.DataTableExtensions" />
+        </member>
+        <member name="T:imbSCI.Core.math.range.finder.rangeFinder">
+            <summary>
+            Math utility class for: min-max-range computations
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.range.finder.rangeFinder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.math.range.finder.rangeFinder"/> class.
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.range.finder.rangeFinder.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.math.range.finder.rangeFinder"/> class.
+            </summary>
+            <param name="_id">The identifier.</param>
+        </member>
+        <member name="P:imbSCI.Core.math.range.finder.rangeFinder.id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.math.range.finder.rangeFinder.Reset">
+            <summary>
+            Resets this instance.
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.range.finder.rangeFinder.Learn(System.Double)">
+            <summary>
+            Updates the instance with data
+            </summary>
+            <param name="input">The input.</param>
+        </member>
+        <member name="M:imbSCI.Core.math.range.finder.rangeFinder.GetPositionInRange(System.Double)">
+            <summary>
+            Returns 0 (min) to 1 (max) position of the <c>input</c>, within <see cref="P:imbSCI.Core.math.range.finder.rangeFinder.Minimum"/> - <see cref="P:imbSCI.Core.math.range.finder.rangeFinder.Maximum"/> range
+            </summary>
+            <param name="input">The input.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.math.range.finder.rangeFinder.Minimum">
+            <summary> Ratio </summary>
+        </member>
+        <member name="P:imbSCI.Core.math.range.finder.rangeFinder.Maximum">
+            <summary> Ratio </summary>
+        </member>
+        <member name="P:imbSCI.Core.math.range.finder.rangeFinder.Range">
+            <summary> Ratio </summary>
+        </member>
+        <member name="P:imbSCI.Core.math.range.finder.rangeFinder.Count">
+            <summary> Count </summary>
+        </member>
+        <member name="P:imbSCI.Core.math.range.finder.rangeFinder.Average">
+            <summary> Average </summary>
+        </member>
+        <member name="P:imbSCI.Core.math.range.finder.rangeFinder.Sum">
+            <summary> Summary of all values </summary>
+        </member>
+        <member name="T:imbSCI.Core.math.range.finder.rangeFinderForDataTable">
+            <summary>
+            Performs aggregation over data in the table
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.range.finder.rangeFinderForDataTable.#ctor(System.Data.DataTable,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.math.range.finder.rangeFinderForDataTable"/> class.
+            </summary>
+            <param name="targetTable">The target table.</param>
+            <param name="keyDataColumn">The key data column.</param>
+        </member>
+        <member name="P:imbSCI.Core.math.range.finder.rangeFinderForDataTable.keyColumn">
+            <summary>
+            Gets or sets the key column.
+            </summary>
+            <value>
+            The key column.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.math.range.finder.rangeFinderForDataTable.keyColumnName">
+            <summary>
+            Name of column that is UID
+            </summary>
+            <value>
+            The name of the key column.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.math.range.finder.rangeFinderForDataTable.columnsToSignIn">
+            <summary>
+            Columns to write the aggregate row name into
+            </summary>
+            <value>
+            The columns to sign in.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.math.range.finder.rangeFinderForDataTable.rowsToSkipFromLearning">
+            <summary>
+            The rows to skip from learning.
+            </summary>
+            <value>
+            The rows to skip from learning.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.math.range.finder.rangeFinderForDataTable.prepareForNextAggregationBlock(System.Data.DataTable,System.String)">
+            <summary>
+            Prepares for the next aggregation block.
+            </summary>
+            <param name="targetTable">The target table.</param>
+            <param name="keyDataColumn">The key data column.</param>
+        </member>
+        <member name="M:imbSCI.Core.math.range.finder.rangeFinderForDataTable.prepareForTable(System.Data.DataTable,System.String)">
+            <summary>
+            Prepares for the table shema -- later can be used with other data tables with the same shema
+            </summary>
+            <param name="targetTable">The target table.</param>
+            <param name="keyDataColumn">The key (name/uid) column.</param>
+        </member>
+        <member name="M:imbSCI.Core.math.range.finder.rangeFinderForDataTable.AddRangeRows(System.String,System.Data.DataTable,System.Boolean,imbSCI.Core.math.aggregation.dataPointAggregationType)">
+            <summary>
+            Adds the range rows into table.
+            </summary>
+            <param name="namePrefix">Row name prefix.</param>
+            <param name="targetTable">The target table.</param>
+            <param name="placeDataRowMarks">if set to <c>true</c> it will set styling conditioners to this table</param>
+            <param name="rowsToAdd">The rows.</param>
+        </member>
+        <member name="F:imbSCI.Core.math.range.finder.rangeFinderForDataTable.finders">
+            <summary>
+            The finders
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.math.range.finder.rangeFinderWithData">
+            <summary>
+            Version of <see cref="T:imbSCI.Core.math.range.finder.rangeFinder"/> that stores all values sent trough <see cref="P:imbSCI.Core.math.range.finder.rangeFinderWithData.doubleEntries"/>
+            </summary>
+            <seealso cref="!:imbWBI.Core.math.rangeFinder" />
+        </member>
+        <member name="M:imbSCI.Core.math.range.finder.rangeFinderWithData.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.math.range.finder.rangeFinderWithData"/> class.
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.range.finder.rangeFinderWithData.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.math.range.finder.rangeFinderWithData"/> class.
+            </summary>
+            <param name="_id">The identifier.</param>
+        </member>
+        <member name="M:imbSCI.Core.math.range.finder.rangeFinderWithData.Reset">
+            <summary>
+            Resets this instance.
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.range.finder.rangeFinderWithData.Learn(System.Double)">
+            <summary>
+            Updates the instance with data
+            </summary>
+            <param name="input">The input.</param>
+        </member>
+        <member name="P:imbSCI.Core.math.range.finder.rangeFinderWithData.doubleEntries">
+            <summary>
+            The double entries
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.math.range.imbNumberScale">
+            <summary>
+            Matematički alat koji radi sa min-max skalom
+            konvertuje apsolutni i relativni (ratio) broj
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.math.range.imbNumberScale.maxValue">
+            <summary>
+            Maksimalna vrednost u skali
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.math.range.imbNumberScale.minValue">
+            <summary>
+            Minimalna vrednost u skali
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.range.imbNumberScale.#ctor(System.Double,System.Double)">
+            <summary>
+            Konstruktor koji postavlja min i max
+            </summary>
+            <param name="_min"></param>
+            <param name="_max"></param>
+        </member>
+        <member name="M:imbSCI.Core.math.range.imbNumberScale.#ctor(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Konstruktor koji postavlja min i max ali iz Liste 
+            pri čemu je 0 član min a 1 član max
+            </summary>
+            <param name="input"></param>
+        </member>
+        <member name="M:imbSCI.Core.math.range.imbNumberScale.getAbsoluteValue(System.Double)">
+            <summary>
+            Vraća apsolutni broj za zadati racio
+            koristeći postavljeni min-max raspon
+            </summary>
+            <param name="ratio">koeficijent na osnovu kojeg se dobija absolutni broj</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.math.range.imbNumberScale.getRatioValue(System.Double)">
+            <summary>
+            Vraća koeficijent na osnovu ranije definisanog raspona
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.math.range.numberRange">
+            <summary>
+            Scaling scalar numbers
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.range.numberRange.rangeChange(System.Single,System.Single,System.Single,imbSCI.Core.math.range.numberRangeModifyRule,System.String)">
+            <summary>
+            Održava vrednost u zadatom rasponu
+            </summary>
+            <param name="old">Postojeća vrednost</param>
+            <param name="delta">Razlika kojom pravimo korekciju</param>
+            <param name="max">Maksimalna vrednost</param>
+            <param name="rule">Pravilo kojim menjamo vrednost</param>
+            <param name="op">Operator koji se primenjuje</param>
+            <returns>
+            Broj koji je sigurno u rasponu
+            </returns>
+            <seealso cref="!:aceCommonTypes.extensions.imbValueChangers.checkRange(int,int,int,bool)"/>
+        </member>
+        <member name="M:imbSCI.Core.math.range.numberRange.calculate(System.Decimal,imbSCI.Core.enums.operation,System.Decimal)">
+            <summary>
+            Calculates the specified oper.
+            </summary>
+            <param name="ad">The ad.</param>
+            <param name="oper">The oper.</param>
+            <param name="bd">The bd.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.math.range.numberRange.calculate(System.Double,imbSCI.Core.enums.operation,System.Double)">
+            <summary>
+            Calculates the specified operation.
+            </summary>
+            <param name="a">a.</param>
+            <param name="operation">The operation.</param>
+            <param name="b">The b.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.math.range.numberRange.calculate(System.Boolean,imbSCI.Core.enums.operation,System.Boolean)">
+            <summary>
+            Calculates the specified operation.
+            </summary>
+            <param name="a">if set to <c>true</c> [a].</param>
+            <param name="operation">The operation.</param>
+            <param name="b">if set to <c>true</c> [b].</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.math.range.numberRange.calculate(System.String,imbSCI.Core.enums.operation,System.String)">
+            <summary>
+            Calculates the specified operation.
+            </summary>
+            <param name="a">a.</param>
+            <param name="operation">The operation.</param>
+            <param name="b">The b.</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.math.range.numberRangeModifyRule">
+            <summary>
+            Na koji način menjam boju
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.math.range.numberRangeModifyRule.clipToMax">
+            <summary>
+            Dodaje prosledjene vrednosti i ako dođu do maksimuma onda ih ostavi na maksimumu (ne važi za HUE)
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.math.range.numberRangeModifyRule.loop">
+            <summary>
+            Ako dođu do maksimuma vrati ih na početak
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.math.range.numberRangeModifyRule.set">
+            <summary>
+            Postavlja prosleđene vrednosti, bez obzira na trenutne vrednosti
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.math.range.numberRangeModifyRule.bypass">
+            <summary>
+            Prosleđuje staru vrednost
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.math.range.numberRangeModifyRule.multiply">
+            <summary>
+            Množi sa delta
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.math.range.numberRangeModifyRule.divide">
+            <summary>
+            Deli sa delta
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.math.range.numberRangeModifyRule.bounce">
+            <summary>
+            Returns value from limit for amount it was passing the limit
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.range.rangeCriteria`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.math.range.rangeCriteria`1"/> in disabled mode. It will return <c>false</c> on any test value before <see cref="M:imbSCI.Core.math.range.rangeCriteria`1.setCriteria(`0,System.Boolean)"/>  or <see cref="M:imbSCI.Core.math.range.rangeCriteria`1.setCriteria(`0,`0,System.Boolean)"/> was called
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.range.rangeCriteria`1.#ctor(`0,`0,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.math.range.rangeCriteria`1"/> class in MinMax range mode. It will return <c>true</c> if test value is between or equal to Min and Max values. 
+            </summary>
+            <param name="min">The minimum value of range. The range test will return <c>true</c> against exactly the same value.</param>
+            <param name="max">The maximum value of range. The range test will return <c>true</c> against exactly the same value.</param>
+            <param name="trueIfInside">if set to <c>false</c> the range test is inversed.</param>
+        </member>
+        <member name="M:imbSCI.Core.math.range.rangeCriteria`1.#ctor(`0,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.math.range.rangeCriteria`1"/> class in more or less mode. It will return <c>true</c> if test value is greater or equal than <c>even</c> (or lower in case <c>trueIfMore</c> was false)
+            </summary>
+            <param name="even">The even value to test against</param>
+            <param name="trueIfMore">if set to <c>false</c> the test will return <c>true</c> for lower than <c>even</c> test value</param>
+        </member>
+        <member name="M:imbSCI.Core.math.range.rangeCriteria`1.setCriteria(`0,`0,System.Boolean)">
+            <summary>
+            Sets the criteria.
+            </summary>
+            <param name="min">The minimum.</param>
+            <param name="max">The maximum.</param>
+            <param name="trueIfInside">if set to <c>true</c> [true if inside].</param>
+        </member>
+        <member name="M:imbSCI.Core.math.range.rangeCriteria`1.setCriteria(`0,System.Boolean)">
+            <summary>
+            Sets the criteria.
+            </summary>
+            <param name="even">The even.</param>
+            <param name="trueIfMore">if set to <c>true</c> [true if more].</param>
+        </member>
+        <member name="P:imbSCI.Core.math.range.rangeCriteria`1.mode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.math.range.rangeCriteria`1.min">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.math.range.rangeCriteria`1.even">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.math.range.rangeCriteria`1.max">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.math.range.rangeCriteria`1.isDisabled">
+            <summary>
+            if <c>True</c> test result is always <c>False</c>
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.range.rangeCriteria`1.testCriteria(`0)">
+            <summary>
+            Tests the value against criteria.
+            </summary>
+            <param name="testValue">The test value.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="T:imbSCI.Core.math.range.rangeValueBase`1">
+            <summary>
+            Value limited within range
+            </summary>
+            <typeparam name="T"></typeparam>
+            <seealso cref="T:imbSCI.Core.math.range.rangeCriteria`1" />
+        </member>
+        <member name="P:imbSCI.Core.math.range.rangeValueBase`1.range">
+            <summary>
+            Value total range
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.math.range.rangeValueBase`1.val">
+            <summary>
+            Current value - auto checked
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.range.rangeValueBase`1.checkValue(`0)">
+            <summary>
+            Forces value inside the range if not <see cref="P:imbSCI.Core.math.range.rangeCriteria`1.isDisabled"/> set <c>True</c>
+            </summary>
+            <param name="__val">The value to test against the range</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.math.range.rangeValueBase`1.rule">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.math.range.rangeValueEnum`1">
+            <summary>
+            Range value for enumeration
+            </summary>
+            <typeparam name="T"></typeparam>
+            <seealso cref="!:aceCommonTypes.math.rangeValueBase&lt;System.Int32&gt;" />
+        </member>
+        <member name="P:imbSCI.Core.math.range.rangeValueEnum`1.values">
+            <summary>
+            
+            </summary>
+            
+        </member>
         <member name="T:imbSCI.Core.math.StatisticsExtensions">
             <summary>
             Entropy, and some wrappers to <see cref="N:MathNet.Numerics"/>
@@ -7999,256 +8488,6 @@
             Proportion information representing count of total i.e. 5 of 13
             </summary>
         </member>
-        <member name="T:imbSCI.Core.math.range.imbNumberScale">
-            <summary>
-            Matematički alat koji radi sa min-max skalom
-            konvertuje apsolutni i relativni (ratio) broj
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.math.range.imbNumberScale.maxValue">
-            <summary>
-            Maksimalna vrednost u skali
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.math.range.imbNumberScale.minValue">
-            <summary>
-            Minimalna vrednost u skali
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.math.range.imbNumberScale.#ctor(System.Double,System.Double)">
-            <summary>
-            Konstruktor koji postavlja min i max
-            </summary>
-            <param name="_min"></param>
-            <param name="_max"></param>
-        </member>
-        <member name="M:imbSCI.Core.math.range.imbNumberScale.#ctor(System.Collections.Generic.List{System.Double})">
-            <summary>
-            Konstruktor koji postavlja min i max ali iz Liste 
-            pri čemu je 0 član min a 1 član max
-            </summary>
-            <param name="input"></param>
-        </member>
-        <member name="M:imbSCI.Core.math.range.imbNumberScale.getAbsoluteValue(System.Double)">
-            <summary>
-            Vraća apsolutni broj za zadati racio
-            koristeći postavljeni min-max raspon
-            </summary>
-            <param name="ratio">koeficijent na osnovu kojeg se dobija absolutni broj</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.math.range.imbNumberScale.getRatioValue(System.Double)">
-            <summary>
-            Vraća koeficijent na osnovu ranije definisanog raspona
-            </summary>
-            <param name="input"></param>
-            <returns></returns>
-        </member>
-        <member name="T:imbSCI.Core.math.range.numberRange">
-            <summary>
-            Scaling scalar numbers
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.math.range.numberRange.rangeChange(System.Single,System.Single,System.Single,imbSCI.Core.math.range.numberRangeModifyRule,System.String)">
-            <summary>
-            Održava vrednost u zadatom rasponu
-            </summary>
-            <param name="old">Postojeća vrednost</param>
-            <param name="delta">Razlika kojom pravimo korekciju</param>
-            <param name="max">Maksimalna vrednost</param>
-            <param name="rule">Pravilo kojim menjamo vrednost</param>
-            <param name="op">Operator koji se primenjuje</param>
-            <returns>
-            Broj koji je sigurno u rasponu
-            </returns>
-            <seealso cref="!:aceCommonTypes.extensions.imbValueChangers.checkRange(int,int,int,bool)"/>
-        </member>
-        <member name="M:imbSCI.Core.math.range.numberRange.calculate(System.Decimal,imbSCI.Core.enums.operation,System.Decimal)">
-            <summary>
-            Calculates the specified oper.
-            </summary>
-            <param name="ad">The ad.</param>
-            <param name="oper">The oper.</param>
-            <param name="bd">The bd.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.math.range.numberRange.calculate(System.Double,imbSCI.Core.enums.operation,System.Double)">
-            <summary>
-            Calculates the specified operation.
-            </summary>
-            <param name="a">a.</param>
-            <param name="operation">The operation.</param>
-            <param name="b">The b.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.math.range.numberRange.calculate(System.Boolean,imbSCI.Core.enums.operation,System.Boolean)">
-            <summary>
-            Calculates the specified operation.
-            </summary>
-            <param name="a">if set to <c>true</c> [a].</param>
-            <param name="operation">The operation.</param>
-            <param name="b">if set to <c>true</c> [b].</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.math.range.numberRange.calculate(System.String,imbSCI.Core.enums.operation,System.String)">
-            <summary>
-            Calculates the specified operation.
-            </summary>
-            <param name="a">a.</param>
-            <param name="operation">The operation.</param>
-            <param name="b">The b.</param>
-            <returns></returns>
-        </member>
-        <member name="T:imbSCI.Core.math.range.numberRangeModifyRule">
-            <summary>
-            Na koji način menjam boju
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.math.range.numberRangeModifyRule.clipToMax">
-            <summary>
-            Dodaje prosledjene vrednosti i ako dođu do maksimuma onda ih ostavi na maksimumu (ne važi za HUE)
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.math.range.numberRangeModifyRule.loop">
-            <summary>
-            Ako dođu do maksimuma vrati ih na početak
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.math.range.numberRangeModifyRule.set">
-            <summary>
-            Postavlja prosleđene vrednosti, bez obzira na trenutne vrednosti
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.math.range.numberRangeModifyRule.bypass">
-            <summary>
-            Prosleđuje staru vrednost
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.math.range.numberRangeModifyRule.multiply">
-            <summary>
-            Množi sa delta
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.math.range.numberRangeModifyRule.divide">
-            <summary>
-            Deli sa delta
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.math.range.numberRangeModifyRule.bounce">
-            <summary>
-            Returns value from limit for amount it was passing the limit
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.math.range.rangeCriteria`1.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:imbSCI.Core.math.range.rangeCriteria`1"/> in disabled mode. It will return <c>false</c> on any test value before <see cref="M:imbSCI.Core.math.range.rangeCriteria`1.setCriteria(`0,System.Boolean)"/>  or <see cref="M:imbSCI.Core.math.range.rangeCriteria`1.setCriteria(`0,`0,System.Boolean)"/> was called
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.math.range.rangeCriteria`1.#ctor(`0,`0,System.Boolean)">
-            <summary>
-            Initializes a new instance of the <see cref="T:imbSCI.Core.math.range.rangeCriteria`1"/> class in MinMax range mode. It will return <c>true</c> if test value is between or equal to Min and Max values. 
-            </summary>
-            <param name="min">The minimum value of range. The range test will return <c>true</c> against exactly the same value.</param>
-            <param name="max">The maximum value of range. The range test will return <c>true</c> against exactly the same value.</param>
-            <param name="trueIfInside">if set to <c>false</c> the range test is inversed.</param>
-        </member>
-        <member name="M:imbSCI.Core.math.range.rangeCriteria`1.#ctor(`0,System.Boolean)">
-            <summary>
-            Initializes a new instance of the <see cref="T:imbSCI.Core.math.range.rangeCriteria`1"/> class in more or less mode. It will return <c>true</c> if test value is greater or equal than <c>even</c> (or lower in case <c>trueIfMore</c> was false)
-            </summary>
-            <param name="even">The even value to test against</param>
-            <param name="trueIfMore">if set to <c>false</c> the test will return <c>true</c> for lower than <c>even</c> test value</param>
-        </member>
-        <member name="M:imbSCI.Core.math.range.rangeCriteria`1.setCriteria(`0,`0,System.Boolean)">
-            <summary>
-            Sets the criteria.
-            </summary>
-            <param name="min">The minimum.</param>
-            <param name="max">The maximum.</param>
-            <param name="trueIfInside">if set to <c>true</c> [true if inside].</param>
-        </member>
-        <member name="M:imbSCI.Core.math.range.rangeCriteria`1.setCriteria(`0,System.Boolean)">
-            <summary>
-            Sets the criteria.
-            </summary>
-            <param name="even">The even.</param>
-            <param name="trueIfMore">if set to <c>true</c> [true if more].</param>
-        </member>
-        <member name="P:imbSCI.Core.math.range.rangeCriteria`1.mode">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.math.range.rangeCriteria`1.min">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.math.range.rangeCriteria`1.even">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.math.range.rangeCriteria`1.max">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.math.range.rangeCriteria`1.isDisabled">
-            <summary>
-            if <c>True</c> test result is always <c>False</c>
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.math.range.rangeCriteria`1.testCriteria(`0)">
-            <summary>
-            Tests the value against criteria.
-            </summary>
-            <param name="testValue">The test value.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
-        </member>
-        <member name="T:imbSCI.Core.math.range.rangeValueBase`1">
-            <summary>
-            Value limited within range
-            </summary>
-            <typeparam name="T"></typeparam>
-            <seealso cref="T:imbSCI.Core.math.range.rangeCriteria`1" />
-        </member>
-        <member name="P:imbSCI.Core.math.range.rangeValueBase`1.range">
-            <summary>
-            Value total range
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.math.range.rangeValueBase`1.val">
-            <summary>
-            Current value - auto checked
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.math.range.rangeValueBase`1.checkValue(`0)">
-            <summary>
-            Forces value inside the range if not <see cref="P:imbSCI.Core.math.range.rangeCriteria`1.isDisabled"/> set <c>True</c>
-            </summary>
-            <param name="__val">The value to test against the range</param>
-            <returns></returns>
-        </member>
-        <member name="P:imbSCI.Core.math.range.rangeValueBase`1.rule">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:imbSCI.Core.math.range.rangeValueEnum`1">
-            <summary>
-            Range value for enumeration
-            </summary>
-            <typeparam name="T"></typeparam>
-            <seealso cref="!:aceCommonTypes.math.rangeValueBase&lt;System.Int32&gt;" />
-        </member>
-        <member name="P:imbSCI.Core.math.range.rangeValueEnum`1.values">
-            <summary>
-            
-            </summary>
-            
-        </member>
         <member name="T:imbSCI.Core.reporting.aceLogToConsoleControl">
             <summary>
             Helper class that contains list of IConsoleControls that have permission to write to console
@@ -8266,33 +8505,63 @@
             </summary>
             <param name="loger">The loger.</param>
         </member>
+        <member name="M:imbSCI.Core.reporting.aceLogToConsoleControl.setLogFileWriter(System.String)">
+            <summary>
+            Sets the log file path
+            </summary>
+            <param name="path">The path.</param>
+        </member>
         <member name="P:imbSCI.Core.reporting.aceLogToConsoleControl.logWritter">
             <summary>
             imbControl property logWritter tipa TextWriter
             </summary>
         </member>
-        <member name="M:imbSCI.Core.reporting.aceLogToConsoleControl.setAsOutput(imbSCI.Core.reporting.IConsoleControl,System.String)">
+        <member name="M:imbSCI.Core.reporting.aceLogToConsoleControl.makeSureHaveDifferentColors(imbSCI.Core.reporting.IConsoleControl,imbSCI.Core.reporting.IConsoleControl)">
             <summary>
-            Sets this loger on allow list
+            Makes sure that <c>loggerA</c> and <c>loggerB</c> have different colors assigned for their outputs to the Console buffer.
             </summary>
-            <param name="loger">The loger.</param>
+            <param name="loggerA">The logger a.</param>
+            <param name="loggerB">The logger b.</param>
+            <returns>true if the loggers have different colors, false if one of loggers is not in the current output or if otherwise failed to update color of <c>loggerB</c></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.aceLogToConsoleControl.setAsOutput(imbSCI.Core.reporting.IConsoleControl,System.String,System.ConsoleColor)">
+            <summary>
+            Allows access to the console output bugger to the <c>logger</c> and sets its color and prefix. If you call this method on logger that was already set to output, it will result in changed color
+            </summary>
+            <param name="logger">The logger assigned to the console output</param>
+            <param name="prefix">The prefix that will appear in front of each <see cref="M:imbSCI.Core.interfaces.IAceLogable.log(System.String)"/> call. It will update it if already registered prefix exist</param>
+            <param name="preferedColor">If not <see cref="F:System.ConsoleColor.Black"/> - it will assign specified color to the logger. Otherwise, if <see cref="F:System.ConsoleColor.Black"/> is specified, it will assign automatically a color from the <see cref="F:imbSCI.Core.reporting.aceLogToConsoleControl.colorSelector"/></param>
         </member>
         <member name="M:imbSCI.Core.reporting.aceLogToConsoleControl.replaceOutput(imbSCI.Core.reporting.IConsoleControl,imbSCI.Core.reporting.IConsoleControl)">
             <summary>
-            Replaces the output.
+            Replaces the two loggers in the console output
             </summary>
-            <param name="oldLoger">The old loger.</param>
-            <param name="newLoger">The new loger.</param>
+            <param name="oldLogger">The old loger.</param>
+            <param name="newLogger">The new loger.</param>
         </member>
         <member name="P:imbSCI.Core.reporting.aceLogToConsoleControl.convertToDos">
             <summary>
-            
+            IT will convert all characters sent to output into compatibile DOS encoding
             </summary>
         </member>
         <member name="P:imbSCI.Core.reporting.aceLogToConsoleControl.encodeMode">
             <summary>
             
             </summary>
+        </member>
+        <member name="F:imbSCI.Core.reporting.aceLogToConsoleControl.reg_highlight">
+            <summary>
+            The highlight regex - used for all console output
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.reporting.aceLogToConsoleControl.writeToConsole(System.String,imbSCI.Core.reporting.IConsoleControl,System.Boolean,System.Int32)">
+            <summary>
+            Writes to console.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="loger">The loger.</param>
+            <param name="breakline">if set to <c>true</c> [breakline].</param>
+            <param name="altColor">Color of the alt.</param>
         </member>
         <member name="P:imbSCI.Core.reporting.aceLogToConsoleControl.noOneOnOutputNow">
             <summary>
@@ -11131,6 +11400,12 @@
             <returns>
             Unique string to identify unique values
             </returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.style.shot.styleContainerShot.GetFormatSetup">
+            <summary>
+            Returns the zone spatial settings -- btw. top/bottom and left/right margin and padding are equalized: top=>bottom, left=>right
+            </summary>
+            <returns></returns>
         </member>
         <member name="P:imbSCI.Core.reporting.style.shot.styleContainerShot.sizeAndBorder">
             <summary>
@@ -17143,6 +17418,14 @@
             <remarks>The best way to use this model is to call <see cref="T:imbSCI.Core.data.settingsEntriesForObject"/> constructor, that will generate this object for each reflected member</remarks>
             <seealso cref="T:System.ComponentModel.INotifyPropertyChanged" />
         </member>
+        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.isHiddenInReport">
+            <summary>
+            Gets or sets a value indicating whether this instance is hidden in report.
+            </summary>
+            <value>
+              <c>true</c> if this instance is hidden in report; otherwise, <c>false</c>.
+            </value>
+        </member>
         <member name="M:imbSCI.Core.data.settingsMemberInfoEntry.#ctor(System.Reflection.MemberInfo,imbSCI.Core.collection.PropertyCollectionExtended)">
             <summary>
             Descriptor info model -- aceTypology
@@ -17311,56 +17594,6 @@
             <summary>
             trenutna vrednost
             </summary>
-        </member>
-        <member name="M:imbSCI.Core.interfaces.IAceLogToConsoleControl.setAsOnlyOutput(imbSCI.Core.reporting.IConsoleControl,System.String)">
-            <summary>
-            Sets as only output - removes all the rest
-            </summary>
-            <param name="loger">The loger.</param>
-        </member>
-        <member name="M:imbSCI.Core.interfaces.IAceLogToConsoleControl.setAsOutput(imbSCI.Core.reporting.IConsoleControl,System.String)">
-            <summary>
-            Sets this loger on allow list
-            </summary>
-            <param name="loger">The loger.</param>
-        </member>
-        <member name="M:imbSCI.Core.interfaces.IAceLogToConsoleControl.replaceOutput(imbSCI.Core.reporting.IConsoleControl,imbSCI.Core.reporting.IConsoleControl)">
-            <summary>
-            Replaces the output.
-            </summary>
-            <param name="oldLoger">The old loger.</param>
-            <param name="newLoger">The new loger.</param>
-        </member>
-        <member name="P:imbSCI.Core.interfaces.IAceLogToConsoleControl.convertToDos">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.interfaces.IAceLogToConsoleControl.encodeMode">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.interfaces.IAceLogToConsoleControl.noOneOnOutputNow">
-            <summary>
-            TRUE: when <see cref="!:allowList"/> is empty. Then someone else may print out
-            </summary>
-            <value>
-              <c>true</c> if [no one on output now]; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="M:imbSCI.Core.interfaces.IAceLogToConsoleControl.checkOutputPermission(imbSCI.Core.reporting.IConsoleControl)">
-            <summary>
-            Checks if this loger has output permission. Checks only the globaly defined list, not members of <see cref="T:imbSCI.Core.reporting.IConsoleControl"/>
-            </summary>
-            <param name="loger">The loger.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.interfaces.IAceLogToConsoleControl.removeFromOutput(imbSCI.Core.reporting.IConsoleControl)">
-            <summary>
-            Removes this loger from output permission
-            </summary>
-            <param name="loger">The loger.</param>
         </member>
         <member name="P:imbSCI.Core.interfaces.IAceMathUnitDecadic.decadeBase">
             <summary>

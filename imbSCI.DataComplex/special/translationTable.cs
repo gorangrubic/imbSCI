@@ -47,12 +47,13 @@ namespace imbSCI.DataComplex.special
     using imbSCI.Data.interfaces;
 
     /// <summary>
-        /// 
-        /// </summary>
-        /// <typeparam name="TKey">The type of the key.</typeparam>
-        /// <typeparam name="TValue">The type of the value.</typeparam>
-        /// <seealso cref="imbSCI.Data.data.dataBindableBase" />
-        public class translationTable<TKey, TValue> : dataBindableBase
+    /// 
+    /// </summary>
+    /// <typeparam name="TKey">The type of the key.</typeparam>
+    /// <typeparam name="TValue">The type of the value.</typeparam>
+    /// <seealso cref="imbSCI.Data.data.dataBindableBase" />
+    [Serializable]
+    public class translationTable<TKey, TValue> : dataBindableBase
     {
 
         /// <summary>

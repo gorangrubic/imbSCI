@@ -4153,6 +4153,7 @@
             <param name="notation">The notation.</param>
             <param name="filenamePrefix">The filename prefix.</param>
             <param name="disablePrimaryKey">if set to <c>true</c> [disable primary key].</param>
+            <param name="allowAsyncCall">if set to <c>true</c> [allow asynchronous call].</param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">Folder is null! at GetReportAndSave() for [" + source.TableName + "] at filename [" + filenamePrefix + "]</exception>
         </member>

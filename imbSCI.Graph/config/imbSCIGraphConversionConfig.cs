@@ -43,10 +43,15 @@ using imbSCI.Graph.Converters.tools;
 namespace imbSCI.Graph.config
 {
 
+
+
+
+
+
     /// <summary>
     /// General configuration object for domain of <see cref="imbSCI.Graph.config"/>
     /// </summary>
-	public class imbSCIGraphConversionConfig
+    public class imbSCIGraphConversionConfig
     {
 
         #region --------------------------------------------------- DO NOT MODIFY --------------------------------------------------------------

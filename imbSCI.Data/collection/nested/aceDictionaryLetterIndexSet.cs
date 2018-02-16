@@ -33,12 +33,14 @@ using System.Collections.Generic;
 namespace imbSCI.Data.collection.nested
 {
     using System.Collections.Concurrent;
+    using System.Text;
 
 
     /// <summary>
-    /// 
+    /// Dictionary with first letter indexing, usefull for large collections
     /// </summary>
     /// <typeparam name="T"></typeparam>
+    [Serializable]
     public class aceDictionaryLetterIndexSet<T> where T:class
     {
 
@@ -170,6 +172,44 @@ namespace imbSCI.Data.collection.nested
         }
 
 
+        /// <summary>
+        /// Counts indexed first letters
+        /// </summary>
+        /// <returns></returns>
+        public Int32 Count()
+        {
+            return items.Count;
+        }
+
+        /// <summary>
+        /// Counts all instances saved in the collection
+        /// </summary>
+        /// <returns></returns>
+        public Int32 CountAll()
+        {
+            Int32 output = 0;
+            foreach (var pair in items)
+            {
+                output += pair.Value.Count;
+            }
+            return output;
+        }
+
+        /// <summary>
+        /// Gets the signature.
+        /// </summary>
+        /// <returns></returns>
+        public String GetSignature()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var pair in items)
+            {
+                sb.AppendLine(String.Format("{0,-10} : {1,20}", pair.Key, pair.Value.Count));
+            }
+            
+            return sb.ToString();
+        }
 
 
         private ConcurrentDictionary<String, ConcurrentDictionary<String, T>> _items = new ConcurrentDictionary<String, ConcurrentDictionary<String, T>>();

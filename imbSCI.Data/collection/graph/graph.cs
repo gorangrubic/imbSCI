@@ -33,12 +33,14 @@ using imbSCI.Data.interfaces;
 namespace imbSCI.Data.collection.graph
 {
     using System.Runtime.CompilerServices;
+    using System;
 
     /// <summary>
     /// Universal wrapped-graph-tree structure - the class of the root element in a graph-tree structure
     /// </summary>
     /// <typeparam name="TItem">The type of the item.</typeparam>
     /// <seealso cref="graphWrapgraphWrapNode{TItem}" />
+    [Serializable]
     public class graph<TItem> : graphWrapNode<TItem> where TItem : IObjectWithName
     {
         public graph(TItem __item) : base(__item, null)

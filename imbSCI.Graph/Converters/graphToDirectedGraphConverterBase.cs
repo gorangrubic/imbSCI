@@ -153,10 +153,11 @@ namespace imbSCI.Graph.Converters
 
 
         /// <summary>
-        /// Converts the specified source: from <c>T</c> to DirectedGraph 
+        /// Converts the specified source: from <c>T</c> to DirectedGraph
         /// </summary>
         /// <param name="source">The source.</param>
         /// <param name="depthLimit">The depth limit.</param>
+        /// <param name="rootNodes"></param>
         /// <returns></returns>
         public override DirectedGraph Convert(T source, int depthLimit = 500, IEnumerable<T> rootNodes = null)
         {
@@ -168,6 +169,7 @@ namespace imbSCI.Graph.Converters
 
 
 
+            Int32 startLevel = source.level;
 
             var nodes = source.getAllChildren(null, false, false, 1, depthLimit).ConvertList<IObjectWithPathAndChildren, T>(); //.ConvertIList<IObjectWithPathAndChildren, T>();
             
@@ -178,6 +180,8 @@ namespace imbSCI.Graph.Converters
 
             foreach (var ch in nodes)
             {
+                if (ch.level > (startLevel + depthLimit)) continue;
+
                 T child = (T)ch;
                 var gn = output.Nodes.AddNode(GetNodeID(child), GetNodeLabel(child));
                 var tid = GetTypeID(child);
@@ -191,6 +195,7 @@ namespace imbSCI.Graph.Converters
 
             foreach (var ch in nodes)
             {
+                if (ch.level > (startLevel + depthLimit)) continue;
                 if (ch.parent != null)
                 {
                     T parent = (T)ch.parent;

@@ -29,6 +29,7 @@
 // ------------------------------------------------------------------------------------------------------------------
 namespace imbSCI.Core.process
 {
+
     /// <summary>
     /// Koji relatvni resursi su predmet selektovanja
     /// </summary>

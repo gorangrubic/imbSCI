@@ -53,14 +53,13 @@ using imbSCI.Data.interfaces;
 
 namespace imbSCI.Core.files
 {
+    using imbSCI.Core.files.folders;
     using System.IO;
     using System.Runtime.Serialization.Json;
     using System.Text;
     using System.Xml.Serialization;
 
 
-
-   
 
     /// <summary>
     /// Tool for easy object serialization 

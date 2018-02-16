@@ -60,17 +60,17 @@ namespace imbSCI.Core.files
         {
             
 
-            foreach (FileInfo fi in di.GetFiles())
+            foreach (FileInfo fi in di.GetFiles("*.*",SearchOption.AllDirectories))
             {
                 fi.Delete();
             }
 
-            foreach (DirectoryInfo dsi in di.GetDirectories())
+            foreach (DirectoryInfo dsi in di.GetDirectories("*", SearchOption.AllDirectories))
             {
                 dsi.DeleteFolder();
                 
-                di.Delete();
             }
+            di.Delete();
         }
     }
 }

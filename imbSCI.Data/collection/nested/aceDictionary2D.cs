@@ -48,10 +48,64 @@ namespace imbSCI.Data.collection.nested
     public class aceDictionary2D<TD1Key, TD2Key, TValue>:IEnumerable<KeyValuePair<TD1Key, ConcurrentDictionary<TD2Key, TValue>>>
     {
 
+
+
+
+        /// <summary>
+        /// Determines whether the specified key1 contains key.
+        /// </summary>
+        /// <param name="key1">The key1.</param>
+        /// <returns>
+        ///   <c>true</c> if the specified key1 contains key; otherwise, <c>false</c>.
+        /// </returns>
         public Boolean ContainsKey(TD1Key key1)
         {
             return items.ContainsKey(key1);
         }
+
+        /// <summary>
+        /// Gets the width: number of columns (second dimension)
+        /// </summary>
+        /// <value>
+        /// The width.
+        /// </value>
+        /// 
+        public Int32 width
+        {
+            get
+            {
+                return items.Count;
+            }
+        }
+
+        /// <summary>
+        /// If contains at least 1 x 1 data entries
+        /// </summary>
+        /// <returns></returns>
+        public Boolean Any()
+        {
+            if (items.Any())
+            {
+                return items.First().Value.Any();
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Gets the height: number of rows (second dimension)
+        /// </summary>
+        /// <value>
+        /// The height.
+        /// </value>
+        public Int32 height
+        {
+            get
+            {
+                if (!Any()) return 0;
+                return items.First().Value.Count;
+            }
+        }
+
 
         /// <summary>
         /// Gets the count of the first dimension entries
@@ -82,6 +136,13 @@ namespace imbSCI.Data.collection.nested
             
         }
 
+        /// <summary>
+        /// Determines whether [contains key2 any key1] [the specified key2].
+        /// </summary>
+        /// <param name="key2">The key2.</param>
+        /// <returns>
+        ///   <c>true</c> if [contains key2 any key1] [the specified key2]; otherwise, <c>false</c>.
+        /// </returns>
         public Boolean ContainsKey2AnyKey1(TD2Key key2)
         {
             foreach (var column in items)
@@ -112,11 +173,20 @@ namespace imbSCI.Data.collection.nested
             }
         }
 
+        /// <summary>
+        /// Get2nds the keys.
+        /// </summary>
+        /// <param name="key1">The key1.</param>
+        /// <returns></returns>
         public List<TD2Key> Get2ndKeys(TD1Key key1)
         {
             return items[key1].Keys.ToList();
         }
 
+        /// <summary>
+        /// Get1sts the keys.
+        /// </summary>
+        /// <returns></returns>
         public List<TD1Key> Get1stKeys()
         {
             return items.Keys.ToList();
@@ -147,6 +217,11 @@ namespace imbSCI.Data.collection.nested
             }
         }
 
+        /// <summary>
+        /// Gets the or make for key1.
+        /// </summary>
+        /// <param name="key1">The key1.</param>
+        /// <returns></returns>
         private ConcurrentDictionary<TD2Key, TValue> getOrMakeForKey1(TD1Key key1)
         {
             ConcurrentDictionary<TD2Key, TValue> output = null;
@@ -154,6 +229,7 @@ namespace imbSCI.Data.collection.nested
             {
                 if (!items.ContainsKey(key1))
                 {
+                    
                     items.TryAdd(key1, new ConcurrentDictionary<TD2Key, TValue>());
                 }
                 Thread.SpinWait(1);
@@ -161,12 +237,21 @@ namespace imbSCI.Data.collection.nested
             return output;
         }
 
+        
+
+
+        /// <summary>
+        /// Gets for keys.
+        /// </summary>
+        /// <param name="key1">The key1.</param>
+        /// <param name="key2">The key2.</param>
+        /// <returns></returns>
         private TValue getForKeys(TD1Key key1, TD2Key key2)
         {
             var forKey1 = getOrMakeForKey1(key1);
 
             TValue output = default(TValue);
-
+            
             while (!forKey1.TryGetValue(key2, out output))
             {
                 if (!forKey1.ContainsKey(key2))
@@ -179,6 +264,12 @@ namespace imbSCI.Data.collection.nested
             return output;
         }
 
+        /// <summary>
+        /// Sets for keys.
+        /// </summary>
+        /// <param name="key1">The key1.</param>
+        /// <param name="key2">The key2.</param>
+        /// <param name="item">The item.</param>
         private void setForKeys(TD1Key key1, TD2Key key2, TValue item)
         {
             var forKey1 = getOrMakeForKey1(key1);

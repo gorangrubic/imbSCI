@@ -29,12 +29,14 @@
 // ------------------------------------------------------------------------------------------------------------------
 namespace imbSCI.Data.data
 {
+    using System;
     using System.ComponentModel;
 
     /// <summary>
     /// Base class for objects implementing the <see cref="INotifyPropertyChanged"/> interface, thus making class ready for DataBinding
     /// </summary>
     /// <seealso cref="System.ComponentModel.INotifyPropertyChanged" />
+    [Serializable]
     public abstract class dataBindableBase : INotifyPropertyChanged
     {
 

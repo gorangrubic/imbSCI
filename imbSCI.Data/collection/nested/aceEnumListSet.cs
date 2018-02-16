@@ -32,7 +32,7 @@ namespace imbSCI.Data.collection.nested
     using System;
     using System.Collections.Generic;
     using System.Linq;
-
+    [Serializable]
     public class aceEnumListSet<TEnum, T> : aceEnumDictionary<TEnum, List<T>> 
     {
 

@@ -52,6 +52,7 @@ namespace imbSCI.Data.collection.graph
     /// 
     /// </summary>
     /// <seealso cref="imbSCI.Data.interfaces.IObjectWithParent" />
+    [Serializable]
     public abstract class graphNodeBase: IObjectWithParent, IEnumerable<IGraphNode>
     {
         public const String defaultPathSeparator = "\\";

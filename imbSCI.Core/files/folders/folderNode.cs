@@ -454,7 +454,7 @@ namespace imbSCI.Core.files.folders
 
                 if (parent != null)
                 {
-                    return parent.path + "\\" + name;
+                    return parent.path.add(name, Path.DirectorySeparatorChar);
                 } else
                 {
                     return name;
@@ -613,7 +613,33 @@ namespace imbSCI.Core.files.folders
             return output;
         }
 
+        /// <summary>
+        /// Returns properly compiled path, without file registration. This is alternative to <see cref="pathFor(string, getWritableFileMode, string, bool)"/>
+        /// </summary>
+        /// <param name="filename">The filename.</param>
+        /// <returns>Just makes path</returns>
+        public string pathMake(String filename) {
+            filename = filename.getCleanFilepath("");
+            //filename = filename.getCleanFileName(false);
+            if (Path.IsPathRooted(filename))
+            {
+                filename = Path.GetFileName(filename);
+            }
+            else if (filename.StartsWith(path))
+            {
+                filename = imbSciStringExtensions.removeStartsWith(filename, path);
+            }
 
+
+
+            string output = imbSciStringExtensions.add(path, filename, Path.DirectorySeparatorChar);
+            output = output.Replace("\\\\", Path.DirectorySeparatorChar.ToString());
+            output = output.Replace("\\\\", Path.DirectorySeparatorChar.ToString());
+
+            
+                output = output.getWritableFile(getWritableFileMode.none).FullName;
+            return output;
+        }
 
         /// <summary>
         /// Returns path with filename specified. Optionally, sets <c>fileDescription</c> for directory readme generator

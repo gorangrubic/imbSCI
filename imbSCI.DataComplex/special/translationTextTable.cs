@@ -52,6 +52,7 @@ namespace imbSCI.DataComplex.special
     /// Text simple replace-based translation table - dictionary
     /// </summary>
     /// <seealso cref="aceCommonTypes.collection.special.translationTable{System.String, System.String}" />
+    [Serializable]
     public class translationTextTable : translationTable<string, string>
     {
 

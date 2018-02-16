@@ -44,6 +44,7 @@ namespace imbSCI.Data.collection.graph
     /// <seealso cref="imbSCI.Data.collection.graph.graphNodeBase" />
     /// <seealso cref="System.Collections.Generic.IEnumerable{imbSCI.Data.collection.graph.IGraphNode}" />
     /// <seealso cref="imbSCI.Data.collection.graph.IGraphNode" />
+    [Serializable]
     public abstract class graphNodeCustom : graphNodeBase, IEnumerable<IGraphNode>, IGraphNode
     {
 

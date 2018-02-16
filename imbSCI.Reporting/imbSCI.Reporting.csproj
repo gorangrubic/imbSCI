@@ -378,7 +378,7 @@
       <Name>imbSCI.DataComplex</Name>
     </ProjectReference>
     <ProjectReference Include="..\imbSCI.Data\imbSCI.Data.csproj">
-      <Project>{22B51684-1A11-4523-8C5C-FC6D76818BC4}</Project>
+      <Project>{22b51684-1a11-4523-8c5c-fc6d76818bc4}</Project>
       <Name>imbSCI.Data</Name>
     </ProjectReference>
   </ItemGroup>

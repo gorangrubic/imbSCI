@@ -38,6 +38,7 @@ using System.Xml.Serialization;
 
 namespace imbSCI.Core.config
 {
+
     /// <summary>
     /// General configuration object for domain of <see cref="imbSCI.Core"/> and <see cref="imbSCI.Data"/>
     /// </summary>
@@ -94,10 +95,25 @@ namespace imbSCI.Core.config
 
         public Boolean DataTableReports_DoExportColMetaData { get; set; } = true;
 
+        /// <summary>
+        /// It will export serialized table object in "clean data" sub folder
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [data table reports do export XML data]; otherwise, <c>false</c>.
+        /// </value>
+        public Boolean DataTableReports_DoExportXMLData { get; set; } = true;
+
+
+
         public Int32 DataTableReports_RowsCountToDisableStyling { get; set; } = 200;
 
         public Int32 DataTableReports_RowsApplyStylingLimit { get; set; } = 120;
         public Boolean DataTableReports_AsyncExportCalls { get; set; } = true;
+
+
+
+
+        public String DataTableReports_SignatureLine { get; set; } = "Report generated with imbSCI library - imbVeles \"Coding for Science\" framework [GNU GPLv3] - blog.veles.rs";
 
         // Insert below your global configuration properties. 
         // Snippets: _imbSCI_DoBool, _imbSCI_String, _imbSCI_Ratio ....

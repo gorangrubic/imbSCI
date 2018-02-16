@@ -53,11 +53,40 @@ namespace imbSCI.Core.extensions.table
         dataAggregate,
         columnInformation,
         mergedCategoryHeader,
+        /// <summary>
+        /// The data highlight a: OrangeRed by default style
+        /// </summary>
         dataHighlightA,
+        /// <summary>
+        /// The data highlight b: CadetBlue by default style
+        /// </summary>
         dataHighlightB,
+        /// <summary>
+        /// The data highlight c: SteelBlue by default style
+        /// </summary>
         dataHighlightC,
         removedLight,
         removedStrong,
+        /// <summary>
+        /// The group01: lightblue
+        /// </summary>
+        group01,
+        /// <summary>
+        /// The group02: bisque
+        /// </summary>
+        group02,
+        /// <summary>
+        /// The group03: lightcyan
+        /// </summary>
+        group03,
+        /// <summary>
+        /// The group04: light golded rod
+        /// </summary>
+        group04,
+        /// <summary>
+        /// The group05: light pink
+        /// </summary>
+        group05
     }
 
 }

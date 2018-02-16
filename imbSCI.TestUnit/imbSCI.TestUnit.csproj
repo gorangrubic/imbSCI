@@ -53,6 +53,7 @@
     <Compile Include="testObjects\customFileDataStructure.cs" />
     <Compile Include="testObjects\customTable.cs" />
     <Compile Include="testObjects\customTableEntry.cs" />
+    <Compile Include="UnitGraphTests.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTestFolderNodes.cs" />

@@ -23,6 +23,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
     using imbSCI.Core.files;
     using imbSCI.Core.data;
     using imbSCI.Graph.Converters;
+    using imbSCI.Graph.Graphics;
 
 
     [TestClass]

@@ -37,6 +37,12 @@ using imbSCI.Graph.DGML;
 
 namespace imbSCI.Graph.DGML.core
 {
+
+
+
+
+
+
     public class Category:GraphNodeElement
     {
 

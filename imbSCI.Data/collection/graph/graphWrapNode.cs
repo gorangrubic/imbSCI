@@ -51,6 +51,7 @@ namespace imbSCI.Data.collection.graph
     /// <seealso cref="aceCommonTypes.core.interfaces.IObjectWithPath" />
     /// <seealso cref="aceCommonTypes.interfaces.IObjectWithName" />
     /// <seealso cref="aceCommonTypes.interfaces.IObjectWithPathAndChildren" />
+    [Serializable]
     public class graphWrapNode<TItem> : graphNodeBase, IGraphNode, IEnumerable, IEnumerable<graphWrapNode<TItem>>, 
         IObjectWithParent, IObjectWithPath, IObjectWithName, IObjectWithPathAndChildren, IObjectWithTreeView where TItem : IObjectWithName
     {

@@ -41,6 +41,7 @@ namespace imbSCI.Core.data
     using imbSCI.Core.extensions.text;
     using imbSCI.Data.interfaces;
 
+
     /// <summary>
     /// Graph-tree structure providing access to simple-type (string, numbers, boolean, enums) values (get/set/describe) properties of complex objects
     /// </summary>

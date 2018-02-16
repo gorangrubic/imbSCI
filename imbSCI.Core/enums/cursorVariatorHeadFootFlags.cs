@@ -31,6 +31,7 @@ namespace imbSCI.Core.enums
 {
     using System;
 
+
     [Flags]
     public enum cursorVariatorHeadFootFlags
     {

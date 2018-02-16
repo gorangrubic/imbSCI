@@ -44,6 +44,7 @@ namespace imbSCI.Core.reporting
     using imbSCI.Data;
     using imbSCI.Core.extensions.text;
 
+
     public static class settingsEntriesTools
     {
 

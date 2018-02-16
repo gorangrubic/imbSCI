@@ -31,6 +31,7 @@ namespace imbSCI.Core.interfaces
 {
     using System;
 
+
     public interface IAceLogable:ILogable
     {
 

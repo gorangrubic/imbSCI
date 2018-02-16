@@ -58,12 +58,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
             table.GetRowMetaSet().AddUnit(new dataNumericCriterionDynamicStyle<Int32, DataRowInReportTypeEnum>(new Core.math.range.rangeCriteria<int>(10, 60), DataRowInReportTypeEnum.mergedHeaderTitle, "number"));
 
-            var indexC = new dataRowIndexDynamicStyle<DataRowInReportTypeEnum>(DataRowInReportTypeEnum.dataHighlightA, new Int32[] { 2, 8,10,9 });
+            var indexC = new dataRowIndexDynamicStyle<DataRowInReportTypeEnum>(DataRowInReportTypeEnum.group01, new Int32[] { 2, 8,10,9 });
             indexC.indexFromSourceTable = true;
 
             table.GetRowMetaSet().AddUnit(indexC);
 
-             table.GetRowMetaSet().AddUnit(new dataValueMatchCriterionDynamicStyle<String, DataRowInReportTypeEnum>(new String[] { "T1", "T2" }, DataRowInReportTypeEnum.dataHighlightC, "name"));
+             table.GetRowMetaSet().AddUnit(new dataValueMatchCriterionDynamicStyle<String, DataRowInReportTypeEnum>(new String[] { "T1", "T2" }, DataRowInReportTypeEnum.group02, "name"));
 
             var p = folder.pathFor("exporttext.xlsx", getWritableFileMode.autoRenameThis, "");
             

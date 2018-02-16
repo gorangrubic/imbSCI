@@ -525,7 +525,7 @@ namespace imbSCI.DataComplex.tables
 
 
 
-     
+
 
 
         /// <summary>
@@ -536,6 +536,7 @@ namespace imbSCI.DataComplex.tables
         /// <param name="notation">The notation.</param>
         /// <param name="filenamePrefix">The filename prefix.</param>
         /// <param name="disablePrimaryKey">if set to <c>true</c> [disable primary key].</param>
+        /// <param name="allowAsyncCall">if set to <c>true</c> [allow asynchronous call].</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">Folder is null! at GetReportAndSave() for [" + source.TableName + "] at filename [" + filenamePrefix + "]</exception>
         public static DataTableForStatistics GetReportAndSave(this DataTable source, folderNode folder, aceAuthorNotation notation = null, string filenamePrefix = "", bool disablePrimaryKey = true, Boolean allowAsyncCall=false)
@@ -563,9 +564,22 @@ namespace imbSCI.DataComplex.tables
             if (source.Columns.Count > 0)
             {
                 folderNode dataFolder = null;
-                if (DataTableForStatistics.AUTOSAVE_CleanDataTable || DataTableForStatistics.AUTOSAVE_FieldsText)
+                if (DataTableForStatistics.AUTOSAVE_CleanDataTable || DataTableForStatistics.AUTOSAVE_FieldsText || imbSCI.Core.config.imbSCICoreConfig.settings.DataTableReports_DoExportXMLData)
                 {
                     dataFolder = folder.Add(EXTRAFOLDER, "Excel report meta data", "Folder containing clean data export (single header row, CSV format) for easier use by other software platforms and/or column meta descriptions - additional information - in separate txt file for each Excel report created.");
+                }
+
+                if (imbSCI.Core.config.imbSCICoreConfig.settings.DataTableReports_DoExportXMLData)
+                {
+                    try
+                    {
+                        String xmlCode = objectSerialization.ObjectToXML(source);
+                        xmlCode.saveStringToFile(dataFolder.pathFor(source.TableName.getFilename(".xml"), getWritableFileMode.overwrite, "XML Serialized DataTable [" + source.GetTitle() + "]", true));
+                    }
+                    catch (Exception ex)
+                    {
+                        source.SetAdditionalInfoEntry("XML data", "Serialization failed: " + ex.Message);
+                    }
                 }
 
                 if (DataTableForStatistics.AUTOSAVE_CleanDataTable)

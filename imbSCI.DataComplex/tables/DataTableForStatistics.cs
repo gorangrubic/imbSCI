@@ -402,7 +402,9 @@ namespace imbSCI.DataComplex.tables
             }
 
             bool isEven = ((in_row.Table.Rows.IndexOf(in_row) % 2) > 0);
-            
+
+            Boolean isLegend = in_row.Table.TableName == LEGENDTABLE_NAME;
+
             var baseStyle = styleSet.rowStyles[style];
 
             var rowsMetaSet = this.GetRowMetaSet();
@@ -427,7 +429,21 @@ namespace imbSCI.DataComplex.tables
             switch (style)
             {
                 case DataRowInReportTypeEnum.columnCaption:
+                    if (!isLegend)
+                    {
+                        foreach (var cpair in categories)
+                        {
+                            foreach (selectZone zone in categories.categoryZones[cpair.Key])
+                            {
+                                var sl = ws.getExcelRange(ex_row, zone);
+                                sl.Style.Fill.PatternType = ExcelFillStyle.Solid;
 
+                                var col = categories.categoryColors[cpair.Key]; //.First().DefaultBackground(System.Drawing.Color.Gray);
+                                sl.Style.Fill.BackgroundColor.SetColor(col);
+                                sl.Style.Fill.BackgroundColor.Tint = new decimal(0.2);
+                            }
+                        }
+                    }
                     break;
                 case DataRowInReportTypeEnum.mergedHeaderTitle:
                     ws.Cells[ex_row.Row, 1, ex_row.Row, in_row.Table.Columns.Count].Merge = true;
@@ -527,31 +543,36 @@ namespace imbSCI.DataComplex.tables
             }
 
 
-
-            if (ex_row.Row == (RowStart + RowsWithMaxAggregation))
+            if (!isLegend)
             {
-                
-                ex_row.Style.Border.Bottom.Style = ExcelBorderStyle.Dotted;
-                ex_row.Style.Border.Bottom.Color.SetColor(System.Drawing.Color.Red);
+                if (ex_row.Row == (RowStart + RowsWithMaxAggregation))
+                {
+
+                    ex_row.Style.Border.Bottom.Style = ExcelBorderStyle.Dotted;
+                    ex_row.Style.Border.Bottom.Color.SetColor(System.Drawing.Color.Red);
+                }
             }
 
       
         }
 
 
-
+        public const String LEGENDTABLE_NAME = "LEGEND";
 
 
         public DataTable RenderLegend()
         {
-            DataTable legend = new DataTable("LEGEND");
+            DataTable legend = new DataTable(LEGENDTABLE_NAME);
 
+            
+            DataColumn columnName = legend.Add("Name").SetDefaultBackground(styleSet.extraEven).SetWidth(20);
+            DataColumn columnDescription = legend.Add("Description").SetDefaultBackground(styleSet.dataOdd).SetWidth(120);
             DataColumn columnGroup = legend.Add("Group").SetDefaultBackground(styleSet.columnCaption).SetWidth(25);
-            DataColumn columnName = legend.Add("Name").SetDefaultBackground(styleSet.extraEven).SetWidth(40);
-            DataColumn columnLetter = legend.Add("Letter").SetDefaultBackground(styleSet.extraOdd).SetWidth(25);
-            DataColumn columnUnit = legend.Add("Unit").SetDefaultBackground(styleSet.extraEven).SetWidth(25);
-            DataColumn columnDescription = legend.Add("Description").SetDefaultBackground(styleSet.dataOdd).SetWidth(180);
-
+            DataColumn columnLetter = legend.Add("Letter").SetDefaultBackground(styleSet.extraOdd).SetWidth(20);
+            DataColumn columnUnit = legend.Add("Unit").SetDefaultBackground(styleSet.extraEven).SetWidth(10);
+            
+            
+            
 
             extraRowStyles.Add(legend.AddRow("Table name", this.GetTitle()), DataRowInReportTypeEnum.columnDescription);
             extraRowStyles.Add(legend.AddRow("Table description", this.GetDescription()), DataRowInReportTypeEnum.columnDescription);
@@ -599,8 +620,17 @@ namespace imbSCI.DataComplex.tables
 
             extraRowStyles.Add(legend.AddLineRow(), DataRowInReportTypeEnum.mergedHorizontally);
 
+
+            extraRowStyles.Add(legend.AddStringLine(imbSCICoreConfig.settings.DataTableReports_SignatureLine), DataRowInReportTypeEnum.mergedHorizontally);
+            if (!imbSCICoreConfig.settings.DataTableReports_SignatureLine.Contains("imbVeles"))
+            {
+                extraRowStyles.Add(legend.AddStringLine(SHORT_SIGNATURE), DataRowInReportTypeEnum.mergedHorizontally);
+            }
+
             return legend;
         }
+
+        public const string SHORT_SIGNATURE = "Generated with: imbVeles Framework (GNU GPLv3) - blog.veles.rs";
 
         public void SaveToLegendWorksheet(ExcelWorksheet ws)
         {

@@ -44,7 +44,7 @@ namespace imbSCI.DataComplex.special
     using imbSCI.Data.data;
     using imbSCI.Data.interfaces;
     using imbSCI.Data;
-
+    [Serializable]
     public class translationEnumTable:Dictionary<object, string>
     {
 

@@ -48,6 +48,7 @@ namespace imbSCI.DataComplex.special
     /// 
     /// </summary>
     /// <seealso cref="imbSCI.DataComplex.special.translationEnumTable" />
+    [Serializable]
     public class translationForValuesAndTypes:translationEnumTable
     {
         public string getTranslation(object value, string format = "{0,12} : {1}")

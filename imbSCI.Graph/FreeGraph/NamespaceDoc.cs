@@ -49,7 +49,8 @@ namespace imbSCI.Graph.FreeGraph
     /// <para>Undirected Graph where nodes can connect to each other without restriction</para>
     /// </summary>
     /// <remarks>
-    /// <para>The graph is built from <see cref="freeGraphNodeBase"/> and <see cref="freeGraphLinkBase"/> that have weights assigned</para>
+    /// <para>The graph is built from <see cref="freeGraphNodeBase"/> and <see cref="freeGraphLinkBase"/> that have weights (<see cref="freeGraphLinkBase.weight"/>) and types (<see cref="freeGraphNodeBase.type"/>) assigned.</para>
+    /// <para><see cref="FreeGraph.freeGraphReport"/> provides nice structural analysis of the graph, and detects the <see cref="FreeGraph.freeGraphIsland"/>s within a graph</para>
     /// <list type="bullet">
     /// 	<listheader>
     ///			<term>When to use <see cref="freeGraph"/>?</term>
