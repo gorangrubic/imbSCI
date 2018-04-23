@@ -77,6 +77,31 @@ namespace imbSCI.Core.files.folders
         /// </summary>
         public folderNode(String _description="")
         {
+            DirectoryInfo info = new DirectoryInfo(Directory.GetCurrentDirectory());
+            folderNode par = info.Parent;
+
+            parent = par;
+
+
+
+            _name = info.Name;
+            caption = _name.imbTitleCamelOperation(true);
+            if (_description.isNullOrEmpty())
+            {
+                description = "Application root directory";
+            }
+            else
+            {
+                description = _description;
+            }
+
+
+            par.Add(this);
+        }
+
+
+        private void parentAutoSet() {
+
             try
             {
                 DirectoryInfo info = new DirectoryInfo(Directory.GetCurrentDirectory());
@@ -99,11 +124,15 @@ namespace imbSCI.Core.files.folders
 
 
                 par.Add(this);
-            } catch (Exception ex)
-            {
-                throw new imbFileException("folderNode construction failed", ex, this, null, null);
             }
+            catch (Exception ex)
+            {
+                throw new imbFileException("folderNode construction failed - parentAutoSet()", ex, this, null, null);
+            }
+
+           
         }
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="folderNode"/> class.
@@ -116,10 +145,14 @@ namespace imbSCI.Core.files.folders
             _name = __name;
             caption = __caption;
             description = __description;
+
+            //DirectoryInfo info = new DirectoryInfo(Directory.GetCurrentDirectory());
+            //folderNode par = info.Parent;
+            //par.Add(this);
         }
 
         /// <summary>
-        /// Adds the specified name enum.
+        /// Creates new folder node as subdirectory
         /// </summary>
         /// <param name="nameEnum">The name enum.</param>
         /// <param name="__caption">The caption.</param>
@@ -130,6 +163,11 @@ namespace imbSCI.Core.files.folders
             return Add(nameEnum.toString(), __caption, __description);
         }
 
+        /// <summary>
+        /// Nests the specified folder node into this instance
+        /// </summary>
+        /// <param name="node">The node.</param>
+        /// <returns></returns>
         public folderNode Add(folderNode node)
         {
 
@@ -641,6 +679,35 @@ namespace imbSCI.Core.files.folders
             return output;
         }
 
+
+        /// <summary>
+        /// Saves the <c>content</c> string as text file. Returns path with filename specified. Optionally, sets <c>fileDescription</c> for directory readme generator
+        /// </summary>
+        /// <remarks>
+        /// This method calls: <see cref="pathFor(string, getWritableFileMode, string, bool)"/> and then uses <see cref="File.WriteAllText(string, string)"/> to save the file.
+        /// </remarks>
+        /// <param name="content">The textual content to be saved</param>
+        /// <param name="filename">The filename, if has no extension it will set .txt</param>
+        /// <param name="mode">The mode.</param>
+        /// <param name="fileDescription">The file description - if not specified, it will try to improvize :)</param>
+        /// <param name="updateExistingDesc">if set to <c>true</c> it will force update if any existing file description was found. <see cref="RegisterFile(string, string, bool)" /></param>
+        /// <returns>
+        /// The path
+        /// </returns>
+        public String SaveText(String content, String filename, getWritableFileMode mode = getWritableFileMode.none, String fileDescription = "", Boolean updateExistingDesc = false) {
+
+            if (!Path.HasExtension(filename))
+            {
+                filename = filename + ".txt";
+            }
+
+            String p = pathFor(filename, mode, fileDescription, updateExistingDesc);
+            File.WriteAllText(p, content);
+
+            return p;
+        }
+
+
         /// <summary>
         /// Returns path with filename specified. Optionally, sets <c>fileDescription</c> for directory readme generator
         /// </summary>
@@ -648,7 +715,7 @@ namespace imbSCI.Core.files.folders
         /// <param name="mode">The mode.</param>
         /// <param name="fileDescription">The file description - if not specified, it will try to improvize :)</param>
         /// <param name="updateExisting">if set to <c>true</c> it will force update if any existing file description was found. <see cref="RegisterFile(string, string, bool)"/></param>
-        /// <returns></returns>
+        /// <returns>The path</returns>
         public string pathFor(string filename, getWritableFileMode mode=getWritableFileMode.none, String fileDescription="", Boolean updateExisting=false)
         {
             filename = filename.getCleanFilepath("");

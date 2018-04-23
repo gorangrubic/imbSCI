@@ -82,7 +82,7 @@ namespace imbSCI.Core.syntax.param
             var col_name = Add(output,"Name", "Parameter name");
             var col_type = Add(output,"Type", "Data type");
             var col_default = Add(output,"Default", "Default value");
-            var col_example = Add(output,"Example", "Default value");
+            //var col_example = Add(output,"Example", "Default value");
             var col_comment = Add(output,"Comment", "Additional info");
 
             Int32 c = 1;
@@ -94,9 +94,9 @@ namespace imbSCI.Core.syntax.param
                 dr[col_name] = cmdPar.info.name;
                 dr[col_type] = cmdPar.info.type.Name;
                 dr[col_default] = cmdPar?.value.toStringSafe("[null]");
-                dr[col_example] = cmdPar.getString(false, true, true);
+                //dr[col_example] = cmdPar.getString(false, true, true);
 
-                dr[col_comment] = cmdPar.info?.sPE?.description.toStringSafe("");
+                dr[col_comment] = cmdPar.info?.sPE?.description.toStringSafe("Example: " + cmdPar.getString(false, true, true));
                 if (cmdPar.info.sPE != null)
                 {
                     if (cmdPar.info.sPE.acceptableValues.Any())
@@ -109,6 +109,7 @@ namespace imbSCI.Core.syntax.param
                 }
                 
                 output.Rows.Add(dr);
+                c++;
             }
             return output;
         }

@@ -96,17 +96,17 @@
     <Reference Include="EPPlus, Version=4.1.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.4.1.1\lib\net40\EPPlus.dll</HintPath>
     </Reference>
-    <Reference Include="imbSCI.Core, Version=0.1.6620.43133, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\imbWBI\packages\imbSCI.0.1.2.45\lib\net40\imbSCI.Core.dll</HintPath>
+    <Reference Include="imbSCI.Core, Version=0.1.6624.5850, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\imbSCI.0.1.2.49\lib\net40\imbSCI.Core.dll</HintPath>
     </Reference>
     <Reference Include="imbSCI.Data, Version=0.1.6620.43132, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\imbWBI\packages\imbSCI.0.1.2.45\lib\net40\imbSCI.Data.dll</HintPath>
+      <HintPath>..\packages\imbSCI.0.1.2.49\lib\net40\imbSCI.Data.dll</HintPath>
     </Reference>
-    <Reference Include="imbSCI.DataComplex, Version=0.1.6620.43135, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\imbWBI\packages\imbSCI.0.1.2.45\lib\net40\imbSCI.DataComplex.dll</HintPath>
+    <Reference Include="imbSCI.DataComplex, Version=0.1.6624.5852, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\imbSCI.0.1.2.49\lib\net40\imbSCI.DataComplex.dll</HintPath>
     </Reference>
-    <Reference Include="imbSCI.Reporting, Version=0.1.6620.43135, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\imbWBI\packages\imbSCI.0.1.2.45\lib\net40\imbSCI.Reporting.dll</HintPath>
+    <Reference Include="imbSCI.Reporting, Version=0.1.6624.5852, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\imbSCI.0.1.2.49\lib\net40\imbSCI.Reporting.dll</HintPath>
     </Reference>
     <Reference Include="MathNet.Numerics, Version=3.20.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MathNet.Numerics.3.20.2\lib\net40\MathNet.Numerics.dll</HintPath>

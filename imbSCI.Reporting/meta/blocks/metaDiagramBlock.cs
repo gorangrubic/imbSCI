@@ -57,15 +57,12 @@ namespace imbSCI.Reporting.meta.blocks
 
     public class metaDiagramBlock : MetaContainerNestedBase
     {
-        /// <summary>
-        /// 
-        /// </summary>
+        
+        
         public diagramModel diagram { get; set; }
 
 
-        /// <summary>
-        /// 
-        /// </summary>
+
         public diagramOutputEngineEnum engine { get; set; }
 
 

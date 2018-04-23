@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" GraphDirection="LeftToRight" Layout="Sugiyama" NeighborhoodDistance="25" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Links>
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentencepropercase" Target="sentence" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentencepropercase" Target="propercase" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="titleallcaps" Target="allcapscase" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="titleallcaps" Target="titlerole" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="titleproperend" Target="regularendpunctaction" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="titleproperend" Target="titlerole" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="titleopenend" Target="noendpunctaction" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="titleopenend" Target="titlerole" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentenceregularend" Target="sentence" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentenceregularend" Target="propercase" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentenceregularend" Target="sentencepropercase" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentenceregularend" Target="regularend" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentenceeclamationend" Target="sentence" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentenceeclamationend" Target="propercase" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentenceeclamationend" Target="sentencepropercase" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentenceeclamationend" Target="exclamationend" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentencequestionend" Target="sentence" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentencequestionend" Target="propercase" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentencequestionend" Target="sentencepropercase" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentencequestionend" Target="questionend" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="titleforenumeration" Target="titlerole" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="titleforenumeration" Target="enumeration" />
+  </Links>
+  <Nodes>
+    <Node StrokeThinkness="1" Label="none" Group="Collapsed" Visibility="Visible" Id="none" />
+    <Node StrokeThinkness="1" Label="sentence" Group="Collapsed" Visibility="Visible" Id="sentence" />
+    <Node StrokeThinkness="1" Label="subsentence" Group="Collapsed" Visibility="Visible" Id="subsentence" />
+    <Node StrokeThinkness="1" Label="properCase" Group="Collapsed" Visibility="Visible" Id="propercase" />
+    <Node StrokeThinkness="1" Label="sentenceProperCase" Group="Collapsed" Visibility="Visible" Id="sentencepropercase" />
+    <Node StrokeThinkness="1" Label="allCapsCase" Group="Collapsed" Visibility="Visible" Id="allcapscase" />
+    <Node StrokeThinkness="1" Label="regularEndPunctaction" Group="Collapsed" Visibility="Visible" Id="regularendpunctaction" />
+    <Node StrokeThinkness="1" Label="noEndPunctaction" Group="Collapsed" Visibility="Visible" Id="noendpunctaction" />
+    <Node StrokeThinkness="1" Label="enbraced" Group="Collapsed" Visibility="Visible" Id="enbraced" />
+    <Node StrokeThinkness="1" Label="quoted" Group="Collapsed" Visibility="Visible" Id="quoted" />
+    <Node StrokeThinkness="1" Label="singleStream" Group="Collapsed" Visibility="Visible" Id="singlestream" />
+    <Node StrokeThinkness="1" Label="singleStream" Group="Collapsed" Visibility="Visible" Id="singlestream" />
+    <Node StrokeThinkness="1" Label="betweenComma" Group="Collapsed" Visibility="Visible" Id="betweencomma" />
+    <Node StrokeThinkness="1" Label="betweenComma" Group="Collapsed" Visibility="Visible" Id="betweencomma" />
+    <Node StrokeThinkness="1" Label="titleRole" Group="Collapsed" Visibility="Visible" Id="titlerole" />
+    <Node StrokeThinkness="1" Label="titleAllCaps" Group="Collapsed" Visibility="Visible" Id="titleallcaps" />
+    <Node StrokeThinkness="1" Label="titleProperEnd" Group="Collapsed" Visibility="Visible" Id="titleproperend" />
+    <Node StrokeThinkness="1" Label="titleOpenEnd" Group="Collapsed" Visibility="Visible" Id="titleopenend" />
+    <Node StrokeThinkness="1" Label="regularEnd" Group="Collapsed" Visibility="Visible" Id="regularend" />
+    <Node StrokeThinkness="1" Label="sentenceRegularEnd" Group="Collapsed" Visibility="Visible" Id="sentenceregularend" />
+    <Node StrokeThinkness="1" Label="exclamationEnd" Group="Collapsed" Visibility="Visible" Id="exclamationend" />
+    <Node StrokeThinkness="1" Label="sentenceEclamationEnd" Group="Collapsed" Visibility="Visible" Id="sentenceeclamationend" />
+    <Node StrokeThinkness="1" Label="questionEnd" Group="Collapsed" Visibility="Visible" Id="questionend" />
+    <Node StrokeThinkness="1" Label="sentenceQuestionEnd" Group="Collapsed" Visibility="Visible" Id="sentencequestionend" />
+    <Node StrokeThinkness="1" Label="enumeration" Group="Collapsed" Visibility="Visible" Id="enumeration" />
+    <Node StrokeThinkness="1" Label="titleForEnumeration" Group="Collapsed" Visibility="Visible" Id="titleforenumeration" />
+    <Node StrokeThinkness="1" Label="properCase" Group="Collapsed" Visibility="Visible" Id="propercase" />
+    <Node StrokeThinkness="1" Label="allCapsCase" Group="Collapsed" Visibility="Visible" Id="allcapscase" />
+    <Node StrokeThinkness="1" Label="titleRole" Group="Collapsed" Visibility="Visible" Id="titlerole" />
+    <Node StrokeThinkness="1" Label="regularEndPunctaction" Group="Collapsed" Visibility="Visible" Id="regularendpunctaction" />
+    <Node StrokeThinkness="1" Label="titleRole" Group="Collapsed" Visibility="Visible" Id="titlerole" />
+    <Node StrokeThinkness="1" Label="noEndPunctaction" Group="Collapsed" Visibility="Visible" Id="noendpunctaction" />
+    <Node StrokeThinkness="1" Label="titleRole" Group="Collapsed" Visibility="Visible" Id="titlerole" />
+    <Node StrokeThinkness="1" Label="properCase" Group="Collapsed" Visibility="Visible" Id="propercase" />
+    <Node StrokeThinkness="1" Label="sentenceProperCase" Group="Collapsed" Visibility="Visible" Id="sentencepropercase" />
+    <Node StrokeThinkness="1" Label="regularEnd" Group="Collapsed" Visibility="Visible" Id="regularend" />
+    <Node StrokeThinkness="1" Label="properCase" Group="Collapsed" Visibility="Visible" Id="propercase" />
+    <Node StrokeThinkness="1" Label="sentenceProperCase" Group="Collapsed" Visibility="Visible" Id="sentencepropercase" />
+    <Node StrokeThinkness="1" Label="exclamationEnd" Group="Collapsed" Visibility="Visible" Id="exclamationend" />
+    <Node StrokeThinkness="1" Label="properCase" Group="Collapsed" Visibility="Visible" Id="propercase" />
+    <Node StrokeThinkness="1" Label="sentenceProperCase" Group="Collapsed" Visibility="Visible" Id="sentencepropercase" />
+    <Node StrokeThinkness="1" Label="questionEnd" Group="Collapsed" Visibility="Visible" Id="questionend" />
+    <Node StrokeThinkness="1" Label="titleRole" Group="Collapsed" Visibility="Visible" Id="titlerole" />
+  </Nodes>
+  <Properties />
+  <Categories />
+</DirectedGraph>

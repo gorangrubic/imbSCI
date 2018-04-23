@@ -50,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="enums\dat_business.cs" />
+    <Compile Include="enums\tkn_stream.cs" />
+    <Compile Include="enums\UnitGraphConversion.cs" />
     <Compile Include="testObjects\customFileDataStructure.cs" />
     <Compile Include="testObjects\customTable.cs" />
     <Compile Include="testObjects\customTableEntry.cs" />

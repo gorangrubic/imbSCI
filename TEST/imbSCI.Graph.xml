@@ -93,6 +93,18 @@
             <param name="rootNodes"></param>
             <returns></returns>
         </member>
+        <member name="T:imbSCI.Graph.Converters.enumToGraph.enumToDMGLConverter">
+            <summary>
+            Converts enum types or values into directed graphs showing flag relationships
+            </summary>
+        </member>
+        <member name="M:imbSCI.Graph.Converters.enumToGraph.enumToDMGLConverter.ConvertEnumType(System.Type,System.Boolean)">
+            <summary>
+            Converts the type of an Enum into directed graph that shows relationship between values (by interpreting the flags)
+            </summary>
+            <param name="enumType">Type of the enum.</param>
+            <returns>Directed graph showing relationship between the values</returns>
+        </member>
         <member name="T:imbSCI.Graph.Converters.StaticConverters">
             <summary>
             
@@ -569,6 +581,15 @@
             </summary>
             <seealso cref="!:imbSCI.Graph.DGML.collections.GraphElementCollection&lt;imbSCI.Graph.DGML.core.Link&gt;" />
         </member>
+        <member name="M:imbSCI.Graph.DGML.collections.LinkCollection.AddLink(imbSCI.Graph.DGML.core.Node,imbSCI.Graph.DGML.core.Node,System.String)">
+            <summary>
+            Adds a link between <para>nodeA</para> and <para>nodeB</para>. If any of nodes are null it will just return null and add no link.
+            </summary>
+            <param name="nodeA">The node a - node from</param>
+            <param name="nodeB">The node b - node to</param>
+            <param name="linkLabel">Text label of the link.</param>
+            <returns></returns>
+        </member>
         <member name="M:imbSCI.Graph.DGML.collections.PropertyList.AddProperty(System.String,System.String,System.Type)">
             <summary>
             Adds the property.
@@ -656,6 +677,377 @@
             <remarks>
             For weighted graph data-structure better idea is to use <see cref="T:imbSCI.Graph.FreeGraph.freeGraph"/>
             </remarks>
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.builders.diagramBuilderBase.childDepthLimit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:imbSCI.Graph.Diagram.builders.diagramBuilderForType`1">
+            <summary>
+            Builds diagram using Type reflection
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.builders.diagramBuilderForType`1.childDepthLimit">
+            <summary>
+            Limit of depth allowed
+            </summary>
+        </member>
+        <member name="T:imbSCI.Graph.Diagram.builders.diagramBuilderUniversalTree">
+            <summary>
+            Universal diagram builder for parent->children hierarchical objects
+            </summary>
+            <seealso cref="T:imbSCI.Graph.Diagram.builders.diagramBuilderBase" />
+        </member>
+        <member name="M:imbSCI.Graph.Diagram.builders.diagramBuilderUniversalTree.buildModel(imbSCI.Graph.Diagram.diagramModel,imbSCI.Data.interfaces.IObjectWithPathAndChildSelector)">
+            <summary>
+            Builds the diagram model from an object with children
+            </summary>
+            <param name="source">The source.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Diagram.builders.diagramBuilderUniversalTree.buildChildren(imbSCI.Graph.Diagram.diagramModel,imbSCI.Graph.Diagram.core.diagramNode,System.Collections.IEnumerable,imbSCI.Graph.Diagram.enums.diagramNodeShapeEnum,imbSCI.Graph.Diagram.enums.diagramLinkTypeEnum,System.Boolean)">
+            <summary>
+            Builds the children and returns newly built nodes
+            </summary>
+            <param name="model">The model.</param>
+            <param name="parent">The parent.</param>
+            <param name="source">The source.</param>
+            <param name="defShapeType">Type of the definition shape.</param>
+            <param name="defLinkType">Type of the definition link.</param>
+            <param name="doDegradeImportance">if set to <c>true</c> [do degrade importance].</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Diagram.builders.diagramBuilderUniversalTree.buildNode(imbSCI.Graph.Diagram.diagramModel,imbSCI.Data.interfaces.IObjectWithPathAndChildSelector)">
+            <summary>
+            Builds a node.
+            </summary>
+            <param name="model">The diagram model.</param>
+            <param name="source">The source object to build from</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Graph.Diagram.core.diagramElementBase">
+            <summary>
+            Base class for all elements within <see cref="T:imbSCI.Graph.Diagram.diagramModel" />
+            </summary>
+            <seealso cref="T:imbSCI.Data.interfaces.IObjectWithName" />
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.core.diagramElementBase.name">
+            <summary>
+            UID name of this diagram element - for Links no need to be unique
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.core.diagramElementBase.description">
+            <summary>
+            Human-readable description text to appear inside or above diagram element
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.core.diagramElementBase.color">
+            <summary>
+            Associated color role - good idea to be sinchronized with: <see cref="T:imbSCI.Core.reporting.colors.acePaletteRole"/>
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.core.diagramElementBase.importance">
+            <summary>
+            Associated importance level - good idea to be sinchronized with: <see cref="T:imbSCI.Core.reporting.colors.acePaletteVariationRole"/>
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.core.diagramElementBase.relatedObject">
+            <summary>
+            Object that is logicaly related to this diagram element
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.core.diagramElementBase.parent">
+            <summary>
+            Reference to <see cref="T:imbSCI.Graph.Diagram.diagramModel"/> that contains this element
+            </summary>
+        </member>
+        <member name="T:imbSCI.Graph.Diagram.core.diagramLink">
+            <summary>
+            Model element representing link between two nodes
+            </summary>
+            <seealso cref="T:imbSCI.Graph.Diagram.core.diagramElementBase" />
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.core.diagramLink.type">
+            <summary>
+            Link type
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.core.diagramLink.isDoubleDirected">
+            <summary>
+            If link has arrow on both directions
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.core.diagramLink.isToDirected">
+            <summary>
+            Should arrow appear next to <see cref="P:imbSCI.Graph.Diagram.core.diagramLink.to"/> node
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.core.diagramLink.isFromDirected">
+            <summary>
+            Should arrow appear next to <see cref="P:imbSCI.Graph.Diagram.core.diagramLink.from"/> node
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.core.diagramLink.from">
+            <summary>
+            The node link points from
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.core.diagramLink.to">
+            <summary>
+            The node link points to
+            </summary>
+        </member>
+        <member name="T:imbSCI.Graph.Diagram.core.diagramNode">
+            <summary>
+            Node that is part of the <see cref="T:imbSCI.Graph.Diagram.diagramModel"/>
+            </summary>
+            <seealso cref="!:imbReportingCore.diagram.diagramElementBase" />
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.core.diagramNode.shapeType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:imbSCI.Graph.Diagram.diagramModel">
+            <summary>
+            Abstract model of a diagram. Flowchart type of diagram is main purpose of this namespace
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.diagramModel.direction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.diagramModel.diagramClassName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:imbSCI.Graph.Diagram.diagramModel.AddLink(imbSCI.Graph.Diagram.core.diagramNode,imbSCI.Graph.Diagram.core.diagramNode,imbSCI.Graph.Diagram.enums.diagramLinkTypeEnum,System.String,System.String,imbSCI.Core.reporting.ILogBuilder)">
+            <summary>
+            Adds the link.
+            </summary>
+            <param name="from">From.</param>
+            <param name="to">To.</param>
+            <param name="type">The type.</param>
+            <param name="description">The description.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.diagramModel.hashList">
+            <summary> </summary>
+        </member>
+        <member name="M:imbSCI.Graph.Diagram.diagramModel.AddNode(System.String,imbSCI.Graph.Diagram.enums.diagramNodeShapeEnum,System.String,System.String,imbSCI.Core.reporting.ILogBuilder)">
+            <summary>
+            Creates new node in the model
+            </summary>
+            <param name="__description">The description.</param>
+            <param name="type">The type.</param>
+            <param name="__name">The name.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.diagramModel.name">
+            <summary>
+            Human-readable title for this diagram
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.diagramModel.description">
+            <summary>
+            Human-readable description for this diagram
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.diagramModel.nodeByHash">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.diagramModel.linkByHash">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.diagramModel.links">
+            <summary>
+            Collection of links
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.diagramModel.nodes">
+            <summary>
+            Collection of nodes
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.diagramModel.linkCount">
+            <summary>
+            Gets the link count.
+            </summary>
+            <value>
+            The link count.
+            </value>
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.diagramModel.nodeCount">
+            <summary>
+            Gets the node count.
+            </summary>
+            <value>
+            The node count.
+            </value>
+        </member>
+        <member name="M:imbSCI.Graph.Diagram.diagramModel.isNodeNameAcceptable(System.String)">
+            <summary>
+            Determines whether is specified name acceptable for new node.
+            </summary>
+            <param name="__name">Name to be attached to a <see cref="T:imbSCI.Graph.Diagram.core.diagramNode"/></param>
+            <returns>
+              <c>true</c> if [is node name acceptable] [the specified name]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="P:imbSCI.Graph.Diagram.diagramModel.lastNamingIteration">
+            <summary> </summary>
+        </member>
+        <member name="M:imbSCI.Graph.Diagram.diagramModel.getUID(imbSCI.Graph.Diagram.core.diagramElementBase,System.Boolean,System.Boolean)">
+            <summary>
+            Gets the universal ID name for specified element
+            </summary>
+            <param name="element">The element.</param>
+            <param name="autoSet">if set to <c>true</c> [automatic set].</param>
+            <param name="useRelatedObject">if set to <c>true</c> [use related object].</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Graph.Diagram.enums.diagramDirectionEnum">
+            <summary>
+            Direction of flowchart diagram
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.Diagram.enums.diagramDirectionEnum.TB">
+            <summary>
+            Top to Bottom
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.Diagram.enums.diagramDirectionEnum.BT">
+            <summary>
+            Bottom to top
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.Diagram.enums.diagramDirectionEnum.RL">
+            <summary>
+            Right to left
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.Diagram.enums.diagramDirectionEnum.LR">
+            <summary>
+            The lr
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.Diagram.enums.diagramDirectionEnum.TD">
+            <summary>
+            Same as <see cref="F:imbSCI.Graph.Diagram.enums.diagramDirectionEnum.TB"/>
+            </summary>
+        </member>
+        <member name="T:imbSCI.Graph.Diagram.enums.diagramLinkTypeEnum">
+            <summary>
+            Type of link between nodes
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.Diagram.enums.diagramLinkTypeEnum.normal">
+            <summary>
+            The normal line
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.Diagram.enums.diagramLinkTypeEnum.dotted">
+            <summary>
+            The dotted line
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.Diagram.enums.diagramLinkTypeEnum.thick">
+            <summary>
+            The thick line
+            </summary>
+        </member>
+        <member name="T:imbSCI.Graph.Diagram.enums.diagramNodeShapeEnum">
+            <summary>
+            Type of shape that node should be represendet
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.Diagram.enums.diagramNodeShapeEnum.normal">
+            <summary>
+            The normal rectangle
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.Diagram.enums.diagramNodeShapeEnum.rounded">
+            <summary>
+            The rounded rectangle
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.Diagram.enums.diagramNodeShapeEnum.circle">
+            <summary>
+            The circle shaped
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.Diagram.enums.diagramNodeShapeEnum.flagToRight">
+            <summary>
+            The flag to right:    ]
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.Diagram.enums.diagramNodeShapeEnum.flagToLeft">
+            <summary>
+            The flag to left: [    
+            </summary>
+        </member>
+        <member name="F:imbSCI.Graph.Diagram.enums.diagramNodeShapeEnum.rhombus">
+            <summary>
+            The rhombus shape
+            </summary>
+        </member>
+        <member name="T:imbSCI.Graph.Diagram.output.diagramMermaidOutput">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:imbSCI.Graph.Diagram.output.diagramOutputBase" />
+        </member>
+        <member name="M:imbSCI.Graph.Diagram.output.diagramMermaidOutput.getOutput(imbSCI.Graph.Diagram.diagramModel,imbSCI.Core.reporting.colors.acePaletteProvider)">
+            <summary>
+            Gets the output.
+            </summary>
+            <param name="model">The model.</param>
+            <param name="colorProvider">The color provider.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Diagram.output.diagramMermaidOutput.getLinkDeclaration(imbSCI.Graph.Diagram.core.diagramLink)">
+            <summary>
+            Gets the link declaration.
+            </summary>
+            <param name="link">The link.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Diagram.output.diagramMermaidOutput.getNodeDeclaration(imbSCI.Graph.Diagram.core.diagramNode)">
+            <summary>
+            Gets the node declaration.
+            </summary>
+            <param name="node">The node.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Diagram.output.diagramMermaidOutput.getOutputLinksDeclaration(imbSCI.Graph.Diagram.diagramModel)">
+            <summary>
+            Gets the output links declaration.
+            </summary>
+            <param name="model">The model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Diagram.output.diagramMermaidOutput.getOutputNodesDeclaration(imbSCI.Graph.Diagram.diagramModel)">
+            <summary>
+            Gets the output nodes declaration.
+            </summary>
+            <param name="model">The model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Diagram.output.diagramMermaidOutput.getOutputStyleDeclaration(imbSCI.Graph.Diagram.diagramModel,imbSCI.Core.reporting.colors.acePaletteProvider)">
+            <summary>
+            Gets the output style declaration.
+            </summary>
+            <param name="model">The model.</param>
+            <param name="colorProvider">The color provider.</param>
+            <returns></returns>
         </member>
         <member name="T:imbSCI.Graph.DOT.DotLink">
             <summary>
@@ -1374,6 +1766,11 @@
             The length of the accronim.
             </value>
         </member>
+        <member name="F:imbSCI.Graph.Graphics.Shapes.basicShapes.rectangleObround">
+            <summary>
+            The rectangle obround: like <see cref="F:imbSCI.Graph.Graphics.Shapes.basicShapes.rectangleRounded"/> where r = b/2
+            </summary>
+        </member>
         <member name="M:imbSCI.Graph.Graphics.SvgChart.AxisChart.GetMaxValue(System.Data.DataTable,System.String)">
             <summary>
             Get the collection's max value
@@ -1521,6 +1918,12 @@
             <param name="_bar">Rectangle</param>
             <param name="_indexRow">int</param>
             <returns>Polygon</returns>
+        </member>
+        <member name="T:imbSCI.Graph.Graphics.SvgChart.HistogramChart">
+            <summary>
+            Bar chart (not histogram really)
+            </summary>
+            <seealso cref="T:imbSCI.Graph.Graphics.SvgChart.AxisChart" />
         </member>
         <member name="M:imbSCI.Graph.Graphics.SvgChart.HistogramChart.GenerateChart(System.Data.DataTable,System.String,System.String)">
             <summary>
@@ -1733,6 +2136,67 @@
             Get a XmlNode with all details of this object
             </summary>
             <returns>XmlNode</returns>
+        </member>
+        <member name="T:imbSCI.Graph.Graphics.UniveralGenerators">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.UniveralGenerators.GetChartDataTable``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.Double},System.String)">
+            <summary>
+            Makes data table for chart
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="titleSelector">The title selector.</param>
+            <param name="valueSelector">The value selector.</param>
+            <param name="name">The name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.UniveralGenerators.GetSVGChart``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.Double},System.Boolean,System.Boolean,System.Int16)">
+            <summary>
+            Gets the SVG chart: <see cref="T:imbSCI.Graph.Graphics.SvgChart.Histogram3DChart"/>, <see cref="T:imbSCI.Graph.Graphics.SvgChart.HistogramChart"/> or <see cref="T:imbSCI.Graph.Graphics.SvgChart.LinearChart"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="titleSelector">The title selector.</param>
+            <param name="valueSelector">The value selector.</param>
+            <param name="is3D">if set to <c>true</c> [is3 d].</param>
+            <param name="isBarChart">if set to <c>true</c> [is bar chart].</param>
+            <param name="depth">The depth.</param>
+            <returns>SVG string code</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.UniveralGenerators.GetSVGPieChart``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.Func{``0,System.Double},System.Boolean,System.Boolean)">
+            <summary>
+            Gets the SVG pie or doughnut chart.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="titleSelector">The title selector.</param>
+            <param name="valueSelector">The value selector.</param>
+            <param name="is3D">if set to <c>true</c> [is3 d].</param>
+            <param name="isDoughnut">if set to <c>true</c> [is doughnut].</param>
+            <returns>SVG string code</returns>
+        </member>
+        <member name="M:imbSCI.Graph.Graphics.UniveralGenerators.GetSVGHistogram(imbSCI.Core.math.range.histogram.histogramModel,System.Boolean,System.Int16)">
+            <summary>
+            Gets the SVG histogram.
+            </summary>
+            <param name="model">The model.</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Graph.MXGraph.mxGraphModel">
+            <summary>
+            Object model for jGraph / mxGraphModel, used by draw.io diagraming tool
+            </summary>
+        </member>
+        <member name="P:imbSCI.Graph.MXGraph.mxGraphModel.grid">
+            <summary>
+            If the grid is on
+            </summary>
+            <value>
+            The grid.
+            </value>
         </member>
         <member name="T:imbSCI.Graph.NamespaceDoc">
             <summary>

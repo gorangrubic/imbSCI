@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" GraphDirection="LeftToRight" Layout="Sugiyama" NeighborhoodDistance="25" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Links>
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="none" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="address" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="id" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="contact" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="mobile" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="message" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="email" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="emailaddress" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="internet" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="office" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="emailaddressoffice" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="hq" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="personal" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="emailaddressforperson" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="town" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="zipcode" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="street" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="streetnumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="name" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="personalname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="townname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="streetname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="company" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="companyname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="legalform" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="shop" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="root" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="domain" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="domainname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="companydomainname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="rootdomainname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="companyrootdomainname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="corporation" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="inc" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="limited" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="ltd" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="vat" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="vatnumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="industry" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="industrynumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="registration" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="regnumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="document" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="external" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="lastname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="personallastname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="addressneedle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="emailneedle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="zipneedle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="streetnameneedle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="vatneedle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="indneedle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="regneedle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="phone" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="phonenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="phonemobilenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="phoneofficenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="phonefaxnumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="phonemobilenumberhq" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="phoneofficenumberhq" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="phonemobilenumberpersonal" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="phoneofficenumberpersonal" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="mobileneedle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="phoneofficeneedle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="faxneedle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="country" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="countryname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="currency" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="bank" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="bankaccountnumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="bankaccountneedle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="banknameneedle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="copyright" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.dat_business" Target="copyrightneedle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="emailaddress" Target="address" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="emailaddress" Target="email" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="emailaddressoffice" Target="address" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="emailaddressoffice" Target="email" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="emailaddressoffice" Target="emailaddress" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="emailaddressoffice" Target="office" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="emailaddressforperson" Target="address" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="emailaddressforperson" Target="email" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="emailaddressforperson" Target="emailaddress" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="emailaddressforperson" Target="personal" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="zipcode" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="zipcode" Target="address" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="zipcode" Target="town" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="streetnumber" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="streetnumber" Target="address" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="streetnumber" Target="street" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="personalname" Target="personal" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="personalname" Target="name" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="townname" Target="address" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="townname" Target="town" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="townname" Target="name" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="streetname" Target="address" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="streetname" Target="street" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="streetname" Target="name" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companyname" Target="name" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companyname" Target="company" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="shop" Target="personal" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="shop" Target="legalform" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="domainname" Target="name" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="domainname" Target="domain" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companydomainname" Target="name" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companydomainname" Target="company" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companydomainname" Target="companyname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companydomainname" Target="domain" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companydomainname" Target="domainname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="rootdomainname" Target="name" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="rootdomainname" Target="root" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="rootdomainname" Target="domain" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="rootdomainname" Target="domainname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companyrootdomainname" Target="name" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companyrootdomainname" Target="company" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companyrootdomainname" Target="companyname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companyrootdomainname" Target="root" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companyrootdomainname" Target="domain" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companyrootdomainname" Target="domainname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companyrootdomainname" Target="companydomainname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companyrootdomainname" Target="rootdomainname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="inc" Target="legalform" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="inc" Target="corporation" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="ltd" Target="legalform" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="ltd" Target="limited" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="vatnumber" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="vatnumber" Target="id" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="vatnumber" Target="vat" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="industrynumber" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="industrynumber" Target="id" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="industrynumber" Target="industry" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="regnumber" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="regnumber" Target="id" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="regnumber" Target="registration" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="personallastname" Target="personal" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="personallastname" Target="lastname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="addressneedle" Target="address" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="addressneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="emailneedle" Target="email" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="emailneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="zipneedle" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="zipneedle" Target="address" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="zipneedle" Target="town" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="zipneedle" Target="zipcode" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="zipneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="zipneedle" Target="addressneedle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="streetnameneedle" Target="street" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="streetnameneedle" Target="name" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="streetnameneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="vatneedle" Target="vat" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="vatneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="indneedle" Target="industry" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="indneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="regneedle" Target="registration" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="regneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonenumber" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonenumber" Target="phone" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumber" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumber" Target="mobile" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumber" Target="phone" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumber" Target="phonenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumber" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumber" Target="office" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumber" Target="phone" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumber" Target="phonenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonefaxnumber" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonefaxnumber" Target="message" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonefaxnumber" Target="office" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonefaxnumber" Target="phone" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonefaxnumber" Target="phonenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonefaxnumber" Target="phoneofficenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumberhq" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumberhq" Target="mobile" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumberhq" Target="hq" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumberhq" Target="phone" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumberhq" Target="phonenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumberhq" Target="phonemobilenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumberhq" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumberhq" Target="office" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumberhq" Target="hq" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumberhq" Target="phone" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumberhq" Target="phonenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumberhq" Target="phoneofficenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumberpersonal" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumberpersonal" Target="mobile" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumberpersonal" Target="personal" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumberpersonal" Target="phone" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumberpersonal" Target="phonenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumberpersonal" Target="phonemobilenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumberpersonal" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumberpersonal" Target="office" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumberpersonal" Target="personal" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumberpersonal" Target="phone" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumberpersonal" Target="phonenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumberpersonal" Target="phoneofficenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="mobileneedle" Target="mobile" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="mobileneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="mobileneedle" Target="phone" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficeneedle" Target="office" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficeneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficeneedle" Target="phone" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="faxneedle" Target="message" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="faxneedle" Target="office" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="faxneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="faxneedle" Target="phone" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="faxneedle" Target="phoneofficeneedle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="countryname" Target="name" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="countryname" Target="country" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="bankaccountnumber" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="bankaccountnumber" Target="id" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="bankaccountnumber" Target="bank" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="bankaccountneedle" Target="id" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="bankaccountneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="bankaccountneedle" Target="bank" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="banknameneedle" Target="name" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="banknameneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="banknameneedle" Target="bank" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="copyrightneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="copyrightneedle" Target="copyright" />
+  </Links>
+  <Nodes>
+    <Node StrokeThinkness="1" Label="dat_business" Group="Collapsed" Visibility="Visible" Id="imbSCI.TestUnit.enums.dat_business" />
+    <Node StrokeThinkness="1" Label="none" Group="Collapsed" Visibility="Visible" Id="none" />
+    <Node StrokeThinkness="1" Label="number" Group="Collapsed" Visibility="Visible" Id="number" />
+    <Node StrokeThinkness="1" Label="address" Group="Collapsed" Visibility="Visible" Id="address" />
+    <Node StrokeThinkness="1" Label="id" Group="Collapsed" Visibility="Visible" Id="id" />
+    <Node StrokeThinkness="1" Label="contact" Group="Collapsed" Visibility="Visible" Id="contact" />
+    <Node StrokeThinkness="1" Label="mobile" Group="Collapsed" Visibility="Visible" Id="mobile" />
+    <Node StrokeThinkness="1" Label="message" Group="Collapsed" Visibility="Visible" Id="message" />
+    <Node StrokeThinkness="1" Label="email" Group="Collapsed" Visibility="Visible" Id="email" />
+    <Node StrokeThinkness="1" Label="emailAddress" Group="Collapsed" Visibility="Visible" Id="emailaddress" />
+    <Node StrokeThinkness="1" Label="internet" Group="Collapsed" Visibility="Visible" Id="internet" />
+    <Node StrokeThinkness="1" Label="office" Group="Collapsed" Visibility="Visible" Id="office" />
+    <Node StrokeThinkness="1" Label="emailAddressOffice" Group="Collapsed" Visibility="Visible" Id="emailaddressoffice" />
+    <Node StrokeThinkness="1" Label="hq" Group="Collapsed" Visibility="Visible" Id="hq" />
+    <Node StrokeThinkness="1" Label="personal" Group="Collapsed" Visibility="Visible" Id="personal" />
+    <Node StrokeThinkness="1" Label="emailAddressForPerson" Group="Collapsed" Visibility="Visible" Id="emailaddressforperson" />
+    <Node StrokeThinkness="1" Label="town" Group="Collapsed" Visibility="Visible" Id="town" />
+    <Node StrokeThinkness="1" Label="zipCode" Group="Collapsed" Visibility="Visible" Id="zipcode" />
+    <Node StrokeThinkness="1" Label="street" Group="Collapsed" Visibility="Visible" Id="street" />
+    <Node StrokeThinkness="1" Label="streetNumber" Group="Collapsed" Visibility="Visible" Id="streetnumber" />
+    <Node StrokeThinkness="1" Label="name" Group="Collapsed" Visibility="Visible" Id="name" />
+    <Node StrokeThinkness="1" Label="personalName" Group="Collapsed" Visibility="Visible" Id="personalname" />
+    <Node StrokeThinkness="1" Label="townName" Group="Collapsed" Visibility="Visible" Id="townname" />
+    <Node StrokeThinkness="1" Label="streetName" Group="Collapsed" Visibility="Visible" Id="streetname" />
+    <Node StrokeThinkness="1" Label="company" Group="Collapsed" Visibility="Visible" Id="company" />
+    <Node StrokeThinkness="1" Label="companyName" Group="Collapsed" Visibility="Visible" Id="companyname" />
+    <Node StrokeThinkness="1" Label="legalForm" Group="Collapsed" Visibility="Visible" Id="legalform" />
+    <Node StrokeThinkness="1" Label="shop" Group="Collapsed" Visibility="Visible" Id="shop" />
+    <Node StrokeThinkness="1" Label="root" Group="Collapsed" Visibility="Visible" Id="root" />
+    <Node StrokeThinkness="1" Label="domain" Group="Collapsed" Visibility="Visible" Id="domain" />
+    <Node StrokeThinkness="1" Label="domainName" Group="Collapsed" Visibility="Visible" Id="domainname" />
+    <Node StrokeThinkness="1" Label="companyDomainName" Group="Collapsed" Visibility="Visible" Id="companydomainname" />
+    <Node StrokeThinkness="1" Label="rootDomainName" Group="Collapsed" Visibility="Visible" Id="rootdomainname" />
+    <Node StrokeThinkness="1" Label="companyRootDomainName" Group="Collapsed" Visibility="Visible" Id="companyrootdomainname" />
+    <Node StrokeThinkness="1" Label="corporation" Group="Collapsed" Visibility="Visible" Id="corporation" />
+    <Node StrokeThinkness="1" Label="inc" Group="Collapsed" Visibility="Visible" Id="inc" />
+    <Node StrokeThinkness="1" Label="limited" Group="Collapsed" Visibility="Visible" Id="limited" />
+    <Node StrokeThinkness="1" Label="ltd" Group="Collapsed" Visibility="Visible" Id="ltd" />
+    <Node StrokeThinkness="1" Label="vat" Group="Collapsed" Visibility="Visible" Id="vat" />
+    <Node StrokeThinkness="1" Label="vatNumber" Group="Collapsed" Visibility="Visible" Id="vatnumber" />
+    <Node StrokeThinkness="1" Label="industry" Group="Collapsed" Visibility="Visible" Id="industry" />
+    <Node StrokeThinkness="1" Label="industryNumber" Group="Collapsed" Visibility="Visible" Id="industrynumber" />
+    <Node StrokeThinkness="1" Label="registration" Group="Collapsed" Visibility="Visible" Id="registration" />
+    <Node StrokeThinkness="1" Label="regNumber" Group="Collapsed" Visibility="Visible" Id="regnumber" />
+    <Node StrokeThinkness="1" Label="document" Group="Collapsed" Visibility="Visible" Id="document" />
+    <Node StrokeThinkness="1" Label="external" Group="Collapsed" Visibility="Visible" Id="external" />
+    <Node StrokeThinkness="1" Label="lastName" Group="Collapsed" Visibility="Visible" Id="lastname" />
+    <Node StrokeThinkness="1" Label="personalLastName" Group="Collapsed" Visibility="Visible" Id="personallastname" />
+    <Node StrokeThinkness="1" Label="needle" Group="Collapsed" Visibility="Visible" Id="needle" />
+    <Node StrokeThinkness="1" Label="addressNeedle" Group="Collapsed" Visibility="Visible" Id="addressneedle" />
+    <Node StrokeThinkness="1" Label="emailNeedle" Group="Collapsed" Visibility="Visible" Id="emailneedle" />
+    <Node StrokeThinkness="1" Label="zipNeedle" Group="Collapsed" Visibility="Visible" Id="zipneedle" />
+    <Node StrokeThinkness="1" Label="streetNameNeedle" Group="Collapsed" Visibility="Visible" Id="streetnameneedle" />
+    <Node StrokeThinkness="1" Label="vatNeedle" Group="Collapsed" Visibility="Visible" Id="vatneedle" />
+    <Node StrokeThinkness="1" Label="indNeedle" Group="Collapsed" Visibility="Visible" Id="indneedle" />
+    <Node StrokeThinkness="1" Label="regNeedle" Group="Collapsed" Visibility="Visible" Id="regneedle" />
+    <Node StrokeThinkness="1" Label="phone" Group="Collapsed" Visibility="Visible" Id="phone" />
+    <Node StrokeThinkness="1" Label="phoneNumber" Group="Collapsed" Visibility="Visible" Id="phonenumber" />
+    <Node StrokeThinkness="1" Label="phoneMobileNumber" Group="Collapsed" Visibility="Visible" Id="phonemobilenumber" />
+    <Node StrokeThinkness="1" Label="phoneOfficeNumber" Group="Collapsed" Visibility="Visible" Id="phoneofficenumber" />
+    <Node StrokeThinkness="1" Label="phoneFaxNumber" Group="Collapsed" Visibility="Visible" Id="phonefaxnumber" />
+    <Node StrokeThinkness="1" Label="phoneMobileNumberHq" Group="Collapsed" Visibility="Visible" Id="phonemobilenumberhq" />
+    <Node StrokeThinkness="1" Label="phoneOfficeNumberHq" Group="Collapsed" Visibility="Visible" Id="phoneofficenumberhq" />
+    <Node StrokeThinkness="1" Label="phoneMobileNumberPersonal" Group="Collapsed" Visibility="Visible" Id="phonemobilenumberpersonal" />
+    <Node StrokeThinkness="1" Label="phoneOfficeNumberPersonal" Group="Collapsed" Visibility="Visible" Id="phoneofficenumberpersonal" />
+    <Node StrokeThinkness="1" Label="mobileNeedle" Group="Collapsed" Visibility="Visible" Id="mobileneedle" />
+    <Node StrokeThinkness="1" Label="phoneOfficeNeedle" Group="Collapsed" Visibility="Visible" Id="phoneofficeneedle" />
+    <Node StrokeThinkness="1" Label="faxNeedle" Group="Collapsed" Visibility="Visible" Id="faxneedle" />
+    <Node StrokeThinkness="1" Label="country" Group="Collapsed" Visibility="Visible" Id="country" />
+    <Node StrokeThinkness="1" Label="countryName" Group="Collapsed" Visibility="Visible" Id="countryname" />
+    <Node StrokeThinkness="1" Label="currency" Group="Collapsed" Visibility="Visible" Id="currency" />
+    <Node StrokeThinkness="1" Label="bank" Group="Collapsed" Visibility="Visible" Id="bank" />
+    <Node StrokeThinkness="1" Label="bankAccountNumber" Group="Collapsed" Visibility="Visible" Id="bankaccountnumber" />
+    <Node StrokeThinkness="1" Label="bankAccountNeedle" Group="Collapsed" Visibility="Visible" Id="bankaccountneedle" />
+    <Node StrokeThinkness="1" Label="bankNameNeedle" Group="Collapsed" Visibility="Visible" Id="banknameneedle" />
+    <Node StrokeThinkness="1" Label="copyright" Group="Collapsed" Visibility="Visible" Id="copyright" />
+    <Node StrokeThinkness="1" Label="copyrightNeedle" Group="Collapsed" Visibility="Visible" Id="copyrightneedle" />
+    <Node StrokeThinkness="1" Label="emailAddress" Group="Collapsed" Visibility="Visible" Id="emailaddress" />
+    <Node StrokeThinkness="1" Label="emailAddress" Group="Collapsed" Visibility="Visible" Id="emailaddress" />
+    <Node StrokeThinkness="1" Label="legalForm" Group="Collapsed" Visibility="Visible" Id="legalform" />
+    <Node StrokeThinkness="1" Label="companyName" Group="Collapsed" Visibility="Visible" Id="companyname" />
+    <Node StrokeThinkness="1" Label="domainName" Group="Collapsed" Visibility="Visible" Id="domainname" />
+    <Node StrokeThinkness="1" Label="domainName" Group="Collapsed" Visibility="Visible" Id="domainname" />
+    <Node StrokeThinkness="1" Label="companyName" Group="Collapsed" Visibility="Visible" Id="companyname" />
+    <Node StrokeThinkness="1" Label="domainName" Group="Collapsed" Visibility="Visible" Id="domainname" />
+    <Node StrokeThinkness="1" Label="companyDomainName" Group="Collapsed" Visibility="Visible" Id="companydomainname" />
+    <Node StrokeThinkness="1" Label="rootDomainName" Group="Collapsed" Visibility="Visible" Id="rootdomainname" />
+    <Node StrokeThinkness="1" Label="legalForm" Group="Collapsed" Visibility="Visible" Id="legalform" />
+    <Node StrokeThinkness="1" Label="legalForm" Group="Collapsed" Visibility="Visible" Id="legalform" />
+    <Node StrokeThinkness="1" Label="lastName" Group="Collapsed" Visibility="Visible" Id="lastname" />
+    <Node StrokeThinkness="1" Label="zipCode" Group="Collapsed" Visibility="Visible" Id="zipcode" />
+    <Node StrokeThinkness="1" Label="addressNeedle" Group="Collapsed" Visibility="Visible" Id="addressneedle" />
+    <Node StrokeThinkness="1" Label="phoneNumber" Group="Collapsed" Visibility="Visible" Id="phonenumber" />
+    <Node StrokeThinkness="1" Label="phoneNumber" Group="Collapsed" Visibility="Visible" Id="phonenumber" />
+    <Node StrokeThinkness="1" Label="phoneNumber" Group="Collapsed" Visibility="Visible" Id="phonenumber" />
+    <Node StrokeThinkness="1" Label="phoneOfficeNumber" Group="Collapsed" Visibility="Visible" Id="phoneofficenumber" />
+    <Node StrokeThinkness="1" Label="phoneNumber" Group="Collapsed" Visibility="Visible" Id="phonenumber" />
+    <Node StrokeThinkness="1" Label="phoneMobileNumber" Group="Collapsed" Visibility="Visible" Id="phonemobilenumber" />
+    <Node StrokeThinkness="1" Label="phoneNumber" Group="Collapsed" Visibility="Visible" Id="phonenumber" />
+    <Node StrokeThinkness="1" Label="phoneOfficeNumber" Group="Collapsed" Visibility="Visible" Id="phoneofficenumber" />
+    <Node StrokeThinkness="1" Label="phoneNumber" Group="Collapsed" Visibility="Visible" Id="phonenumber" />
+    <Node StrokeThinkness="1" Label="phoneMobileNumber" Group="Collapsed" Visibility="Visible" Id="phonemobilenumber" />
+    <Node StrokeThinkness="1" Label="phoneNumber" Group="Collapsed" Visibility="Visible" Id="phonenumber" />
+    <Node StrokeThinkness="1" Label="phoneOfficeNumber" Group="Collapsed" Visibility="Visible" Id="phoneofficenumber" />
+    <Node StrokeThinkness="1" Label="phoneOfficeNeedle" Group="Collapsed" Visibility="Visible" Id="phoneofficeneedle" />
+  </Nodes>
+  <Properties />
+  <Categories />
+</DirectedGraph>

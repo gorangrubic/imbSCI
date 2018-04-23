@@ -959,16 +959,6 @@
             data table to show
             </summary>
         </member>
-        <member name="P:imbSCI.Reporting.meta.blocks.metaDiagramBlock.diagram">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:imbSCI.Reporting.meta.blocks.metaDiagramBlock.engine">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="T:imbSCI.Reporting.meta.blocks.metaDocScriptBlock">
             <summary>
             Block of custom docScript instructions to be inserted at block invocation

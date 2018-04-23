@@ -62,16 +62,18 @@ namespace imbSCI.Reporting.meta.delivery.items
     using imbSCI.Reporting.script.exeAppenders;
     using imbSCI.Data.enums.reporting;
     using imbSCI.Data.enums.appends;
-    using imbSCI.DataComplex.diagram.output;
-    using imbSCI.DataComplex.diagram.enums;
+
     using imbSCI.Core.reporting.render.builders;
     using imbSCI.DataComplex.extensions.data.formats;
     using imbSCI.Core.reporting.render.core;
     using imbSCI.Core.reporting.style.enums;
     using imbSCI.Reporting.charts.core;
-    using imbSCI.DataComplex.diagram;
+
     using imbSCI.Core.reporting.style.shot;
     using imbSCI.Reporting.enums;
+    using imbSCI.DataComplex.diagram;
+    using imbSCI.DataComplex.diagram.enums;
+    using imbSCI.DataComplex.diagram.output;
 
     /// <summary>
     /// UnitItem for simple output creation

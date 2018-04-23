@@ -4,6 +4,815 @@
         <name>imbSCI.Core</name>
     </assembly>
     <members>
+        <member name="T:imbSCI.Core.collection.NamespaceDoc">
+            <summary>
+            <para>Extended version of <see cref="T:System.Data.PropertyCollection"/> and extension methods to work with <see cref="T:imbSCI.Core.collection.PropertyCollectionExtended"/> and <see cref="T:System.Data.PropertyCollection"/></para>
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.collection.checkLists.checkList">
+            <summary>
+            2017: Key is value, Value tells if is is checked/selected
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.checkLists.checkList.items">
+            <summary> </summary>
+        </member>
+        <member name="M:imbSCI.Core.collection.checkLists.checkList.getCheckValue(System.Object)">
+            <summary>
+            Gets the check value.
+            </summary>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.checkLists.checkList.getCheckedItems(System.Boolean)">
+            <summary>
+            Gets entries for checked items
+            </summary>
+            <param name="targetValue">if set to <c>true</c> [target value].</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.checkLists.checkList.AppendDataFields(imbSCI.Core.collection.PropertyCollectionExtended)">
+            <summary>
+            Appends its data points into new or existing property collection
+            </summary>
+            <param name="data">Property collection to add data into</param>
+            <returns>Updated or newly created property collection</returns>
+        </member>
+        <member name="F:imbSCI.Core.collection.checkLists.checkListLogic.AND">
+            <summary>
+            The and
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.collection.checkLists.checkListLogic.OR">
+            <summary>
+            The or
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.collection.checkLists.checkListLogic.NOT">
+            <summary>
+            The not
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.collection.checkLists.checkListLogic.NOR">
+            <summary>
+            The nor: !(a || b)
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.collection.checkLists.imbCheckedObject">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.checkLists.imbCheckedObject.isChecked">
+            <summary>
+            Da li je objekat chekiran
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.checkLists.imbCheckedObject.value">
+            <summary>
+            Objekat
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.collection.checkLists.imbCheckedObjects">
+            <summary>
+            Kolekcija chekiranih Enum objekata
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.checkLists.imbCheckedObjects.values">
+            <summary>
+            Sve vrednosti
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.checkLists.imbCheckedObjects.checkList">
+            <summary>
+            Lista chekiranih vrednosti
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.checkLists.imbCheckedObjects.enumName">
+            <summary>
+            naziv enumeracije koja se prikazuje
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.collection.checkLists.instanceCheckList`1">
+            <summary>
+            Instance based check list
+            </summary>
+            <typeparam name="T"></typeparam>
+            <seealso cref="!:System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.KeyValuePair&lt;T, System.Boolean&gt;&gt;" />
+        </member>
+        <member name="M:imbSCI.Core.collection.checkLists.instanceCheckList`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.collection.checkLists.instanceCheckList`1"/> class.
+            </summary>
+            <param name="allowedValues">The allowed values.</param>
+        </member>
+        <member name="M:imbSCI.Core.collection.checkLists.instanceCheckList`1.GetPercentageScore">
+            <summary>
+            Gets the percentage score: ratio between: score and count
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.checkLists.instanceCheckList`1.GetScore">
+            <summary>
+            Gets the score: number of <c>true</c> values
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.checkLists.instanceCheckList`1.Set(`0,System.Boolean,imbSCI.Core.collection.checkLists.checkListLogic,System.Boolean)">
+            <summary>
+            Sets the value to <c>checkState</c> for specified key
+            </summary>
+            <param name="vl">The vl.</param>
+            <param name="checkState">if set to <c>true</c> [check state].</param>
+            <param name="logic">The logic.</param>
+            <param name="expandAllow">if set to <c>true</c> [expand allow].</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.checkLists.instanceCheckList`1.Set(System.Collections.Generic.IEnumerable{`0},System.Boolean,imbSCI.Core.collection.checkLists.checkListLogic)">
+            <summary>
+            Sets the values specified according to <c>check state</c>
+            </summary>
+            <param name="testValues">The test values.</param>
+            <param name="checkState">if set to <c>true</c> [check state].</param>
+            <param name="logic">The logic.</param>
+        </member>
+        <member name="M:imbSCI.Core.collection.checkLists.instanceCheckList`1.Check(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Returns instances that have TRUE value in the list
+            </summary>
+            <param name="testValues">The test values.</param>
+            <param name="logic">The logic.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.checkLists.instanceCheckList`1.AddAllowValues(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Adds the allow values.
+            </summary>
+            <param name="allowedValues">The allowed values.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.collection.checkLists.instanceCheckList`1.items">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.collection.checkLists.NamespaceDoc">
+            <summary>
+            Here are various kinds of "check list" data structures with main purpose in context of reporting.
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.IOneOrMore.iTI">
+            <summary>
+            informacije o tipu koji je smesten i jedini dozvoljen u kolekciji
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.IOneOrMore.isNothing">
+            <summary>
+            TRUE kad nema nista u kolekciji, ali je inicijalizovana
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.IOneOrMore.isSomething">
+            <summary>
+            Kontra od isNothing - tj. da ima nesto u sebi
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.IOneOrMore.Value">
+            <summary>
+            neposredan pristup prvom itemu
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.collection.oneOrMore`1">
+            <summary>
+            2014c> napredna kolekcija kojoj moze da se pristupa kao da je jedan objekat u pitanju - tada se vidi samo prvi item. Obavestava o promenama u kolekciji
+            </summary>
+            <remarks>
+            Po defaultu ne kreira sam prvi item.
+            doAutocreateFirst se podesava kroz konstruktor
+            </remarks>
+            <example>
+            oneOrMoreCollection(object) item;
+            
+            item = object; // ovo postavlja prvi objekat u kolekciju
+            
+            object tmp = item; // ovo vraca prvi objekat u nizu, ako jos nije instanciran oneOrMoreCollection
+            </example>
+            <typeparam name="T">Objekat koji se smesta u kolekciju</typeparam>
+        </member>
+        <member name="P:imbSCI.Core.collection.oneOrMore`1.iTI">
+            <summary>
+            informacije o tipu koji je smesten i jedini dozvoljen u kolekciji
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.oneOrMore`1.doAutocreateFirst">
+            <summary>
+            Da li da automatski napravi prvi item - definise se samo pri instanciranju, ostavljeno kao field cisto ako budem menjao
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.collection.oneOrMore`1.#ctor(System.Boolean)">
+            <summary>
+            Moze da se definise da li dodaje prvi element ili ne
+            </summary>
+            <param name="__doAutocreateFirst"></param>
+        </member>
+        <member name="M:imbSCI.Core.collection.oneOrMore`1.#ctor">
+            <summary>
+            Napravice prvi element ako postoji parametarless konstruktor
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.oneOrMore`1.Value">
+            <summary>
+            direktan pristup prvom itemu
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.oneOrMore`1.isMany">
+            <summary>
+            Da li ima vise od jednog elementa
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.oneOrMore`1.isNothing">
+            <summary>
+            TRUE kad nema nista u kolekciji, ali je inicijalizovana
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.oneOrMore`1.isSomething">
+            <summary>
+            Kontra od isNothing - tj. da ima nesto u sebi
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.oneOrMore`1.defaultValue">
+            <summary>
+            podrazumevana vrednost
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.collection.oneOrMore`1.op_Implicit(`0)~imbSCI.Core.collection.oneOrMore{`0}">
+            <summary>
+            Pravi novi kontejner
+            </summary>
+            <param name="newItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.oneOrMore`1.op_Addition(imbSCI.Core.collection.oneOrMore{`0},`0)">
+            <summary>
+            Dodaje novi ili prvi clan u kolekciju - a ako je kolekcija null onda je instancira
+            </summary>
+            <param name="col"></param>
+            <param name="newItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.oneOrMore`1.op_Addition(imbSCI.Core.collection.oneOrMore{`0},System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Dodaje sve elemente iz druge kolekcije
+            </summary>
+            <param name="col"></param>
+            <param name="newItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.oneOrMore`1.op_Subtraction(imbSCI.Core.collection.oneOrMore{`0},System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Oduzima sve clanove iz prosledjene kolekcije
+            </summary>
+            <param name="col"></param>
+            <param name="newItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.oneOrMore`1.op_Subtraction(imbSCI.Core.collection.oneOrMore{`0},`0)">
+            <summary>
+            Sklanja item iz operatora
+            </summary>
+            <param name="col"></param>
+            <param name="newItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.oneOrMore`1.First">
+            <summary>
+            javni metod za pristup prvom itemu - za neposredan pristup koristiti property Value
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.oneOrMore`1.getOrMakeFirst">
+            <summary>
+            vraca prvi item ili ga stvara ako tip ima parametarless konstruktor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.collection.PropertyCollectionCategoryList`1">
+            <summary>
+            DataField Shemas, divided by Category specifications
+            </summary>
+            <remarks>
+            <para>Auto-scanning of this level of inherence, properties splitted to categories.</para>
+            <para>Supported <see cref="T:System.Attribute"/>: <see cref="T:System.ComponentModel.DisplayNameAttribute"/>, <see cref="T:System.ComponentModel.CategoryAttribute"/>, <see cref="T:System.ComponentModel.DescriptionAttribute"/></para>
+            <para>Supported <see cref="T:imbSCI.Core.attributes.imbAttribute"/>: <see cref="F:imbSCI.Core.attributes.imbAttributeName.measure_displayGroup"/>, <see cref="F:imbSCI.Core.attributes.imbAttributeName.measure_displayGroupDescripton"/>...</para>
+            </remarks>
+            <example>
+            <code>
+            [DisplayName("Basic stage control")]
+            [Description("Basic stage host with a  simple general objective solutions: iteration limit")]
+            public class spiderStageControl : IAppendDataFieldsExtended
+            </code>
+            </example>
+            <example>
+            <code>
+            [DisplayName("Sample size")]
+            [Description("Sampled population count")]
+            [imb(imbAttributeName.measure_displayGroup, "Sample")]
+            [imb(imbAttributeName.measure_displayGroupDescripton, "Sample statictics")]
+            [imb(imbAttributeName.measure_metaModelName, "SampleSize")]
+            [imb(imbAttributeName.measure_metaModelPrefix, "SM01")]
+            public Int32 sampleSize 
+            </code>
+            <para>Recommanded attributes for meta description</para>
+            </example>
+            <value>
+            List of PropertyCollectionExtended representing group/categories of properties
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyCollectionCategoryList`1.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.collection.PropertyCollectionCategoryList`1"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="description">The description.</param>
+            <exception cref="T:System.NotImplementedException">-- not implemented --</exception>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyCollectionCategoryList`1.buildDataFieldsForCategory(System.String,`0)">
+            <summary>
+            Builds the data fields for category.
+            </summary>
+            <param name="category">The category.</param>
+            <param name="instance">The instance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyCollectionCategoryList`1.buildDataTableForCategory(System.String,`0)">
+            <summary>
+            Builds the data table for category.
+            </summary>
+            <param name="category">The category.</param>
+            <param name="instance">The instance.</param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException">-- not implemented --</exception>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyCollectionCategoryList`1.getName(System.Object,System.String)">
+            <summary>
+            Gets the name.
+            </summary>
+            <param name="instance">The instance.</param>
+            <param name="instanceNameProperty">The instance name property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyCollectionCategoryList`1.buildPropertyCollectionExtendedList(System.String,System.Collections.Generic.IEnumerable{`0},System.String)">
+            <summary>
+            Builds the property collection extended list.
+            </summary>
+            <param name="category">The category.</param>
+            <param name="instances">The instances.</param>
+            <param name="instanceNameProperty">The instance name property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyCollectionCategoryList`1.buildDataTable(System.String,System.Collections.Generic.IEnumerable{`0},System.String)">
+            <summary>
+            Builds the data table.
+            </summary>
+            <param name="category">The category.</param>
+            <param name="instances">The instances.</param>
+            <param name="instanceNameProperty">The instance name property.</param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException">-- not implemented yet --</exception>
+        </member>
+        <member name="T:imbSCI.Core.collection.PropertyCollectionDictionary">
+            <summary>
+            PropertyCollection dataset by unique name (path)
+            </summary>
+            <seealso cref="!:aceCommonTypes.primitives.imbBindable" />
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyCollectionDictionary.getDefault">
+            <summary>
+            Gets the default.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.collection.PropertyCollectionExtended">
+            <summary>
+            PropertyCollection with extended meta information about it self and about Property entries
+            </summary>
+            <seealso cref="T:System.Data.PropertyCollection" />
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyCollectionExtended.ToString">
+            <summary>
+            PCE overriden ToString() shows name, description and parameter values
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyCollectionExtended.addAsObjectKey(System.Object,System.Object,System.Boolean,System.Collections.Generic.Dictionary{System.Object,System.String})">
+            <summary>
+            Adds as object key -- automatically designates title, uses <c>externalDescriptionLibrary</c> for definitions for non <see cref="T:imbSCI.Core.collection.PropertyEntryColumn"/> keys
+            </summary>
+            <param name="key">The key.</param>
+            <param name="v1">The v1.</param>
+            <param name="externalDescriptionLibrary">The external description library.</param>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyCollectionExtended.op_Implicit(imbSCI.Core.collection.PropertyCollectionExtended)~System.Data.DataTable">
+            <summary>
+            Performs an implicit conversion from <see cref="T:imbSCI.Core.collection.PropertyCollectionExtended"/> to <see cref="T:System.Data.DataTable"/>.
+            </summary>
+            <param name="pce">The pce.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="P:imbSCI.Core.collection.PropertyCollectionExtended.autoIncludeImportance">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.PropertyCollectionExtended.defaultTableColumn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyCollectionExtended.getDataTable(imbSCI.Core.collection.PropertyEntryColumn[])">
+            <summary>
+            Builds the data table with columns specified - order of columns as specified
+            </summary>
+            <param name="columns">The columns.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.collection.PropertyCollectionExtended.name">
+            <summary>Display title of this collection</summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.PropertyCollectionExtended.description">
+            <summary> </summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.PropertyCollectionExtended.entries">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyCollectionExtended.AddRange(imbSCI.Core.collection.PropertyCollectionExtended,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Adds the range. When <c>skipExisting</c> booleans are <c>true</c> it applies <see cref="!:aceCommonTypes.enums.existingDataMode.overwriteExistingIfEmptyOrNull"/> for smarter data gathering
+            </summary>
+            <param name="source">The source.</param>
+            <param name="skipExistingValues">if set to <c>true</c> [skip existing values].</param>
+            <param name="skipExistingMeta">if set to <c>true</c> it will keep existing <c>PropertyEntry</c> when overlapped with source</param>
+            <param name="strictMetaKeyMatch">If set to <c>true</c> it will not introduce new columns into data set. If <c>false</c> it will upgrade data set with not existing columns found at <c>source</c></param>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyCollectionExtended.AddMetaFrom(imbSCI.Core.collection.PropertyEntry,System.Boolean,System.Boolean)">
+            <summary>
+            Copis meta descriptions on the matching key. If <see cref="T:imbSCI.Core.collection.PropertyEntry"/> not defined it adds this
+            </summary>
+            <param name="pe">The pe.</param>
+            <param name="skipExisting">if set to <c>true</c> [skip existing].</param>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyCollectionExtended.AddMetaFor(System.Object,System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Redefines meta descriptions for <c>key</c> entry. Empty or null entries are ignored
+            </summary>
+            <param name="key">The key.</param>
+            <param name="__unit">The unit.</param>
+            <param name="__letter">The letter.</param>
+            <param name="__symbol">The symbol.</param>
+            <param name="__name">The name.</param>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyCollectionExtended.GetMetaForKey(System.Object)">
+            <summary>
+            Get all non value (<see cref="!:aceCommonTypes.extensions.data.PropertyEntryColumnExtensions.isKeyValueColumn(imbSCI.Data.collection.PropertyEntryColumn)"/> columns into <see cref="T:System.Data.PropertyCollection"/>
+            </summary>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyCollectionExtended.Add(System.Array,System.Object,System.String,System.String)">
+            <summary>
+            Maps to multiple keys
+            </summary>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <param name="__name">The name.</param>
+            <param name="__description">The description.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyCollectionExtended.Add(System.Object,System.Object,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Adds the specified key.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <param name="__name">The name.</param>
+            <param name="__description">The description.</param>
+            <param name="__unit">The unit.</param>
+            <param name="__letter">The letter.</param>
+            <param name="__symbol">The symbol.</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.collection.PropertyCollectionExtendedList">
+            <summary>
+            Collection of <see cref="T:imbSCI.Core.collection.PropertyCollectionExtended"/> instances, with its own name and description
+            </summary>
+            <seealso cref="!:aceCommonTypes.primitives.imbBindable" />
+        </member>
+        <member name="P:imbSCI.Core.collection.PropertyCollectionExtendedList.name">
+            <summary>
+            Name for this instance
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.PropertyCollectionExtendedList.description">
+            <summary>
+            Human-readable description of object instance
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.PropertyCollectionExtendedList.Item(System.String)">
+            <summary>
+            Gets the <see cref="T:imbSCI.Core.collection.PropertyCollectionExtended"/> with the specified instance identifier.
+            </summary>
+            <value>
+            The <see cref="T:imbSCI.Core.collection.PropertyCollectionExtended"/>.
+            </value>
+            <param name="instanceID">The instance identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">instanceID - No entry found under this name</exception>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyCollectionExtendedList.Count">
+            <summary>
+            Counts this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:imbSCI.Core.collection.PropertyCollectionExtendedList.getColumnValue_Default">
+            <summary>
+            The get column value default
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyCollectionExtendedList.Add(imbSCI.Core.collection.PropertyCollectionExtended,System.Enum)">
+            <summary>
+            Takes Attribute values to set name and description for the collection
+            </summary>
+            <param name="item">The item.</param>
+            <param name="instanceID">The instance identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyCollectionExtendedList.Add(imbSCI.Core.collection.PropertyCollectionExtended,System.String,System.Boolean)">
+            <summary>
+            Adds the <see cref="T:imbSCI.Core.collection.PropertyCollectionExtended" /> under Key supplied with <c>instanceID</c>.
+            </summary>
+            <param name="item">The collection to be included</param>
+            <param name="instanceID">The instance identifier. If not supplied it will take <see cref="P:imbSCI.Core.collection.PropertyCollectionExtended.name" /></param>
+            <param name="synchronizeID">if set to <c>true</c> it will make sure that <c>item</c> <see cref="P:imbSCI.Core.collection.PropertyCollectionExtended.name" /> has the final <c>instanceID</c> value.</param>
+            <returns>
+            Used version of <c>instanceID</c>. It will differ from the specified if the collection already contained item with such name
+            </returns>
+            <remarks>
+            <para>If <c>instanceID</c> is already used it will call <see cref="M:imbSCI.Core.extensions.text.imbStringGenerators.makeUniqueName(System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.Int32,System.Boolean)" /> to get unique version.</para>
+            <para>If the <c>item</c> has no name set and <c>instanceID</c> specified - it is automatically set</para>
+            </remarks>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyCollectionExtendedList.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            An enumerator that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyCollectionExtendedList.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="P:imbSCI.Core.collection.PropertyCollectionExtendedList.items">
+            <summary>
+            Gets or sets the items.
+            </summary>
+            <value>
+            The items.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyCollectionHistoryRecord.getDataTable">
+            <summary>
+            NOT IMPLEMENTED
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyCollectionHistoryRecord.getDataForEntry(System.Int32)">
+            <summary>
+            Gets the data for entry.
+            </summary>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.collection.PropertyCollectionHistoryRecord.shema">
+            <summary>
+            Gets or sets the shema.
+            </summary>
+            <value>
+            The shema.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.collection.PropertyCollectionHistoryRecord.timeSeries">
+            <summary> </summary>
+        </member>
+        <member name="T:imbSCI.Core.collection.PropertyCollectionList">
+            <summary>
+            List of <c>PropertyCollection</c> objects
+            </summary>
+            <seealso cref="!:System.Collections.Generic.List&lt;System.Data.PropertyCollection&gt;" />
+        </member>
+        <member name="T:imbSCI.Core.collection.PropertyEntry">
+            <summary>
+            Meta information about property/entry in <see cref="T:imbSCI.Core.collection.PropertyCollectionExtended"/>
+            </summary>
+            <seealso cref="T:System.Data.PropertyCollection" />
+            <seealso cref="T:imbSCI.Core.collection.PropertyCollectionExtended"/>
+            <seealso cref="T:imbSCI.Core.collection.PropertyEntryDictionary"/>
+            <seealso cref="T:imbSCI.Core.collection.PropertyEntryDictionary"/>
+        </member>
+        <member name="P:imbSCI.Core.collection.PropertyEntry.priority">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.PropertyEntry.keyName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyEntry.getColumn(imbSCI.Core.collection.PropertyEntryColumn,System.Object)">
+            <summary>
+            Gets the columm value - applying special procedure for certain <c>PropertyEntryColumn</c>
+            </summary>
+            <param name="column">The column.</param>
+            <param name="input">The input.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.collection.PropertyEntry.EntryKey">
+            <summary>
+            Key associated with the entry
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.PropertyEntry.EntryValue">
+            <summary>
+            Gets or sets the value associated with this property
+            </summary>
+            <value>
+            The entry value1.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyEntry.#ctor(System.Object,System.Object,System.String,System.String,imbSCI.Core.enums.dataPointImportance)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.collection.PropertyEntry"/> class.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <param name="name">Initial value for Display Name</param>
+            <param name="description">Initial description - overide of description found in <c>value</c> object</param>
+            <param name="relevance">The relevance - override of info found in <c>value</c></param>
+            <seealso cref="T:imbSCI.Core.interfaces.IValueWithRoleInfo"/>
+            <seealso cref="T:imbSCI.Core.interfaces.IValueWithUnitInfo"/>
+            <seealso cref="T:imbSCI.Core.interfaces.IValueWithImportanceInfo"/>
+            <seealso cref="T:imbSCI.Data.interfaces.IObjectWithNameAndDescription"/>
+        </member>
+        <member name="T:imbSCI.Core.collection.PropertyEntryColumn">
+            <summary>
+            Column/data aspect of the PropertyEntry
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.collection.PropertyEntryColumn.entry_key">
+            <summary>
+            Original version of entry key
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.collection.PropertyEntryColumn.entry_name">
+            <summary>
+            Display version of entry name
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.collection.PropertyEntryColumn.entry_description">
+            <summary>
+            Asociated entry description
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.collection.PropertyEntryColumn.entry_value">
+            <summary>
+            Display version of entry value - formatted but without unit
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.collection.PropertyEntryColumn.entry_valueAndUnit">
+            <summary>
+            Display version of entry value, formatted with unit
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.collection.PropertyEntryColumn.role_letter">
+            <summary>
+            Measure role letter
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.collection.PropertyEntryColumn.role_symbol">
+            <summary>
+            Measure symbol
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.collection.PropertyEntryColumn.role_name">
+            <summary>
+            Measure role name
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.collection.PropertyEntryDictionary">
+            <summary>
+            Contains meta-information about entries in <see cref="T:imbSCI.Core.collection.PropertyCollectionExtended"/> 
+            </summary>
+            <seealso cref="!:System.Collections.Generic.Dictionary&lt;System.Object, aceCommonTypes.collection.PropertyEntry&gt;" />
+        </member>
+        <member name="P:imbSCI.Core.collection.PropertyEntryDictionary.items">
+            <summary> </summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.PropertyEntryDictionary.flags">
+            <summary>Flags giving special instructions for DataTable construction and other data transformations</summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.PropertyEntryDictionary.Item(System.Object)">
+            <summary>
+            Gets or sets the <see cref="T:imbSCI.Core.collection.PropertyEntry"/> with the specified key.
+            </summary>
+            <value>
+            The <see cref="T:imbSCI.Core.collection.PropertyEntry"/>.
+            </value>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.PropertyEntryDictionary.Get(System.Object)">
+            <summary>
+            Searches for property entry definition
+            </summary>
+            <param name="key">The key. It can be string, it will be used as lowercase</param>
+            <returns>PropertyEntry</returns>
+        </member>
+        <member name="T:imbSCI.Core.collection.resourceDictionaryBase`1">
+            <summary>
+            Simple generic dictionary used by: <see cref="!:aceCommonTypes.collection.reportOutputRepository"/>, <see cref="T:imbSCI.Core.collection.PropertyCollectionDictionary"/>/> 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <seealso cref="!:aceCommonTypes.primitives.imbBindable" />
+        </member>
+        <member name="F:imbSCI.Core.collection.resourceDictionaryBase`1.items">
+            <summary>
+            The items
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.collection.resourceDictionaryBase`1.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.resourceDictionaryBase`1.Count">
+            <summary>
+            Counts this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.resourceDictionaryBase`1.Clear">
+            <summary>
+            Clears this instance.
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.collection.resourceDictionaryBase`1.Item(System.Enum)">
+            <summary>
+            Gets the <see cref="!:T"/> with the specified key.
+            </summary>
+            <value>
+            The <see cref="!:T"/>.
+            </value>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.collection.resourceDictionaryBase`1.Add(System.String,`0)">
+            <summary>
+            Adds the specified key.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="val">The value.</param>
+        </member>
+        <member name="M:imbSCI.Core.collection.resourceDictionaryBase`1.getDefault">
+            <summary>
+            Gets the default.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.collection.resourceDictionaryBase`1.Item(System.String)">
+            <summary>
+            Gets or sets the <see cref="T:System.Data.PropertyCollection"/> with the specified key. Automatically creates entry for new key
+            </summary>
+            <value>
+            The <see cref="T:System.Data.PropertyCollection"/>.
+            </value>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
         <member name="T:imbSCI.Core.config.imbSCICoreConfig">
             <summary>
             General configuration object for domain of <see cref="N:imbSCI.Core"/> and <see cref="N:imbSCI.Data"/>
@@ -37,6 +846,545 @@
             <value>
               <c>true</c> if [data table reports do export XML data]; otherwise, <c>false</c>.
             </value>
+        </member>
+        <member name="T:imbSCI.Core.config.NamespaceDoc">
+            <summary>
+            <para>Lowest level application configuration instance</para>
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.data.NamespaceDoc">
+            <summary>
+            <para>Advanced reflection tools - type graph descriptors</para>
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.data.aceAuthorNotation">
+            <summary>
+            Data structure with basic information on the author, application, copyright.. etc. Used when reports are created.
+            </summary>
+            <seealso cref="T:imbSCI.Data.data.imbBindable" />
+        </member>
+        <member name="M:imbSCI.Core.data.aceAuthorNotation.AppendDataFields(imbSCI.Core.collection.PropertyCollectionExtended)">
+            <summary>
+            Appends its data points into new or existing property collection
+            </summary>
+            <param name="data">Property collection to add data into</param>
+            <returns>Updated or newly created property collection</returns>
+        </member>
+        <member name="M:imbSCI.Core.data.aceAuthorNotation.GetDescription(imbSCI.Core.reporting.render.ITextRender)">
+            <summary>
+            Gets the description lines for data defined in this instance
+            </summary>
+            <param name="builder">The builder.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.data.aceAuthorNotation.imbSCI#Core#reporting#IAppendDataFields#AppendDataFields(System.Data.PropertyCollection)">
+            <summary>
+            Appends its data points into new or existing property collection
+            </summary>
+            <param name="data">Property collection to add data into</param>
+            <returns>
+            Updated or newly created property collection
+            </returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="P:imbSCI.Core.data.aceAuthorNotation.software">
+            <summary>
+            Name of the software application
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.aceAuthorNotation.author">
+            <summary>
+            Author of the software
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.aceAuthorNotation.license">
+            <summary>
+            License information
+            </summary>
+            <value>
+            The licence.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.data.aceAuthorNotation.copyright">
+            <summary>
+            Copyright notice text
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.aceAuthorNotation.comment">
+            <summary>
+            Comment to be placed in footer/meta info of the reports
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.aceAuthorNotation.organization">
+            <summary>
+            Organization behind the software
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.aceAuthorNotation.web">
+            <summary> Web site of the project, software, organization or author </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.aceAuthorNotation.Email">
+            <summary> E-mail address of the project, author, organization... </summary>
+        </member>
+        <member name="T:imbSCI.Core.data.PropertyExpression">
+            <summary>
+            Graph-tree structure providing access to simple-type (string, numbers, boolean, enums) values (get/set/describe) properties of complex objects
+            </summary>
+            <seealso cref="T:imbSCI.Data.collection.graph.graphNode" />
+        </member>
+        <member name="P:imbSCI.Core.data.PropertyExpression.undesolvedPart">
+            <summary>
+            Part of the expression path that left unresolved
+            </summary>
+            <value>
+            The undesolved part.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.data.PropertyExpression.parentExpression">
+            <summary>
+            Parent expression node
+            </summary>
+            <value>
+            The parent expression.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.data.PropertyExpression.state">
+            <summary>
+            State of this expression node, indicating if it was solved or not
+            </summary>
+            <value>
+            The state.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.data.PropertyExpression.hostType">
+            <summary>Type of the host instance at this expression node</summary>
+        </member>
+        <member name="P:imbSCI.Core.data.PropertyExpression.host">
+            <summary>Host instance at this expression node </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.PropertyExpression.property">
+            <summary>Property information about this expression node</summary>
+        </member>
+        <member name="P:imbSCI.Core.data.PropertyExpression.valueType">
+            <summary>
+            Type of the value that is pointed by property expression
+            </summary>
+            <value>
+            The type of the value.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.data.PropertyExpression.Leaf">
+            <summary>
+            Opposite to root -- the last child
+            </summary>
+            <value>
+            The leaf.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.data.PropertyExpression.getValue(System.Object)">
+            <summary>
+            Gets the value at this expression node
+            </summary>
+            <param name="ifNotFoundReturn">If not found return.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.data.PropertyExpression.setValue(System.Object,System.Boolean)">
+            <summary>
+            Sets the value at this expression node
+            </summary>
+            <param name="val">The value.</param>
+            <param name="allowAddToCollection">if set to <c>true</c> [allow add to collection].</param>
+        </member>
+        <member name="P:imbSCI.Core.data.PropertyExpression.IsWritable">
+            <summary>
+            Gets a value indicating whether this instance is writable.
+            </summary>
+            <value>
+              <c>true</c> if this instance is writable; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.data.PropertyExpression.IsReady">
+            <summary>
+            Gets a value indicating whether this instance is ready for reading value
+            </summary>
+            <value>
+              <c>true</c> if this instance is ready; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.data.PropertyExpression.Expand(System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Expands this property expression with sub properties, until specified <c>maxDepth</c> <see cref="P:imbSCI.Data.collection.graph.IGraphNode.level"/>
+            </summary>
+            <param name="maxDepth">The maximum depth.</param>
+            <param name="IncludeReadOnly">if set to <c>true</c> [include read only].</param>
+            <param name="IncludeListsAndDictionaries">if set to <c>true</c> [include lists].</param>
+        </member>
+        <member name="M:imbSCI.Core.data.PropertyExpression.Add(System.String,System.Object)">
+            <summary>
+            Includes new property in the tree
+            </summary>
+            <param name="__pathPart">The path part.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.data.PropertyExpression.#ctor(System.Object,System.String,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Creates root expression - cannot set value directy, used for expression tree building
+            </summary>
+            <param name="__host">The host.</param>
+        </member>
+        <member name="M:imbSCI.Core.data.PropertyExpression.#ctor(System.Collections.IDictionary,System.String,imbSCI.Core.data.PropertyExpression)">
+            <summary>
+            Adds sub PropertyExpression for property inside <see cref="T:System.Collections.IList"/>
+            </summary>
+            <param name="__host">The host.</param>
+            <param name="__index">The index.</param>
+            <param name="__parent">The parent.</param>
+        </member>
+        <member name="M:imbSCI.Core.data.PropertyExpression.#ctor(System.Collections.IList,System.Int32,imbSCI.Core.data.PropertyExpression)">
+            <summary>
+            Adds sub PropertyExpression for property inside <see cref="T:System.Collections.IList"/>
+            </summary>
+            <param name="__host">The host.</param>
+            <param name="__index">The index.</param>
+            <param name="__parent">The parent.</param>
+        </member>
+        <member name="T:imbSCI.Core.data.PropertyExpressionTools">
+            <summary>
+            Tools to work with <see cref="T:imbSCI.Core.data.PropertyExpression"/> graphs, to evaluate String path... See: <see cref="M:imbSCI.Core.data.PropertyExpressionTools.GetExpressionResolved(System.Object,System.String)"/>
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.data.PropertyExpressionTools.GetExpressionResolved(System.Object,System.String)">
+            <summary>
+            Resolves the specified expresion <c>path</c>, having <c>host</c> as starting node
+            </summary>
+            <param name="host">The host object - the starting point for expression path interpretation</param>
+            <param name="path">The path.</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.data.PropertyItem">
+            <summary>
+            Zamena za externu biblioteku
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.PropertyItem.PropertyType">
+            <summary> </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.PropertyItem.Value">
+            <summary> </summary>
+        </member>
+        <member name="T:imbSCI.Core.data.settingsEntriesForObject">
+            <summary>
+            View data model - for representation of an Object and its Type in GUI, TUI or autogenerated description, user manual and 
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsEntriesForObject.id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsEntriesForObject.DisplayName">
+            <summary>
+            Name of this type/class - if not specified then uses normal type name 
+            </summary>
+            <value>
+            The display name.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsEntriesForObject.registry">
+            <summary>
+            static and autoinitiated object
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.data.settingsEntriesForObject.#ctor(System.Type,System.Boolean)">
+            <summary>
+            Generise meta model za prosledjeni tip
+            </summary>
+            <param name="target"></param>
+        </member>
+        <member name="M:imbSCI.Core.data.settingsEntriesForObject.#ctor(System.Object,System.Boolean,System.Boolean)">
+            <summary>
+            Generise meta model za prosledjeni objekat
+            </summary>
+            <param name="target"></param>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsEntriesForObject.targetType">
+            <summary>
+            Ciljani tip
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsEntriesForObject.pce">
+            <summary> </summary>
+        </member>
+        <member name="M:imbSCI.Core.data.settingsEntriesForObject.GetSignature">
+            <summary>
+            Hashed type signature
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.data.settingsEntriesForObject.processType(System.Type,System.Boolean,System.Object,System.Int32)">
+            <summary>
+            Processes the type.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="includeCollectionItems">if set to <c>true</c> [include collection items].</param>
+            <param name="target">The target.</param>
+        </member>
+        <member name="M:imbSCI.Core.data.settingsEntriesForObject.processObject(System.Object,System.Boolean)">
+            <summary>
+            Ucitava objekat u sebe i postavlja sve definicije
+            </summary>
+            <param name="target"></param>
+        </member>
+        <member name="M:imbSCI.Core.data.settingsEntriesForObject.valueToObject(System.Object)">
+            <summary>
+            Primenjuje kontekstualne vrednosti na objekat - ako je objekat null onda ga generise ponovo
+            </summary>
+            <param name="target"></param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsEntriesForObject.spes">
+            <summary>
+            settings entries with context
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.data.settingsMemberInfoEntry">
+            <summary>
+            Base class exposing extensive meta information on <see cref="T:System.Reflection.MemberInfo"/>s, used to access meta annotation for reporting. <seealso cref="T:imbSCI.Core.data.settingsPropertyEntry"/>, <seealso cref="T:imbSCI.Core.data.settingsPropertyEntryWithContext"/> and <see cref="T:imbSCI.Core.data.settingsEntriesForObject"/>.
+            </summary>
+            <remarks>The best way to use this model is to call <see cref="T:imbSCI.Core.data.settingsEntriesForObject"/> constructor, that will generate this object for each reflected member</remarks>
+            <seealso cref="T:System.ComponentModel.INotifyPropertyChanged" />
+        </member>
+        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.isHiddenInReport">
+            <summary>
+            Gets or sets a value indicating whether this instance is hidden in report.
+            </summary>
+            <value>
+              <c>true</c> if this instance is hidden in report; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.data.settingsMemberInfoEntry.#ctor(System.Reflection.MemberInfo,imbSCI.Core.collection.PropertyCollectionExtended)">
+            <summary>
+            Descriptor info model -- aceTypology
+            </summary>
+            <param name="mi">The mi.</param>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.helpContent">
+            <summary>
+            Help content for this member
+            </summary>
+            <value>
+            The content of the help.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.isPrimaryKey">
+            <summary>
+            Gets or sets a value indicating whether this instance is primary key.
+            </summary>
+            <value>
+              <c>true</c> if this instance is primary key; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.letter">
+            <summary>
+            Letter or code name for this member
+            </summary>
+            <value>
+            The letter.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.color">
+            <summary>
+            Hexadecimal color code or name
+            </summary>
+            <value>
+            The color.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.range_defined">
+            <summary>
+            Gets or sets a value indicating whether the range is defined.
+            </summary>
+            <value>
+              <c>true</c> if [range defined]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.range_min">
+            <summary>
+            Gets or sets the range minimum.
+            </summary>
+            <value>
+            The range minimum.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.range_max">
+            <summary>
+            Gets or sets the range maximum.
+            </summary>
+            <value>
+            The range maximum.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.displayName">
+            <summary>
+            Naziv varijable za prikaz
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.categoryName">
+            <summary>
+            Naziv kategorije propertija
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.description">
+            <summary>
+            Opis
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.attributes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.pe">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.template">
+             <summary>
+            property is a String template, this property contains wrapping template where {{{inner}}} is result of member value: template with placeholders {{{property_name}}} 
+             </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.format">
+            <summary>
+            Value format to apply
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.expression">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.prompt">
+            <summary>
+            Message when used asked for value of this property
+            </summary>
+            <value>
+            The prompt.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.importance">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.priority">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.escapeValueString">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.groups">
+            <summary>Groups this property is asociated with</summary>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.acceptableValues">
+            <summary>
+            prihvatljive vrednosti
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.data.settingsPropertyEntry">
+            <summary>
+            Jedan settings property sa svojim podacima prikaza
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsPropertyEntry.index">
+            <summary>
+            indeks na kome se nalazi - ako je -1 onda nije kolekcija
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsPropertyEntry.type">
+            <summary>
+            referenca prema tipu
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.data.settingsPropertyEntry.#ctor(System.Reflection.MemberInfo,imbSCI.Core.collection.PropertyCollectionExtended)">
+            <summary>
+            Deklarise jedan property entry i podesava njegove parametre prikaza
+            </summary>
+            <param name="__pi"></param>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsPropertyEntry.pi">
+            <summary>
+            referenca prema PropertyInfo objektu
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsPropertyEntryWithContext.host">
+            <summary>
+            referenca prema objektu
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.data.settingsPropertyEntryWithContext.value">
+            <summary>
+            trenutna vrednost
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.enums.NamespaceDoc">
+            <summary>
+            <para>Shared enumerations</para>
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.enums.existingDataMode">
+            <summary>
+            Rule how to handle existing data when append new data collection or single entry 
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.enums.existingDataMode.overwriteExisting">
+            <summary>
+            it will overwrite any existing data in 
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.enums.existingDataMode.overwriteExistingIfEmptyOrNull">
+            <summary>
+            The overwrites existing only if existing value is null or empty string
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.enums.existingDataMode.leaveExisting">
+            <summary>
+            it will leave existing entries unchanged
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.enums.existingDataMode.clearExisting">
+            <summary>
+            it will clear  any (other) existing entry or entries and place only specified (one) or (collection). WARNING: beware that in single entry operation it will clear ALL existing data and place only the one specified
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.enums.existingDataMode.filterAndLeaveExisting">
+            <summary>
+            it will remove all existing entries that are not matched by new collection
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.enums.existingDataMode.filterNewOverwriteExisting">
+            <summary>
+            result is key-crossection of existing and new collection - values are from new
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.enums.existingDataMode.sumWithExisting">
+            <summary>
+            result will be sum of existing and new values
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.enums.imbTypeGroup.number">
+            <summary>
+            isNumer = true
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.enums.operation.sin">
+            <summary>
+            2nd operatior as angle
+            </summary>
         </member>
         <member name="M:imbSCI.Core.extensions.data.containsQueries.Contains``1(System.Collections.Generic.IList{``0},``0[])">
             <summary>
@@ -876,6 +2224,11 @@
             <param name="column">The column.</param>
             <param name="tableColumn">The table column.</param>
             <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="T:imbSCI.Core.extensions.NamespaceDoc">
+            <summary>
+            <para>Main root namespace for imbSCI extension methods: data manipulation, advanced reflections, input/output, table styling, reporting, Excel-CSV serialization and deserialization, text operations</para>
+            </summary>
         </member>
         <member name="P:imbSCI.Core.extensions.table.core.tableStyleColumnSetter.items">
             <summary> </summary>
@@ -4855,11 +6208,18 @@
         </member>
         <member name="M:imbSCI.Core.files.folders.folderNode.Add(System.Enum,System.String,System.String)">
             <summary>
-            Adds the specified name enum.
+            Creates new folder node as subdirectory
             </summary>
             <param name="nameEnum">The name enum.</param>
             <param name="__caption">The caption.</param>
             <param name="__description">The description.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.Add(imbSCI.Core.files.folders.folderNode)">
+            <summary>
+            Nests the specified folder node into this instance
+            </summary>
+            <param name="node">The node.</param>
             <returns></returns>
         </member>
         <member name="M:imbSCI.Core.files.folders.folderNode.Add(System.String,System.String,System.String)">
@@ -5006,6 +6366,29 @@
             <param name="proposal">The proposal.</param>
             <returns></returns>
         </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.pathMake(System.String)">
+            <summary>
+            Returns properly compiled path, without file registration. This is alternative to <see cref="M:imbSCI.Core.files.folders.folderNode.pathFor(System.String,imbSCI.Data.enums.getWritableFileMode,System.String,System.Boolean)"/>
+            </summary>
+            <param name="filename">The filename.</param>
+            <returns>Just makes path</returns>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.SaveText(System.String,System.String,imbSCI.Data.enums.getWritableFileMode,System.String,System.Boolean)">
+            <summary>
+            Saves the <c>content</c> string as text file. Returns path with filename specified. Optionally, sets <c>fileDescription</c> for directory readme generator
+            </summary>
+            <remarks>
+            This method calls: <see cref="M:imbSCI.Core.files.folders.folderNode.pathFor(System.String,imbSCI.Data.enums.getWritableFileMode,System.String,System.Boolean)"/> and then uses <see cref="M:System.IO.File.WriteAllText(System.String,System.String)"/> to save the file.
+            </remarks>
+            <param name="content">The textual content to be saved</param>
+            <param name="filename">The filename, if has no extension it will set .txt</param>
+            <param name="mode">The mode.</param>
+            <param name="fileDescription">The file description - if not specified, it will try to improvize :)</param>
+            <param name="updateExistingDesc">if set to <c>true</c> it will force update if any existing file description was found. <see cref="M:imbSCI.Core.files.folders.folderNode.RegisterFile(System.String,System.String,System.Boolean)" /></param>
+            <returns>
+            The path
+            </returns>
+        </member>
         <member name="M:imbSCI.Core.files.folders.folderNode.pathFor(System.String,imbSCI.Data.enums.getWritableFileMode,System.String,System.Boolean)">
             <summary>
             Returns path with filename specified. Optionally, sets <c>fileDescription</c> for directory readme generator
@@ -5014,7 +6397,7 @@
             <param name="mode">The mode.</param>
             <param name="fileDescription">The file description - if not specified, it will try to improvize :)</param>
             <param name="updateExisting">if set to <c>true</c> it will force update if any existing file description was found. <see cref="M:imbSCI.Core.files.folders.folderNode.RegisterFile(System.String,System.String,System.Boolean)"/></param>
-            <returns></returns>
+            <returns>The path</returns>
         </member>
         <member name="M:imbSCI.Core.files.folders.folderNode.RegisterFile(System.String,System.String,System.Boolean)">
             <summary>
@@ -5197,6 +6580,11 @@
             Exception related to this namespace
             </summary>
             <seealso cref="T:System.Exception" />
+        </member>
+        <member name="T:imbSCI.Core.files.NamespaceDoc">
+            <summary>
+            <para>Object serialization, <see cref="T:imbSCI.Core.files.folders.folderNode"/> structure, text search engines, fileDataStructure base classes </para>
+            </summary>
         </member>
         <!-- Badly formed XML comment ignored for member "T:imbSCI.Core.files.search.NamespaceDoc" -->
         <member name="T:imbSCI.Core.files.search.fileTextInMemoryBlocks">
@@ -6282,6 +7670,201 @@
             Static container for settings and other global information
             </summary>
         </member>
+        <member name="T:imbSCI.Core.interfaces.NamespaceDoc">
+            <summary>
+            <para>Shared interfaces of the imbSCI middle layer</para>
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.interfaces.IAceMathUnitDecadic.decadeBase">
+            <summary>
+            Type of basic unit for the decade system
+            </summary>
+            <value>
+            The decade base.
+            </value>
+        </member>
+        <member name="T:imbSCI.Core.interfaces.IDisplayInfo">
+            <summary>
+            Osnovni podaci za prikaz
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.interfaces.IDisplayInfoExtended">
+            <summary>
+            Prosireni podaci prikaza
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.interfaces.IMeasure`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <seealso cref="T:imbSCI.Core.interfaces.IMeasure" />
+        </member>
+        <member name="P:imbSCI.Core.interfaces.IMeasure`1.alarmCriteria">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.interfaces.IMeasure`1.defValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.interfaces.IMeasure`1.valueRange">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.interfaces.IMeasure`1.primValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.interfaces.IMeasure`1.baseValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.interfaces.IMeasure">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:imbSCI.Core.interfaces.IMeasure" />
+        </member>
+        <member name="P:imbSCI.Core.interfaces.IMeasure.isValuePlural">
+            <summary>
+            Gets a value indicating whether the current value is plural.
+            </summary>
+            <value>
+            <c>true</c> if this instance is value plural; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.interfaces.IMeasure.convertToOptimalUnitLevel">
+            <summary>
+            TRUE if current value is in alarmant value range
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.interfaces.IMeasure.ToString">
+            <summary>
+            Returns a string that represents the meassure - according to
+            </summary>
+            <returns>
+            A string that represents the current object.
+            </returns>
+        </member>
+        <member name="M:imbSCI.Core.interfaces.IMeasure.GetContent(imbSCI.Core.math.measureSystem.enums.measureToStringContent)">
+            <summary>
+            Gets the informational content about this measure
+            </summary>
+            <param name="content">The content.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.interfaces.IMeasureBasic.isAlarmTurnedOn">
+            <summary>
+            If true it will use alarm range to fire alarm
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.interfaces.IMeasureBasic.GetFormatForValue(System.Boolean)">
+            <summary>
+            Gets the format for value or value-and-unit if forValueAndUnit is TRUE.
+            </summary>
+            <param name="forValueAndUnit">if set to <c>true</c> returns format for value and unit.</param>
+            <returns>Format string</returns>
+        </member>
+        <member name="P:imbSCI.Core.interfaces.IMeasureBasic.isValueDefault">
+            <summary>
+            TRUE if current value is same as default value specified with constructor 
+            </summary>
+            <value>
+            <c>true</c> if this instance is value default; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:imbSCI.Core.interfaces.IMetaContentNested">
+            <summary>
+            Interaface for all metaContent model classes
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.interfaces.IMetaContentNested.Count">
+            <summary>
+            Number of child items
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.interfaces.IMetaContentNested.sortChildren">
+            <summary>
+            Sorts children in ascending order using id/priority information
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.interfaces.IMetaContentNested.isThisRootPage">
+            <summary>
+            checks if this instance is page closest to document
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.interfaces.IMetaContentNested.isThisRoot">
+            <summary>
+            checks if this instance is DocumentSet
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.interfaces.IMetaContentNested.isThisDocument">
+            <summary>
+            checks if this instance is Document 
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.interfaces.IMetaContentNested.setVisibility(System.Boolean)">
+            <summary>
+            Is visibility changed?
+            </summary>
+            <param name="newValue">Value of visibility to be set</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.interfaces.IMetaContentNested.path">
+            <summary>
+            Path from root object to this object - including this
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.interfaces.IMetaContentNested.root">
+            <summary>
+            Reference to top parent object
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.interfaces.IMetaContentNested.context">
+            <summary>
+            reference to root context reference
+            </summary>
+            <value>
+            The context.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.interfaces.IMetaContentNested.page">
+            <summary>
+            Reference to containing page -- first page in parent hierarchy
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.interfaces.IMetaContentNested.document">
+            <summary>
+            Reference to containing document -- first document in parent hierarchy
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.interfaces.IMetaContentNested.parent">
+            <summary>
+            reference to item parent object
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.interfaces.IMetaContentNested.content">
+            <summary>
+            Text content of the meta item. For headers it is written below description block. For footers it comes before bottomline
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.interfaces.IMetaContentNested.priority">
+            <summary>
+            Priority defines order of blocks
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.interfaces.IMetaContentNested.visible">
+            <summary>
+            Controls render visibility of the content block
+            </summary>
+        </member>
         <member name="T:imbSCI.Core.math.classificationMetrics.classificationEval">
             <summary>
             Entry for <see cref="T:imbSCI.Core.math.classificationMetrics.classificationEvalMetricSet"/>
@@ -6578,6 +8161,11 @@
             Interface to classification report objects
             </summary>
         </member>
+        <member name="T:imbSCI.Core.math.NamespaceDoc">
+            <summary>
+            <para>Math, statistics and specialized helpers: <see cref="T:imbSCI.Core.math.counter"/>, <see cref="T:imbSCI.Core.math.md5"/>, <see cref="T:imbSCI.Core.math.classificationMetrics.classificationReport"/>...</para>
+            </summary>
+        </member>
         <member name="T:imbSCI.Core.math.range.finder.NamespaceDoc">
             <summary>
             <para>Range finders are utility objects, used to make descriptive statistics from collection of numbers and add agregate rows and conditional formatting to DataTable reports</para>
@@ -6765,6 +8353,103 @@
             <summary>
             The double entries
             </summary>
+        </member>
+        <member name="T:imbSCI.Core.math.range.histogram.histogramModel">
+            <summary>
+            Splits sampled data into <see cref="P:imbSCI.Core.math.range.histogram.histogramModel.bins"/> bins, with equal value span.
+            </summary>
+            <seealso cref="!:System.Collections.Generic.IEnumerable&lt;imbSCI.Core.math.range.histogram.histogramModelBin&gt;" />
+        </member>
+        <member name="P:imbSCI.Core.math.range.histogram.histogramModel.Item(System.Int32)">
+            <summary>
+            Gets the <see cref="T:imbSCI.Core.math.range.histogram.histogramModelBin"/> with the specified key.
+            </summary>
+            <value>
+            The <see cref="T:imbSCI.Core.math.range.histogram.histogramModelBin"/>.
+            </value>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.math.range.histogram.histogramModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.math.range.histogram.histogramModel"/> class.
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.range.histogram.histogramModel.#ctor(System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.math.range.histogram.histogramModel"/> class.
+            </summary>
+            <param name="_binCount">The bin count.</param>
+            <param name="_name">The name.</param>
+        </member>
+        <member name="T:imbSCI.Core.math.range.histogram.histogramModelBin">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.range.histogram.histogramModelBin.#ctor(System.String,System.Double,System.Double,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.math.range.histogram.histogramModelBin"/> class.
+            </summary>
+            <param name="_lavel">The lavel.</param>
+            <param name="_start">The start.</param>
+            <param name="_end">The end.</param>
+            <param name="_binPlace">The bin place.</param>
+        </member>
+        <member name="P:imbSCI.Core.math.range.histogram.histogramModelBin.Label">
+            <summary>
+            Gets or sets the label.
+            </summary>
+            <value>
+            The label.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.math.range.histogram.histogramModelBin.start">
+            <summary>
+            Gets or sets the start.
+            </summary>
+            <value>
+            The start.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.math.range.histogram.histogramModelBin.end">
+            <summary>
+            Gets or sets the end.
+            </summary>
+            <value>
+            The end.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.math.range.histogram.histogramModelBin.binPlace">
+            <summary>
+            Gets or sets the bin place.
+            </summary>
+            <value>
+            The bin place.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.math.range.histogram.histogramModelBin.values">
+            <summary>
+            Gets or sets the values.
+            </summary>
+            <value>
+            The values.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.math.range.histogram.histogramModelBin.Add(System.Double)">
+            <summary>
+            Adds the specified value.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.math.range.histogram.histogramModelBin.Count">
+            <summary>
+            Gets the count.
+            </summary>
+            <value>
+            The count.
+            </value>
         </member>
         <member name="T:imbSCI.Core.math.range.imbNumberScale">
             <summary>
@@ -8488,6 +10173,162 @@
             Proportion information representing count of total i.e. 5 of 13
             </summary>
         </member>
+        <member name="T:imbSCI.Core.NamespaceDoc">
+            <summary>
+            <para>Middle layer of the imbSCI libraries</para>
+            </summary>
+            <remarks>
+            <para>At this namespace, you have control over Console output: <see cref="T:imbSCI.Core.screenOutputControl"/></para>
+            </remarks>
+        </member>
+        <member name="T:imbSCI.Core.process.NamespaceDoc">
+            <summary>
+            <para>Data processing (Obsolite)</para>
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.process.calculate">
+            <summary>
+            2014c> kalkulacije
+            </summary> 
+        </member>
+        <member name="M:imbSCI.Core.process.calculate.ratio(System.Int32,System.Int32,System.Double,System.Double)">
+            <summary>
+            Bezbedna kalkulacija ratio-a
+            </summary>
+            <param name="whole"></param>
+            <param name="part"></param>
+            <param name="valueOnDivideByZero"></param>
+            <param name="valueOnDivideZero"></param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.process.dataLogic">
+            <summary>
+            Logika sabiranja vrednosti
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.process.dataLogic.set">
+            <summary>
+            Osnovni: postavlja vrednost u polje
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.process.dataLogic.setIfEmpty">
+            <summary>
+            Osnovni: postavlja vrednost u polje ako je postojeća vrednost Empty
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.process.dataLogic.mlSumShort">
+            <summary>
+            sabira sve vrednosti iz multiline listi - rezultat ima dužinu kraćeg od dva niza
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.process.dataLogic.mlSumLong">
+            <summary>
+            sabira sve vrednosti iz multiline listi - rezultat ima dužinu dužeg od dva niza
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.process.dataLogic.newRow">
+            <summary>
+            Narediće imbDataSheet-u da napravi novi row
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.process.imbDataConvertTools">
+            <summary>
+            2013: alati za konverziju vrednosti
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.process.imbDataConvertTools.imbToVisibility(System.Boolean)">
+            <summary>
+            Iz Boolean vrednosti pravi Visibility
+            </summary>
+            <param name="isVisible"></param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.process.imbDataExecutor">
+            <summary>
+            PREVAZIDJENO
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.process.imbDataExecutor.getStringValue(System.Object)">
+            <summary>
+            2013a> bezbedno vraca string verziju prosledjene vrednosti - Kreira stringValue 
+            </summary>
+            <param name="input">Neki objekat koji treba da konvertuje</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.process.imbDataExecutor.executeLogic(imbSCI.Core.process.dataLogic,System.String,System.String)">
+            <summary>
+            Privremeni string wrapper
+            </summary>
+            <param name="logic"></param>
+            <param name="operandA"></param>
+            <param name="operandB"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.process.imbDataExecutor.executeLogic(imbSCI.Core.process.dataLogic,System.Object,System.Object)">
+            <summary>
+            Izvrsava jednostavnu logiku - i prosledjuje kompleksnoj ako je potrebno
+            </summary>
+            <param name="logic"></param>
+            <param name="operandA">Domacin, target</param>
+            <param name="operandB">Nova vrednost</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.process.imbDataExecutor.getStringOperator(imbSCI.Core.process.dataLogic)">
+            <summary>
+            Vraća NCalc string oblik logike
+            </summary>
+            <param name="logic"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.process.imbDataExecutor.getTypeName(System.String)">
+            <summary>
+            Obradjuje podatak iz ucitanog stringa
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.process.imbDataExecutor.isSameValue(System.Object,System.Object,System.Type)">
+             <summary>
+            2013a> Proverava da li je prosledjena ista vrednost
+             </summary>
+             <param name="__valA"></param>
+             <param name="__valB"></param>
+             <param name="__targetType"></param>
+             <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.process.imbDataExecutorEngine">
+            <summary>
+            Proširenje postojećih imbDataExecutor operacija
+            Dodato prvi put zbog horizontalnog sabiranja brojeva iz stringova
+            28. januar 2012
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.process.imbDataExecutorEngine.executeMultilineLogic(imbSCI.Core.process.dataLogic,System.String,System.String)">
+            <summary>
+            Izvršava operaciju nad višelinijskim stringom
+            </summary>
+            <param name="logic"></param>
+            <param name="operandA"></param>
+            <param name="operandB"></param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.process.imbLogicComparator.imbLogicalOperator">
+            <summary>
+            način poređenja
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.process.imbLogicComparator.compareBooleanValues(System.Object,System.Object,imbSCI.Core.process.imbLogicComparator.imbLogicalOperator)">
+            <summary>
+            Upoređuje dva Booleana
+            </summary>
+            <param name="operantA"></param>
+            <param name="operantB"></param>
+            <param name="comparator"></param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.process.resourceScope">
+            <summary>
+            Koji relatvni resursi su predmet selektovanja
+            </summary>
+        </member>
         <member name="T:imbSCI.Core.reporting.aceLogToConsoleControl">
             <summary>
             Helper class that contains list of IConsoleControls that have permission to write to console
@@ -8586,6 +10427,11 @@
         </member>
         <member name="P:imbSCI.Core.reporting.aceLogToConsoleControl.allowList">
             <summary> </summary>
+        </member>
+        <member name="T:imbSCI.Core.reporting.NamespaceDoc">
+            <summary>
+            <para>Core functionalities of the Reporting engine</para>
+            </summary>
         </member>
         <member name="M:imbSCI.Core.reporting.render.builders.builderForHtml.AppendCode(System.String,System.String)">
             <summary>
@@ -16317,1474 +18163,6 @@
             Full title
             </summary>
         </member>
-        <member name="T:imbSCI.Core.collection.checkLists.checkList">
-            <summary>
-            2017: Key is value, Value tells if is is checked/selected
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.checkLists.checkList.items">
-            <summary> </summary>
-        </member>
-        <member name="M:imbSCI.Core.collection.checkLists.checkList.getCheckValue(System.Object)">
-            <summary>
-            Gets the check value.
-            </summary>
-            <param name="key">The key.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.checkLists.checkList.getCheckedItems(System.Boolean)">
-            <summary>
-            Gets entries for checked items
-            </summary>
-            <param name="targetValue">if set to <c>true</c> [target value].</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.checkLists.checkList.AppendDataFields(imbSCI.Core.collection.PropertyCollectionExtended)">
-            <summary>
-            Appends its data points into new or existing property collection
-            </summary>
-            <param name="data">Property collection to add data into</param>
-            <returns>Updated or newly created property collection</returns>
-        </member>
-        <member name="F:imbSCI.Core.collection.checkLists.checkListLogic.AND">
-            <summary>
-            The and
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.collection.checkLists.checkListLogic.OR">
-            <summary>
-            The or
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.collection.checkLists.checkListLogic.NOT">
-            <summary>
-            The not
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.collection.checkLists.checkListLogic.NOR">
-            <summary>
-            The nor: !(a || b)
-            </summary>
-        </member>
-        <member name="T:imbSCI.Core.collection.checkLists.imbCheckedObject">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.checkLists.imbCheckedObject.isChecked">
-            <summary>
-            Da li je objekat chekiran
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.checkLists.imbCheckedObject.value">
-            <summary>
-            Objekat
-            </summary>
-        </member>
-        <member name="T:imbSCI.Core.collection.checkLists.imbCheckedObjects">
-            <summary>
-            Kolekcija chekiranih Enum objekata
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.checkLists.imbCheckedObjects.values">
-            <summary>
-            Sve vrednosti
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.checkLists.imbCheckedObjects.checkList">
-            <summary>
-            Lista chekiranih vrednosti
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.checkLists.imbCheckedObjects.enumName">
-            <summary>
-            naziv enumeracije koja se prikazuje
-            </summary>
-        </member>
-        <member name="T:imbSCI.Core.collection.checkLists.instanceCheckList`1">
-            <summary>
-            Instance based check list
-            </summary>
-            <typeparam name="T"></typeparam>
-            <seealso cref="!:System.Collections.Generic.IEnumerable&lt;System.Collections.Generic.KeyValuePair&lt;T, System.Boolean&gt;&gt;" />
-        </member>
-        <member name="M:imbSCI.Core.collection.checkLists.instanceCheckList`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
-            <summary>
-            Initializes a new instance of the <see cref="T:imbSCI.Core.collection.checkLists.instanceCheckList`1"/> class.
-            </summary>
-            <param name="allowedValues">The allowed values.</param>
-        </member>
-        <member name="M:imbSCI.Core.collection.checkLists.instanceCheckList`1.GetPercentageScore">
-            <summary>
-            Gets the percentage score: ratio between: score and count
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.checkLists.instanceCheckList`1.GetScore">
-            <summary>
-            Gets the score: number of <c>true</c> values
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.checkLists.instanceCheckList`1.Set(`0,System.Boolean,imbSCI.Core.collection.checkLists.checkListLogic,System.Boolean)">
-            <summary>
-            Sets the value to <c>checkState</c> for specified key
-            </summary>
-            <param name="vl">The vl.</param>
-            <param name="checkState">if set to <c>true</c> [check state].</param>
-            <param name="logic">The logic.</param>
-            <param name="expandAllow">if set to <c>true</c> [expand allow].</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.checkLists.instanceCheckList`1.Set(System.Collections.Generic.IEnumerable{`0},System.Boolean,imbSCI.Core.collection.checkLists.checkListLogic)">
-            <summary>
-            Sets the values specified according to <c>check state</c>
-            </summary>
-            <param name="testValues">The test values.</param>
-            <param name="checkState">if set to <c>true</c> [check state].</param>
-            <param name="logic">The logic.</param>
-        </member>
-        <member name="M:imbSCI.Core.collection.checkLists.instanceCheckList`1.Check(System.Collections.Generic.IEnumerable{`0})">
-            <summary>
-            Returns instances that have TRUE value in the list
-            </summary>
-            <param name="testValues">The test values.</param>
-            <param name="logic">The logic.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.checkLists.instanceCheckList`1.AddAllowValues(System.Collections.Generic.IEnumerable{`0})">
-            <summary>
-            Adds the allow values.
-            </summary>
-            <param name="allowedValues">The allowed values.</param>
-            <returns></returns>
-        </member>
-        <member name="P:imbSCI.Core.collection.checkLists.instanceCheckList`1.items">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:imbSCI.Core.collection.checkLists.NamespaceDoc">
-            <summary>
-            Here are various kinds of "check list" data structures with main purpose in context of reporting.
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.IOneOrMore.iTI">
-            <summary>
-            informacije o tipu koji je smesten i jedini dozvoljen u kolekciji
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.IOneOrMore.isNothing">
-            <summary>
-            TRUE kad nema nista u kolekciji, ali je inicijalizovana
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.IOneOrMore.isSomething">
-            <summary>
-            Kontra od isNothing - tj. da ima nesto u sebi
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.IOneOrMore.Value">
-            <summary>
-            neposredan pristup prvom itemu
-            </summary>
-        </member>
-        <member name="T:imbSCI.Core.collection.oneOrMore`1">
-            <summary>
-            2014c> napredna kolekcija kojoj moze da se pristupa kao da je jedan objekat u pitanju - tada se vidi samo prvi item. Obavestava o promenama u kolekciji
-            </summary>
-            <remarks>
-            Po defaultu ne kreira sam prvi item.
-            doAutocreateFirst se podesava kroz konstruktor
-            </remarks>
-            <example>
-            oneOrMoreCollection(object) item;
-            
-            item = object; // ovo postavlja prvi objekat u kolekciju
-            
-            object tmp = item; // ovo vraca prvi objekat u nizu, ako jos nije instanciran oneOrMoreCollection
-            </example>
-            <typeparam name="T">Objekat koji se smesta u kolekciju</typeparam>
-        </member>
-        <member name="P:imbSCI.Core.collection.oneOrMore`1.iTI">
-            <summary>
-            informacije o tipu koji je smesten i jedini dozvoljen u kolekciji
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.oneOrMore`1.doAutocreateFirst">
-            <summary>
-            Da li da automatski napravi prvi item - definise se samo pri instanciranju, ostavljeno kao field cisto ako budem menjao
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.collection.oneOrMore`1.#ctor(System.Boolean)">
-            <summary>
-            Moze da se definise da li dodaje prvi element ili ne
-            </summary>
-            <param name="__doAutocreateFirst"></param>
-        </member>
-        <member name="M:imbSCI.Core.collection.oneOrMore`1.#ctor">
-            <summary>
-            Napravice prvi element ako postoji parametarless konstruktor
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.oneOrMore`1.Value">
-            <summary>
-            direktan pristup prvom itemu
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.oneOrMore`1.isMany">
-            <summary>
-            Da li ima vise od jednog elementa
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.oneOrMore`1.isNothing">
-            <summary>
-            TRUE kad nema nista u kolekciji, ali je inicijalizovana
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.oneOrMore`1.isSomething">
-            <summary>
-            Kontra od isNothing - tj. da ima nesto u sebi
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.oneOrMore`1.defaultValue">
-            <summary>
-            podrazumevana vrednost
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.collection.oneOrMore`1.op_Implicit(`0)~imbSCI.Core.collection.oneOrMore{`0}">
-            <summary>
-            Pravi novi kontejner
-            </summary>
-            <param name="newItem"></param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.oneOrMore`1.op_Addition(imbSCI.Core.collection.oneOrMore{`0},`0)">
-            <summary>
-            Dodaje novi ili prvi clan u kolekciju - a ako je kolekcija null onda je instancira
-            </summary>
-            <param name="col"></param>
-            <param name="newItem"></param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.oneOrMore`1.op_Addition(imbSCI.Core.collection.oneOrMore{`0},System.Collections.Generic.IEnumerable{`0})">
-            <summary>
-            Dodaje sve elemente iz druge kolekcije
-            </summary>
-            <param name="col"></param>
-            <param name="newItem"></param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.oneOrMore`1.op_Subtraction(imbSCI.Core.collection.oneOrMore{`0},System.Collections.Generic.IEnumerable{`0})">
-            <summary>
-            Oduzima sve clanove iz prosledjene kolekcije
-            </summary>
-            <param name="col"></param>
-            <param name="newItem"></param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.oneOrMore`1.op_Subtraction(imbSCI.Core.collection.oneOrMore{`0},`0)">
-            <summary>
-            Sklanja item iz operatora
-            </summary>
-            <param name="col"></param>
-            <param name="newItem"></param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.oneOrMore`1.First">
-            <summary>
-            javni metod za pristup prvom itemu - za neposredan pristup koristiti property Value
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.oneOrMore`1.getOrMakeFirst">
-            <summary>
-            vraca prvi item ili ga stvara ako tip ima parametarless konstruktor
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:imbSCI.Core.collection.PropertyCollectionCategoryList`1">
-            <summary>
-            DataField Shemas, divided by Category specifications
-            </summary>
-            <remarks>
-            <para>Auto-scanning of this level of inherence, properties splitted to categories.</para>
-            <para>Supported <see cref="T:System.Attribute"/>: <see cref="T:System.ComponentModel.DisplayNameAttribute"/>, <see cref="T:System.ComponentModel.CategoryAttribute"/>, <see cref="T:System.ComponentModel.DescriptionAttribute"/></para>
-            <para>Supported <see cref="T:imbSCI.Core.attributes.imbAttribute"/>: <see cref="F:imbSCI.Core.attributes.imbAttributeName.measure_displayGroup"/>, <see cref="F:imbSCI.Core.attributes.imbAttributeName.measure_displayGroupDescripton"/>...</para>
-            </remarks>
-            <example>
-            <code>
-            [DisplayName("Basic stage control")]
-            [Description("Basic stage host with a  simple general objective solutions: iteration limit")]
-            public class spiderStageControl : IAppendDataFieldsExtended
-            </code>
-            </example>
-            <example>
-            <code>
-            [DisplayName("Sample size")]
-            [Description("Sampled population count")]
-            [imb(imbAttributeName.measure_displayGroup, "Sample")]
-            [imb(imbAttributeName.measure_displayGroupDescripton, "Sample statictics")]
-            [imb(imbAttributeName.measure_metaModelName, "SampleSize")]
-            [imb(imbAttributeName.measure_metaModelPrefix, "SM01")]
-            public Int32 sampleSize 
-            </code>
-            <para>Recommanded attributes for meta description</para>
-            </example>
-            <value>
-            List of PropertyCollectionExtended representing group/categories of properties
-            </value>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyCollectionCategoryList`1.#ctor(System.String,System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:imbSCI.Core.collection.PropertyCollectionCategoryList`1"/> class.
-            </summary>
-            <param name="name">The name.</param>
-            <param name="description">The description.</param>
-            <exception cref="T:System.NotImplementedException">-- not implemented --</exception>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyCollectionCategoryList`1.buildDataFieldsForCategory(System.String,`0)">
-            <summary>
-            Builds the data fields for category.
-            </summary>
-            <param name="category">The category.</param>
-            <param name="instance">The instance.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyCollectionCategoryList`1.buildDataTableForCategory(System.String,`0)">
-            <summary>
-            Builds the data table for category.
-            </summary>
-            <param name="category">The category.</param>
-            <param name="instance">The instance.</param>
-            <returns></returns>
-            <exception cref="T:System.NotImplementedException">-- not implemented --</exception>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyCollectionCategoryList`1.getName(System.Object,System.String)">
-            <summary>
-            Gets the name.
-            </summary>
-            <param name="instance">The instance.</param>
-            <param name="instanceNameProperty">The instance name property.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyCollectionCategoryList`1.buildPropertyCollectionExtendedList(System.String,System.Collections.Generic.IEnumerable{`0},System.String)">
-            <summary>
-            Builds the property collection extended list.
-            </summary>
-            <param name="category">The category.</param>
-            <param name="instances">The instances.</param>
-            <param name="instanceNameProperty">The instance name property.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyCollectionCategoryList`1.buildDataTable(System.String,System.Collections.Generic.IEnumerable{`0},System.String)">
-            <summary>
-            Builds the data table.
-            </summary>
-            <param name="category">The category.</param>
-            <param name="instances">The instances.</param>
-            <param name="instanceNameProperty">The instance name property.</param>
-            <returns></returns>
-            <exception cref="T:System.NotImplementedException">-- not implemented yet --</exception>
-        </member>
-        <member name="T:imbSCI.Core.collection.PropertyCollectionDictionary">
-            <summary>
-            PropertyCollection dataset by unique name (path)
-            </summary>
-            <seealso cref="!:aceCommonTypes.primitives.imbBindable" />
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyCollectionDictionary.getDefault">
-            <summary>
-            Gets the default.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:imbSCI.Core.collection.PropertyCollectionExtended">
-            <summary>
-            PropertyCollection with extended meta information about it self and about Property entries
-            </summary>
-            <seealso cref="T:System.Data.PropertyCollection" />
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyCollectionExtended.ToString">
-            <summary>
-            PCE overriden ToString() shows name, description and parameter values
-            </summary>
-            <returns>
-            A <see cref="T:System.String" /> that represents this instance.
-            </returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyCollectionExtended.addAsObjectKey(System.Object,System.Object,System.Boolean,System.Collections.Generic.Dictionary{System.Object,System.String})">
-            <summary>
-            Adds as object key -- automatically designates title, uses <c>externalDescriptionLibrary</c> for definitions for non <see cref="T:imbSCI.Core.collection.PropertyEntryColumn"/> keys
-            </summary>
-            <param name="key">The key.</param>
-            <param name="v1">The v1.</param>
-            <param name="externalDescriptionLibrary">The external description library.</param>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyCollectionExtended.op_Implicit(imbSCI.Core.collection.PropertyCollectionExtended)~System.Data.DataTable">
-            <summary>
-            Performs an implicit conversion from <see cref="T:imbSCI.Core.collection.PropertyCollectionExtended"/> to <see cref="T:System.Data.DataTable"/>.
-            </summary>
-            <param name="pce">The pce.</param>
-            <returns>
-            The result of the conversion.
-            </returns>
-        </member>
-        <member name="P:imbSCI.Core.collection.PropertyCollectionExtended.autoIncludeImportance">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.PropertyCollectionExtended.defaultTableColumn">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyCollectionExtended.getDataTable(imbSCI.Core.collection.PropertyEntryColumn[])">
-            <summary>
-            Builds the data table with columns specified - order of columns as specified
-            </summary>
-            <param name="columns">The columns.</param>
-            <returns></returns>
-        </member>
-        <member name="P:imbSCI.Core.collection.PropertyCollectionExtended.name">
-            <summary>Display title of this collection</summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.PropertyCollectionExtended.description">
-            <summary> </summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.PropertyCollectionExtended.entries">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyCollectionExtended.AddRange(imbSCI.Core.collection.PropertyCollectionExtended,System.Boolean,System.Boolean,System.Boolean)">
-            <summary>
-            Adds the range. When <c>skipExisting</c> booleans are <c>true</c> it applies <see cref="!:aceCommonTypes.enums.existingDataMode.overwriteExistingIfEmptyOrNull"/> for smarter data gathering
-            </summary>
-            <param name="source">The source.</param>
-            <param name="skipExistingValues">if set to <c>true</c> [skip existing values].</param>
-            <param name="skipExistingMeta">if set to <c>true</c> it will keep existing <c>PropertyEntry</c> when overlapped with source</param>
-            <param name="strictMetaKeyMatch">If set to <c>true</c> it will not introduce new columns into data set. If <c>false</c> it will upgrade data set with not existing columns found at <c>source</c></param>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyCollectionExtended.AddMetaFrom(imbSCI.Core.collection.PropertyEntry,System.Boolean,System.Boolean)">
-            <summary>
-            Copis meta descriptions on the matching key. If <see cref="T:imbSCI.Core.collection.PropertyEntry"/> not defined it adds this
-            </summary>
-            <param name="pe">The pe.</param>
-            <param name="skipExisting">if set to <c>true</c> [skip existing].</param>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyCollectionExtended.AddMetaFor(System.Object,System.String,System.String,System.String,System.String,System.Boolean)">
-            <summary>
-            Redefines meta descriptions for <c>key</c> entry. Empty or null entries are ignored
-            </summary>
-            <param name="key">The key.</param>
-            <param name="__unit">The unit.</param>
-            <param name="__letter">The letter.</param>
-            <param name="__symbol">The symbol.</param>
-            <param name="__name">The name.</param>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyCollectionExtended.GetMetaForKey(System.Object)">
-            <summary>
-            Get all non value (<see cref="!:aceCommonTypes.extensions.data.PropertyEntryColumnExtensions.isKeyValueColumn(imbSCI.Data.collection.PropertyEntryColumn)"/> columns into <see cref="T:System.Data.PropertyCollection"/>
-            </summary>
-            <param name="key">The key.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyCollectionExtended.Add(System.Array,System.Object,System.String,System.String)">
-            <summary>
-            Maps to multiple keys
-            </summary>
-            <param name="key">The key.</param>
-            <param name="value">The value.</param>
-            <param name="__name">The name.</param>
-            <param name="__description">The description.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyCollectionExtended.Add(System.Object,System.Object,System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            Adds the specified key.
-            </summary>
-            <param name="key">The key.</param>
-            <param name="value">The value.</param>
-            <param name="__name">The name.</param>
-            <param name="__description">The description.</param>
-            <param name="__unit">The unit.</param>
-            <param name="__letter">The letter.</param>
-            <param name="__symbol">The symbol.</param>
-            <returns></returns>
-        </member>
-        <member name="T:imbSCI.Core.collection.PropertyCollectionExtendedList">
-            <summary>
-            Collection of <see cref="T:imbSCI.Core.collection.PropertyCollectionExtended"/> instances, with its own name and description
-            </summary>
-            <seealso cref="!:aceCommonTypes.primitives.imbBindable" />
-        </member>
-        <member name="P:imbSCI.Core.collection.PropertyCollectionExtendedList.name">
-            <summary>
-            Name for this instance
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.PropertyCollectionExtendedList.description">
-            <summary>
-            Human-readable description of object instance
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.PropertyCollectionExtendedList.Item(System.String)">
-            <summary>
-            Gets the <see cref="T:imbSCI.Core.collection.PropertyCollectionExtended"/> with the specified instance identifier.
-            </summary>
-            <value>
-            The <see cref="T:imbSCI.Core.collection.PropertyCollectionExtended"/>.
-            </value>
-            <param name="instanceID">The instance identifier.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">instanceID - No entry found under this name</exception>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyCollectionExtendedList.Count">
-            <summary>
-            Counts this instance.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="F:imbSCI.Core.collection.PropertyCollectionExtendedList.getColumnValue_Default">
-            <summary>
-            The get column value default
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyCollectionExtendedList.Add(imbSCI.Core.collection.PropertyCollectionExtended,System.Enum)">
-            <summary>
-            Takes Attribute values to set name and description for the collection
-            </summary>
-            <param name="item">The item.</param>
-            <param name="instanceID">The instance identifier.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyCollectionExtendedList.Add(imbSCI.Core.collection.PropertyCollectionExtended,System.String,System.Boolean)">
-            <summary>
-            Adds the <see cref="T:imbSCI.Core.collection.PropertyCollectionExtended" /> under Key supplied with <c>instanceID</c>.
-            </summary>
-            <param name="item">The collection to be included</param>
-            <param name="instanceID">The instance identifier. If not supplied it will take <see cref="P:imbSCI.Core.collection.PropertyCollectionExtended.name" /></param>
-            <param name="synchronizeID">if set to <c>true</c> it will make sure that <c>item</c> <see cref="P:imbSCI.Core.collection.PropertyCollectionExtended.name" /> has the final <c>instanceID</c> value.</param>
-            <returns>
-            Used version of <c>instanceID</c>. It will differ from the specified if the collection already contained item with such name
-            </returns>
-            <remarks>
-            <para>If <c>instanceID</c> is already used it will call <see cref="M:imbSCI.Core.extensions.text.imbStringGenerators.makeUniqueName(System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.Int32,System.Boolean)" /> to get unique version.</para>
-            <para>If the <c>item</c> has no name set and <c>instanceID</c> specified - it is automatically set</para>
-            </remarks>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyCollectionExtendedList.GetEnumerator">
-            <summary>
-            Returns an enumerator that iterates through the collection.
-            </summary>
-            <returns>
-            An enumerator that can be used to iterate through the collection.
-            </returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyCollectionExtendedList.System#Collections#IEnumerable#GetEnumerator">
-            <summary>
-            Returns an enumerator that iterates through a collection.
-            </summary>
-            <returns>
-            An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.
-            </returns>
-        </member>
-        <member name="P:imbSCI.Core.collection.PropertyCollectionExtendedList.items">
-            <summary>
-            Gets or sets the items.
-            </summary>
-            <value>
-            The items.
-            </value>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyCollectionHistoryRecord.getDataTable">
-            <summary>
-            NOT IMPLEMENTED
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyCollectionHistoryRecord.getDataForEntry(System.Int32)">
-            <summary>
-            Gets the data for entry.
-            </summary>
-            <param name="key">The key.</param>
-            <returns></returns>
-        </member>
-        <member name="P:imbSCI.Core.collection.PropertyCollectionHistoryRecord.shema">
-            <summary>
-            Gets or sets the shema.
-            </summary>
-            <value>
-            The shema.
-            </value>
-        </member>
-        <member name="P:imbSCI.Core.collection.PropertyCollectionHistoryRecord.timeSeries">
-            <summary> </summary>
-        </member>
-        <member name="T:imbSCI.Core.collection.PropertyCollectionList">
-            <summary>
-            List of <c>PropertyCollection</c> objects
-            </summary>
-            <seealso cref="!:System.Collections.Generic.List&lt;System.Data.PropertyCollection&gt;" />
-        </member>
-        <member name="T:imbSCI.Core.collection.PropertyEntry">
-            <summary>
-            Meta information about property/entry in <see cref="T:imbSCI.Core.collection.PropertyCollectionExtended"/>
-            </summary>
-            <seealso cref="T:System.Data.PropertyCollection" />
-            <seealso cref="T:imbSCI.Core.collection.PropertyCollectionExtended"/>
-            <seealso cref="T:imbSCI.Core.collection.PropertyEntryDictionary"/>
-            <seealso cref="T:imbSCI.Core.collection.PropertyEntryDictionary"/>
-        </member>
-        <member name="P:imbSCI.Core.collection.PropertyEntry.priority">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.PropertyEntry.keyName">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyEntry.getColumn(imbSCI.Core.collection.PropertyEntryColumn,System.Object)">
-            <summary>
-            Gets the columm value - applying special procedure for certain <c>PropertyEntryColumn</c>
-            </summary>
-            <param name="column">The column.</param>
-            <param name="input">The input.</param>
-            <returns></returns>
-        </member>
-        <member name="P:imbSCI.Core.collection.PropertyEntry.EntryKey">
-            <summary>
-            Key associated with the entry
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.PropertyEntry.EntryValue">
-            <summary>
-            Gets or sets the value associated with this property
-            </summary>
-            <value>
-            The entry value1.
-            </value>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyEntry.#ctor(System.Object,System.Object,System.String,System.String,imbSCI.Core.enums.dataPointImportance)">
-            <summary>
-            Initializes a new instance of the <see cref="T:imbSCI.Core.collection.PropertyEntry"/> class.
-            </summary>
-            <param name="key">The key.</param>
-            <param name="value">The value.</param>
-            <param name="name">Initial value for Display Name</param>
-            <param name="description">Initial description - overide of description found in <c>value</c> object</param>
-            <param name="relevance">The relevance - override of info found in <c>value</c></param>
-            <seealso cref="T:imbSCI.Core.interfaces.IValueWithRoleInfo"/>
-            <seealso cref="T:imbSCI.Core.interfaces.IValueWithUnitInfo"/>
-            <seealso cref="T:imbSCI.Core.interfaces.IValueWithImportanceInfo"/>
-            <seealso cref="T:imbSCI.Data.interfaces.IObjectWithNameAndDescription"/>
-        </member>
-        <member name="T:imbSCI.Core.collection.PropertyEntryColumn">
-            <summary>
-            Column/data aspect of the PropertyEntry
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.collection.PropertyEntryColumn.entry_key">
-            <summary>
-            Original version of entry key
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.collection.PropertyEntryColumn.entry_name">
-            <summary>
-            Display version of entry name
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.collection.PropertyEntryColumn.entry_description">
-            <summary>
-            Asociated entry description
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.collection.PropertyEntryColumn.entry_value">
-            <summary>
-            Display version of entry value - formatted but without unit
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.collection.PropertyEntryColumn.entry_valueAndUnit">
-            <summary>
-            Display version of entry value, formatted with unit
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.collection.PropertyEntryColumn.role_letter">
-            <summary>
-            Measure role letter
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.collection.PropertyEntryColumn.role_symbol">
-            <summary>
-            Measure symbol
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.collection.PropertyEntryColumn.role_name">
-            <summary>
-            Measure role name
-            </summary>
-        </member>
-        <member name="T:imbSCI.Core.collection.PropertyEntryDictionary">
-            <summary>
-            Contains meta-information about entries in <see cref="T:imbSCI.Core.collection.PropertyCollectionExtended"/> 
-            </summary>
-            <seealso cref="!:System.Collections.Generic.Dictionary&lt;System.Object, aceCommonTypes.collection.PropertyEntry&gt;" />
-        </member>
-        <member name="P:imbSCI.Core.collection.PropertyEntryDictionary.items">
-            <summary> </summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.PropertyEntryDictionary.flags">
-            <summary>Flags giving special instructions for DataTable construction and other data transformations</summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.PropertyEntryDictionary.Item(System.Object)">
-            <summary>
-            Gets or sets the <see cref="T:imbSCI.Core.collection.PropertyEntry"/> with the specified key.
-            </summary>
-            <value>
-            The <see cref="T:imbSCI.Core.collection.PropertyEntry"/>.
-            </value>
-            <param name="key">The key.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.PropertyEntryDictionary.Get(System.Object)">
-            <summary>
-            Searches for property entry definition
-            </summary>
-            <param name="key">The key. It can be string, it will be used as lowercase</param>
-            <returns>PropertyEntry</returns>
-        </member>
-        <member name="T:imbSCI.Core.collection.resourceDictionaryBase`1">
-            <summary>
-            Simple generic dictionary used by: <see cref="!:aceCommonTypes.collection.reportOutputRepository"/>, <see cref="T:imbSCI.Core.collection.PropertyCollectionDictionary"/>/> 
-            </summary>
-            <typeparam name="T"></typeparam>
-            <seealso cref="!:aceCommonTypes.primitives.imbBindable" />
-        </member>
-        <member name="F:imbSCI.Core.collection.resourceDictionaryBase`1.items">
-            <summary>
-            The items
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.collection.resourceDictionaryBase`1.GetEnumerator">
-            <summary>
-            Returns an enumerator that iterates through a collection.
-            </summary>
-            <returns>
-            An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.
-            </returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.resourceDictionaryBase`1.Count">
-            <summary>
-            Counts this instance.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.resourceDictionaryBase`1.Clear">
-            <summary>
-            Clears this instance.
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.collection.resourceDictionaryBase`1.Item(System.Enum)">
-            <summary>
-            Gets the <see cref="!:T"/> with the specified key.
-            </summary>
-            <value>
-            The <see cref="!:T"/>.
-            </value>
-            <param name="key">The key.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.collection.resourceDictionaryBase`1.Add(System.String,`0)">
-            <summary>
-            Adds the specified key.
-            </summary>
-            <param name="key">The key.</param>
-            <param name="val">The value.</param>
-        </member>
-        <member name="M:imbSCI.Core.collection.resourceDictionaryBase`1.getDefault">
-            <summary>
-            Gets the default.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:imbSCI.Core.collection.resourceDictionaryBase`1.Item(System.String)">
-            <summary>
-            Gets or sets the <see cref="T:System.Data.PropertyCollection"/> with the specified key. Automatically creates entry for new key
-            </summary>
-            <value>
-            The <see cref="T:System.Data.PropertyCollection"/>.
-            </value>
-            <param name="key">The key.</param>
-            <returns></returns>
-        </member>
-        <member name="T:imbSCI.Core.data.aceAuthorNotation">
-            <summary>
-            Data structure with basic information on the author, application, copyright.. etc. Used when reports are created.
-            </summary>
-            <seealso cref="T:imbSCI.Data.data.imbBindable" />
-        </member>
-        <member name="M:imbSCI.Core.data.aceAuthorNotation.AppendDataFields(imbSCI.Core.collection.PropertyCollectionExtended)">
-            <summary>
-            Appends its data points into new or existing property collection
-            </summary>
-            <param name="data">Property collection to add data into</param>
-            <returns>Updated or newly created property collection</returns>
-        </member>
-        <member name="M:imbSCI.Core.data.aceAuthorNotation.GetDescription(imbSCI.Core.reporting.render.ITextRender)">
-            <summary>
-            Gets the description lines for data defined in this instance
-            </summary>
-            <param name="builder">The builder.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.data.aceAuthorNotation.imbSCI#Core#reporting#IAppendDataFields#AppendDataFields(System.Data.PropertyCollection)">
-            <summary>
-            Appends its data points into new or existing property collection
-            </summary>
-            <param name="data">Property collection to add data into</param>
-            <returns>
-            Updated or newly created property collection
-            </returns>
-            <exception cref="T:System.NotImplementedException"></exception>
-        </member>
-        <member name="P:imbSCI.Core.data.aceAuthorNotation.software">
-            <summary>
-            Name of the software application
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.aceAuthorNotation.author">
-            <summary>
-            Author of the software
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.aceAuthorNotation.license">
-            <summary>
-            License information
-            </summary>
-            <value>
-            The licence.
-            </value>
-        </member>
-        <member name="P:imbSCI.Core.data.aceAuthorNotation.copyright">
-            <summary>
-            Copyright notice text
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.aceAuthorNotation.comment">
-            <summary>
-            Comment to be placed in footer/meta info of the reports
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.aceAuthorNotation.organization">
-            <summary>
-            Organization behind the software
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.aceAuthorNotation.web">
-            <summary> Web site of the project, software, organization or author </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.aceAuthorNotation.Email">
-            <summary> E-mail address of the project, author, organization... </summary>
-        </member>
-        <member name="T:imbSCI.Core.data.PropertyExpression">
-            <summary>
-            Graph-tree structure providing access to simple-type (string, numbers, boolean, enums) values (get/set/describe) properties of complex objects
-            </summary>
-            <seealso cref="T:imbSCI.Data.collection.graph.graphNode" />
-        </member>
-        <member name="P:imbSCI.Core.data.PropertyExpression.undesolvedPart">
-            <summary>
-            Part of the expression path that left unresolved
-            </summary>
-            <value>
-            The undesolved part.
-            </value>
-        </member>
-        <member name="P:imbSCI.Core.data.PropertyExpression.parentExpression">
-            <summary>
-            Parent expression node
-            </summary>
-            <value>
-            The parent expression.
-            </value>
-        </member>
-        <member name="P:imbSCI.Core.data.PropertyExpression.state">
-            <summary>
-            State of this expression node, indicating if it was solved or not
-            </summary>
-            <value>
-            The state.
-            </value>
-        </member>
-        <member name="P:imbSCI.Core.data.PropertyExpression.hostType">
-            <summary>Type of the host instance at this expression node</summary>
-        </member>
-        <member name="P:imbSCI.Core.data.PropertyExpression.host">
-            <summary>Host instance at this expression node </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.PropertyExpression.property">
-            <summary>Property information about this expression node</summary>
-        </member>
-        <member name="P:imbSCI.Core.data.PropertyExpression.valueType">
-            <summary>
-            Type of the value that is pointed by property expression
-            </summary>
-            <value>
-            The type of the value.
-            </value>
-        </member>
-        <member name="P:imbSCI.Core.data.PropertyExpression.Leaf">
-            <summary>
-            Opposite to root -- the last child
-            </summary>
-            <value>
-            The leaf.
-            </value>
-        </member>
-        <member name="M:imbSCI.Core.data.PropertyExpression.getValue(System.Object)">
-            <summary>
-            Gets the value at this expression node
-            </summary>
-            <param name="ifNotFoundReturn">If not found return.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.data.PropertyExpression.setValue(System.Object,System.Boolean)">
-            <summary>
-            Sets the value at this expression node
-            </summary>
-            <param name="val">The value.</param>
-            <param name="allowAddToCollection">if set to <c>true</c> [allow add to collection].</param>
-        </member>
-        <member name="P:imbSCI.Core.data.PropertyExpression.IsWritable">
-            <summary>
-            Gets a value indicating whether this instance is writable.
-            </summary>
-            <value>
-              <c>true</c> if this instance is writable; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="P:imbSCI.Core.data.PropertyExpression.IsReady">
-            <summary>
-            Gets a value indicating whether this instance is ready for reading value
-            </summary>
-            <value>
-              <c>true</c> if this instance is ready; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="M:imbSCI.Core.data.PropertyExpression.Expand(System.Int32,System.Boolean,System.Boolean)">
-            <summary>
-            Expands this property expression with sub properties, until specified <c>maxDepth</c> <see cref="P:imbSCI.Data.collection.graph.IGraphNode.level"/>
-            </summary>
-            <param name="maxDepth">The maximum depth.</param>
-            <param name="IncludeReadOnly">if set to <c>true</c> [include read only].</param>
-            <param name="IncludeListsAndDictionaries">if set to <c>true</c> [include lists].</param>
-        </member>
-        <member name="M:imbSCI.Core.data.PropertyExpression.Add(System.String,System.Object)">
-            <summary>
-            Includes new property in the tree
-            </summary>
-            <param name="__pathPart">The path part.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.data.PropertyExpression.#ctor(System.Object,System.String,System.Int32,System.Boolean,System.Boolean)">
-            <summary>
-            Creates root expression - cannot set value directy, used for expression tree building
-            </summary>
-            <param name="__host">The host.</param>
-        </member>
-        <member name="M:imbSCI.Core.data.PropertyExpression.#ctor(System.Collections.IDictionary,System.String,imbSCI.Core.data.PropertyExpression)">
-            <summary>
-            Adds sub PropertyExpression for property inside <see cref="T:System.Collections.IList"/>
-            </summary>
-            <param name="__host">The host.</param>
-            <param name="__index">The index.</param>
-            <param name="__parent">The parent.</param>
-        </member>
-        <member name="M:imbSCI.Core.data.PropertyExpression.#ctor(System.Collections.IList,System.Int32,imbSCI.Core.data.PropertyExpression)">
-            <summary>
-            Adds sub PropertyExpression for property inside <see cref="T:System.Collections.IList"/>
-            </summary>
-            <param name="__host">The host.</param>
-            <param name="__index">The index.</param>
-            <param name="__parent">The parent.</param>
-        </member>
-        <member name="T:imbSCI.Core.data.PropertyExpressionTools">
-            <summary>
-            Tools to work with <see cref="T:imbSCI.Core.data.PropertyExpression"/> graphs, to evaluate String path... See: <see cref="M:imbSCI.Core.data.PropertyExpressionTools.GetExpressionResolved(System.Object,System.String)"/>
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.data.PropertyExpressionTools.GetExpressionResolved(System.Object,System.String)">
-            <summary>
-            Resolves the specified expresion <c>path</c>, having <c>host</c> as starting node
-            </summary>
-            <param name="host">The host object - the starting point for expression path interpretation</param>
-            <param name="path">The path.</param>
-            <returns></returns>
-        </member>
-        <member name="T:imbSCI.Core.data.PropertyItem">
-            <summary>
-            Zamena za externu biblioteku
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.PropertyItem.PropertyType">
-            <summary> </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.PropertyItem.Value">
-            <summary> </summary>
-        </member>
-        <member name="T:imbSCI.Core.data.settingsEntriesForObject">
-            <summary>
-            View data model - for representation of an Object and its Type in GUI, TUI or autogenerated description, user manual and 
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsEntriesForObject.id">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsEntriesForObject.DisplayName">
-            <summary>
-            Name of this type/class - if not specified then uses normal type name 
-            </summary>
-            <value>
-            The display name.
-            </value>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsEntriesForObject.registry">
-            <summary>
-            static and autoinitiated object
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.data.settingsEntriesForObject.#ctor(System.Type,System.Boolean)">
-            <summary>
-            Generise meta model za prosledjeni tip
-            </summary>
-            <param name="target"></param>
-        </member>
-        <member name="M:imbSCI.Core.data.settingsEntriesForObject.#ctor(System.Object,System.Boolean,System.Boolean)">
-            <summary>
-            Generise meta model za prosledjeni objekat
-            </summary>
-            <param name="target"></param>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsEntriesForObject.targetType">
-            <summary>
-            Ciljani tip
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsEntriesForObject.pce">
-            <summary> </summary>
-        </member>
-        <member name="M:imbSCI.Core.data.settingsEntriesForObject.GetSignature">
-            <summary>
-            Hashed type signature
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.data.settingsEntriesForObject.processType(System.Type,System.Boolean,System.Object,System.Int32)">
-            <summary>
-            Processes the type.
-            </summary>
-            <param name="type">The type.</param>
-            <param name="includeCollectionItems">if set to <c>true</c> [include collection items].</param>
-            <param name="target">The target.</param>
-        </member>
-        <member name="M:imbSCI.Core.data.settingsEntriesForObject.processObject(System.Object,System.Boolean)">
-            <summary>
-            Ucitava objekat u sebe i postavlja sve definicije
-            </summary>
-            <param name="target"></param>
-        </member>
-        <member name="M:imbSCI.Core.data.settingsEntriesForObject.valueToObject(System.Object)">
-            <summary>
-            Primenjuje kontekstualne vrednosti na objekat - ako je objekat null onda ga generise ponovo
-            </summary>
-            <param name="target"></param>
-            <returns></returns>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsEntriesForObject.spes">
-            <summary>
-            settings entries with context
-            </summary>
-        </member>
-        <member name="T:imbSCI.Core.data.settingsMemberInfoEntry">
-            <summary>
-            Base class exposing extensive meta information on <see cref="T:System.Reflection.MemberInfo"/>s, used to access meta annotation for reporting. <seealso cref="T:imbSCI.Core.data.settingsPropertyEntry"/>, <seealso cref="T:imbSCI.Core.data.settingsPropertyEntryWithContext"/> and <see cref="T:imbSCI.Core.data.settingsEntriesForObject"/>.
-            </summary>
-            <remarks>The best way to use this model is to call <see cref="T:imbSCI.Core.data.settingsEntriesForObject"/> constructor, that will generate this object for each reflected member</remarks>
-            <seealso cref="T:System.ComponentModel.INotifyPropertyChanged" />
-        </member>
-        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.isHiddenInReport">
-            <summary>
-            Gets or sets a value indicating whether this instance is hidden in report.
-            </summary>
-            <value>
-              <c>true</c> if this instance is hidden in report; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="M:imbSCI.Core.data.settingsMemberInfoEntry.#ctor(System.Reflection.MemberInfo,imbSCI.Core.collection.PropertyCollectionExtended)">
-            <summary>
-            Descriptor info model -- aceTypology
-            </summary>
-            <param name="mi">The mi.</param>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.helpContent">
-            <summary>
-            Help content for this member
-            </summary>
-            <value>
-            The content of the help.
-            </value>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.isPrimaryKey">
-            <summary>
-            Gets or sets a value indicating whether this instance is primary key.
-            </summary>
-            <value>
-              <c>true</c> if this instance is primary key; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.letter">
-            <summary>
-            Letter or code name for this member
-            </summary>
-            <value>
-            The letter.
-            </value>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.color">
-            <summary>
-            Hexadecimal color code or name
-            </summary>
-            <value>
-            The color.
-            </value>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.range_defined">
-            <summary>
-            Gets or sets a value indicating whether the range is defined.
-            </summary>
-            <value>
-              <c>true</c> if [range defined]; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.range_min">
-            <summary>
-            Gets or sets the range minimum.
-            </summary>
-            <value>
-            The range minimum.
-            </value>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.range_max">
-            <summary>
-            Gets or sets the range maximum.
-            </summary>
-            <value>
-            The range maximum.
-            </value>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.displayName">
-            <summary>
-            Naziv varijable za prikaz
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.categoryName">
-            <summary>
-            Naziv kategorije propertija
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.description">
-            <summary>
-            Opis
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.attributes">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.pe">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.template">
-             <summary>
-            property is a String template, this property contains wrapping template where {{{inner}}} is result of member value: template with placeholders {{{property_name}}} 
-             </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.format">
-            <summary>
-            Value format to apply
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.expression">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.prompt">
-            <summary>
-            Message when used asked for value of this property
-            </summary>
-            <value>
-            The prompt.
-            </value>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.importance">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.priority">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.escapeValueString">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.groups">
-            <summary>Groups this property is asociated with</summary>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsMemberInfoEntry.acceptableValues">
-            <summary>
-            prihvatljive vrednosti
-            </summary>
-        </member>
-        <member name="T:imbSCI.Core.data.settingsPropertyEntry">
-            <summary>
-            Jedan settings property sa svojim podacima prikaza
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsPropertyEntry.index">
-            <summary>
-            indeks na kome se nalazi - ako je -1 onda nije kolekcija
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsPropertyEntry.type">
-            <summary>
-            referenca prema tipu
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.data.settingsPropertyEntry.#ctor(System.Reflection.MemberInfo,imbSCI.Core.collection.PropertyCollectionExtended)">
-            <summary>
-            Deklarise jedan property entry i podesava njegove parametre prikaza
-            </summary>
-            <param name="__pi"></param>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsPropertyEntry.pi">
-            <summary>
-            referenca prema PropertyInfo objektu
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsPropertyEntryWithContext.host">
-            <summary>
-            referenca prema objektu
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.data.settingsPropertyEntryWithContext.value">
-            <summary>
-            trenutna vrednost
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.interfaces.IAceMathUnitDecadic.decadeBase">
-            <summary>
-            Type of basic unit for the decade system
-            </summary>
-            <value>
-            The decade base.
-            </value>
-        </member>
-        <member name="T:imbSCI.Core.interfaces.IDisplayInfo">
-            <summary>
-            Osnovni podaci za prikaz
-            </summary>
-        </member>
-        <member name="T:imbSCI.Core.interfaces.IDisplayInfoExtended">
-            <summary>
-            Prosireni podaci prikaza
-            </summary>
-        </member>
-        <member name="T:imbSCI.Core.interfaces.IMeasure`1">
-            <summary>
-            
-            </summary>
-            <typeparam name="TValue">The type of the value.</typeparam>
-            <seealso cref="T:imbSCI.Core.interfaces.IMeasure" />
-        </member>
-        <member name="P:imbSCI.Core.interfaces.IMeasure`1.alarmCriteria">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.interfaces.IMeasure`1.defValue">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.interfaces.IMeasure`1.valueRange">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.interfaces.IMeasure`1.primValue">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.interfaces.IMeasure`1.baseValue">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:imbSCI.Core.interfaces.IMeasure">
-            <summary>
-            
-            </summary>
-            <seealso cref="T:imbSCI.Core.interfaces.IMeasure" />
-        </member>
-        <member name="P:imbSCI.Core.interfaces.IMeasure.isValuePlural">
-            <summary>
-            Gets a value indicating whether the current value is plural.
-            </summary>
-            <value>
-            <c>true</c> if this instance is value plural; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="M:imbSCI.Core.interfaces.IMeasure.convertToOptimalUnitLevel">
-            <summary>
-            TRUE if current value is in alarmant value range
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.interfaces.IMeasure.ToString">
-            <summary>
-            Returns a string that represents the meassure - according to
-            </summary>
-            <returns>
-            A string that represents the current object.
-            </returns>
-        </member>
-        <member name="M:imbSCI.Core.interfaces.IMeasure.GetContent(imbSCI.Core.math.measureSystem.enums.measureToStringContent)">
-            <summary>
-            Gets the informational content about this measure
-            </summary>
-            <param name="content">The content.</param>
-            <returns></returns>
-        </member>
-        <member name="P:imbSCI.Core.interfaces.IMeasureBasic.isAlarmTurnedOn">
-            <summary>
-            If true it will use alarm range to fire alarm
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.interfaces.IMeasureBasic.GetFormatForValue(System.Boolean)">
-            <summary>
-            Gets the format for value or value-and-unit if forValueAndUnit is TRUE.
-            </summary>
-            <param name="forValueAndUnit">if set to <c>true</c> returns format for value and unit.</param>
-            <returns>Format string</returns>
-        </member>
-        <member name="P:imbSCI.Core.interfaces.IMeasureBasic.isValueDefault">
-            <summary>
-            TRUE if current value is same as default value specified with constructor 
-            </summary>
-            <value>
-            <c>true</c> if this instance is value default; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="T:imbSCI.Core.interfaces.IMetaContentNested">
-            <summary>
-            Interaface for all metaContent model classes
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.interfaces.IMetaContentNested.Count">
-            <summary>
-            Number of child items
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.interfaces.IMetaContentNested.sortChildren">
-            <summary>
-            Sorts children in ascending order using id/priority information
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.interfaces.IMetaContentNested.isThisRootPage">
-            <summary>
-            checks if this instance is page closest to document
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.interfaces.IMetaContentNested.isThisRoot">
-            <summary>
-            checks if this instance is DocumentSet
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.interfaces.IMetaContentNested.isThisDocument">
-            <summary>
-            checks if this instance is Document 
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.interfaces.IMetaContentNested.setVisibility(System.Boolean)">
-            <summary>
-            Is visibility changed?
-            </summary>
-            <param name="newValue">Value of visibility to be set</param>
-            <returns></returns>
-        </member>
-        <member name="P:imbSCI.Core.interfaces.IMetaContentNested.path">
-            <summary>
-            Path from root object to this object - including this
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.interfaces.IMetaContentNested.root">
-            <summary>
-            Reference to top parent object
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.interfaces.IMetaContentNested.context">
-            <summary>
-            reference to root context reference
-            </summary>
-            <value>
-            The context.
-            </value>
-        </member>
-        <member name="P:imbSCI.Core.interfaces.IMetaContentNested.page">
-            <summary>
-            Reference to containing page -- first page in parent hierarchy
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.interfaces.IMetaContentNested.document">
-            <summary>
-            Reference to containing document -- first document in parent hierarchy
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.interfaces.IMetaContentNested.parent">
-            <summary>
-            reference to item parent object
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.interfaces.IMetaContentNested.content">
-            <summary>
-            Text content of the meta item. For headers it is written below description block. For footers it comes before bottomline
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.interfaces.IMetaContentNested.priority">
-            <summary>
-            Priority defines order of blocks
-            </summary>
-        </member>
-        <member name="P:imbSCI.Core.interfaces.IMetaContentNested.visible">
-            <summary>
-            Controls render visibility of the content block
-            </summary>
-        </member>
         <member name="T:imbSCI.Core.screenOutputControl">
             <summary>
             Centralized output control - in future it will enable multi-user-interface options (like: self-served and/or remote served Web UI)
@@ -17852,6 +18230,19 @@
             </summary>
             <param name="b">The b.</param>
             <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.style.NamespaceDoc">
+            <summary>
+            <para>New home for Styling functions of the framework</para>
+            </summary>
+            <remarks>
+            <para>It will host all color manipulation and general style-theme management used for different types of reporting</para>
+            </remarks>
+        </member>
+        <member name="T:imbSCI.Core.syntax.NamespaceDoc">
+            <summary>
+            <para>Tools for processing and interpreting formal syntaxes (Obsolite)</para>
+            </summary>
         </member>
         <member name="T:imbSCI.Core.syntax.param.typedParam">
             <summary>
@@ -19724,199 +20115,6 @@
         <member name="T:imbSCI.Core.syntax.nc.platform.ncPlatform">
             <summary>
             Podesavanja specificna za platformu za koju se razvija
-            </summary>
-        </member>
-        <member name="T:imbSCI.Core.enums.existingDataMode">
-            <summary>
-            Rule how to handle existing data when append new data collection or single entry 
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.enums.existingDataMode.overwriteExisting">
-            <summary>
-            it will overwrite any existing data in 
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.enums.existingDataMode.overwriteExistingIfEmptyOrNull">
-            <summary>
-            The overwrites existing only if existing value is null or empty string
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.enums.existingDataMode.leaveExisting">
-            <summary>
-            it will leave existing entries unchanged
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.enums.existingDataMode.clearExisting">
-            <summary>
-            it will clear  any (other) existing entry or entries and place only specified (one) or (collection). WARNING: beware that in single entry operation it will clear ALL existing data and place only the one specified
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.enums.existingDataMode.filterAndLeaveExisting">
-            <summary>
-            it will remove all existing entries that are not matched by new collection
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.enums.existingDataMode.filterNewOverwriteExisting">
-            <summary>
-            result is key-crossection of existing and new collection - values are from new
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.enums.existingDataMode.sumWithExisting">
-            <summary>
-            result will be sum of existing and new values
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.enums.imbTypeGroup.number">
-            <summary>
-            isNumer = true
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.enums.operation.sin">
-            <summary>
-            2nd operatior as angle
-            </summary>
-        </member>
-        <member name="T:imbSCI.Core.process.calculate">
-            <summary>
-            2014c> kalkulacije
-            </summary> 
-        </member>
-        <member name="M:imbSCI.Core.process.calculate.ratio(System.Int32,System.Int32,System.Double,System.Double)">
-            <summary>
-            Bezbedna kalkulacija ratio-a
-            </summary>
-            <param name="whole"></param>
-            <param name="part"></param>
-            <param name="valueOnDivideByZero"></param>
-            <param name="valueOnDivideZero"></param>
-            <returns></returns>
-        </member>
-        <member name="T:imbSCI.Core.process.dataLogic">
-            <summary>
-            Logika sabiranja vrednosti
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.process.dataLogic.set">
-            <summary>
-            Osnovni: postavlja vrednost u polje
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.process.dataLogic.setIfEmpty">
-            <summary>
-            Osnovni: postavlja vrednost u polje ako je postojeća vrednost Empty
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.process.dataLogic.mlSumShort">
-            <summary>
-            sabira sve vrednosti iz multiline listi - rezultat ima dužinu kraćeg od dva niza
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.process.dataLogic.mlSumLong">
-            <summary>
-            sabira sve vrednosti iz multiline listi - rezultat ima dužinu dužeg od dva niza
-            </summary>
-        </member>
-        <member name="F:imbSCI.Core.process.dataLogic.newRow">
-            <summary>
-            Narediće imbDataSheet-u da napravi novi row
-            </summary>
-        </member>
-        <member name="T:imbSCI.Core.process.imbDataConvertTools">
-            <summary>
-            2013: alati za konverziju vrednosti
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.process.imbDataConvertTools.imbToVisibility(System.Boolean)">
-            <summary>
-            Iz Boolean vrednosti pravi Visibility
-            </summary>
-            <param name="isVisible"></param>
-            <returns></returns>
-        </member>
-        <member name="T:imbSCI.Core.process.imbDataExecutor">
-            <summary>
-            PREVAZIDJENO
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.process.imbDataExecutor.getStringValue(System.Object)">
-            <summary>
-            2013a> bezbedno vraca string verziju prosledjene vrednosti - Kreira stringValue 
-            </summary>
-            <param name="input">Neki objekat koji treba da konvertuje</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.process.imbDataExecutor.executeLogic(imbSCI.Core.process.dataLogic,System.String,System.String)">
-            <summary>
-            Privremeni string wrapper
-            </summary>
-            <param name="logic"></param>
-            <param name="operandA"></param>
-            <param name="operandB"></param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.process.imbDataExecutor.executeLogic(imbSCI.Core.process.dataLogic,System.Object,System.Object)">
-            <summary>
-            Izvrsava jednostavnu logiku - i prosledjuje kompleksnoj ako je potrebno
-            </summary>
-            <param name="logic"></param>
-            <param name="operandA">Domacin, target</param>
-            <param name="operandB">Nova vrednost</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.process.imbDataExecutor.getStringOperator(imbSCI.Core.process.dataLogic)">
-            <summary>
-            Vraća NCalc string oblik logike
-            </summary>
-            <param name="logic"></param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Core.process.imbDataExecutor.getTypeName(System.String)">
-            <summary>
-            Obradjuje podatak iz ucitanog stringa
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.process.imbDataExecutor.isSameValue(System.Object,System.Object,System.Type)">
-             <summary>
-            2013a> Proverava da li je prosledjena ista vrednost
-             </summary>
-             <param name="__valA"></param>
-             <param name="__valB"></param>
-             <param name="__targetType"></param>
-             <returns></returns>
-        </member>
-        <member name="T:imbSCI.Core.process.imbDataExecutorEngine">
-            <summary>
-            Proširenje postojećih imbDataExecutor operacija
-            Dodato prvi put zbog horizontalnog sabiranja brojeva iz stringova
-            28. januar 2012
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.process.imbDataExecutorEngine.executeMultilineLogic(imbSCI.Core.process.dataLogic,System.String,System.String)">
-            <summary>
-            Izvršava operaciju nad višelinijskim stringom
-            </summary>
-            <param name="logic"></param>
-            <param name="operandA"></param>
-            <param name="operandB"></param>
-            <returns></returns>
-        </member>
-        <member name="T:imbSCI.Core.process.imbLogicComparator.imbLogicalOperator">
-            <summary>
-            način poređenja
-            </summary>
-        </member>
-        <member name="M:imbSCI.Core.process.imbLogicComparator.compareBooleanValues(System.Object,System.Object,imbSCI.Core.process.imbLogicComparator.imbLogicalOperator)">
-            <summary>
-            Upoređuje dva Booleana
-            </summary>
-            <param name="operantA"></param>
-            <param name="operantB"></param>
-            <param name="comparator"></param>
-            <returns></returns>
-        </member>
-        <member name="T:imbSCI.Core.process.resourceScope">
-            <summary>
-            Koji relatvni resursi su predmet selektovanja
             </summary>
         </member>
     </members>

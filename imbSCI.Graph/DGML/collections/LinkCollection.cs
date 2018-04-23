@@ -47,8 +47,18 @@ namespace imbSCI.Graph.DGML.collections
 
         }
 
+        /// <summary>
+        /// Adds a link between <para>nodeA</para> and <para>nodeB</para>. If any of nodes are null it will just return null and add no link.
+        /// </summary>
+        /// <param name="nodeA">The node a - node from</param>
+        /// <param name="nodeB">The node b - node to</param>
+        /// <param name="linkLabel">Text label of the link.</param>
+        /// <returns></returns>
         public Link AddLink(Node nodeA, Node nodeB, String linkLabel)
         {
+            if (nodeA == null) return null;
+            if (nodeB == null) return null;
+
             Link l = new Link();
             l.Source = nodeA.Id;
             l.Target = nodeB.Id;

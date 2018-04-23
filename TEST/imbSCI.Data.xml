@@ -807,7 +807,7 @@
         </member>
         <member name="T:imbSCI.Data.collection.nested.aceDictionaryLetterIndexSet`1">
             <summary>
-            
+            Dictionary with first letter indexing, usefull for large collections
             </summary>
             <typeparam name="T"></typeparam>
         </member>
@@ -848,6 +848,24 @@
             Gets the specified key.
             </summary>
             <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Data.collection.nested.aceDictionaryLetterIndexSet`1.Count">
+            <summary>
+            Counts indexed first letters
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Data.collection.nested.aceDictionaryLetterIndexSet`1.CountAll">
+            <summary>
+            Counts all instances saved in the collection
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Data.collection.nested.aceDictionaryLetterIndexSet`1.GetSignature">
+            <summary>
+            Gets the signature.
+            </summary>
             <returns></returns>
         </member>
         <member name="P:imbSCI.Data.collection.nested.aceDictionaryLetterIndexSet`1.items">
