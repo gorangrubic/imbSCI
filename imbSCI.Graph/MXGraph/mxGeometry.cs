@@ -7,6 +7,9 @@ using System.Xml.Serialization;
 namespace imbSCI.Graph.MXGraph
 {
 
+    /// <summary>
+    /// Geometry definition 
+    /// </summary>
     public class mxGeometry
     {
 

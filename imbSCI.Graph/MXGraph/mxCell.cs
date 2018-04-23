@@ -7,9 +7,15 @@ using System.Xml.Serialization;
 namespace imbSCI.Graph.MXGraph
 {
 
+    /// <summary>
+    /// Cell is abstract base unit of an mxGraph object, representing node or link
+    /// </summary>
     public class mxCell
     {
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="mxCell"/> class.
+        /// </summary>
         public mxCell() { }
 
         [XmlAttribute(DataType ="string")]
