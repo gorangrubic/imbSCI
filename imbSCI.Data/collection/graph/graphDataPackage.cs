@@ -35,18 +35,27 @@ namespace imbSCI.Data.collection.graph
     using imbSCI.Data.interfaces;
 
     /// <summary>
-    /// 
+    /// XML Serializable container for <see cref="graphWrapNode{TItem}" /> structure. Use <see cref="Store(graphWrapNode{TItem}, string)" /> to add node into package.
     /// </summary>
     /// <typeparam name="TItem">The type of the item.</typeparam>
+    /// <seealso cref="imbSCI.Data.data.package.dataPackage{TItem, imbSCI.Data.collection.graph.graphWrapNode{TItem}}" />
     /// <seealso cref="imbSCI.Data.data.package.dataPackage{TItem, aceCommonTypes.collection.nested.graphWrapNode{TItem}}" />
     public class graphDataPackage<TItem> : dataPackage<TItem, graphWrapNode<TItem>>  where TItem : class, IObjectWithName,  new()
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="graphDataPackage{TItem}"/> class.
+        /// </summary>
         public graphDataPackage() : base()
         {
         }
 
 
 
+        /// <summary>
+        /// Stores the specified input.
+        /// </summary>
+        /// <param name="input">The input.</param>
+        /// <param name="path">The path.</param>
         public void Store(graphWrapNode<TItem> input, String path)
         {
             List<graphWrapNode<TItem>> chld = new List<graphWrapNode<TItem>>();
@@ -60,11 +69,25 @@ namespace imbSCI.Data.collection.graph
 
 
 
+        /// <summary>
+        /// Utility method that returns Unique path to the specified node
+        /// </summary>
+        /// <param name="wrapper">Object that holds the instance</param>
+        /// <returns>
+        /// ID
+        /// </returns>
         protected override string GetDataPackageID(graphWrapNode<TItem> wrapper)
         {
             return wrapper.path;
         }
 
+        /// <summary>
+        /// Takes data item instance from the wrapper
+        /// </summary>
+        /// <param name="wrapper">Object that holds the instance</param>
+        /// <returns>
+        /// item that was held by the instance
+        /// </returns>
         protected override TItem GetInstanceToPack(graphWrapNode<TItem> wrapper)
         {
             return wrapper.item;

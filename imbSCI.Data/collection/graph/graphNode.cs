@@ -110,22 +110,30 @@ namespace imbSCI.Data.collection.graph
         }
 
 
-        private ConcurrentDictionary<String, IGraphNode> _children = new ConcurrentDictionary<String, IGraphNode>();
-        /// <summary>
-        /// Gets or sets the children.
-        /// </summary>
-        /// <value>
-        /// The children.
-        /// </value>
-        protected ConcurrentDictionary<String, IGraphNode> mychildren
-        {
-            get
-            {
-                return _children;
-            }
-            set { _children = value; }
-        }
+        protected SortedList<String, IGraphNode> mychildren { get; set; } = new SortedList<string, IGraphNode>();
 
+        //private ConcurrentDictionary<String, IGraphNode> _children = new ConcurrentDictionary<String, IGraphNode>();
+        ///// <summary>
+        ///// Gets or sets the children.
+        ///// </summary>
+        ///// <value>
+        ///// The children.
+        ///// </value>
+        //protected ConcurrentDictionary<String, IGraphNode> mychildren
+        //{
+        //    get
+        //    {
+        //        return _children;
+        //    }
+        //    set { _children = value; }
+        //}
+
+        /// <summary>
+        /// Returns an enumerator that iterates through the collection.
+        /// </summary>
+        /// <returns>
+        /// An enumerator that can be used to iterate through the collection.
+        /// </returns>
         IEnumerator<IGraphNode> IEnumerable<IGraphNode>.GetEnumerator()
         {
             return (IEnumerator<IGraphNode>)children.Values.GetEnumerator();

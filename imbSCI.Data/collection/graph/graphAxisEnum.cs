@@ -37,6 +37,9 @@ namespace imbSCI.Data.collection.graph
     using System.Collections.Concurrent;
 
 
+    /// <summary>
+    /// Axes of multidimensional graph (planned feature)
+    /// </summary>
     public enum graphAxisEnum
     {
         /// <summary>

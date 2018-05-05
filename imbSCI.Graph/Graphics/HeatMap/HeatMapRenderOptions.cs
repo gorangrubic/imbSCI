@@ -5,7 +5,7 @@ using imbSCI.Core.reporting.style.core;
 using imbSCI.Core.reporting.style.shot;
 using imbSCI.Core.style.color;
 using imbSCI.Core.reporting.colors;
-using imbSCI.Data.collection.nested;
+
 using System.Text;
 using System.Drawing;
 using imbSCI.Core.reporting.style.enums;

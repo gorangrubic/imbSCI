@@ -1603,111 +1603,6 @@
             </remarks>
             <seealso cref="T:imbSCI.Graph.Converters.GraphConversionTools" />
         </member>
-        <member name="T:imbSCI.Graph.Graphics.HeatMap.HeatMapModel">
-            <summary>
-            
-            </summary>
-            <seealso cref="!:System.Collections.Generic.List&lt;System.Collections.Generic.List&lt;System.Double&gt;&gt;" />
-        </member>
-        <member name="P:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.deployed">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:imbSCI.Graph.Graphics.HeatMap.HeatMapModel"/> class.
-            </summary>
-        </member>
-        <member name="P:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.ArtificialMaximum">
-            <summary>
-            Gets or sets the artificial maximum.
-            </summary>
-            <value>
-            The artificial maximum.
-            </value>
-        </member>
-        <member name="M:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.#ctor(System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-            Initializes square heat map matrix
-            </summary>
-            <param name="columnsAndRows">The columns and rows.</param>
-        </member>
-        <member name="M:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.Deploy(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-            Initializes rectanglural heat map matrix
-            </summary>
-            <param name="columns">The columns.</param>
-            <param name="rows">The rows.</param>
-        </member>
-        <member name="M:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.CreateRandom(System.Int32,System.Int32,System.Int32,System.Int32,System.String)">
-            <summary>
-            Creates randomized heat map, with specified x-y axis size.
-            </summary>
-            <param name="width">The width.</param>
-            <param name="height">The height.</param>
-            <param name="min">The minimum.</param>
-            <param name="max">The maximum.</param>
-            <param name="axisFormat">The axis format.</param>
-            <returns></returns>
-        </member>
-        <member name="P:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.Item(System.String,System.String)">
-            <summary>
-            Selection by string labels
-            </summary>
-            <value>
-            The <see cref="T:System.Double"/>.
-            </value>
-            <param name="x">The x.</param>
-            <param name="y">The y.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.AllocateSize(System.Int32,System.Int32)">
-            <summary>
-            Allocates the size.
-            </summary>
-            <param name="x">The x.</param>
-            <param name="y">The y.</param>
-        </member>
-        <member name="P:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.Item(System.Int32,System.Int32)">
-            <summary>
-            Gets or sets the <see cref="T:System.Double"/> with the specified x.
-            </summary>
-            <value>
-            The <see cref="T:System.Double"/>.
-            </value>
-            <param name="x">The x.</param>
-            <param name="y">The y.</param>
-            <returns></returns>
-        </member>
-        <member name="M:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.Randomize(System.Int32,System.Int32)">
-            <summary>
-            Randomizes the values writen in the matrix
-            </summary>
-            <param name="min">The minimum.</param>
-            <param name="max">The maximum.</param>
-        </member>
-        <member name="M:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.GetRatioValue(System.Int32,System.Int32,System.Double)">
-            <summary>
-            Gets the value that is 
-            </summary>
-            <param name="x">The x.</param>
-            <param name="y">The y.</param>
-            <returns></returns>
-        </member>
-        <member name="P:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.ranger">
-            <summary>
-            Gets or sets the ranger.
-            </summary>
-            <value>
-            The ranger.
-            </value>
-        </member>
-        <member name="M:imbSCI.Graph.Graphics.HeatMap.HeatMapModel.DetectMinMax">
-            <summary>
-            Sets the ranger
-            </summary>
-        </member>
         <member name="T:imbSCI.Graph.Graphics.HeatMap.SVGTools">
             <summary>
             Helper tools for SVG
@@ -1722,7 +1617,7 @@
         </member>
         <member name="T:imbSCI.Graph.Graphics.HeatMap.HeatMapRender">
             <summary>
-            Utility class used for rendering of <see cref="T:imbSCI.Graph.Graphics.HeatMap.HeatMapModel"/>
+            Utility class used for rendering of <see cref="T:imbSCI.Core.math.range.matrix.HeatMapModel"/>
             </summary>
         </member>
         <member name="P:imbSCI.Graph.Graphics.HeatMap.HeatMapRender.style">
@@ -1733,16 +1628,16 @@
             The style.
             </value>
         </member>
-        <member name="M:imbSCI.Graph.Graphics.HeatMap.HeatMapRender.RenderAndSave(imbSCI.Graph.Graphics.HeatMap.HeatMapModel,System.String)">
+        <member name="M:imbSCI.Graph.Graphics.HeatMap.HeatMapRender.RenderAndSave(imbSCI.Core.math.range.matrix.HeatMapModel,System.String)">
             <summary>
-            Renders the heat map and saves the output to <c>filePath</c>. This is void alias to <see cref="M:imbSCI.Graph.Graphics.HeatMap.HeatMapRender.Render(imbSCI.Graph.Graphics.HeatMap.HeatMapModel,System.String)"/>
+            Renders the heat map and saves the output to <c>filePath</c>. This is void alias to <see cref="M:imbSCI.Graph.Graphics.HeatMap.HeatMapRender.Render(imbSCI.Core.math.range.matrix.HeatMapModel,System.String)"/>
             </summary>
             <param name="model">The model.</param>
             <param name="filePath">The file path.</param>
         </member>
-        <member name="M:imbSCI.Graph.Graphics.HeatMap.HeatMapRender.Render(imbSCI.Graph.Graphics.HeatMap.HeatMapModel,System.String)">
+        <member name="M:imbSCI.Graph.Graphics.HeatMap.HeatMapRender.Render(imbSCI.Core.math.range.matrix.HeatMapModel,System.String)">
             <summary>
-            Renders the specified <see cref="T:imbSCI.Graph.Graphics.HeatMap.HeatMapModel"/>, optionally saves the output SVG
+            Renders the specified <see cref="T:imbSCI.Core.math.range.matrix.HeatMapModel"/>, optionally saves the output SVG
             </summary>
             <param name="model">The model.</param>
             <param name="filePath">The file path.</param>
@@ -2184,6 +2079,21 @@
             </summary>
             <param name="model">The model.</param>
             <returns></returns>
+        </member>
+        <member name="T:imbSCI.Graph.MXGraph.mxCell">
+            <summary>
+            Cell is abstract base unit of an mxGraph object, representing node or link
+            </summary>
+        </member>
+        <member name="M:imbSCI.Graph.MXGraph.mxCell.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Graph.MXGraph.mxCell"/> class.
+            </summary>
+        </member>
+        <member name="T:imbSCI.Graph.MXGraph.mxGeometry">
+            <summary>
+            Geometry definition 
+            </summary>
         </member>
         <member name="T:imbSCI.Graph.MXGraph.mxGraphModel">
             <summary>

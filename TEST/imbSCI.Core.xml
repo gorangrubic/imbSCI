@@ -4726,11 +4726,12 @@
         </member>
         <member name="M:imbSCI.Core.extensions.text.imbStringWordWrap.wrapLineBySpace(System.String,System.Int32)">
             <summary>
-            Inteligentno prelamanje teksta na zadatu širinu
+            Breaks specified text into lines of maximum width as specified by <c>innerWidth</c>. It is aware of words, so the text is splitted only at spaces - all words stay complete.
             </summary>
+            <remarks>It is ok if text is less then full line</remarks>
             <param name="input"></param>
             <param name="innerWidth"></param>
-            <returns></returns>
+            <returns>List of lines</returns>
         </member>
         <member name="M:imbSCI.Core.extensions.text.imbStringWordWrap.breakLines(System.String,System.Boolean)">
             <summary>
@@ -8161,6 +8162,39 @@
             Interface to classification report objects
             </summary>
         </member>
+        <member name="T:imbSCI.Core.math.functions.core.sineFunction">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:imbSCI.Core.math.functions.core.functionBase" />
+        </member>
+        <member name="M:imbSCI.Core.math.functions.core.rampFunction.GetOutput(System.Double)">
+            <summary>
+            Gets the output -- <c>alpha</c> should be 0-1
+            </summary>
+            <param name="alpha">The alpha.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.math.functions.core.rampFunction.GetOutput(System.Int32)">
+            <summary>
+            Gets the output.
+            </summary>
+            <param name="alpha">The alpha.</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.math.functions.core.functionBase">
+            <summary>
+            base of function generator class
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.math.functions.core.functionBase.weight">
+            <summary>
+            Scale factor, applied when multiply functions are mixed
+            </summary>
+            <value>
+            The weight.
+            </value>
+        </member>
         <member name="T:imbSCI.Core.math.NamespaceDoc">
             <summary>
             <para>Math, statistics and specialized helpers: <see cref="T:imbSCI.Core.math.counter"/>, <see cref="T:imbSCI.Core.math.md5"/>, <see cref="T:imbSCI.Core.math.classificationMetrics.classificationReport"/>...</para>
@@ -8451,6 +8485,160 @@
             The count.
             </value>
         </member>
+        <member name="T:imbSCI.Core.math.range.matrix.HeatMapModel">
+            <summary>
+            Intensity matrix
+            </summary>
+            <seealso cref="!:System.Collections.Generic.List&lt;System.Collections.Generic.List&lt;System.Double&gt;&gt;" />
+        </member>
+        <member name="P:imbSCI.Core.math.range.matrix.HeatMapModel.deployed">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.range.matrix.HeatMapModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.math.range.matrix.HeatMapModel"/> class.
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.math.range.matrix.HeatMapModel.ArtificialMaximum">
+            <summary>
+            Gets or sets the artificial maximum.
+            </summary>
+            <value>
+            The artificial maximum.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.math.range.matrix.HeatMapModel.#ctor(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Initializes square heat map matrix
+            </summary>
+            <param name="columnsAndRows">The columns and rows.</param>
+        </member>
+        <member name="M:imbSCI.Core.math.range.matrix.HeatMapModel.Deploy(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Initializes rectanglural heat map matrix
+            </summary>
+            <param name="columns">The columns.</param>
+            <param name="rows">The rows.</param>
+        </member>
+        <member name="M:imbSCI.Core.math.range.matrix.HeatMapModel.Create(System.Int32,System.Int32,System.String)">
+            <summary>
+            Creates the specified width.
+            </summary>
+            <param name="width">The width.</param>
+            <param name="height">The height.</param>
+            <param name="axisFormat">The axis format.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.math.range.matrix.HeatMapModel.CreateRandom(System.Int32,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Creates randomized heat map, with specified x-y axis size.
+            </summary>
+            <param name="width">The width.</param>
+            <param name="height">The height.</param>
+            <param name="min">The minimum.</param>
+            <param name="max">The maximum.</param>
+            <param name="axisFormat">The axis format.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.math.range.matrix.HeatMapModel.weight">
+            <summary>
+            Gets the weight.
+            </summary>
+            <value>
+            The weight.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.math.range.matrix.HeatMapModel.height">
+            <summary>
+            Gets the height.
+            </summary>
+            <value>
+            The height.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.math.range.matrix.HeatMapModel.Item(System.String,System.String)">
+            <summary>
+            Selection by string labels
+            </summary>
+            <value>
+            The <see cref="T:System.Double"/>.
+            </value>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.math.range.matrix.HeatMapModel.AllocateSize(System.Int32,System.Int32)">
+            <summary>
+            Makes sure that matrix cells up to of specified dimensions is instantiated the size.
+            </summary>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+        </member>
+        <member name="P:imbSCI.Core.math.range.matrix.HeatMapModel.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the <see cref="T:System.Double"/> with the specified x.
+            </summary>
+            <value>
+            The <see cref="T:System.Double"/>.
+            </value>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.math.range.matrix.HeatMapModel.Randomize(System.Int32,System.Int32)">
+            <summary>
+            Randomizes the values writen in the matrix
+            </summary>
+            <param name="min">The minimum.</param>
+            <param name="max">The maximum.</param>
+        </member>
+        <member name="M:imbSCI.Core.math.range.matrix.HeatMapModel.GetRatioValue(System.Int32,System.Int32,System.Double)">
+            <summary>
+            Gets the value that is 
+            </summary>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.math.range.matrix.HeatMapModel.ranger">
+            <summary>
+            Gets or sets the ranger.
+            </summary>
+            <value>
+            The ranger.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.math.range.matrix.HeatMapModel.DetectMinMax">
+            <summary>
+            Sets the ranger
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.math.range.matrix.imageToHeatMap">
+            <summary>
+            Static convert
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.range.matrix.imageToHeatMap.GetIntesity(System.Drawing.Bitmap,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Gets average intesity of sample patch located at x/y
+            </summary>
+            <param name="grayImage">The gray image.</param>
+            <param name="x">The x.</param>
+            <param name="y">The y.</param>
+            <param name="bs">The bs.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.math.range.matrix.imageToHeatMap.CreateFromImage(System.String,System.Int32,imbSCI.Core.reporting.ILogBuilder)">
+            <summary>
+            Creates a heat map model from image file path
+            </summary>
+            <param name="imageFile">The image file.</param>
+            <param name="widthOfMap">The width of map.</param>
+            <param name="loger">The loger.</param>
+            <returns></returns>
+        </member>
         <member name="T:imbSCI.Core.math.range.imbNumberScale">
             <summary>
             Matematički alat koji radi sa min-max skalom
@@ -8590,6 +8778,13 @@
             <summary>
             Returns value from limit for amount it was passing the limit
             </summary>
+        </member>
+        <member name="T:imbSCI.Core.math.range.rangeCriteria`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <seealso cref="T:imbSCI.Core.interfaces.IRangeCriteria" />
         </member>
         <member name="M:imbSCI.Core.math.range.rangeCriteria`1.#ctor">
             <summary>
@@ -8739,6 +8934,69 @@
             <param name="normalize">if set to <c>true</c> [normalize].</param>
             <returns></returns>
         </member>
+        <member name="T:imbSCI.Core.math.transformation.circularDisplacer">
+            <summary>
+            Geometry/translation utility class, representing rotational turret/wheel with given number of <see cref="T:imbSCI.Core.math.transformation.circularDisplacer.nestPoint"/>. 
+            </summary>
+            <remarks>
+            The class describes X,Y position and angular state (rotation by central Z axis). Provides methods for: central X,Y offset of <see cref="T:imbSCI.Core.math.transformation.circularDisplacer.nestPoint"/>s
+            </remarks>
+        </member>
+        <member name="M:imbSCI.Core.math.transformation.circularDisplacer.#ctor(System.Int32,System.Double,System.Double)">
+            <summary>
+            Creates instance with <c>nestCount</c> of <see cref="T:imbSCI.Core.math.transformation.circularDisplacer.nestPoint"/>s, placed in full circle, having even angular distances. The first <see cref="T:imbSCI.Core.math.transformation.circularDisplacer.nestPoint"/> has <see cref="P:imbSCI.Core.math.transformation.circularDisplacer.nestPoint.angularPosition"/> of the <c>zeroOffset</c>. The <see cref="T:imbSCI.Core.math.transformation.circularDisplacer.nestPoint"/>s are placed at <c>distance</c> from central point of the wheel
+            </summary>
+            <param name="nestCount">Number of <see cref="T:imbSCI.Core.math.transformation.circularDisplacer.nestPoint"/>s to create</param>
+            <param name="zeroOffset">Angular starting point for the first nest point</param>
+            <param name="distance">Distance from central point - to be set for all <see cref="T:imbSCI.Core.math.transformation.circularDisplacer.nestPoint"/>s.</param>
+        </member>
+        <member name="P:imbSCI.Core.math.transformation.circularDisplacer.Item(System.Int32)">
+            <summary>
+            Gets the <see cref="T:System.Drawing.PointF"/> with central offset of a <see cref="T:imbSCI.Core.math.transformation.circularDisplacer.nestPoint"/>, identified by <c>nestID</c>.
+            </summary>
+            <value>
+            The <see cref="T:System.Drawing.PointF"/>, describing X,Y offset from central point of the <see cref="T:imbSCI.Core.math.transformation.circularDisplacer"/> instance and <see cref="T:imbSCI.Core.math.transformation.circularDisplacer.nestPoint"/> identified by <c>nestID</c>.
+            </value>
+            <param name="nestID">The nest identifier (from 0 to nest count-1). If negative value, it is interpreted as selecting the nest from end of the list, not from the begining.</param>
+            <returns>Point with X and Y axis central point offset.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">nestID - There are no nestpoints defined in this instance! Seems you are using wrong constructor/instancing approach.</exception>
+        </member>
+        <member name="P:imbSCI.Core.math.transformation.circularDisplacer.points">
+            <summary>
+            Gets or sets the points.
+            </summary>
+            <value>
+            The points.
+            </value>
+        </member>
+        <member name="T:imbSCI.Core.math.transformation.circularDisplacer.nestPoint">
+            <summary>
+            Describes one nest/point, in the <see cref="T:imbSCI.Core.math.transformation.circularDisplacer"/> turret. It is described by angular position and distance from the center
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.transformation.circularDisplacer.nestPoint.#ctor(System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.math.transformation.circularDisplacer.nestPoint"/> class.
+            </summary>
+            <param name="angle">The angle.</param>
+            <param name="distance">The distance.</param>
+        </member>
+        <member name="P:imbSCI.Core.math.transformation.circularDisplacer.nestPoint.angularPosition">
+            <summary>
+            Gets or sets the angular position.
+            </summary>
+            <value>
+            The angular position.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.math.transformation.circularDisplacer.nestPoint.distanceFromCenter">
+            <summary>
+            Gets or sets the distance from center.
+            </summary>
+            <value>
+            The distance from center.
+            </value>
+        </member>
         <member name="F:imbSCI.Core.math.aggregation.dataPointAggregationAspect.subSetOfRows">
             <summary>
             Sub set of some row
@@ -8845,7 +9103,7 @@
         </member>
         <member name="T:imbSCI.Core.math.angle">
             <summary>
-            Holds an angle as both radians and degrees, with conversions between each
+            Holds an angle as both radians and degrees, with conversions 
             </summary>
         </member>
         <member name="M:imbSCI.Core.math.angle.#ctor">
@@ -13666,6 +13924,11 @@
             top=column heading, left=firstColumn, right=lastColumn, down=column foot
             </summary>
         </member>
+        <member name="T:imbSCI.Core.reporting.zone.cursorPositionResponse">
+            <summary>
+            Result enumeration when asking <see cref="T:imbSCI.Core.reporting.zone.cursorZone"/> to determine where the <see cref="T:imbSCI.Core.reporting.zone.cursor"/> is currently
+            </summary>
+        </member>
         <member name="T:imbSCI.Core.reporting.zone.cursor">
             <summary>
             Universal 2D cursor for text and data navigation
@@ -17354,6 +17617,27 @@
             <summary>
             Criterion definition (general purpose, meant for use with <see cref="T:imbSCI.Core.attributes.imbAttribute"/>
             </summary>
+        </member>
+        <member name="T:imbSCI.Core.attributes.aceRangeConfig">
+            <summary>
+            range configuration structure
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.attributes.aceRangeConfig.#ctor(System.IComparable,System.IComparable,imbSCI.Core.math.range.numberRangeModifyRule)">
+            <summary>
+            Defines range 
+            </summary>
+            <param name="_min">The minimum.</param>
+            <param name="_max">The maximum.</param>
+            <param name="_rule">The rule.</param>
+        </member>
+        <member name="M:imbSCI.Core.attributes.aceRangeConfig.ToString">
+             <summary>
+            returns min - max value retrieved by ToString calls on <see cref="F:imbSCI.Core.attributes.aceRangeConfig.min"/> and <see cref="F:imbSCI.Core.attributes.aceRangeConfig.max"/>
+             </summary>
+             <returns>
+             A string that represents the current object.
+             </returns>
         </member>
         <member name="F:imbSCI.Core.attributes.aceReportingMacros.tableVertical">
             <summary>

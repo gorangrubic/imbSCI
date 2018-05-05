@@ -91,10 +91,6 @@
       <Project>{84869e5f-cc21-425d-beb6-5ef4d4773b15}</Project>
       <Name>imbSCI.DataComplex</Name>
     </ProjectReference>
-    <ProjectReference Include="..\imbSCI.Data\imbSCI.Data.csproj">
-      <Project>{22b51684-1a11-4523-8c5c-fc6d76818bc4}</Project>
-      <Name>imbSCI.Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\imbSCI.Reporting\imbSCI.Reporting.csproj">
       <Project>{d50919e9-84f1-4dc8-a101-3c114389b067}</Project>
       <Name>imbSCI.Reporting</Name>

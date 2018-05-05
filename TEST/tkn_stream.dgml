@@ -1,91 +1,101 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<DirectedGraph GraphDirection="LeftToRight" Layout="Sugiyama" NeighborhoodDistance="25" xsd="http://www.w3.org/2001/XMLSchema" xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
-  <Nodes>
-    <Node Id="allcapscase" Bounds="354.763333333334,1259.5,102.51,25" Group="Collapsed" Label="allCapsCase" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="betweencomma" Bounds="148.665833333334,1331.5,126.653333333333,25" Group="Collapsed" Label="betweenComma" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="enbraced" Bounds="167.349166666667,694.5,89.2866666666666,25" Group="Collapsed" Label="enbraced" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="enumeration" Bounds="352.246666666667,1204.5,107.543333333333,25" Group="Collapsed" Label="enumeration" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="exclamationend" Bounds="344.266666666667,620.5,123.503333333333,25" Group="Collapsed" Label="exclamationEnd" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="imbSCI.TestUnit.enums.tkn_stream" Bounds="0,741.5,97.8533333333333,25" Group="Collapsed" Label="tkn_stream" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="noendpunctaction" Bounds="337.968333333333,871.5,136.1,25" Group="Collapsed" Label="noEndPunctaction" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="none" Bounds="178.549166666667,1221.5,66.8866666666667,25" Group="Collapsed" Label="none" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="propercase" Bounds="517.5925,357.5,100.666666666667,25" Group="Collapsed" Label="properCase" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="questionend" Bounds="353.045,35.5000000000001,105.946666666667,25" Group="Collapsed" Label="questionEnd" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="quoted" Bounds="172.844166666667,946.5,78.2966666666667,25" Group="Collapsed" Label="quoted" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="regularend" Bounds="357.308333333333,456.5,97.42,25" Group="Collapsed" Label="regularEnd" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="regularendpunctaction" Bounds="326.131666666667,816.5,159.773333333333,25" Group="Collapsed" Label="regularEndPunctaction" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="sentence" Bounds="524.369166666667,185.5,87.1133333333333,25" Group="Collapsed" Label="sentence" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="sentenceeclamationend" Bounds="129.540833333333,529.5,164.903333333333,25" Group="Collapsed" Label="sentenceEclamationEnd" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="sentencepropercase" Bounds="332.295,306.5,147.446666666667,25" Group="Collapsed" Label="sentenceProperCase" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="sentencequestionend" Bounds="134.4725,153.5,155.04,25" Group="Collapsed" Label="sentenceQuestionEnd" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="sentenceregularend" Bounds="138.224166666667,357.5,147.536666666667,25" Group="Collapsed" Label="sentenceRegularEnd" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="singlestream" Bounds="157.805833333334,302.5,108.373333333333,25" Group="Collapsed" Label="singleStream" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="subsentence" Bounds="158.9675,584.5,106.05,25" Group="Collapsed" Label="subsentence" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="titleallcaps" Bounds="162.2625,1166.5,99.46,25" Group="Collapsed" Label="titleAllCaps" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="titleforenumeration" Bounds="139.680833333334,1111.5,144.623333333333,25" Group="Collapsed" Label="titleForEnumeration" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="titleopenend" Bounds="157.334166666667,1001.5,109.316666666667,25" Group="Collapsed" Label="titleOpenEnd" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="titleproperend" Bounds="154.204166666667,836.5,115.576666666667,25" Group="Collapsed" Label="titleProperEnd" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="titlerole" Bounds="364.211666666667,1057.5,83.6133333333333,25" Group="Collapsed" Label="titleRole" StrokeThinkness="1" Visibility="Visible" />
-  </Nodes>
+<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" GraphDirection="LeftToRight" Layout="Sugiyama" NeighborhoodDistance="25" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
   <Links>
-    <Link Source="imbSCI.TestUnit.enums.tkn_stream" Target="allcapscase" Bounds="50.1897392272949,766.5,340.572132110596,628.5" Group="Collapsed" Label="" LabelBounds="211.942500000001,1395,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="imbSCI.TestUnit.enums.tkn_stream" Target="betweencomma" Bounds="50.3470687866211,766.5,92.8197250366211,563.49609375" Group="Collapsed" Label="" LabelBounds="122.466053283164,1319.13428968708,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="imbSCI.TestUnit.enums.tkn_stream" Target="enbraced" Bounds="69.6651458740234,711.376831054688,88.71630859375,30.1231689453125" Group="Collapsed" Label="" LabelBounds="114.932083790986,703.210590525324,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="imbSCI.TestUnit.enums.tkn_stream" Target="enumeration" Bounds="50.4513931274414,766.5,327.302421569824,540.51904296875" Group="Collapsed" Label="" LabelBounds="211.895427350296,1285.04000856945,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="imbSCI.TestUnit.enums.tkn_stream" Target="exclamationend" Bounds="56.5646858215332,636.6298828125,278.713817596436,104.8701171875" Group="Collapsed" Label="" LabelBounds="211.9425,640,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="imbSCI.TestUnit.enums.tkn_stream" Target="noendpunctaction" Bounds="54.4720802307129,766.5,274.509700775146,126.290100097656" Group="Collapsed" Label="" LabelBounds="212.288784435687,892.829827821654,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="imbSCI.TestUnit.enums.tkn_stream" Target="none" Bounds="50.6944198608398,766.5,119.07202911377,458.049194335938" Group="Collapsed" Label="" LabelBounds="124.30583639887,1205.58662809172,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="imbSCI.TestUnit.enums.tkn_stream" Target="propercase" Bounds="97.8533325195313,391.361602783203,466.282531738281,361.449859619141" Group="Collapsed" Label="" LabelBounds="310.237916666667,743,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="imbSCI.TestUnit.enums.tkn_stream" Target="questionend" Bounds="50.0734519958496,48,293.971561431885,693.5" Group="Collapsed" Label="" LabelBounds="211.9425,48,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="imbSCI.TestUnit.enums.tkn_stream" Target="quoted" Bounds="53.3030471801758,766.5,110.743125915527,182.744445800781" Group="Collapsed" Label="" LabelBounds="125.277627630561,927.666746456215,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="imbSCI.TestUnit.enums.tkn_stream" Target="regularend" Bounds="51.9142303466797,485.043273925781,316.64485168457,256.456726074219" Group="Collapsed" Label="" LabelBounds="211.987987548399,480.040020362634,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="imbSCI.TestUnit.enums.tkn_stream" Target="regularendpunctaction" Bounds="71.4163970947266,766.5,246.81120300293,50.7874145507813" Group="Collapsed" Label="" LabelBounds="211.9425,790,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="imbSCI.TestUnit.enums.tkn_stream" Target="sentence" Bounds="50.0018730163574,1,510.858966827393,740.5" Group="Collapsed" Label="" LabelBounds="310.237916666667,1,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="imbSCI.TestUnit.enums.tkn_stream" Target="sentenceeclamationend" Bounds="53.0062294006348,559.218627929688,84.447078704834,182.281372070313" Group="Collapsed" Label="" LabelBounds="126.322801452117,552.085656080409,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="imbSCI.TestUnit.enums.tkn_stream" Target="sentencepropercase" Bounds="50.5394744873047,252,330.245223999023,489.5" Group="Collapsed" Label="" LabelBounds="211.9425,252,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="imbSCI.TestUnit.enums.tkn_stream" Target="sentencequestionend" Bounds="50.4245948791504,182.415893554688,127.597240447998,559.084106445313" Group="Collapsed" Label="" LabelBounds="121.485094923607,201.20825073561,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="imbSCI.TestUnit.enums.tkn_stream" Target="sentenceregularend" Bounds="51.542594909668,387.936279296875,136.784736633301,353.563720703125" Group="Collapsed" Label="" LabelBounds="124.000484058088,433.976225561155,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="imbSCI.TestUnit.enums.tkn_stream" Target="singlestream" Bounds="51.1542282104492,330.760803222656,120.293266296387,410.739196777344" Group="Collapsed" Label="" LabelBounds="115.419731991924,374.98640440744,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="imbSCI.TestUnit.enums.tkn_stream" Target="subsentence" Bounds="54.5296440124512,606.02685546875,95.7049446105957,135.47314453125" Group="Collapsed" Label="" LabelBounds="122.961474690908,604.729346021418,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="imbSCI.TestUnit.enums.tkn_stream" Target="titleallcaps" Bounds="50.9307022094727,766.5,103.47371673584,400.19677734375" Group="Collapsed" Label="" LabelBounds="123.640489254215,1151.56747480317,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="imbSCI.TestUnit.enums.tkn_stream" Target="titleforenumeration" Bounds="51.2398948669434,766.5,90.4986763000488,343.20556640625" Group="Collapsed" Label="" LabelBounds="122.859349804897,1097.59142752625,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="imbSCI.TestUnit.enums.tkn_stream" Target="titleopenend" Bounds="52.3142395019531,766.5,98.5757293701172,232.707824707031" Group="Collapsed" Label="" LabelBounds="128.078682181775,980.881672639217,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="imbSCI.TestUnit.enums.tkn_stream" Target="titleproperend" Bounds="59.721736907959,766.5,87.8074378967285,68.590576171875" Group="Collapsed" Label="" LabelBounds="117.440188335843,822.501151967547,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="imbSCI.TestUnit.enums.tkn_stream" Target="titlerole" Bounds="51.5299797058105,766.5,303.683002471924,302.630981445313" Group="Collapsed" Label="" LabelBounds="211.942500000001,1065,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="sentenceeclamationend" Target="exclamationend" Bounds="229.298034667969,554.5,110.183746337891,63.644287109375" Group="Collapsed" Label="" LabelBounds="312.36224191732,608.328051271257,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="sentenceeclamationend" Target="propercase" Bounds="250.389144897461,391.060821533203,310.704605102539,182.939178466797" Group="Collapsed" Label="" LabelBounds="405.968333333334,574,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="sentenceeclamationend" Target="sentence" Bounds="294.444152832031,218.931274414063,265.665100097656,316.808532714844" Group="Collapsed" Label="" LabelBounds="405.968333333334,512,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="sentenceeclamationend" Target="sentencepropercase" Bounds="242.263626098633,334.901306152344,124.799453735352,194.598693847656" Group="Collapsed" Label="" LabelBounds="311.09684315513,401.095437777904,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="sentencepropercase" Target="propercase" Bounds="478.914978027344,329.253814697266,60.0703125,23.6732482910156" Group="Collapsed" Label="" LabelBounds="498.388571728362,318.036166741212,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="sentencepropercase" Target="sentence" Bounds="429.950927734375,217.083633422852,120.187561035156,89.4163665771484" Group="Collapsed" Label="" LabelBounds="499.417950866958,265.976570012861,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="sentencequestionend" Target="propercase" Bounds="289.512512207031,167.257553100586,268.658447265625,182.105697631836" Group="Collapsed" Label="" LabelBounds="405.968333333334,180,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="sentencequestionend" Target="questionend" Bounds="229.288284301758,64.4636840820313,143.167984008789,89.0363159179688" Group="Collapsed" Label="" LabelBounds="311.211214006933,80.6105412299798,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="sentencequestionend" Target="sentence" Bounds="250.389144897461,134,298.141983032227,45.2433471679688" Group="Collapsed" Label="" LabelBounds="405.968333333334,134,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="sentencequestionend" Target="sentencepropercase" Bounds="238.157165527344,178.5,145.317138671875,122.357421875" Group="Collapsed" Label="" LabelBounds="306.22103632327,201.117445382935,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="sentenceregularend" Target="propercase" Bounds="285.760833740234,370,222.831665039063,0" Group="Collapsed" Label="" LabelBounds="405.968333333334,370,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="sentenceregularend" Target="regularend" Bounds="225.204254150391,382.5,123.160919189453,82.4338684082031" Group="Collapsed" Label="" LabelBounds="314.107896218675,454.759368800287,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="sentenceregularend" Target="sentence" Bounds="231.00163269043,214.189865112305,300.906692504883,143.310134887695" Group="Collapsed" Label="" LabelBounds="416.521482635483,265.463404847356,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="sentenceregularend" Target="sentencepropercase" Bounds="243.46516418457,330.893249511719,80.7166290283203,26.6067504882813" Group="Collapsed" Label="" LabelBounds="310.911608292927,317.595438639203,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="titleallcaps" Target="allcapscase" Bounds="225.347854614258,1191.5,120.45036315918,79.115966796875" Group="Collapsed" Label="" LabelBounds="314.11621045327,1262.12119208698,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="titleallcaps" Target="titlerole" Bounds="261.687530517578,1088.77124023438,125.008453369141,82.138427734375" Group="Collapsed" Label="" LabelBounds="306.452037404304,1155.86460425694,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="titleforenumeration" Target="enumeration" Bounds="229.297393798828,1136.5,136.090026855469,64.7464599609375" Group="Collapsed" Label="" LabelBounds="322.917839146283,1185.28274943249,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="titleforenumeration" Target="titlerole" Bounds="282.506378173828,1085.89562988281,84.4942626953125,26.764404296875" Group="Collapsed" Label="" LabelBounds="309.58052332963,1106.62629060487,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="titleopenend" Target="noendpunctaction" Bounds="239.296783447266,902.4755859375,145.913604736328,99.0244140625" Group="Collapsed" Label="" LabelBounds="308.136196992589,965.818870309336,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="titleopenend" Target="titlerole" Bounds="266.276947021484,1023.39709472656,100.75634765625,30.704345703125" Group="Collapsed" Label="" LabelBounds="309.622655270183,1017.1404043573,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="titleproperend" Target="regularendpunctaction" Bounds="269.780822753906,836.737609863281,47.39404296875,5.1986083984375" Group="Collapsed" Label="" LabelBounds="310.237916666667,821,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="titleproperend" Target="titlerole" Bounds="249.114715576172,861.5,145.902465820313,188.076416015625" Group="Collapsed" Label="" LabelBounds="318.139461979083,901.138286729487,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="none" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="sentence" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="subsentence" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="propercase" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="sentencepropercase" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="allcapscase" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="regularendpunctaction" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="noendpunctaction" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="enbraced" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="quoted" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="singlestream" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="singlestream" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="betweencomma" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="betweencomma" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="titlerole" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="titleallcaps" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="titleproperend" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="titleopenend" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="regularend" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="sentenceregularend" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="exclamationend" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="sentenceeclamationend" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="questionend" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="sentencequestionend" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="enumeration" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="imbSCI.TestUnit.enums.tkn_stream" Target="titleforenumeration" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentencepropercase" Target="sentence" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentencepropercase" Target="propercase" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="titleallcaps" Target="allcapscase" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="titleallcaps" Target="titlerole" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="titleproperend" Target="regularendpunctaction" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="titleproperend" Target="titlerole" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="titleopenend" Target="noendpunctaction" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="titleopenend" Target="titlerole" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentenceregularend" Target="sentence" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentenceregularend" Target="propercase" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentenceregularend" Target="sentencepropercase" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentenceregularend" Target="regularend" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentenceeclamationend" Target="sentence" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentenceeclamationend" Target="propercase" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentenceeclamationend" Target="sentencepropercase" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentenceeclamationend" Target="exclamationend" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentencequestionend" Target="sentence" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentencequestionend" Target="propercase" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentencequestionend" Target="sentencepropercase" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="sentencequestionend" Target="questionend" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="titleforenumeration" Target="titlerole" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="titleforenumeration" Target="enumeration" />
   </Links>
-  <Properties>
-    <Property Id="Bounds" DataType="System.Windows.Rect" />
-    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
-    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
-    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
-    <Property Id="LabelBounds" DataType="System.Windows.Rect" />
-    <Property Id="Layout" DataType="System.String" />
-    <Property Id="NeighborhoodDistance" DataType="System.Int32" />
-    <Property Id="StrokeThinkness" DataType="System.String" />
-    <Property Id="Visibility" Label="Visibility" Description="Defines whether a node in the graph is visible or not" DataType="System.Windows.Visibility" />
-    <Property Id="xsd" DataType="System.String" />
-    <Property Id="xsi" DataType="System.String" />
-  </Properties>
+  <Nodes>
+    <Node StrokeThinkness="1" Label="tkn_stream" Group="Collapsed" Visibility="Visible" Id="imbSCI.TestUnit.enums.tkn_stream" />
+    <Node StrokeThinkness="1" Label="none" Group="Collapsed" Visibility="Visible" Id="none" />
+    <Node StrokeThinkness="1" Label="sentence" Group="Collapsed" Visibility="Visible" Id="sentence" />
+    <Node StrokeThinkness="1" Label="subsentence" Group="Collapsed" Visibility="Visible" Id="subsentence" />
+    <Node StrokeThinkness="1" Label="properCase" Group="Collapsed" Visibility="Visible" Id="propercase" />
+    <Node StrokeThinkness="1" Label="sentenceProperCase" Group="Collapsed" Visibility="Visible" Id="sentencepropercase" />
+    <Node StrokeThinkness="1" Label="allCapsCase" Group="Collapsed" Visibility="Visible" Id="allcapscase" />
+    <Node StrokeThinkness="1" Label="regularEndPunctaction" Group="Collapsed" Visibility="Visible" Id="regularendpunctaction" />
+    <Node StrokeThinkness="1" Label="noEndPunctaction" Group="Collapsed" Visibility="Visible" Id="noendpunctaction" />
+    <Node StrokeThinkness="1" Label="enbraced" Group="Collapsed" Visibility="Visible" Id="enbraced" />
+    <Node StrokeThinkness="1" Label="quoted" Group="Collapsed" Visibility="Visible" Id="quoted" />
+    <Node StrokeThinkness="1" Label="singleStream" Group="Collapsed" Visibility="Visible" Id="singlestream" />
+    <Node StrokeThinkness="1" Label="singleStream" Group="Collapsed" Visibility="Visible" Id="singlestream" />
+    <Node StrokeThinkness="1" Label="betweenComma" Group="Collapsed" Visibility="Visible" Id="betweencomma" />
+    <Node StrokeThinkness="1" Label="betweenComma" Group="Collapsed" Visibility="Visible" Id="betweencomma" />
+    <Node StrokeThinkness="1" Label="titleRole" Group="Collapsed" Visibility="Visible" Id="titlerole" />
+    <Node StrokeThinkness="1" Label="titleAllCaps" Group="Collapsed" Visibility="Visible" Id="titleallcaps" />
+    <Node StrokeThinkness="1" Label="titleProperEnd" Group="Collapsed" Visibility="Visible" Id="titleproperend" />
+    <Node StrokeThinkness="1" Label="titleOpenEnd" Group="Collapsed" Visibility="Visible" Id="titleopenend" />
+    <Node StrokeThinkness="1" Label="regularEnd" Group="Collapsed" Visibility="Visible" Id="regularend" />
+    <Node StrokeThinkness="1" Label="sentenceRegularEnd" Group="Collapsed" Visibility="Visible" Id="sentenceregularend" />
+    <Node StrokeThinkness="1" Label="exclamationEnd" Group="Collapsed" Visibility="Visible" Id="exclamationend" />
+    <Node StrokeThinkness="1" Label="sentenceEclamationEnd" Group="Collapsed" Visibility="Visible" Id="sentenceeclamationend" />
+    <Node StrokeThinkness="1" Label="questionEnd" Group="Collapsed" Visibility="Visible" Id="questionend" />
+    <Node StrokeThinkness="1" Label="sentenceQuestionEnd" Group="Collapsed" Visibility="Visible" Id="sentencequestionend" />
+    <Node StrokeThinkness="1" Label="enumeration" Group="Collapsed" Visibility="Visible" Id="enumeration" />
+    <Node StrokeThinkness="1" Label="titleForEnumeration" Group="Collapsed" Visibility="Visible" Id="titleforenumeration" />
+    <Node StrokeThinkness="1" Label="properCase" Group="Collapsed" Visibility="Visible" Id="propercase" />
+    <Node StrokeThinkness="1" Label="allCapsCase" Group="Collapsed" Visibility="Visible" Id="allcapscase" />
+    <Node StrokeThinkness="1" Label="titleRole" Group="Collapsed" Visibility="Visible" Id="titlerole" />
+    <Node StrokeThinkness="1" Label="regularEndPunctaction" Group="Collapsed" Visibility="Visible" Id="regularendpunctaction" />
+    <Node StrokeThinkness="1" Label="titleRole" Group="Collapsed" Visibility="Visible" Id="titlerole" />
+    <Node StrokeThinkness="1" Label="noEndPunctaction" Group="Collapsed" Visibility="Visible" Id="noendpunctaction" />
+    <Node StrokeThinkness="1" Label="titleRole" Group="Collapsed" Visibility="Visible" Id="titlerole" />
+    <Node StrokeThinkness="1" Label="properCase" Group="Collapsed" Visibility="Visible" Id="propercase" />
+    <Node StrokeThinkness="1" Label="sentenceProperCase" Group="Collapsed" Visibility="Visible" Id="sentencepropercase" />
+    <Node StrokeThinkness="1" Label="regularEnd" Group="Collapsed" Visibility="Visible" Id="regularend" />
+    <Node StrokeThinkness="1" Label="properCase" Group="Collapsed" Visibility="Visible" Id="propercase" />
+    <Node StrokeThinkness="1" Label="sentenceProperCase" Group="Collapsed" Visibility="Visible" Id="sentencepropercase" />
+    <Node StrokeThinkness="1" Label="exclamationEnd" Group="Collapsed" Visibility="Visible" Id="exclamationend" />
+    <Node StrokeThinkness="1" Label="properCase" Group="Collapsed" Visibility="Visible" Id="propercase" />
+    <Node StrokeThinkness="1" Label="sentenceProperCase" Group="Collapsed" Visibility="Visible" Id="sentencepropercase" />
+    <Node StrokeThinkness="1" Label="questionEnd" Group="Collapsed" Visibility="Visible" Id="questionend" />
+    <Node StrokeThinkness="1" Label="titleRole" Group="Collapsed" Visibility="Visible" Id="titlerole" />
+  </Nodes>
+  <Properties />
+  <Categories />
 </DirectedGraph>

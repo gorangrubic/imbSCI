@@ -207,6 +207,7 @@
     <Content Include="imbVeles48.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="graph.cd" />
     <None Include="imbSCI.Data.licenseheader" />
   </ItemGroup>
   <ItemGroup />

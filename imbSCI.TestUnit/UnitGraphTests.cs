@@ -22,9 +22,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
     using imbSCI.Core.extensions.table;
     using imbSCI.Core.files;
     using imbSCI.Core.data;
+    using imbSCI.Core.reporting.render.builders;
     using imbSCI.Graph.Converters;
     using imbSCI.Graph.Graphics;
     using imbSCI.Graph.Graphics.HeatMap;
+    using imbSCI.Core.math.range.matrix;
 
     [TestClass]
     public class UnitGraphTests
@@ -42,6 +44,23 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
             render.RenderAndSave(map, heatMapFolder.pathFor("heatmap.svg"));
 
+        }
+
+        [TestMethod]
+        public void TestGrayscaleToMatrix()
+        {
+            HeatMapRender render = new HeatMapRender();
+
+            folderNode folder = new folderNode();
+            var heatMapFolder = folder.Add("HeatMap", "Test one", "Some description: ");
+
+            String fl = folder.findFile("testArts01.jpg", SearchOption.AllDirectories);
+
+            //            var map = imbSCI.Core.math.range.matrix.imageToHeatMap.CreateFromImage(fl, 100, new builderForLogBase());
+
+            var map = imbSCI.Core.math.range.matrix.imageToHeatMap.CreateFromImage(fl, 100, new builderForLogBase());
+
+            render.RenderAndSave(map, heatMapFolder.pathFor("testArts01.svg"));
         }
 
     }

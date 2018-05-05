@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<SDConfig>
+  <section guid="feacbce2-8290-4d90-bb05-373b9d7dbbfc">
+    <item key="ConfigFileName" value="imbSCIDox" />
+    <item key="ProjectName" value="test" />
+    <InputFile>
+      <Relative>imbsci.core\imbsci.core.csproj</Relative>
+      <Full>G:\imbVelesOpenSource\imbSCI\imbSCI.Core\imbSCI.Core.csproj</Full>
+    </InputFile>
+    <OutputPath>
+      <Relative>..\doc\imb-sci-dox</Relative>
+      <Full>G:\imbVelesOpenSource\doc\imb-sci-dox</Full>
+    </OutputPath>
+    <item key="DocLanguage" value="en" />
+    <item key="ExcludePrivate" value="False" />
+    <item key="ExcludeProtected" value="False" />
+    <item key="ExcludeInternal" value="False" />
+    <item key="ExcludedIdentifiers" value="" />
+    <item key="ActivatedExporters" value="Html" />
+  </section>
+  <section guid="9e8e8bc4-bfdd-11e3-a297-170828518c08">
+    <item key="Theme" value="sharpDox" />
+    <item key="ShowCode" value="False" />
+    <item key="PrimaryColor" value="#F5F4F0" />
+    <item key="SecondaryColor" value="#F58026" />
+    <item key="DisableSequenceDiagrams" value="False" />
+  </section>
+</SDConfig>

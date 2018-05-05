@@ -32,8 +32,20 @@ namespace imbSCI.Core.attributes
     using imbSCI.Core.math.range;
     using System;
 
+    /// <summary>
+    /// range configuration structure
+    /// </summary>
     public class aceRangeConfig
     {
+
+        public aceRangeConfig() { }
+
+        /// <summary>
+        /// Defines range 
+        /// </summary>
+        /// <param name="_min">The minimum.</param>
+        /// <param name="_max">The maximum.</param>
+        /// <param name="_rule">The rule.</param>
         public aceRangeConfig(IComparable _min, IComparable _max, numberRangeModifyRule _rule)
         {
             min = _min;
@@ -43,6 +55,17 @@ namespace imbSCI.Core.attributes
         public IComparable min;
         public IComparable max;
         public numberRangeModifyRule rule;
+
+        /// <summary>
+        ///returns min - max value retrieved by ToString calls on <see cref="min"/> and <see cref="max"/>
+        /// </summary>
+        /// <returns>
+        /// A string that represents the current object.
+        /// </returns>
+        public String ToString()
+        {
+            return min.ToString() + " - " + max.ToString();
+        }
     }
 
 }

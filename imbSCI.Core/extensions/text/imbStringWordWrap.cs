@@ -226,11 +226,12 @@ namespace imbSCI.Core.extensions.text
 
 
         /// <summary>
-        /// Inteligentno prelamanje teksta na zadatu širinu
+        /// Breaks specified text into lines of maximum width as specified by <c>innerWidth</c>. It is aware of words, so the text is splitted only at spaces - all words stay complete.
         /// </summary>
+        /// <remarks>It is ok if text is less then full line</remarks>
         /// <param name="input"></param>
         /// <param name="innerWidth"></param>
-        /// <returns></returns>
+        /// <returns>List of lines</returns>
         public static List<string> wrapLineBySpace(this String input, Int32 innerWidth)
         {
             List<string> output = new List<string>();

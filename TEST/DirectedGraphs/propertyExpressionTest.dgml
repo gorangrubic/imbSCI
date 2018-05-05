@@ -2,49 +2,49 @@
 <DirectedGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" GraphDirection="LeftToRight" Layout="DependencyMatrix" NeighborhoodDistance="25" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
   <Links>
     <Link Stroke="#FF6C6C6C" StrokeThinkness="7" Label="GraphStylerSettings" Category="5" Group="Collapsed" Visibility="Visible" Target="\DefaultGraphExportStyle" />
-    <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="Int32" Category="1" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\lineMin" />
-    <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="ColorGradient" Category="5" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\NodeGradient" />
-    <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="Boolean" Category="2" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\doAddLinkWeightInTheLabel" />
-    <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="String" Category="3" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\NodeWeightFormat" />
-    <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="GraphDirectionEnum" Category="2" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\GraphDirection" />
-    <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="Int32" Category="1" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\gradientResolution" />
-    <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="Int32" Category="1" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\lineMax" />
-    <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="String" Category="3" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\LinkWeightFormat" />
-    <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="Double" Category="1" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\alphaMin" />
-    <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="ColorGradient" Category="5" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\LinkGradient" />
     <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="Double" Category="1" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\alphaMax" />
-    <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="Boolean" Category="2" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\doLinkDirectionFromLowerTypeToHigher" />
+    <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="Double" Category="1" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\alphaMin" />
+    <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="Boolean" Category="2" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\doAddLinkWeightInTheLabel" />
     <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="Boolean" Category="2" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\doAddNodeTypeToLabel" />
+    <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="Boolean" Category="2" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\doLinkDirectionFromLowerTypeToHigher" />
+    <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="Int32" Category="1" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\gradientResolution" />
+    <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="GraphDirectionEnum" Category="2" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\GraphDirection" />
     <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="GraphLayoutEnum" Category="2" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\GraphLayout" />
-    <Link Stroke="#FF6C6C6C" StrokeThinkness="7" Label="String" Category="3" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle\NodeGradient" Target="\DefaultGraphExportStyle\NodeGradient\HexColorB" />
-    <Link Stroke="#FF6C6C6C" StrokeThinkness="7" Label="String" Category="3" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle\NodeGradient" Target="\DefaultGraphExportStyle\NodeGradient\HexColorA" />
-    <Link Stroke="#FF6C6C6C" StrokeThinkness="7" Label="ColorGradientFunction" Category="2" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle\NodeGradient" Target="\DefaultGraphExportStyle\NodeGradient\gradient" />
-    <Link Stroke="#FF6C6C6C" StrokeThinkness="7" Label="String" Category="3" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle\LinkGradient" Target="\DefaultGraphExportStyle\LinkGradient\HexColorB" />
-    <Link Stroke="#FF6C6C6C" StrokeThinkness="7" Label="String" Category="3" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle\LinkGradient" Target="\DefaultGraphExportStyle\LinkGradient\HexColorA" />
+    <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="Int32" Category="1" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\lineMax" />
+    <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="Int32" Category="1" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\lineMin" />
+    <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="ColorGradient" Category="5" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\LinkGradient" />
+    <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="String" Category="3" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\LinkWeightFormat" />
+    <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="ColorGradient" Category="5" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\NodeGradient" />
+    <Link Stroke="#B26C6C6C" StrokeThinkness="7" Label="String" Category="3" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle" Target="\DefaultGraphExportStyle\NodeWeightFormat" />
     <Link Stroke="#FF6C6C6C" StrokeThinkness="7" Label="ColorGradientFunction" Category="2" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle\LinkGradient" Target="\DefaultGraphExportStyle\LinkGradient\gradient" />
+    <Link Stroke="#FF6C6C6C" StrokeThinkness="7" Label="String" Category="3" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle\LinkGradient" Target="\DefaultGraphExportStyle\LinkGradient\HexColorA" />
+    <Link Stroke="#FF6C6C6C" StrokeThinkness="7" Label="String" Category="3" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle\LinkGradient" Target="\DefaultGraphExportStyle\LinkGradient\HexColorB" />
+    <Link Stroke="#FF6C6C6C" StrokeThinkness="7" Label="ColorGradientFunction" Category="2" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle\NodeGradient" Target="\DefaultGraphExportStyle\NodeGradient\gradient" />
+    <Link Stroke="#FF6C6C6C" StrokeThinkness="7" Label="String" Category="3" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle\NodeGradient" Target="\DefaultGraphExportStyle\NodeGradient\HexColorA" />
+    <Link Stroke="#FF6C6C6C" StrokeThinkness="7" Label="String" Category="3" Group="Collapsed" Visibility="Visible" Source="\DefaultGraphExportStyle\NodeGradient" Target="\DefaultGraphExportStyle\NodeGradient\HexColorB" />
   </Links>
   <Nodes>
     <Node Stroke="#FF18C52D" StrokeThinkness="7" Label="DefaultGraphExportStyle" Category="5" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle" Background="#FF18C52D" />
-    <Node Stroke="#B2C58318" StrokeThinkness="7" Label="lineMin" Category="1" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\lineMin" Background="#B2C58318" />
-    <Node Stroke="#B218C52D" StrokeThinkness="7" Label="NodeGradient" Category="5" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\NodeGradient" Background="#B218C52D" />
-    <Node Stroke="#FFC518B0" StrokeThinkness="7" Label="doAddLinkWeightInTheLabel" Category="2" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\doAddLinkWeightInTheLabel" Background="#FFC518B0" />
-    <Node Stroke="#FF18C52D" StrokeThinkness="7" Label="NodeWeightFormat = &quot;F5&quot;" Category="3" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\NodeWeightFormat" Background="#FF18C52D" />
-    <Node Stroke="#FFC518B0" StrokeThinkness="7" Label="GraphDirection" Category="2" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\GraphDirection" Background="#FFC518B0" />
-    <Node Stroke="#B2C58318" StrokeThinkness="7" Label="gradientResolution" Category="1" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\gradientResolution" Background="#B2C58318" />
-    <Node Stroke="#B2C58318" StrokeThinkness="7" Label="lineMax" Category="1" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\lineMax" Background="#B2C58318" />
-    <Node Stroke="#FF18C52D" StrokeThinkness="7" Label="LinkWeightFormat = &quot;F2&quot;" Category="3" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\LinkWeightFormat" Background="#FF18C52D" />
-    <Node Stroke="#B2C58318" StrokeThinkness="7" Label="alphaMin" Category="1" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\alphaMin" Background="#B2C58318" />
-    <Node Stroke="#B218C52D" StrokeThinkness="7" Label="LinkGradient" Category="5" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\LinkGradient" Background="#B218C52D" />
     <Node Stroke="#B2C58318" StrokeThinkness="7" Label="alphaMax" Category="1" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\alphaMax" Background="#B2C58318" />
-    <Node Stroke="#FFC518B0" StrokeThinkness="7" Label="doLinkDirectionFromLowerTypeToHigher" Category="2" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\doLinkDirectionFromLowerTypeToHigher" Background="#FFC518B0" />
+    <Node Stroke="#B2C58318" StrokeThinkness="7" Label="alphaMin" Category="1" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\alphaMin" Background="#B2C58318" />
+    <Node Stroke="#FFC518B0" StrokeThinkness="7" Label="doAddLinkWeightInTheLabel" Category="2" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\doAddLinkWeightInTheLabel" Background="#FFC518B0" />
     <Node Stroke="#FFC518B0" StrokeThinkness="7" Label="doAddNodeTypeToLabel" Category="2" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\doAddNodeTypeToLabel" Background="#FFC518B0" />
+    <Node Stroke="#FFC518B0" StrokeThinkness="7" Label="doLinkDirectionFromLowerTypeToHigher" Category="2" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\doLinkDirectionFromLowerTypeToHigher" Background="#FFC518B0" />
+    <Node Stroke="#B2C58318" StrokeThinkness="7" Label="gradientResolution" Category="1" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\gradientResolution" Background="#B2C58318" />
+    <Node Stroke="#FFC518B0" StrokeThinkness="7" Label="GraphDirection" Category="2" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\GraphDirection" Background="#FFC518B0" />
     <Node Stroke="#FFC518B0" StrokeThinkness="7" Label="GraphLayout" Category="2" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\GraphLayout" Background="#FFC518B0" />
-    <Node Stroke="#B218C52D" StrokeThinkness="7" Label="HexColorB = &quot;#FF72a725&quot;" Category="3" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\NodeGradient\HexColorB" Background="#B218C52D" />
-    <Node Stroke="#B218C52D" StrokeThinkness="7" Label="HexColorA = &quot;#FF3b25a7&quot;" Category="3" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\NodeGradient\HexColorA" Background="#B218C52D" />
-    <Node Stroke="#B2C518B0" StrokeThinkness="7" Label="gradient" Category="2" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\NodeGradient\gradient" Background="#B2C518B0" />
-    <Node Stroke="#B218C52D" StrokeThinkness="7" Label="HexColorB = &quot;#FF224ECA&quot;" Category="3" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\LinkGradient\HexColorB" Background="#B218C52D" />
-    <Node Stroke="#B218C52D" StrokeThinkness="7" Label="HexColorA = &quot;#FFD82323&quot;" Category="3" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\LinkGradient\HexColorA" Background="#B218C52D" />
+    <Node Stroke="#B2C58318" StrokeThinkness="7" Label="lineMax" Category="1" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\lineMax" Background="#B2C58318" />
+    <Node Stroke="#B2C58318" StrokeThinkness="7" Label="lineMin" Category="1" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\lineMin" Background="#B2C58318" />
+    <Node Stroke="#B218C52D" StrokeThinkness="7" Label="LinkGradient" Category="5" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\LinkGradient" Background="#B218C52D" />
+    <Node Stroke="#FF18C52D" StrokeThinkness="7" Label="LinkWeightFormat = &quot;F2&quot;" Category="3" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\LinkWeightFormat" Background="#FF18C52D" />
+    <Node Stroke="#B218C52D" StrokeThinkness="7" Label="NodeGradient" Category="5" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\NodeGradient" Background="#B218C52D" />
+    <Node Stroke="#FF18C52D" StrokeThinkness="7" Label="NodeWeightFormat = &quot;F5&quot;" Category="3" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\NodeWeightFormat" Background="#FF18C52D" />
     <Node Stroke="#B2C518B0" StrokeThinkness="7" Label="gradient" Category="2" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\LinkGradient\gradient" Background="#B2C518B0" />
+    <Node Stroke="#B218C52D" StrokeThinkness="7" Label="HexColorA = &quot;#FFD82323&quot;" Category="3" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\LinkGradient\HexColorA" Background="#B218C52D" />
+    <Node Stroke="#B218C52D" StrokeThinkness="7" Label="HexColorB = &quot;#FF224ECA&quot;" Category="3" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\LinkGradient\HexColorB" Background="#B218C52D" />
+    <Node Stroke="#B2C518B0" StrokeThinkness="7" Label="gradient" Category="2" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\NodeGradient\gradient" Background="#B2C518B0" />
+    <Node Stroke="#B218C52D" StrokeThinkness="7" Label="HexColorA = &quot;#FF3b25a7&quot;" Category="3" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\NodeGradient\HexColorA" Background="#B218C52D" />
+    <Node Stroke="#B218C52D" StrokeThinkness="7" Label="HexColorB = &quot;#FF72a725&quot;" Category="3" Group="Collapsed" Visibility="Visible" Id="\DefaultGraphExportStyle\NodeGradient\HexColorB" Background="#B218C52D" />
   </Nodes>
   <Properties />
   <Categories />

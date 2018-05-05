@@ -1,0 +1,132 @@
+﻿using imbSCI.Data.primitives;
+using MathNet.Numerics.LinearAlgebra;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+
+namespace imbSCI.Core.math.transformation
+{
+
+
+
+    /// <summary>
+    /// Geometry/translation utility class, representing rotational turret/wheel with given number of <see cref="nestPoint"/>. 
+    /// </summary>
+    /// <remarks>
+    /// The class describes X,Y position and angular state (rotation by central Z axis). Provides methods for: central X,Y offset of <see cref="nestPoint"/>s
+    /// </remarks>
+    public class circularDisplacer
+    {
+        /// <summary>
+        /// Creates instance with <c>nestCount</c> of <see cref="nestPoint"/>s, placed in full circle, having even angular distances. The first <see cref="nestPoint"/> has <see cref="nestPoint.angularPosition"/> of the <c>zeroOffset</c>. The <see cref="nestPoint"/>s are placed at <c>distance</c> from central point of the wheel
+        /// </summary>
+        /// <param name="nestCount">Number of <see cref="nestPoint"/>s to create</param>
+        /// <param name="zeroOffset">Angular starting point for the first nest point</param>
+        /// <param name="distance">Distance from central point - to be set for all <see cref="nestPoint"/>s.</param>
+        public circularDisplacer(Int32 nestCount=6, Double zeroOffset=30, Double distance=35.5)
+        {
+            Double step = 360 / nestCount;
+
+            for (int i = 0; i < nestCount; i++)
+            {
+                Double a = (step * i) + zeroOffset;
+                var n = new nestPoint(a, distance);
+                points.Add(n);
+            }
+
+        }
+
+
+        /// <summary>
+        /// Gets the <see cref="PointF"/> with central offset of a <see cref="nestPoint"/>, identified by <c>nestID</c>.
+        /// </summary>
+        /// <value>
+        /// The <see cref="PointF"/>, describing X,Y offset from central point of the <see cref="circularDisplacer"/> instance and <see cref="nestPoint"/> identified by <c>nestID</c>.
+        /// </value>
+        /// <param name="nestID">The nest identifier (from 0 to nest count-1). If negative value, it is interpreted as selecting the nest from end of the list, not from the begining.</param>
+        /// <returns>Point with X and Y axis central point offset.</returns>
+        /// <exception cref="ArgumentOutOfRangeException">nestID - There are no nestpoints defined in this instance! Seems you are using wrong constructor/instancing approach.</exception>
+        public PointF this[Int32 nestID]
+        {
+            get
+            {
+                if (!points.Any())
+                {
+                    throw new ArgumentOutOfRangeException(nameof(nestID), "There are no nestpoints defined in this instance! Seems you are using wrong constructor/instancing approach.");
+                }
+                if (nestID < 0)
+                {
+                    nestID = nestID % points.Count;
+                    nestID = points.Count + nestID;
+
+                }
+
+                if (nestID >= points.Count)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(nestID), "There are [" + points.Count + "] in the turret, can't select specified [" + nestID + "]. The max. is [" + (points.Count - 1) + "] no nestpoints defined in this instance! Seems you are using wrong constructor/instancing approach.");
+                }
+
+                nestPoint np = points[nestID];
+                Double d = np.angularPosition.Degrees;
+                var _x = Math.Cos(d) * np.distanceFromCenter;
+                var _y = Math.Sin(d) * np.distanceFromCenter;
+
+                PointF output = new PointF((float) _x, (float)_y);
+
+                return output;
+            }
+        }
+
+
+
+
+        /// <summary>
+        /// Gets or sets the points.
+        /// </summary>
+        /// <value>
+        /// The points.
+        /// </value>
+        protected List<nestPoint> points { get; set; } = new List<nestPoint>();
+
+
+
+
+        /// <summary>
+        /// Describes one nest/point, in the <see cref="circularDisplacer"/> turret. It is described by angular position and distance from the center
+        /// </summary>
+        public class nestPoint
+        {
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="nestPoint"/> class.
+            /// </summary>
+            /// <param name="angle">The angle.</param>
+            /// <param name="distance">The distance.</param>
+            public nestPoint(Double angle, Double distance)
+            {
+                angularPosition = new math.angle(angle, math.angle.Type.Degrees);
+                distanceFromCenter = distance;
+            }
+
+            /// <summary>
+            /// Gets or sets the angular position.
+            /// </summary>
+            /// <value>
+            /// The angular position.
+            /// </value>
+            public angle angularPosition { get; set; } = new angle(angle.Preset.Deg0);
+
+            /// <summary>
+            /// Gets or sets the distance from center.
+            /// </summary>
+            /// <value>
+            /// The distance from center.
+            /// </value>
+            public double distanceFromCenter { get; set; } = 100;
+
+        }
+
+    }
+}

@@ -1,242 +1,258 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<DirectedGraph GraphDirection="TopToBottom" Layout="ForceDirected" NeighborhoodDistance="25" ZoomLevel="-1" xsd="http://www.w3.org/2001/XMLSchema" xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
-  <Nodes>
-    <Node Id="address" Bounds="259.316245717705,825,80.8766666666666,25" Group="Collapsed" Label="address" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="addressneedle" Bounds="244.932025290447,495,118.656666666667,25" Group="Collapsed" Label="addressNeedle" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="bank" Bounds="380.565347781587,275,65.9133333333334,25" Group="Collapsed" Label="bank" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="bankaccountneedle" Bounds="374.76024016876,110,147.196666666667,25" Group="Collapsed" Label="bankAccountNeedle" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="bankaccountnumber" Bounds="348.946227191861,440,153.023333333333,25" Group="Collapsed" Label="bankAccountNumber" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="banknameneedle" Bounds="242.174218338215,330,135.39,25" Group="Collapsed" Label="bankNameNeedle" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="company" Bounds="26.7551586237801,533.347851414608,88.6666666666665,25" Group="Collapsed" Label="company" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="companydomainname" Bounds="27.3813703732477,698.347851414608,161.946666666667,25" Group="Collapsed" Label="companyDomainName" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="companyname" Bounds="38.9186102909824,588.347851414608,120.363333333333,25" Group="Collapsed" Label="companyName" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="companyrootdomainname" Bounds="0,423.347851414608,187.25,25" Group="Collapsed" Label="companyRootDomainName" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="contact" Bounds="749.343792354848,0,79.1466666666665,25" Group="Collapsed" Label="contact" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="copyright" Bounds="442.928206501862,0,90.4366666666665,25" Group="Collapsed" Label="copyright" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="copyrightneedle" Bounds="368.436560531983,55,128.216666666667,25" Group="Collapsed" Label="copyrightNeedle" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="corporation" Bounds="50.8684750888953,1594.99990110869,101.903333333333,25" Group="Collapsed" Label="corporation" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="country" Bounds="83.1624935831155,258.347851414608,80.2,25" Group="Collapsed" Label="country" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="countryname" Bounds="75.3533333333331,368.347851414608,111.896666666667,25" Group="Collapsed" Label="countryName" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="currency" Bounds="1081.94045902151,0,85.0966666666664,25" Group="Collapsed" Label="currency" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="document" Bounds="1197.03712568818,0,93.9000000000001,25" Group="Collapsed" Label="document" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="domain" Bounds="78.3653063960225,478.347851414608,80.2366666666667,25" Group="Collapsed" Label="domain" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="domainname" Bounds="64.229315118761,643.347851414608,111.933333333333,25" Group="Collapsed" Label="domainName" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="email" Bounds="266.995305290369,935,68.5333333333333,25" Group="Collapsed" Label="email" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="emailaddress" Bounds="233.439910660221,1100,111.043333333333,25" Group="Collapsed" Label="emailAddress" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="emailaddressforperson" Bounds="185.696626924837,990,164.19,25" Group="Collapsed" Label="emailAddressForPerson" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="emailaddressoffice" Bounds="265.840171113207,1045,142.33,25" Group="Collapsed" Label="emailAddressOffice" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="emailneedle" Bounds="287.19487151604,715,106.313333333334,25" Group="Collapsed" Label="emailNeedle" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="external" Bounds="969.837125688181,0,82.1033333333335,25" Group="Collapsed" Label="external" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="faxneedle" Bounds="396.432466275678,880,93.1499999999996,25" Group="Collapsed" Label="faxNeedle" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="hq" Bounds="535.347410726312,1485,53.8566666666666,25" Group="Collapsed" Label="hq" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="id" Bounds="452.985112953488,330,50,25" Group="Collapsed" Label="id" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="inc" Bounds="108.67563744313,1540,55.24,25" Group="Collapsed" Label="inc" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="indneedle" Bounds="481.045515756157,275,94.5433333333331,25" Group="Collapsed" Label="indNeedle" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="industry" Bounds="531.969660525194,440,82.6933333333327,25" Group="Collapsed" Label="industry" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="industrynumber" Bounds="444.004632448345,605,126.3,25" Group="Collapsed" Label="industryNumber" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="internet" Bounds="858.490459021514,0,81.3466666666664,25" Group="Collapsed" Label="internet" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="lastname" Bounds="158.255473656889,1485,89.8699999999999,25" Group="Collapsed" Label="lastName" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="legalform" Bounds="95.1981730295851,1430,92.6633333333334,25" Group="Collapsed" Label="legalForm" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="limited" Bounds="2.20887077646319,1540,76.4666666666667,25" Group="Collapsed" Label="limited" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="ltd" Bounds="55.4466181004231,1485,54.04,25" Group="Collapsed" Label="ltd" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="message" Bounds="447.726681681379,1045,86.25,25" Group="Collapsed" Label="message" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="mobile" Bounds="345.065396477479,1265,76.5100000000002,25" Group="Collapsed" Label="mobile" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="mobileneedle" Bounds="365.528738623703,935,114.29,25" Group="Collapsed" Label="mobileNeedle" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="name" Bounds="145.421925290447,533.347851414608,69.51,25" Group="Collapsed" Label="name" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="needle" Bounds="393.588791957113,495,75.5933333333332,25" Group="Collapsed" Label="needle" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="none" Bounds="652.457125688181,0,66.8866666666668,25" Group="Collapsed" Label="none" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="number" Bounds="388.187166826449,990,81.4200000000001,25" Group="Collapsed" Label="number" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="office" Bounds="401.286220311756,1155,69.2700000000004,25" Group="Collapsed" Label="office" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="personal" Bounds="205.237829270872,1166.01242634939,85.4300000000003,25" Group="Collapsed" Label="personal" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="personallastname" Bounds="131.189436538229,1375,138.043333333333,25" Group="Collapsed" Label="personalLastName" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="personalname" Bounds="153.972527699746,880,117.126666666667,25" Group="Collapsed" Label="personalName" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="phone" Bounds="394.59818733214,1210,73.9400000000005,25" Group="Collapsed" Label="phone" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="phonefaxnumber" Bounds="451.575496477479,1265,135.02,25" Group="Collapsed" Label="phoneFaxNumber" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="phonemobilenumber" Bounds="340.265762719753,1540,154.496666666667,25" Group="Collapsed" Label="phoneMobileNumber" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="phonemobilenumberhq" Bounds="358.462158094103,1430,170.083333333334,25" Group="Collapsed" Label="phoneMobileNumberHq" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="phonemobilenumberpersonal" Bounds="299.232869871562,1375,199.593333333333,25" Group="Collapsed" Label="phoneMobileNumberPersonal" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="phonenumber" Bounds="374.483343993554,1100,117.546666666667,25" Group="Collapsed" Label="phoneNumber" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="phoneofficeneedle" Bounds="370.193012384372,825,143.006666666666,25" Group="Collapsed" Label="phoneOfficeNeedle" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="phoneofficenumber" Bounds="356.513977392978,1485,148.833333333334,25" Group="Collapsed" Label="phoneOfficeNumber" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="phoneofficenumberhq" Bounds="458.037125688181,1320,164.42,25" Group="Collapsed" Label="phoneOfficeNumberHq" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="phoneofficenumberpersonal" Bounds="234.107025688181,1320,193.93,25" Group="Collapsed" Label="phoneOfficeNumberPersonal" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="registration" Bounds="421.944583452805,220,100.656666666667,25" Group="Collapsed" Label="registration" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="regneedle" Bounds="378.267449691252,165,95.2966666666671,25" Group="Collapsed" Label="regNeedle" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="regnumber" Bounds="418.413884823495,550,101.123333333333,25" Group="Collapsed" Label="regNumber" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="root" Bounds="71.0431856069661,203.347851414608,62.3,25" Group="Collapsed" Label="root" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="rootdomainname" Bounds="59.3767769082839,313.347851414608,135.58,25" Group="Collapsed" Label="rootDomainName" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="shop" Bounds="138.140259021514,1302.65641518632,65.9666666666667,25" Group="Collapsed" Label="shop" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="street" Bounds="200.491099115012,588.347851414608,69.9533333333334,25" Group="Collapsed" Label="street" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="streetname" Bounds="155.54477151604,753.347851414608,101.65,25" Group="Collapsed" Label="streetName" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="streetnameneedle" Bounds="217.2501,385,139.43,25" Group="Collapsed" Label="streetNameNeedle" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="streetnumber" Bounds="300.444532448345,605,113.56,25" Group="Collapsed" Label="streetNumber" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="town" Bounds="265.793037117597,660,66.5599999999999,25" Group="Collapsed" Label="town" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="townname" Bounds="220.689460525195,440,98.2566666666667,25" Group="Collapsed" Label="townName" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="vat" Bounds="499.182225290447,495,55.9200000000001,25" Group="Collapsed" Label="vat" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="vatneedle" Bounds="474.355894894113,385,93.7000000000007,25" Group="Collapsed" Label="vatNeedle" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="vatnumber" Bounds="436.716480455209,660,99.5266666666666,25" Group="Collapsed" Label="vatNumber" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="zipcode" Bounds="305.223784823495,550,83.1900000000001,25" Group="Collapsed" Label="zipCode" StrokeThinkness="1" Visibility="Visible" />
-    <Node Id="zipneedle" Bounds="299.372932795118,770,93.166666666667,25" Group="Collapsed" Label="zipNeedle" StrokeThinkness="1" Visibility="Visible" />
-  </Nodes>
+<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" GraphDirection="LeftToRight" Layout="Sugiyama" NeighborhoodDistance="25" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
   <Links>
-    <Link Source="addressneedle" Target="address" Bounds="260.207794189453,520,40.55517578125,296.238708496094" Group="Collapsed" Label="" LabelBounds="263.711959433275,620.322629437446,0.0999999999999091,15.9599999999999" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="addressneedle" Target="needle" Bounds="363.588691957113,507.5,21.0001000000001,0" Group="Collapsed" Label="" LabelBounds="374.038741957113,487.54,0.0999999999999091,15.9599999999999" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="bankaccountneedle" Target="bank" Bounds="371.2158203125,135,46.158935546875,131.728454589844" Group="Collapsed" Label="" LabelBounds="372.465317874349,185.892672612955,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="bankaccountneedle" Target="id" Bounds="457.946838378906,135,74.78857421875,186.026977539063" Group="Collapsed" Label="" LabelBounds="531.989596482827,213.881453202359,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="bankaccountneedle" Target="needle" Bounds="460.41943359375,135,123.266967773438,356.633483886719" Group="Collapsed" Label="" LabelBounds="538.707328615963,199.173627859666,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="bankaccountnumber" Target="bank" Bounds="415.07559893245,308.97654404684,9.47806163742035,131.02345595316" Group="Collapsed" Label="" LabelBounds="415.714616130929,366.652572289095,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="bankaccountnumber" Target="id" Bounds="431.42689602841,363.121547974474,36.7110117566014,76.8784520255256" Group="Collapsed" Label="" LabelBounds="447.877613467938,384.73895109866,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="bankaccountnumber" Target="number" Bounds="388.777496337891,465,126.208526611328,521.049743652344" Group="Collapsed" Label="" LabelBounds="409.052120198499,557.539231153636,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="banknameneedle" Target="bank" Bounds="333.426671999587,304.218475607939,48.5877652948423,25.7815243920614" Group="Collapsed" Label="" LabelBounds="356.683115623022,299.382543694536,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="banknameneedle" Target="name" Bounds="183.547073364258,355,86.6378021240234,169.45751953125" Group="Collapsed" Label="" LabelBounds="206.282995457035,404.836651226886,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="banknameneedle" Target="needle" Bounds="331.861968994141,355,56.3403625488281,137.397125244141" Group="Collapsed" Label="" LabelBounds="347.726736628386,430.301537132756,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="companydomainname" Target="company" Bounds="34.1962280273438,564.03564453125,53.2028884887695,134.312194824219" Group="Collapsed" Label="" LabelBounds="37.3378726670308,620.857355700324,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="companydomainname" Target="companyname" Bounds="54.0951347351074,618.680725097656,33.3039817810059,79.6671142578125" Group="Collapsed" Label="" LabelBounds="49.9951331762091,650.382760519336,0.0999999999999091,15.9600000000002" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="companydomainname" Target="domain" Bounds="123.149719238281,512.131713867188,58.9161834716797,186.216125488281" Group="Collapsed" Label="" LabelBounds="168.323337780352,597.117066945072,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="companydomainname" Target="domainname" Bounds="111.045903269955,677.146247961517,4.5646196764632,21.2016034530902" Group="Collapsed" Label="" LabelBounds="109.227186558707,679.346103182366,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="companydomainname" Target="name" Bounds="138.456726074219,567.338256835938,46.2043609619141,131.009582519531" Group="Collapsed" Label="" LabelBounds="180.559158664381,635.959663466133,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="companyname" Target="company" Bounds="81.5393187564156,566.367624572606,11.1946434283842,21.9802268420011" Group="Collapsed" Label="" LabelBounds="88.9188122834964,560.490068654395,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="companyname" Target="name" Bounds="117.526787942376,563.400339039351,36.7756488659418,24.9475123752566" Group="Collapsed" Label="" LabelBounds="134.691837347626,558.258989116445,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="companyrootdomainname" Target="company" Bounds="73.3382720947266,448.347839355469,10.479362487793,76.0491333007813" Group="Collapsed" Label="" LabelBounds="73.2710436778295,477.756584292847,0.0999999999999091,15.9600000000002" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="companyrootdomainname" Target="companydomainname" Bounds="23.3188095092773,448.347839355469,59.2887191772461,245.232727050781" Group="Collapsed" Label="" LabelBounds="20.585741153907,522.838208022195,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="companyrootdomainname" Target="companyname" Bounds="68.2311248779297,448.347839355469,55.9944610595703,131.8564453125" Group="Collapsed" Label="" LabelBounds="77.9956250160984,515.404119021938,0.0999999999999091,15.9599999999999" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="companyrootdomainname" Target="domain" Bounds="99.2746908475808,448.347851414608,9.85250930743393,21.7987797324628" Group="Collapsed" Label="" LabelBounds="102.278452108512,460.070963220119,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="companyrootdomainname" Target="domainname" Bounds="21.3181056976318,448.347839355469,61.2894229888916,191.97265625" Group="Collapsed" Label="" LabelBounds="19.380654738747,533.703945871518,0.0999999999999091,15.9599999999999" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="companyrootdomainname" Target="name" Bounds="122.633674621582,448.347839355469,54.3890151977539,76.09619140625" Group="Collapsed" Label="" LabelBounds="164.429251349176,455.521247644272,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="companyrootdomainname" Target="root" Bounds="53.6124687194824,236.410705566406,38.3610496520996,186.937133789063" Group="Collapsed" Label="" LabelBounds="50.0964538829447,319.151160803173,0.0999999999999091,15.9599999999999" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="companyrootdomainname" Target="rootdomainname" Bounds="65.2191543579102,343.542083740234,36.8712997436523,79.8057556152344" Group="Collapsed" Label="" LabelBounds="61.1191513907813,365.323124100424,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="copyrightneedle" Target="copyright" Bounds="445.181631585743,31.3292489917901,23.9296857709026,23.6707510082099" Group="Collapsed" Label="" LabelBounds="455.639974695241,25.7827389940901,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="copyrightneedle" Target="needle" Bounds="338.812042236328,80,67.5019226074219,412.397125244141" Group="Collapsed" Label="" LabelBounds="370.379684774508,155.349191168318,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="countryname" Target="country" Bounds="49.2425956726074,286.978790283203,50.3670463562012,81.3690490722656" Group="Collapsed" Label="" LabelBounds="45.142594965732,325.412578728792,0.0999999999999659,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="countryname" Target="name" Bounds="156.823394775391,393.347839355469,36.3316192626953,131.074829101563" Group="Collapsed" Label="" LabelBounds="196.862647912412,439.983516248619,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="domainname" Target="domain" Bounds="123.149719238281,512.131713867188,46.2664031982422,131.216125488281" Group="Collapsed" Label="" LabelBounds="160.99387538515,559.313821142741,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="domainname" Target="name" Bounds="139.205291748047,567.262634277344,38.0033569335938,76.085205078125" Group="Collapsed" Label="" LabelBounds="166.283040990741,598.164566351393,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="emailaddress" Target="address" Bounds="255.705993652344,858.395935058594,100.956451416016,241.604064941406" Group="Collapsed" Label="" LabelBounds="335.580430860928,1028.99093975243,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="emailaddress" Target="email" Bounds="255.705993652344,964.235961914063,99.0561218261719,135.764038085938" Group="Collapsed" Label="" LabelBounds="339.512185431206,1028.81983463383,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="emailaddressforperson" Target="address" Bounds="261.662872314453,858.527465820313,31.0044860839844,131.472534179688" Group="Collapsed" Label="" LabelBounds="259.041850202758,912.945451740808,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="emailaddressforperson" Target="email" Bounds="275.398523523064,967.688278410171,13.5778367249806,22.3117215898287" Group="Collapsed" Label="" LabelBounds="280.378935572183,961.844424736027,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="emailaddressforperson" Target="emailaddress" Bounds="261.538269042969,1015,8.1300048828125,78.722900390625" Group="Collapsed" Label="" LabelBounds="265.628853478143,1047.40853429787,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="emailaddressforperson" Target="personal" Bounds="231.347579956055,1015,30.0791473388672,142.34130859375" Group="Collapsed" Label="" LabelBounds="239.797360978086,1070.87607166584,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="emailaddressoffice" Target="address" Bounds="307.822265625,858.395935058594,50.4734191894531,186.604064941406" Group="Collapsed" Label="" LabelBounds="338.607105580583,946.678776971763,0.0999999999999091,15.9599999999999" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="emailaddressoffice" Target="email" Bounds="333.723693847656,964.235961914063,23.2570495605469,80.7640380859375" Group="Collapsed" Label="" LabelBounds="357.143112893141,990.232829168281,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="emailaddressoffice" Target="emailaddress" Bounds="305.801433208933,1070,20.2847393164743,23.2218403012926" Group="Collapsed" Label="" LabelBounds="317.450060577994,1082.92666621603,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="emailaddressoffice" Target="office" Bounds="341.007965087891,1070,68.9805908203125,79.9571533203125" Group="Collapsed" Label="" LabelBounds="367.747252434187,1100.26512215358,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="emailneedle" Target="email" Bounds="249.182067871094,740,78.125244140625,186.753112792969" Group="Collapsed" Label="" LabelBounds="255.655142052081,821.937967317892,0.0999999999999091,15.9599999999999" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="emailneedle" Target="needle" Bounds="349.872802734375,528.436950683594,74.2658996582031,186.563049316406" Group="Collapsed" Label="" LabelBounds="420.758579306337,600.684765672742,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="faxneedle" Target="message" Bounds="461.138275146484,905,29.5677185058594,131.000244140625" Group="Collapsed" Label="" LabelBounds="494.161747566372,951.386108986749,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="faxneedle" Target="needle" Bounds="410.013549804688,528.436950683594,113.3203125,351.563049316406" Group="Collapsed" Label="" LabelBounds="510.331424577647,808.15012379481,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="faxneedle" Target="office" Bounds="460.609680175781,905,83.5011596679688,244.745361328125" Group="Collapsed" Label="" LabelBounds="530.714307490259,988.588326196758,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="faxneedle" Target="phone" Bounds="449.912780761719,905,94.1980590820313,298.524169921875" Group="Collapsed" Label="" LabelBounds="519.771199503498,990.342723949139,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="faxneedle" Target="phoneofficeneedle" Bounds="442.20881372803,858.997443844102,0.50067060265394,21.0025561558975" Group="Collapsed" Label="" LabelBounds="438.359148867979,861.566385492125,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="inc" Target="corporation" Bounds="114.435508006096,1565,14.0247754198879,22.374189138739" Group="Collapsed" Label="" LabelBounds="123.142498376029,1577.24931951012,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="inc" Target="legalform" Bounds="136.890433153712,1463.98982834997,3.61684192464358,76.0101716500294" Group="Collapsed" Label="" LabelBounds="134.598851558515,1493.9198544178,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="indneedle" Target="industry" Bounds="535.452819824219,300,40.8011474609375,131.017669677734" Group="Collapsed" Label="" LabelBounds="565.045037398498,337.798508557431,0.0999999999999091,15.9599999999999" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="indneedle" Target="needle" Bounds="470.906311035156,300,107.283752441406,191.633483886719" Group="Collapsed" Label="" LabelBounds="581.370982339596,393.613715022892,0.0999999999999091,15.9599999999999" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="industrynumber" Target="id" Bounds="471.504455566406,363.877471923828,93.73193359375,241.122528076172" Group="Collapsed" Label="" LabelBounds="558.09993470098,496.56105807763,0.0999999999999091,15.9599999999999" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="industrynumber" Target="industry" Bounds="513.754821777344,473.904418945313,56.4170532226563,131.095581054688" Group="Collapsed" Label="" LabelBounds="550.537030251861,536.888135025945,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="industrynumber" Target="number" Bounds="465.104461669922,630,76.3252868652344,356.135314941406" Group="Collapsed" Label="" LabelBounds="540.775955300012,729.715513385324,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="ltd" Target="legalform" Bounds="95.8900775540207,1461.13337029536,25.6298188907374,23.8666297046366" Group="Collapsed" Label="" LabelBounds="107.242015822642,1455.64302208148,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="ltd" Target="limited" Bounds="55.4574346530233,1510,17.458180267712,22.8486211595555" Group="Collapsed" Label="" LabelBounds="65.7757200847558,1522.63858332723,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="mobileneedle" Target="mobile" Bounds="371.774780273438,960,46.5295715332031,296.045654296875" Group="Collapsed" Label="" LabelBounds="411.359782304388,1018.32520436202,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="mobileneedle" Target="needle" Bounds="360.058837890625,528.436950683594,63.5387878417969,406.563049316406" Group="Collapsed" Label="" LabelBounds="357.495569513312,843.372067520416,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="mobileneedle" Target="phone" Bounds="440.048553466797,960,104.062286376953,243.524169921875" Group="Collapsed" Label="" LabelBounds="524.705940696373,1008.14433613576,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="personallastname" Target="lastname" Bounds="200.549668028986,1400,2.05856349580677,76.0032994175886" Group="Collapsed" Label="" LabelBounds="205.578950045782,1429.9674991959,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="personallastname" Target="personal" Bounds="203.06663937578,1199.78639781843,40.0263022928345,175.213602181566" Group="Collapsed" Label="" LabelBounds="218.978496571309,1278.96778748002,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="personalname" Target="name" Bounds="183.095245361328,567.256469726563,80.1753845214844,312.743530273438" Group="Collapsed" Label="" LabelBounds="262.746480283593,769.042198292349,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="personalname" Target="personal" Bounds="180.981735229492,905,57.2300415039063,252.873413085938" Group="Collapsed" Label="" LabelBounds="185.019169426789,1015.82137744234,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phonefaxnumber" Target="message" Bounds="493.601499711626,1078.92678809163,23.8798027433469,186.073211908369" Group="Collapsed" Label="" LabelBounds="501.441267652615,1164.23797715865,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phonefaxnumber" Target="number" Bounds="431.418884277344,1023.92980957031,86.539306640625,241.070190429688" Group="Collapsed" Label="" LabelBounds="502.629132229319,1149.41713584323,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phonefaxnumber" Target="office" Bounds="452.018981933594,1186.93054199219,58.8339233398438,78.0694580078125" Group="Collapsed" Label="" LabelBounds="483.559609642384,1206.53507159528,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phonefaxnumber" Target="phone" Bounds="459.078640601798,1239.78886484979,40.1165583426494,25.2111351502085" Group="Collapsed" Label="" LabelBounds="480.201111961965,1234.74106448342,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phonefaxnumber" Target="phonenumber" Bounds="459.010314941406,1130.07263183594,56.4566650390625,134.927368164063" Group="Collapsed" Label="" LabelBounds="487.161192851039,1183.33494505889,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phonefaxnumber" Target="phoneofficenumber" Bounds="447.902954101563,1290,86.14306640625,192.89501953125" Group="Collapsed" Label="" LabelBounds="464.222165173788,1358.30932668902,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phonemobilenumber" Target="mobile" Bounds="404.1328125,1295.97692871094,126.573852539063,244.023071289063" Group="Collapsed" Label="" LabelBounds="522.979223422525,1461.5691864315,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phonemobilenumber" Target="number" Bounds="223.972839355469,1023.90344238281,201.903869628906,516.096557617188" Group="Collapsed" Label="" LabelBounds="320.709805279212,1465.93582761816,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phonemobilenumber" Target="phone" Bounds="434.207733154297,1243.93249511719,96.4989318847656,296.067504882813" Group="Collapsed" Label="" LabelBounds="531.081942616327,1462.4708135685,0.0999999999994543,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phonemobilenumber" Target="phonenumber" Bounds="444.1943359375,1130.23022460938,86.5123291015625,409.769775390625" Group="Collapsed" Label="" LabelBounds="523.985703997667,1456.966743801,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phonemobilenumberhq" Target="hq" Bounds="470.497442783241,1455,58.7192771166918,27.1912777067387" Group="Collapsed" Label="" LabelBounds="506.256580262911,1473.80940663957,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phonemobilenumberhq" Target="mobile" Bounds="404.1328125,1295.97692871094,104.827575683594,134.023071289063" Group="Collapsed" Label="" LabelBounds="494.009171711214,1346.35834409365,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phonemobilenumberhq" Target="number" Bounds="431.418884277344,1023.92980957031,77.54150390625,406.070190429688" Group="Collapsed" Label="" LabelBounds="465.661045477681,1357.6616503504,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phonemobilenumberhq" Target="phone" Bounds="434.207733154297,1243.93249511719,74.7526550292969,186.067504882813" Group="Collapsed" Label="" LabelBounds="461.368789904447,1357.34282191505,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phonemobilenumberhq" Target="phonemobilenumber" Bounds="471.302307128906,1455,41.4403076171875,82.7347412109375" Group="Collapsed" Label="" LabelBounds="515.120790876204,1489.92582392,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phonemobilenumberhq" Target="phonenumber" Bounds="444.1943359375,1130.23022460938,64.7660522460938,299.769775390625" Group="Collapsed" Label="" LabelBounds="493.64751975176,1346.19779757862,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phonemobilenumberpersonal" Target="mobile" Bounds="414.146423339844,1293.94421386719,22.3667602539063,81.0557861328125" Group="Collapsed" Label="" LabelBounds="431.842449895092,1328.41763788702,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phonemobilenumberpersonal" Target="number" Bounds="414.146423339844,1023.92980957031,82.2760620117188,351.070190429688" Group="Collapsed" Label="" LabelBounds="438.278399974741,1270.30364407856,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phonemobilenumberpersonal" Target="personal" Bounds="227.297714233398,1199.9306640625,104.123184204102,175.0693359375" Group="Collapsed" Label="" LabelBounds="234.276471964853,1350.79004973068,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phonemobilenumberpersonal" Target="phone" Bounds="414.146423339844,1243.98889160156,22.3332824707031,131.011108398438" Group="Collapsed" Label="" LabelBounds="432.328643775823,1312.65611859328,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phonemobilenumberpersonal" Target="phonemobilenumber" Bounds="346.913635253906,1400,34.9649353027344,136.209228515625" Group="Collapsed" Label="" LabelBounds="351.353885872219,1462.05885199676,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phonemobilenumberpersonal" Target="phonenumber" Bounds="414.146423339844,1130.23022460938,65.9951171875,244.769775390625" Group="Collapsed" Label="" LabelBounds="437.318586751437,1276.35421371176,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phonenumber" Target="number" Bounds="429.748973177,1023.99294021685,3.01230522938317,76.0070597831516" Group="Collapsed" Label="" LabelBounds="427.155124560095,1054.09567175955,0.0999999999999091,15.9599999999998" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phonenumber" Target="phone" Bounds="391.152038574219,1125,32.535400390625,78.3824462890625" Group="Collapsed" Label="" LabelBounds="390.787689186735,1150.38870507541,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phoneofficeneedle" Target="needle" Bounds="409.702453613281,528.436950683594,30.7066650390625,296.563049316406" Group="Collapsed" Label="" LabelBounds="423.719110899687,696.914456864139,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phoneofficeneedle" Target="office" Bounds="460.609680175781,850,75.7938232421875,299.745361328125" Group="Collapsed" Label="" LabelBounds="518.59274432709,931.927167566642,0.0999999999999091,15.9599999999999" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phoneofficeneedle" Target="phone" Bounds="449.912780761719,850,86.3495483398438,353.524169921875" Group="Collapsed" Label="" LabelBounds="520.076405171812,938.954365491622,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phoneofficenumber" Target="number" Bounds="223.972839355469,1023.90344238281,201.903869628906,461.096557617188" Group="Collapsed" Label="" LabelBounds="306.070753950691,1420.58664412921,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phoneofficenumber" Target="office" Bounds="444.1943359375,1187.10583496094,89.158447265625,297.894165039063" Group="Collapsed" Label="" LabelBounds="525.099919219311,1410.26113270965,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phoneofficenumber" Target="phone" Bounds="434.207733154297,1243.93249511719,99.1450500488281,241.067504882813" Group="Collapsed" Label="" LabelBounds="514.52464410811,1392.70869399871,0.0999999999999091,15.9599999999998" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phoneofficenumber" Target="phonenumber" Bounds="444.1943359375,1130.23022460938,89.158447265625,354.769775390625" Group="Collapsed" Label="" LabelBounds="523.354266482363,1406.73150942287,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phoneofficenumberhq" Target="hq" Bounds="541.915960413292,1345,17.499955210673,131.079151722992" Group="Collapsed" Label="" LabelBounds="554.666094082393,1402.29491059248,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phoneofficenumberhq" Target="number" Bounds="431.418884277344,1023.92980957031,165.310791015625,296.070190429688" Group="Collapsed" Label="" LabelBounds="578.808263879292,1231.73592241429,0.0999999999999091,15.9599999999998" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phoneofficenumberhq" Target="office" Bounds="441.441314697266,1187.10583496094,60.6460266113281,132.894165039063" Group="Collapsed" Label="" LabelBounds="442.126534220901,1246.26202903701,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phoneofficenumberhq" Target="phone" Bounds="434.293304443359,1243.92810058594,67.7940368652344,76.0718994140625" Group="Collapsed" Label="" LabelBounds="448.147075754812,1297.03034616877,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phoneofficenumberhq" Target="phonenumber" Bounds="454.396942138672,1130.91064453125,142.332733154297,189.08935546875" Group="Collapsed" Label="" LabelBounds="569.107329378845,1239.50579374135,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phoneofficenumberhq" Target="phoneofficenumber" Bounds="472.912170410156,1345,66.431640625,136.857666015625" Group="Collapsed" Label="" LabelBounds="536.536964773983,1426.43552328466,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phoneofficenumberpersonal" Target="number" Bounds="332.786407470703,1023.90344238281,93.0903015136719,296.096557617188" Group="Collapsed" Label="" LabelBounds="348.893867018063,1172.32985353347,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phoneofficenumberpersonal" Target="office" Bounds="331.693389892578,1185.88830566406,82.9720458984375,134.111694335938" Group="Collapsed" Label="" LabelBounds="348.655605829783,1233.52204837223,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phoneofficenumberpersonal" Target="personal" Bounds="258.975044290651,1198.93230792079,65.3497489385404,121.067692079211" Group="Collapsed" Label="" LabelBounds="289.789945077389,1260.41615008501,0.0999999999994543,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phoneofficenumberpersonal" Target="phone" Bounds="331.693389892578,1237.00256347656,56.5734558105469,82.9974365234375" Group="Collapsed" Label="" LabelBounds="340.493234467596,1248.17559865147,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phoneofficenumberpersonal" Target="phonenumber" Bounds="331.693389892578,1131.8515625,84.4299926757813,188.1484375" Group="Collapsed" Label="" LabelBounds="357.874210628948,1200.74852504292,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="phoneofficenumberpersonal" Target="phoneofficenumber" Bounds="289.098693847656,1345,110.569427490234,135.716674804688" Group="Collapsed" Label="" LabelBounds="318.27394037021,1410.05417201342,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="regneedle" Target="needle" Bounds="338.812042236328,190,80.7986755371094,302.397125244141" Group="Collapsed" Label="" LabelBounds="377.152439038263,282.642172721118,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="regneedle" Target="registration" Bounds="436.45149524312,190,19.4854614856138,23.1183486714531" Group="Collapsed" Label="" LabelBounds="444.564970135139,202.84811829992,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="regnumber" Target="id" Bounds="471.504455566406,363.877471923828,40.5993041992188,186.122528076172" Group="Collapsed" Label="" LabelBounds="507.54776558149,455.463391922888,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="regnumber" Target="number" Bounds="429.971099853516,575,85.0149230957031,411.049743652344" Group="Collapsed" Label="" LabelBounds="435.65606489013,662.344684135306,0.0999999999999091,15.9599999999999" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="regnumber" Target="registration" Bounds="448.07666015625,253.786422729492,64.027099609375,296.213577270508" Group="Collapsed" Label="" LabelBounds="507.98122709622,447.236653787755,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="rootdomainname" Target="domain" Bounds="154.285430908203,338.347839355469,43.0987548828125,136.539703369141" Group="Collapsed" Label="" LabelBounds="201.384181942552,400.367851414608,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="rootdomainname" Target="domainname" Bounds="140.380676269531,338.347839355469,76.9854736328125,298.9013671875" Group="Collapsed" Label="" LabelBounds="210.563579109441,419.697026458866,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="rootdomainname" Target="name" Bounds="154.285430908203,338.347839355469,39.6923065185547,186.03759765625" Group="Collapsed" Label="" LabelBounds="195.241673152119,417.396847127072,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="rootdomainname" Target="root" Bounds="74.4951934814453,236.493362426758,31.7627716064453,76.8544769287109" Group="Collapsed" Label="" LabelBounds="71.5490659779459,272.120158906928,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="shop" Target="legalform" Bounds="126.721549987793,1327.65637207031,31.8117904663086,93.6412353515625" Group="Collapsed" Label="" LabelBounds="123.439896112846,1365.48140578497,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="shop" Target="personal" Bounds="178.151822938751,1198.8574157771,58.3618641781216,103.798999409225" Group="Collapsed" Label="" LabelBounds="205.489424043877,1233.81671291058,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="streetname" Target="address" Bounds="222.661119608643,778.347851414608,53.6617638399346,41.1735139527083" Group="Collapsed" Label="" LabelBounds="250.709475891429,781.387864499882,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="streetname" Target="name" Bounds="182.729166128277,567.284734580591,22.1523754885823,186.063116834017" Group="Collapsed" Label="" LabelBounds="189.705254814052,652.572739872855,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="streetname" Target="street" Bounds="208.574165021013,622.211084054986,23.1261630584521,131.136767359621" Group="Collapsed" Label="" LabelBounds="216.036777563824,679.452124579855,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="streetnameneedle" Target="name" Bounds="185.731338500977,410,71.7235260009766,114.641540527344" Group="Collapsed" Label="" LabelBounds="206.681132051607,453.675739890672,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="streetnameneedle" Target="needle" Bounds="297.642608642578,410,98.3805541992188,81.2378234863281" Group="Collapsed" Label="" LabelBounds="337.948961499539,443.823023700879,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="streetnameneedle" Target="street" Bounds="215.315399169922,410,42.1394653320313,169.44189453125" Group="Collapsed" Label="" LabelBounds="222.631838651226,477.027850268746,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="streetnumber" Target="address" Bounds="284.504486083984,630,70.34716796875,186.12890625" Group="Collapsed" Label="" LabelBounds="289.815193168168,686.431865593855,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="streetnumber" Target="number" Bounds="356.650329589844,630,46.5926513671875,356.284606933594" Group="Collapsed" Label="" LabelBounds="406.271797672013,723.493959306179,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="streetnumber" Target="street" Bounds="279.361423308728,606.85099790993,21.0901152509163,2.88440423030272" Group="Collapsed" Label="" LabelBounds="289.585472392947,612.293371745125,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="townname" Target="address" Bounds="239.187301635742,465,55.5706634521484,351.238708496094" Group="Collapsed" Label="" LabelBounds="255.454709180023,545.299494614118,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="townname" Target="name" Bounds="198.414292595158,465,59.3998949658435,61.8563012372373" Group="Collapsed" Label="" LabelBounds="229.556806784162,497.313430842437,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="townname" Target="town" Bounds="239.187301635742,465,52.9259185791016,186.455139160156" Group="Collapsed" Label="" LabelBounds="253.428010893461,541.81267592352,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="vatneedle" Target="needle" Bounds="470.913146972656,410,48.8272094726563,81.6504821777344" Group="Collapsed" Label="" LabelBounds="511.075059700765,455.317173529535,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="vatneedle" Target="vat" Bounds="521.880477893696,410,4.10217037186567,76.0130772343687" Group="Collapsed" Label="" LabelBounds="527.931567308343,439.918762167117,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="vatnumber" Target="id" Bounds="471.504455566406,363.877471923828,105.808898925781,296.122528076172" Group="Collapsed" Label="" LabelBounds="570.057218697434,568.193045717601,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="vatnumber" Target="number" Bounds="465.104461669922,685,50.6204528808594,301.135314941406" Group="Collapsed" Label="" LabelBounds="515.437650554001,798.008600622333,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="vatnumber" Target="vat" Bounds="522.767700195313,528.099670410156,57.671142578125,131.900329589844" Group="Collapsed" Label="" LabelBounds="572.398481342977,609.429452646165,0.0999999999999091,15.9599999999999" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="zipcode" Target="address" Bounds="260.485809326172,575,70.9163818359375,241.238708496094" Group="Collapsed" Label="" LabelBounds="257.725509613306,654.546864197394,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="zipcode" Target="number" Bounds="376.680511474609,575,138.305511474609,411.049743652344" Group="Collapsed" Label="" LabelBounds="430.893908920125,652.596448156259,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="zipcode" Target="town" Bounds="292.569274902344,575,32.4253845214844,76.0567626953125" Group="Collapsed" Label="" LabelBounds="298.537427631101,598.633750023633,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="zipneedle" Target="address" Bounds="316.043815189174,795,19.4120675125931,23.1087603230527" Group="Collapsed" Label="" LabelBounds="327.281235540348,807.840791875182,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="zipneedle" Target="addressneedle" Bounds="259.596405029297,528.667175292969,59.751708984375,241.332824707031" Group="Collapsed" Label="" LabelBounds="258.279579407121,671.873891441228,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="zipneedle" Target="needle" Bounds="368.235229492188,528.436950683594,55.3623962402344,241.563049316406" Group="Collapsed" Label="" LabelBounds="411.000445587535,654.852543167484,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="zipneedle" Target="number" Bounds="346.585021972656,795,45.6878967285156,191.373046875" Group="Collapsed" Label="" LabelBounds="357.729927866883,895.220456995246,0,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="zipneedle" Target="town" Bounds="282.332977294922,693.65869140625,37.01513671875,76.34130859375" Group="Collapsed" Label="" LabelBounds="279.579541752613,736.768925710278,0.0999999999999091,15.96" StrokeThinkness="1" Visibility="Visible" />
-    <Link Source="zipneedle" Target="zipcode" Bounds="368.235229492188,578.475158691406,51.8818054199219,191.524841308594" Group="Collapsed" Label="" LabelBounds="407.157192615817,684.205930749952,0.0999999999994543,15.96" StrokeThinkness="1" Visibility="Visible" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="emailaddress" Target="address" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="emailaddress" Target="email" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="emailaddressoffice" Target="address" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="emailaddressoffice" Target="email" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="emailaddressoffice" Target="emailaddress" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="emailaddressoffice" Target="office" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="emailaddressforperson" Target="address" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="emailaddressforperson" Target="email" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="emailaddressforperson" Target="emailaddress" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="emailaddressforperson" Target="personal" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="zipcode" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="zipcode" Target="address" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="zipcode" Target="town" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="streetnumber" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="streetnumber" Target="address" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="streetnumber" Target="street" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="personalname" Target="personal" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="personalname" Target="name" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="townname" Target="address" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="townname" Target="town" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="townname" Target="name" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="streetname" Target="address" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="streetname" Target="street" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="streetname" Target="name" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companyname" Target="name" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companyname" Target="company" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="shop" Target="personal" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="shop" Target="legalform" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="domainname" Target="name" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="domainname" Target="domain" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companydomainname" Target="name" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companydomainname" Target="company" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companydomainname" Target="companyname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companydomainname" Target="domain" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companydomainname" Target="domainname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="rootdomainname" Target="name" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="rootdomainname" Target="root" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="rootdomainname" Target="domain" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="rootdomainname" Target="domainname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companyrootdomainname" Target="name" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companyrootdomainname" Target="company" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companyrootdomainname" Target="companyname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companyrootdomainname" Target="root" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companyrootdomainname" Target="domain" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companyrootdomainname" Target="domainname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companyrootdomainname" Target="companydomainname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="companyrootdomainname" Target="rootdomainname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="inc" Target="legalform" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="inc" Target="corporation" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="ltd" Target="legalform" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="ltd" Target="limited" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="vatnumber" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="vatnumber" Target="id" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="vatnumber" Target="vat" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="industrynumber" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="industrynumber" Target="id" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="industrynumber" Target="industry" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="regnumber" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="regnumber" Target="id" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="regnumber" Target="registration" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="personallastname" Target="personal" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="personallastname" Target="lastname" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="addressneedle" Target="address" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="addressneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="emailneedle" Target="email" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="emailneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="zipneedle" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="zipneedle" Target="address" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="zipneedle" Target="town" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="zipneedle" Target="zipcode" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="zipneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="zipneedle" Target="addressneedle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="streetnameneedle" Target="street" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="streetnameneedle" Target="name" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="streetnameneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="vatneedle" Target="vat" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="vatneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="indneedle" Target="industry" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="indneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="regneedle" Target="registration" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="regneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonenumber" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonenumber" Target="phone" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumber" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumber" Target="mobile" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumber" Target="phone" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumber" Target="phonenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumber" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumber" Target="office" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumber" Target="phone" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumber" Target="phonenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonefaxnumber" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonefaxnumber" Target="message" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonefaxnumber" Target="office" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonefaxnumber" Target="phone" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonefaxnumber" Target="phonenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonefaxnumber" Target="phoneofficenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumberhq" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumberhq" Target="mobile" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumberhq" Target="hq" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumberhq" Target="phone" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumberhq" Target="phonenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumberhq" Target="phonemobilenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumberhq" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumberhq" Target="office" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumberhq" Target="hq" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumberhq" Target="phone" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumberhq" Target="phonenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumberhq" Target="phoneofficenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumberpersonal" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumberpersonal" Target="mobile" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumberpersonal" Target="personal" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumberpersonal" Target="phone" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumberpersonal" Target="phonenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phonemobilenumberpersonal" Target="phonemobilenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumberpersonal" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumberpersonal" Target="office" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumberpersonal" Target="personal" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumberpersonal" Target="phone" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumberpersonal" Target="phonenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficenumberpersonal" Target="phoneofficenumber" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="mobileneedle" Target="mobile" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="mobileneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="mobileneedle" Target="phone" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficeneedle" Target="office" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficeneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="phoneofficeneedle" Target="phone" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="faxneedle" Target="message" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="faxneedle" Target="office" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="faxneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="faxneedle" Target="phone" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="faxneedle" Target="phoneofficeneedle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="countryname" Target="name" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="countryname" Target="country" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="bankaccountnumber" Target="number" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="bankaccountnumber" Target="id" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="bankaccountnumber" Target="bank" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="bankaccountneedle" Target="id" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="bankaccountneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="bankaccountneedle" Target="bank" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="banknameneedle" Target="name" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="banknameneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="banknameneedle" Target="bank" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="copyrightneedle" Target="needle" />
+    <Link StrokeThinkness="1" Label="" Group="Collapsed" Visibility="Visible" Source="copyrightneedle" Target="copyright" />
   </Links>
-  <Properties>
-    <Property Id="Bounds" DataType="System.Windows.Rect" />
-    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
-    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
-    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
-    <Property Id="LabelBounds" DataType="System.Windows.Rect" />
-    <Property Id="Layout" DataType="System.String" />
-    <Property Id="NeighborhoodDistance" DataType="System.Int32" />
-    <Property Id="StrokeThinkness" DataType="System.String" />
-    <Property Id="Visibility" Label="Visibility" Description="Defines whether a node in the graph is visible or not" DataType="System.Windows.Visibility" />
-    <Property Id="ZoomLevel" DataType="System.String" />
-    <Property Id="xsd" DataType="System.String" />
-    <Property Id="xsi" DataType="System.String" />
-  </Properties>
+  <Nodes>
+    <Node StrokeThinkness="1" Label="none" Group="Collapsed" Visibility="Visible" Id="none" />
+    <Node StrokeThinkness="1" Label="number" Group="Collapsed" Visibility="Visible" Id="number" />
+    <Node StrokeThinkness="1" Label="address" Group="Collapsed" Visibility="Visible" Id="address" />
+    <Node StrokeThinkness="1" Label="id" Group="Collapsed" Visibility="Visible" Id="id" />
+    <Node StrokeThinkness="1" Label="contact" Group="Collapsed" Visibility="Visible" Id="contact" />
+    <Node StrokeThinkness="1" Label="mobile" Group="Collapsed" Visibility="Visible" Id="mobile" />
+    <Node StrokeThinkness="1" Label="message" Group="Collapsed" Visibility="Visible" Id="message" />
+    <Node StrokeThinkness="1" Label="email" Group="Collapsed" Visibility="Visible" Id="email" />
+    <Node StrokeThinkness="1" Label="emailAddress" Group="Collapsed" Visibility="Visible" Id="emailaddress" />
+    <Node StrokeThinkness="1" Label="internet" Group="Collapsed" Visibility="Visible" Id="internet" />
+    <Node StrokeThinkness="1" Label="office" Group="Collapsed" Visibility="Visible" Id="office" />
+    <Node StrokeThinkness="1" Label="emailAddressOffice" Group="Collapsed" Visibility="Visible" Id="emailaddressoffice" />
+    <Node StrokeThinkness="1" Label="hq" Group="Collapsed" Visibility="Visible" Id="hq" />
+    <Node StrokeThinkness="1" Label="personal" Group="Collapsed" Visibility="Visible" Id="personal" />
+    <Node StrokeThinkness="1" Label="emailAddressForPerson" Group="Collapsed" Visibility="Visible" Id="emailaddressforperson" />
+    <Node StrokeThinkness="1" Label="town" Group="Collapsed" Visibility="Visible" Id="town" />
+    <Node StrokeThinkness="1" Label="zipCode" Group="Collapsed" Visibility="Visible" Id="zipcode" />
+    <Node StrokeThinkness="1" Label="street" Group="Collapsed" Visibility="Visible" Id="street" />
+    <Node StrokeThinkness="1" Label="streetNumber" Group="Collapsed" Visibility="Visible" Id="streetnumber" />
+    <Node StrokeThinkness="1" Label="name" Group="Collapsed" Visibility="Visible" Id="name" />
+    <Node StrokeThinkness="1" Label="personalName" Group="Collapsed" Visibility="Visible" Id="personalname" />
+    <Node StrokeThinkness="1" Label="townName" Group="Collapsed" Visibility="Visible" Id="townname" />
+    <Node StrokeThinkness="1" Label="streetName" Group="Collapsed" Visibility="Visible" Id="streetname" />
+    <Node StrokeThinkness="1" Label="company" Group="Collapsed" Visibility="Visible" Id="company" />
+    <Node StrokeThinkness="1" Label="companyName" Group="Collapsed" Visibility="Visible" Id="companyname" />
+    <Node StrokeThinkness="1" Label="legalForm" Group="Collapsed" Visibility="Visible" Id="legalform" />
+    <Node StrokeThinkness="1" Label="shop" Group="Collapsed" Visibility="Visible" Id="shop" />
+    <Node StrokeThinkness="1" Label="root" Group="Collapsed" Visibility="Visible" Id="root" />
+    <Node StrokeThinkness="1" Label="domain" Group="Collapsed" Visibility="Visible" Id="domain" />
+    <Node StrokeThinkness="1" Label="domainName" Group="Collapsed" Visibility="Visible" Id="domainname" />
+    <Node StrokeThinkness="1" Label="companyDomainName" Group="Collapsed" Visibility="Visible" Id="companydomainname" />
+    <Node StrokeThinkness="1" Label="rootDomainName" Group="Collapsed" Visibility="Visible" Id="rootdomainname" />
+    <Node StrokeThinkness="1" Label="companyRootDomainName" Group="Collapsed" Visibility="Visible" Id="companyrootdomainname" />
+    <Node StrokeThinkness="1" Label="corporation" Group="Collapsed" Visibility="Visible" Id="corporation" />
+    <Node StrokeThinkness="1" Label="inc" Group="Collapsed" Visibility="Visible" Id="inc" />
+    <Node StrokeThinkness="1" Label="limited" Group="Collapsed" Visibility="Visible" Id="limited" />
+    <Node StrokeThinkness="1" Label="ltd" Group="Collapsed" Visibility="Visible" Id="ltd" />
+    <Node StrokeThinkness="1" Label="vat" Group="Collapsed" Visibility="Visible" Id="vat" />
+    <Node StrokeThinkness="1" Label="vatNumber" Group="Collapsed" Visibility="Visible" Id="vatnumber" />
+    <Node StrokeThinkness="1" Label="industry" Group="Collapsed" Visibility="Visible" Id="industry" />
+    <Node StrokeThinkness="1" Label="industryNumber" Group="Collapsed" Visibility="Visible" Id="industrynumber" />
+    <Node StrokeThinkness="1" Label="registration" Group="Collapsed" Visibility="Visible" Id="registration" />
+    <Node StrokeThinkness="1" Label="regNumber" Group="Collapsed" Visibility="Visible" Id="regnumber" />
+    <Node StrokeThinkness="1" Label="document" Group="Collapsed" Visibility="Visible" Id="document" />
+    <Node StrokeThinkness="1" Label="external" Group="Collapsed" Visibility="Visible" Id="external" />
+    <Node StrokeThinkness="1" Label="lastName" Group="Collapsed" Visibility="Visible" Id="lastname" />
+    <Node StrokeThinkness="1" Label="personalLastName" Group="Collapsed" Visibility="Visible" Id="personallastname" />
+    <Node StrokeThinkness="1" Label="needle" Group="Collapsed" Visibility="Visible" Id="needle" />
+    <Node StrokeThinkness="1" Label="addressNeedle" Group="Collapsed" Visibility="Visible" Id="addressneedle" />
+    <Node StrokeThinkness="1" Label="emailNeedle" Group="Collapsed" Visibility="Visible" Id="emailneedle" />
+    <Node StrokeThinkness="1" Label="zipNeedle" Group="Collapsed" Visibility="Visible" Id="zipneedle" />
+    <Node StrokeThinkness="1" Label="streetNameNeedle" Group="Collapsed" Visibility="Visible" Id="streetnameneedle" />
+    <Node StrokeThinkness="1" Label="vatNeedle" Group="Collapsed" Visibility="Visible" Id="vatneedle" />
+    <Node StrokeThinkness="1" Label="indNeedle" Group="Collapsed" Visibility="Visible" Id="indneedle" />
+    <Node StrokeThinkness="1" Label="regNeedle" Group="Collapsed" Visibility="Visible" Id="regneedle" />
+    <Node StrokeThinkness="1" Label="phone" Group="Collapsed" Visibility="Visible" Id="phone" />
+    <Node StrokeThinkness="1" Label="phoneNumber" Group="Collapsed" Visibility="Visible" Id="phonenumber" />
+    <Node StrokeThinkness="1" Label="phoneMobileNumber" Group="Collapsed" Visibility="Visible" Id="phonemobilenumber" />
+    <Node StrokeThinkness="1" Label="phoneOfficeNumber" Group="Collapsed" Visibility="Visible" Id="phoneofficenumber" />
+    <Node StrokeThinkness="1" Label="phoneFaxNumber" Group="Collapsed" Visibility="Visible" Id="phonefaxnumber" />
+    <Node StrokeThinkness="1" Label="phoneMobileNumberHq" Group="Collapsed" Visibility="Visible" Id="phonemobilenumberhq" />
+    <Node StrokeThinkness="1" Label="phoneOfficeNumberHq" Group="Collapsed" Visibility="Visible" Id="phoneofficenumberhq" />
+    <Node StrokeThinkness="1" Label="phoneMobileNumberPersonal" Group="Collapsed" Visibility="Visible" Id="phonemobilenumberpersonal" />
+    <Node StrokeThinkness="1" Label="phoneOfficeNumberPersonal" Group="Collapsed" Visibility="Visible" Id="phoneofficenumberpersonal" />
+    <Node StrokeThinkness="1" Label="mobileNeedle" Group="Collapsed" Visibility="Visible" Id="mobileneedle" />
+    <Node StrokeThinkness="1" Label="phoneOfficeNeedle" Group="Collapsed" Visibility="Visible" Id="phoneofficeneedle" />
+    <Node StrokeThinkness="1" Label="faxNeedle" Group="Collapsed" Visibility="Visible" Id="faxneedle" />
+    <Node StrokeThinkness="1" Label="country" Group="Collapsed" Visibility="Visible" Id="country" />
+    <Node StrokeThinkness="1" Label="countryName" Group="Collapsed" Visibility="Visible" Id="countryname" />
+    <Node StrokeThinkness="1" Label="currency" Group="Collapsed" Visibility="Visible" Id="currency" />
+    <Node StrokeThinkness="1" Label="bank" Group="Collapsed" Visibility="Visible" Id="bank" />
+    <Node StrokeThinkness="1" Label="bankAccountNumber" Group="Collapsed" Visibility="Visible" Id="bankaccountnumber" />
+    <Node StrokeThinkness="1" Label="bankAccountNeedle" Group="Collapsed" Visibility="Visible" Id="bankaccountneedle" />
+    <Node StrokeThinkness="1" Label="bankNameNeedle" Group="Collapsed" Visibility="Visible" Id="banknameneedle" />
+    <Node StrokeThinkness="1" Label="copyright" Group="Collapsed" Visibility="Visible" Id="copyright" />
+    <Node StrokeThinkness="1" Label="copyrightNeedle" Group="Collapsed" Visibility="Visible" Id="copyrightneedle" />
+    <Node StrokeThinkness="1" Label="emailAddress" Group="Collapsed" Visibility="Visible" Id="emailaddress" />
+    <Node StrokeThinkness="1" Label="emailAddress" Group="Collapsed" Visibility="Visible" Id="emailaddress" />
+    <Node StrokeThinkness="1" Label="legalForm" Group="Collapsed" Visibility="Visible" Id="legalform" />
+    <Node StrokeThinkness="1" Label="companyName" Group="Collapsed" Visibility="Visible" Id="companyname" />
+    <Node StrokeThinkness="1" Label="domainName" Group="Collapsed" Visibility="Visible" Id="domainname" />
+    <Node StrokeThinkness="1" Label="domainName" Group="Collapsed" Visibility="Visible" Id="domainname" />
+    <Node StrokeThinkness="1" Label="companyName" Group="Collapsed" Visibility="Visible" Id="companyname" />
+    <Node StrokeThinkness="1" Label="domainName" Group="Collapsed" Visibility="Visible" Id="domainname" />
+    <Node StrokeThinkness="1" Label="companyDomainName" Group="Collapsed" Visibility="Visible" Id="companydomainname" />
+    <Node StrokeThinkness="1" Label="rootDomainName" Group="Collapsed" Visibility="Visible" Id="rootdomainname" />
+    <Node StrokeThinkness="1" Label="legalForm" Group="Collapsed" Visibility="Visible" Id="legalform" />
+    <Node StrokeThinkness="1" Label="legalForm" Group="Collapsed" Visibility="Visible" Id="legalform" />
+    <Node StrokeThinkness="1" Label="lastName" Group="Collapsed" Visibility="Visible" Id="lastname" />
+    <Node StrokeThinkness="1" Label="zipCode" Group="Collapsed" Visibility="Visible" Id="zipcode" />
+    <Node StrokeThinkness="1" Label="addressNeedle" Group="Collapsed" Visibility="Visible" Id="addressneedle" />
+    <Node StrokeThinkness="1" Label="phoneNumber" Group="Collapsed" Visibility="Visible" Id="phonenumber" />
+    <Node StrokeThinkness="1" Label="phoneNumber" Group="Collapsed" Visibility="Visible" Id="phonenumber" />
+    <Node StrokeThinkness="1" Label="phoneNumber" Group="Collapsed" Visibility="Visible" Id="phonenumber" />
+    <Node StrokeThinkness="1" Label="phoneOfficeNumber" Group="Collapsed" Visibility="Visible" Id="phoneofficenumber" />
+    <Node StrokeThinkness="1" Label="phoneNumber" Group="Collapsed" Visibility="Visible" Id="phonenumber" />
+    <Node StrokeThinkness="1" Label="phoneMobileNumber" Group="Collapsed" Visibility="Visible" Id="phonemobilenumber" />
+    <Node StrokeThinkness="1" Label="phoneNumber" Group="Collapsed" Visibility="Visible" Id="phonenumber" />
+    <Node StrokeThinkness="1" Label="phoneOfficeNumber" Group="Collapsed" Visibility="Visible" Id="phoneofficenumber" />
+    <Node StrokeThinkness="1" Label="phoneNumber" Group="Collapsed" Visibility="Visible" Id="phonenumber" />
+    <Node StrokeThinkness="1" Label="phoneMobileNumber" Group="Collapsed" Visibility="Visible" Id="phonemobilenumber" />
+    <Node StrokeThinkness="1" Label="phoneNumber" Group="Collapsed" Visibility="Visible" Id="phonenumber" />
+    <Node StrokeThinkness="1" Label="phoneOfficeNumber" Group="Collapsed" Visibility="Visible" Id="phoneofficenumber" />
+    <Node StrokeThinkness="1" Label="phoneOfficeNeedle" Group="Collapsed" Visibility="Visible" Id="phoneofficeneedle" />
+  </Nodes>
+  <Properties />
+  <Categories />
 </DirectedGraph>

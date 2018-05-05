@@ -112,6 +112,8 @@
     <Compile Include="math\classificationMetrics\classificationReport.cs" />
     <Compile Include="math\classificationMetrics\classificationReportExtensions.cs" />
     <Compile Include="math\classificationMetrics\IClassificationReport.cs" />
+    <Compile Include="math\functions\core\functionBase.cs" />
+    <Compile Include="math\functions\noiseFunction.cs" />
     <Compile Include="math\NamespaceDoc.cs" />
     <Compile Include="math\range\finder\NamespaceDoc.cs" />
     <Compile Include="math\range\finder\rangeFinder.cs" />
@@ -120,7 +122,10 @@
     <Compile Include="math\range\histogram\histogramModel.cs" />
     <Compile Include="math\range\histogram\histogramModelBin.cs" />
     <Compile Include="math\range\histogram\histogramModelExtensions.cs" />
+    <Compile Include="math\range\matrix\HeatMapModel.cs" />
+    <Compile Include="math\range\matrix\imageToHeatMap.cs" />
     <Compile Include="math\StatisticsExtensions.cs" />
+    <Compile Include="math\transformation\circularDisplacer.cs" />
     <Compile Include="NamespaceDoc.cs" />
     <Compile Include="process\NamespaceDoc.cs" />
     <Compile Include="reporting\aceLogToConsoleControl.cs" />
@@ -163,6 +168,7 @@
     <Compile Include="reporting\style\core\styleSurfaceColor.cs" />
     <Compile Include="reporting\style\core\styleTextFontSingle.cs" />
     <Compile Include="reporting\style\enums\styleFillType.cs" />
+    <Compile Include="reporting\zone\cursorPositionResponse.cs" />
     <Compile Include="reporting\zone\selectRangeAreaLimiter.cs" />
     <Compile Include="screenOutputControl.cs" />
     <Compile Include="style\color\ColorGradient.cs" />
@@ -632,12 +638,6 @@
     <Compile Include="syntax\param\paramValueModificationType.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\imbSCI.Data\imbSCI.Data.csproj">
-      <Project>{22b51684-1a11-4523-8c5c-fc6d76818bc4}</Project>
-      <Name>imbSCI.Data</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="extensions\text\stringToolsCheatSheet.cd" />
     <None Include="imbSCI.Core.licenseheader" />
     <None Include="packages.config" />
@@ -650,6 +650,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="syntax\nc\syntaxes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\imbSCI.Data\imbSCI.Data.csproj">
+      <Project>{22b51684-1a11-4523-8c5c-fc6d76818bc4}</Project>
+      <Name>imbSCI.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

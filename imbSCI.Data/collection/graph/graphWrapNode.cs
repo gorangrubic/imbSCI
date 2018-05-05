@@ -43,7 +43,7 @@ namespace imbSCI.Data.collection.graph
     using imbSCI.Data.interfaces;
 
     /// <summary>
-    /// 
+    /// Graph structure that wrapps custom object specified by {TItem}
     /// </summary>
     /// <typeparam name="TItem">The type of the item.</typeparam>
     /// <seealso cref="System.Collections.Generic.IEnumerable{aceCommonTypes.collection.nested.graphWrapNode{TItem}}" />
@@ -73,6 +73,12 @@ namespace imbSCI.Data.collection.graph
             return mychildren.Values.GetEnumerator();
         }
 
+        /// <summary>
+        /// Gets or sets the children.
+        /// </summary>
+        /// <value>
+        /// The children.
+        /// </value>
         protected override IDictionary children {
            get
             {
@@ -80,21 +86,25 @@ namespace imbSCI.Data.collection.graph
             }
         }
 
-        private ConcurrentDictionary<String, graphWrapNode<TItem>> _children = new ConcurrentDictionary<String, graphWrapNode<TItem>>();
-        /// <summary>
-        /// Gets or sets the children.
-        /// </summary>
-        /// <value>
-        /// The children.
-        /// </value>
-        protected ConcurrentDictionary<String, graphWrapNode<TItem>> mychildren
-        {
-            get
-            {
-                return _children;
-            }
-            set { _children = value; }
-        }
+
+        protected SortedList<String, graphWrapNode<TItem>> mychildren { get; set; } = new SortedList<string, graphWrapNode<TItem>>();
+
+
+        //private ConcurrentDictionary<String, graphWrapNode<TItem>> _children = new ConcurrentDictionary<String, graphWrapNode<TItem>>();
+        ///// <summary>
+        ///// Gets or sets the children.
+        ///// </summary>
+        ///// <value>
+        ///// The children.
+        ///// </value>
+        //protected ConcurrentDictionary<String, graphWrapNode<TItem>> mychildren
+        //{
+        //    get
+        //    {
+        //        return _children;
+        //    }
+        //    set { _children = value; }
+        //}
 
 
         private TItem _item; // = "";
@@ -257,9 +267,8 @@ namespace imbSCI.Data.collection.graph
         /// <summary>
         /// Adds new node or nodes to correspond to specified path or name. <c>pathOrName</c> can be path like: path1\\path2\\path3
         /// </summary>
-        /// <param name="pathOrName">Name of the path or.</param>
-        /// <param name="__caption">The caption - display name of the folder</param>
-        /// <param name="__description">The description - description about the folder</param>
+        /// <param name="pathWithName">Name of the path with.</param>
+        /// <param name="__item">The item.</param>
         /// <returns></returns>
         public virtual graphWrapNode<TItem> Add(String pathWithName, TItem __item)
         {

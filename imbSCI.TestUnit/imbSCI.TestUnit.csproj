@@ -53,6 +53,7 @@
     <Compile Include="enums\dat_business.cs" />
     <Compile Include="enums\tkn_stream.cs" />
     <Compile Include="enums\UnitGraphConversion.cs" />
+    <Compile Include="office\openOffice.cs" />
     <Compile Include="testObjects\customFileDataStructure.cs" />
     <Compile Include="testObjects\customTable.cs" />
     <Compile Include="testObjects\customTableEntry.cs" />
@@ -90,6 +91,11 @@
       <Project>{d50919e9-84f1-4dc8-a101-3c114389b067}</Project>
       <Name>imbSCI.Reporting</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="testObjects\testArts01.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

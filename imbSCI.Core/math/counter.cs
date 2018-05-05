@@ -36,6 +36,13 @@ namespace imbSCI.Core.math
 
     #endregion
 
+
+
+    
+
+
+
+
     /// <summary>
     /// Univerzalni brojac
     /// </summary>

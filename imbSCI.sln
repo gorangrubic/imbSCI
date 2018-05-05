@@ -19,8 +19,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".NuGetPack", ".NuGetPack", 
 		.NuGetPack\NuGetPack.exe = .NuGetPack\NuGetPack.exe
 	EndProjectSection
 EndProject
-Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "imbSCI.Sandcastle", "..\imbSCI.Documentation\imbSCI\imbSCI.Sandcastle\imbSCI.Sandcastle.shfbproj", "{0EE97927-F515-41C5-93AF-2FEFACE008F1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "imbSCI.TestUnit", "imbSCI.TestUnit\imbSCI.TestUnit.csproj", "{9A9FDA5B-BF30-4961-A49C-80F99F6F5E32}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "imbSCI.Graph", "imbSCI.Graph\imbSCI.Graph.csproj", "{44632DFA-7E69-4F56-B87C-005D013F312D}"
@@ -53,8 +51,6 @@ Global
 		{AEA3D3AD-56C4-4811-806B-DE563E248138}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEA3D3AD-56C4-4811-806B-DE563E248138}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEA3D3AD-56C4-4811-806B-DE563E248138}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0EE97927-F515-41C5-93AF-2FEFACE008F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0EE97927-F515-41C5-93AF-2FEFACE008F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A9FDA5B-BF30-4961-A49C-80F99F6F5E32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9A9FDA5B-BF30-4961-A49C-80F99F6F5E32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A9FDA5B-BF30-4961-A49C-80F99F6F5E32}.Release|Any CPU.ActiveCfg = Release|Any CPU

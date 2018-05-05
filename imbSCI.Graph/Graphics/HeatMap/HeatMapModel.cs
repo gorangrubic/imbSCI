@@ -11,7 +11,7 @@ namespace imbSCI.Graph.Graphics.HeatMap
 {
 
     /// <summary>
-    /// 
+    /// Intensity matrix
     /// </summary>
     /// <seealso cref="System.Collections.Generic.List{System.Collections.Generic.List{System.Double}}" />
     public class HeatMapModel:List<List<Double>>

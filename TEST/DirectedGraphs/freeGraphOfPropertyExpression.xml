@@ -15,42 +15,7 @@
       <type>2</type>
     </freeGraphNodeBase>
     <freeGraphNodeBase>
-      <name>lineMin</name>
-      <weight>0.33333333333333331</weight>
-      <type>3</type>
-    </freeGraphNodeBase>
-    <freeGraphNodeBase>
-      <name>NodeGradient</name>
-      <weight>0.33333333333333331</weight>
-      <type>3</type>
-    </freeGraphNodeBase>
-    <freeGraphNodeBase>
-      <name>doAddLinkWeightInTheLabel</name>
-      <weight>0.33333333333333331</weight>
-      <type>3</type>
-    </freeGraphNodeBase>
-    <freeGraphNodeBase>
-      <name>NodeWeightFormat</name>
-      <weight>0.33333333333333331</weight>
-      <type>3</type>
-    </freeGraphNodeBase>
-    <freeGraphNodeBase>
-      <name>GraphDirection</name>
-      <weight>0.33333333333333331</weight>
-      <type>3</type>
-    </freeGraphNodeBase>
-    <freeGraphNodeBase>
-      <name>gradientResolution</name>
-      <weight>0.33333333333333331</weight>
-      <type>3</type>
-    </freeGraphNodeBase>
-    <freeGraphNodeBase>
-      <name>lineMax</name>
-      <weight>0.33333333333333331</weight>
-      <type>3</type>
-    </freeGraphNodeBase>
-    <freeGraphNodeBase>
-      <name>LinkWeightFormat</name>
+      <name>alphaMax</name>
       <weight>0.33333333333333331</weight>
       <type>3</type>
     </freeGraphNodeBase>
@@ -60,17 +25,7 @@
       <type>3</type>
     </freeGraphNodeBase>
     <freeGraphNodeBase>
-      <name>LinkGradient</name>
-      <weight>0.33333333333333331</weight>
-      <type>3</type>
-    </freeGraphNodeBase>
-    <freeGraphNodeBase>
-      <name>alphaMax</name>
-      <weight>0.33333333333333331</weight>
-      <type>3</type>
-    </freeGraphNodeBase>
-    <freeGraphNodeBase>
-      <name>doLinkDirectionFromLowerTypeToHigher</name>
+      <name>doAddLinkWeightInTheLabel</name>
       <weight>0.33333333333333331</weight>
       <type>3</type>
     </freeGraphNodeBase>
@@ -80,12 +35,57 @@
       <type>3</type>
     </freeGraphNodeBase>
     <freeGraphNodeBase>
+      <name>doLinkDirectionFromLowerTypeToHigher</name>
+      <weight>0.33333333333333331</weight>
+      <type>3</type>
+    </freeGraphNodeBase>
+    <freeGraphNodeBase>
+      <name>gradientResolution</name>
+      <weight>0.33333333333333331</weight>
+      <type>3</type>
+    </freeGraphNodeBase>
+    <freeGraphNodeBase>
+      <name>GraphDirection</name>
+      <weight>0.33333333333333331</weight>
+      <type>3</type>
+    </freeGraphNodeBase>
+    <freeGraphNodeBase>
       <name>GraphLayout</name>
       <weight>0.33333333333333331</weight>
       <type>3</type>
     </freeGraphNodeBase>
     <freeGraphNodeBase>
-      <name>HexColorB</name>
+      <name>lineMax</name>
+      <weight>0.33333333333333331</weight>
+      <type>3</type>
+    </freeGraphNodeBase>
+    <freeGraphNodeBase>
+      <name>lineMin</name>
+      <weight>0.33333333333333331</weight>
+      <type>3</type>
+    </freeGraphNodeBase>
+    <freeGraphNodeBase>
+      <name>LinkGradient</name>
+      <weight>0.33333333333333331</weight>
+      <type>3</type>
+    </freeGraphNodeBase>
+    <freeGraphNodeBase>
+      <name>LinkWeightFormat</name>
+      <weight>0.33333333333333331</weight>
+      <type>3</type>
+    </freeGraphNodeBase>
+    <freeGraphNodeBase>
+      <name>NodeGradient</name>
+      <weight>0.33333333333333331</weight>
+      <type>3</type>
+    </freeGraphNodeBase>
+    <freeGraphNodeBase>
+      <name>NodeWeightFormat</name>
+      <weight>0.33333333333333331</weight>
+      <type>3</type>
+    </freeGraphNodeBase>
+    <freeGraphNodeBase>
+      <name>gradient001</name>
       <weight>0.25</weight>
       <type>4</type>
     </freeGraphNodeBase>
@@ -95,12 +95,12 @@
       <type>4</type>
     </freeGraphNodeBase>
     <freeGraphNodeBase>
-      <name>gradient001</name>
+      <name>HexColorB</name>
       <weight>0.25</weight>
       <type>4</type>
     </freeGraphNodeBase>
     <freeGraphNodeBase>
-      <name>HexColorB001</name>
+      <name>gradient002</name>
       <weight>0.25</weight>
       <type>4</type>
     </freeGraphNodeBase>
@@ -110,7 +110,7 @@
       <type>4</type>
     </freeGraphNodeBase>
     <freeGraphNodeBase>
-      <name>gradient002</name>
+      <name>HexColorB001</name>
       <weight>0.25</weight>
       <type>4</type>
     </freeGraphNodeBase>
@@ -127,56 +127,7 @@
       <type>0</type>
       <weight>0.071428571428571425</weight>
       <nodeNameA>DefaultGraphExportStyle</nodeNameA>
-      <nodeNameB>lineMin</nodeNameB>
-      <linkLabel />
-    </freeGraphLinkBase>
-    <freeGraphLinkBase>
-      <type>0</type>
-      <weight>0.071428571428571425</weight>
-      <nodeNameA>DefaultGraphExportStyle</nodeNameA>
-      <nodeNameB>NodeGradient</nodeNameB>
-      <linkLabel />
-    </freeGraphLinkBase>
-    <freeGraphLinkBase>
-      <type>0</type>
-      <weight>0.071428571428571425</weight>
-      <nodeNameA>DefaultGraphExportStyle</nodeNameA>
-      <nodeNameB>doAddLinkWeightInTheLabel</nodeNameB>
-      <linkLabel />
-    </freeGraphLinkBase>
-    <freeGraphLinkBase>
-      <type>0</type>
-      <weight>0.071428571428571425</weight>
-      <nodeNameA>DefaultGraphExportStyle</nodeNameA>
-      <nodeNameB>NodeWeightFormat</nodeNameB>
-      <linkLabel />
-    </freeGraphLinkBase>
-    <freeGraphLinkBase>
-      <type>0</type>
-      <weight>0.071428571428571425</weight>
-      <nodeNameA>DefaultGraphExportStyle</nodeNameA>
-      <nodeNameB>GraphDirection</nodeNameB>
-      <linkLabel />
-    </freeGraphLinkBase>
-    <freeGraphLinkBase>
-      <type>0</type>
-      <weight>0.071428571428571425</weight>
-      <nodeNameA>DefaultGraphExportStyle</nodeNameA>
-      <nodeNameB>gradientResolution</nodeNameB>
-      <linkLabel />
-    </freeGraphLinkBase>
-    <freeGraphLinkBase>
-      <type>0</type>
-      <weight>0.071428571428571425</weight>
-      <nodeNameA>DefaultGraphExportStyle</nodeNameA>
-      <nodeNameB>lineMax</nodeNameB>
-      <linkLabel />
-    </freeGraphLinkBase>
-    <freeGraphLinkBase>
-      <type>0</type>
-      <weight>0.071428571428571425</weight>
-      <nodeNameA>DefaultGraphExportStyle</nodeNameA>
-      <nodeNameB>LinkWeightFormat</nodeNameB>
+      <nodeNameB>alphaMax</nodeNameB>
       <linkLabel />
     </freeGraphLinkBase>
     <freeGraphLinkBase>
@@ -190,21 +141,7 @@
       <type>0</type>
       <weight>0.071428571428571425</weight>
       <nodeNameA>DefaultGraphExportStyle</nodeNameA>
-      <nodeNameB>LinkGradient</nodeNameB>
-      <linkLabel />
-    </freeGraphLinkBase>
-    <freeGraphLinkBase>
-      <type>0</type>
-      <weight>0.071428571428571425</weight>
-      <nodeNameA>DefaultGraphExportStyle</nodeNameA>
-      <nodeNameB>alphaMax</nodeNameB>
-      <linkLabel />
-    </freeGraphLinkBase>
-    <freeGraphLinkBase>
-      <type>0</type>
-      <weight>0.071428571428571425</weight>
-      <nodeNameA>DefaultGraphExportStyle</nodeNameA>
-      <nodeNameB>doLinkDirectionFromLowerTypeToHigher</nodeNameB>
+      <nodeNameB>doAddLinkWeightInTheLabel</nodeNameB>
       <linkLabel />
     </freeGraphLinkBase>
     <freeGraphLinkBase>
@@ -218,27 +155,76 @@
       <type>0</type>
       <weight>0.071428571428571425</weight>
       <nodeNameA>DefaultGraphExportStyle</nodeNameA>
+      <nodeNameB>doLinkDirectionFromLowerTypeToHigher</nodeNameB>
+      <linkLabel />
+    </freeGraphLinkBase>
+    <freeGraphLinkBase>
+      <type>0</type>
+      <weight>0.071428571428571425</weight>
+      <nodeNameA>DefaultGraphExportStyle</nodeNameA>
+      <nodeNameB>gradientResolution</nodeNameB>
+      <linkLabel />
+    </freeGraphLinkBase>
+    <freeGraphLinkBase>
+      <type>0</type>
+      <weight>0.071428571428571425</weight>
+      <nodeNameA>DefaultGraphExportStyle</nodeNameA>
+      <nodeNameB>GraphDirection</nodeNameB>
+      <linkLabel />
+    </freeGraphLinkBase>
+    <freeGraphLinkBase>
+      <type>0</type>
+      <weight>0.071428571428571425</weight>
+      <nodeNameA>DefaultGraphExportStyle</nodeNameA>
       <nodeNameB>GraphLayout</nodeNameB>
       <linkLabel />
     </freeGraphLinkBase>
     <freeGraphLinkBase>
       <type>0</type>
-      <weight>0.33333333333333331</weight>
-      <nodeNameA>NodeGradient</nodeNameA>
-      <nodeNameB>HexColorB</nodeNameB>
+      <weight>0.071428571428571425</weight>
+      <nodeNameA>DefaultGraphExportStyle</nodeNameA>
+      <nodeNameB>lineMax</nodeNameB>
+      <linkLabel />
+    </freeGraphLinkBase>
+    <freeGraphLinkBase>
+      <type>0</type>
+      <weight>0.071428571428571425</weight>
+      <nodeNameA>DefaultGraphExportStyle</nodeNameA>
+      <nodeNameB>lineMin</nodeNameB>
+      <linkLabel />
+    </freeGraphLinkBase>
+    <freeGraphLinkBase>
+      <type>0</type>
+      <weight>0.071428571428571425</weight>
+      <nodeNameA>DefaultGraphExportStyle</nodeNameA>
+      <nodeNameB>LinkGradient</nodeNameB>
+      <linkLabel />
+    </freeGraphLinkBase>
+    <freeGraphLinkBase>
+      <type>0</type>
+      <weight>0.071428571428571425</weight>
+      <nodeNameA>DefaultGraphExportStyle</nodeNameA>
+      <nodeNameB>LinkWeightFormat</nodeNameB>
+      <linkLabel />
+    </freeGraphLinkBase>
+    <freeGraphLinkBase>
+      <type>0</type>
+      <weight>0.071428571428571425</weight>
+      <nodeNameA>DefaultGraphExportStyle</nodeNameA>
+      <nodeNameB>NodeGradient</nodeNameB>
+      <linkLabel />
+    </freeGraphLinkBase>
+    <freeGraphLinkBase>
+      <type>0</type>
+      <weight>0.071428571428571425</weight>
+      <nodeNameA>DefaultGraphExportStyle</nodeNameA>
+      <nodeNameB>NodeWeightFormat</nodeNameB>
       <linkLabel />
     </freeGraphLinkBase>
     <freeGraphLinkBase>
       <type>0</type>
       <weight>0.33333333333333331</weight>
-      <nodeNameA>NodeGradient</nodeNameA>
-      <nodeNameB>HexColorA</nodeNameB>
-      <linkLabel />
-    </freeGraphLinkBase>
-    <freeGraphLinkBase>
-      <type>0</type>
-      <weight>0.33333333333333331</weight>
-      <nodeNameA>NodeGradient</nodeNameA>
+      <nodeNameA>LinkGradient</nodeNameA>
       <nodeNameB>gradient001</nodeNameB>
       <linkLabel />
     </freeGraphLinkBase>
@@ -246,21 +232,35 @@
       <type>0</type>
       <weight>0.33333333333333331</weight>
       <nodeNameA>LinkGradient</nodeNameA>
-      <nodeNameB>HexColorB001</nodeNameB>
+      <nodeNameB>HexColorA</nodeNameB>
       <linkLabel />
     </freeGraphLinkBase>
     <freeGraphLinkBase>
       <type>0</type>
       <weight>0.33333333333333331</weight>
       <nodeNameA>LinkGradient</nodeNameA>
+      <nodeNameB>HexColorB</nodeNameB>
+      <linkLabel />
+    </freeGraphLinkBase>
+    <freeGraphLinkBase>
+      <type>0</type>
+      <weight>0.33333333333333331</weight>
+      <nodeNameA>NodeGradient</nodeNameA>
+      <nodeNameB>gradient002</nodeNameB>
+      <linkLabel />
+    </freeGraphLinkBase>
+    <freeGraphLinkBase>
+      <type>0</type>
+      <weight>0.33333333333333331</weight>
+      <nodeNameA>NodeGradient</nodeNameA>
       <nodeNameB>HexColorA001</nodeNameB>
       <linkLabel />
     </freeGraphLinkBase>
     <freeGraphLinkBase>
       <type>0</type>
       <weight>0.33333333333333331</weight>
-      <nodeNameA>LinkGradient</nodeNameA>
-      <nodeNameB>gradient002</nodeNameB>
+      <nodeNameA>NodeGradient</nodeNameA>
+      <nodeNameB>HexColorB001</nodeNameB>
       <linkLabel />
     </freeGraphLinkBase>
   </links>

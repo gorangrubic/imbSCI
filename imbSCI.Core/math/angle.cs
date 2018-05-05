@@ -32,7 +32,7 @@ namespace imbSCI.Core.math
     using System;
 
     /// <summary>
-    /// Holds an angle as both radians and degrees, with conversions between each
+    /// Holds an angle as both radians and degrees, with conversions 
     /// </summary>
     public class angle:IConvertible
     {

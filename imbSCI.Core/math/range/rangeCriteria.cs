@@ -33,6 +33,11 @@ namespace imbSCI.Core.math.range
     using imbSCI.Core.interfaces;
     using System;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <seealso cref="imbSCI.Core.interfaces.IRangeCriteria" />
     public class rangeCriteria<T> : IRangeCriteria where T: IComparable
     {
         void IRangeCriteria.setCriteriaExact(IComparable even) => this.setCriteriaExact((T)even);
@@ -160,7 +165,7 @@ namespace imbSCI.Core.math.range
         /// <summary>
         /// 
         /// </summary>
-        protected T min
+        public T min
         {
             get { return _min; }
             set { _min = value; }
@@ -171,7 +176,7 @@ namespace imbSCI.Core.math.range
         /// <summary>
         /// 
         /// </summary>
-        protected T even
+        public T even
         {
             get { return _even; }
             set { _even = value; }
@@ -182,7 +187,7 @@ namespace imbSCI.Core.math.range
         /// <summary>
         /// 
         /// </summary>
-        protected T max
+        public T max
         {
             get { return _max; }
             set { _max = value; }

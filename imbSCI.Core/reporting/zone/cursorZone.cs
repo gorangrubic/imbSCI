@@ -33,6 +33,7 @@ namespace imbSCI.Core.reporting.zone
     using System;
     using System.ComponentModel;
 
+
     /// <summary>
     /// Zone within cursor is allowed to move. Has 3 ranges: inner, boxed and outter
     /// </summary>
@@ -40,6 +41,20 @@ namespace imbSCI.Core.reporting.zone
     public class cursorZone:cursorZoneSpatialSettings, ISupportsBasicCursor, IGetCodeName
     {
 
+        public cursorPositionResponse GetPosition(cursor lineCursor, Int32 tolerance =1)
+        {
+            if (isNearToCorner(lineCursor.x, lineCursor.y, textCursorZoneCorner.Top, tolerance))
+            {
+                return cursorPositionResponse.atBeginning;
+            }
+            else if (isNearToCorner(lineCursor.x, lineCursor.y, textCursorZoneCorner.Bottom, tolerance))
+            {
+                return cursorPositionResponse.atEnd;
+            }
+
+            return cursorPositionResponse.somewhereWithin;
+
+        }
 
         /// <summary>
         /// Gets code name of the object. CodeName should be unique per each unique set of values of properties. In other words: if two instances of the same class have different CodeName that means values of their key properties are not same.

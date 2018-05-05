@@ -242,6 +242,11 @@
             An <see cref="T:System.Collections.Generic.ICollection`1"/> containing the values in the object that implements <see cref="T:System.Collections.Generic.IDictionary`2"/>.
             </returns>
         </member>
+        <member name="T:imbSCI.Data.collection.graph.graphAxisEnum">
+            <summary>
+            Axes of multidimensional graph (planned feature)
+            </summary>
+        </member>
         <member name="F:imbSCI.Data.collection.graph.graphAxisEnum.x">
             <summary>
             The x: horizontal
@@ -284,9 +289,20 @@
         </member>
         <member name="T:imbSCI.Data.collection.graph.graphNodeBase">
             <summary>
-            
+            Base class for custom <see cref="T:imbSCI.Data.collection.graph.graphNode"/> implementation
             </summary>
+            <seealso cref="!:System.Collections.Generic.IEnumerable&lt;imbSCI.Data.collection.graph.IGraphNode&gt;" />
             <seealso cref="T:imbSCI.Data.interfaces.IObjectWithParent" />
+        </member>
+        <member name="P:imbSCI.Data.collection.graph.graphNodeBase.Item(System.String)">
+            <summary>
+            Gets or sets the <see cref="T:imbSCI.Data.collection.graph.IGraphNode"/> with the specified key.
+            </summary>
+            <value>
+            The <see cref="T:imbSCI.Data.collection.graph.IGraphNode"/>.
+            </value>
+            <param name="key">The key.</param>
+            <returns></returns>
         </member>
         <member name="P:imbSCI.Data.collection.graph.graphNodeBase.level">
             <summary>
@@ -366,6 +382,12 @@
             Removes by the key specified
             </summary>
             <param name="key">The key.</param>
+        </member>
+        <member name="M:imbSCI.Data.collection.graph.graphNodeBase.GetEnumerator">
+            <summary>
+            Gets the enumerator.
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:imbSCI.Data.collection.graph.graphNodeBase.RemoveByKey(System.String)">
             <summary>
@@ -663,10 +685,41 @@
         </member>
         <member name="T:imbSCI.Data.collection.graph.graphDataPackage`1">
             <summary>
-            
+            XML Serializable container for <see cref="T:imbSCI.Data.collection.graph.graphWrapNode`1" /> structure. Use <see cref="M:imbSCI.Data.collection.graph.graphDataPackage`1.Store(imbSCI.Data.collection.graph.graphWrapNode{`0},System.String)" /> to add node into package.
             </summary>
             <typeparam name="TItem">The type of the item.</typeparam>
+            <seealso cref="!:imbSCI.Data.data.package.dataPackage&lt;TItem, imbSCI.Data.collection.graph.graphWrapNode&lt;TItem&gt;&gt;" />
             <seealso cref="!:imbSCI.Data.data.package.dataPackage&lt;TItem, aceCommonTypes.collection.nested.graphWrapNode&lt;TItem&gt;&gt;" />
+        </member>
+        <member name="M:imbSCI.Data.collection.graph.graphDataPackage`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Data.collection.graph.graphDataPackage`1"/> class.
+            </summary>
+        </member>
+        <member name="M:imbSCI.Data.collection.graph.graphDataPackage`1.Store(imbSCI.Data.collection.graph.graphWrapNode{`0},System.String)">
+            <summary>
+            Stores the specified input.
+            </summary>
+            <param name="input">The input.</param>
+            <param name="path">The path.</param>
+        </member>
+        <member name="M:imbSCI.Data.collection.graph.graphDataPackage`1.GetDataPackageID(imbSCI.Data.collection.graph.graphWrapNode{`0})">
+            <summary>
+            Utility method that returns Unique path to the specified node
+            </summary>
+            <param name="wrapper">Object that holds the instance</param>
+            <returns>
+            ID
+            </returns>
+        </member>
+        <member name="M:imbSCI.Data.collection.graph.graphDataPackage`1.GetInstanceToPack(imbSCI.Data.collection.graph.graphWrapNode{`0})">
+            <summary>
+            Takes data item instance from the wrapper
+            </summary>
+            <param name="wrapper">Object that holds the instance</param>
+            <returns>
+            item that was held by the instance
+            </returns>
         </member>
         <member name="T:imbSCI.Data.collection.graph.graphNode">
             <summary>
@@ -690,13 +743,13 @@
             <param name="key">The key.</param>
             <returns></returns>
         </member>
-        <member name="P:imbSCI.Data.collection.graph.graphNode.mychildren">
+        <member name="M:imbSCI.Data.collection.graph.graphNode.System#Collections#Generic#IEnumerable{imbSCI#Data#collection#graph#IGraphNode}#GetEnumerator">
             <summary>
-            Gets or sets the children.
+            Returns an enumerator that iterates through the collection.
             </summary>
-            <value>
-            The children.
-            </value>
+            <returns>
+            An enumerator that can be used to iterate through the collection.
+            </returns>
         </member>
         <member name="M:imbSCI.Data.collection.graph.graphNode.Add(imbSCI.Data.collection.graph.IGraphNode)">
             <summary>
@@ -715,7 +768,7 @@
         </member>
         <member name="T:imbSCI.Data.collection.graph.graphWrapNode`1">
             <summary>
-            
+            Graph structure that wrapps custom object specified by {TItem}
             </summary>
             <typeparam name="TItem">The type of the item.</typeparam>
             <seealso cref="!:System.Collections.Generic.IEnumerable&lt;aceCommonTypes.collection.nested.graphWrapNode&lt;TItem&gt;&gt;" />
@@ -724,7 +777,7 @@
             <seealso cref="!:aceCommonTypes.interfaces.IObjectWithName" />
             <seealso cref="!:aceCommonTypes.interfaces.IObjectWithPathAndChildren" />
         </member>
-        <member name="P:imbSCI.Data.collection.graph.graphWrapNode`1.mychildren">
+        <member name="P:imbSCI.Data.collection.graph.graphWrapNode`1.children">
             <summary>
             Gets or sets the children.
             </summary>
@@ -782,9 +835,8 @@
             <summary>
             Adds new node or nodes to correspond to specified path or name. <c>pathOrName</c> can be path like: path1\\path2\\path3
             </summary>
-            <param name="pathOrName">Name of the path or.</param>
-            <param name="__caption">The caption - display name of the folder</param>
-            <param name="__description">The description - description about the folder</param>
+            <param name="pathWithName">Name of the path with.</param>
+            <param name="__item">The item.</param>
             <returns></returns>
         </member>
         <member name="M:imbSCI.Data.collection.graph.graphWrapNode`1.Add(imbSCI.Data.collection.graph.IGraphNode)">

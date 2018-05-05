@@ -21,6 +21,7 @@ using System.IO;
 using System.Globalization;
 using imbSCI.Core.reporting.zone;
 using imbSCI.Core.math;
+using imbSCI.Core.math.range.matrix;
 
 namespace imbSCI.Graph.Graphics.HeatMap
 {
@@ -36,6 +37,12 @@ namespace imbSCI.Graph.Graphics.HeatMap
     /// </summary>
     public static class SVGTools
     {
+        /// <summary>
+        /// Gets the resized.
+        /// </summary>
+        /// <param name="format">The format.</param>
+        /// <param name="scaleFactor">The scale factor.</param>
+        /// <returns></returns>
         public static cursorZoneSpatialSettings GetResized(this cursorZoneSpatialSettings format, Double scaleFactor)
         {
             
@@ -49,6 +56,14 @@ namespace imbSCI.Graph.Graphics.HeatMap
             return output;
         }
 
+        /// <summary>
+        /// Gets the SVG text.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        /// <param name="format">The format.</param>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        /// <returns></returns>
         public static SvgText GetSvgText(this String text, cursorZoneSpatialSettings format, Int32 x, Int32 y)
         {
             Int32 xStart = x * format.width;
@@ -65,6 +80,16 @@ namespace imbSCI.Graph.Graphics.HeatMap
             return label;
         }
 
+        /// <summary>
+        /// Gets the rectangle.
+        /// </summary>
+        /// <param name="format">The format.</param>
+        /// <param name="xStart">The x start.</param>
+        /// <param name="yStart">The y start.</param>
+        /// <param name="color">The color.</param>
+        /// <param name="Opacity">The opacity.</param>
+        /// <param name="scaleFactor">The scale factor.</param>
+        /// <returns></returns>
         public static SvgRectangle GetRectangle(this cursorZoneSpatialSettings format, Int32 xStart, Int32 yStart, Color color, float Opacity = 0.5F, Double scaleFactor=1)
         {
             var rct = new SvgRectangle();

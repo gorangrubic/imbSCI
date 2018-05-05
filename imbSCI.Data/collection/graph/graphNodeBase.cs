@@ -30,6 +30,7 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 namespace imbSCI.Data.collection.graph
 {
     using System.Collections;
@@ -37,20 +38,12 @@ namespace imbSCI.Data.collection.graph
     using System.Collections.Concurrent;
 
 
-    ///// <summary>
-    ///// Graph tree, without "unique-child name at parent" constrain, and with n-dymensional child-plane model (for node distance calculation)
-    ///// </summary>
-    ///// <seealso cref="imbSCI.Data.collection.graph.IGraphNode" />
-    //public abstract class planarGraphBase:IGraphNode
-    //{
-
-    //}
-
 
 
     /// <summary>
-    /// 
+    /// Base class for custom <see cref="graphNode"/> implementation
     /// </summary>
+    /// <seealso cref="System.Collections.Generic.IEnumerable{imbSCI.Data.collection.graph.IGraphNode}" />
     /// <seealso cref="imbSCI.Data.interfaces.IObjectWithParent" />
     [Serializable]
     public abstract class graphNodeBase: IObjectWithParent, IEnumerable<IGraphNode>
@@ -64,6 +57,14 @@ namespace imbSCI.Data.collection.graph
         public abstract Boolean Add(IGraphNode child);
 
 
+        /// <summary>
+        /// Gets or sets the <see cref="IGraphNode"/> with the specified key.
+        /// </summary>
+        /// <value>
+        /// The <see cref="IGraphNode"/>.
+        /// </value>
+        /// <param name="key">The key.</param>
+        /// <returns></returns>
         public abstract IGraphNode this[String key] { get; set; }
 
        
@@ -247,6 +248,10 @@ namespace imbSCI.Data.collection.graph
             //children.TryRemove(key, out pop); // .Remove(key);
         }
 
+        /// <summary>
+        /// Gets the enumerator.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerator<IObjectWithPathAndChildren> GetEnumerator()
         {
             List<IObjectWithPathAndChildren> output = new List<IObjectWithPathAndChildren>();
