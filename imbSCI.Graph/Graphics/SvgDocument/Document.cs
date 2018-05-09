@@ -38,7 +38,7 @@ using System.Xml;
 namespace imbSCI.Graph.Graphics.SvgDocument
 {
 
-    public class Document : SVGTranform
+    public class Document : ISVGTranform
     {
         #region Attributes
 
@@ -98,7 +98,7 @@ namespace imbSCI.Graph.Graphics.SvgDocument
         public XmlNode ToXml()
         {
             XmlNode objects = this.svgDoc.SelectSingleNode("//svgObjects");
-            foreach (SVGTranform obj in this.svgObjects)
+            foreach (ISVGTranform obj in this.svgObjects)
                 objects.AppendChild(this.svgDoc.ImportNode(obj.ToXml(), true));
 
             return this.svgDoc;

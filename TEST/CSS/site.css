@@ -1,0 +1,148 @@
+html {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+body {
+    display: flex;
+    -webkit-box-orient: vertical;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background-color: #fff;
+    height: auto;
+    margin: 0;
+    min-height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
+.sidebar {
+    -webkit-box-flex: 0 0 260px;
+    -ms-flex: 0 0 260px;
+    flex: 0 0 260px;
+    max-width: 260px;
+}
+
+.header-holder {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
+}
+
+.mainContainer {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1600px;
+}
+
+.footerContainer {
+    border-width: 1px 0 0;
+    border-style: solid;
+    background-color: #2f2f2f;
+    border-color: #e3e3e3;
+    margin-top: 24px;
+}
+
+.primary-holder {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 3px;
+    padding-left: 3px;
+}
+
+.container {
+    padding: 0 5%;
+}
+
+.content-header {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
+}
+
+.pageActions {
+    -webkit-box-ordinal-group: 5;
+    -ms-flex-order: 4;
+    order: 4;
+    -webkit-box-flex: 0 0 230px;
+    -ms-flex: 0 0 230px;
+    flex: 0 0 230px;
+    max-width: 230px;
+}
+
+#sidebar {
+    display: block;
+    min-height: 1px;
+}
+
+.headerPlaceholder {
+    max-width: 1600px;
+}
+
+#sidebarContent {
+    position: fixed;
+    width: 100%;
+    max-width: inherit;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-top: 24px;
+    z-index: 1;
+}
+
+.filterHolder {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+
+.toc {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+.pdfDownloadHolder {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+
+#footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    padding: 48px 0 53px;
+}
+
+.links {
+    float: left;
+}
+
+li {
+    display: inline-block;
+    margin-left: .2em;
+    margin-right: 0;
+}
+
+last-child {
+    margin-right: 0;
+}
+
+after {
+    color: #6e6e6e;
+}
+
+.links a {
+    color: #00a4f3;
+}
+
+.contents-button {
+    display: none;
+}
+

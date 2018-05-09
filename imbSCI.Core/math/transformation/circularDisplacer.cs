@@ -15,7 +15,8 @@ namespace imbSCI.Core.math.transformation
     /// Geometry/translation utility class, representing rotational turret/wheel with given number of <see cref="nestPoint"/>. 
     /// </summary>
     /// <remarks>
-    /// The class describes X,Y position and angular state (rotation by central Z axis). Provides methods for: central X,Y offset of <see cref="nestPoint"/>s
+    /// <para>The class describes X,Y position and angular state (rotation by central Z axis). Provides methods for: central X,Y offset of <see cref="nestPoint"/>s</para>
+    /// <para>Use indexer (circularDisplacer[n]) to get <see cref="PointF"/> offset for nest point <c>n</c></para>
     /// </remarks>
     public class circularDisplacer
     {
@@ -38,6 +39,7 @@ namespace imbSCI.Core.math.transformation
 
         }
 
+        
 
         /// <summary>
         /// Gets the <see cref="PointF"/> with central offset of a <see cref="nestPoint"/>, identified by <c>nestID</c>.
@@ -88,7 +90,7 @@ namespace imbSCI.Core.math.transformation
         /// <value>
         /// The points.
         /// </value>
-        protected List<nestPoint> points { get; set; } = new List<nestPoint>();
+        public List<nestPoint> points { get; protected set; } = new List<nestPoint>();
 
 
 

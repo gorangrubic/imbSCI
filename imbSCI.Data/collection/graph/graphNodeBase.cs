@@ -56,6 +56,7 @@ namespace imbSCI.Data.collection.graph
 
         public abstract Boolean Add(IGraphNode child);
 
+        public Boolean isLeaf { get { return (children.Count == 0); } }
 
         /// <summary>
         /// Gets or sets the <see cref="IGraphNode"/> with the specified key.

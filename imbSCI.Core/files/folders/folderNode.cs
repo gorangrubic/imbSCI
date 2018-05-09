@@ -50,6 +50,7 @@ namespace imbSCI.Core.files.folders
 {
     using imbSCI.Core.reporting.render;
     using imbSCI.Core.reporting.render.builders;
+    using imbSCI.Data.collection.graph;
     using System.Collections;
     using System.Data;
     using System.IO;
@@ -230,7 +231,7 @@ namespace imbSCI.Core.files.folders
         /// <returns>Newly created or existing directory node</returns>
         public folderNode Add(string pathOrName, string __caption, string __description)
         {
-            List<string> pathParts = imbSciStringExtensions.SplitSmart(pathOrName, "\\");
+            List<string> pathParts = imbSciStringExtensions.SplitSmart(pathOrName, System.IO.Path.DirectorySeparatorChar.ToString());
             folderNode head = this;
             if (pathParts.Count() > 1)
             {
@@ -571,6 +572,67 @@ namespace imbSCI.Core.files.folders
             }
 
             return output;
+        }
+
+        /// <summary>
+        /// Collects all files for all patterns
+        /// </summary>
+        /// <param name="partOrPatterns">The part or patterns.</param>
+        /// <param name="options">The options.</param>
+        /// <param name="returnRelative">if set to <c>true</c> [return relative].</param>
+        /// <returns></returns>
+        public List<string> findFiles(IEnumerable<string> partOrPatterns , SearchOption options = SearchOption.TopDirectoryOnly)
+        {
+            List<string> output = new List<string>();
+            if (partOrPatterns == null) partOrPatterns = new List<String>();
+
+            if (!partOrPatterns.Any())
+            {
+                var pl = new List<String>();
+                pl.Add("*.*");
+                partOrPatterns = pl;
+            }
+
+            foreach (String pattern in partOrPatterns)
+            {
+                output.AddRange(findFiles(pattern, options), true);
+            }
+
+            
+            return output;
+        }
+
+
+
+        /// <summary>
+        /// Detects subtree matches in the filesystem
+        /// </summary>
+        /// <param name="filePatterns">The file patterns.</param>
+        /// <param name="min">The minimum.</param>
+        /// <returns></returns>
+        public graphNodeSetCollection findNodeTreeMatch(List<String> filePatterns, Int32 min=-1) {
+
+            List<String> paths = new List<string>();
+
+            paths = findFiles(filePatterns, SearchOption.AllDirectories);
+
+            graphNode output = paths.BuildGraphFromPaths<graphNode>();
+
+            List<IObjectWithPathAndChildren> leafList = output.getAllLeafs();
+
+            List<graphNode> leafNodes = new List<graphNode>();
+            foreach (var leaf in leafList)
+            {
+                if (leaf != null)
+                {
+                    leafNodes.Add((graphNode)leaf);
+                }
+            }
+
+            
+
+            return leafNodes.GetFirstNodeWithLeafs<graphNode>(filePatterns, min);
+
         }
 
         /// <summary>

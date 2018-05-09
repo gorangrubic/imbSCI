@@ -43,12 +43,19 @@ namespace imbSCI.Graph.DGML.core
     /// <seealso cref="imbSCI.Graph.DGML.core.GraphNodeElement" />
     public class Node:GraphNodeElement, IGraphElement
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Node"/> class.
+        /// </summary>
         public Node()
         {
 
         }
 
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Node"/> class.
+        /// </summary>
+        /// <param name="label">The label.</param>
         public Node(String label)
         {
             Id = label.GetIDFromLabel();

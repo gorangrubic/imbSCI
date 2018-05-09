@@ -30,6 +30,13 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using imbSCI.Data;
+using imbSCI.Data.extensions;
+using imbSCI.Data.extensions.data;
+using imbSCI.Data.data;
+using imbSCI.Data.collection.special;
+
+
 namespace imbSCI.Data.collection.graph
 {
 using imbSCI.Data.interfaces;
@@ -42,23 +49,269 @@ using imbSCI.Data.interfaces;
     public static class graphTools
     {
 
+        /// <summary>
+        /// Builds the graph from paths.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="inputList">The input list.</param>
+        /// <param name="splitter">The splitter.</param>
+        /// <returns></returns>
+        public static T BuildGraphFromPaths<T>(this IEnumerable<String> inputList, String splitter = "") where T : IGraphNode, new()
+        {
+            if (splitter == "") splitter = System.IO.Path.DirectorySeparatorChar.ToString();
+
+            T parent = default(T);
+
+            foreach (String p in inputList)
+            {
+                parent.ConvertPathToGraph<T>(p, true, splitter);
+            }
+
+            return parent;
+        }
 
         /// <summary>
-        /// Gets the parents.
+        /// Builds graph defined by <c>path</c> or selecte existing graphnode, as pointed by path
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="parent">The parent.</param>
+        /// <param name="path">The path.</param>
+        /// <param name="isAbsolutePath">if set to <c>true</c> [is absolute path].</param>
+        /// <param name="splitter">The splitter - by default: directory separator.</param>
+        /// <returns></returns>
+        public static T ConvertPathToGraph<T>(this T parent, String path, Boolean isAbsolutePath = true, String splitter = "") where T : IGraphNode, new()
+        {
+            if (splitter == "") splitter = System.IO.Path.DirectorySeparatorChar.ToString();
+
+
+            if (isAbsolutePath)
+            {
+                if (!path.StartsWith(parent.path))
+                {
+                    return parent;
+                }
+            }
+
+
+            List<string> pathParts = imbSciStringExtensions.SplitSmart(path, splitter);
+
+
+
+            IGraphNode head = parent;
+
+
+            foreach (string part in pathParts)
+            {
+                if (head == null)
+                {
+                    
+                    parent = new T();
+                    parent.name = part;
+                    head = parent;
+                    
+                }
+                else
+                {
+
+                    if (head.ContainsKey(part))
+                    {
+                        head = head[part];
+                    }
+                    else
+                    {
+                        T sp = new T();
+                        sp.name = part;
+                        if (head.Add(sp))
+                        {
+                            head = sp;
+                        }; //.Add(part, CAPTION_FOR_TUNNELFOLDER, CAPTION_FOR_TUNNELFOLDER);
+                    }
+                }
+            }
+
+            return parent;
+        
+
+        }
+
+        /// <summary>
+        /// Gets first level parents of the source collection
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="source">The source.</param>
+        /// <param name="keepRootsFromSource">if set to <c>true</c>: the output will also contain any root (node without parent) node from the specified source collection.</param>
         /// <returns></returns>
-        public static List<T> GetParents<T>(this IEnumerable<T> source) where T:class, IGraphNode
+        public static List<T> GetParents<T>(this IEnumerable<T> source, Boolean keepRootsFromSource=false) where T:class, IGraphNode
         {
             List<T> output = new List<T>();
             foreach (T t in source)
             {
-                if (!output.Contains(t.parent as T))
+                if (t.parent != null)
                 {
-                    output.Add(t.parent as T);
+                    if (!output.Contains(t.parent as T))
+                    {
+                        output.Add(t.parent as T);
+                    }
+                }
+                else
+                {
+                    if (keepRootsFromSource) output.Add(t);
                 }
             }
+            return output;
+        }
+
+
+        public static graphNodeSet GetNodeSetWithLeafs<T>(this T parent, List<String> leafNames, Int32 min=-1) where T : class, IGraphNode
+        {
+            var leafList = parent.getAllLeafs().Where(x => leafNames.Any(y => x.name.Contains(y)));
+            
+            graphNodeSet nodeSet = new graphNodeSet(parent);
+            foreach (IGraphNode g in leafList)
+            {
+                nodeSet.Add(g);
+            }
+
+            if (min > -1)
+            {
+                if (nodeSet.Count() >= min)
+                {
+                    return nodeSet;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+
+            return nodeSet;
+        }
+
+
+        /// <summary>
+        /// Iterative procedure, returning <see cref="graphNodeSetCollection"/> with <see cref="graphNodeSet"/>s rooted at node that has leafs (all or <c>min)</c> with <c>leafNames</c>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source">The source - starting leaf or other branch nodes.</param>
+        /// <param name="leafNames">The leaf names.</param>
+        /// <param name="min">The minimum.</param>
+        /// <param name="maxIterations">The maximum iterations.</param>
+        /// <param name="extraIterations">The extra iterations.</param>
+        /// <returns></returns>
+        public static graphNodeSetCollection GetFirstNodeWithLeafs<T>(this IEnumerable<T> source, List<String> leafNames, Int32 min=-1, Int32 maxIterations = 50, Int32 extraIterations = 5) where T : class, IGraphNode, new()
+        {
+            graphNodeSetCollection output = new graphNodeSetCollection();
+
+            //var parents = source.GetParents<T>(false);
+            List<T> newSource = new List<T>();
+
+            Int32 extraIndex = 0;
+            if (min == -1) min = leafNames.Count();
+
+            Int32 c = 0;
+
+            for (int i = 0; i < (maxIterations + extraIterations); i++)
+            {
+                c = source.Count();
+
+                newSource = new List<T>();
+
+                foreach (var parent in source)
+                {
+                    if (!parent.isLeaf)
+                    {
+                        var nSet = parent.GetNodeSetWithLeafs<T>(leafNames, min);
+                        if (nSet != null)
+                        {
+                            output.Add(nSet);
+                        }
+                        else
+                        {
+                            if (parent.parent != null)
+                            {
+                                newSource.Add(parent.parent as T);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (parent.parent != null)
+                        {
+                            newSource.Add(parent.parent as T);
+                        }
+                    }
+                }
+
+                source = newSource;
+
+                if (source.Count() == c)
+                {
+                    extraIndex++;
+                }
+                else
+                {
+                    extraIndex = 0;
+                }
+
+                if (extraIndex > extraIterations)
+                {
+                    i = maxIterations;
+                    extraIndex = 0;
+                }
+
+                if (!source.Any()) return output;
+            }
+
+            return output;
+           
+        }
+
+
+        /// <summary>
+        /// Gets all roots.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source">The source.</param>
+        /// <param name="maxIterations">The maximum iterations.</param>
+        /// <param name="extraIterations">The extra iterations.</param>
+        /// <returns></returns>
+        public static List<T> GetAllRoots<T>(this IEnumerable<T> source, Int32 maxIterations=50, Int32 extraIterations=2, Int32 targetCount=1) where T : class, IGraphNode
+        {
+            List<T> output = new List<T>();
+
+            Int32 extraIndex = 0;
+
+            for (int i = 0; i < (maxIterations + extraIterations); i++)
+            {
+                Int32 c = source.Count();
+
+                output = source.GetParents(true);
+
+
+                if (output.Count() <= targetCount) {
+                    return output;
+                }
+
+            
+
+                source = output;
+
+                if (source.Count() == c)
+                {
+                    extraIndex++;
+                }
+                else
+                {
+                    extraIndex = 0;
+                }
+
+                if (extraIndex > extraIterations)
+                {
+                    i = maxIterations;
+                    extraIndex = 0;
+                }
+            }
+
             return output;
         }
 
@@ -69,6 +322,7 @@ using imbSCI.Data.interfaces;
         /// <param name="parent">The parent for whom the child name is made</param>
         /// <param name="proposal">The proposal form, neither it already exist or not</param>
         /// <param name="limit">The limit: number of cycles to terminate the search</param>
+        /// <param name="toSkip">To skip.</param>
         /// <param name="addNumberSufixForFirst">if set to <c>true</c> it adds number sufix even if it is the first child with proposed name</param>
         /// <returns>
         /// Unique name for new child in format: <c>proposal</c>001 up to <c>limit</c>
@@ -121,6 +375,9 @@ using imbSCI.Data.interfaces;
             }
             return target;
         }
+
+
+        
 
 
         /// <summary>

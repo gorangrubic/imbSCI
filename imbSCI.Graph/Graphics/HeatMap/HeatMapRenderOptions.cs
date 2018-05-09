@@ -21,7 +21,7 @@ namespace imbSCI.Graph.Graphics.HeatMap
 {
 
     /// <summary>
-    /// 
+    /// Remdering options 
     /// </summary>
     [Flags]
     public enum HeatMapRenderOptions

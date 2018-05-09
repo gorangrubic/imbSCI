@@ -36,7 +36,7 @@ using System.Xml;
 
 namespace imbSCI.Graph.Graphics.SvgDocument
 {
-    public class Text : SVGObject, SVGTranform
+    public class Text : SVGObject, ISVGTranform
     {
         #region Attributes and Constants
 

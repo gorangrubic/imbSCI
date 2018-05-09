@@ -9,10 +9,18 @@ using AForge.Imaging.Filters;
 using imbSCI.Core.extensions.io;
 using imbSCI.Core.files.folders;
 using imbSCI.Core.files.unit;
+using imbSCI.Core.math.functions;
+using imbSCI.Core.math.functions.core;
 using imbSCI.Core.reporting;
 
 namespace imbSCI.Core.math.range.matrix
 {
+
+
+    public static class proceduralHeatMapGeneration { }
+
+
+
     /// <summary>
     /// Static methods for <see cref="HeatMapModel"/> creation from images
     /// </summary>
@@ -84,11 +92,15 @@ namespace imbSCI.Core.math.range.matrix
             Int32 heightOfMap = Convert.ToInt32(grayImage.Size.Height.GetRatio(grayImage.Size.Width) * widthOfMap);
             HeatMapModel map = HeatMapModel.Create(widthOfMap, heightOfMap, "D3");
 
+            map.properties.addAndDescribeKey("grayImage", grayImage, false, false);
+            map.properties.addAndDescribeKey("source", imageFile, false, false);
+
+
             map.AllocateSize(widthOfMap, heightOfMap);
 
             Int32 bs = Convert.ToInt32(grayImage.Size.Width / widthOfMap);
 
-
+            map.properties.addAndDescribeKey("fieldSize", bs, false, false);
 
             for (Int32 y = 0; y < heightOfMap; y++)
             {

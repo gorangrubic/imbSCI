@@ -53,6 +53,8 @@
     <Compile Include="collection\graph\graphAxisEnum.cs" />
     <Compile Include="collection\graph\graphNodeBase.cs" />
     <Compile Include="collection\graph\graphNodeCustom.cs" />
+    <Compile Include="collection\graph\graphNodeSet.cs" />
+    <Compile Include="collection\graph\graphNodeSetCollection.cs" />
     <Compile Include="collection\graph\graphOperationFlag.cs" />
     <Compile Include="collection\graph\graphTools.cs" />
     <Compile Include="collection\graph\IGraphNode.cs" />

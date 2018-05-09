@@ -62,7 +62,7 @@ namespace imbSCI.Core.reporting.zone
 
         private Int32 _x;
         /// <summary>
-        /// x position
+        /// x position 
         /// </summary>
         public virtual Int32 x
         {
@@ -73,7 +73,7 @@ namespace imbSCI.Core.reporting.zone
 
         private Int32 _y;
         /// <summary>
-        /// 
+        /// y positon
         /// </summary>
         public virtual Int32 y
         {

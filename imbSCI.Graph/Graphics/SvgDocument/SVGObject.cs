@@ -28,6 +28,7 @@
 // </summary>
 // ------------------------------------------------------------------------------------------------------------------
 
+////// based on code from
 //AUTHOR	: GERARD CASTELLÓ
 //DATE		: 17/JUN/2010
 
@@ -36,6 +37,9 @@ using System.Xml;
 
 namespace imbSCI.Graph.Graphics.SvgDocument
 {
+    /// <summary>
+    /// Base class for SVG objectg
+    /// </summary>
     public class SVGObject
     {
         #region Attributes

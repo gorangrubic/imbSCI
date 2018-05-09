@@ -43,6 +43,7 @@ namespace imbSCI.Core.math.range
 
     #endregion
 
+
     /// <summary>
     /// Matematički alat koji radi sa min-max skalom
     /// konvertuje apsolutni i relativni (ratio) broj
@@ -58,6 +59,38 @@ namespace imbSCI.Core.math.range
         /// Minimalna vrednost u skali
         /// </summary>
         public Double minValue = 0;
+
+        public imbNumberScale()
+        {
+
+        }
+
+        public imbNumberScale(numberRangePresetEnum preset)
+        {
+
+        }
+
+        /// <summary>
+        /// Applies the preset. See: <see cref="numberRangePresetEnum"/>
+        /// </summary>
+        /// <param name="preset">The preset.</param>
+        public void applyPreset(numberRangePresetEnum preset)
+        {
+            switch (preset) {
+                case numberRangePresetEnum.balancedFullOne:
+                    minValue = 0;
+                    maxValue = 1;
+                    break;
+                case numberRangePresetEnum.balancedHalfOne:
+                    minValue = -0.5;
+                    maxValue = 0.5;
+                    break;
+                case numberRangePresetEnum.zeroToOne:
+                    minValue = 0;
+                    maxValue = 100;
+                    break;
+            }
+        }
 
         /// <summary>
         /// Konstruktor koji postavlja min i max
@@ -89,9 +122,16 @@ namespace imbSCI.Core.math.range
         /// koristeći postavljeni min-max raspon
         /// </summary>
         /// <param name="ratio">koeficijent na osnovu kojeg se dobija absolutni broj</param>
+        /// <param name="normalizeRatio">If <c>true</c>, the <c>ratio</c> input is normalized: ratio = ratio % 1, and negative values are interpreted as inverse position (i.e. from right to left)</param>
         /// <returns></returns>
-        public Double getAbsoluteValue(Double ratio)
+        public Double getAbsoluteValue(Double ratio, Boolean normalizeRatio=false)
         {
+            if (normalizeRatio)
+            {
+                ratio = ratio % 1;
+                if (ratio < 0) ratio = 1 - ratio;
+            }
+
             Double range = maxValue - minValue;
             Double output = minValue + (ratio*range);
             return output;

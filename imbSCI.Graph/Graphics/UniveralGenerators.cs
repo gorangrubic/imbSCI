@@ -13,7 +13,7 @@ namespace imbSCI.Graph.Graphics
     /// <summary>
     /// 
     /// </summary>
-    public static class UniveralGenerators
+    public static class UniversalGenerators
     {
 
         /// <summary>

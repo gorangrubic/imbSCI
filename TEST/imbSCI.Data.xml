@@ -508,6 +508,22 @@
             For treeview.
             </value>
         </member>
+        <member name="P:imbSCI.Data.collection.graph.graphNodeSet.root">
+            <summary>
+            Common root of the set - if exists
+            </summary>
+            <value>
+            The root.
+            </value>
+        </member>
+        <member name="M:imbSCI.Data.collection.graph.graphNodeSet.CreateGraphFromLocalRoot``1(System.String)">
+            <summary>
+            Creates the graph from local root. 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="localRootName">Name of the local root - in case there is no common <c>root</c> for the set</param>
+            <returns></returns>
+        </member>
         <member name="T:imbSCI.Data.collection.graph.graphOperationFlag">
             <summary>
             Options for graph operations
@@ -528,12 +544,55 @@
             Extensions for <see cref="T:imbSCI.Data.collection.graph.graphNode"/> , <see cref="T:imbSCI.Data.collection.graph.graphWrapNode`1"/> and other graphNode derivatives
             </summary>
         </member>
-        <member name="M:imbSCI.Data.collection.graph.graphTools.GetParents``1(System.Collections.Generic.IEnumerable{``0})">
+        <member name="M:imbSCI.Data.collection.graph.graphTools.BuildGraphFromPaths``1(System.Collections.Generic.IEnumerable{System.String},System.String)">
             <summary>
-            Gets the parents.
+            Builds the graph from paths.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="inputList">The input list.</param>
+            <param name="splitter">The splitter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Data.collection.graph.graphTools.ConvertPathToGraph``1(``0,System.String,System.Boolean,System.String)">
+            <summary>
+            Builds graph defined by <c>path</c> or selecte existing graphnode, as pointed by path
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parent">The parent.</param>
+            <param name="path">The path.</param>
+            <param name="isAbsolutePath">if set to <c>true</c> [is absolute path].</param>
+            <param name="splitter">The splitter - by default: directory separator.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Data.collection.graph.graphTools.GetParents``1(System.Collections.Generic.IEnumerable{``0},System.Boolean)">
+            <summary>
+            Gets first level parents of the source collection
             </summary>
             <typeparam name="T"></typeparam>
             <param name="source">The source.</param>
+            <param name="keepRootsFromSource">if set to <c>true</c>: the output will also contain any root (node without parent) node from the specified source collection.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Data.collection.graph.graphTools.GetFirstNodeWithLeafs``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.List{System.String},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Iterative procedure, returning <see cref="T:imbSCI.Data.collection.graph.graphNodeSetCollection"/> with <see cref="T:imbSCI.Data.collection.graph.graphNodeSet"/>s rooted at node that has leafs (all or <c>min)</c> with <c>leafNames</c>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source - starting leaf or other branch nodes.</param>
+            <param name="leafNames">The leaf names.</param>
+            <param name="min">The minimum.</param>
+            <param name="maxIterations">The maximum iterations.</param>
+            <param name="extraIterations">The extra iterations.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Data.collection.graph.graphTools.GetAllRoots``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Gets all roots.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="maxIterations">The maximum iterations.</param>
+            <param name="extraIterations">The extra iterations.</param>
             <returns></returns>
         </member>
         <member name="M:imbSCI.Data.collection.graph.graphTools.MakeUniqueChildName(imbSCI.Data.collection.graph.IGraphNode,System.String,System.Int32,System.Int32,System.Boolean)">
@@ -543,6 +602,7 @@
             <param name="parent">The parent for whom the child name is made</param>
             <param name="proposal">The proposal form, neither it already exist or not</param>
             <param name="limit">The limit: number of cycles to terminate the search</param>
+            <param name="toSkip">To skip.</param>
             <param name="addNumberSufixForFirst">if set to <c>true</c> it adds number sufix even if it is the first child with proposed name</param>
             <returns>
             Unique name for new child in format: <c>proposal</c>001 up to <c>limit</c>
@@ -674,6 +734,20 @@
             Gets the first.
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:imbSCI.Data.collection.graph.IGraphNode.Count">
+            <summary>
+            Counts this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Data.collection.graph.IGraphNode.isLeaf">
+            <summary>
+            Gets a value indicating whether this instance is leaf.
+            </summary>
+            <value>
+              <c>true</c> if this instance is leaf; otherwise, <c>false</c>.
+            </value>
         </member>
         <!-- Badly formed XML comment ignored for member "T:imbSCI.Data.collection.graph.NamespaceDoc" -->
         <member name="T:imbSCI.Data.collection.graph.graph`1">

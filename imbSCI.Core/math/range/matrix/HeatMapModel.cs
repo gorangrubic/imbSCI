@@ -14,15 +14,20 @@ using System.Text;
 using imbSCI.Core.math.range.finder;
 using imbSCI.Core.math;
 using System.Xml.Serialization;
+    using imbSCI.Core.collection;
 
 
 
-        /// <summary>
-        /// Intensity matrix
-        /// </summary>
-        /// <seealso cref="System.Collections.Generic.List{System.Collections.Generic.List{System.Double}}" />
-        public class HeatMapModel : List<List<Double>>
+    /// <summary>
+    /// Intensity matrix
+    /// </summary>
+    /// <seealso cref="System.Collections.Generic.List{System.Collections.Generic.List{System.Double}}" />
+    public class HeatMapModel : List<List<Double>>
         {
+
+        [XmlIgnore]
+        public PropertyCollectionExtended properties { get; set; } = new PropertyCollectionExtended();
+
 
             private Boolean _deployed;
             /// <summary>
@@ -352,13 +357,14 @@ using System.Xml.Serialization;
             }
 
 
-            /// <summary>
-            /// Gets the value that is 
-            /// </summary>
-            /// <param name="x">The x.</param>
-            /// <param name="y">The y.</param>
-            /// <returns></returns>
-            public Double GetRatioValue(Int32 x, Int32 y, Double floor = 0)
+        /// <summary>
+        /// Gets the value that is
+        /// </summary>
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        /// <param name="floor">The floor.</param>
+        /// <returns></returns>
+        public Double GetRatioValue(Int32 x, Int32 y, Double floor = 0)
             {
 
                 Double val = this[x, y];

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.daa.com.au/~james/dia-shape-ns">
+  <name>Test</name>
+  <icon>test.png</icon>
+  <connections>
+    <point x="0" y="0" main="yes" />
+  </connections>
+  <textbox x1="left" y1="top" x2="right" y2="bottom" align="center" resize="" />
+</shape>

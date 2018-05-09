@@ -36,6 +36,7 @@ namespace imbSCI.Data.collection.graph
     using imbSCI.Data.interfaces;
 
 
+
     /// <summary>
     /// Interface for <see cref="graphNode"/> and <see cref="graphWrapNode{TItem}"/>
     /// </summary>
@@ -144,9 +145,19 @@ namespace imbSCI.Data.collection.graph
         /// <returns></returns>
         IGraphNode getFirst();
 
+        /// <summary>
+        /// Counts this instance.
+        /// </summary>
+        /// <returns></returns>
         Int32 Count();
 
-        
+        /// <summary>
+        /// Gets a value indicating whether this instance is leaf.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if this instance is leaf; otherwise, <c>false</c>.
+        /// </value>
+        Boolean isLeaf { get; }
 
         IEnumerator<IObjectWithPathAndChildren> GetEnumerator();
     }

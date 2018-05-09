@@ -57,6 +57,24 @@ namespace imbSCI.Core.reporting.zone
             return TopLeft.x + ":" + TopLeft.y + "-" + BottomRight.x + ":" + BottomRight.y;
         }
 
+        /// <summary>
+        /// Four placemaker format expected for: {x}, {y}, {width}, {height}
+        /// </summary>
+        /// <seealso cref="FORMAT_SPACESEPARATER"/>
+        /// <param name="format">The format.</param>
+        /// <returns></returns>
+        public String ToString(String format) {
+
+            return String.Format(format, x, y, width, height);
+        }
+
+        /// <summary>
+        /// Format preset: x,y,w,h
+        /// </summary>
+        public const String FORMAT_SPACESEPARATER = "{0} {1} {2} {3}";
+
+        public const String FORMAT_DEFAULT = "{0}:{1}-{2}:{3}";
+
         public override string getCodeName()
         {
             String output = this.GetType().Name.imbGetWordAbbrevation(3, true);
@@ -67,6 +85,77 @@ namespace imbSCI.Core.reporting.zone
         }
 
 
+        /// <summary>
+        /// Returns coordinates of a corner, within the area. <see cref="textCursorZoneCorner"/>
+        /// </summary>
+        /// <param name="corner">The corner.</param>
+        /// <returns></returns>
+        public selectRange GetCornerPoint(textCursorZoneCorner corner) {
+
+            selectRange output = new selectRange(x, y);
+
+            switch (corner)
+            {
+                case textCursorZoneCorner.Bottom:
+                    output.y = BottomRight.y;
+                    output.x = xCenter;
+                        break;
+                    
+                case textCursorZoneCorner.center:
+                    output.y = yCenter;
+                    output.x = xCenter;
+                        break;                  
+
+                case textCursorZoneCorner.default_corner:
+                    
+                    break;
+                case textCursorZoneCorner.DownLeft:
+                    output.y = BottomRight.y;
+                    output.x = x;
+                    break;
+                case textCursorZoneCorner.DownRight:
+                    output.y = BottomRight.y;
+                    output.x = BottomRight.x;
+                    break;
+                case textCursorZoneCorner.Left:
+                    output.y = yCenter;
+                    output.x = x;
+                    break;
+                case textCursorZoneCorner.none:
+                    break;
+                case textCursorZoneCorner.Right:
+
+                    output.y = yCenter;
+                    output.x = BottomRight.x;
+                    break;
+                case textCursorZoneCorner.Top:
+                    output.y = TopLeft.y;
+                    output.x = xCenter;
+                    break;
+                case textCursorZoneCorner.UpLeft:
+                    output.y = y;
+                    output.x = x;
+                    break;
+                case textCursorZoneCorner.UpRight:
+                    output.y = y;
+                    output.x = BottomRight.x;
+                    break;
+                default:
+                    break;
+            }
+
+            return output;
+        }
+
+
+
+
+        /// <summary>
+        /// Gets the vertical axis.
+        /// </summary>
+        /// <param name="atX">At x.</param>
+        /// <param name="atW">At w.</param>
+        /// <returns></returns>
         public selectRangeArea GetVerticalAxis(Int32 atX, Int32 atW=1)
         {
             selectRangeArea output = new selectRangeArea(atX, y);
@@ -78,6 +167,12 @@ namespace imbSCI.Core.reporting.zone
             return output;
         }
 
+        /// <summary>
+        /// Gets the horizontal axis.
+        /// </summary>
+        /// <param name="atY">At y.</param>
+        /// <param name="atH">At h.</param>
+        /// <returns></returns>
         public selectRange GetHorizontalAxis(Int32 atY, Int32 atH=1)
         {
             selectRangeArea output = new selectRangeArea(x, atY);

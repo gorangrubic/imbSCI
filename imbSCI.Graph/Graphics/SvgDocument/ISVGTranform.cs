@@ -28,6 +28,7 @@
 // </summary>
 // ------------------------------------------------------------------------------------------------------------------
 
+////// based on:
 //AUTHOR	: GERARD CASTELLÓ
 //DATE		: 17/JUN/2010
 
@@ -36,8 +37,13 @@ using System.Xml;
 
 namespace imbSCI.Graph.Graphics.SvgDocument
 {
-    interface SVGTranform
+    /// <summary>
+    /// Transformation interface
+    /// </summary>
+    interface ISVGTranform
     {
         XmlNode ToXml();
+
+        
     }
 }

@@ -37,7 +37,7 @@ using System.Xml;
 
 namespace imbSCI.Graph.Graphics.SvgDocument
 {
-    public class Polygon : SVGTranform
+    public class Polygon : ISVGTranform
     {
         #region Attributes
 

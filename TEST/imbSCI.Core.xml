@@ -6342,6 +6342,23 @@
             <param name="returnRelative">if set to <c>true</c> [return relative].</param>
             <returns></returns>
         </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.findFiles(System.Collections.Generic.IEnumerable{System.String},System.IO.SearchOption)">
+            <summary>
+            Collects all files for all patterns
+            </summary>
+            <param name="partOrPatterns">The part or patterns.</param>
+            <param name="options">The options.</param>
+            <param name="returnRelative">if set to <c>true</c> [return relative].</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.files.folders.folderNode.findNodeTreeMatch(System.Collections.Generic.List{System.String},System.Int32)">
+            <summary>
+            Detects subtree matches in the filesystem
+            </summary>
+            <param name="filePatterns">The file patterns.</param>
+            <param name="min">The minimum.</param>
+            <returns></returns>
+        </member>
         <member name="M:imbSCI.Core.files.folders.folderNode.findDirectories(System.String,System.IO.SearchOption,System.Boolean)">
             <summary>
             Finds the directories - returns relative paths
@@ -8162,38 +8179,330 @@
             Interface to classification report objects
             </summary>
         </member>
-        <member name="T:imbSCI.Core.math.functions.core.sineFunction">
+        <member name="T:imbSCI.Core.math.functions.core.functionBase">
             <summary>
-            
+            Base of function generator class
             </summary>
-            <seealso cref="T:imbSCI.Core.math.functions.core.functionBase" />
         </member>
-        <member name="M:imbSCI.Core.math.functions.core.rampFunction.GetOutput(System.Double)">
+        <member name="P:imbSCI.Core.math.functions.core.functionBase.outputRange">
             <summary>
-            Gets the output -- <c>alpha</c> should be 0-1
+            Gets or sets the output range.
             </summary>
-            <param name="alpha">The alpha.</param>
-            <returns></returns>
+            <value>
+            The output range.
+            </value>
         </member>
-        <member name="M:imbSCI.Core.math.functions.core.rampFunction.GetOutput(System.Int32)">
+        <member name="M:imbSCI.Core.math.functions.core.functionBase.GetOutput(System.Double)">
             <summary>
             Gets the output.
             </summary>
             <param name="alpha">The alpha.</param>
             <returns></returns>
         </member>
-        <member name="T:imbSCI.Core.math.functions.core.functionBase">
+        <member name="M:imbSCI.Core.math.functions.core.functionBase.GetOutput(System.Int32)">
             <summary>
-            base of function generator class
+            Gets the output.
+            </summary>
+            <param name="alpha">The alpha.</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.math.functions.core.IFunctionGenerator">
+            <summary>
+            Interface for function classes, used for procedural generation of [whatever]s :)
             </summary>
         </member>
-        <member name="P:imbSCI.Core.math.functions.core.functionBase.weight">
+        <member name="P:imbSCI.Core.math.functions.core.IFunctionGenerator.outputRange">
+            <summary>
+            Output scalling range adjusts function output before returning final result from <see cref="M:imbSCI.Core.math.functions.core.IFunctionGenerator.GetOutput(System.Double)"/> and <see cref="M:imbSCI.Core.math.functions.core.IFunctionGenerator.GetOutput(System.Int32)"/> methods
+            </summary>
+            <value>
+            The output range.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.math.functions.core.IFunctionGenerator.GetOutput(System.Double)">
+            <summary>
+            Gets the output.
+            </summary>
+            <param name="alpha">The alpha.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.math.functions.core.IFunctionGenerator.GetOutput(System.Int32)">
+            <summary>
+            Gets the output.
+            </summary>
+            <param name="alpha">The alpha.</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.math.functions.functionArray">
+            <summary>
+            Macro function containing multiple <see cref="T:imbSCI.Core.math.functions.core.IFunctionGenerator"/>
+            </summary>
+            <seealso cref="T:imbSCI.Core.math.functions.core.functionBase" />
+        </member>
+        <member name="M:imbSCI.Core.math.functions.functionArray.GetOutput(System.Double)">
+            <summary>
+            Gets the output produced by contained functions.
+            </summary>
+            <param name="alpha">The alpha input - used for as initial input and general alpha</param>
+            <seealso cref="T:imbSCI.Core.math.functions.functionArray.functionArrayEntry"/>
+            <seealso cref="T:imbSCI.Core.math.functions.functionArray.functionArrayEntryMode"/>
+            <seealso cref="P:imbSCI.Core.math.functions.functionArray.items"/>
+            <returns>Summed result of returned outputs</returns>
+        </member>
+        <member name="M:imbSCI.Core.math.functions.functionArray.GetOutput(System.Int32)">
+            <summary>
+            Gets the output produced by contained functions.
+            </summary>
+            <param name="alpha">The alpha input - used for as initial input and general alpha</param>
+            <seealso cref="T:imbSCI.Core.math.functions.functionArray.functionArrayEntry"/>
+            <seealso cref="T:imbSCI.Core.math.functions.functionArray.functionArrayEntryMode"/>
+            <seealso cref="P:imbSCI.Core.math.functions.functionArray.items"/>
+            <returns>Summed result of returned outputs</returns>
+        </member>
+        <member name="M:imbSCI.Core.math.functions.functionArray.Add(imbSCI.Core.math.functions.core.IFunctionGenerator,System.Double,imbSCI.Core.math.functions.functionArray.functionArrayEntryMode)">
+            <summary>
+            Adds the specified function.
+            </summary>
+            <param name="function">The function.</param>
+            <param name="weight">The weight.</param>
+            <param name="mode">The mode.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.math.functions.functionArray.items">
+            <summary>
+            Contained functions, with their weights and computation mode. The functions are called in the same order as in the list
+            </summary>
+            <value>
+            The items.
+            </value>
+        </member>
+        <member name="T:imbSCI.Core.math.functions.functionArray.functionArrayEntryMode">
+            <summary>
+            Designates how functions are used in <see cref="T:imbSCI.Core.math.functions.functionArray"/>
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.math.functions.functionArray.functionArrayEntryMode.useGeneralAlpha">
+            <summary>
+            The function (<see cref="M:imbSCI.Core.math.functions.core.functionBase.GetOutput(System.Double)"/>) will get <see cref="M:imbSCI.Core.math.functions.functionArray.GetOutput(System.Double)"/> general alpha value
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.math.functions.functionArray.functionArrayEntryMode.usePrevResultAsAlpha">
+            <summary>
+            The function will get output from function invoked in previous step. If it is the first in the array, then it gets general alpha
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.math.functions.functionArray.functionArrayEntry">
+            <summary>
+            Holder for a function in the <see cref="T:imbSCI.Core.math.functions.functionArray"/>
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.functions.functionArray.functionArrayEntry.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.math.functions.functionArray.functionArrayEntry"/> class.
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.math.functions.functionArray.functionArrayEntry.mode">
+            <summary>
+            Gets or sets the mode.
+            </summary>
+            <value>
+            The mode.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.math.functions.functionArray.functionArrayEntry.weight">
             <summary>
             Scale factor, applied when multiply functions are mixed
             </summary>
             <value>
             The weight.
             </value>
+        </member>
+        <member name="P:imbSCI.Core.math.functions.functionArray.functionArrayEntry.function">
+            <summary>
+            Gets or sets the function.
+            </summary>
+            <value>
+            The function.
+            </value>
+        </member>
+        <member name="T:imbSCI.Core.math.functions.noiseFunction">
+            <summary>
+            Random noise value generator, within specified <see cref="P:imbSCI.Core.math.functions.core.functionBase.outputRange"/>
+            </summary>
+            <seealso cref="T:imbSCI.Core.math.functions.core.functionBase" />
+        </member>
+        <member name="M:imbSCI.Core.math.functions.noiseFunction.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.math.functions.noiseFunction"/> class.
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.functions.noiseFunction.GetOutput(System.Double)">
+            <summary>
+            Gets random value within <see cref="P:imbSCI.Core.math.functions.core.functionBase.outputRange"/>. Alpha input is ignored
+            </summary>
+            <param name="alpha">The alpha.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.math.functions.noiseFunction.GetOutput(System.Int32)">
+            <summary>
+            Gets random value within <see cref="P:imbSCI.Core.math.functions.core.functionBase.outputRange"/>. Alpha input is ignored
+            </summary>
+            <param name="alpha">The alpha.</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.math.functions.pseudoFunction">
+            <summary>
+            Returns predefined fixed value
+            </summary>
+            <seealso cref="T:imbSCI.Core.math.functions.core.functionBase" />
+        </member>
+        <member name="M:imbSCI.Core.math.functions.pseudoFunction.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.math.functions.pseudoFunction"/> class.
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.functions.pseudoFunction.#ctor(System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.math.functions.pseudoFunction"/> class.
+            </summary>
+            <param name="outputValue">The output value.</param>
+        </member>
+        <member name="M:imbSCI.Core.math.functions.pseudoFunction.GetOutput(System.Double)">
+            <summary>
+            Gets the output.
+            </summary>
+            <param name="alpha">The alpha.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.math.functions.pseudoFunction.GetOutput(System.Int32)">
+            <summary>
+            Gets the output.
+            </summary>
+            <param name="alpha">The alpha.</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.math.functions.rampFunction">
+            <summary>
+            Ramp waveform function: starts with <see cref="P:imbSCI.Core.math.functions.core.functionBase.outputRange"/> minimum and ends with maximum value.
+            </summary>
+            <seealso cref="T:imbSCI.Core.math.functions.core.functionBase" />
+        </member>
+        <member name="M:imbSCI.Core.math.functions.rampFunction.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.math.functions.rampFunction"/> class.
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.math.functions.rampFunction.alphaDimension">
+            <summary>
+            Gets or sets the alpha dimension scale: relevant only when <see cref="M:imbSCI.Core.math.functions.rampFunction.GetOutput(System.Int32)"/> -- integer input alpha is used
+            </summary>
+            <value>
+            The alpha dimension.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.math.functions.rampFunction.GetOutput(System.Double)">
+            <summary>
+            Gets the output -- <c>alpha</c> should be 0-1, it is decimal phase position
+            </summary>
+            <param name="alpha">Decimal phase position</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.math.functions.rampFunction.GetOutput(System.Int32)">
+            <summary>
+            Gets the output.
+            </summary>
+            <param name="alpha">The alpha.</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.math.functions.sequenceFunction">
+            <summary>
+            Repeats sequence of pre-set output values.
+            </summary>
+            <seealso cref="T:imbSCI.Core.math.functions.core.functionBase" />
+        </member>
+        <member name="M:imbSCI.Core.math.functions.sequenceFunction.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.math.functions.sequenceFunction"/> class. Constructor for XmlSerialization, better use: <see cref="T:imbSCI.Core.math.functions.sequenceFunction"/>
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.functions.sequenceFunction.#ctor(System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.math.functions.sequenceFunction"/> class.
+            </summary>
+            <param name="firstStep">The first step value, the step at index = 0</param>
+        </member>
+        <member name="M:imbSCI.Core.math.functions.sequenceFunction.AddStep(System.Double)">
+            <summary>
+            Adds new value into step sequence
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="F:imbSCI.Core.math.functions.sequenceFunction.steps">
+            <summary>
+            The steps in the sequence
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.functions.sequenceFunction.GetOutput(System.Double)">
+            <summary>
+            Computes sequence step from decimal phase ratio. e.g. alpha=0.5 for sequence of 10 steps will return value for step 5. <see cref="F:imbSCI.Core.math.functions.sequenceFunction.steps"/>
+            </summary>
+            <param name="alpha">Decimal phase of the sequence, e.g. 0.25 gets 2nd step of sequence having 8 steps.</param>
+            <remarks>
+            <para>Negative <c>alpha</c> will return n-th step from the end (reversed query)</para>
+            <para>Input is recomputed: alpha % 1. e.g. for <c>alpha</c> 1.2, the same output is returned like for <c>alpha</c> = 0.2. </para>
+            </remarks>
+            <seealso cref="F:imbSCI.Core.math.functions.sequenceFunction.steps"/>
+            <seealso cref="M:imbSCI.Core.math.functions.sequenceFunction.AddStep(System.Double)"/>
+            <returns>Value of step n, where n is: |steps| * (alpha % 1)</returns>
+        </member>
+        <member name="M:imbSCI.Core.math.functions.sequenceFunction.GetOutput(System.Int32)">
+            <summary>
+            Returns step value at specified index, <c>alpha</c>. See <see cref="M:imbSCI.Core.math.functions.sequenceFunction.GetOutput(System.Double)"/> for other remarks.
+            </summary>
+            <param name="alpha">The index of step to be returned</param>
+            <returns></returns>
+            <seealso cref="M:imbSCI.Core.math.functions.sequenceFunction.GetOutput(System.Double)"/>
+        </member>
+        <member name="T:imbSCI.Core.math.functions.sineFunction">
+            <summary>
+            Function provides sine and cosine values. 
+            </summary>
+            <seealso cref="T:imbSCI.Core.math.functions.core.functionBase" />
+        </member>
+        <member name="M:imbSCI.Core.math.functions.sineFunction.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.math.functions.sineFunction"/> class.
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.math.functions.sineFunction.useCosine">
+            <summary>
+            If true, it will produce cosine value instead of sine 
+            </summary>
+            <value>
+              <c>true</c> if [use cosine]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.math.functions.sineFunction.offset">
+            <summary>
+            Phase offset in decrees
+            </summary>
+            <value>
+            The offset.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.math.functions.sineFunction.GetOutput(System.Double)">
+            <summary>
+            Producing output from decimal phase position (0 is 0 degree, 0.5 is 180 degree... 1.0 is 360)
+            </summary>
+            <param name="alpha">The alpha: number of full cycles. e.g. 0.25 is 90 degree</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.math.functions.sineFunction.GetOutput(System.Int32)">
+            <summary>
+            Produces output from degree input. 
+            </summary>
+            <param name="alpha">Degrees</param>
+            <returns></returns>
         </member>
         <member name="T:imbSCI.Core.math.NamespaceDoc">
             <summary>
@@ -8596,10 +8905,11 @@
         </member>
         <member name="M:imbSCI.Core.math.range.matrix.HeatMapModel.GetRatioValue(System.Int32,System.Int32,System.Double)">
             <summary>
-            Gets the value that is 
+            Gets the value that is
             </summary>
             <param name="x">The x.</param>
             <param name="y">The y.</param>
+            <param name="floor">The floor.</param>
             <returns></returns>
         </member>
         <member name="P:imbSCI.Core.math.range.matrix.HeatMapModel.ranger">
@@ -8617,7 +8927,7 @@
         </member>
         <member name="T:imbSCI.Core.math.range.matrix.imageToHeatMap">
             <summary>
-            Static convert
+            Static methods for <see cref="T:imbSCI.Core.math.range.matrix.HeatMapModel"/> creation from images
             </summary>
         </member>
         <member name="M:imbSCI.Core.math.range.matrix.imageToHeatMap.GetIntesity(System.Drawing.Bitmap,System.Int32,System.Int32,System.Int32)">
@@ -8625,19 +8935,81 @@
             Gets average intesity of sample patch located at x/y
             </summary>
             <param name="grayImage">The gray image.</param>
-            <param name="x">The x.</param>
-            <param name="y">The y.</param>
-            <param name="bs">The bs.</param>
-            <returns></returns>
+            <param name="x">horizobtal index of the field</param>
+            <param name="y">vertical index of the field</param>
+            <param name="bs">Sample patch size (side of the sampling square, in pixels)</param>
+            <returns>Mean brightness value for the patch at x,y</returns>
         </member>
         <member name="M:imbSCI.Core.math.range.matrix.imageToHeatMap.CreateFromImage(System.String,System.Int32,imbSCI.Core.reporting.ILogBuilder)">
             <summary>
-            Creates a heat map model from image file path
+            Creates a heat map model from image file. Supported formats: JPEG, PNG, TIFF etc. See: <see cref="M:System.Drawing.Image.FromFile(System.String,System.Boolean)"/>
             </summary>
-            <param name="imageFile">The image file.</param>
-            <param name="widthOfMap">The width of map.</param>
+            <param name="imageFile">Path of the image file.</param>
+            <param name="widthOfMap">The width of map - number of horizontal fields, vertical are computed in respect to image dimensional proportion </param>
             <param name="loger">The loger.</param>
+            <returns>Heat map model, fields have mean brightness value</returns>
+        </member>
+        <member name="T:imbSCI.Core.math.range.matrix.proceduralHeatMapGenerator">
+            <summary>
+            Generator for <see cref="T:imbSCI.Core.math.range.matrix.HeatMapModel"/> using X and Y function arrays to set value
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.math.range.matrix.proceduralHeatMapGenerator.PresetSineWave">
+            <summary>
+            Generator for horizontal sine function waves
+            </summary>
             <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.math.range.matrix.proceduralHeatMapGenerator.PresetDoubleSineWave(System.Double)">
+            <summary>
+            Generates sine function waves in both horizontal and vertical directions
+            </summary>
+            <param name="xVsYRatio">Weight of the horizontal sine function, complementary to the vertical sine function. </param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.math.range.matrix.proceduralHeatMapGenerator.xAxisFunction">
+            <summary>
+            Gets or sets the x axis function.
+            </summary>
+            <value>
+            The x axis function.
+            </value>
+        </member>
+        <member name="P:imbSCI.Core.math.range.matrix.proceduralHeatMapGenerator.yAxisFunction">
+            <summary>
+            Gets or sets the y axis function.
+            </summary>
+            <value>
+            The y axis function.
+            </value>
+        </member>
+        <member name="M:imbSCI.Core.math.range.matrix.proceduralHeatMapGenerator.MakeHeatMap(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Renders HeatMapModel of specified size
+            </summary>
+            <param name="width">The width.</param>
+            <param name="height">The height.</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.math.range.numberRangePresetEnum">
+            <summary>
+            Number scale (range) preset enumeration
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.math.range.numberRangePresetEnum.zeroToOne">
+            <summary>
+            The zero to one: from 0.0 to 1.0
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.math.range.numberRangePresetEnum.balancedHalfOne">
+            <summary>
+            The balanced half one: from -0.5 to +0.5
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.math.range.numberRangePresetEnum.balancedFullOne">
+            <summary>
+            The balanced full one: from -1 to +1
+            </summary>
         </member>
         <member name="T:imbSCI.Core.math.range.imbNumberScale">
             <summary>
@@ -8655,6 +9027,12 @@
             Minimalna vrednost u skali
             </summary>
         </member>
+        <member name="M:imbSCI.Core.math.range.imbNumberScale.applyPreset(imbSCI.Core.math.range.numberRangePresetEnum)">
+            <summary>
+            Applies the preset. See: <see cref="T:imbSCI.Core.math.range.numberRangePresetEnum"/>
+            </summary>
+            <param name="preset">The preset.</param>
+        </member>
         <member name="M:imbSCI.Core.math.range.imbNumberScale.#ctor(System.Double,System.Double)">
             <summary>
             Konstruktor koji postavlja min i max
@@ -8669,12 +9047,13 @@
             </summary>
             <param name="input"></param>
         </member>
-        <member name="M:imbSCI.Core.math.range.imbNumberScale.getAbsoluteValue(System.Double)">
+        <member name="M:imbSCI.Core.math.range.imbNumberScale.getAbsoluteValue(System.Double,System.Boolean)">
             <summary>
             Vraća apsolutni broj za zadati racio
             koristeći postavljeni min-max raspon
             </summary>
             <param name="ratio">koeficijent na osnovu kojeg se dobija absolutni broj</param>
+            <param name="normalizeRatio">If <c>true</c>, the <c>ratio</c> input is normalized: ratio = ratio % 1, and negative values are interpreted as inverse position (i.e. from right to left)</param>
             <returns></returns>
         </member>
         <member name="M:imbSCI.Core.math.range.imbNumberScale.getRatioValue(System.Double)">
@@ -8939,7 +9318,8 @@
             Geometry/translation utility class, representing rotational turret/wheel with given number of <see cref="T:imbSCI.Core.math.transformation.circularDisplacer.nestPoint"/>. 
             </summary>
             <remarks>
-            The class describes X,Y position and angular state (rotation by central Z axis). Provides methods for: central X,Y offset of <see cref="T:imbSCI.Core.math.transformation.circularDisplacer.nestPoint"/>s
+            <para>The class describes X,Y position and angular state (rotation by central Z axis). Provides methods for: central X,Y offset of <see cref="T:imbSCI.Core.math.transformation.circularDisplacer.nestPoint"/>s</para>
+            <para>Use indexer (circularDisplacer[n]) to get <see cref="T:System.Drawing.PointF"/> offset for nest point <c>n</c></para>
             </remarks>
         </member>
         <member name="M:imbSCI.Core.math.transformation.circularDisplacer.#ctor(System.Int32,System.Double,System.Double)">
@@ -14805,12 +15185,12 @@
         </member>
         <member name="P:imbSCI.Core.reporting.zone.selectRange.x">
             <summary>
-            x position
+            x position 
             </summary>
         </member>
         <member name="P:imbSCI.Core.reporting.zone.selectRange.y">
             <summary>
-            
+            y positon
             </summary>
         </member>
         <member name="M:imbSCI.Core.reporting.zone.selectRange.#ctor">
@@ -14829,6 +15209,42 @@
             <summary>
             Selection area> with its starting poing, ending point and size. It automatically calculates> x, y, width and height fields
             </summary>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.ToString(System.String)">
+            <summary>
+            Four placemaker format expected for: {x}, {y}, {width}, {height}
+            </summary>
+            <seealso cref="F:imbSCI.Core.reporting.zone.selectRangeArea.FORMAT_SPACESEPARATER"/>
+            <param name="format">The format.</param>
+            <returns></returns>
+        </member>
+        <member name="F:imbSCI.Core.reporting.zone.selectRangeArea.FORMAT_SPACESEPARATER">
+            <summary>
+            Format preset: x,y,w,h
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.GetCornerPoint(imbSCI.Core.reporting.zone.textCursorZoneCorner)">
+            <summary>
+            Returns coordinates of a corner, within the area. <see cref="T:imbSCI.Core.reporting.zone.textCursorZoneCorner"/>
+            </summary>
+            <param name="corner">The corner.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.GetVerticalAxis(System.Int32,System.Int32)">
+            <summary>
+            Gets the vertical axis.
+            </summary>
+            <param name="atX">At x.</param>
+            <param name="atW">At w.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.zone.selectRangeArea.GetHorizontalAxis(System.Int32,System.Int32)">
+            <summary>
+            Gets the horizontal axis.
+            </summary>
+            <param name="atY">At y.</param>
+            <param name="atH">At h.</param>
+            <returns></returns>
         </member>
         <member name="F:imbSCI.Core.reporting.zone.selectRangeArea._topLeft">
             <summary>
@@ -18514,6 +18930,229 @@
             </summary>
             <param name="b">The b.</param>
             <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.style.css.cssCollection">
+            <summary>
+            Represents collection of <see cref="T:imbSCI.Core.style.css.cssEntryDefinition"/>
+            </summary>
+        </member>
+        <member name="T:imbSCI.Core.style.css.cssCollection.cssEntryPolicy">
+            <summary>
+            Policy on managing entries that already exist
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.style.css.cssCollection.cssEntryPolicy.replace">
+            <summary>
+            Replace completly existing entry
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.style.css.cssCollection.cssEntryPolicy.setIfNotExisting">
+            <summary>
+            The set if not existing
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.style.css.cssCollection.cssEntryPolicy.merge">
+            <summary>
+            Merge with existing entry: adding new attributes and replaces the overlapping attributes
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.style.css.cssCollection.REGEX_ENTRYSELECTOR">
+            <summary>
+            The regex entryselector: group[1] is name, group[2] contains the attribute pairs
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.style.css.cssCollection.FORMAT_ENTRYFORMAT">
+            <summary>
+            The format entryformat
+            </summary>
+        </member>
+        <member name="P:imbSCI.Core.style.css.cssCollection.Item(System.String)">
+            <summary>
+            Gets or sets the <see cref="T:imbSCI.Core.style.css.cssEntryDefinition"/> with the specified key.
+            </summary>
+            <value>
+            The <see cref="T:imbSCI.Core.style.css.cssEntryDefinition"/>.
+            </value>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.style.css.cssCollection.Get(System.String)">
+            <summary>
+            Gets css entry definition for item with <c>name</c>. Name may have class or id prefix: . or #. If it has multiple names, separated by comma: it will select the first
+            </summary>
+            <param name="name">The name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.style.css.cssCollection.Set(imbSCI.Core.style.css.cssEntryDefinition,imbSCI.Core.style.css.cssCollection.cssEntryPolicy)">
+            <summary>
+            Sets the specified entry.
+            </summary>
+            <param name="entry">The entry.</param>
+            <param name="policy">The policy.</param>
+        </member>
+        <member name="M:imbSCI.Core.style.css.cssCollection.Set(System.String,System.String,System.String)">
+            <summary>
+            Sets the specified name.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="attributeName">Name of the attribute.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:imbSCI.Core.style.css.cssCollection.Load(System.String,imbSCI.Core.style.css.cssCollection.cssEntryPolicy)">
+            <summary>
+            Loads the specified path.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="policy">The policy.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.style.css.cssCollection.FromString(System.String,imbSCI.Core.style.css.cssCollection.cssEntryPolicy)">
+            <summary>
+            Phrases CSS string source code
+            </summary>
+            <param name="cssCode">The CSS code.</param>
+            <param name="policy">The policy.</param>
+        </member>
+        <member name="M:imbSCI.Core.style.css.cssCollection.ToString(imbSCI.Core.style.css.cssEntryDefinition.syntaxFormat)">
+            <summary>
+            To the string.
+            </summary>
+            <param name="format">The format.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.style.css.cssCollection.Save(System.String)">
+            <summary>
+            Saves the css collection to specified path.
+            </summary>
+            <param name="path">The path.</param>
+        </member>
+        <member name="M:imbSCI.Core.style.css.cssCollection.Save(imbSCI.Core.files.folders.folderNode,System.String,System.String)">
+            <summary>
+            Saves the specified folder.
+            </summary>
+            <param name="folder">The folder.</param>
+            <param name="filename">The filename.</param>
+            <param name="description">The description.</param>
+        </member>
+        <member name="P:imbSCI.Core.style.css.cssCollection.items">
+            <summary>
+            Collection of preset definitions
+            </summary>
+            <value>
+            The items.
+            </value>
+        </member>
+        <member name="T:imbSCI.Core.style.css.cssEntryDefinition">
+            <summary>
+            Dictionary maintaining style inline data/parameters - used by SVG, mxGraph, HTML and other XML based outputs
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.style.css.cssEntryDefinition.Remove(System.String)">
+            <summary>
+            Removes the specified key.
+            </summary>
+            <param name="key">The key.</param>
+        </member>
+        <member name="P:imbSCI.Core.style.css.cssEntryDefinition.Item(System.String)">
+            <summary>
+            Universal get and set indexer
+            </summary>
+            <value>
+            The <see cref="T:System.String"/>.
+            </value>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.style.css.cssEntryDefinition.Set(System.String,System.String)">
+            <summary>
+            Sets the specified key.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:imbSCI.Core.style.css.cssEntryDefinition.Append(System.String,System.String,System.String)">
+            <summary>
+            Appends value at specified key.(or adds new entry)
+            </summary>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <param name="separator">The separator - added between existing and new content.</param>
+        </member>
+        <member name="M:imbSCI.Core.style.css.cssEntryDefinition.Get(System.String)">
+            <summary>
+            Universal get
+            </summary>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.style.css.cssEntryDefinition.mainFormat">
+            <summary>
+            Format set as default for this dictionary
+            </summary>
+            <value>
+            The format.
+            </value>
+        </member>
+        <member name="T:imbSCI.Core.style.css.cssEntryDefinition.syntaxFormat">
+            <summary>
+            In-line string format
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.style.css.cssEntryDefinition.syntaxFormat.htmlStyleFormat">
+            <summary>
+            The HTML style format: [property]:[value];
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.style.css.cssEntryDefinition.syntaxFormat.cssFileFormat">
+            <summary>
+            The CSS file format: block with entry name and \{ \} wrapper 
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.style.css.cssEntryDefinition.GetPairRegex(imbSCI.Core.style.css.cssEntryDefinition.syntaxFormat)">
+            <summary>
+            Gets the pair regex.
+            </summary>
+            <param name="format">The format.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.style.css.cssEntryDefinition.GetPairFormat(imbSCI.Core.style.css.cssEntryDefinition.syntaxFormat)">
+            <summary>
+            Gets the pair format.
+            </summary>
+            <param name="format">The format.</param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.style.css.cssEntryDefinition.#ctor">
+            <summary>
+            Dictionary for parameters given as inline string
+            </summary>
+        </member>
+        <member name="F:imbSCI.Core.style.css.cssEntryDefinition.REGEX_ENTRYSELECTOR">
+            <summary>
+            The regex entryselector: group[1] is name, group[2] contains the attribute pairs
+            </summary>
+        </member>
+        <member name="M:imbSCI.Core.style.css.cssEntryDefinition.fromString(System.String,imbSCI.Core.style.css.cssEntryDefinition.syntaxFormat)">
+            <summary>
+            Populates parameters from inline string values, given in <see cref="T:imbSCI.Core.style.css.cssEntryDefinition.syntaxFormat"/>
+            </summary>
+            <param name="input">The input.</param>
+            <param name="format">The format.</param>
+        </member>
+        <member name="M:imbSCI.Core.style.css.cssEntryDefinition.ToString(imbSCI.Core.style.css.cssEntryDefinition.syntaxFormat)">
+            <summary>
+            Renders entry definition to string format
+            </summary>
+            <param name="format">The format.</param>
+            <returns></returns>
+        </member>
+        <member name="P:imbSCI.Core.style.css.cssEntryDefinition.parameters">
+            <summary>
+            Gets or sets the parameters.
+            </summary>
+            <value>
+            The parameters.
+            </value>
         </member>
         <member name="T:imbSCI.Core.style.NamespaceDoc">
             <summary>

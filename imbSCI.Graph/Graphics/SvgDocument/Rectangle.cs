@@ -37,7 +37,7 @@ using System.Xml;
 
 namespace imbSCI.Graph.Graphics.SvgDocument
 {
-    public class Rectangle : SVGObject, SVGTranform
+    public class Rectangle : SVGObject, ISVGTranform
     {
         #region Attributes
 

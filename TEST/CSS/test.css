@@ -1,0 +1,38 @@
+body {
+    color: lightblue;
+}
+
+h1 {
+    voice-family: male;
+    richness: 80;
+    cue-before: url('beep.au');
+    fill: #554400;
+}
+
+h2 {
+    voice-family: male;
+    richness: 80;
+    cue-before: url('beep.au');
+    fill: #554400;
+}
+
+h3 {
+    voice-family: male;
+    richness: 80;
+    cue-before: url('beep.au');
+    fill: #554400;
+}
+
+h4 {
+    voice-family: male;
+    richness: 80;
+    cue-before: url('beep.au');
+    fill: #554400;
+}
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+    fill: #554400;
+}
+

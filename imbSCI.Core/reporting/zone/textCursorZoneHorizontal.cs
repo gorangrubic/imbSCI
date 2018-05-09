@@ -31,6 +31,7 @@ namespace imbSCI.Core.reporting.zone
 {
     public enum textCursorZoneHorizontal
     {
+        center,
         Left,
         Right
     }

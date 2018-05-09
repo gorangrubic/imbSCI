@@ -25,6 +25,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "imbSCI.Graph", "imbSCI.Grap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "imbSCI.Graph.NuGet", "imbSCI.Graph.NuGet\imbSCI.Graph.NuGet.csproj", "{9E971A11-60E4-4EA8-A705-131EC88B35D8}"
 EndProject
+Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "imbSCI.Sandcastle", "..\imbSCI.Documentation\imbSCI\imbSCI.Sandcastle\imbSCI.Sandcastle.shfbproj", "{0EE97927-F515-41C5-93AF-2FEFACE008F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "imbVelesDocumentationStyle", "..\imbSCI.Documentation\imbVelesDocumentationStyle\imbVelesDocumentationStyle.csproj", "{55C9C84D-C78E-4D04-A6E0-3CA165216356}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,12 @@ Global
 		{9E971A11-60E4-4EA8-A705-131EC88B35D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E971A11-60E4-4EA8-A705-131EC88B35D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E971A11-60E4-4EA8-A705-131EC88B35D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EE97927-F515-41C5-93AF-2FEFACE008F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EE97927-F515-41C5-93AF-2FEFACE008F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55C9C84D-C78E-4D04-A6E0-3CA165216356}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55C9C84D-C78E-4D04-A6E0-3CA165216356}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55C9C84D-C78E-4D04-A6E0-3CA165216356}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55C9C84D-C78E-4D04-A6E0-3CA165216356}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

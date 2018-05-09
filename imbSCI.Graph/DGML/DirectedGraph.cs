@@ -108,29 +108,67 @@ namespace imbSCI.Graph.DGML
         }
 
 
+        /// <summary>
+        /// Called when [before save].
+        /// </summary>
+        /// <param name="folder">The folder.</param>
         public virtual void OnBeforeSave(folderNode folder)
         {
 
         }
 
+        /// <summary>
+        /// Called when [after load].
+        /// </summary>
+        /// <param name="folder">The folder.</param>
         public virtual void OnAfterLoad(folderNode folder)
         {
 
         }
 
+        /// <summary>
+        /// Gets or sets the graph direction.
+        /// </summary>
+        /// <value>
+        /// The graph direction.
+        /// </value>
         [XmlAttribute]
         public GraphDirectionEnum GraphDirection { get; set; } = GraphDirectionEnum.TopToBottom;
 
+        /// <summary>
+        /// Gets or sets the layout.
+        /// </summary>
+        /// <value>
+        /// The layout.
+        /// </value>
         [XmlAttribute]
         public GraphLayoutEnum Layout { get; set; } = GraphLayoutEnum.Sugiyama;
 
 
+        /// <summary>
+        /// Gets or sets the neighborhood distance.
+        /// </summary>
+        /// <value>
+        /// The neighborhood distance.
+        /// </value>
         [XmlAttribute]
         public Int32 NeighborhoodDistance { get; set; } = 25;
 
+        /// <summary>
+        /// Gets or sets the background.
+        /// </summary>
+        /// <value>
+        /// The background.
+        /// </value>
         [XmlAttribute]
         public String Background {get;set;}
 
+        /// <summary>
+        /// Gets or sets the title.
+        /// </summary>
+        /// <value>
+        /// The title.
+        /// </value>
         [XmlAttribute]
         public String Title { get; set; }
 
@@ -145,6 +183,12 @@ namespace imbSCI.Graph.DGML
             }
         }
 
+        /// <summary>
+        /// Gets the linked.
+        /// </summary>
+        /// <param name="node">The node.</param>
+        /// <param name="inverse">if set to <c>true</c> [inverse].</param>
+        /// <returns></returns>
         public List<Node> GetLinked(Node node, Boolean inverse=false)
         {
             List<Node> output = new List<Node>();

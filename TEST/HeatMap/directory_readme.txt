@@ -1,10 +1,10 @@
 ### Directory information
 
-#### Test one
+#### Heat map tests
 
  > \HeatMap
 
- > Some description: 
+ > Folder with files produced during heat map generation test
 
  ------------------------------------------------------------------------------------
 
@@ -36,6 +36,6 @@
 
  ------------------------------------------------------------------------------------
 
-File generated: Saturday, May 05, 2018 10:34:09 AM
+File generated: Wednesday, May 09, 2018 3:48:10 PM
 
 

@@ -113,7 +113,13 @@
     <Compile Include="math\classificationMetrics\classificationReportExtensions.cs" />
     <Compile Include="math\classificationMetrics\IClassificationReport.cs" />
     <Compile Include="math\functions\core\functionBase.cs" />
+    <Compile Include="math\functions\core\IFunctionGenerator.cs" />
+    <Compile Include="math\functions\functionArray.cs" />
     <Compile Include="math\functions\noiseFunction.cs" />
+    <Compile Include="math\functions\pseudoFunction.cs" />
+    <Compile Include="math\functions\rampFunction.cs" />
+    <Compile Include="math\functions\sequenceFunction.cs" />
+    <Compile Include="math\functions\sineFunction.cs" />
     <Compile Include="math\NamespaceDoc.cs" />
     <Compile Include="math\range\finder\NamespaceDoc.cs" />
     <Compile Include="math\range\finder\rangeFinder.cs" />
@@ -124,6 +130,9 @@
     <Compile Include="math\range\histogram\histogramModelExtensions.cs" />
     <Compile Include="math\range\matrix\HeatMapModel.cs" />
     <Compile Include="math\range\matrix\imageToHeatMap.cs" />
+    <Compile Include="math\range\matrix\proceduralHeatMapGenerator.cs" />
+    <Compile Include="math\range\matrix\proceduralHeatMapGenerator_2.cs" />
+    <Compile Include="math\range\numberRangePresetEnum.cs" />
     <Compile Include="math\StatisticsExtensions.cs" />
     <Compile Include="math\transformation\circularDisplacer.cs" />
     <Compile Include="NamespaceDoc.cs" />
@@ -175,6 +184,8 @@
     <Compile Include="style\color\ColorGradientDictionary.cs" />
     <Compile Include="style\color\ColorGradientFunction.cs" />
     <Compile Include="style\color\ColorHSVPoint.cs" />
+    <Compile Include="style\css\cssCollection.cs" />
+    <Compile Include="style\css\cssEntryDefinition.cs" />
     <Compile Include="style\NamespaceDoc.cs" />
     <Compile Include="syntax\NamespaceDoc.cs" />
     <Compile Include="syntax\param\typedParam.cs" />
