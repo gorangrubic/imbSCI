@@ -38,23 +38,67 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accord, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.3.8.0\lib\net45\Accord.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Imaging, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Imaging.3.8.0\lib\net45\Accord.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Math, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Math.3.8.0\lib\net45\Accord.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Math.Core, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Math.3.8.0\lib\net45\Accord.Math.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Accord.Statistics, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Accord.Statistics.3.8.0\lib\net45\Accord.Statistics.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.5.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.1\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="imbSCI.Core.Standard, Version=0.2.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\imbSCI.Core.Standard.0.2.0.5\lib\net45\imbSCI.Core.Standard.dll</HintPath>
+    </Reference>
+    <Reference Include="imbSCI.Data.Standard, Version=0.2.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\imbSCI.Data.Standard.0.2.0.3\lib\net45\imbSCI.Data.Standard.dll</HintPath>
+    </Reference>
+    <Reference Include="imbSCI.DataComplex.Standard, Version=0.2.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\imbSCI.DataComplex.Standard.0.2.0.5\lib\net45\imbSCI.DataComplex.Standard.dll</HintPath>
+    </Reference>
+    <Reference Include="imbSCI.Reporting.Standard, Version=0.2.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\imbSCI.Reporting.Standard.0.2.0.5\lib\net45\imbSCI.Reporting.Standard.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics, Version=4.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.4.4.1\lib\net40\MathNet.Numerics.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.1.18\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.1.18\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="Svg, Version=2.2.1.39233, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL">
-      <HintPath>..\packages\Svg.2.3.0\lib\net35\Svg.dll</HintPath>
-    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Primitives.4.3.0\lib\net45\System.Drawing.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="css\UnitCSS.cs" />
     <Compile Include="diagrams\UnitDiaShapes.cs" />
+    <Compile Include="diagrams\UnitMXGraph.cs" />
     <Compile Include="enums\dat_business.cs" />
     <Compile Include="enums\tkn_stream.cs" />
     <Compile Include="enums\UnitGraphConversion.cs" />
@@ -75,6 +119,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="imbSCI.ico" />
+    <Content Include="imbVeles48.ico" />
     <Content Include="resources\flowchart\collate.shape">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -156,28 +202,10 @@
     <Content Include="resources\flowchart\Flowchart.sheet">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\imbSCI.Core\imbSCI.Core.csproj">
-      <Project>{d02f731c-3a1c-4094-ba85-a8b563906e7e}</Project>
-      <Name>imbSCI.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\imbSCI.DataComplex\imbSCI.DataComplex.csproj">
-      <Project>{84869e5f-cc21-425d-beb6-5ef4d4773b15}</Project>
-      <Name>imbSCI.DataComplex</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\imbSCI.Data\imbSCI.Data.csproj">
-      <Project>{22b51684-1a11-4523-8c5c-fc6d76818bc4}</Project>
-      <Name>imbSCI.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\imbSCI.Graph\imbSCI.Graph.csproj">
-      <Project>{44632dfa-7e69-4f56-b87c-005d013f312d}</Project>
-      <Name>imbSCI.Graph</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\imbSCI.Reporting\imbSCI.Reporting.csproj">
-      <Project>{d50919e9-84f1-4dc8-a101-3c114389b067}</Project>
-      <Name>imbSCI.Reporting</Name>
-    </ProjectReference>
+    <None Include="resources\reporting\theme\compact\footer.md" />
+    <None Include="resources\reporting\theme\veles_report\footer.md" />
+    <None Include="resources\reporting\theme\veles_report\index.md" />
+    <None Include="resources\reporting\theme\veles_report\report_helpModule.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="resources\conceptual.css">
@@ -261,6 +289,38 @@
     <Content Include="resources\flowchart\transmittape.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="resources\reporting\include\d3\d3.js" />
+    <Content Include="resources\reporting\include\jquery\jquery.js" />
+    <Content Include="resources\reporting\include\strapdown\strapdown-topbar.min.js" />
+    <Content Include="resources\reporting\include\strapdown\strapdown.css" />
+    <Content Include="resources\reporting\include\strapdown\strapdown.js" />
+    <Content Include="resources\reporting\theme\compact\index.html" />
+    <Content Include="resources\reporting\theme\standard\standard.css" />
+    <Content Include="resources\reporting\theme\standard\standard.html" />
+    <Content Include="resources\reporting\theme\standard\standard.js" />
+    <Content Include="resources\reporting\theme\standard\standard.xml" />
+    <Content Include="resources\reporting\theme\standard\standard_color.css" />
+    <Content Include="resources\reporting\theme\standard\standard_xml.css" />
+    <Content Include="resources\reporting\theme\velestrap\ASCIIMathTeXImg.js" />
+    <Content Include="resources\reporting\theme\velestrap\bootmark.min.css" />
+    <Content Include="resources\reporting\theme\velestrap\bootmark.min.js" />
+    <Content Include="resources\reporting\theme\velestrap\bootstrap.css" />
+    <Content Include="resources\reporting\theme\velestrap\bootstrap.min.js" />
+    <Content Include="resources\reporting\theme\velestrap\c3.css" />
+    <Content Include="resources\reporting\theme\velestrap\c3.min.js" />
+    <Content Include="resources\reporting\theme\velestrap\d3.js" />
+    <Content Include="resources\reporting\theme\velestrap\d3.v3.min.js" />
+    <Content Include="resources\reporting\theme\velestrap\index.html" />
+    <Content Include="resources\reporting\theme\velestrap\jquery-3.2.0.min.js" />
+    <Content Include="resources\reporting\theme\velestrap\katex-latex.js" />
+    <Content Include="resources\reporting\theme\velestrap\katex.css" />
+    <Content Include="resources\reporting\theme\velestrap\katex.js" />
+    <Content Include="resources\reporting\theme\velestrap\mermaid.forest.css" />
+    <Content Include="resources\reporting\theme\velestrap\mermaid.js" />
+    <Content Include="resources\reporting\theme\velestrap\mermaidAPI.js" />
+    <Content Include="resources\reporting\theme\velestrap\showdown-prettify.min.js" />
+    <Content Include="resources\reporting\theme\velestrap\showdown.min.js" />
+    <Content Include="resources\reporting\theme\veles_report\mermeid_example.html" />
     <Content Include="resources\site.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -276,6 +336,8 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\MSTest.TestAdapter.1.1.18\build\net45\MSTest.TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.1.1.18\build\net45\MSTest.TestAdapter.props'))" />
     <Error Condition="!Exists('..\packages\MSTest.TestAdapter.1.1.18\build\net45\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.1.1.18\build\net45\MSTest.TestAdapter.targets'))" />
+    <Error Condition="!Exists('..\packages\Accord.3.8.0\build\Accord.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Accord.3.8.0\build\Accord.targets'))" />
   </Target>
   <Import Project="..\packages\MSTest.TestAdapter.1.1.18\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.1.1.18\build\net45\MSTest.TestAdapter.targets')" />
+  <Import Project="..\packages\Accord.3.8.0\build\Accord.targets" Condition="Exists('..\packages\Accord.3.8.0\build\Accord.targets')" />
 </Project>

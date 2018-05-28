@@ -51,19 +51,27 @@
       <HintPath>..\..\imbACE\packages\AForge.Math.2.2.5\lib\AForge.Math.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="AODL, Version=1.2.0.1, Culture=neutral">
+      <HintPath>..\packages\AODL.1.2.0.1\lib\AODL.dll</HintPath>
+    </Reference>
     <Reference Include="DotNetZip, Version=1.10.1.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
       <HintPath>..\..\imbACE\packages\DotNetZip.1.10.1\lib\net20\DotNetZip.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.84.0.0, Culture=neutral, PublicKeyToken=1b03e6acf1164f73">
+      <HintPath>..\packages\AODL.1.2.0.1\lib\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="MathNet.Numerics, Version=3.20.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MathNet.Numerics.3.20.2\lib\net40\MathNet.Numerics.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -71,12 +79,19 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
+    <Reference Include="Xceed.Words.NET, Version=1.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.1.1.0\lib\Xceed.Words.NET.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="collection\NamespaceDoc.cs" />
     <Compile Include="config\imbSCICoreConfig.cs" />
     <Compile Include="config\NamespaceDoc.cs" />
     <Compile Include="data\NamespaceDoc.cs" />
+    <Compile Include="documents\openDocument\meta\documentMeta.cs" />
+    <Compile Include="documents\openDocument\meta\meta.cs" />
+    <Compile Include="documents\openDocument\meta\user_defined.cs" />
+    <Compile Include="documents\openDocument\openDocumentPackage.cs" />
     <Compile Include="enums\NamespaceDoc.cs" />
     <Compile Include="extensions\data\containsQueries.cs" />
     <Compile Include="extensions\NamespaceDoc.cs" />
@@ -173,7 +188,9 @@
     <Compile Include="data\aceAuthorNotation.cs" />
     <Compile Include="interfaces\IAceLogToConsoleControl.cs" />
     <Compile Include="reporting\NamespaceDoc.cs" />
+    <Compile Include="reporting\render\builders\builderForDOCX.cs" />
     <Compile Include="reporting\render\builders\builderForLogBase.cs" />
+    <Compile Include="reporting\render\builders\builderForODT.cs" />
     <Compile Include="reporting\style\core\styleSurfaceColor.cs" />
     <Compile Include="reporting\style\core\styleTextFontSingle.cs" />
     <Compile Include="reporting\style\enums\styleFillType.cs" />
@@ -187,6 +204,9 @@
     <Compile Include="style\css\cssCollection.cs" />
     <Compile Include="style\css\cssEntryDefinition.cs" />
     <Compile Include="style\NamespaceDoc.cs" />
+    <Compile Include="syntax\converter\core\conversionRule.cs" />
+    <Compile Include="syntax\converter\core\conversionRuleSet.cs" />
+    <Compile Include="syntax\converter\javaToCSharp.cs" />
     <Compile Include="syntax\NamespaceDoc.cs" />
     <Compile Include="syntax\param\typedParam.cs" />
     <Compile Include="syntax\param\typedParamCollection.cs" />

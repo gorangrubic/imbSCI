@@ -107,7 +107,10 @@ namespace imbSCI.DataComplex.extensions.data.formats
 
                         foreach (string cn in fields)
                         {
-                            dr[cn] = csv.GetField(cn);                            
+                            if (!cn.isNullOrEmpty())
+                            {
+                                dr[cn] = csv.GetField(cn);
+                            }
                         }
                         table.Rows.Add(dr);
                     }

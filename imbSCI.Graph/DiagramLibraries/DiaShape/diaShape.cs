@@ -1,6 +1,8 @@
 ﻿using imbSCI.Core.files;
 using imbSCI.Core.files.folders;
 using imbSCI.Data;
+using imbSCI.Core.style.css;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +12,14 @@ using System.Xml.Schema;
 using System.Xml.Serialization;
 
 using Svg;
+using System.Drawing;
+using System.IO;
+using System.Drawing.Imaging;
+using imbSCI.Core.extensions.io;
 
 namespace imbSCI.Graph.DiagramLibraries.DiaShape
 {
+
 
     /// <summary>
     /// Describes instance of Dia shape definition
@@ -58,8 +65,9 @@ namespace imbSCI.Graph.DiagramLibraries.DiaShape
         /// <param name="filename">The filename.</param>
         /// <param name="description">The description.</param>
         /// <returns></returns>
-        public String Save(folderNode folder, String filename, String description="")
+        public String Save(folderNode folder, String filename="", String description="")
         {
+            if (filename == "") filename = name.getFilename("shape");
             filename = filename.ensureEndsWith(".shape");
             String path = folder.pathFor(filename, Data.enums.getWritableFileMode.newOrExisting, description, true);
 
@@ -67,13 +75,126 @@ namespace imbSCI.Graph.DiagramLibraries.DiaShape
             return path;
         }
 
-        public Svg.SvgDocument GetSVG()
+
+        public static cssEntryDefinition defaultStyleForSVGRender { get; set; } = new cssEntryDefinition("default", "fill:#FFFFFF; stroke:#000000; stroke-width:1;");
+
+
+        /// <summary>
+        /// Gets the SVG document that represents Dia shape, attached to the shape definition
+        /// </summary>
+        /// <param name="defaultStyle">The default style.</param>
+        /// <returns></returns>
+        public Svg.SvgDocument GetSVG(cssEntryDefinition defaultStyle=null)
         {
+
+
             SvgDocument svgDocument = new SvgDocument();
-            svgDocument = SvgDocument.Open(svg.OwnerDocument);
+
+            String svgString = svg.OuterXml;
+
+            if (defaultStyle == null) defaultStyle = defaultStyleForSVGRender;
+
+            String inlineValue = defaultStyle.ToString(cssEntryDefinition.syntaxFormat.htmlStyleFormatInline);
+
+
+            svgString = svgString.Replace("fill: default", inlineValue);
+
+            svgDocument = SvgDocument.FromSvg<SvgDocument>(svgString);
+
+            if (svgDocument.Bounds.Left < 0)
+            {
+                svgDocument.Width = Math.Abs(svgDocument.Bounds.Left) + svgDocument.Width;
+                svgDocument.X = 0;
+            }
+            
+            
 
             return svgDocument;
 
+        }
+
+        /// <summary>
+        /// Renders the icon of SVG shape, to given <c>folder</c> using icon name or shape name
+        /// </summary>
+        /// <param name="folder">The folder to save icon to</param>
+        /// <param name="size">The size of rendered icon, in px</param>
+        /// <param name="filename"></param>
+        /// <returns>
+        /// Path where icon was saved
+        /// </returns>
+        public String RenderIcon(folderNode folder, Int32 size = 22, Int32 margin = 3, String filename="")
+        {
+            if (filename == "") filename = icon;
+            if (filename.isNullOrEmpty())
+            {
+                filename = name.getFilename(".png");
+            }
+            return RenderIcon(folder.pathFor(filename, Data.enums.getWritableFileMode.newOrExisting, "Icon for Dia shape [" + name + "]"), size, margin);
+        }
+
+
+        /// <summary>
+        /// Renders the icon of SVG shape, to given <c>path</c>
+        /// </summary>
+        /// <param name="path">The path to save icon to</param>
+        /// <param name="size">The size of rendered icon, in px</param>
+        /// <param name="margin">The margin - how much svg units to add on each side of the drawing</param>
+        /// <param name="forceSquare">if set to <c>true</c> [force square].</param>
+        /// <returns>
+        /// Path where icon was saved
+        /// </returns>
+        public String RenderIcon(String path, Int32 size=22, Int32 margin=3, Boolean forceSquare=false)
+        {
+            String filename = Path.GetFileNameWithoutExtension(path);
+            String fileext = Path.GetExtension(filename);
+
+            ImageFormat format = path.GetImageFormatByExtension();
+
+            SvgDocument svgDocument = GetSVG();
+
+            svgDocument.ViewBox = new SvgViewBox(-margin, -margin, svgDocument.Width + (2* margin), svgDocument.Height + (2* margin));
+
+            Int32 sizeW = size;
+            Double ratio = 1;
+            if (!forceSquare)
+            {
+                ratio = svgDocument.ViewBox.Height / svgDocument.ViewBox.Width;
+            }
+            Int32 sizeH = Convert.ToInt32(size * ratio);
+            
+
+            Bitmap bmp = svgDocument.Draw(sizeW, sizeH);
+
+            bmp.Save(path, format);
+            return path;
+        }
+
+        /// <summary>
+        /// Saves the SVG.
+        /// </summary>
+        /// <param name="folder">The folder.</param>
+        /// <param name="filename">The filename.</param>
+        /// <returns></returns>
+        public String SaveSVG(folderNode folder, String filename = "")
+        {
+            if (filename == "") filename = name.getFilename(".svg");
+            String p = folder.pathFor(filename, Data.enums.getWritableFileMode.newOrExisting, "Exported SVG of Dia shape [" + name + "]", true);
+            File.WriteAllText(p, GetSVG().GetXML());
+            return p;
+
+        }
+
+        /// <summary>
+        /// Gets the sheet object.
+        /// </summary>
+        /// <returns></returns>
+        public diaSheetObject GetSheetObject()
+        {
+            diaSheetObject output = new diaSheetObject();
+            output.name = name;
+            output.descriptions = new xmlTextLocaleEntry[] { new xmlTextLocaleEntry() };
+            output.descriptions[0].text = description;
+            return output;
         }
 
 
@@ -169,6 +290,18 @@ namespace imbSCI.Graph.DiagramLibraries.DiaShape
         /// </value>
         [XmlElement]
         public diaTextBox textbox { get; set; } = new diaTextBox();
+
+
+
+        /// <summary>
+        /// Additional attributes declared in the shape
+        /// </summary>
+        /// <value>
+        /// The attributes.
+        /// </value>
+        [XmlArray(ElementName ="ext_attributes")]
+        [XmlArrayItem(ElementName ="ext_attribute")]
+        public List<diaShapeAttribute> attributes { get; set; }
 
 
         /// <summary>

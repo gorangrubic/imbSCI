@@ -1,0 +1,483 @@
+<imbSCI.Graph.MXGraph.model.mxGraphModel>
+  <root>
+    <imbSCI.Graph.MXGraph.model.mxCell id="0" />
+    <imbSCI.Graph.MXGraph.model.mxCell id="1" parent="0" />
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST" value="TEST" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="781" y="961" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST_DESC" value="Application root directory" style="folderNodeDesc" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="691" y="921" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\mxGraph" value="mxGraph" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="641" y="881" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\mxGraph_DESC" value="Graphs created for Draw.io" style="folderNodeDesc" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="891" y="971" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\CSS" value="CSS" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="731" y="941" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\data" value="data" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="521" y="1051" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\diagrams" value="diagrams" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="861" y="991" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\DirectedGraphs" value="DirectedGraphs" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="901" y="991" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\DirectedGraphs_DESC" value="Some description: " style="folderNodeDesc" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="971" y="1121" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\DirectedGraphsdirectory_readme.txt" value="[directory_readme.txt                              ] Description of directory content (this file)" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="1351" y="891" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\DirectedGraphsdorgraph.dot" value="[dorgraph.dot                                      ] Version of graph exported to DOT language" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="1071" y="671" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\DirectedGraphsfreeGraphOfPropertyExpression.xml" value="[freeGraphOfPropertyExpression.xml                 ] XML export of the graph" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="1201" y="991" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\DirectedGraphspropertyExpression2Test" value="[propertyExpression2Test                           ] Testing property expression tree expansion" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="981" y="1001" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\DirectedGraphspropertyExpressionTest" value="[propertyExpressionTest                            ] Testing property expression tree expansion" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="1121" y="901" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\DirectedGraphspropertyExpressionTestViaFreeGraph" value="[propertyExpressionTestViaFreeGraph                ] Testing property expression tree expansion" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="1081" y="951" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\ExceptionTest" value="ExceptionTest" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="591" y="1161" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\ExceptionTest_DESC" value="Testing exception" style="folderNodeDesc" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="801" y="1191" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\ExceptionTestdirectory_readme.txt" value="[directory_readme.txt                              ] Description of directory content (this file)" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="681" y="1211" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\HeatMap" value="HeatMap" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="941" y="1001" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\HeatMap_DESC" value="Folder with files produced during heat map generation test" style="folderNodeDesc" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="801" y="1171" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\HeatMapdirectory_readme.txt" value="[directory_readme.txt                              ] Description of directory content (this file)" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="1031" y="1131" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\OpenOffice" value="OpenOffice" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="671" y="1251" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\resources" value="resources" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="711" y="801" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\SourceCode" value="SourceCode" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="581" y="931" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\SVG" value="SVG" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="631" y="1041" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\TableTest" value="TableTest" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="351" y="1261" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\TableTest_DESC" value="Tests with DataTableExtended" style="folderNodeDesc" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="541" y="1191" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\TableTestcustomTableXML.xml" value="[customTableXML.xml                                ] XML Serialized Data Object" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="541" y="1161" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\TableTestdirectory_readme.txt" value="[directory_readme.txt                              ] Description of directory content (this file)" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="491" y="1221" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\TableTestdt_exporttext.xlsx_custom_table_entry.xlsx" value="[dt_exporttext.xlsx_custom_table_entry.xlsx        ] Excel spreadsheet report on [Exporttext .xlsx custom table entry] data table" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="471" y="1331" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\TableTestexporttext.xlsx" value="[exporttext.xlsx                                   ] Excel spreadsheet" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="511" y="1181" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\test" value="test" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="531" y="1011" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\Test1" value="Test1" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="421" y="761" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\Test1_DESC" value="Some description: " style="folderNodeDesc" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="631" y="771" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\Test1directory_readme.txt" value="[directory_readme.txt                              ] Description of directory content (this file)" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="641" y="811" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\Test2" value="Test2" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="741" y="1181" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\Test2_DESC" value="Some description: " style="folderNodeDesc" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="831" y="851" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\Test2directory_readme.txt" value="[directory_readme.txt                              ] Description of directory content (this file)" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="891" y="1181" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\Test3" value="Test3" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="401" y="821" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\Test3_DESC" value="Some description: " style="folderNodeDesc" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="461" y="831" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\Test3directory_readme.txt" value="[directory_readme.txt                              ] Description of directory content (this file)" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="471" y="861" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\testObjects" value="testObjects" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="821" y="861" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\text2" value="text2" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="571" y="1121" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\diagrams\new_shapes" value="new_shapes" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="1011" y="891" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\resources\flowchart" value="flowchart" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="821" y="511" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\resources\graph" value="graph" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="971" y="691" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\resources\new_shapes" value="new_shapes" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="591" y="551" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting" value="reporting" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="851" y="321" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\SourceCode\hierarchical" value="hierarchical" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="461" y="591" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\SourceCode\orthogonal" value="orthogonal" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="681" y="731" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\TableTest\data" value="data" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="281" y="1261" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\TableTest\data_DESC" value="Folder containing clean data export (single header row, CSV format) for easier use by other software platforms and/or column meta descriptions - additional information - in separate txt file for each Excel report created." style="folderNodeDesc" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="1" y="1151" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\TableTest\dataci_exporttext.xlsx.txt" value="[ci_exporttext.xlsx.txt                            ] Column / Fields meta information for data table [Exporttext .xlsx] export" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="61" y="1331" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\TableTest\datacustom_table_entry.xml" value="[custom_table_entry.xml                            ] XML Serialized DataTable [Custom Table Entry]" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="31" y="1431" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\TableTest\datadc_exporttext.xlsx.csv" value="[dc_exporttext.xlsx.csv                            ] Exported DataTable [Custom Table Entry][Custom data table extended]. " style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="311" y="1081" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\TableTest\datadirectory_readme.txt" value="[directory_readme.txt                              ] Description of directory content (this file)" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="341" y="1451" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1" value="Test1_1" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="331" y="761" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1directory_readme.txt" value="[directory_readme.txt                              ] Description of directory content (this file)" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="261" y="481" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1justSomeFake.xml" value="[justSomeFake.xml                                  ] XML Serialized Data Object" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="251" y="681" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1justSomeFakeWithDesc.xml" value="[justSomeFakeWithDesc.xml                          ] Some fake description" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="101" y="591" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\Test3\Test3_1" value="Test3_1" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="501" y="921" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\Test3\Test3_1directory_readme.txt" value="[directory_readme.txt                              ] Description of directory content (this file)" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="221" y="991" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\include" value="include" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="801" y="381" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\theme" value="theme" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="931" y="281" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\SourceCode\hierarchical\model" value="model" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="561" y="741" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\SourceCode\hierarchical\stage" value="stage" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="601" y="661" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\SourceCode\orthogonal\model" value="model" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="461" y="701" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1\sub1" value="sub1" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="141" y="361" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1\sub1_DESC" value="SUB Description" style="folderNodeDesc" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="201" y="541" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1\sub1directory_readme.txt" value="[directory_readme.txt                              ] Description of directory content (this file)" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="221" y="431" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1\sub1justSomeFake.xml" value="[justSomeFake.xml                                  ] XML Serialized Data Object" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="81" y="501" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1\sub1justSomeFakeWithDesc.xml" value="[justSomeFakeWithDesc.xml                          ] Some fake description" style="folderNodeFile" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="211" y="561" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1\sub2" value="sub2" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="91" y="661" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\include\d3" value="d3" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="581" y="221" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\include\jquery" value="jquery" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="801" y="161" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\include\strapdown" value="strapdown" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="381" y="301" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\theme\compact" value="compact" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="721" y="181" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\theme\standard" value="standard" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="1161" y="151" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\theme\velestrap" value="velestrap" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="1141" y="331" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\theme\veles_report" value="veles_report" style="folderNode" vertex="1" parent="1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry width="200" height="35" x="991" y="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="2" value="About" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST" target="G:\imbVelesOpenSource\imbSCI\TEST_DESC">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="3" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST" target="G:\imbVelesOpenSource\imbSCI\TEST\mxGraph">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="4" value="About" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\mxGraph" target="G:\imbVelesOpenSource\imbSCI\TEST\mxGraph_DESC">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="5" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST" target="G:\imbVelesOpenSource\imbSCI\TEST\CSS">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="6" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST" target="G:\imbVelesOpenSource\imbSCI\TEST\data">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="7" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST" target="G:\imbVelesOpenSource\imbSCI\TEST\diagrams">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="8" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST" target="G:\imbVelesOpenSource\imbSCI\TEST\DirectedGraphs">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="9" value="About" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\DirectedGraphs" target="G:\imbVelesOpenSource\imbSCI\TEST\DirectedGraphs_DESC">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="10" value="directory_readme.txt" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\DirectedGraphs" target="G:\imbVelesOpenSource\imbSCI\TEST\DirectedGraphsdirectory_readme.txt">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="11" value="dorgraph.dot" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\DirectedGraphs" target="G:\imbVelesOpenSource\imbSCI\TEST\DirectedGraphsdorgraph.dot">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="12" value="freeGraphOfPropertyExpression.xml" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\DirectedGraphs" target="G:\imbVelesOpenSource\imbSCI\TEST\DirectedGraphsfreeGraphOfPropertyExpression.xml">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="13" value="propertyExpression2Test" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\DirectedGraphs" target="G:\imbVelesOpenSource\imbSCI\TEST\DirectedGraphspropertyExpression2Test">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="14" value="propertyExpressionTest" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\DirectedGraphs" target="G:\imbVelesOpenSource\imbSCI\TEST\DirectedGraphspropertyExpressionTest">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="15" value="propertyExpressionTestViaFreeGraph" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\DirectedGraphs" target="G:\imbVelesOpenSource\imbSCI\TEST\DirectedGraphspropertyExpressionTestViaFreeGraph">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="16" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST" target="G:\imbVelesOpenSource\imbSCI\TEST\ExceptionTest">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="17" value="About" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\ExceptionTest" target="G:\imbVelesOpenSource\imbSCI\TEST\ExceptionTest_DESC">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="18" value="directory_readme.txt" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\ExceptionTest" target="G:\imbVelesOpenSource\imbSCI\TEST\ExceptionTestdirectory_readme.txt">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="19" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST" target="G:\imbVelesOpenSource\imbSCI\TEST\HeatMap">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="20" value="About" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\HeatMap" target="G:\imbVelesOpenSource\imbSCI\TEST\HeatMap_DESC">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="21" value="directory_readme.txt" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\HeatMap" target="G:\imbVelesOpenSource\imbSCI\TEST\HeatMapdirectory_readme.txt">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="22" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST" target="G:\imbVelesOpenSource\imbSCI\TEST\OpenOffice">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="23" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST" target="G:\imbVelesOpenSource\imbSCI\TEST\resources">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="24" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST" target="G:\imbVelesOpenSource\imbSCI\TEST\SourceCode">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="25" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST" target="G:\imbVelesOpenSource\imbSCI\TEST\SVG">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="26" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST" target="G:\imbVelesOpenSource\imbSCI\TEST\TableTest">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="27" value="About" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\TableTest" target="G:\imbVelesOpenSource\imbSCI\TEST\TableTest_DESC">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="28" value="customTableXML.xml" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\TableTest" target="G:\imbVelesOpenSource\imbSCI\TEST\TableTestcustomTableXML.xml">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="29" value="directory_readme.txt" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\TableTest" target="G:\imbVelesOpenSource\imbSCI\TEST\TableTestdirectory_readme.txt">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="30" value="dt_exporttext.xlsx_custom_table_entry.xlsx" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\TableTest" target="G:\imbVelesOpenSource\imbSCI\TEST\TableTestdt_exporttext.xlsx_custom_table_entry.xlsx">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="31" value="exporttext.xlsx" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\TableTest" target="G:\imbVelesOpenSource\imbSCI\TEST\TableTestexporttext.xlsx">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="32" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST" target="G:\imbVelesOpenSource\imbSCI\TEST\test">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="33" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST" target="G:\imbVelesOpenSource\imbSCI\TEST\Test1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="34" value="About" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\Test1" target="G:\imbVelesOpenSource\imbSCI\TEST\Test1_DESC">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="35" value="directory_readme.txt" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\Test1" target="G:\imbVelesOpenSource\imbSCI\TEST\Test1directory_readme.txt">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="36" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST" target="G:\imbVelesOpenSource\imbSCI\TEST\Test2">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="37" value="About" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\Test2" target="G:\imbVelesOpenSource\imbSCI\TEST\Test2_DESC">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="38" value="directory_readme.txt" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\Test2" target="G:\imbVelesOpenSource\imbSCI\TEST\Test2directory_readme.txt">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="39" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST" target="G:\imbVelesOpenSource\imbSCI\TEST\Test3">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="40" value="About" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\Test3" target="G:\imbVelesOpenSource\imbSCI\TEST\Test3_DESC">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="41" value="directory_readme.txt" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\Test3" target="G:\imbVelesOpenSource\imbSCI\TEST\Test3directory_readme.txt">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="42" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST" target="G:\imbVelesOpenSource\imbSCI\TEST\testObjects">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="43" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST" target="G:\imbVelesOpenSource\imbSCI\TEST\text2">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="44" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\diagrams" target="G:\imbVelesOpenSource\imbSCI\TEST\diagrams\new_shapes">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="45" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\resources" target="G:\imbVelesOpenSource\imbSCI\TEST\resources\flowchart">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="46" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\resources" target="G:\imbVelesOpenSource\imbSCI\TEST\resources\graph">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="47" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\resources" target="G:\imbVelesOpenSource\imbSCI\TEST\resources\new_shapes">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="48" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\resources" target="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="49" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\SourceCode" target="G:\imbVelesOpenSource\imbSCI\TEST\SourceCode\hierarchical">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="50" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\SourceCode" target="G:\imbVelesOpenSource\imbSCI\TEST\SourceCode\orthogonal">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="51" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\TableTest" target="G:\imbVelesOpenSource\imbSCI\TEST\TableTest\data">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="52" value="About" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\TableTest\data" target="G:\imbVelesOpenSource\imbSCI\TEST\TableTest\data_DESC">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="53" value="ci_exporttext.xlsx.txt" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\TableTest\data" target="G:\imbVelesOpenSource\imbSCI\TEST\TableTest\dataci_exporttext.xlsx.txt">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="54" value="custom_table_entry.xml" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\TableTest\data" target="G:\imbVelesOpenSource\imbSCI\TEST\TableTest\datacustom_table_entry.xml">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="55" value="dc_exporttext.xlsx.csv" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\TableTest\data" target="G:\imbVelesOpenSource\imbSCI\TEST\TableTest\datadc_exporttext.xlsx.csv">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="56" value="directory_readme.txt" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\TableTest\data" target="G:\imbVelesOpenSource\imbSCI\TEST\TableTest\datadirectory_readme.txt">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="57" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\Test1" target="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="58" value="directory_readme.txt" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1" target="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1directory_readme.txt">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="59" value="justSomeFake.xml" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1" target="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1justSomeFake.xml">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="60" value="justSomeFakeWithDesc.xml" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1" target="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1justSomeFakeWithDesc.xml">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="61" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\Test3" target="G:\imbVelesOpenSource\imbSCI\TEST\Test3\Test3_1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="62" value="directory_readme.txt" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\Test3\Test3_1" target="G:\imbVelesOpenSource\imbSCI\TEST\Test3\Test3_1directory_readme.txt">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="63" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting" target="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\include">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="64" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting" target="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\theme">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="65" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\SourceCode\hierarchical" target="G:\imbVelesOpenSource\imbSCI\TEST\SourceCode\hierarchical\model">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="66" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\SourceCode\hierarchical" target="G:\imbVelesOpenSource\imbSCI\TEST\SourceCode\hierarchical\stage">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="67" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\SourceCode\orthogonal" target="G:\imbVelesOpenSource\imbSCI\TEST\SourceCode\orthogonal\model">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="68" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1" target="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1\sub1">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="69" value="About" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1\sub1" target="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1\sub1_DESC">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="70" value="directory_readme.txt" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1\sub1" target="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1\sub1directory_readme.txt">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="71" value="justSomeFake.xml" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1\sub1" target="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1\sub1justSomeFake.xml">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="72" value="justSomeFakeWithDesc.xml" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1\sub1" target="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1\sub1justSomeFakeWithDesc.xml">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="73" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1" target="G:\imbVelesOpenSource\imbSCI\TEST\Test1\Test1_1\sub2">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="74" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\include" target="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\include\d3">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="75" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\include" target="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\include\jquery">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="76" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\include" target="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\include\strapdown">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="77" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\theme" target="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\theme\compact">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="78" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\theme" target="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\theme\standard">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="79" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\theme" target="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\theme\velestrap">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+    <imbSCI.Graph.MXGraph.model.mxCell id="80" value="" edge="1" parent="1" source="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\theme" target="G:\imbVelesOpenSource\imbSCI\TEST\resources\reporting\theme\veles_report">
+      <imbSCI.Graph.MXGraph.model.mxGeometry relative="1" as="geometry" />
+    </imbSCI.Graph.MXGraph.model.mxCell>
+  </root>
+</imbSCI.Graph.MXGraph.model.mxGraphModel>

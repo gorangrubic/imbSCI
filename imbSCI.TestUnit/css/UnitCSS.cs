@@ -10,9 +10,18 @@ namespace imbSCI.TestUnit.css
     public class UnitCSS
     {
         [TestMethod]
-        public void TestGenerateAndSave()
+        public void TestCSSGenerateAndSave()
         {
             folderNode folder = new folderNode().Add("CSS", "CSS document tests", "");
+
+
+            cssEntryDefinition cssDef = new cssEntryDefinition("body", "fill:#FF6600; stroke:#665500;");
+
+            cssCollection css_doc = new cssCollection();
+            css_doc.Set(cssDef);
+
+            css_doc.Save(folder, "css_def.css");
+            
 
         }
 

@@ -5145,6 +5145,15 @@
             <param name="mi">The mi.</param>
             <returns></returns>
         </member>
+        <member name="M:imbSCI.Core.extensions.typeworks.imbTypeQueryExtensions.isNullable(System.Type)">
+            <summary>
+            Determines whether the specified type is nullable.
+            </summary>
+            <param name="ti">Type to test.</param>
+            <returns>
+              <c>true</c> if the specified ti is nullable; otherwise, <c>false</c>.
+            </returns>
+        </member>
         <member name="M:imbSCI.Core.extensions.typeworks.imbTypeQueryExtensions.getTypeGroup(System.Type)">
             <summary>
             Returns imbTypeGroup for supplied type
@@ -5755,6 +5764,14 @@
             <summary>
             Set of extensions processing file path strings and performing file operations
             </summary>
+        </member>
+        <member name="M:imbSCI.Core.extensions.io.filePathOperations.GetImageFormatByExtension(System.String)">
+            <summary>
+            Gets the image format by extension.
+            </summary>
+            <param name="filepath">The filepath.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">File extension from [" + filepath + "] not recognized - filepath</exception>
         </member>
         <member name="M:imbSCI.Core.extensions.io.filePathOperations.getCleanPropertyName(System.String)">
             <summary>
@@ -11070,6 +11087,16 @@
             <summary>
             <para>Core functionalities of the Reporting engine</para>
             </summary>
+        </member>
+        <member name="M:imbSCI.Core.reporting.render.builders.builderForODT.AppendHeading(System.String,System.Int32)">
+            <summary>
+            HTML/XML builder adds H tag with proper level sufix, on Table it applies style and for H1 and H2
+            </summary>
+            <param name="content">Text</param>
+            <param name="level">from 1 to 6</param>
+            <returns>
+            OuterXML/String or proper DOM object of container
+            </returns>
         </member>
         <member name="M:imbSCI.Core.reporting.render.builders.builderForHtml.AppendCode(System.String,System.String)">
             <summary>
@@ -17735,7 +17762,16 @@
             </summary>
             <param name="dt"></param>
             <param name="mContent"></param>
-            <param name="fieldPrefix">Prefix applied on placeholder key</param>
+            <param name="autoRemove"></param>
+            <returns></returns>
+        </member>
+        <member name="M:imbSCI.Core.reporting.template.reportTemplatePlaceholderCollection.applyToContent(System.Data.DataRow,System.String,System.Boolean)">
+            <summary>
+            Applies to content.
+            </summary>
+            <param name="row">The row.</param>
+            <param name="mContent">Content of the m.</param>
+            <param name="autoRemove">if set to <c>true</c> [automatic remove].</param>
             <returns></returns>
         </member>
         <member name="M:imbSCI.Core.reporting.template.reportTemplatePlaceholderCollection.removeFromContent(System.String)">
@@ -17765,6 +17801,14 @@
             Klasa koja opisuje jedan template
             </summary>
             \ingroup_disabled report_ll_templates
+        </member>
+        <member name="M:imbSCI.Core.reporting.template.stringTemplate.applyToContent(System.Data.DataRow,System.String)">
+            <summary>
+            Applies to content.
+            </summary>
+            <param name="row">The row.</param>
+            <param name="mContent">Content of the m.</param>
+            <returns></returns>
         </member>
         <member name="M:imbSCI.Core.reporting.template.stringTemplate.applyToContent(System.Data.PropertyCollection,System.String)">
             <summary>
@@ -19108,6 +19152,11 @@
             The CSS file format: block with entry name and \{ \} wrapper 
             </summary>
         </member>
+        <member name="F:imbSCI.Core.style.css.cssEntryDefinition.syntaxFormat.htmlStyleFormatInline">
+            <summary>
+            The HTML style format inline: only value for style attribute and without newlines
+            </summary>
+        </member>
         <member name="M:imbSCI.Core.style.css.cssEntryDefinition.GetPairRegex(imbSCI.Core.style.css.cssEntryDefinition.syntaxFormat)">
             <summary>
             Gets the pair regex.
@@ -19126,6 +19175,19 @@
             <summary>
             Dictionary for parameters given as inline string
             </summary>
+        </member>
+        <member name="M:imbSCI.Core.style.css.cssEntryDefinition.#ctor(imbSCI.Core.style.css.cssEntryDefinition.syntaxFormat)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.style.css.cssEntryDefinition"/> class.
+            </summary>
+            <param name="format">The format.</param>
+        </member>
+        <member name="M:imbSCI.Core.style.css.cssEntryDefinition.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:imbSCI.Core.style.css.cssEntryDefinition" /> class.
+            </summary>
+            <param name="cssName">CSS entry name</param>
+            <param name="cssCode">The CSS code, block within { } .</param>
         </member>
         <member name="F:imbSCI.Core.style.css.cssEntryDefinition.REGEX_ENTRYSELECTOR">
             <summary>
@@ -19161,6 +19223,19 @@
             <remarks>
             <para>It will host all color manipulation and general style-theme management used for different types of reporting</para>
             </remarks>
+        </member>
+        <member name="M:imbSCI.Core.syntax.converter.core.conversionRule.ProcessLine(System.String)">
+            <summary>
+            Processes the line.
+            </summary>
+            <param name="input">The input.</param>
+            <returns></returns>
+        </member>
+        <member name="T:imbSCI.Core.syntax.converter.javaToCSharp">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:imbSCI.Core.syntax.converter.core.conversionRuleSet" />
         </member>
         <member name="T:imbSCI.Core.syntax.NamespaceDoc">
             <summary>

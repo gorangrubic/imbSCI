@@ -2,39 +2,55 @@
 using imbSCI.Core.files.folders;
 using imbSCI.Graph.DiagramLibraries.DiaShape;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Svg;
 
 namespace imbSCI.TestUnit.diagrams
 {
     [TestClass]
     public class UnitDiaShapes
     {
-        [TestMethod]
-        public void TestDiaShape()
-        {
 
-            folderNode folder = new folderNode().Add("resources", "TestResources", "").Add("flowchart", "Flowchart", "Dia shapes and sheet");
+[TestMethod]
+public void TestDiaToolkit()
+{
+    folderNode folder = new folderNode().Add("resources", "TestResources", "").Add("new_shapes", "Shape folder", "New shapes for Dia");
 
-            folderNode folderOutput = new folderNode().Add("diagrams", "Diagram test output", "Directory with results of diagram tests");
+    folderNode folderOutput = new folderNode().Add("diagrams", "Diagram test output", "Directory with results of diagram tests").Add("new_shapes", "Toolkit test", "Shapes and sheet definition");
 
-            diaShape shapeOne = new diaShape("Test", "test.png"); // = diaShape.Load(folder.findFile("preparation.shape"));
+    diaToolKit toolkit = new diaToolKit(folder, folderOutput);
 
-            shapeOne.AddConnection(0, 0, true);
+    toolkit.ConstructSheetAndIcons(diaToolKit.diaToolKitOperationEnum.exportIcon | diaToolKit.diaToolKitOperationEnum.exportSheetFile | diaToolKit.diaToolKitOperationEnum.exportSVG | diaToolKit.diaToolKitOperationEnum.sheetNameFromFolder | diaToolKit.diaToolKitOperationEnum.copyShapes | diaToolKit.diaToolKitOperationEnum.exportBigIcon | diaToolKit.diaToolKitOperationEnum.generateOverviewPNG | diaToolKit.diaToolKitOperationEnum.generateOverviewSVG);
+}
 
-            shapeOne.Save(folderOutput, "test", "generation test");
+[TestMethod]
+public void TestDiaShape()
+{
+
+folderNode folder = new folderNode().Add("resources", "TestResources", "").Add("flowchart", "Flowchart", "Dia shapes and sheet");
+
+folderNode folderOutput = new folderNode().Add("diagrams", "Diagram test output", "Directory with results of diagram tests");
+
+diaShape shapeOne = new diaShape("Test", "test.png"); // = diaShape.Load(folder.findFile("preparation.shape"));
+
+shapeOne.AddConnection(0, 0, true);
+
+shapeOne.Save(folderOutput, "test", "generation test");
 
 
-            // shape
+            
+// Loads original shape definition
+diaShape shape = diaShape.Load(folder.findFile("preparation.shape"));
 
-            diaShape shape = diaShape.Load(folder.findFile("preparation.shape"));
+// Saves shape definition
+shape.Save(folderOutput, "preparation", "Load, save test");
 
+// Exports SVG with default style
+shape.SaveSVG(folderOutput);
 
-            shape.Save(folderOutput, "preparation", "Load, save test");
+// Renders icon .png file with default size (22px)
+shape.RenderIcon(folderOutput);
 
-
-            var svg = shape.GetSVG();
-            svg.re
-
-        }
+}
 
         [TestMethod]
         public void TestDiaSheet()

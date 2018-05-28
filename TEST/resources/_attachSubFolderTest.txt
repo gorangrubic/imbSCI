@@ -16,7 +16,11 @@
 
 ### Subdirectories of: G:\imbVelesOpenSource\imbSCI\TEST\resources
 
+ -- > Flowchart                                              : \flowchart                                                                                          
+
  -- > Graph                                                  : \graph                                                                                              
+
+ -- > New shapes                                             : \new_shapes                                                                                         
 
  -- > Reporting                                              : \reporting                                                                                          
 
@@ -58,6 +62,6 @@
 
  ------------------------------------------------------------------------------------
 
-File generated: Wednesday, May 09, 2018 3:50:59 PM
+File generated: Thursday, May 17, 2018 5:14:24 AM
 
 

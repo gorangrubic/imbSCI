@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="imbSCI.Data.collection.graph.graphNodeBase" Collapsed="true">
+    <Position X="8.5" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAIQIAAAAAAUABRACgAiBgQwAAEEAAAFAAAAAAAAAAA=</HashCode>
+      <FileName>collection\graph\graphNodeBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Right" Position="0.1" />
+  </Class>
+  <Class Name="imbSCI.Data.collection.graph.graphNodeCustom" Collapsed="true">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACIQBABEAAAgAAQYCgAAAAAAAAAAAAAEAAAACABAAAA=</HashCode>
+      <FileName>collection\graph\graphNodeCustom.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Right" Position="0.1" />
+  </Class>
+  <Class Name="imbSCI.Data.collection.graph.graphNode" Collapsed="true">
+    <Position X="8.5" Y="9.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ACIQAAAAAAAAAAQACgAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>collection\graph\graphNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Bottom" Position="0.1" />
+  </Class>
+  <Class Name="imbSCI.Data.collection.graph.graphWrapNode&lt;TItem&gt;" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ACIQCAAAAAAABBRACAQAAAAQABAUAAAEAAAAAABQAhA=</HashCode>
+      <FileName>collection\graph\graphWrapNode.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Left" Position="0.1" />
+  </Class>
+  <Class Name="imbSCI.Data.collection.graph.graph&lt;TItem&gt;">
+    <Position X="5.75" Y="9" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>collection\graph\graph.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="imbSCI.Data.collection.graph.graphDataPackage&lt;TItem&gt;" Collapsed="true">
+    <Position X="11" Y="5.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>collection\graph\graphDataPackage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="imbSCI.Data.collection.graph.IGraphNode" Collapsed="true">
+    <Position X="3.25" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAIQAAAAAAAUABBACAAiBAQgAAEEAAABAAAAAAAAAAA=</HashCode>
+      <FileName>collection\graph\IGraphNode.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="imbSCI.Data.collection.graph.graphAxisEnum" Collapsed="true">
+    <Position X="10.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJ5gAQAAAAA=</HashCode>
+      <FileName>collection\graph\graphAxisEnum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="imbSCI.Data.collection.graph.graphOperationFlag" Collapsed="true">
+    <Position X="12" Y="7.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>collection\graph\graphOperationFlag.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

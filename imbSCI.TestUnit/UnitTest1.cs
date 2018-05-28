@@ -24,6 +24,20 @@ namespace imbSCI.TestUnit
     using imbSCI.Core.files;
     using imbSCI.Core.data;
     using imbSCI.Graph.Converters;
+    using imbSCI.Core.syntax.converter;
+
+    [TestClass]
+    public class UnitCodeConversionTest
+    {
 
 
+        [TestMethod]
+        public void UnitTestMethod()
+        {
+
+            javaToCSharp conv = new javaToCSharp(new DirectoryInfo(@"G:\imbVelesOpenSourceForks\mxgraph-master\java\src\com\mxgraph\layout"), new folderNode().Add("SourceCode", "Java conversion", "Converted"));
+            conv.process();
+        }
+
+    }
 }

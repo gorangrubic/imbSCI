@@ -415,7 +415,14 @@ namespace imbSCI.Core.extensions.table
             dc.SetDefaultBackground(col_spe.color);
             dc.SetHeading(col_spe.displayName);
             dc.ColumnName = col_spe.name;
-            dc.DataType = col_spe.type;
+            if (col_spe.type.isNullable())
+            {
+                dc.DataType = typeof(Object);
+            }
+            else
+            {
+                dc.DataType = col_spe.type;
+            }
             dc.SetFormat(col_spe.format);
             dc.SetLetter(col_spe.letter);
             dc.SetAggregation(col_spe.aggregation);

@@ -5,5 +5,5 @@
   <connections>
     <point x="0" y="0" main="yes" />
   </connections>
-  <textbox x1="left" y1="top" x2="right" y2="bottom" align="center" resize="" />
+  <textbox x1="left" y1="top" x2="right" y2="bottom" />
 </shape>

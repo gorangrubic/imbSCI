@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\imbSCI.Graph.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -86,35 +87,43 @@
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.84.0.0, Culture=neutral, PublicKeyToken=1b03e6acf1164f73">
       <HintPath>..\..\imbMCH\packages\AODL.1.2.0.1\lib\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
-    <Reference Include="imbSCI.Core, Version=0.1.6702.33380, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\imbMCH\packages\imbSCI.0.1.3.13\lib\net40\imbSCI.Core.dll</HintPath>
+    <Reference Include="imbSCI.Core, Version=0.1.6708.27464, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\imbKoplasLibraries\koplasPrime\packages\imbSCI.0.1.3.21\lib\net40\imbSCI.Core.dll</HintPath>
     </Reference>
-    <Reference Include="imbSCI.Data, Version=0.1.6701.9373, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\imbMCH\packages\imbSCI.0.1.3.13\lib\net40\imbSCI.Data.dll</HintPath>
+    <Reference Include="imbSCI.Data, Version=0.1.6705.14736, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\imbKoplasLibraries\koplasPrime\packages\imbSCI.0.1.3.21\lib\net40\imbSCI.Data.dll</HintPath>
     </Reference>
-    <Reference Include="imbSCI.DataComplex, Version=0.1.6702.33381, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\imbMCH\packages\imbSCI.0.1.3.13\lib\net40\imbSCI.DataComplex.dll</HintPath>
+    <Reference Include="imbSCI.DataComplex, Version=0.1.6708.27467, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\imbKoplasLibraries\koplasPrime\packages\imbSCI.0.1.3.21\lib\net40\imbSCI.DataComplex.dll</HintPath>
     </Reference>
-    <Reference Include="imbSCI.Reporting, Version=0.1.6702.33382, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\imbMCH\packages\imbSCI.0.1.3.13\lib\net40\imbSCI.Reporting.dll</HintPath>
+    <Reference Include="imbSCI.Reporting, Version=0.1.6708.27468, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\imbKoplasLibraries\koplasPrime\packages\imbSCI.0.1.3.21\lib\net40\imbSCI.Reporting.dll</HintPath>
     </Reference>
     <Reference Include="MathNet.Numerics, Version=3.20.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\imbWBI\packages\MathNet.Numerics.3.20.2\lib\net40\MathNet.Numerics.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="Svg, Version=2.2.1.39233, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL">
       <HintPath>..\packages\Svg.2.3.0\lib\net35\Svg.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="Xceed.Words.NET, Version=1.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.1.1.0\lib\Xceed.Words.NET.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="attributes\NamespaceDoc.cs" />
@@ -159,11 +168,31 @@
     <Compile Include="DiagramLibraries\DiaShape\diaShape.cs" />
     <Compile Include="DiagramLibraries\DiaShape\diaShapeAspectRatio.cs" />
     <Compile Include="DiagramLibraries\DiaShape\diaShapeAspectRatioEnum.cs" />
+    <Compile Include="DiagramLibraries\DiaShape\diaShapeAttribute.cs" />
     <Compile Include="DiagramLibraries\DiaShape\diaSheet.cs" />
     <Compile Include="DiagramLibraries\DiaShape\diaSheetObject.cs" />
     <Compile Include="DiagramLibraries\DiaShape\diaTextBox.cs" />
+    <Compile Include="DiagramLibraries\DiaShape\diaToolKit.cs" />
+    <Compile Include="DiagramLibraries\DiaShape\NamespaceDoc.cs" />
     <Compile Include="DiagramLibraries\DiaShape\xmlTextLocaleEntry.cs" />
-    <Compile Include="DiagramLibraries\DrawIO\drawIO.cs" />
+    <Compile Include="DiagramLibraries\DrawIO\core\Alpha.cs" />
+    <Compile Include="DiagramLibraries\DrawIO\core\Background.cs" />
+    <Compile Include="DiagramLibraries\DrawIO\core\Constraint.cs" />
+    <Compile Include="DiagramLibraries\DrawIO\core\Curve.cs" />
+    <Compile Include="DiagramLibraries\DrawIO\core\Dashed.cs" />
+    <Compile Include="DiagramLibraries\DrawIO\core\Dashpattern.cs" />
+    <Compile Include="DiagramLibraries\DrawIO\core\Ellipse.cs" />
+    <Compile Include="DiagramLibraries\DrawIO\core\Fillcolor.cs" />
+    <Compile Include="DiagramLibraries\DrawIO\core\Foreground.cs" />
+    <Compile Include="DiagramLibraries\DrawIO\core\Line.cs" />
+    <Compile Include="DiagramLibraries\DrawIO\core\Linecap.cs" />
+    <Compile Include="DiagramLibraries\DrawIO\core\Linejoin.cs" />
+    <Compile Include="DiagramLibraries\DrawIO\core\Move.cs" />
+    <Compile Include="DiagramLibraries\DrawIO\core\Path.cs" />
+    <Compile Include="DiagramLibraries\DrawIO\core\Rect.cs" />
+    <Compile Include="DiagramLibraries\DrawIO\Shape.cs" />
+    <Compile Include="DiagramLibraries\DrawIO\core\Strokecolor.cs" />
+    <Compile Include="DiagramLibraries\DrawIO\core\Strokewidth.cs" />
     <Compile Include="Diagram\builders\diagramBuilderBase.cs" />
     <Compile Include="Diagram\builders\diagramBuilderForType.cs" />
     <Compile Include="Diagram\builders\diagramBuilderUniversalTree.cs" />
@@ -266,14 +295,56 @@
     <Compile Include="Graphics\SvgDocument\ISVGTranform.cs" />
     <Compile Include="Graphics\SvgDocument\Text.cs" />
     <Compile Include="Graphics\UniveralGenerators.cs" />
-    <Compile Include="MXGraph\mxCell.cs" />
-    <Compile Include="MXGraph\mxGeometry.cs" />
-    <Compile Include="MXGraph\mxGraphModel.cs" />
+    <Compile Include="MXGraph\aborted\mxCell.cs" />
+    <Compile Include="MXGraph\aborted\mxGeometry.cs" />
+    <Compile Include="MXGraph\aborted\mxGraphModel.cs" />
+    <Compile Include="MXGraph\canvas\mxBasicCanvas.cs" />
+    <Compile Include="MXGraph\canvas\mxGdiCanvas.cs" />
+    <Compile Include="MXGraph\canvas\mxGdiCanvas2D.cs" />
+    <Compile Include="MXGraph\canvas\mxICanvas.cs" />
+    <Compile Include="MXGraph\canvas\mxICanvas2D.cs" />
+    <Compile Include="MXGraph\canvas\mxImageCanvas.cs" />
+    <Compile Include="MXGraph\canvas\mxStencil.cs" />
+    <Compile Include="MXGraph\canvas\mxStencilRegistry.cs" />
+    <Compile Include="MXGraph\directedGraphToMXGraph.cs" />
+    <Compile Include="MXGraph\io\mxCellCodec.cs" />
+    <Compile Include="MXGraph\io\mxCodec.cs" />
+    <Compile Include="MXGraph\io\mxCodecRegistry.cs" />
+    <Compile Include="MXGraph\io\mxModelCodec.cs" />
+    <Compile Include="MXGraph\io\mxObjectCodec.cs" />
+    <Compile Include="MXGraph\io\mxStylesheetCodec.cs" />
+    <None Include="MXGraph\layout\mxCircleLayout.cs" />
+    <Compile Include="MXGraph\layout\mxFastOrganicLayout.cs" />
+    <Compile Include="MXGraph\layout\mxIGraphLayout.cs" />
+    <Compile Include="MXGraph\model\mxCell.cs" />
+    <Compile Include="MXGraph\model\mxCellPath.cs" />
+    <Compile Include="MXGraph\model\mxGeometry.cs" />
+    <Compile Include="MXGraph\model\mxGraphModel.cs" />
+    <Compile Include="MXGraph\model\mxICell.cs" />
+    <Compile Include="MXGraph\model\mxIGraphModel.cs" />
+    <Compile Include="MXGraph\reader\mxGraphViewImageReader.cs" />
+    <Compile Include="MXGraph\reader\mxGraphViewReader.cs" />
+    <Compile Include="MXGraph\reader\mxSaxOutputHandler.cs" />
+    <Compile Include="MXGraph\utils\mxCellRenderer.cs" />
+    <Compile Include="MXGraph\utils\mxConstants.cs" />
+    <Compile Include="MXGraph\utils\mxImageBundle.cs" />
+    <Compile Include="MXGraph\utils\mxPoint.cs" />
+    <Compile Include="MXGraph\utils\mxRectangle.cs" />
+    <Compile Include="MXGraph\utils\mxUtils.cs" />
+    <Compile Include="MXGraph\view\mxCellState.cs" />
+    <Compile Include="MXGraph\view\mxConnectionConstraint.cs" />
+    <Compile Include="MXGraph\view\mxEdgeStyle.cs" />
+    <Compile Include="MXGraph\view\mxGraph.cs" />
+    <Compile Include="MXGraph\view\mxGraphView.cs" />
+    <Compile Include="MXGraph\view\mxPerimeter.cs" />
+    <Compile Include="MXGraph\view\mxStyleRegistry.cs" />
+    <Compile Include="MXGraph\view\mxStylesheet.cs" />
     <Compile Include="NamespaceDoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DiagramLibraries\shape.xml" />
+    <Content Include="MXGraph\ReadMe.txt" />
+    <Content Include="resources\graph\shape.xml" />
     <Content Include="imbSCI.ico" />
     <Content Include="resources\graph\Charts.xslt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
